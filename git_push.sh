@@ -8,7 +8,7 @@ git_repo_id=$2
 release_note=$3
 
 if [ "$git_user_id" = "" ]; then
-    git_user_id="XeroAPI"
+    git_user_id="xeroapi"
     echo "[INFO] No command line input provided. Set \$git_user_id to $git_user_id"
 fi
 

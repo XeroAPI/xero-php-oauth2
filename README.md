@@ -20,11 +20,11 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/XeroAPI/xero-php-oauth2.git"
+      "url": "https://github.com/xeroapi/xero-php-oauth2.git"
     }
   ],
   "require": {
-    "XeroAPI/xero-php-oauth2": "*@dev"
+    "xeroapi/xero-php-oauth2": "*@dev"
   }
 }
 ```
