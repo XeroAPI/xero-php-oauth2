@@ -335,6 +335,8 @@ class Invoice implements ModelInterface, ArrayAccess
 
     const TYPE_ACCREC = 'ACCREC';
     const TYPE_ACCPAY = 'ACCPAY';
+    const TYPE_ACCPAYCREDIT = 'ACCPAYCREDIT';
+    const TYPE_AROVERPAYMENT = 'AROVERPAYMENT';
     const STATUS_DRAFT = 'DRAFT';
     const STATUS_SUBMITTED = 'SUBMITTED';
     const STATUS_DELETED = 'DELETED';
@@ -354,6 +356,8 @@ class Invoice implements ModelInterface, ArrayAccess
         return [
             self::TYPE_ACCREC,
             self::TYPE_ACCPAY,
+            self::TYPE_ACCPAYCREDIT,
+            self::TYPE_AROVERPAYMENT,
         ];
     }
     
