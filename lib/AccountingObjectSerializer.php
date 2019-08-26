@@ -270,7 +270,17 @@ class AccountingObjectSerializer
             // this graceful.
             if (!empty($data)) {
                 
-                 // CUSTOM Date Deserializer to allow for Xero's use of .NET JSON Date format
+                // CUSTOM Date Deserializer to allow for Xero's use of .NET JSON Date format
+                $match = preg_match( '/([\d]{13})/', $data, $date );
+                $timestamp = $date[1]/1000;
+                
+                $datetime = new \DateTime();
+                $datetime->setTimestamp($timestamp);
+           
+                $result = $datetime->format('Y-m-d H:i:s');
+                    
+                return $result;
+                /* OLD matching
                 $match = preg_match('/\/Date\((\d+)([-+])(\d+)\)\//', $data, $date);
 
                 $timestamp = $date[1]/1000;
@@ -286,7 +296,7 @@ class AccountingObjectSerializer
                 $result = $datetime->format('Y-m-d H:i:s');
                     
                 return $result;
-                
+                */
                 //return new \DateTime($data);
             } else {
                 return null;

@@ -245,6 +245,7 @@ class Overpayment implements ModelInterface, ArrayAccess
 
     const TYPE_RECEIVE_OVERPAYMENT = 'RECEIVE-OVERPAYMENT';
     const TYPE_SPEND_OVERPAYMENT = 'SPEND-OVERPAYMENT';
+    const TYPE_AROVERPAYMENT = 'AROVERPAYMENT';
     const STATUS_AUTHORISED = 'AUTHORISED';
     const STATUS_PAID = 'PAID';
     const STATUS_VOIDED = 'VOIDED';
@@ -261,6 +262,7 @@ class Overpayment implements ModelInterface, ArrayAccess
         return [
             self::TYPE_RECEIVE_OVERPAYMENT,
             self::TYPE_SPEND_OVERPAYMENT,
+            self::TYPE_AROVERPAYMENT,
         ];
     }
     

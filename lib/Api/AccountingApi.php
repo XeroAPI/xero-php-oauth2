@@ -6576,15 +6576,15 @@ class AccountingApi
      * Operation createCurrency
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Currencies $currencies currencies (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Currency $currency currency (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\Currencies
      */
-    public function createCurrency($xero_tenant_id, $currencies)
+    public function createCurrency($xero_tenant_id, $currency)
     {
-        list($response) = $this->createCurrencyWithHttpInfo($xero_tenant_id, $currencies);
+        list($response) = $this->createCurrencyWithHttpInfo($xero_tenant_id, $currency);
         return $response;
     }
 
@@ -6592,15 +6592,15 @@ class AccountingApi
      * Operation createCurrencyWithHttpInfo
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Currencies $currencies (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Currency $currency (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\Currencies, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCurrencyWithHttpInfo($xero_tenant_id, $currencies)
+    public function createCurrencyWithHttpInfo($xero_tenant_id, $currency)
     {
-        $request = $this->createCurrencyRequest($xero_tenant_id, $currencies);
+        $request = $this->createCurrencyRequest($xero_tenant_id, $currency);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6681,14 +6681,14 @@ class AccountingApi
      * 
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Currencies $currencies (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Currency $currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCurrencyAsync($xero_tenant_id, $currencies)
+    public function createCurrencyAsync($xero_tenant_id, $currency)
     {
-        return $this->createCurrencyAsyncWithHttpInfo($xero_tenant_id, $currencies)
+        return $this->createCurrencyAsyncWithHttpInfo($xero_tenant_id, $currency)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6702,15 +6702,15 @@ class AccountingApi
      * 
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Currencies $currencies (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Currency $currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCurrencyAsyncWithHttpInfo($xero_tenant_id, $currencies)
+    public function createCurrencyAsyncWithHttpInfo($xero_tenant_id, $currency)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Currencies';
-        $request = $this->createCurrencyRequest($xero_tenant_id, $currencies);
+        $request = $this->createCurrencyRequest($xero_tenant_id, $currency);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6750,12 +6750,12 @@ class AccountingApi
      * Create request for operation 'createCurrency'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Currencies $currencies (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Currency $currency (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createCurrencyRequest($xero_tenant_id, $currencies)
+    protected function createCurrencyRequest($xero_tenant_id, $currency)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -6763,10 +6763,10 @@ class AccountingApi
                 'Missing the required parameter $xero_tenant_id when calling createCurrency'
             );
         }
-        // verify the required parameter 'currencies' is set
-        if ($currencies === null || (is_array($currencies) && count($currencies) === 0)) {
+        // verify the required parameter 'currency' is set
+        if ($currency === null || (is_array($currency) && count($currency) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $currencies when calling createCurrency'
+                'Missing the required parameter $currency when calling createCurrency'
             );
         }
 
@@ -6785,8 +6785,8 @@ class AccountingApi
 
         // body params
         $_tempBody = null;
-        if (isset($currencies)) {
-            $_tempBody = $currencies;
+        if (isset($currency)) {
+            $_tempBody = $currency;
         }
 
         if ($multipart) {
