@@ -240,6 +240,8 @@ class Prepayment implements ModelInterface, ArrayAccess
 
     const TYPE_RECEIVE_PREPAYMENT = 'RECEIVE-PREPAYMENT';
     const TYPE_SPEND_PREPAYMENT = 'SPEND-PREPAYMENT';
+    const TYPE_ARPREPAYMENT = 'ARPREPAYMENT';
+    const TYPE_APPREPAYMENT = 'APPREPAYMENT';
     const STATUS_AUTHORISED = 'AUTHORISED';
     const STATUS_PAID = 'PAID';
     const STATUS_VOIDED = 'VOIDED';
@@ -256,6 +258,8 @@ class Prepayment implements ModelInterface, ArrayAccess
         return [
             self::TYPE_RECEIVE_PREPAYMENT,
             self::TYPE_SPEND_PREPAYMENT,
+            self::TYPE_ARPREPAYMENT,
+            self::TYPE_APPREPAYMENT,
         ];
     }
     
