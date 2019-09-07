@@ -56,7 +56,7 @@ All URIs are relative to *https://api.xero.com/api.xro/2.0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AccountingApi* | [**createAccount**](docs/Api/AccountingApi.md#createaccount) | **PUT** /Accounts | Allows you to create a new chart of accounts
+*AccountingApi* | [**createAccount**](Api/AccountingApi.md#createaccount) | **PUT** /Accounts | Allows you to create a new chart of accounts
 *AccountingApi* | [**createAccountAttachmentByFileName**](docs/Api/AccountingApi.md#createaccountattachmentbyfilename) | **PUT** /Accounts/{AccountID}/Attachments/{FileName} | Allows you to create Attachment on Account
 *AccountingApi* | [**createBankTransaction**](docs/Api/AccountingApi.md#createbanktransaction) | **PUT** /BankTransactions | Allows you to create a spend or receive money transaction
 *AccountingApi* | [**createBankTransactionAttachmentByFileName**](docs/Api/AccountingApi.md#createbanktransactionattachmentbyfilename) | **PUT** /BankTransactions/{BankTransactionID}/Attachments/{FileName} | Allows you to createa an Attachment on BankTransaction by Filename
