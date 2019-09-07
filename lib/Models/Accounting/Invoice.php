@@ -73,6 +73,7 @@ class Invoice implements ModelInterface, ArrayAccess
         'sent_to_contact' => 'bool',
         'expected_payment_date' => '\DateTime',
         'planned_payment_date' => '\DateTime',
+        'cis_deduction' => 'double',
         'sub_total' => 'double',
         'total_tax' => 'double',
         'total' => 'double',
@@ -117,6 +118,7 @@ class Invoice implements ModelInterface, ArrayAccess
         'sent_to_contact' => null,
         'expected_payment_date' => 'date',
         'planned_payment_date' => 'date',
+        'cis_deduction' => 'double',
         'sub_total' => 'double',
         'total_tax' => 'double',
         'total' => 'double',
@@ -182,6 +184,7 @@ class Invoice implements ModelInterface, ArrayAccess
         'sent_to_contact' => 'SentToContact',
         'expected_payment_date' => 'ExpectedPaymentDate',
         'planned_payment_date' => 'PlannedPaymentDate',
+        'cis_deduction' => 'CISDeduction',
         'sub_total' => 'SubTotal',
         'total_tax' => 'TotalTax',
         'total' => 'Total',
@@ -226,6 +229,7 @@ class Invoice implements ModelInterface, ArrayAccess
         'sent_to_contact' => 'setSentToContact',
         'expected_payment_date' => 'setExpectedPaymentDate',
         'planned_payment_date' => 'setPlannedPaymentDate',
+        'cis_deduction' => 'setCisDeduction',
         'sub_total' => 'setSubTotal',
         'total_tax' => 'setTotalTax',
         'total' => 'setTotal',
@@ -270,6 +274,7 @@ class Invoice implements ModelInterface, ArrayAccess
         'sent_to_contact' => 'getSentToContact',
         'expected_payment_date' => 'getExpectedPaymentDate',
         'planned_payment_date' => 'getPlannedPaymentDate',
+        'cis_deduction' => 'getCisDeduction',
         'sub_total' => 'getSubTotal',
         'total_tax' => 'getTotalTax',
         'total' => 'getTotal',
@@ -410,6 +415,7 @@ class Invoice implements ModelInterface, ArrayAccess
         $this->container['sent_to_contact'] = isset($data['sent_to_contact']) ? $data['sent_to_contact'] : null;
         $this->container['expected_payment_date'] = isset($data['expected_payment_date']) ? $data['expected_payment_date'] : null;
         $this->container['planned_payment_date'] = isset($data['planned_payment_date']) ? $data['planned_payment_date'] : null;
+        $this->container['cis_deduction'] = isset($data['cis_deduction']) ? $data['cis_deduction'] : null;
         $this->container['sub_total'] = isset($data['sub_total']) ? $data['sub_total'] : null;
         $this->container['total_tax'] = isset($data['total_tax']) ? $data['total_tax'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
@@ -895,6 +901,30 @@ class Invoice implements ModelInterface, ArrayAccess
     public function setPlannedPaymentDate($planned_payment_date)
     {
         $this->container['planned_payment_date'] = $planned_payment_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets cis_deduction
+     *
+     * @return double|null
+     */
+    public function getCisDeduction()
+    {
+        return $this->container['cis_deduction'];
+    }
+
+    /**
+     * Sets cis_deduction
+     *
+     * @param double|null $cis_deduction CIS deduction for UK contractors
+     *
+     * @return $this
+     */
+    public function setCisDeduction($cis_deduction)
+    {
+        $this->container['cis_deduction'] = $cis_deduction;
 
         return $this;
     }

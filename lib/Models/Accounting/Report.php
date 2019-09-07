@@ -72,7 +72,7 @@ class Report implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'report_id' => 'UUID',
+        'report_id' => null,
         'report_name' => null,
         'report_type' => null,
         'report_title' => null,

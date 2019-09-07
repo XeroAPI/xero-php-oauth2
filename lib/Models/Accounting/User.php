@@ -194,6 +194,7 @@ class User implements ModelInterface, ArrayAccess
     const ORGANISATION_ROLE_FINANCIALADVISER = 'FINANCIALADVISER';
     const ORGANISATION_ROLE_MANAGEDCLIENT = 'MANAGEDCLIENT';
     const ORGANISATION_ROLE_CASHBOOKCLIENT = 'CASHBOOKCLIENT';
+    const ORGANISATION_ROLE_UNKNOWN = 'UNKNOWN';
     
 
     
@@ -211,6 +212,7 @@ class User implements ModelInterface, ArrayAccess
             self::ORGANISATION_ROLE_FINANCIALADVISER,
             self::ORGANISATION_ROLE_MANAGEDCLIENT,
             self::ORGANISATION_ROLE_CASHBOOKCLIENT,
+            self::ORGANISATION_ROLE_UNKNOWN,
         ];
     }
     

@@ -68,7 +68,7 @@ class ReportFields implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'field_id' => 'UUID',
+        'field_id' => 'uuid',
         'description' => null,
         'value' => null
     ];
