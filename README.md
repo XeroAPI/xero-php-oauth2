@@ -58,7 +58,7 @@ Download the files and include `autoload.php`:
 
 ## How to use the xero-php-oauth2 SDK
 
-See [SDK reference](https://github.com/XeroAPI/xero-php-oauth2/docs/README.md) for all methods and models
+See [SDK reference](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs) for all methods and models
 
 ### authorization.php
 

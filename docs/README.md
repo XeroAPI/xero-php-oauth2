@@ -2,7 +2,7 @@
 
 ## Documentations
 
-Please follow the [README instructions](#installation--usage) and then run the following:
+Please follow the [README instructions](https://github.com/XeroAPI/xero-php-oauth2/blob/master/README.md) and then run the following:
 
 ```php
 <?php
