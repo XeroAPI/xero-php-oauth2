@@ -30,7 +30,7 @@ Follow these steps to create your Xero app
 * Login to [Xero developer center](https://developer.xero.com/myapps)
 * Click "Try oAuth2" link
 * Enter your App name, company url, privacy policy url.
-* Enter the redirect URI (this is your callback url - localhost, etc)
+* Enter the redirect URI (something like http://localhost:8888/pathToApp/callback.php)
 * Agree to terms and condition and click "Create App".
 * Click "Generate a secret" button.
 * Copy your client id and client secret and save for use later.
@@ -69,6 +69,7 @@ Below is a barebones example of the oAuth 2 flow.  You can copy/paste the 4 file
 
 ```php
 <?php
+  ini_set('display_errors', 'On');
   require __DIR__ . '/vendor/autoload.php';
   require_once('storage.php');
 
@@ -81,9 +82,10 @@ Below is a barebones example of the oAuth 2 flow.  You can copy/paste the 4 file
   $provider = new \League\OAuth2\Client\Provider\GenericProvider([
     'clientId'                => '__YOUR_CLIENT_ID__',   
     'clientSecret'            => '__YOUR_CLIENT_SECRET__',
-    'redirectUri'             => '__YOUR_REDIRECT_URI__',  //same as at developer.xero.com/myapps
+    'redirectUri'             => 'http://localhost:8888/pathToApp/callback.php',
     'urlAuthorize'            => 'https://login.xero.com/identity/connect/authorize',
-    'urlAccessToken'          => 'https://identity.xero.com/connect/token'
+    'urlAccessToken'          => 'https://identity.xero.com/connect/token',
+    'urlResourceOwnerDetails' => 'https://api.xero.com/api.xro/2.0/Organisation'
   ]);
 
   // If we don't have an authorization code then get one
@@ -116,6 +118,7 @@ Below is a barebones example of the oAuth 2 flow.  You can copy/paste the 4 file
 
 ```php
 <?php
+  ini_set('display_errors', 'On');
   require __DIR__ . '/vendor/autoload.php';
   require_once('storage.php');
 
@@ -125,9 +128,10 @@ Below is a barebones example of the oAuth 2 flow.  You can copy/paste the 4 file
   $provider = new \League\OAuth2\Client\Provider\GenericProvider([
     'clientId'                => '__YOUR_CLIENT_ID__',   
     'clientSecret'            => '__YOUR_CLIENT_SECRET__',
-    'redirectUri'             => '__YOUR_REDIRECT_URI__',  //same as at developer.xero.com/myapps
+    'redirectUri'             => 'http://localhost:8888/pathToApp/callback.php', 
     'urlAuthorize'            => 'https://login.xero.com/identity/connect/authorize',
-    'urlAccessToken'          => 'https://identity.xero.com/connect/token'
+    'urlAccessToken'          => 'https://identity.xero.com/connect/token',
+    'urlResourceOwnerDetails' => 'https://api.xero.com/api.xro/2.0/Organisation'
   ]);
    
   // If we don't have an authorization code then get one
@@ -266,6 +270,7 @@ class StorageClass
 
 ```php
 <?php
+  ini_set('display_errors', 'On');
   require __DIR__ . '/vendor/autoload.php';
   require_once('storage.php');
 
@@ -277,9 +282,10 @@ class StorageClass
     $provider = new \League\OAuth2\Client\Provider\GenericProvider([
       'clientId'                => '__YOUR_CLIENT_ID__',   
       'clientSecret'            => '__YOUR_CLIENT_SECRET__',
-      'redirectUri'             => '__YOUR_REDIRECT_URI__',  //same as at developer.xero.com/myapps
+      'redirectUri'             => 'http://localhost:8888/pathToApp/callback.php',
       'urlAuthorize'            => 'https://login.xero.com/identity/connect/authorize',
-      'urlAccessToken'          => 'https://identity.xero.com/connect/token'
+      'urlAccessToken'          => 'https://identity.xero.com/connect/token',
+      'urlResourceOwnerDetails' => 'https://api.xero.com/api.xro/2.0/Organisation'
     ]);
 
     $newAccessToken = $provider->getAccessToken('refresh_token', [
@@ -303,7 +309,7 @@ class StorageClass
       $config
   );
 
-  // Get all Account
+  // Get Organisation details
   $apiResponse = $apiInstance->getOrganisations($xeroTenantId); 
   var_dump($apiResponse);
   
