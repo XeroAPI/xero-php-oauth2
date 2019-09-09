@@ -14,6 +14,8 @@ Coming soon
 
 All third party libraries dependencies managed with Composer.
 
+[SDK reference](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs) for all methods and models.
+
 ## Requirements
 
 PHP 5.5 and later
@@ -32,7 +34,7 @@ Follow these steps to create your Xero app
 * Agree to terms and condition and click "Create App".
 * Click "Generate a secret" button.
 * Copy your client id and client secret and save for use later.
-* Click the "Save" button. You secret is now hidden.
+* Click the "Save" button. Your secret is now hidden.
 
 
 ## Installation & Usage
@@ -57,8 +59,11 @@ Download the files and include `autoload.php`:
 ```
 
 ## How to use the xero-php-oauth2 SDK
+Below is a barebones example of the oAuth 2 flow.  You can copy/paste the 4 files below and substitute your ClientId, ClientSecret and RedirectURI from developer.xero.com.
 
-See [SDK reference](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs) for all methods and models
+1. Point your browser to authorization.php, you'll be redirected to Xero where you'll login and select a Xero org to authorize.  
+2. Once complete, you'll be returned to your app to the redirect URI which should point to the callback.php. 
+3. In the callback, you'll obtain an access token which we'll use in authorizedResource.php to 
 
 ### authorization.php
 
@@ -161,7 +166,7 @@ See [SDK reference](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs)
           $accessToken->getRefreshToken()
       );
    
-      header('Location: ' . './get.php');
+      header('Location: ' . './authorizedResource.php');
       exit();
      
     } catch (\League\OAuth2\Client\Provider\Exception\IdentityProviderException $e) {
@@ -299,16 +304,9 @@ class StorageClass
   );
 
   // Get all Account
-  $getAccountResponse = $apiInstance->getAccounts($xeroTenantId); 
-
-  // Create Account
-  $account = new XeroAPI\XeroPHP\Models\Accounting\Account;
-  $account->setCode($this->getRandNum());
-  $account->setName("Foo" . $this->getRandNum());
-  $account->setType("EXPENSE");
-  $account->setDescription("Hello World");  
-  $createAccountResponse = $apiInstance->createAccount($xeroTenantId,$account);
-
+  $apiResponse = $apiInstance->getOrganisations($xeroTenantId); 
+  var_dump($apiResponse);
+  
 ?>
 ```
 
