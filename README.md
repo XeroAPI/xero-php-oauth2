@@ -63,7 +63,7 @@ Below is a barebones example of the oAuth 2 flow.  You can copy/paste the 4 file
 
 1. Point your browser to authorization.php, you'll be redirected to Xero where you'll login and select a Xero org to authorize.  
 2. Once complete, you'll be returned to your app to the redirect URI which should point to the callback.php. 
-3. In the callback, you'll obtain an access token which we'll use in authorizedResource.php to 
+3. In the callback, you'll obtain an access token which we'll use in authorizedResource.php to read the Organisation details.
 
 ### authorization.php
 

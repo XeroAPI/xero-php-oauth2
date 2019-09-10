@@ -232,6 +232,7 @@ class TaxRate implements ModelInterface, ArrayAccess
     const REPORT_TAX_TYPE_MOSSSALES = 'MOSSSALES';
     const REPORT_TAX_TYPE_NONE = 'NONE';
     const REPORT_TAX_TYPE_GSTONIMPORTS = 'GSTONIMPORTS';
+    const REPORT_TAX_TYPE_AVALARA = 'AVALARA';
     
 
     
@@ -273,6 +274,7 @@ class TaxRate implements ModelInterface, ArrayAccess
             self::REPORT_TAX_TYPE_MOSSSALES,
             self::REPORT_TAX_TYPE_NONE,
             self::REPORT_TAX_TYPE_GSTONIMPORTS,
+            self::REPORT_TAX_TYPE_AVALARA,
         ];
     }
     
