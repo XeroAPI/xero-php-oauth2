@@ -44,7 +44,7 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
 
 ```
 "require": {
-    "xeroapi/xero-php-oauth2": "0.2.0",
+    "xeroapi/xero-php-oauth2": "0.2.5"
 }
 ```
 

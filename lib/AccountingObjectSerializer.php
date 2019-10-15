@@ -274,7 +274,7 @@ class AccountingObjectSerializer
                 $match = preg_match( '/([\d]{13})/', $data, $date );
                 $timestamp = $date[1]/1000;
                 
-                $datetime = new \DateTime();
+                $datetime = new DateTime();
                 $datetime->setTimestamp($timestamp);
            
                 $result = $datetime->format('Y-m-d H:i:s');
