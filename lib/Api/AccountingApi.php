@@ -11219,15 +11219,15 @@ class AccountingApi
      * Allows you to create linked transactions (billable expenses)
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions $linked_transactions linked_transactions (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction $linked_transaction linked_transaction (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions|\XeroAPI\XeroPHP\Models\Accounting\Error
      */
-    public function createLinkedTransaction($xero_tenant_id, $linked_transactions)
+    public function createLinkedTransaction($xero_tenant_id, $linked_transaction)
     {
-        list($response) = $this->createLinkedTransactionWithHttpInfo($xero_tenant_id, $linked_transactions);
+        list($response) = $this->createLinkedTransactionWithHttpInfo($xero_tenant_id, $linked_transaction);
         return $response;
     }
 
@@ -11237,15 +11237,15 @@ class AccountingApi
      * Allows you to create linked transactions (billable expenses)
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions $linked_transactions (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction $linked_transaction (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createLinkedTransactionWithHttpInfo($xero_tenant_id, $linked_transactions)
+    public function createLinkedTransactionWithHttpInfo($xero_tenant_id, $linked_transaction)
     {
-        $request = $this->createLinkedTransactionRequest($xero_tenant_id, $linked_transactions);
+        $request = $this->createLinkedTransactionRequest($xero_tenant_id, $linked_transaction);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11346,14 +11346,14 @@ class AccountingApi
      * Allows you to create linked transactions (billable expenses)
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions $linked_transactions (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction $linked_transaction (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createLinkedTransactionAsync($xero_tenant_id, $linked_transactions)
+    public function createLinkedTransactionAsync($xero_tenant_id, $linked_transaction)
     {
-        return $this->createLinkedTransactionAsyncWithHttpInfo($xero_tenant_id, $linked_transactions)
+        return $this->createLinkedTransactionAsyncWithHttpInfo($xero_tenant_id, $linked_transaction)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11367,15 +11367,15 @@ class AccountingApi
      * Allows you to create linked transactions (billable expenses)
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions $linked_transactions (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction $linked_transaction (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createLinkedTransactionAsyncWithHttpInfo($xero_tenant_id, $linked_transactions)
+    public function createLinkedTransactionAsyncWithHttpInfo($xero_tenant_id, $linked_transaction)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions';
-        $request = $this->createLinkedTransactionRequest($xero_tenant_id, $linked_transactions);
+        $request = $this->createLinkedTransactionRequest($xero_tenant_id, $linked_transaction);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11415,12 +11415,12 @@ class AccountingApi
      * Create request for operation 'createLinkedTransaction'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions $linked_transactions (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction $linked_transaction (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createLinkedTransactionRequest($xero_tenant_id, $linked_transactions)
+    protected function createLinkedTransactionRequest($xero_tenant_id, $linked_transaction)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -11428,14 +11428,321 @@ class AccountingApi
                 'Missing the required parameter $xero_tenant_id when calling createLinkedTransaction'
             );
         }
-        // verify the required parameter 'linked_transactions' is set
-        if ($linked_transactions === null || (is_array($linked_transactions) && count($linked_transactions) === 0)) {
+        // verify the required parameter 'linked_transaction' is set
+        if ($linked_transaction === null || (is_array($linked_transaction) && count($linked_transaction) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $linked_transactions when calling createLinkedTransaction'
+                'Missing the required parameter $linked_transaction when calling createLinkedTransaction'
             );
         }
 
         $resourcePath = '/LinkedTransactions';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($linked_transaction)) {
+            $_tempBody = $linked_transaction;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+
+    /**
+     * Operation createLinkedTransactions
+     *
+     * Allows you to create linked transactions (billable expenses)
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions $linked_transactions linked_transactions (required)
+     *
+     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions|\XeroAPI\XeroPHP\Models\Accounting\Error
+     */
+    public function createLinkedTransactions($xero_tenant_id, $linked_transactions)
+    {
+        list($response) = $this->createLinkedTransactionsWithHttpInfo($xero_tenant_id, $linked_transactions);
+        return $response;
+    }
+
+    /**
+     * Operation createLinkedTransactionsWithHttpInfo
+     *
+     * Allows you to create linked transactions (billable expenses)
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions $linked_transactions (required)
+     *
+     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createLinkedTransactionsWithHttpInfo($xero_tenant_id, $linked_transactions)
+    {
+        $request = $this->createLinkedTransactionsRequest($xero_tenant_id, $linked_transactions);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\XeroAPI\XeroPHP\Models\Accounting\Error' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Accounting\Error', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = AccountingObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = AccountingObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\XeroAPI\XeroPHP\Models\Accounting\Error',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createLinkedTransactionsAsync
+     *
+     * Allows you to create linked transactions (billable expenses)
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions $linked_transactions (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createLinkedTransactionsAsync($xero_tenant_id, $linked_transactions)
+    {
+        return $this->createLinkedTransactionsAsyncWithHttpInfo($xero_tenant_id, $linked_transactions)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createLinkedTransactionsAsyncWithHttpInfo
+     *
+     * Allows you to create linked transactions (billable expenses)
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions $linked_transactions (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createLinkedTransactionsAsyncWithHttpInfo($xero_tenant_id, $linked_transactions)
+    {
+        $returnType = '\XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions';
+        $request = $this->createLinkedTransactionsRequest($xero_tenant_id, $linked_transactions);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createLinkedTransactions'
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions $linked_transactions (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createLinkedTransactionsRequest($xero_tenant_id, $linked_transactions)
+    {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createLinkedTransactions'
+            );
+        }
+        // verify the required parameter 'linked_transactions' is set
+        if ($linked_transactions === null || (is_array($linked_transactions) && count($linked_transactions) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $linked_transactions when calling createLinkedTransactions'
+            );
+        }
+
+        $resourcePath = '/LinkedTransactions#bulk';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -11526,15 +11833,15 @@ class AccountingApi
      * Allows you to create a manual journal
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournals $manual_journals manual_journals (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournal $manual_journal manual_journal (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\ManualJournals|\XeroAPI\XeroPHP\Models\Accounting\Error
      */
-    public function createManualJournal($xero_tenant_id, $manual_journals)
+    public function createManualJournal($xero_tenant_id, $manual_journal)
     {
-        list($response) = $this->createManualJournalWithHttpInfo($xero_tenant_id, $manual_journals);
+        list($response) = $this->createManualJournalWithHttpInfo($xero_tenant_id, $manual_journal);
         return $response;
     }
 
@@ -11544,15 +11851,15 @@ class AccountingApi
      * Allows you to create a manual journal
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournals $manual_journals (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournal $manual_journal (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\ManualJournals|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createManualJournalWithHttpInfo($xero_tenant_id, $manual_journals)
+    public function createManualJournalWithHttpInfo($xero_tenant_id, $manual_journal)
     {
-        $request = $this->createManualJournalRequest($xero_tenant_id, $manual_journals);
+        $request = $this->createManualJournalRequest($xero_tenant_id, $manual_journal);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11653,14 +11960,14 @@ class AccountingApi
      * Allows you to create a manual journal
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournals $manual_journals (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournal $manual_journal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createManualJournalAsync($xero_tenant_id, $manual_journals)
+    public function createManualJournalAsync($xero_tenant_id, $manual_journal)
     {
-        return $this->createManualJournalAsyncWithHttpInfo($xero_tenant_id, $manual_journals)
+        return $this->createManualJournalAsyncWithHttpInfo($xero_tenant_id, $manual_journal)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11674,15 +11981,15 @@ class AccountingApi
      * Allows you to create a manual journal
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournals $manual_journals (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournal $manual_journal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createManualJournalAsyncWithHttpInfo($xero_tenant_id, $manual_journals)
+    public function createManualJournalAsyncWithHttpInfo($xero_tenant_id, $manual_journal)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\ManualJournals';
-        $request = $this->createManualJournalRequest($xero_tenant_id, $manual_journals);
+        $request = $this->createManualJournalRequest($xero_tenant_id, $manual_journal);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11722,12 +12029,12 @@ class AccountingApi
      * Create request for operation 'createManualJournal'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournals $manual_journals (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournal $manual_journal (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createManualJournalRequest($xero_tenant_id, $manual_journals)
+    protected function createManualJournalRequest($xero_tenant_id, $manual_journal)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -11735,10 +12042,10 @@ class AccountingApi
                 'Missing the required parameter $xero_tenant_id when calling createManualJournal'
             );
         }
-        // verify the required parameter 'manual_journals' is set
-        if ($manual_journals === null || (is_array($manual_journals) && count($manual_journals) === 0)) {
+        // verify the required parameter 'manual_journal' is set
+        if ($manual_journal === null || (is_array($manual_journal) && count($manual_journal) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $manual_journals when calling createManualJournal'
+                'Missing the required parameter $manual_journal when calling createManualJournal'
             );
         }
 
@@ -11757,8 +12064,8 @@ class AccountingApi
 
         // body params
         $_tempBody = null;
-        if (isset($manual_journals)) {
-            $_tempBody = $manual_journals;
+        if (isset($manual_journal)) {
+            $_tempBody = $manual_journal;
         }
 
         if ($multipart) {
@@ -12173,21 +12480,328 @@ class AccountingApi
 
 
     /**
+     * Operation createManualJournals
+     *
+     * Allows you to create a manual journal
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournals $manual_journals manual_journals (required)
+     *
+     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \XeroAPI\XeroPHP\Models\Accounting\ManualJournals|\XeroAPI\XeroPHP\Models\Accounting\Error
+     */
+    public function createManualJournals($xero_tenant_id, $manual_journals)
+    {
+        list($response) = $this->createManualJournalsWithHttpInfo($xero_tenant_id, $manual_journals);
+        return $response;
+    }
+
+    /**
+     * Operation createManualJournalsWithHttpInfo
+     *
+     * Allows you to create a manual journal
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournals $manual_journals (required)
+     *
+     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \XeroAPI\XeroPHP\Models\Accounting\ManualJournals|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createManualJournalsWithHttpInfo($xero_tenant_id, $manual_journals)
+    {
+        $request = $this->createManualJournalsRequest($xero_tenant_id, $manual_journals);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\XeroAPI\XeroPHP\Models\Accounting\ManualJournals' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Accounting\ManualJournals', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\XeroAPI\XeroPHP\Models\Accounting\Error' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Accounting\Error', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\XeroAPI\XeroPHP\Models\Accounting\ManualJournals';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = AccountingObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\XeroAPI\XeroPHP\Models\Accounting\ManualJournals',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = AccountingObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\XeroAPI\XeroPHP\Models\Accounting\Error',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createManualJournalsAsync
+     *
+     * Allows you to create a manual journal
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournals $manual_journals (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createManualJournalsAsync($xero_tenant_id, $manual_journals)
+    {
+        return $this->createManualJournalsAsyncWithHttpInfo($xero_tenant_id, $manual_journals)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createManualJournalsAsyncWithHttpInfo
+     *
+     * Allows you to create a manual journal
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournals $manual_journals (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createManualJournalsAsyncWithHttpInfo($xero_tenant_id, $manual_journals)
+    {
+        $returnType = '\XeroAPI\XeroPHP\Models\Accounting\ManualJournals';
+        $request = $this->createManualJournalsRequest($xero_tenant_id, $manual_journals);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createManualJournals'
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournals $manual_journals (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createManualJournalsRequest($xero_tenant_id, $manual_journals)
+    {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createManualJournals'
+            );
+        }
+        // verify the required parameter 'manual_journals' is set
+        if ($manual_journals === null || (is_array($manual_journals) && count($manual_journals) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $manual_journals when calling createManualJournals'
+            );
+        }
+
+        $resourcePath = '/ManualJournals#bulk';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($manual_journals)) {
+            $_tempBody = $manual_journals;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+
+    /**
      * Operation createOverpaymentAllocation
      *
      * Allows you to retrieve Allocations for overpayments
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations allocations (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocation $allocation allocation (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\Allocations|\XeroAPI\XeroPHP\Models\Accounting\Error
      */
-    public function createOverpaymentAllocation($xero_tenant_id, $overpayment_id, $allocations)
+    public function createOverpaymentAllocation($xero_tenant_id, $overpayment_id, $allocation)
     {
-        list($response) = $this->createOverpaymentAllocationWithHttpInfo($xero_tenant_id, $overpayment_id, $allocations);
+        list($response) = $this->createOverpaymentAllocationWithHttpInfo($xero_tenant_id, $overpayment_id, $allocation);
         return $response;
     }
 
@@ -12198,15 +12812,15 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocation $allocation (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\Allocations|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createOverpaymentAllocationWithHttpInfo($xero_tenant_id, $overpayment_id, $allocations)
+    public function createOverpaymentAllocationWithHttpInfo($xero_tenant_id, $overpayment_id, $allocation)
     {
-        $request = $this->createOverpaymentAllocationRequest($xero_tenant_id, $overpayment_id, $allocations);
+        $request = $this->createOverpaymentAllocationRequest($xero_tenant_id, $overpayment_id, $allocation);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12308,14 +12922,14 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocation $allocation (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOverpaymentAllocationAsync($xero_tenant_id, $overpayment_id, $allocations)
+    public function createOverpaymentAllocationAsync($xero_tenant_id, $overpayment_id, $allocation)
     {
-        return $this->createOverpaymentAllocationAsyncWithHttpInfo($xero_tenant_id, $overpayment_id, $allocations)
+        return $this->createOverpaymentAllocationAsyncWithHttpInfo($xero_tenant_id, $overpayment_id, $allocation)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12330,15 +12944,15 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocation $allocation (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOverpaymentAllocationAsyncWithHttpInfo($xero_tenant_id, $overpayment_id, $allocations)
+    public function createOverpaymentAllocationAsyncWithHttpInfo($xero_tenant_id, $overpayment_id, $allocation)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Allocations';
-        $request = $this->createOverpaymentAllocationRequest($xero_tenant_id, $overpayment_id, $allocations);
+        $request = $this->createOverpaymentAllocationRequest($xero_tenant_id, $overpayment_id, $allocation);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12379,12 +12993,12 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocation $allocation (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createOverpaymentAllocationRequest($xero_tenant_id, $overpayment_id, $allocations)
+    protected function createOverpaymentAllocationRequest($xero_tenant_id, $overpayment_id, $allocation)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -12398,14 +13012,340 @@ class AccountingApi
                 'Missing the required parameter $overpayment_id when calling createOverpaymentAllocation'
             );
         }
-        // verify the required parameter 'allocations' is set
-        if ($allocations === null || (is_array($allocations) && count($allocations) === 0)) {
+        // verify the required parameter 'allocation' is set
+        if ($allocation === null || (is_array($allocation) && count($allocation) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $allocations when calling createOverpaymentAllocation'
+                'Missing the required parameter $allocation when calling createOverpaymentAllocation'
             );
         }
 
         $resourcePath = '/Overpayments/{OverpaymentID}/Allocations';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
+
+        // path params
+        if ($overpayment_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'OverpaymentID' . '}',
+                AccountingObjectSerializer::toPathValue($overpayment_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($allocation)) {
+            $_tempBody = $allocation;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+
+    /**
+     * Operation createOverpaymentAllocations
+     *
+     * Allows you to retrieve Allocations for overpayments
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  string $overpayment_id Unique identifier for a Overpayment (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations allocations (required)
+     *
+     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \XeroAPI\XeroPHP\Models\Accounting\Allocations|\XeroAPI\XeroPHP\Models\Accounting\Error
+     */
+    public function createOverpaymentAllocations($xero_tenant_id, $overpayment_id, $allocations)
+    {
+        list($response) = $this->createOverpaymentAllocationsWithHttpInfo($xero_tenant_id, $overpayment_id, $allocations);
+        return $response;
+    }
+
+    /**
+     * Operation createOverpaymentAllocationsWithHttpInfo
+     *
+     * Allows you to retrieve Allocations for overpayments
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  string $overpayment_id Unique identifier for a Overpayment (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations (required)
+     *
+     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \XeroAPI\XeroPHP\Models\Accounting\Allocations|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createOverpaymentAllocationsWithHttpInfo($xero_tenant_id, $overpayment_id, $allocations)
+    {
+        $request = $this->createOverpaymentAllocationsRequest($xero_tenant_id, $overpayment_id, $allocations);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\XeroAPI\XeroPHP\Models\Accounting\Allocations' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Accounting\Allocations', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\XeroAPI\XeroPHP\Models\Accounting\Error' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Accounting\Error', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Allocations';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = AccountingObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\XeroAPI\XeroPHP\Models\Accounting\Allocations',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = AccountingObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\XeroAPI\XeroPHP\Models\Accounting\Error',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createOverpaymentAllocationsAsync
+     *
+     * Allows you to retrieve Allocations for overpayments
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  string $overpayment_id Unique identifier for a Overpayment (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createOverpaymentAllocationsAsync($xero_tenant_id, $overpayment_id, $allocations)
+    {
+        return $this->createOverpaymentAllocationsAsyncWithHttpInfo($xero_tenant_id, $overpayment_id, $allocations)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createOverpaymentAllocationsAsyncWithHttpInfo
+     *
+     * Allows you to retrieve Allocations for overpayments
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  string $overpayment_id Unique identifier for a Overpayment (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createOverpaymentAllocationsAsyncWithHttpInfo($xero_tenant_id, $overpayment_id, $allocations)
+    {
+        $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Allocations';
+        $request = $this->createOverpaymentAllocationsRequest($xero_tenant_id, $overpayment_id, $allocations);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createOverpaymentAllocations'
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  string $overpayment_id Unique identifier for a Overpayment (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createOverpaymentAllocationsRequest($xero_tenant_id, $overpayment_id, $allocations)
+    {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createOverpaymentAllocations'
+            );
+        }
+        // verify the required parameter 'overpayment_id' is set
+        if ($overpayment_id === null || (is_array($overpayment_id) && count($overpayment_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $overpayment_id when calling createOverpaymentAllocations'
+            );
+        }
+        // verify the required parameter 'allocations' is set
+        if ($allocations === null || (is_array($allocations) && count($allocations) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $allocations when calling createOverpaymentAllocations'
+            );
+        }
+
+        $resourcePath = '/Overpayments/{OverpaymentID}/Allocations#bulk';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -12830,15 +13770,15 @@ class AccountingApi
      * Allows you to create payments for invoices and credit notes
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payments $payments payments (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payment $payment payment (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\Payments|\XeroAPI\XeroPHP\Models\Accounting\Error
      */
-    public function createPayment($xero_tenant_id, $payments)
+    public function createPayment($xero_tenant_id, $payment)
     {
-        list($response) = $this->createPaymentWithHttpInfo($xero_tenant_id, $payments);
+        list($response) = $this->createPaymentWithHttpInfo($xero_tenant_id, $payment);
         return $response;
     }
 
@@ -12848,15 +13788,15 @@ class AccountingApi
      * Allows you to create payments for invoices and credit notes
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payments $payments (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payment $payment (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\Payments|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPaymentWithHttpInfo($xero_tenant_id, $payments)
+    public function createPaymentWithHttpInfo($xero_tenant_id, $payment)
     {
-        $request = $this->createPaymentRequest($xero_tenant_id, $payments);
+        $request = $this->createPaymentRequest($xero_tenant_id, $payment);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12957,14 +13897,14 @@ class AccountingApi
      * Allows you to create payments for invoices and credit notes
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payments $payments (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payment $payment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPaymentAsync($xero_tenant_id, $payments)
+    public function createPaymentAsync($xero_tenant_id, $payment)
     {
-        return $this->createPaymentAsyncWithHttpInfo($xero_tenant_id, $payments)
+        return $this->createPaymentAsyncWithHttpInfo($xero_tenant_id, $payment)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12978,15 +13918,15 @@ class AccountingApi
      * Allows you to create payments for invoices and credit notes
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payments $payments (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payment $payment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPaymentAsyncWithHttpInfo($xero_tenant_id, $payments)
+    public function createPaymentAsyncWithHttpInfo($xero_tenant_id, $payment)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Payments';
-        $request = $this->createPaymentRequest($xero_tenant_id, $payments);
+        $request = $this->createPaymentRequest($xero_tenant_id, $payment);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13026,12 +13966,12 @@ class AccountingApi
      * Create request for operation 'createPayment'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payments $payments (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payment $payment (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createPaymentRequest($xero_tenant_id, $payments)
+    protected function createPaymentRequest($xero_tenant_id, $payment)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -13039,10 +13979,10 @@ class AccountingApi
                 'Missing the required parameter $xero_tenant_id when calling createPayment'
             );
         }
-        // verify the required parameter 'payments' is set
-        if ($payments === null || (is_array($payments) && count($payments) === 0)) {
+        // verify the required parameter 'payment' is set
+        if ($payment === null || (is_array($payment) && count($payment) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $payments when calling createPayment'
+                'Missing the required parameter $payment when calling createPayment'
             );
         }
 
@@ -13061,8 +14001,8 @@ class AccountingApi
 
         // body params
         $_tempBody = null;
-        if (isset($payments)) {
-            $_tempBody = $payments;
+        if (isset($payment)) {
+            $_tempBody = $payment;
         }
 
         if ($multipart) {
@@ -13696,6 +14636,313 @@ class AccountingApi
         $_tempBody = null;
         if (isset($payment_services)) {
             $_tempBody = $payment_services;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+
+    /**
+     * Operation createPayments
+     *
+     * Allows you to create payments for invoices and credit notes
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payments $payments payments (required)
+     *
+     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \XeroAPI\XeroPHP\Models\Accounting\Payments|\XeroAPI\XeroPHP\Models\Accounting\Error
+     */
+    public function createPayments($xero_tenant_id, $payments)
+    {
+        list($response) = $this->createPaymentsWithHttpInfo($xero_tenant_id, $payments);
+        return $response;
+    }
+
+    /**
+     * Operation createPaymentsWithHttpInfo
+     *
+     * Allows you to create payments for invoices and credit notes
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payments $payments (required)
+     *
+     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \XeroAPI\XeroPHP\Models\Accounting\Payments|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createPaymentsWithHttpInfo($xero_tenant_id, $payments)
+    {
+        $request = $this->createPaymentsRequest($xero_tenant_id, $payments);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\XeroAPI\XeroPHP\Models\Accounting\Payments' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Accounting\Payments', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\XeroAPI\XeroPHP\Models\Accounting\Error' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Accounting\Error', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Payments';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = AccountingObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\XeroAPI\XeroPHP\Models\Accounting\Payments',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = AccountingObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\XeroAPI\XeroPHP\Models\Accounting\Error',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createPaymentsAsync
+     *
+     * Allows you to create payments for invoices and credit notes
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payments $payments (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createPaymentsAsync($xero_tenant_id, $payments)
+    {
+        return $this->createPaymentsAsyncWithHttpInfo($xero_tenant_id, $payments)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createPaymentsAsyncWithHttpInfo
+     *
+     * Allows you to create payments for invoices and credit notes
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payments $payments (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createPaymentsAsyncWithHttpInfo($xero_tenant_id, $payments)
+    {
+        $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Payments';
+        $request = $this->createPaymentsRequest($xero_tenant_id, $payments);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createPayments'
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payments $payments (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createPaymentsRequest($xero_tenant_id, $payments)
+    {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createPayments'
+            );
+        }
+        // verify the required parameter 'payments' is set
+        if ($payments === null || (is_array($payments) && count($payments) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $payments when calling createPayments'
+            );
+        }
+
+        $resourcePath = '/Payments#bulk';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($payments)) {
+            $_tempBody = $payments;
         }
 
         if ($multipart) {
@@ -17020,15 +18267,15 @@ class AccountingApi
      * Allows you to create Tax Rates
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRates $tax_rates tax_rates (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRate $tax_rate tax_rate (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\TaxRates|\XeroAPI\XeroPHP\Models\Accounting\Error
      */
-    public function createTaxRate($xero_tenant_id, $tax_rates)
+    public function createTaxRate($xero_tenant_id, $tax_rate)
     {
-        list($response) = $this->createTaxRateWithHttpInfo($xero_tenant_id, $tax_rates);
+        list($response) = $this->createTaxRateWithHttpInfo($xero_tenant_id, $tax_rate);
         return $response;
     }
 
@@ -17038,15 +18285,15 @@ class AccountingApi
      * Allows you to create Tax Rates
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRates $tax_rates (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRate $tax_rate (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\TaxRates|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createTaxRateWithHttpInfo($xero_tenant_id, $tax_rates)
+    public function createTaxRateWithHttpInfo($xero_tenant_id, $tax_rate)
     {
-        $request = $this->createTaxRateRequest($xero_tenant_id, $tax_rates);
+        $request = $this->createTaxRateRequest($xero_tenant_id, $tax_rate);
 
         try {
             $options = $this->createHttpClientOption();
@@ -17147,14 +18394,14 @@ class AccountingApi
      * Allows you to create Tax Rates
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRates $tax_rates (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRate $tax_rate (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTaxRateAsync($xero_tenant_id, $tax_rates)
+    public function createTaxRateAsync($xero_tenant_id, $tax_rate)
     {
-        return $this->createTaxRateAsyncWithHttpInfo($xero_tenant_id, $tax_rates)
+        return $this->createTaxRateAsyncWithHttpInfo($xero_tenant_id, $tax_rate)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -17168,15 +18415,15 @@ class AccountingApi
      * Allows you to create Tax Rates
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRates $tax_rates (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRate $tax_rate (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createTaxRateAsyncWithHttpInfo($xero_tenant_id, $tax_rates)
+    public function createTaxRateAsyncWithHttpInfo($xero_tenant_id, $tax_rate)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\TaxRates';
-        $request = $this->createTaxRateRequest($xero_tenant_id, $tax_rates);
+        $request = $this->createTaxRateRequest($xero_tenant_id, $tax_rate);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -17216,12 +18463,12 @@ class AccountingApi
      * Create request for operation 'createTaxRate'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRates $tax_rates (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRate $tax_rate (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createTaxRateRequest($xero_tenant_id, $tax_rates)
+    protected function createTaxRateRequest($xero_tenant_id, $tax_rate)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -17229,14 +18476,321 @@ class AccountingApi
                 'Missing the required parameter $xero_tenant_id when calling createTaxRate'
             );
         }
-        // verify the required parameter 'tax_rates' is set
-        if ($tax_rates === null || (is_array($tax_rates) && count($tax_rates) === 0)) {
+        // verify the required parameter 'tax_rate' is set
+        if ($tax_rate === null || (is_array($tax_rate) && count($tax_rate) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $tax_rates when calling createTaxRate'
+                'Missing the required parameter $tax_rate when calling createTaxRate'
             );
         }
 
         $resourcePath = '/TaxRates';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($tax_rate)) {
+            $_tempBody = $tax_rate;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+
+    /**
+     * Operation createTaxRates
+     *
+     * Allows you to create Tax Rates
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRates $tax_rates tax_rates (required)
+     *
+     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \XeroAPI\XeroPHP\Models\Accounting\TaxRates|\XeroAPI\XeroPHP\Models\Accounting\Error
+     */
+    public function createTaxRates($xero_tenant_id, $tax_rates)
+    {
+        list($response) = $this->createTaxRatesWithHttpInfo($xero_tenant_id, $tax_rates);
+        return $response;
+    }
+
+    /**
+     * Operation createTaxRatesWithHttpInfo
+     *
+     * Allows you to create Tax Rates
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRates $tax_rates (required)
+     *
+     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \XeroAPI\XeroPHP\Models\Accounting\TaxRates|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createTaxRatesWithHttpInfo($xero_tenant_id, $tax_rates)
+    {
+        $request = $this->createTaxRatesRequest($xero_tenant_id, $tax_rates);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\XeroAPI\XeroPHP\Models\Accounting\TaxRates' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Accounting\TaxRates', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\XeroAPI\XeroPHP\Models\Accounting\Error' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Accounting\Error', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\XeroAPI\XeroPHP\Models\Accounting\TaxRates';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = AccountingObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\XeroAPI\XeroPHP\Models\Accounting\TaxRates',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = AccountingObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\XeroAPI\XeroPHP\Models\Accounting\Error',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createTaxRatesAsync
+     *
+     * Allows you to create Tax Rates
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRates $tax_rates (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createTaxRatesAsync($xero_tenant_id, $tax_rates)
+    {
+        return $this->createTaxRatesAsyncWithHttpInfo($xero_tenant_id, $tax_rates)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createTaxRatesAsyncWithHttpInfo
+     *
+     * Allows you to create Tax Rates
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRates $tax_rates (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createTaxRatesAsyncWithHttpInfo($xero_tenant_id, $tax_rates)
+    {
+        $returnType = '\XeroAPI\XeroPHP\Models\Accounting\TaxRates';
+        $request = $this->createTaxRatesRequest($xero_tenant_id, $tax_rates);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createTaxRates'
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRates $tax_rates (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createTaxRatesRequest($xero_tenant_id, $tax_rates)
+    {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createTaxRates'
+            );
+        }
+        // verify the required parameter 'tax_rates' is set
+        if ($tax_rates === null || (is_array($tax_rates) && count($tax_rates) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tax_rates when calling createTaxRates'
+            );
+        }
+
+        $resourcePath = '/TaxRates#bulk';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

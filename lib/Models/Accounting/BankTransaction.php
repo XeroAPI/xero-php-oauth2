@@ -273,6 +273,7 @@ class BankTransaction implements ModelInterface, ArrayAccess
     const TYPE_SPEND_TRANSFER = 'SPEND-TRANSFER';
     const STATUS_AUTHORISED = 'AUTHORISED';
     const STATUS_DELETED = 'DELETED';
+    const STATUS_VOIDED = 'VOIDED';
     
 
     
@@ -305,6 +306,7 @@ class BankTransaction implements ModelInterface, ArrayAccess
         return [
             self::STATUS_AUTHORISED,
             self::STATUS_DELETED,
+            self::STATUS_VOIDED,
         ];
     }
     
