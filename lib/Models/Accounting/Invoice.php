@@ -338,10 +338,11 @@ class Invoice implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const TYPE_ACCREC = 'ACCREC';
     const TYPE_ACCPAY = 'ACCPAY';
     const TYPE_ACCPAYCREDIT = 'ACCPAYCREDIT';
     const TYPE_AROVERPAYMENT = 'AROVERPAYMENT';
+    const TYPE_ACCREC = 'ACCREC';
+    const TYPE_ACCRECCREDIT = 'ACCRECCREDIT';
     const STATUS_DRAFT = 'DRAFT';
     const STATUS_SUBMITTED = 'SUBMITTED';
     const STATUS_DELETED = 'DELETED';
@@ -359,10 +360,11 @@ class Invoice implements ModelInterface, ArrayAccess
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE_ACCREC,
             self::TYPE_ACCPAY,
             self::TYPE_ACCPAYCREDIT,
             self::TYPE_AROVERPAYMENT,
+            self::TYPE_ACCREC,
+            self::TYPE_ACCRECCREDIT,
         ];
     }
     
