@@ -1,7 +1,8 @@
 # Xero PHP oAuth2
-
 ## Current release of SDK with oAuth 2 support
-This beta release only supports oAuth2 authentication and the following API sets.
+[![Latest Stable Version](https://poser.pugx.org/xeroapi/xero-php-oauth2/v/stable)](https://packagist.org/packages/xeroapi/xero-php-oauth2)
+
+This release only supports oAuth2 authentication and the following API sets.
 * accounting
 
 Coming soon
@@ -44,7 +45,7 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
 
 ```
 "require": {
-    "xeroapi/xero-php-oauth2": "0.2.6"
+    "xeroapi/xero-php-oauth2": "0.2.7"
 }
 ```
 
