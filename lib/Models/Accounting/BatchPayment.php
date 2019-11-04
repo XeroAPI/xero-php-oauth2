@@ -233,8 +233,23 @@ class BatchPayment implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const TYPE_PAYBATCH = 'PAYBATCH';
+    const TYPE_RECBATCH = 'RECBATCH';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_PAYBATCH,
+            self::TYPE_RECBATCH,
+        ];
+    }
     
 
     /**
@@ -297,6 +312,14 @@ class BatchPayment implements ModelInterface, ArrayAccess
 
         if (!is_null($this->container['narrative']) && (mb_strlen($this->container['narrative']) > 18)) {
             $invalidProperties[] = "invalid value for 'narrative', the character length must be smaller than or equal to 18.";
+        }
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
 
         return $invalidProperties;
@@ -617,6 +640,15 @@ class BatchPayment implements ModelInterface, ArrayAccess
      */
     public function setType($type)
     {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['type'] = $type;
 
         return $this;

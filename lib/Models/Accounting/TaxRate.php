@@ -216,6 +216,7 @@ class TaxRate implements ModelInterface, ArrayAccess
     const STATUS_ACTIVE = 'ACTIVE';
     const STATUS_DELETED = 'DELETED';
     const STATUS_ARCHIVED = 'ARCHIVED';
+    const STATUS_PENDING = 'PENDING';
     const REPORT_TAX_TYPE_AVALARA = 'AVALARA';
     const REPORT_TAX_TYPE_BASEXCLUDED = 'BASEXCLUDED';
     const REPORT_TAX_TYPE_CAPITALSALESOUTPUT = 'CAPITALSALESOUTPUT';
@@ -262,6 +263,7 @@ class TaxRate implements ModelInterface, ArrayAccess
             self::STATUS_ACTIVE,
             self::STATUS_DELETED,
             self::STATUS_ARCHIVED,
+            self::STATUS_PENDING,
         ];
     }
     
