@@ -41,15 +41,18 @@ Follow these steps to create your Xero app
 ## Installation & Usage
 ### Composer
 
-To install the bindings via [Composer](http://getcomposer.org/), add the following to `composer.json`:
 
+To install the bindings via [Composer](http://getcomposer.org/), and add to your `composer.json`:
+
+Navigate to where your composer.json file is and run the command
 ```
-"require": {
-    "xeroapi/xero-php-oauth2": "0.2.7"
-}
+composer require xeroapi/xero-php-oauth2
 ```
 
-Then run `composer install`
+If no `composer.json` file exists, create one by running the following command. You'll need [Composer](http://getcomposer.org/) installed.
+```
+composer init
+```
 
 ### Manual Installation
 
