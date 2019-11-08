@@ -10,7 +10,7 @@ Method | HTTP request | Description
 # **getConnections**
 > \XeroAPI\XeroPHP\Models\Identity\Connection[] getConnections()
 
-Allows you to retrieve the connections for this users
+Allows you to retrieve the connections for user
 
 Override the base server url that include version
 
@@ -19,10 +19,17 @@ Override the base server url that include version
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+$accessToken = '';
+
+$config = \XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( (string)$accessToken );
+
+$config->setHost('https://api.xero.com');
+
 $apiInstance = new XeroAPI\XeroPHP\Api\IdentityApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new \GuzzleHttp\Client(),
+	$config
 );
 
 try {
