@@ -63,8 +63,8 @@ class ReportWithRow implements ModelInterface, ArrayAccess
         'report_type' => 'string',
         'report_titles' => 'string[]',
         'report_date' => 'string',
-        'updated_date_utc' => '\DateTime',
         'rows' => '\XeroAPI\XeroPHP\Models\Accounting\ReportRows[]',
+        'updated_date_utc' => '\DateTime',
         'fields' => '\XeroAPI\XeroPHP\Models\Accounting\ReportFields[]'
     ];
 
@@ -80,8 +80,8 @@ class ReportWithRow implements ModelInterface, ArrayAccess
         'report_type' => null,
         'report_titles' => null,
         'report_date' => null,
-        'updated_date_utc' => 'date-time',
         'rows' => null,
+        'updated_date_utc' => 'date-time',
         'fields' => null
     ];
 
@@ -118,8 +118,8 @@ class ReportWithRow implements ModelInterface, ArrayAccess
         'report_type' => 'ReportType',
         'report_titles' => 'ReportTitles',
         'report_date' => 'ReportDate',
-        'updated_date_utc' => 'UpdatedDateUTC',
         'rows' => 'Rows',
+        'updated_date_utc' => 'UpdatedDateUTC',
         'fields' => 'Fields'
     ];
 
@@ -135,8 +135,8 @@ class ReportWithRow implements ModelInterface, ArrayAccess
         'report_type' => 'setReportType',
         'report_titles' => 'setReportTitles',
         'report_date' => 'setReportDate',
-        'updated_date_utc' => 'setUpdatedDateUtc',
         'rows' => 'setRows',
+        'updated_date_utc' => 'setUpdatedDateUtc',
         'fields' => 'setFields'
     ];
 
@@ -152,8 +152,8 @@ class ReportWithRow implements ModelInterface, ArrayAccess
         'report_type' => 'getReportType',
         'report_titles' => 'getReportTitles',
         'report_date' => 'getReportDate',
-        'updated_date_utc' => 'getUpdatedDateUtc',
         'rows' => 'getRows',
+        'updated_date_utc' => 'getUpdatedDateUtc',
         'fields' => 'getFields'
     ];
 
@@ -223,8 +223,8 @@ class ReportWithRow implements ModelInterface, ArrayAccess
         $this->container['report_type'] = isset($data['report_type']) ? $data['report_type'] : null;
         $this->container['report_titles'] = isset($data['report_titles']) ? $data['report_titles'] : null;
         $this->container['report_date'] = isset($data['report_date']) ? $data['report_date'] : null;
-        $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
         $this->container['rows'] = isset($data['rows']) ? $data['rows'] : null;
+        $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
         $this->container['fields'] = isset($data['fields']) ? $data['fields'] : null;
     }
 
@@ -397,30 +397,6 @@ class ReportWithRow implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets updated_date_utc
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedDateUtc()
-    {
-        return $this->container['updated_date_utc'];
-    }
-
-    /**
-     * Sets updated_date_utc
-     *
-     * @param \DateTime|null $updated_date_utc Updated Date
-     *
-     * @return $this
-     */
-    public function setUpdatedDateUtc($updated_date_utc)
-    {
-        $this->container['updated_date_utc'] = $updated_date_utc;
-
-        return $this;
-    }
-
-    /**
      * Gets rows
      *
      * @return \XeroAPI\XeroPHP\Models\Accounting\ReportRows[]|null
@@ -440,6 +416,30 @@ class ReportWithRow implements ModelInterface, ArrayAccess
     public function setRows($rows)
     {
         $this->container['rows'] = $rows;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_date_utc
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdatedDateUtc()
+    {
+        return $this->container['updated_date_utc'];
+    }
+
+    /**
+     * Sets updated_date_utc
+     *
+     * @param \DateTime|null $updated_date_utc Updated Date
+     *
+     * @return $this
+     */
+    public function setUpdatedDateUtc($updated_date_utc)
+    {
+        $this->container['updated_date_utc'] = $updated_date_utc;
 
         return $this;
     }

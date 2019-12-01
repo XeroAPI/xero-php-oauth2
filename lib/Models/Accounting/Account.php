@@ -75,6 +75,7 @@ class Account implements ModelInterface, ArrayAccess
         'reporting_code_name' => 'string',
         'has_attachments' => 'bool',
         'updated_date_utc' => '\DateTime',
+        'add_to_watchlist' => 'bool',
         'validation_errors' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]'
     ];
 
@@ -102,6 +103,7 @@ class Account implements ModelInterface, ArrayAccess
         'reporting_code_name' => null,
         'has_attachments' => null,
         'updated_date_utc' => 'date-time',
+        'add_to_watchlist' => null,
         'validation_errors' => null
     ];
 
@@ -150,6 +152,7 @@ class Account implements ModelInterface, ArrayAccess
         'reporting_code_name' => 'ReportingCodeName',
         'has_attachments' => 'HasAttachments',
         'updated_date_utc' => 'UpdatedDateUTC',
+        'add_to_watchlist' => 'AddToWatchlist',
         'validation_errors' => 'ValidationErrors'
     ];
 
@@ -177,6 +180,7 @@ class Account implements ModelInterface, ArrayAccess
         'reporting_code_name' => 'setReportingCodeName',
         'has_attachments' => 'setHasAttachments',
         'updated_date_utc' => 'setUpdatedDateUtc',
+        'add_to_watchlist' => 'setAddToWatchlist',
         'validation_errors' => 'setValidationErrors'
     ];
 
@@ -204,6 +208,7 @@ class Account implements ModelInterface, ArrayAccess
         'reporting_code_name' => 'getReportingCodeName',
         'has_attachments' => 'getHasAttachments',
         'updated_date_utc' => 'getUpdatedDateUtc',
+        'add_to_watchlist' => 'getAddToWatchlist',
         'validation_errors' => 'getValidationErrors'
     ];
 
@@ -383,6 +388,7 @@ class Account implements ModelInterface, ArrayAccess
         $this->container['reporting_code_name'] = isset($data['reporting_code_name']) ? $data['reporting_code_name'] : null;
         $this->container['has_attachments'] = isset($data['has_attachments']) ? $data['has_attachments'] : null;
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
+        $this->container['add_to_watchlist'] = isset($data['add_to_watchlist']) ? $data['add_to_watchlist'] : null;
         $this->container['validation_errors'] = isset($data['validation_errors']) ? $data['validation_errors'] : null;
     }
 
@@ -922,6 +928,30 @@ class Account implements ModelInterface, ArrayAccess
     public function setUpdatedDateUtc($updated_date_utc)
     {
         $this->container['updated_date_utc'] = $updated_date_utc;
+
+        return $this;
+    }
+
+    /**
+     * Gets add_to_watchlist
+     *
+     * @return bool|null
+     */
+    public function getAddToWatchlist()
+    {
+        return $this->container['add_to_watchlist'];
+    }
+
+    /**
+     * Sets add_to_watchlist
+     *
+     * @param bool|null $add_to_watchlist Boolean – describes whether the account is shown in the watchlist widget on the dashboard
+     *
+     * @return $this
+     */
+    public function setAddToWatchlist($add_to_watchlist)
+    {
+        $this->container['add_to_watchlist'] = $add_to_watchlist;
 
         return $this;
     }

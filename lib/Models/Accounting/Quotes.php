@@ -1,6 +1,6 @@
 <?php
 /**
- * BrandingTheme
+ * Quotes
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \XeroAPI\XeroPHP\AccountingObjectSerializer;
 
 /**
- * BrandingTheme Class Doc Comment
+ * Quotes Class Doc Comment
  *
  * @category Class
  * @package  XeroAPI\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class BrandingTheme implements ModelInterface, ArrayAccess
+class Quotes implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class BrandingTheme implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BrandingTheme';
+    protected static $openAPIModelName = 'Quotes';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +57,7 @@ class BrandingTheme implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'branding_theme_id' => 'string',
-        'name' => 'string',
-        'logo_url' => 'string',
-        'type' => 'string',
-        'sort_order' => 'int',
-        'created_date_utc' => '\DateTime'
+        'quotes' => '\XeroAPI\XeroPHP\Models\Accounting\Quote[]'
     ];
 
     /**
@@ -71,12 +66,7 @@ class BrandingTheme implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'branding_theme_id' => 'uuid',
-        'name' => null,
-        'logo_url' => null,
-        'type' => null,
-        'sort_order' => null,
-        'created_date_utc' => 'date-time'
+        'quotes' => null
     ];
 
     /**
@@ -106,12 +96,7 @@ class BrandingTheme implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'branding_theme_id' => 'BrandingThemeID',
-        'name' => 'Name',
-        'logo_url' => 'LogoUrl',
-        'type' => 'Type',
-        'sort_order' => 'SortOrder',
-        'created_date_utc' => 'CreatedDateUTC'
+        'quotes' => 'Quotes'
     ];
 
     /**
@@ -120,12 +105,7 @@ class BrandingTheme implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'branding_theme_id' => 'setBrandingThemeId',
-        'name' => 'setName',
-        'logo_url' => 'setLogoUrl',
-        'type' => 'setType',
-        'sort_order' => 'setSortOrder',
-        'created_date_utc' => 'setCreatedDateUtc'
+        'quotes' => 'setQuotes'
     ];
 
     /**
@@ -134,12 +114,7 @@ class BrandingTheme implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'branding_theme_id' => 'getBrandingThemeId',
-        'name' => 'getName',
-        'logo_url' => 'getLogoUrl',
-        'type' => 'getType',
-        'sort_order' => 'getSortOrder',
-        'created_date_utc' => 'getCreatedDateUtc'
+        'quotes' => 'getQuotes'
     ];
 
     /**
@@ -183,21 +158,8 @@ class BrandingTheme implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const TYPE_INVOICE = 'INVOICE';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_INVOICE,
-        ];
-    }
     
 
     /**
@@ -215,12 +177,7 @@ class BrandingTheme implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['branding_theme_id'] = isset($data['branding_theme_id']) ? $data['branding_theme_id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['logo_url'] = isset($data['logo_url']) ? $data['logo_url'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['sort_order'] = isset($data['sort_order']) ? $data['sort_order'] : null;
-        $this->container['created_date_utc'] = isset($data['created_date_utc']) ? $data['created_date_utc'] : null;
+        $this->container['quotes'] = isset($data['quotes']) ? $data['quotes'] : null;
     }
 
     /**
@@ -231,14 +188,6 @@ class BrandingTheme implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -256,154 +205,25 @@ class BrandingTheme implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets branding_theme_id
+     * Gets quotes
      *
-     * @return string|null
+     * @return \XeroAPI\XeroPHP\Models\Accounting\Quote[]|null
      */
-    public function getBrandingThemeId()
+    public function getQuotes()
     {
-        return $this->container['branding_theme_id'];
+        return $this->container['quotes'];
     }
 
     /**
-     * Sets branding_theme_id
+     * Sets quotes
      *
-     * @param string|null $branding_theme_id Xero identifier
+     * @param \XeroAPI\XeroPHP\Models\Accounting\Quote[]|null $quotes quotes
      *
      * @return $this
      */
-    public function setBrandingThemeId($branding_theme_id)
+    public function setQuotes($quotes)
     {
-        $this->container['branding_theme_id'] = $branding_theme_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name Name of branding theme
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets logo_url
-     *
-     * @return string|null
-     */
-    public function getLogoUrl()
-    {
-        return $this->container['logo_url'];
-    }
-
-    /**
-     * Sets logo_url
-     *
-     * @param string|null $logo_url The location of the image file used as the logo on this branding theme
-     *
-     * @return $this
-     */
-    public function setLogoUrl($logo_url)
-    {
-        $this->container['logo_url'] = $logo_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type Always INVOICE
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets sort_order
-     *
-     * @return int|null
-     */
-    public function getSortOrder()
-    {
-        return $this->container['sort_order'];
-    }
-
-    /**
-     * Sets sort_order
-     *
-     * @param int|null $sort_order Integer – ranked order of branding theme. The default branding theme has a value of 0
-     *
-     * @return $this
-     */
-    public function setSortOrder($sort_order)
-    {
-        $this->container['sort_order'] = $sort_order;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_date_utc
-     *
-     * @return \DateTime|null
-     */
-    public function getCreatedDateUtc()
-    {
-        return $this->container['created_date_utc'];
-    }
-
-    /**
-     * Sets created_date_utc
-     *
-     * @param \DateTime|null $created_date_utc UTC timestamp of creation date of branding theme
-     *
-     * @return $this
-     */
-    public function setCreatedDateUtc($created_date_utc)
-    {
-        $this->container['created_date_utc'] = $created_date_utc;
+        $this->container['quotes'] = $quotes;
 
         return $this;
     }

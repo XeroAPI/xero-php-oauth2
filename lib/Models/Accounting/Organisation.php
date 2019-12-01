@@ -323,6 +323,7 @@ class Organisation implements ModelInterface, ArrayAccess
     const VERSION_GLOBALONRAMP = 'GLOBALONRAMP';
     const VERSION_UKONRAMP = 'UKONRAMP';
     const VERSION_USONRAMP = 'USONRAMP';
+    const ORGANISATION_TYPE_ACCOUNTING_PRACTICE = 'ACCOUNTING_PRACTICE';
     const ORGANISATION_TYPE_COMPANY = 'COMPANY';
     const ORGANISATION_TYPE_CHARITY = 'CHARITY';
     const ORGANISATION_TYPE_CLUB_OR_SOCIETY = 'CLUB_OR_SOCIETY';
@@ -356,6 +357,7 @@ class Organisation implements ModelInterface, ArrayAccess
     const SALES_TAX_PERIOD__6_MONTHLY = '6MONTHLY';
     const SALES_TAX_PERIOD_QUARTERLY = 'QUARTERLY';
     const SALES_TAX_PERIOD_YEARLY = 'YEARLY';
+    const ORGANISATION_ENTITY_TYPE_ACCOUNTING_PRACTICE = 'ACCOUNTING_PRACTICE';
     const ORGANISATION_ENTITY_TYPE_COMPANY = 'COMPANY';
     const ORGANISATION_ENTITY_TYPE_CHARITY = 'CHARITY';
     const ORGANISATION_ENTITY_TYPE_CLUB_OR_SOCIETY = 'CLUB_OR_SOCIETY';
@@ -412,6 +414,7 @@ class Organisation implements ModelInterface, ArrayAccess
     public function getOrganisationTypeAllowableValues()
     {
         return [
+            self::ORGANISATION_TYPE_ACCOUNTING_PRACTICE,
             self::ORGANISATION_TYPE_COMPANY,
             self::ORGANISATION_TYPE_CHARITY,
             self::ORGANISATION_TYPE_CLUB_OR_SOCIETY,
@@ -478,6 +481,7 @@ class Organisation implements ModelInterface, ArrayAccess
     public function getOrganisationEntityTypeAllowableValues()
     {
         return [
+            self::ORGANISATION_ENTITY_TYPE_ACCOUNTING_PRACTICE,
             self::ORGANISATION_ENTITY_TYPE_COMPANY,
             self::ORGANISATION_ENTITY_TYPE_CHARITY,
             self::ORGANISATION_ENTITY_TYPE_CLUB_OR_SOCIETY,
