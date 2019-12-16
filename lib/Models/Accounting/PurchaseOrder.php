@@ -831,7 +831,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Sets currency_rate
      *
-     * @param double|null $currency_rate The currency rate for a multicurrency purchase order. As no rate can  be specified, the XE.com day rate is used.
+     * @param double|null $currency_rate The currency rate for a multicurrency purchase order. If no rate is specified, the XE.com day rate is used.
      *
      * @return $this
      */

@@ -4,10 +4,10 @@
 
 This release only supports oAuth2 authentication and the following API sets.
 * accounting
+* bank feeds 
 
 Coming soon
 * fixed asset 
-* bank feeds 
 * files 
 * payroll
 * projects
@@ -20,7 +20,6 @@ All third party libraries dependencies managed with Composer.
 ## Requirements
 
 PHP 5.5 and later
-
 
 ## Getting Started
 
@@ -157,6 +156,11 @@ Below is a barebones example of the oAuth 2 flow.  You can copy/paste the 4 file
       ]);
            
       $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( (string)$accessToken->getToken() );
+
+      // Decode JWT
+      $jwt = new XeroAPI\XeroPHP\JWTClaims($accessToken->getValues()["id_token"]);
+      $jwt->decode();
+      echo $jwt->getGivenName();
           
       $config->setHost("https://api.xero.com"); 
       $identityInstance = new XeroAPI\XeroPHP\Api\IdentityApi(
@@ -171,7 +175,8 @@ Below is a barebones example of the oAuth 2 flow.  You can copy/paste the 4 file
           $accessToken->getToken(),
           $accessToken->getExpires(),
           $result[0]->getTenantId(),  
-          $accessToken->getRefreshToken()
+          $accessToken->getRefreshToken(),
+          $accessToken->getValues()["id_token"]
       );
    
       header('Location: ' . './authorizedResource.php');
@@ -191,81 +196,87 @@ Below is a barebones example of the oAuth 2 flow.  You can copy/paste the 4 file
 <?php
 class StorageClass
 {
-  function __construct() {
-    if( !isset($_SESSION) ){
-          $this->init_session();
-      }
-    }
+	function __construct() {
+		if( !isset($_SESSION) ){
+        	$this->init_session();
+    	}
+   	}
 
-    public function init_session(){
-      session_start();
-  }
+   	public function init_session(){
+    	session_start();
+	}
 
     public function getSession() {
-      return $_SESSION['oauth2'];
+    	return $_SESSION['oauth2'];
     }
 
-  public function startSession($token, $secret, $expires = null)
-  {
-        session_start();
-  }
+ 	public function startSession($token, $secret, $expires = null)
+	{
+       	session_start();
+	}
 
-  public function setToken($token, $expires = null, $tenantId, $refreshToken)
-  {    
-      $_SESSION['oauth2'] = [
-          'token' => $token,
-          'expires' => $expires,
-          'tenant_id' => $tenantId,
-          'refresh_token' => $refreshToken
-      ];
-  }
+	public function setToken($token, $expires = null, $tenantId, $refreshToken, $idToken)
+	{    
+	    $_SESSION['oauth2'] = [
+	        'token' => $token,
+	        'expires' => $expires,
+	        'tenant_id' => $tenantId,
+	        'refresh_token' => $refreshToken,
+	        'id_token' => $idToken
+	    ];
+	}
 
-  public function getToken()
-  {
-      //If it doesn't exist or is expired, return null
-      if (!empty($this->getSession())
-          || ($_SESSION['oauth2']['expires'] !== null
-          && $_SESSION['oauth2']['expires'] <= time())
-      ) {
-          return null;
-      }
-      return $this->getSession();
-  }
+	public function getToken()
+	{
+	    //If it doesn't exist or is expired, return null
+	    if (!empty($this->getSession())
+	        || ($_SESSION['oauth2']['expires'] !== null
+	        && $_SESSION['oauth2']['expires'] <= time())
+	    ) {
+	        return null;
+	    }
+	    return $this->getSession();
+	}
 
-  public function getAccessToken()
-  {
-      return $_SESSION['oauth2']['token'];
-  }
+	public function getAccessToken()
+	{
+	    return $_SESSION['oauth2']['token'];
+	}
 
-  public function getRefreshToken()
-  {
-      return $_SESSION['oauth2']['refresh_token'];
-  }
+	public function getRefreshToken()
+	{
+	    return $_SESSION['oauth2']['refresh_token'];
+	}
 
-  public function getExpires()
-  {
-      return $_SESSION['oauth2']['expires'];
-  }
+	public function getExpires()
+	{
+	    return $_SESSION['oauth2']['expires'];
+	}
 
-  public function getXeroTenantId()
-  {
-      return $_SESSION['oauth2']['tenant_id'];
-  }
+	public function getXeroTenantId()
+	{
+	    return $_SESSION['oauth2']['tenant_id'];
+	}
 
-  public function getHasExpired()
-  {
-    if (!empty($this->getSession())) 
-    {
-      if(time() > $this->getExpires())
-      {
-        return true;
-      } else {
-        return false;
-      }
-    } else {
-      return true;
-    }
-  }
+	public function getIdToken()
+	{
+	    return $_SESSION['oauth2']['id_token'];
+	}
+
+	public function getHasExpired()
+	{
+		if (!empty($this->getSession())) 
+		{
+			if(time() > $this->getExpires())
+			{
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return true;
+		}
+	}
 }
 ?>
 ```

@@ -271,6 +271,7 @@ class IdentityObjectSerializer
             if (!empty($data)) {
                 
                 // CUSTOM Date Deserializer to allow for Xero's use of .NET JSON Date format
+                /*
                 $match = preg_match( '/([\d]{13})/', $data, $date );
                 $timestamp = $date[1]/1000;
                 
@@ -280,24 +281,8 @@ class IdentityObjectSerializer
                 $result = $datetime->format('Y-m-d H:i:s');
                     
                 return $result;
-                /* OLD matching
-                $match = preg_match('/\/Date\((\d+)([-+])(\d+)\)\//', $data, $date);
-
-                $timestamp = $date[1]/1000;
-                $operator = $date[2];
-                $hours = $date[3]*36; // Get the seconds
-
-                $datetime = new \DateTime();
-
-                $datetime->setTimestamp($timestamp);
-                $datetime->modify($operator . $hours . ' seconds');
-                //var_dump($datetime->format('Y-m-d H:i:s'));
-
-                $result = $datetime->format('Y-m-d H:i:s');
-                    
-                return $result;
                 */
-                //return new \DateTime($data);
+                return new \DateTime($data);
             } else {
                 return null;
             }
