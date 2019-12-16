@@ -59,7 +59,9 @@ class Connection implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'string',
         'tenant_id' => 'string',
-        'tenant_type' => 'string'
+        'tenant_type' => 'string',
+        'created_date_utc' => '\DateTime',
+        'updated_date_utc' => '\DateTime'
     ];
 
     /**
@@ -70,7 +72,9 @@ class Connection implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => 'uuid',
         'tenant_id' => 'uuid',
-        'tenant_type' => null
+        'tenant_type' => null,
+        'created_date_utc' => 'date-time',
+        'updated_date_utc' => 'date-time'
     ];
 
     /**
@@ -102,7 +106,9 @@ class Connection implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'tenant_id' => 'tenantId',
-        'tenant_type' => 'tenantType'
+        'tenant_type' => 'tenantType',
+        'created_date_utc' => 'createdDateUTC',
+        'updated_date_utc' => 'updatedDateUtc'
     ];
 
     /**
@@ -113,7 +119,9 @@ class Connection implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'tenant_id' => 'setTenantId',
-        'tenant_type' => 'setTenantType'
+        'tenant_type' => 'setTenantType',
+        'created_date_utc' => 'setCreatedDateUtc',
+        'updated_date_utc' => 'setUpdatedDateUtc'
     ];
 
     /**
@@ -124,7 +132,9 @@ class Connection implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'tenant_id' => 'getTenantId',
-        'tenant_type' => 'getTenantType'
+        'tenant_type' => 'getTenantType',
+        'created_date_utc' => 'getCreatedDateUtc',
+        'updated_date_utc' => 'getUpdatedDateUtc'
     ];
 
     /**
@@ -190,6 +200,8 @@ class Connection implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['tenant_id'] = isset($data['tenant_id']) ? $data['tenant_id'] : null;
         $this->container['tenant_type'] = isset($data['tenant_type']) ? $data['tenant_type'] : null;
+        $this->container['created_date_utc'] = isset($data['created_date_utc']) ? $data['created_date_utc'] : null;
+        $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
     }
 
     /**
@@ -284,6 +296,54 @@ class Connection implements ModelInterface, ArrayAccess
     public function setTenantType($tenant_type)
     {
         $this->container['tenant_type'] = $tenant_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_date_utc
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedDateUtc()
+    {
+        return $this->container['created_date_utc'];
+    }
+
+    /**
+     * Sets created_date_utc
+     *
+     * @param \DateTime|null $created_date_utc The date when the user connected this tenant to your app
+     *
+     * @return $this
+     */
+    public function setCreatedDateUtc($created_date_utc)
+    {
+        $this->container['created_date_utc'] = $created_date_utc;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_date_utc
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdatedDateUtc()
+    {
+        return $this->container['updated_date_utc'];
+    }
+
+    /**
+     * Sets updated_date_utc
+     *
+     * @param \DateTime|null $updated_date_utc The date when the user most recently connected this tenant to your app. May differ to the created date if the user has disconnected and subsequently reconnected this tenant to your app.
+     *
+     * @return $this
+     */
+    public function setUpdatedDateUtc($updated_date_utc)
+    {
+        $this->container['updated_date_utc'] = $updated_date_utc;
 
         return $this;
     }

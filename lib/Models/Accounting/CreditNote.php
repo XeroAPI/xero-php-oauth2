@@ -79,6 +79,7 @@ class CreditNote implements ModelInterface, ArrayAccess
         'payments' => '\XeroAPI\XeroPHP\Models\Accounting\Payment[]',
         'branding_theme_id' => 'string',
         'has_attachments' => 'bool',
+        'has_errors' => 'bool',
         'validation_errors' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]'
     ];
 
@@ -110,6 +111,7 @@ class CreditNote implements ModelInterface, ArrayAccess
         'payments' => null,
         'branding_theme_id' => 'uuid',
         'has_attachments' => null,
+        'has_errors' => null,
         'validation_errors' => null
     ];
 
@@ -162,6 +164,7 @@ class CreditNote implements ModelInterface, ArrayAccess
         'payments' => 'Payments',
         'branding_theme_id' => 'BrandingThemeID',
         'has_attachments' => 'HasAttachments',
+        'has_errors' => 'HasErrors',
         'validation_errors' => 'ValidationErrors'
     ];
 
@@ -193,6 +196,7 @@ class CreditNote implements ModelInterface, ArrayAccess
         'payments' => 'setPayments',
         'branding_theme_id' => 'setBrandingThemeId',
         'has_attachments' => 'setHasAttachments',
+        'has_errors' => 'setHasErrors',
         'validation_errors' => 'setValidationErrors'
     ];
 
@@ -224,6 +228,7 @@ class CreditNote implements ModelInterface, ArrayAccess
         'payments' => 'getPayments',
         'branding_theme_id' => 'getBrandingThemeId',
         'has_attachments' => 'getHasAttachments',
+        'has_errors' => 'getHasErrors',
         'validation_errors' => 'getValidationErrors'
     ];
 
@@ -347,6 +352,7 @@ class CreditNote implements ModelInterface, ArrayAccess
         $this->container['payments'] = isset($data['payments']) ? $data['payments'] : null;
         $this->container['branding_theme_id'] = isset($data['branding_theme_id']) ? $data['branding_theme_id'] : null;
         $this->container['has_attachments'] = isset($data['has_attachments']) ? $data['has_attachments'] : null;
+        $this->container['has_errors'] = isset($data['has_errors']) ? $data['has_errors'] : null;
         $this->container['validation_errors'] = isset($data['validation_errors']) ? $data['validation_errors'] : null;
     }
 
@@ -932,6 +938,30 @@ class CreditNote implements ModelInterface, ArrayAccess
     public function setHasAttachments($has_attachments)
     {
         $this->container['has_attachments'] = $has_attachments;
+
+        return $this;
+    }
+
+    /**
+     * Gets has_errors
+     *
+     * @return bool|null
+     */
+    public function getHasErrors()
+    {
+        return $this->container['has_errors'];
+    }
+
+    /**
+     * Sets has_errors
+     *
+     * @param bool|null $has_errors A boolean to indicate if a credit note has an validation errors
+     *
+     * @return $this
+     */
+    public function setHasErrors($has_errors)
+    {
+        $this->container['has_errors'] = $has_errors;
 
         return $this;
     }
