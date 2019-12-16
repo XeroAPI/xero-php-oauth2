@@ -4,9 +4,9 @@
 
 This release only supports oAuth2 authentication and the following API sets.
 * accounting
-* bank feeds 
 
 Coming soon
+* bank feeds 
 * fixed asset 
 * files 
 * payroll
@@ -58,7 +58,7 @@ composer init
 Download the files and include `autoload.php`:
 
 ```php
-    require_once('/path/to/xeroapi/autoload.php');
+require_once('/path/to/xeroapi/autoload.php');
 ```
 
 ## How to use the xero-php-oauth2 SDK
@@ -160,7 +160,6 @@ Below is a barebones example of the oAuth 2 flow.  You can copy/paste the 4 file
       // Decode JWT
       $jwt = new XeroAPI\XeroPHP\JWTClaims($accessToken->getValues()["id_token"]);
       $jwt->decode();
-      echo $jwt->getGivenName();
           
       $config->setHost("https://api.xero.com"); 
       $identityInstance = new XeroAPI\XeroPHP\Api\IdentityApi(
@@ -329,6 +328,28 @@ class StorageClass
   var_dump($apiResponse);
   
 ?>
+```
+
+## JWT decoding and Signup with Xero
+
+Looking to implement [Signup with Xero](https://developer.xero.com/documentation/oauth2/sign-in)? We've added built in decoding of the ID token to xero-php-oauth2.
+
+```php
+  // Decode JWT
+  $jwt = new XeroAPI\XeroPHP\JWTClaims($accessToken->getValues()["id_token"]);
+  $jwt->decode();
+
+ $sub​ = $jwt->getSub();
+  $iss = $jwt->getIss();
+  $aud = $jwt->getAud();
+  $exp = $jwt->getExp();
+  $iat = $jwt->getIat();
+  $given_name = $jwt->getGivenName();
+  $family_name =  $jwt->getFamilyName();
+  $email = $jwt->getEmail();
+  $user_id = $jwt->getXeroUserId();
+  $username = $jwt->getPreferredUsername();
+  $session_id = $jwt->getGlobalSessionId();
 ```
 
 
