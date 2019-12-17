@@ -11,23 +11,23 @@ Method | HTTP request | Description
 [**createBankTransactionHistoryRecord**](AccountingApi.md#createBankTransactionHistoryRecord) | **PUT** /BankTransactions/{BankTransactionID}/History | Allows you to create history record for a bank transactions
 [**createBankTransactions**](AccountingApi.md#createBankTransactions) | **PUT** /BankTransactions#bulk | Allows you to create a spend or receive money transaction
 [**createBankTransfer**](AccountingApi.md#createBankTransfer) | **PUT** /BankTransfers | Allows you to create a bank transfers
-[**createBankTransferAttachmentByFileName**](AccountingApi.md#createBankTransferAttachmentByFileName) | **PUT** /BankTransfers/{BankTransferID}/Attachments/{FileName} | 
-[**createBankTransferHistoryRecord**](AccountingApi.md#createBankTransferHistoryRecord) | **PUT** /BankTransfers/{BankTransferID}/History | 
+[**createBankTransferAttachmentByFileName**](AccountingApi.md#createBankTransferAttachmentByFileName) | **PUT** /BankTransfers/{BankTransferID}/Attachments/{FileName} |
+[**createBankTransferHistoryRecord**](AccountingApi.md#createBankTransferHistoryRecord) | **PUT** /BankTransfers/{BankTransferID}/History |
 [**createBatchPayment**](AccountingApi.md#createBatchPayment) | **PUT** /BatchPayments | Create one or many BatchPayments for invoices
 [**createBatchPaymentHistoryRecord**](AccountingApi.md#createBatchPaymentHistoryRecord) | **PUT** /BatchPayments/{BatchPaymentID}/History | Allows you to create a history record for a Batch Payment
 [**createBrandingThemePaymentServices**](AccountingApi.md#createBrandingThemePaymentServices) | **POST** /BrandingThemes/{BrandingThemeID}/PaymentServices | Allow for the creation of new custom payment service for specified Branding Theme
-[**createContact**](AccountingApi.md#createContact) | **PUT** /Contacts | 
-[**createContactAttachmentByFileName**](AccountingApi.md#createContactAttachmentByFileName) | **PUT** /Contacts/{ContactID}/Attachments/{FileName} | 
+[**createContact**](AccountingApi.md#createContact) | **PUT** /Contacts |
+[**createContactAttachmentByFileName**](AccountingApi.md#createContactAttachmentByFileName) | **PUT** /Contacts/{ContactID}/Attachments/{FileName} |
 [**createContactGroup**](AccountingApi.md#createContactGroup) | **PUT** /ContactGroups | Allows you to create a contact group
 [**createContactGroupContacts**](AccountingApi.md#createContactGroupContacts) | **PUT** /ContactGroups/{ContactGroupID}/Contacts | Allows you to add Contacts to a Contract Group
 [**createContactHistory**](AccountingApi.md#createContactHistory) | **PUT** /Contacts/{ContactID}/History | Allows you to retrieve a history records of an Contact
-[**createContacts**](AccountingApi.md#createContacts) | **PUT** /Contacts#bulk | 
+[**createContacts**](AccountingApi.md#createContacts) | **PUT** /Contacts#bulk |
 [**createCreditNote**](AccountingApi.md#createCreditNote) | **PUT** /CreditNotes | Allows you to create a credit note
 [**createCreditNoteAllocation**](AccountingApi.md#createCreditNoteAllocation) | **PUT** /CreditNotes/{CreditNoteID}/Allocations | Allows you to create Allocation on CreditNote
 [**createCreditNoteAttachmentByFileName**](AccountingApi.md#createCreditNoteAttachmentByFileName) | **PUT** /CreditNotes/{CreditNoteID}/Attachments/{FileName} | Allows you to create Attachments on CreditNote by file name
 [**createCreditNoteHistory**](AccountingApi.md#createCreditNoteHistory) | **PUT** /CreditNotes/{CreditNoteID}/History | Allows you to retrieve a history records of an CreditNote
 [**createCreditNotes**](AccountingApi.md#createCreditNotes) | **PUT** /CreditNotes#bulk | Allows you to create a credit note
-[**createCurrency**](AccountingApi.md#createCurrency) | **PUT** /Currencies | 
+[**createCurrency**](AccountingApi.md#createCurrency) | **PUT** /Currencies |
 [**createEmployee**](AccountingApi.md#createEmployee) | **PUT** /Employees | Allows you to create new employees used in Xero payrun
 [**createEmployees**](AccountingApi.md#createEmployees) | **PUT** /Employees#bulk | Allows you to create new employees used in Xero payrun
 [**createExpenseClaimHistory**](AccountingApi.md#createExpenseClaimHistory) | **PUT** /ExpenseClaims/{ExpenseClaimID}/History | Allows you to create a history records of an ExpenseClaim
@@ -188,9 +188,9 @@ Method | HTTP request | Description
 [**updateAccountAttachmentByFileName**](AccountingApi.md#updateAccountAttachmentByFileName) | **POST** /Accounts/{AccountID}/Attachments/{FileName} | Allows you to update Attachment on Account by Filename
 [**updateBankTransaction**](AccountingApi.md#updateBankTransaction) | **POST** /BankTransactions/{BankTransactionID} | Allows you to update a single spend or receive money transaction
 [**updateBankTransactionAttachmentByFileName**](AccountingApi.md#updateBankTransactionAttachmentByFileName) | **POST** /BankTransactions/{BankTransactionID}/Attachments/{FileName} | Allows you to update an Attachment on BankTransaction by Filename
-[**updateBankTransferAttachmentByFileName**](AccountingApi.md#updateBankTransferAttachmentByFileName) | **POST** /BankTransfers/{BankTransferID}/Attachments/{FileName} | 
-[**updateContact**](AccountingApi.md#updateContact) | **POST** /Contacts/{ContactID} | 
-[**updateContactAttachmentByFileName**](AccountingApi.md#updateContactAttachmentByFileName) | **POST** /Contacts/{ContactID}/Attachments/{FileName} | 
+[**updateBankTransferAttachmentByFileName**](AccountingApi.md#updateBankTransferAttachmentByFileName) | **POST** /BankTransfers/{BankTransferID}/Attachments/{FileName} |
+[**updateContact**](AccountingApi.md#updateContact) | **POST** /Contacts/{ContactID} |
+[**updateContactAttachmentByFileName**](AccountingApi.md#updateContactAttachmentByFileName) | **POST** /Contacts/{ContactID}/Attachments/{FileName} |
 [**updateContactGroup**](AccountingApi.md#updateContactGroup) | **POST** /ContactGroups/{ContactGroupID} | Allows you to update a Contract Group
 [**updateCreditNote**](AccountingApi.md#updateCreditNote) | **POST** /CreditNotes/{CreditNoteID} | Allows you to update a specific credit note
 [**updateCreditNoteAttachmentByFileName**](AccountingApi.md#updateCreditNoteAttachmentByFileName) | **POST** /CreditNotes/{CreditNoteID}/Attachments/{FileName} | Allows you to update Attachments on CreditNote by file name
@@ -341,7 +341,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transaction = { "BankTransactions":[ { "Type":"SPEND", "Contact":{ "ContactID":"5cc8cf28-567e-4d43-b287-687cfcaec47c" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"400" } ], "BankAccount":{ "Code":"088" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransaction | 
+$bank_transaction = { "BankTransactions":[ { "Type":"SPEND", "Contact":{ "ContactID":"5cc8cf28-567e-4d43-b287-687cfcaec47c" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"400" } ], "BankAccount":{ "Code":"088" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransaction |
 
 try {
     $result = $apiInstance->createBankTransaction($xero_tenant_id, $bank_transaction);
@@ -452,7 +452,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $bank_transaction_id = 'bank_transaction_id_example'; // string | Xero generated unique identifier for a bank transaction
-$history_records = new \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords(); // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$history_records = new \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords(); // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords |
 
 try {
     $result = $apiInstance->createBankTransactionHistoryRecord($xero_tenant_id, $bank_transaction_id, $history_records);
@@ -506,7 +506,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transactions = { "BankTransactions":[ { "Type":"SPEND", "Contact":{ "ContactID":"5cc8cf28-567e-4d43-b287-687cfcaec47c" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"400" } ], "BankAccount":{ "Code":"088" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
+$bank_transactions = { "BankTransactions":[ { "Type":"SPEND", "Contact":{ "ContactID":"5cc8cf28-567e-4d43-b287-687cfcaec47c" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"400" } ], "BankAccount":{ "Code":"088" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions |
 $summarize_errors = true; // bool | response format that shows validation errors for each bank transaction
 
 try {
@@ -561,7 +561,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transfers = { "BankTransfers":[ { "FromBankAccount":{ "Code":"090", "Name":"My Savings", "AccountID":"7e5e243b-9fcd-4aef-8e3a-c70be1e39bfa", "Type":"BANK", "BankAccountNumber":"123455", "Status":"ACTIVE", "BankAccountType":"BANK", "CurrencyCode":"USD", "TaxType":"NONE", "EnablePaymentsToAccount":false, "ShowInExpenseClaims":false, "Class":"ASSET", "ReportingCode":"ASS", "ReportingCodeName":"Assets", "HasAttachments":false, "UpdatedDateUTC":"2016-10-17T13:45:33.993-07:00" }, "ToBankAccount":{ "Code":"088", "Name":"Business Wells Fargo", "AccountID":"6f7594f2-f059-4d56-9e67-47ac9733bfe9", "Type":"BANK", "BankAccountNumber":"123455", "Status":"ACTIVE", "BankAccountType":"BANK", "CurrencyCode":"USD", "TaxType":"NONE", "EnablePaymentsToAccount":false, "ShowInExpenseClaims":false, "Class":"ASSET", "ReportingCode":"ASS", "ReportingCodeName":"Assets", "HasAttachments":false, "UpdatedDateUTC":"2016-06-03T08:31:14.517-07:00" }, "Amount":"50.00" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransfers | 
+$bank_transfers = { "BankTransfers":[ { "FromBankAccount":{ "Code":"090", "Name":"My Savings", "AccountID":"7e5e243b-9fcd-4aef-8e3a-c70be1e39bfa", "Type":"BANK", "BankAccountNumber":"123455", "Status":"ACTIVE", "BankAccountType":"BANK", "CurrencyCode":"USD", "TaxType":"NONE", "EnablePaymentsToAccount":false, "ShowInExpenseClaims":false, "Class":"ASSET", "ReportingCode":"ASS", "ReportingCodeName":"Assets", "HasAttachments":false, "UpdatedDateUTC":"2016-10-17T13:45:33.993-07:00" }, "ToBankAccount":{ "Code":"088", "Name":"Business Wells Fargo", "AccountID":"6f7594f2-f059-4d56-9e67-47ac9733bfe9", "Type":"BANK", "BankAccountNumber":"123455", "Status":"ACTIVE", "BankAccountType":"BANK", "CurrencyCode":"USD", "TaxType":"NONE", "EnablePaymentsToAccount":false, "ShowInExpenseClaims":false, "Class":"ASSET", "ReportingCode":"ASS", "ReportingCodeName":"Assets", "HasAttachments":false, "UpdatedDateUTC":"2016-06-03T08:31:14.517-07:00" }, "Amount":"50.00" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransfers |
 
 try {
     $result = $apiInstance->createBankTransfer($xero_tenant_id, $bank_transfers);
@@ -672,7 +672,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $bank_transfer_id = 'bank_transfer_id_example'; // string | Xero generated unique identifier for a bank transfer
-$history_records = new \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords(); // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$history_records = new \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords(); // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords |
 
 try {
     $result = $apiInstance->createBankTransferHistoryRecord($xero_tenant_id, $bank_transfer_id, $history_records);
@@ -783,7 +783,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $batch_payment_id = 'batch_payment_id_example'; // string | Unique identifier for BatchPayment
-$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords |
 
 try {
     $result = $apiInstance->createBatchPaymentHistoryRecord($xero_tenant_id, $batch_payment_id, $history_records);
@@ -838,7 +838,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $branding_theme_id = 'branding_theme_id_example'; // string | Unique identifier for a Branding Theme
-$payment_service = { "PaymentServiceID":"dede7858-14e3-4a46-bf95-4d4cc491e645", "PaymentServiceName":"ACME Payments", "PaymentServiceUrl":"https://www.payupnow.com/", "PayNowText":"Pay Now" }; // \XeroAPI\XeroPHP\Models\Accounting\PaymentService | 
+$payment_service = { "PaymentServiceID":"dede7858-14e3-4a46-bf95-4d4cc491e645", "PaymentServiceName":"ACME Payments", "PaymentServiceUrl":"https://www.payupnow.com/", "PayNowText":"Pay Now" }; // \XeroAPI\XeroPHP\Models\Accounting\PaymentService |
 
 try {
     $result = $apiInstance->createBrandingThemePaymentServices($xero_tenant_id, $branding_theme_id, $payment_service);
@@ -892,7 +892,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$contact = { "Name":"Foo9987", "EmailAddress":"sid32476@blah.com", "Phones":[ { "PhoneType":"MOBILE", "PhoneNumber":"555-1212", "PhoneAreaCode":"415" } ], "PaymentTerms":{ "Bills":{ "Day":15, "Type":"OFCURRENTMONTH" }, "Sales":{ "Day":10, "Type":"DAYSAFTERBILLMONTH" } } }; // \XeroAPI\XeroPHP\Models\Accounting\Contact | 
+$contact = { "Name":"Foo9987", "EmailAddress":"sid32476@blah.com", "Phones":[ { "PhoneType":"MOBILE", "PhoneNumber":"555-1212", "PhoneAreaCode":"415" } ], "PaymentTerms":{ "Bills":{ "Day":15, "Type":"OFCURRENTMONTH" }, "Sales":{ "Day":10, "Type":"DAYSAFTERBILLMONTH" } } }; // \XeroAPI\XeroPHP\Models\Accounting\Contact |
 
 try {
     $result = $apiInstance->createContact($xero_tenant_id, $contact);
@@ -1111,7 +1111,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $contact_id = 'contact_id_example'; // string | Unique identifier for a Contact
-$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords |
 
 try {
     $result = $apiInstance->createContactHistory($xero_tenant_id, $contact_id, $history_records);
@@ -1146,7 +1146,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createContacts**
-> \XeroAPI\XeroPHP\Models\Accounting\Contacts createContacts($xero_tenant_id, $contacts)
+> \XeroAPI\XeroPHP\Models\Accounting\Contacts createContacts($xero_tenant_id, $contacts, $summarize_errors)
 
 
 
@@ -1165,10 +1165,11 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$contacts = { "Name":"Foo9987", "EmailAddress":"sid32476@blah.com", "Phones":[ { "PhoneType":"MOBILE", "PhoneNumber":"555-1212", "PhoneAreaCode":"415" } ], "PaymentTerms":{ "Bills":{ "Day":15, "Type":"OFCURRENTMONTH" }, "Sales":{ "Day":10, "Type":"DAYSAFTERBILLMONTH" } } }; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | 
+$contacts = { "Name":"Foo9987", "EmailAddress":"sid32476@blah.com", "Phones":[ { "PhoneType":"MOBILE", "PhoneNumber":"555-1212", "PhoneAreaCode":"415" } ], "PaymentTerms":{ "Bills":{ "Day":15, "Type":"OFCURRENTMONTH" }, "Sales":{ "Day":10, "Type":"DAYSAFTERBILLMONTH" } } }; // \XeroAPI\XeroPHP\Models\Accounting\Contacts |
+$summarize_errors = true; // bool | shows validation errors for each contact
 
 try {
-    $result = $apiInstance->createContacts($xero_tenant_id, $contacts);
+    $result = $apiInstance->createContacts($xero_tenant_id, $contacts, $summarize_errors);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createContacts: ', $e->getMessage(), PHP_EOL;
@@ -1182,6 +1183,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **contacts** | [**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)|  |
+ **summarize_errors** | **bool**| shows validation errors for each invoice | [optional] [default to true]
 
 ### Return type
 
@@ -1385,7 +1387,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $credit_note_id = 'credit_note_id_example'; // string | Unique identifier for a Credit Note
-$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords |
 
 try {
     $result = $apiInstance->createCreditNoteHistory($xero_tenant_id, $credit_note_id, $history_records);
@@ -1494,7 +1496,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$currency = { "Code":"USD", "Description":"United States Dollar" }; // \XeroAPI\XeroPHP\Models\Accounting\Currency | 
+$currency = { "Code":"USD", "Description":"United States Dollar" }; // \XeroAPI\XeroPHP\Models\Accounting\Currency |
 
 try {
     $result = $apiInstance->createCurrency($xero_tenant_id, $currency);
@@ -1547,7 +1549,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$employee = { "Employees":[ { "FirstName":"Nick", "LastName":"Fury", "ExternalLink":{ "Url":"http://twitter.com/#!/search/Nick+Fury" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Employee | 
+$employee = { "Employees":[ { "FirstName":"Nick", "LastName":"Fury", "ExternalLink":{ "Url":"http://twitter.com/#!/search/Nick+Fury" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Employee |
 
 try {
     $result = $apiInstance->createEmployee($xero_tenant_id, $employee);
@@ -1600,7 +1602,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$employees = { "Employees":[ { "FirstName":"Nick", "LastName":"Fury", "ExternalLink":{ "Url":"http://twitter.com/#!/search/Nick+Fury" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Employees | 
+$employees = { "Employees":[ { "FirstName":"Nick", "LastName":"Fury", "ExternalLink":{ "Url":"http://twitter.com/#!/search/Nick+Fury" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Employees |
 
 try {
     $result = $apiInstance->createEmployees($xero_tenant_id, $employees);
@@ -1654,7 +1656,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $expense_claim_id = 'expense_claim_id_example'; // string | Unique identifier for a ExpenseClaim
-$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords |
 
 try {
     $result = $apiInstance->createExpenseClaimHistory($xero_tenant_id, $expense_claim_id, $history_records);
@@ -1709,7 +1711,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $expense_claims = { "ExpenseClaims":[ { "Status":"SUBMITTED", "User":{ "UserID":"d1164823-0ac1-41ad-987b-b4e30fe0b273" }, "Receipts":[ { "LineItems":[
-], "ReceiptID":"dc1c7f6d-0a4c-402f-acac-551d62ce5816" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims | 
+], "ReceiptID":"dc1c7f6d-0a4c-402f-acac-551d62ce5816" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims |
 
 try {
     $result = $apiInstance->createExpenseClaims($xero_tenant_id, $expense_claims);
@@ -1764,7 +1766,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 
 $where = 'ContactStatus=="ACTIVE"';
-$getContact = $apiInstance->getContacts($xeroTenantId, null, $where); 
+$getContact = $apiInstance->getContacts($xeroTenantId, null, $where);
 $contactId = $getContact->getContacts()[0]->getContactId();
 
 $contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
@@ -1775,7 +1777,7 @@ $lineitem->setDescription('Sample Item')
     ->setQuantity(1)
     ->setUnitAmount(20)
     ->setAccountCode("400");
-$lineitems = [];    
+$lineitems = [];
 array_push($lineitems, $lineitem);
 
 $invoice = new XeroAPI\XeroPHP\Models\Accounting\Invoice;
@@ -1896,7 +1898,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $invoice_id = 'invoice_id_example'; // string | Unique identifier for an Invoice
-$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords |
 
 try {
     $result = $apiInstance->createInvoiceHistory($xero_tenant_id, $invoice_id, $history_records);
@@ -1951,7 +1953,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $where = 'ContactStatus=="ACTIVE"';
-$getContact = $apiInstance->getContacts($xero_tenant_id, null, $where); 
+$getContact = $apiInstance->getContacts($xero_tenant_id, null, $where);
 $contactId = $getContact->getContacts()[0]->getContactId();
 
 $contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
@@ -1962,7 +1964,7 @@ $lineitem->setDescription('Sample Item')
     ->setQuantity(1)
     ->setUnitAmount(20)
     ->setAccountCode("400");
-$lineitems = [];    
+$lineitems = [];
 array_push($lineitems, $lineitem);
 
 $invoice = new XeroAPI\XeroPHP\Models\Accounting\Invoice;
@@ -1974,7 +1976,7 @@ $invoice->setReference('Ref-num')
   ->setType(XeroAPI\XeroPHP\Models\Accounting\Invoice::TYPE_ACCPAY)
   ->setLineAmountTypes(\XeroAPI\XeroPHP\Models\Accounting\LineAmountTypes::EXCLUSIVE);
 
-$arr_invoices = [];   
+$arr_invoices = [];
 array_push($arr_invoices, $invoice);
 array_push($arr_invoices, $invoice);
 $invoices = new XeroAPI\XeroPHP\Models\Accounting\Invoices;
@@ -2032,7 +2034,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$item = { "Items":[ { "Code":"abc65591", "Name":"Hello11350", "Description":"foobar" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Item | 
+$item = { "Items":[ { "Code":"abc65591", "Name":"Hello11350", "Description":"foobar" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Item |
 
 try {
     $result = $apiInstance->createItem($xero_tenant_id, $item);
@@ -2086,7 +2088,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $item_id = 'item_id_example'; // string | Unique identifier for an Item
-$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords |
 
 try {
     $result = $apiInstance->createItemHistory($xero_tenant_id, $item_id, $history_records);
@@ -2140,7 +2142,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$items = { "Items":[ { "Code":"abc65591", "Name":"Hello11350", "Description":"foobar" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | 
+$items = { "Items":[ { "Code":"abc65591", "Name":"Hello11350", "Description":"foobar" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items |
 
 try {
     $result = $apiInstance->createItems($xero_tenant_id, $items);
@@ -2193,7 +2195,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$linked_transaction = { "LinkedTransactions":[ { "SourceTransactionID":"a848644a-f20f-4630-98c3-386bd7505631", "SourceLineItemID":"b0df260d-3cc8-4ced-9bd6-41924f624ed3" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction | 
+$linked_transaction = { "LinkedTransactions":[ { "SourceTransactionID":"a848644a-f20f-4630-98c3-386bd7505631", "SourceLineItemID":"b0df260d-3cc8-4ced-9bd6-41924f624ed3" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction |
 
 try {
     $result = $apiInstance->createLinkedTransaction($xero_tenant_id, $linked_transaction);
@@ -2246,7 +2248,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$linked_transactions = { "LinkedTransactions":[ { "SourceTransactionID":"a848644a-f20f-4630-98c3-386bd7505631", "SourceLineItemID":"b0df260d-3cc8-4ced-9bd6-41924f624ed3" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions | 
+$linked_transactions = { "LinkedTransactions":[ { "SourceTransactionID":"a848644a-f20f-4630-98c3-386bd7505631", "SourceLineItemID":"b0df260d-3cc8-4ced-9bd6-41924f624ed3" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions |
 
 try {
     $result = $apiInstance->createLinkedTransactions($xero_tenant_id, $linked_transactions);
@@ -2299,7 +2301,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$manual_journal = { "ManualJournals":[ { "Narration":"Foo bar", "JournalLines":[ { "LineAmount":100.0, "AccountCode":"400", "Description":"Hello there" }, { "LineAmount":-100.0, "AccountCode":"400", "Description":"Goodbye", "Tracking":[ { "Name":"Simpsons", "Option":"Bart" } ] } ], "Date":"2019-03-14" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournal | 
+$manual_journal = { "ManualJournals":[ { "Narration":"Foo bar", "JournalLines":[ { "LineAmount":100.0, "AccountCode":"400", "Description":"Hello there" }, { "LineAmount":-100.0, "AccountCode":"400", "Description":"Goodbye", "Tracking":[ { "Name":"Simpsons", "Option":"Bart" } ] } ], "Date":"2019-03-14" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournal |
 
 try {
     $result = $apiInstance->createManualJournal($xero_tenant_id, $manual_journal);
@@ -2409,7 +2411,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$manual_journals = { "ManualJournals":[ { "Narration":"Foo bar", "JournalLines":[ { "LineAmount":100.0, "AccountCode":"400", "Description":"Hello there" }, { "LineAmount":-100.0, "AccountCode":"400", "Description":"Goodbye", "Tracking":[ { "Name":"Simpsons", "Option":"Bart" } ] } ], "Date":"2019-03-14" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournals | 
+$manual_journals = { "ManualJournals":[ { "Narration":"Foo bar", "JournalLines":[ { "LineAmount":100.0, "AccountCode":"400", "Description":"Hello there" }, { "LineAmount":-100.0, "AccountCode":"400", "Description":"Goodbye", "Tracking":[ { "Name":"Simpsons", "Option":"Bart" } ] } ], "Date":"2019-03-14" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournals |
 
 try {
     $result = $apiInstance->createManualJournals($xero_tenant_id, $manual_journals);
@@ -2464,7 +2466,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $overpayment_id = 'overpayment_id_example'; // string | Unique identifier for a Overpayment
 $allocation = { "Allocations":[ { "Invoice":{ "LineItems":[
-], "InvoiceID":"c45720a1-ade3-4a38-a064-d15489be6841" }, "Amount":1.0, "Date":"2019-03-12" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocation | 
+], "InvoiceID":"c45720a1-ade3-4a38-a064-d15489be6841" }, "Amount":1.0, "Date":"2019-03-12" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocation |
 
 try {
     $result = $apiInstance->createOverpaymentAllocation($xero_tenant_id, $overpayment_id, $allocation);
@@ -2520,7 +2522,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $overpayment_id = 'overpayment_id_example'; // string | Unique identifier for a Overpayment
 $allocations = { "Allocations":[ { "Invoice":{ "LineItems":[
-], "InvoiceID":"c45720a1-ade3-4a38-a064-d15489be6841" }, "Amount":1.0, "Date":"2019-03-12" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | 
+], "InvoiceID":"c45720a1-ade3-4a38-a064-d15489be6841" }, "Amount":1.0, "Date":"2019-03-12" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations |
 
 try {
     $result = $apiInstance->createOverpaymentAllocations($xero_tenant_id, $overpayment_id, $allocations);
@@ -2575,7 +2577,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $overpayment_id = 'overpayment_id_example'; // string | Unique identifier for a Overpayment
-$history_records = new \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords(); // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$history_records = new \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords(); // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords |
 
 try {
     $result = $apiInstance->createOverpaymentHistory($xero_tenant_id, $overpayment_id, $history_records);
@@ -2630,7 +2632,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $payment = { "Payments":[ { "Invoice":{ "LineItems":[
-], "InvoiceID":"c7c37b83-ac95-45ea-88ba-8ad83a5f22fe" }, "Account":{ "Code":"970" }, "Date":"2019-03-12", "Amount":1.0 } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Payment | 
+], "InvoiceID":"c7c37b83-ac95-45ea-88ba-8ad83a5f22fe" }, "Account":{ "Code":"970" }, "Date":"2019-03-12", "Amount":1.0 } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Payment |
 
 try {
     $result = $apiInstance->createPayment($xero_tenant_id, $payment);
@@ -2684,7 +2686,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $payment_id = 'payment_id_example'; // string | Unique identifier for a Payment
-$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords |
 
 try {
     $result = $apiInstance->createPaymentHistory($xero_tenant_id, $payment_id, $history_records);
@@ -2738,7 +2740,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$payment_services = { "PaymentServices":[ { "PaymentServiceName":"PayUpNow", "PaymentServiceUrl":"https://www.payupnow.com/", "PayNowText":"Time To Pay" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PaymentServices | 
+$payment_services = { "PaymentServices":[ { "PaymentServiceName":"PayUpNow", "PaymentServiceUrl":"https://www.payupnow.com/", "PayNowText":"Time To Pay" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PaymentServices |
 
 try {
     $result = $apiInstance->createPaymentService($xero_tenant_id, $payment_services);
@@ -2792,7 +2794,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $payments = { "Payments":[ { "Invoice":{ "LineItems":[
-], "InvoiceID":"c7c37b83-ac95-45ea-88ba-8ad83a5f22fe" }, "Account":{ "Code":"970" }, "Date":"2019-03-12", "Amount":1.0 } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Payments | 
+], "InvoiceID":"c7c37b83-ac95-45ea-88ba-8ad83a5f22fe" }, "Account":{ "Code":"970" }, "Date":"2019-03-12", "Amount":1.0 } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Payments |
 
 try {
     $result = $apiInstance->createPayments($xero_tenant_id, $payments);
@@ -2845,9 +2847,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$prepayment_id = 'prepayment_id_example'; // string | 
+$prepayment_id = 'prepayment_id_example'; // string |
 $allocations = { "Allocations":[ { "Invoice":{ "LineItems":[
-], "InvoiceID":"c7c37b83-ac95-45ea-88ba-8ad83a5f22fe" }, "Amount":1.0, "Date":"2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | 
+], "InvoiceID":"c7c37b83-ac95-45ea-88ba-8ad83a5f22fe" }, "Amount":1.0, "Date":"2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations |
 
 try {
     $result = $apiInstance->createPrepaymentAllocation($xero_tenant_id, $prepayment_id, $allocations);
@@ -2902,7 +2904,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $prepayment_id = 'prepayment_id_example'; // string | Unique identifier for a PrePayment
-$history_records = new \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords(); // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$history_records = new \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords(); // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords |
 
 try {
     $result = $apiInstance->createPrepaymentHistory($xero_tenant_id, $prepayment_id, $history_records);
@@ -2956,7 +2958,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$purchase_order = { "PurchaseOrders":[ { "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"710" } ], "Date":"2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrder | 
+$purchase_order = { "PurchaseOrders":[ { "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"710" } ], "Date":"2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrder |
 
 try {
     $result = $apiInstance->createPurchaseOrder($xero_tenant_id, $purchase_order);
@@ -3010,7 +3012,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $purchase_order_id = 'purchase_order_id_example'; // string | Unique identifier for a PurchaseOrder
-$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords |
 
 try {
     $result = $apiInstance->createPurchaseOrderHistory($xero_tenant_id, $purchase_order_id, $history_records);
@@ -3064,7 +3066,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$purchase_orders = { "PurchaseOrders":[ { "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"710" } ], "Date":"2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | 
+$purchase_orders = { "PurchaseOrders":[ { "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"710" } ], "Date":"2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders |
 $summarize_errors = true; // bool | shows validation errors for each purchase order.
 
 try {
@@ -3119,7 +3121,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$receipts = { "Receipts":[ { "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems":[ { "Description":"Foobar", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"400", "TaxType":"NONE", "LineAmount":40.0 } ], "User":{ "UserID":"d1164823-0ac1-41ad-987b-b4e30fe0b273" }, "LineAmountTypes":"NoTax", "Status":"DRAFT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Receipts | 
+$receipts = { "Receipts":[ { "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems":[ { "Description":"Foobar", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"400", "TaxType":"NONE", "LineAmount":40.0 } ], "User":{ "UserID":"d1164823-0ac1-41ad-987b-b4e30fe0b273" }, "LineAmountTypes":"NoTax", "Status":"DRAFT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Receipts |
 
 try {
     $result = $apiInstance->createReceipt($xero_tenant_id, $receipts);
@@ -3230,7 +3232,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $receipt_id = 'receipt_id_example'; // string | Unique identifier for a Receipt
-$history_records = new \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords(); // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$history_records = new \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords(); // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords |
 
 try {
     $result = $apiInstance->createReceiptHistory($xero_tenant_id, $receipt_id, $history_records);
@@ -3342,7 +3344,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $repeating_invoice_id = 'repeating_invoice_id_example'; // string | Unique identifier for a Repeating Invoice
-$history_records = new \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords(); // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$history_records = new \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords(); // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords |
 
 try {
     $result = $apiInstance->createRepeatingInvoiceHistory($xero_tenant_id, $repeating_invoice_id, $history_records);
@@ -3396,7 +3398,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$tax_rate = { "TaxRates":[ { "Name":"SDKTax29067", "TaxComponents":[ { "Name":"State Tax", "Rate":2.25 } ], "ReportTaxType":"INPUT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\TaxRate | 
+$tax_rate = { "TaxRates":[ { "Name":"SDKTax29067", "TaxComponents":[ { "Name":"State Tax", "Rate":2.25 } ], "ReportTaxType":"INPUT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\TaxRate |
 
 try {
     $result = $apiInstance->createTaxRate($xero_tenant_id, $tax_rate);
@@ -3449,7 +3451,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$tax_rates = { "TaxRates":[ { "Name":"SDKTax29067", "TaxComponents":[ { "Name":"State Tax", "Rate":2.25 } ], "ReportTaxType":"INPUT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\TaxRates | 
+$tax_rates = { "TaxRates":[ { "Name":"SDKTax29067", "TaxComponents":[ { "Name":"State Tax", "Rate":2.25 } ], "ReportTaxType":"INPUT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\TaxRates |
 
 try {
     $result = $apiInstance->createTaxRates($xero_tenant_id, $tax_rates);
@@ -3502,7 +3504,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$tracking_category = { "Name":"FooBar" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory | 
+$tracking_category = { "Name":"FooBar" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory |
 
 try {
     $result = $apiInstance->createTrackingCategory($xero_tenant_id, $tracking_category);
@@ -3556,7 +3558,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $tracking_category_id = 'tracking_category_id_example'; // string | Unique identifier for a TrackingCategory
-$tracking_option = { "Name":"Bar40423" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingOption | 
+$tracking_option = { "Name":"Bar40423" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingOption |
 
 try {
     $result = $apiInstance->createTrackingOptions($xero_tenant_id, $tracking_category_id, $tracking_option);
@@ -3874,7 +3876,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $payment_id = 'payment_id_example'; // string | Unique identifier for a Payment
-$payments = { "Payments":[ { "Status":"DELETED" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Payments | 
+$payments = { "Payments":[ { "Status":"DELETED" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Payments |
 
 try {
     $result = $apiInstance->deletePayment($xero_tenant_id, $payment_id, $payments);
@@ -4037,7 +4039,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $invoice_id = 'invoice_id_example'; // string | Unique identifier for an Invoice
-$request_empty = new \XeroAPI\XeroPHP\Models\Accounting\RequestEmpty(); // \XeroAPI\XeroPHP\Models\Accounting\RequestEmpty | 
+$request_empty = new \XeroAPI\XeroPHP\Models\Accounting\RequestEmpty(); // \XeroAPI\XeroPHP\Models\Accounting\RequestEmpty |
 
 try {
     $apiInstance->emailInvoice($xero_tenant_id, $invoice_id, $request_empty);
@@ -7685,7 +7687,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$organisation_id = 'organisation_id_example'; // string | 
+$organisation_id = 'organisation_id_example'; // string |
 
 try {
     $result = $apiInstance->getOrganisationCISSettings($xero_tenant_id, $organisation_id);
@@ -10306,7 +10308,7 @@ $bank_transaction_id = 'bank_transaction_id_example'; // string | Xero generated
 $bank_transactions = { "BankTransactions":[ { "Type":"SPEND", "Contact":{ "ContactID":"5cc8cf28-567e-4d43-b287-687cfcaec47c", "ContactStatus":"ACTIVE", "Name":"Katherine Warren", "FirstName":"Katherine", "LastName":"Warren", "EmailAddress":"kat.warren@clampett.com", "ContactPersons":[
 ], "BankAccountDetails":"", "Addresses":[ { "AddressType":"STREET", "City":"", "Region":"", "PostalCode":"", "Country":"" }, { "AddressType":"POBOX", "AddressLine1":"", "AddressLine2":"", "AddressLine3":"", "AddressLine4":"", "City":"Palo Alto", "Region":"CA", "PostalCode":"94020", "Country":"United States" } ], "Phones":[ { "PhoneType":"DEFAULT", "PhoneNumber":"847-1294", "PhoneAreaCode":"(626)", "PhoneCountryCode":"" }, { "PhoneType":"DDI", "PhoneNumber":"", "PhoneAreaCode":"", "PhoneCountryCode":"" }, { "PhoneType":"FAX", "PhoneNumber":"", "PhoneAreaCode":"", "PhoneCountryCode":"" }, { "PhoneType":"MOBILE", "PhoneNumber":"", "PhoneAreaCode":"", "PhoneCountryCode":"" } ], "UpdatedDateUTC":"2017-08-21T13:49:04.227-07:00", "ContactGroups":[
 ] }, "LineItems":[
-], "BankAccount":{ "Code":"088", "Name":"Business Wells Fargo", "AccountID":"6f7594f2-f059-4d56-9e67-47ac9733bfe9" }, "IsReconciled":false, "Date":"2019-02-25", "Reference":"You just updated", "CurrencyCode":"USD", "CurrencyRate":1.0, "Status":"AUTHORISED", "LineAmountTypes":"Inclusive", "TotalTax":1.74, "BankTransactionID":"1289c190-e46d-434b-9628-463ffdb52f00", "UpdatedDateUTC":"2019-02-26T12:39:27.813-08:00" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
+], "BankAccount":{ "Code":"088", "Name":"Business Wells Fargo", "AccountID":"6f7594f2-f059-4d56-9e67-47ac9733bfe9" }, "IsReconciled":false, "Date":"2019-02-25", "Reference":"You just updated", "CurrencyCode":"USD", "CurrencyRate":1.0, "Status":"AUTHORISED", "LineAmountTypes":"Inclusive", "TotalTax":1.74, "BankTransactionID":"1289c190-e46d-434b-9628-463ffdb52f00", "UpdatedDateUTC":"2019-02-26T12:39:27.813-08:00" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions |
 
 try {
     $result = $apiInstance->updateBankTransaction($xero_tenant_id, $bank_transaction_id, $bank_transactions);
@@ -10754,7 +10756,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $employee_id = 'employee_id_example'; // string | Unique identifier for a Employee
-$employees = { "Employees":[ { "EmployeeID":"ad3db144-6362-459c-8c36-5d31d196e629", "FirstName":"Bruce", "LastName":"Banner" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Employees | 
+$employees = { "Employees":[ { "EmployeeID":"ad3db144-6362-459c-8c36-5d31d196e629", "FirstName":"Bruce", "LastName":"Banner" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Employees |
 
 try {
     $result = $apiInstance->updateEmployee($xero_tenant_id, $employee_id, $employees);
@@ -10810,7 +10812,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $expense_claim_id = 'expense_claim_id_example'; // string | Unique identifier for a ExpenseClaim
 $expense_claims = { "ExpenseClaims":[ { "Status":"AUTHORISED", "User":{ "UserID":"d1164823-0ac1-41ad-987b-b4e30fe0b273" }, "Receipts":[ { "LineItems":[
-], "ReceiptID":"dc1c7f6d-0a4c-402f-acac-551d62ce5816" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims | 
+], "ReceiptID":"dc1c7f6d-0a4c-402f-acac-551d62ce5816" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims |
 
 try {
     $result = $apiInstance->updateExpenseClaim($xero_tenant_id, $expense_claim_id, $expense_claims);
@@ -10866,7 +10868,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $invoice_id = 'invoice_id_example'; // string | Unique identifier for an Invoice
 $invoices = { "Invoices":[ { "LineItems":[
-], "Reference":"My the Force be With You", "InvoiceID":"4074292c-09b3-456d-84e7-add864c6c39b" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | 
+], "Reference":"My the Force be With You", "InvoiceID":"4074292c-09b3-456d-84e7-add864c6c39b" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Invoices |
 
 try {
     $result = $apiInstance->updateInvoice($xero_tenant_id, $invoice_id, $invoices);
@@ -10978,7 +10980,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $item_id = 'item_id_example'; // string | Unique identifier for an Item
-$items = { "Items":[ { "Code":"abc38306", "Description":"Hello Xero" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | 
+$items = { "Items":[ { "Code":"abc38306", "Description":"Hello Xero" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items |
 
 try {
     $result = $apiInstance->updateItem($xero_tenant_id, $item_id, $items);
@@ -11033,7 +11035,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $linked_transaction_id = 'linked_transaction_id_example'; // string | Unique identifier for a LinkedTransaction
-$linked_transactions = { "LinkedTransactions":[ { "ContactID":"4e1753b9-018a-4775-b6aa-1bc7871cfee3" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions | 
+$linked_transactions = { "LinkedTransactions":[ { "ContactID":"4e1753b9-018a-4775-b6aa-1bc7871cfee3" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions |
 
 try {
     $result = $apiInstance->updateLinkedTransaction($xero_tenant_id, $linked_transaction_id, $linked_transactions);
@@ -11089,7 +11091,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $manual_journal_id = 'manual_journal_id_example'; // string | Unique identifier for a ManualJournal
 $manual_journals = { "ManualJournals":[ { "Narration":"Hello Xero", "JournalLines":[
-], "ManualJournalID":"07eac261-78ef-47a0-a0eb-a57b74137877" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournals | 
+], "ManualJournalID":"07eac261-78ef-47a0-a0eb-a57b74137877" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournals |
 
 try {
     $result = $apiInstance->updateManualJournal($xero_tenant_id, $manual_journal_id, $manual_journals);
@@ -11202,7 +11204,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $purchase_order_id = 'purchase_order_id_example'; // string | Unique identifier for a PurchaseOrder
 $purchase_orders = { "PurchaseOrders":[ { "LineItems":[
-], "AttentionTo":"Jimmy" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | 
+], "AttentionTo":"Jimmy" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders |
 
 try {
     $result = $apiInstance->updatePurchaseOrder($xero_tenant_id, $purchase_order_id, $purchase_orders);
@@ -11258,7 +11260,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $receipt_id = 'receipt_id_example'; // string | Unique identifier for a Receipt
 $receipts = { "Receipts":[ { "LineItems":[
-], "User":{ "UserID":"d1164823-0ac1-41ad-987b-b4e30fe0b273" }, "Reference":"Foobar" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Receipts | 
+], "User":{ "UserID":"d1164823-0ac1-41ad-987b-b4e30fe0b273" }, "Reference":"Foobar" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Receipts |
 
 try {
     $result = $apiInstance->updateReceipt($xero_tenant_id, $receipt_id, $receipts);
@@ -11426,7 +11428,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$tax_rates = { "TaxRates":[ { "Name":"SDKTax29067", "TaxComponents":[ { "Name":"State Tax", "Rate":2.25 } ], "Status":"DELETED", "ReportTaxType":"INPUT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\TaxRates | 
+$tax_rates = { "TaxRates":[ { "Name":"SDKTax29067", "TaxComponents":[ { "Name":"State Tax", "Rate":2.25 } ], "Status":"DELETED", "ReportTaxType":"INPUT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\TaxRates |
 
 try {
     $result = $apiInstance->updateTaxRate($xero_tenant_id, $tax_rates);
@@ -11480,7 +11482,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $tracking_category_id = 'tracking_category_id_example'; // string | Unique identifier for a TrackingCategory
-$tracking_category = { "Name":"BarFoo" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory | 
+$tracking_category = { "Name":"BarFoo" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory |
 
 try {
     $result = $apiInstance->updateTrackingCategory($xero_tenant_id, $tracking_category_id, $tracking_category);
@@ -11536,7 +11538,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $tracking_category_id = 'tracking_category_id_example'; // string | Unique identifier for a TrackingCategory
 $tracking_option_id = 'tracking_option_id_example'; // string | Unique identifier for a Tracking Option
-$tracking_option = { "Name":"Bar40423" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingOption | 
+$tracking_option = { "Name":"Bar40423" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingOption |
 
 try {
     $result = $apiInstance->updateTrackingOptions($xero_tenant_id, $tracking_category_id, $tracking_option_id, $tracking_option);
