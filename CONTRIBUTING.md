@@ -42,8 +42,6 @@ We have an official [message board](https://community.xero.com/developer) where 
 
 You can contribute by reporting bugs, suggesting enhancements, improving documentation i.e. [README](https://github.com/XeroAPI/xero-php-oauth2/blob/master/README.md) or submitting a pull request.
 
-Bugs and enhancements for version 3.x will be prioritized over 2.x.
-
 ## Reporting Bugs
 
 Bugs are tracked as issues in this repository.
