@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **delivery_instructions** | **string** | A free text feild for instructions (500 characters max) | [optional] 
 **expected_arrival_date** | [**\DateTime**](\DateTime.md) | The date the goods are expected to arrive. | [optional] 
 **purchase_order_id** | **string** | Xero generated unique identifier for purchase order | [optional] 
-**currency_rate** | **double** | The currency rate for a multicurrency purchase order. As no rate can  be specified, the XE.com day rate is used. | [optional] 
+**currency_rate** | **double** | The currency rate for a multicurrency purchase order. If no rate is specified, the XE.com day rate is used. | [optional] 
 **sub_total** | **double** | Total of purchase order excluding taxes | [optional] 
 **total_tax** | **double** | Total tax on purchase order | [optional] 
 **total** | **double** | Total of Purchase Order tax inclusive (i.e. SubTotal + TotalTax) | [optional] 

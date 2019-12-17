@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **payments** | [**\XeroAPI\XeroPHP\Models\Accounting\Payment[]**](Payment.md) | See Payments | [optional] 
 **branding_theme_id** | **string** | See BrandingThemes | [optional] 
 **has_attachments** | **bool** | boolean to indicate if a credit note has an attachment | [optional] 
+**has_errors** | **bool** | A boolean to indicate if a credit note has an validation errors | [optional] 
 **validation_errors** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

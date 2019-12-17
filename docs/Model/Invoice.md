@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **sent_to_contact** | **bool** | Boolean to set whether the invoice in the Xero app should be marked as “sent”. This can be set only on invoices that have been approved | [optional] 
 **expected_payment_date** | [**\DateTime**](\DateTime.md) | Shown on sales invoices (Accounts Receivable) when this has been set | [optional] 
 **planned_payment_date** | [**\DateTime**](\DateTime.md) | Shown on bills (Accounts Payable) when this has been set | [optional] 
+**cis_deduction** | **double** | CIS deduction for UK contractors | [optional] 
 **sub_total** | **double** | Total of invoice excluding taxes | [optional] 
 **total_tax** | **double** | Total tax on invoice | [optional] 
 **total** | **double** | Total of Invoice tax inclusive (i.e. SubTotal + TotalTax). This will be ignored if it doesn’t equal the sum of the LineAmounts | [optional] 

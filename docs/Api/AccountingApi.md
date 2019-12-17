@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**createBankTransaction**](AccountingApi.md#createBankTransaction) | **PUT** /BankTransactions | Allows you to create a spend or receive money transaction
 [**createBankTransactionAttachmentByFileName**](AccountingApi.md#createBankTransactionAttachmentByFileName) | **PUT** /BankTransactions/{BankTransactionID}/Attachments/{FileName} | Allows you to createa an Attachment on BankTransaction by Filename
 [**createBankTransactionHistoryRecord**](AccountingApi.md#createBankTransactionHistoryRecord) | **PUT** /BankTransactions/{BankTransactionID}/History | Allows you to create history record for a bank transactions
+[**createBankTransactions**](AccountingApi.md#createBankTransactions) | **PUT** /BankTransactions#bulk | Allows you to create a spend or receive money transaction
 [**createBankTransfer**](AccountingApi.md#createBankTransfer) | **PUT** /BankTransfers | Allows you to create a bank transfers
 [**createBankTransferAttachmentByFileName**](AccountingApi.md#createBankTransferAttachmentByFileName) | **PUT** /BankTransfers/{BankTransferID}/Attachments/{FileName} | 
 [**createBankTransferHistoryRecord**](AccountingApi.md#createBankTransferHistoryRecord) | **PUT** /BankTransfers/{BankTransferID}/History | 
@@ -20,37 +21,48 @@ Method | HTTP request | Description
 [**createContactGroup**](AccountingApi.md#createContactGroup) | **PUT** /ContactGroups | Allows you to create a contact group
 [**createContactGroupContacts**](AccountingApi.md#createContactGroupContacts) | **PUT** /ContactGroups/{ContactGroupID}/Contacts | Allows you to add Contacts to a Contract Group
 [**createContactHistory**](AccountingApi.md#createContactHistory) | **PUT** /Contacts/{ContactID}/History | Allows you to retrieve a history records of an Contact
+[**createContacts**](AccountingApi.md#createContacts) | **PUT** /Contacts#bulk | 
 [**createCreditNote**](AccountingApi.md#createCreditNote) | **PUT** /CreditNotes | Allows you to create a credit note
 [**createCreditNoteAllocation**](AccountingApi.md#createCreditNoteAllocation) | **PUT** /CreditNotes/{CreditNoteID}/Allocations | Allows you to create Allocation on CreditNote
 [**createCreditNoteAttachmentByFileName**](AccountingApi.md#createCreditNoteAttachmentByFileName) | **PUT** /CreditNotes/{CreditNoteID}/Attachments/{FileName} | Allows you to create Attachments on CreditNote by file name
 [**createCreditNoteHistory**](AccountingApi.md#createCreditNoteHistory) | **PUT** /CreditNotes/{CreditNoteID}/History | Allows you to retrieve a history records of an CreditNote
+[**createCreditNotes**](AccountingApi.md#createCreditNotes) | **PUT** /CreditNotes#bulk | Allows you to create a credit note
 [**createCurrency**](AccountingApi.md#createCurrency) | **PUT** /Currencies | 
 [**createEmployee**](AccountingApi.md#createEmployee) | **PUT** /Employees | Allows you to create new employees used in Xero payrun
-[**createExpenseClaim**](AccountingApi.md#createExpenseClaim) | **PUT** /ExpenseClaims | Allows you to retrieve expense claims
+[**createEmployees**](AccountingApi.md#createEmployees) | **PUT** /Employees#bulk | Allows you to create new employees used in Xero payrun
 [**createExpenseClaimHistory**](AccountingApi.md#createExpenseClaimHistory) | **PUT** /ExpenseClaims/{ExpenseClaimID}/History | Allows you to create a history records of an ExpenseClaim
+[**createExpenseClaims**](AccountingApi.md#createExpenseClaims) | **PUT** /ExpenseClaims | Allows you to retrieve expense claims
 [**createInvoice**](AccountingApi.md#createInvoice) | **PUT** /Invoices | Allows you to create any sales invoices or purchase bills
 [**createInvoiceAttachmentByFileName**](AccountingApi.md#createInvoiceAttachmentByFileName) | **PUT** /Invoices/{InvoiceID}/Attachments/{FileName} | Allows you to create an Attachment on invoices or purchase bills by it&#39;s filename
 [**createInvoiceHistory**](AccountingApi.md#createInvoiceHistory) | **PUT** /Invoices/{InvoiceID}/History | Allows you to retrieve a history records of an invoice
+[**createInvoices**](AccountingApi.md#createInvoices) | **PUT** /Invoices#bulk | Allows you to create any sales invoices or purchase bills
 [**createItem**](AccountingApi.md#createItem) | **PUT** /Items | Allows you to create an item
 [**createItemHistory**](AccountingApi.md#createItemHistory) | **PUT** /Items/{ItemID}/History | Allows you to create a history record for items
+[**createItems**](AccountingApi.md#createItems) | **PUT** /Items#bulk | Allows you to create an item
 [**createLinkedTransaction**](AccountingApi.md#createLinkedTransaction) | **PUT** /LinkedTransactions | Allows you to create linked transactions (billable expenses)
+[**createLinkedTransactions**](AccountingApi.md#createLinkedTransactions) | **PUT** /LinkedTransactions#bulk | Allows you to create linked transactions (billable expenses)
 [**createManualJournal**](AccountingApi.md#createManualJournal) | **PUT** /ManualJournals | Allows you to create a manual journal
 [**createManualJournalAttachmentByFileName**](AccountingApi.md#createManualJournalAttachmentByFileName) | **PUT** /ManualJournals/{ManualJournalID}/Attachments/{FileName} | Allows you to create a specified Attachment on ManualJournal by file name
+[**createManualJournals**](AccountingApi.md#createManualJournals) | **PUT** /ManualJournals#bulk | Allows you to create a manual journal
 [**createOverpaymentAllocation**](AccountingApi.md#createOverpaymentAllocation) | **PUT** /Overpayments/{OverpaymentID}/Allocations | Allows you to retrieve Allocations for overpayments
+[**createOverpaymentAllocations**](AccountingApi.md#createOverpaymentAllocations) | **PUT** /Overpayments/{OverpaymentID}/Allocations#bulk | Allows you to retrieve Allocations for overpayments
 [**createOverpaymentHistory**](AccountingApi.md#createOverpaymentHistory) | **PUT** /Overpayments/{OverpaymentID}/History | Allows you to create history records of an Overpayment
 [**createPayment**](AccountingApi.md#createPayment) | **PUT** /Payments | Allows you to create payments for invoices and credit notes
 [**createPaymentHistory**](AccountingApi.md#createPaymentHistory) | **PUT** /Payments/{PaymentID}/History | Allows you to create a history record for a payment
 [**createPaymentService**](AccountingApi.md#createPaymentService) | **PUT** /PaymentServices | Allows you to create payment services
+[**createPayments**](AccountingApi.md#createPayments) | **PUT** /Payments#bulk | Allows you to create payments for invoices and credit notes
 [**createPrepaymentAllocation**](AccountingApi.md#createPrepaymentAllocation) | **PUT** /Prepayments/{PrepaymentID}/Allocations | Allows you to create an Allocation for prepayments
 [**createPrepaymentHistory**](AccountingApi.md#createPrepaymentHistory) | **PUT** /Prepayments/{PrepaymentID}/History | Allows you to create a history record for an Prepayment
 [**createPurchaseOrder**](AccountingApi.md#createPurchaseOrder) | **PUT** /PurchaseOrders | Allows you to create purchase orders
 [**createPurchaseOrderHistory**](AccountingApi.md#createPurchaseOrderHistory) | **PUT** /PurchaseOrders/{PurchaseOrderID}/History | Allows you to create HistoryRecord for purchase orders
+[**createPurchaseOrders**](AccountingApi.md#createPurchaseOrders) | **PUT** /PurchaseOrders#bulk | Allows you to create purchase orders
 [**createReceipt**](AccountingApi.md#createReceipt) | **PUT** /Receipts | Allows you to create draft expense claim receipts for any user
 [**createReceiptAttachmentByFileName**](AccountingApi.md#createReceiptAttachmentByFileName) | **PUT** /Receipts/{ReceiptID}/Attachments/{FileName} | Allows you to create Attachment on expense claim receipts by file name
 [**createReceiptHistory**](AccountingApi.md#createReceiptHistory) | **PUT** /Receipts/{ReceiptID}/History | Allows you to retrieve a history records of an Receipt
 [**createRepeatingInvoiceAttachmentByFileName**](AccountingApi.md#createRepeatingInvoiceAttachmentByFileName) | **PUT** /RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{FileName} | Allows you to create attachment on repeating invoices by file name
 [**createRepeatingInvoiceHistory**](AccountingApi.md#createRepeatingInvoiceHistory) | **PUT** /RepeatingInvoices/{RepeatingInvoiceID}/History | Allows you to create history for a repeating invoice
 [**createTaxRate**](AccountingApi.md#createTaxRate) | **PUT** /TaxRates | Allows you to create Tax Rates
+[**createTaxRates**](AccountingApi.md#createTaxRates) | **PUT** /TaxRates#bulk | Allows you to create Tax Rates
 [**createTrackingCategory**](AccountingApi.md#createTrackingCategory) | **PUT** /TrackingCategories | Allows you to create tracking categories
 [**createTrackingOptions**](AccountingApi.md#createTrackingOptions) | **PUT** /TrackingCategories/{TrackingCategoryID}/Options | Allows you to create options for a specified tracking category
 [**deleteAccount**](AccountingApi.md#deleteAccount) | **DELETE** /Accounts/{AccountID} | Allows you to delete a chart of accounts
@@ -142,6 +154,8 @@ Method | HTTP request | Description
 [**getPurchaseOrder**](AccountingApi.md#getPurchaseOrder) | **GET** /PurchaseOrders/{PurchaseOrderID} | Allows you to retrieve a specified purchase orders
 [**getPurchaseOrderHistory**](AccountingApi.md#getPurchaseOrderHistory) | **GET** /PurchaseOrders/{PurchaseOrderID}/History | Allows you to retrieve history for PurchaseOrder
 [**getPurchaseOrders**](AccountingApi.md#getPurchaseOrders) | **GET** /PurchaseOrders | Allows you to retrieve purchase orders
+[**getQuote**](AccountingApi.md#getQuote) | **GET** /Quotes/{QuoteID} | Allows you to retrieve a specified quote
+[**getQuotes**](AccountingApi.md#getQuotes) | **GET** /Quotes | Allows you to retrieve any sales quotes
 [**getReceipt**](AccountingApi.md#getReceipt) | **GET** /Receipts/{ReceiptID} | Allows you to retrieve a specified draft expense claim receipts
 [**getReceiptAttachmentByFileName**](AccountingApi.md#getReceiptAttachmentByFileName) | **GET** /Receipts/{ReceiptID}/Attachments/{FileName} | Allows you to retrieve Attachments on expense claim receipts by file name
 [**getReceiptAttachmentById**](AccountingApi.md#getReceiptAttachmentById) | **GET** /Receipts/{ReceiptID}/Attachments/{AttachmentID} | Allows you to retrieve Attachments on expense claim receipts by ID
@@ -194,6 +208,7 @@ Method | HTTP request | Description
 [**updateRepeatingInvoiceAttachmentByFileName**](AccountingApi.md#updateRepeatingInvoiceAttachmentByFileName) | **POST** /RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{FileName} | Allows you to update specified attachment on repeating invoices by file name
 [**updateTaxRate**](AccountingApi.md#updateTaxRate) | **POST** /TaxRates | Allows you to update Tax Rates
 [**updateTrackingCategory**](AccountingApi.md#updateTrackingCategory) | **POST** /TrackingCategories/{TrackingCategoryID} | Allows you to update tracking categories
+[**updateTrackingOptions**](AccountingApi.md#updateTrackingOptions) | **POST** /TrackingCategories/{TrackingCategoryID}/Options/{TrackingOptionID} | Allows you to update options for a specified tracking category
 
 
 # **createAccount**
@@ -240,14 +255,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createAccountAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments createAccountAttachmentByFileName($xero_tenant_id, $account_id, $file_name, $body)
@@ -297,17 +312,17 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/octet-stream
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createBankTransaction**
-> \XeroAPI\XeroPHP\Models\Accounting\BankTransactions createBankTransaction($xero_tenant_id, $bank_transactions, $summarize_errors)
+> \XeroAPI\XeroPHP\Models\Accounting\BankTransactions createBankTransaction($xero_tenant_id, $bank_transaction)
 
 Allows you to create a spend or receive money transaction
 
@@ -326,11 +341,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transactions = { "BankTransactions":[ { "Type":"SPEND", "Contact":{ "ContactID":"5cc8cf28-567e-4d43-b287-687cfcaec47c" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"400" } ], "BankAccount":{ "Code":"088" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
-$summarize_errors = True; // bool | response format that shows validation errors for each bank transaction
+$bank_transaction = { "BankTransactions":[ { "Type":"SPEND", "Contact":{ "ContactID":"5cc8cf28-567e-4d43-b287-687cfcaec47c" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"400" } ], "BankAccount":{ "Code":"088" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransaction | 
 
 try {
-    $result = $apiInstance->createBankTransaction($xero_tenant_id, $bank_transactions, $summarize_errors);
+    $result = $apiInstance->createBankTransaction($xero_tenant_id, $bank_transaction);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createBankTransaction: ', $e->getMessage(), PHP_EOL;
@@ -343,8 +357,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **bank_transactions** | [**\XeroAPI\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)|  |
- **summarize_errors** | **bool**| response format that shows validation errors for each bank transaction | [optional]
+ **bank_transaction** | [**\XeroAPI\XeroPHP\Models\Accounting\BankTransaction**](../Model/BankTransaction.md)|  |
 
 ### Return type
 
@@ -352,14 +365,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createBankTransactionAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments createBankTransactionAttachmentByFileName($xero_tenant_id, $bank_transaction_id, $file_name, $body)
@@ -409,14 +422,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/octet-stream
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createBankTransactionHistoryRecord**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createBankTransactionHistoryRecord($xero_tenant_id, $bank_transaction_id, $history_records)
@@ -464,14 +477,69 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **createBankTransactions**
+> \XeroAPI\XeroPHP\Models\Accounting\BankTransactions createBankTransactions($xero_tenant_id, $bank_transactions, $summarize_errors)
+
+Allows you to create a spend or receive money transaction
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$bank_transactions = { "BankTransactions":[ { "Type":"SPEND", "Contact":{ "ContactID":"5cc8cf28-567e-4d43-b287-687cfcaec47c" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"400" } ], "BankAccount":{ "Code":"088" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
+$summarize_errors = true; // bool | response format that shows validation errors for each bank transaction
+
+try {
+    $result = $apiInstance->createBankTransactions($xero_tenant_id, $bank_transactions, $summarize_errors);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->createBankTransactions: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **bank_transactions** | [**\XeroAPI\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)|  |
+ **summarize_errors** | **bool**| response format that shows validation errors for each bank transaction | [optional] [default to true]
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createBankTransfer**
 > \XeroAPI\XeroPHP\Models\Accounting\BankTransfers createBankTransfer($xero_tenant_id, $bank_transfers)
@@ -517,14 +585,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createBankTransferAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments createBankTransferAttachmentByFileName($xero_tenant_id, $bank_transfer_id, $file_name, $body)
@@ -574,14 +642,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/octet-stream
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createBankTransferHistoryRecord**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createBankTransferHistoryRecord($xero_tenant_id, $bank_transfer_id, $history_records)
@@ -629,14 +697,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createBatchPayment**
 > \XeroAPI\XeroPHP\Models\Accounting\BatchPayments createBatchPayment($xero_tenant_id, $batch_payments)
@@ -685,14 +753,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createBatchPaymentHistoryRecord**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createBatchPaymentHistoryRecord($xero_tenant_id, $batch_payment_id, $history_records)
@@ -740,14 +808,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createBrandingThemePaymentServices**
 > \XeroAPI\XeroPHP\Models\Accounting\PaymentServices createBrandingThemePaymentServices($xero_tenant_id, $branding_theme_id, $payment_service)
@@ -795,14 +863,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createContact**
 > \XeroAPI\XeroPHP\Models\Accounting\Contacts createContact($xero_tenant_id, $contact)
@@ -848,14 +916,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createContactAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments createContactAttachmentByFileName($xero_tenant_id, $contact_id, $file_name, $body)
@@ -905,14 +973,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/octet-stream
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createContactGroup**
 > \XeroAPI\XeroPHP\Models\Accounting\ContactGroups createContactGroup($xero_tenant_id, $contact_groups)
@@ -958,14 +1026,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createContactGroupContacts**
 > \XeroAPI\XeroPHP\Models\Accounting\Contacts createContactGroupContacts($xero_tenant_id, $contact_group_id, $contacts)
@@ -1013,14 +1081,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createContactHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createContactHistory($xero_tenant_id, $contact_id, $history_records)
@@ -1068,17 +1136,70 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **createContacts**
+> \XeroAPI\XeroPHP\Models\Accounting\Contacts createContacts($xero_tenant_id, $contacts)
+
+
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$contacts = { "Name":"Foo9987", "EmailAddress":"sid32476@blah.com", "Phones":[ { "PhoneType":"MOBILE", "PhoneNumber":"555-1212", "PhoneAreaCode":"415" } ], "PaymentTerms":{ "Bills":{ "Day":15, "Type":"OFCURRENTMONTH" }, "Sales":{ "Day":10, "Type":"DAYSAFTERBILLMONTH" } } }; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | 
+
+try {
+    $result = $apiInstance->createContacts($xero_tenant_id, $contacts);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->createContacts: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **contacts** | [**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)|  |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createCreditNote**
-> \XeroAPI\XeroPHP\Models\Accounting\CreditNotes createCreditNote($xero_tenant_id, $credit_notes, $summarize_errors)
+> \XeroAPI\XeroPHP\Models\Accounting\CreditNotes createCreditNote($xero_tenant_id, $credit_note)
 
 Allows you to create a credit note
 
@@ -1097,11 +1218,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$credit_notes = { "CreditNotes":[ { "Type":"ACCPAYCREDIT", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "Date":"2019-01-05", "LineItems":[ { "Description":"Foobar", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"400" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\CreditNotes | an array of Credit Notes with a single CreditNote object.
-$summarize_errors = True; // bool | shows validation errors for each credit note
+$credit_note = { "CreditNotes":[ { "Type":"ACCPAYCREDIT", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "Date":"2019-01-05", "LineItems":[ { "Description":"Foobar", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"400" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\CreditNote | an array of Credit Notes with a single CreditNote object.
 
 try {
-    $result = $apiInstance->createCreditNote($xero_tenant_id, $credit_notes, $summarize_errors);
+    $result = $apiInstance->createCreditNote($xero_tenant_id, $credit_note);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createCreditNote: ', $e->getMessage(), PHP_EOL;
@@ -1114,8 +1234,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **credit_notes** | [**\XeroAPI\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)| an array of Credit Notes with a single CreditNote object. |
- **summarize_errors** | **bool**| shows validation errors for each credit note | [optional]
+ **credit_note** | [**\XeroAPI\XeroPHP\Models\Accounting\CreditNote**](../Model/CreditNote.md)| an array of Credit Notes with a single CreditNote object. |
 
 ### Return type
 
@@ -1123,14 +1242,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createCreditNoteAllocation**
 > \XeroAPI\XeroPHP\Models\Accounting\Allocations createCreditNoteAllocation($xero_tenant_id, $credit_note_id, $allocations)
@@ -1179,14 +1298,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createCreditNoteAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments createCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $body)
@@ -1236,14 +1355,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/octet-stream
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createCreditNoteHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createCreditNoteHistory($xero_tenant_id, $credit_note_id, $history_records)
@@ -1291,17 +1410,72 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **createCreditNotes**
+> \XeroAPI\XeroPHP\Models\Accounting\CreditNotes createCreditNotes($xero_tenant_id, $credit_notes, $summarize_errors)
+
+Allows you to create a credit note
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$credit_notes = { "CreditNotes":[ { "Type":"ACCPAYCREDIT", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "Date":"2019-01-05", "LineItems":[ { "Description":"Foobar", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"400" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\CreditNotes | an array of Credit Notes with a single CreditNote object.
+$summarize_errors = true; // bool | shows validation errors for each credit note
+
+try {
+    $result = $apiInstance->createCreditNotes($xero_tenant_id, $credit_notes, $summarize_errors);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->createCreditNotes: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **credit_notes** | [**\XeroAPI\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)| an array of Credit Notes with a single CreditNote object. |
+ **summarize_errors** | **bool**| shows validation errors for each credit note | [optional] [default to true]
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createCurrency**
-> \XeroAPI\XeroPHP\Models\Accounting\Currencies createCurrency($xero_tenant_id, $currencies)
+> \XeroAPI\XeroPHP\Models\Accounting\Currencies createCurrency($xero_tenant_id, $currency)
 
 
 
@@ -1320,10 +1494,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$currencies = { "Currencies":[ { "Code":"USD", "Description":"United States Dollar" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Currencies | 
+$currency = { "Code":"USD", "Description":"United States Dollar" }; // \XeroAPI\XeroPHP\Models\Accounting\Currency | 
 
 try {
-    $result = $apiInstance->createCurrency($xero_tenant_id, $currencies);
+    $result = $apiInstance->createCurrency($xero_tenant_id, $currency);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createCurrency: ', $e->getMessage(), PHP_EOL;
@@ -1336,7 +1510,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **currencies** | [**\XeroAPI\XeroPHP\Models\Accounting\Currencies**](../Model/Currencies.md)|  |
+ **currency** | [**\XeroAPI\XeroPHP\Models\Accounting\Currency**](../Model/Currency.md)|  |
 
 ### Return type
 
@@ -1344,17 +1518,70 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createEmployee**
-> \XeroAPI\XeroPHP\Models\Accounting\Employees createEmployee($xero_tenant_id, $employees)
+> \XeroAPI\XeroPHP\Models\Accounting\Employees createEmployee($xero_tenant_id, $employee)
+
+Allows you to create new employees used in Xero payrun
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$employee = { "Employees":[ { "FirstName":"Nick", "LastName":"Fury", "ExternalLink":{ "Url":"http://twitter.com/#!/search/Nick+Fury" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Employee | 
+
+try {
+    $result = $apiInstance->createEmployee($xero_tenant_id, $employee);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->createEmployee: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **employee** | [**\XeroAPI\XeroPHP\Models\Accounting\Employee**](../Model/Employee.md)|  |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\Employees**](../Model/Employees.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **createEmployees**
+> \XeroAPI\XeroPHP\Models\Accounting\Employees createEmployees($xero_tenant_id, $employees)
 
 Allows you to create new employees used in Xero payrun
 
@@ -1376,10 +1603,10 @@ $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tena
 $employees = { "Employees":[ { "FirstName":"Nick", "LastName":"Fury", "ExternalLink":{ "Url":"http://twitter.com/#!/search/Nick+Fury" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Employees | 
 
 try {
-    $result = $apiInstance->createEmployee($xero_tenant_id, $employees);
+    $result = $apiInstance->createEmployees($xero_tenant_id, $employees);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AccountingApi->createEmployee: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AccountingApi->createEmployees: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1397,70 +1624,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **createExpenseClaim**
-> \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims createExpenseClaim($xero_tenant_id, $expense_claims, $summarize_errors)
-
-Allows you to retrieve expense claims
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$expense_claims = { "ExpenseClaims":[ { "Status":"SUBMITTED", "User":{ "UserID":"d1164823-0ac1-41ad-987b-b4e30fe0b273" }, "Receipts":[ { "LineItems":[
-], "ReceiptID":"dc1c7f6d-0a4c-402f-acac-551d62ce5816" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims | 
-$summarize_errors = True; // bool | shows validation errors for each expense claim
-
-try {
-    $result = $apiInstance->createExpenseClaim($xero_tenant_id, $expense_claims, $summarize_errors);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AccountingApi->createExpenseClaim: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **expense_claims** | [**\XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims**](../Model/ExpenseClaims.md)|  |
- **summarize_errors** | **bool**| shows validation errors for each expense claim | [optional]
-
-### Return type
-
-[**\XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims**](../Model/ExpenseClaims.md)
-
-### Authorization
-
-[OAuth2](../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createExpenseClaimHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createExpenseClaimHistory($xero_tenant_id, $expense_claim_id, $history_records)
@@ -1508,17 +1679,71 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **createExpenseClaims**
+> \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims createExpenseClaims($xero_tenant_id, $expense_claims)
+
+Allows you to retrieve expense claims
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$expense_claims = { "ExpenseClaims":[ { "Status":"SUBMITTED", "User":{ "UserID":"d1164823-0ac1-41ad-987b-b4e30fe0b273" }, "Receipts":[ { "LineItems":[
+], "ReceiptID":"dc1c7f6d-0a4c-402f-acac-551d62ce5816" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims | 
+
+try {
+    $result = $apiInstance->createExpenseClaims($xero_tenant_id, $expense_claims);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->createExpenseClaims: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **expense_claims** | [**\XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims**](../Model/ExpenseClaims.md)|  |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims**](../Model/ExpenseClaims.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createInvoice**
-> \XeroAPI\XeroPHP\Models\Accounting\Invoices createInvoice($xero_tenant_id, $invoices, $summarize_errors)
+> \XeroAPI\XeroPHP\Models\Accounting\Invoices createInvoice($xero_tenant_id, $invoice)
 
 Allows you to create any sales invoices or purchase bills
 
@@ -1537,11 +1762,33 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$invoices = { "Invoices":[ { "Type":"ACCREC", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems":[ { "Description":"Acme Tires", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"200", "TaxType":"NONE", "LineAmount":40.0 } ], "Date":"2019-03-11", "DueDate":"2018-12-10", "Reference":"Website Design", "Status":"AUTHORISED" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | 
-$summarize_errors = True; // bool | shows validation errors for each invoice
+
+$where = 'ContactStatus=="ACTIVE"';
+$getContact = $apiInstance->getContacts($xeroTenantId, null, $where); 
+$contactId = $getContact->getContacts()[0]->getContactId();
+
+$contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
+$contact->setContactId($contactId);
+
+$lineitem = new XeroAPI\XeroPHP\Models\Accounting\LineItem;
+$lineitem->setDescription('Sample Item')
+    ->setQuantity(1)
+    ->setUnitAmount(20)
+    ->setAccountCode("400");
+$lineitems = [];    
+array_push($lineitems, $lineitem);
+
+$invoice = new XeroAPI\XeroPHP\Models\Accounting\Invoice;
+$invoice->setReference('Ref-num')
+  ->setDueDate(new DateTime('2017-01-02'))
+  ->setContact($contact)
+  ->setLineItems($lineitems)
+  ->setStatus(XeroAPI\XeroPHP\Models\Accounting\Invoice::STATUS_AUTHORISED)
+  ->setType(XeroAPI\XeroPHP\Models\Accounting\Invoice::TYPE_ACCPAY)
+  ->setLineAmountTypes(\XeroAPI\XeroPHP\Models\Accounting\LineAmountTypes::EXCLUSIVE);
 
 try {
-    $result = $apiInstance->createInvoice($xero_tenant_id, $invoices, $summarize_errors);
+    $result = $apiInstance->createInvoice($xero_tenant_id, $invoice);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createInvoice: ', $e->getMessage(), PHP_EOL;
@@ -1554,8 +1801,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **invoices** | [**\XeroAPI\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)|  |
- **summarize_errors** | **bool**| shows validation errors for each invoice | [optional]
+ **invoice** | [**\XeroAPI\XeroPHP\Models\Accounting\Invoice**](../Model/Invoice.md)|  |
 
 ### Return type
 
@@ -1563,14 +1809,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createInvoiceAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments createInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $body)
@@ -1620,14 +1866,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/octet-stream
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createInvoiceHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createInvoiceHistory($xero_tenant_id, $invoice_id, $history_records)
@@ -1675,17 +1921,99 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **createInvoices**
+> \XeroAPI\XeroPHP\Models\Accounting\Invoices createInvoices($xero_tenant_id, $invoices, $summarize_errors)
+
+Allows you to create any sales invoices or purchase bills
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$where = 'ContactStatus=="ACTIVE"';
+$getContact = $apiInstance->getContacts($xero_tenant_id, null, $where); 
+$contactId = $getContact->getContacts()[0]->getContactId();
+
+$contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
+$contact->setContactId($contactId);
+
+$lineitem = new XeroAPI\XeroPHP\Models\Accounting\LineItem;
+$lineitem->setDescription('Sample Item')
+    ->setQuantity(1)
+    ->setUnitAmount(20)
+    ->setAccountCode("400");
+$lineitems = [];    
+array_push($lineitems, $lineitem);
+
+$invoice = new XeroAPI\XeroPHP\Models\Accounting\Invoice;
+$invoice->setReference('Ref-num')
+  ->setDueDate(new DateTime('2017-01-02'))
+  ->setContact($contact)
+  ->setLineItems($lineitems)
+  ->setStatus(XeroAPI\XeroPHP\Models\Accounting\Invoice::STATUS_AUTHORISED)
+  ->setType(XeroAPI\XeroPHP\Models\Accounting\Invoice::TYPE_ACCPAY)
+  ->setLineAmountTypes(\XeroAPI\XeroPHP\Models\Accounting\LineAmountTypes::EXCLUSIVE);
+
+$arr_invoices = [];   
+array_push($arr_invoices, $invoice);
+array_push($arr_invoices, $invoice);
+$invoices = new XeroAPI\XeroPHP\Models\Accounting\Invoices;
+$invoices->setInvoices($arr_invoices);
+
+try {
+    $result = $apiInstance->createInvoices($xero_tenant_id, $invoices, true);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->createInvoice: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **invoices** | [**\XeroAPI\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)|  |
+ **summarize_errors** | **bool**| shows validation errors for each invoice | [optional] [default to true]
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createItem**
-> \XeroAPI\XeroPHP\Models\Accounting\Items createItem($xero_tenant_id, $items)
+> \XeroAPI\XeroPHP\Models\Accounting\Items createItem($xero_tenant_id, $item)
 
 Allows you to create an item
 
@@ -1704,10 +2032,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$items = { "Items":[ { "Code":"abc65591", "Name":"Hello11350", "Description":"foobar" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | 
+$item = { "Items":[ { "Code":"abc65591", "Name":"Hello11350", "Description":"foobar" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Item | 
 
 try {
-    $result = $apiInstance->createItem($xero_tenant_id, $items);
+    $result = $apiInstance->createItem($xero_tenant_id, $item);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createItem: ', $e->getMessage(), PHP_EOL;
@@ -1720,7 +2048,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **items** | [**\XeroAPI\XeroPHP\Models\Accounting\Items**](../Model/Items.md)|  |
+ **item** | [**\XeroAPI\XeroPHP\Models\Accounting\Item**](../Model/Item.md)|  |
 
 ### Return type
 
@@ -1728,14 +2056,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createItemHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createItemHistory($xero_tenant_id, $item_id, $history_records)
@@ -1783,17 +2111,123 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **createItems**
+> \XeroAPI\XeroPHP\Models\Accounting\Items createItems($xero_tenant_id, $items)
+
+Allows you to create an item
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$items = { "Items":[ { "Code":"abc65591", "Name":"Hello11350", "Description":"foobar" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | 
+
+try {
+    $result = $apiInstance->createItems($xero_tenant_id, $items);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->createItems: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **items** | [**\XeroAPI\XeroPHP\Models\Accounting\Items**](../Model/Items.md)|  |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\Items**](../Model/Items.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createLinkedTransaction**
-> \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions createLinkedTransaction($xero_tenant_id, $linked_transactions)
+> \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions createLinkedTransaction($xero_tenant_id, $linked_transaction)
+
+Allows you to create linked transactions (billable expenses)
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$linked_transaction = { "LinkedTransactions":[ { "SourceTransactionID":"a848644a-f20f-4630-98c3-386bd7505631", "SourceLineItemID":"b0df260d-3cc8-4ced-9bd6-41924f624ed3" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction | 
+
+try {
+    $result = $apiInstance->createLinkedTransaction($xero_tenant_id, $linked_transaction);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->createLinkedTransaction: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **linked_transaction** | [**\XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction**](../Model/LinkedTransaction.md)|  |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions**](../Model/LinkedTransactions.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **createLinkedTransactions**
+> \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions createLinkedTransactions($xero_tenant_id, $linked_transactions)
 
 Allows you to create linked transactions (billable expenses)
 
@@ -1815,10 +2249,10 @@ $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tena
 $linked_transactions = { "LinkedTransactions":[ { "SourceTransactionID":"a848644a-f20f-4630-98c3-386bd7505631", "SourceLineItemID":"b0df260d-3cc8-4ced-9bd6-41924f624ed3" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions | 
 
 try {
-    $result = $apiInstance->createLinkedTransaction($xero_tenant_id, $linked_transactions);
+    $result = $apiInstance->createLinkedTransactions($xero_tenant_id, $linked_transactions);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AccountingApi->createLinkedTransaction: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AccountingApi->createLinkedTransactions: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1836,17 +2270,17 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createManualJournal**
-> \XeroAPI\XeroPHP\Models\Accounting\ManualJournals createManualJournal($xero_tenant_id, $manual_journals)
+> \XeroAPI\XeroPHP\Models\Accounting\ManualJournals createManualJournal($xero_tenant_id, $manual_journal)
 
 Allows you to create a manual journal
 
@@ -1865,10 +2299,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$manual_journals = { "ManualJournals":[ { "Narration":"Foo bar", "JournalLines":[ { "LineAmount":100.0, "AccountCode":"400", "Description":"Hello there" }, { "LineAmount":-100.0, "AccountCode":"400", "Description":"Goodbye", "Tracking":[ { "Name":"Simpsons", "Option":"Bart" } ] } ], "Date":"2019-03-14" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournals | 
+$manual_journal = { "ManualJournals":[ { "Narration":"Foo bar", "JournalLines":[ { "LineAmount":100.0, "AccountCode":"400", "Description":"Hello there" }, { "LineAmount":-100.0, "AccountCode":"400", "Description":"Goodbye", "Tracking":[ { "Name":"Simpsons", "Option":"Bart" } ] } ], "Date":"2019-03-14" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournal | 
 
 try {
-    $result = $apiInstance->createManualJournal($xero_tenant_id, $manual_journals);
+    $result = $apiInstance->createManualJournal($xero_tenant_id, $manual_journal);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createManualJournal: ', $e->getMessage(), PHP_EOL;
@@ -1881,7 +2315,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **manual_journals** | [**\XeroAPI\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)|  |
+ **manual_journal** | [**\XeroAPI\XeroPHP\Models\Accounting\ManualJournal**](../Model/ManualJournal.md)|  |
 
 ### Return type
 
@@ -1889,14 +2323,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createManualJournalAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments createManualJournalAttachmentByFileName($xero_tenant_id, $manual_journal_id, $file_name, $body)
@@ -1946,17 +2380,126 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/octet-stream
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **createManualJournals**
+> \XeroAPI\XeroPHP\Models\Accounting\ManualJournals createManualJournals($xero_tenant_id, $manual_journals)
+
+Allows you to create a manual journal
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$manual_journals = { "ManualJournals":[ { "Narration":"Foo bar", "JournalLines":[ { "LineAmount":100.0, "AccountCode":"400", "Description":"Hello there" }, { "LineAmount":-100.0, "AccountCode":"400", "Description":"Goodbye", "Tracking":[ { "Name":"Simpsons", "Option":"Bart" } ] } ], "Date":"2019-03-14" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournals | 
+
+try {
+    $result = $apiInstance->createManualJournals($xero_tenant_id, $manual_journals);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->createManualJournals: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **manual_journals** | [**\XeroAPI\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)|  |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createOverpaymentAllocation**
-> \XeroAPI\XeroPHP\Models\Accounting\Allocations createOverpaymentAllocation($xero_tenant_id, $overpayment_id, $allocations)
+> \XeroAPI\XeroPHP\Models\Accounting\Allocations createOverpaymentAllocation($xero_tenant_id, $overpayment_id, $allocation)
+
+Allows you to retrieve Allocations for overpayments
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$overpayment_id = 'overpayment_id_example'; // string | Unique identifier for a Overpayment
+$allocation = { "Allocations":[ { "Invoice":{ "LineItems":[
+], "InvoiceID":"c45720a1-ade3-4a38-a064-d15489be6841" }, "Amount":1.0, "Date":"2019-03-12" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocation | 
+
+try {
+    $result = $apiInstance->createOverpaymentAllocation($xero_tenant_id, $overpayment_id, $allocation);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->createOverpaymentAllocation: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **overpayment_id** | [**string**](../Model/.md)| Unique identifier for a Overpayment |
+ **allocation** | [**\XeroAPI\XeroPHP\Models\Accounting\Allocation**](../Model/Allocation.md)|  |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **createOverpaymentAllocations**
+> \XeroAPI\XeroPHP\Models\Accounting\Allocations createOverpaymentAllocations($xero_tenant_id, $overpayment_id, $allocations)
 
 Allows you to retrieve Allocations for overpayments
 
@@ -1980,10 +2523,10 @@ $allocations = { "Allocations":[ { "Invoice":{ "LineItems":[
 ], "InvoiceID":"c45720a1-ade3-4a38-a064-d15489be6841" }, "Amount":1.0, "Date":"2019-03-12" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | 
 
 try {
-    $result = $apiInstance->createOverpaymentAllocation($xero_tenant_id, $overpayment_id, $allocations);
+    $result = $apiInstance->createOverpaymentAllocations($xero_tenant_id, $overpayment_id, $allocations);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AccountingApi->createOverpaymentAllocation: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AccountingApi->createOverpaymentAllocations: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -2002,14 +2545,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createOverpaymentHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createOverpaymentHistory($xero_tenant_id, $overpayment_id, $history_records)
@@ -2057,17 +2600,17 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createPayment**
-> \XeroAPI\XeroPHP\Models\Accounting\Payments createPayment($xero_tenant_id, $payments)
+> \XeroAPI\XeroPHP\Models\Accounting\Payments createPayment($xero_tenant_id, $payment)
 
 Allows you to create payments for invoices and credit notes
 
@@ -2086,11 +2629,11 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$payments = { "Payments":[ { "Invoice":{ "LineItems":[
-], "InvoiceID":"c7c37b83-ac95-45ea-88ba-8ad83a5f22fe" }, "Account":{ "Code":"970" }, "Date":"2019-03-12", "Amount":1.0 } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Payments | 
+$payment = { "Payments":[ { "Invoice":{ "LineItems":[
+], "InvoiceID":"c7c37b83-ac95-45ea-88ba-8ad83a5f22fe" }, "Account":{ "Code":"970" }, "Date":"2019-03-12", "Amount":1.0 } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Payment | 
 
 try {
-    $result = $apiInstance->createPayment($xero_tenant_id, $payments);
+    $result = $apiInstance->createPayment($xero_tenant_id, $payment);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createPayment: ', $e->getMessage(), PHP_EOL;
@@ -2103,7 +2646,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **payments** | [**\XeroAPI\XeroPHP\Models\Accounting\Payments**](../Model/Payments.md)|  |
+ **payment** | [**\XeroAPI\XeroPHP\Models\Accounting\Payment**](../Model/Payment.md)|  |
 
 ### Return type
 
@@ -2111,14 +2654,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createPaymentHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createPaymentHistory($xero_tenant_id, $payment_id, $history_records)
@@ -2166,14 +2709,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createPaymentService**
 > \XeroAPI\XeroPHP\Models\Accounting\PaymentServices createPaymentService($xero_tenant_id, $payment_services)
@@ -2219,14 +2762,68 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **createPayments**
+> \XeroAPI\XeroPHP\Models\Accounting\Payments createPayments($xero_tenant_id, $payments)
+
+Allows you to create payments for invoices and credit notes
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$payments = { "Payments":[ { "Invoice":{ "LineItems":[
+], "InvoiceID":"c7c37b83-ac95-45ea-88ba-8ad83a5f22fe" }, "Account":{ "Code":"970" }, "Date":"2019-03-12", "Amount":1.0 } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Payments | 
+
+try {
+    $result = $apiInstance->createPayments($xero_tenant_id, $payments);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->createPayments: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **payments** | [**\XeroAPI\XeroPHP\Models\Accounting\Payments**](../Model/Payments.md)|  |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\Payments**](../Model/Payments.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createPrepaymentAllocation**
 > \XeroAPI\XeroPHP\Models\Accounting\Allocations createPrepaymentAllocation($xero_tenant_id, $prepayment_id, $allocations)
@@ -2275,14 +2872,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createPrepaymentHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createPrepaymentHistory($xero_tenant_id, $prepayment_id, $history_records)
@@ -2330,17 +2927,17 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createPurchaseOrder**
-> \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders createPurchaseOrder($xero_tenant_id, $purchase_orders, $summarize_errors)
+> \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders createPurchaseOrder($xero_tenant_id, $purchase_order)
 
 Allows you to create purchase orders
 
@@ -2359,11 +2956,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$purchase_orders = { "PurchaseOrders":[ { "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"710" } ], "Date":"2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | 
-$summarize_errors = True; // bool | shows validation errors for each purchase order.
+$purchase_order = { "PurchaseOrders":[ { "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"710" } ], "Date":"2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrder | 
 
 try {
-    $result = $apiInstance->createPurchaseOrder($xero_tenant_id, $purchase_orders, $summarize_errors);
+    $result = $apiInstance->createPurchaseOrder($xero_tenant_id, $purchase_order);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createPurchaseOrder: ', $e->getMessage(), PHP_EOL;
@@ -2376,8 +2972,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **purchase_orders** | [**\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)|  |
- **summarize_errors** | **bool**| shows validation errors for each purchase order. | [optional]
+ **purchase_order** | [**\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrder**](../Model/PurchaseOrder.md)|  |
 
 ### Return type
 
@@ -2385,14 +2980,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createPurchaseOrderHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createPurchaseOrderHistory($xero_tenant_id, $purchase_order_id, $history_records)
@@ -2440,14 +3035,69 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **createPurchaseOrders**
+> \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders createPurchaseOrders($xero_tenant_id, $purchase_orders, $summarize_errors)
+
+Allows you to create purchase orders
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$purchase_orders = { "PurchaseOrders":[ { "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"710" } ], "Date":"2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | 
+$summarize_errors = true; // bool | shows validation errors for each purchase order.
+
+try {
+    $result = $apiInstance->createPurchaseOrders($xero_tenant_id, $purchase_orders, $summarize_errors);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->createPurchaseOrders: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **purchase_orders** | [**\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)|  |
+ **summarize_errors** | **bool**| shows validation errors for each purchase order. | [optional] [default to true]
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createReceipt**
 > \XeroAPI\XeroPHP\Models\Accounting\Receipts createReceipt($xero_tenant_id, $receipts)
@@ -2493,14 +3143,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createReceiptAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments createReceiptAttachmentByFileName($xero_tenant_id, $receipt_id, $file_name, $body)
@@ -2550,14 +3200,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/octet-stream
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createReceiptHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createReceiptHistory($xero_tenant_id, $receipt_id, $history_records)
@@ -2605,14 +3255,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createRepeatingInvoiceAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments createRepeatingInvoiceAttachmentByFileName($xero_tenant_id, $repeating_invoice_id, $file_name, $body)
@@ -2662,14 +3312,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/octet-stream
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createRepeatingInvoiceHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createRepeatingInvoiceHistory($xero_tenant_id, $repeating_invoice_id, $history_records)
@@ -2717,17 +3367,70 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createTaxRate**
-> \XeroAPI\XeroPHP\Models\Accounting\TaxRates createTaxRate($xero_tenant_id, $tax_rates)
+> \XeroAPI\XeroPHP\Models\Accounting\TaxRates createTaxRate($xero_tenant_id, $tax_rate)
+
+Allows you to create Tax Rates
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$tax_rate = { "TaxRates":[ { "Name":"SDKTax29067", "TaxComponents":[ { "Name":"State Tax", "Rate":2.25 } ], "ReportTaxType":"INPUT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\TaxRate | 
+
+try {
+    $result = $apiInstance->createTaxRate($xero_tenant_id, $tax_rate);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->createTaxRate: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **tax_rate** | [**\XeroAPI\XeroPHP\Models\Accounting\TaxRate**](../Model/TaxRate.md)|  |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\TaxRates**](../Model/TaxRates.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **createTaxRates**
+> \XeroAPI\XeroPHP\Models\Accounting\TaxRates createTaxRates($xero_tenant_id, $tax_rates)
 
 Allows you to create Tax Rates
 
@@ -2749,10 +3452,10 @@ $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tena
 $tax_rates = { "TaxRates":[ { "Name":"SDKTax29067", "TaxComponents":[ { "Name":"State Tax", "Rate":2.25 } ], "ReportTaxType":"INPUT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\TaxRates | 
 
 try {
-    $result = $apiInstance->createTaxRate($xero_tenant_id, $tax_rates);
+    $result = $apiInstance->createTaxRates($xero_tenant_id, $tax_rates);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AccountingApi->createTaxRate: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AccountingApi->createTaxRates: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -2770,14 +3473,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createTrackingCategory**
 > \XeroAPI\XeroPHP\Models\Accounting\TrackingCategories createTrackingCategory($xero_tenant_id, $tracking_category)
@@ -2823,14 +3526,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createTrackingOptions**
 > \XeroAPI\XeroPHP\Models\Accounting\TrackingOptions createTrackingOptions($xero_tenant_id, $tracking_category_id, $tracking_option)
@@ -2878,14 +3581,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteAccount**
 > \XeroAPI\XeroPHP\Models\Accounting\Accounts deleteAccount($xero_tenant_id, $account_id)
@@ -2931,14 +3634,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteContactGroupContact**
 > deleteContactGroupContact($xero_tenant_id, $contact_group_id, $contact_id)
@@ -2985,14 +3688,14 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteContactGroupContacts**
 > deleteContactGroupContacts($xero_tenant_id, $contact_group_id)
@@ -3037,14 +3740,14 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteItem**
 > deleteItem($xero_tenant_id, $item_id)
@@ -3089,14 +3792,14 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteLinkedTransaction**
 > deleteLinkedTransaction($xero_tenant_id, $linked_transaction_id)
@@ -3141,14 +3844,14 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deletePayment**
 > \XeroAPI\XeroPHP\Models\Accounting\Payments deletePayment($xero_tenant_id, $payment_id, $payments)
@@ -3196,14 +3899,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteTrackingCategory**
 > \XeroAPI\XeroPHP\Models\Accounting\TrackingCategories deleteTrackingCategory($xero_tenant_id, $tracking_category_id)
@@ -3249,14 +3952,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteTrackingOptions**
 > \XeroAPI\XeroPHP\Models\Accounting\TrackingOptions deleteTrackingOptions($xero_tenant_id, $tracking_category_id, $tracking_option_id)
@@ -3304,14 +4007,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **emailInvoice**
 > emailInvoice($xero_tenant_id, $invoice_id, $request_empty)
@@ -3358,14 +4061,14 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAccount**
 > \XeroAPI\XeroPHP\Models\Accounting\Accounts getAccount($xero_tenant_id, $account_id)
@@ -3411,14 +4114,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAccountAttachmentByFileName**
 > \SplFileObject getAccountAttachmentByFileName($xero_tenant_id, $account_id, $file_name, $content_type)
@@ -3468,14 +4171,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAccountAttachmentById**
 > \SplFileObject getAccountAttachmentById($xero_tenant_id, $account_id, $attachment_id, $content_type)
@@ -3525,14 +4228,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAccountAttachments**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments getAccountAttachments($xero_tenant_id, $account_id)
@@ -3578,14 +4281,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAccounts**
 > \XeroAPI\XeroPHP\Models\Accounting\Accounts getAccounts($xero_tenant_id, $if_modified_since, $where, $order)
@@ -3635,14 +4338,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBankTransaction**
 > \XeroAPI\XeroPHP\Models\Accounting\BankTransactions getBankTransaction($xero_tenant_id, $bank_transaction_id)
@@ -3688,14 +4391,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBankTransactionAttachmentByFileName**
 > \SplFileObject getBankTransactionAttachmentByFileName($xero_tenant_id, $bank_transaction_id, $file_name, $content_type)
@@ -3745,14 +4448,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBankTransactionAttachmentById**
 > \SplFileObject getBankTransactionAttachmentById($xero_tenant_id, $bank_transaction_id, $attachment_id, $content_type)
@@ -3802,14 +4505,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBankTransactionAttachments**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments getBankTransactionAttachments($xero_tenant_id, $bank_transaction_id)
@@ -3855,14 +4558,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBankTransactions**
 > \XeroAPI\XeroPHP\Models\Accounting\BankTransactions getBankTransactions($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp)
@@ -3916,14 +4619,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBankTransactionsHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getBankTransactionsHistory($xero_tenant_id, $bank_transaction_id)
@@ -3969,14 +4672,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBankTransfer**
 > \XeroAPI\XeroPHP\Models\Accounting\BankTransfers getBankTransfer($xero_tenant_id, $bank_transfer_id)
@@ -4022,14 +4725,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBankTransferAttachmentByFileName**
 > \SplFileObject getBankTransferAttachmentByFileName($xero_tenant_id, $bank_transfer_id, $file_name, $content_type)
@@ -4079,14 +4782,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBankTransferAttachmentById**
 > \SplFileObject getBankTransferAttachmentById($xero_tenant_id, $bank_transfer_id, $attachment_id, $content_type)
@@ -4136,14 +4839,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBankTransferAttachments**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments getBankTransferAttachments($xero_tenant_id, $bank_transfer_id)
@@ -4189,14 +4892,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBankTransferHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getBankTransferHistory($xero_tenant_id, $bank_transfer_id)
@@ -4242,14 +4945,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBankTransfers**
 > \XeroAPI\XeroPHP\Models\Accounting\BankTransfers getBankTransfers($xero_tenant_id, $if_modified_since, $where, $order)
@@ -4299,14 +5002,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBatchPaymentHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getBatchPaymentHistory($xero_tenant_id, $batch_payment_id)
@@ -4352,14 +5055,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBatchPayments**
 > \XeroAPI\XeroPHP\Models\Accounting\BatchPayments getBatchPayments($xero_tenant_id, $if_modified_since, $where, $order)
@@ -4409,14 +5112,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBrandingTheme**
 > \XeroAPI\XeroPHP\Models\Accounting\BrandingThemes getBrandingTheme($xero_tenant_id, $branding_theme_id)
@@ -4462,14 +5165,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBrandingThemePaymentServices**
 > \XeroAPI\XeroPHP\Models\Accounting\PaymentServices getBrandingThemePaymentServices($xero_tenant_id, $branding_theme_id)
@@ -4515,14 +5218,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBrandingThemes**
 > \XeroAPI\XeroPHP\Models\Accounting\BrandingThemes getBrandingThemes($xero_tenant_id)
@@ -4566,14 +5269,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContact**
 > \XeroAPI\XeroPHP\Models\Accounting\Contacts getContact($xero_tenant_id, $contact_id)
@@ -4619,14 +5322,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContactAttachmentByFileName**
 > \SplFileObject getContactAttachmentByFileName($xero_tenant_id, $contact_id, $file_name, $content_type)
@@ -4676,14 +5379,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContactAttachmentById**
 > \SplFileObject getContactAttachmentById($xero_tenant_id, $contact_id, $attachment_id, $content_type)
@@ -4733,14 +5436,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContactAttachments**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments getContactAttachments($xero_tenant_id, $contact_id)
@@ -4786,14 +5489,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContactCISSettings**
 > \XeroAPI\XeroPHP\Models\Accounting\CISSettings getContactCISSettings($xero_tenant_id, $contact_id)
@@ -4839,14 +5542,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContactGroup**
 > \XeroAPI\XeroPHP\Models\Accounting\ContactGroups getContactGroup($xero_tenant_id, $contact_group_id)
@@ -4892,14 +5595,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContactGroups**
 > \XeroAPI\XeroPHP\Models\Accounting\ContactGroups getContactGroups($xero_tenant_id, $where, $order)
@@ -4947,14 +5650,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContactHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getContactHistory($xero_tenant_id, $contact_id)
@@ -5000,14 +5703,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContacts**
 > \XeroAPI\XeroPHP\Models\Accounting\Contacts getContacts($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $page, $include_archived)
@@ -5032,7 +5735,7 @@ $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tena
 $if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
 $where = 'where_example'; // string | Filter by an any element
 $order = 'order_example'; // string | Order by an any element
-$i_ds = 'i_ds_example'; // string | Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call.
+$i_ds = array('i_ds_example'); // string[] | Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call.
 $page = 56; // int | e.g. page=1 - Up to 100 contacts will be returned in a single API call.
 $include_archived = True; // bool | e.g. includeArchived=true - Contacts with a status of ARCHIVED will be included in the response
 
@@ -5053,7 +5756,7 @@ Name | Type | Description  | Notes
  **if_modified_since** | **\DateTime**| Only records created or modified since this timestamp will be returned | [optional]
  **where** | **string**| Filter by an any element | [optional]
  **order** | **string**| Order by an any element | [optional]
- **i_ds** | **string**| Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call. | [optional]
+ **i_ds** | [**string[]**](../Model/string.md)| Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call. | [optional]
  **page** | **int**| e.g. page&#x3D;1 - Up to 100 contacts will be returned in a single API call. | [optional]
  **include_archived** | **bool**| e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response | [optional]
 
@@ -5063,14 +5766,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCreditNote**
 > \XeroAPI\XeroPHP\Models\Accounting\CreditNotes getCreditNote($xero_tenant_id, $credit_note_id)
@@ -5116,14 +5819,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCreditNoteAsPdf**
 > \SplFileObject getCreditNoteAsPdf($xero_tenant_id, $credit_note_id, $content_type)
@@ -5171,14 +5874,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCreditNoteAttachmentByFileName**
 > \SplFileObject getCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $content_type)
@@ -5228,14 +5931,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCreditNoteAttachmentById**
 > \SplFileObject getCreditNoteAttachmentById($xero_tenant_id, $credit_note_id, $attachment_id, $content_type)
@@ -5285,14 +5988,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCreditNoteAttachments**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments getCreditNoteAttachments($xero_tenant_id, $credit_note_id)
@@ -5338,14 +6041,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCreditNoteHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getCreditNoteHistory($xero_tenant_id, $credit_note_id)
@@ -5391,14 +6094,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCreditNotes**
 > \XeroAPI\XeroPHP\Models\Accounting\CreditNotes getCreditNotes($xero_tenant_id, $if_modified_since, $where, $order, $page)
@@ -5450,14 +6153,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCurrencies**
 > \XeroAPI\XeroPHP\Models\Accounting\Currencies getCurrencies($xero_tenant_id, $where, $order)
@@ -5505,14 +6208,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getEmployee**
 > \XeroAPI\XeroPHP\Models\Accounting\Employees getEmployee($xero_tenant_id, $employee_id)
@@ -5558,14 +6261,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getEmployees**
 > \XeroAPI\XeroPHP\Models\Accounting\Employees getEmployees($xero_tenant_id, $if_modified_since, $where, $order)
@@ -5615,14 +6318,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getExpenseClaim**
 > \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims getExpenseClaim($xero_tenant_id, $expense_claim_id)
@@ -5668,14 +6371,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getExpenseClaimHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getExpenseClaimHistory($xero_tenant_id, $expense_claim_id)
@@ -5721,14 +6424,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getExpenseClaims**
 > \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims getExpenseClaims($xero_tenant_id, $if_modified_since, $where, $order)
@@ -5778,14 +6481,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getInvoice**
 > \XeroAPI\XeroPHP\Models\Accounting\Invoices getInvoice($xero_tenant_id, $invoice_id)
@@ -5831,14 +6534,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getInvoiceAsPdf**
 > \SplFileObject getInvoiceAsPdf($xero_tenant_id, $invoice_id, $content_type)
@@ -5886,14 +6589,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getInvoiceAttachmentByFileName**
 > \SplFileObject getInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $content_type)
@@ -5943,14 +6646,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getInvoiceAttachmentById**
 > \SplFileObject getInvoiceAttachmentById($xero_tenant_id, $invoice_id, $attachment_id, $content_type)
@@ -6000,14 +6703,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getInvoiceAttachments**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments getInvoiceAttachments($xero_tenant_id, $invoice_id)
@@ -6053,14 +6756,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getInvoiceHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getInvoiceHistory($xero_tenant_id, $invoice_id)
@@ -6106,14 +6809,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getInvoiceReminders**
 > \XeroAPI\XeroPHP\Models\Accounting\InvoiceReminders getInvoiceReminders($xero_tenant_id)
@@ -6157,14 +6860,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getInvoices**
 > \XeroAPI\XeroPHP\Models\Accounting\Invoices getInvoices($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $invoice_numbers, $contact_i_ds, $statuses, $page, $include_archived, $created_by_my_app, $unitdp)
@@ -6189,10 +6892,10 @@ $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tena
 $if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
 $where = 'where_example'; // string | Filter by an any element
 $order = 'order_example'; // string | Order by an any element
-$i_ds = 'i_ds_example'; // string | Filter by a comma-separated list of InvoicesIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
-$invoice_numbers = 'invoice_numbers_example'; // string | Filter by a comma-separated list of InvoiceNumbers. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
-$contact_i_ds = 'contact_i_ds_example'; // string | Filter by a comma-separated list of ContactIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
-$statuses = 'statuses_example'; // string | Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
+$i_ds = array('i_ds_example'); // string[] | Filter by a comma-separated list of InvoicesIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
+$invoice_numbers = array('invoice_numbers_example'); // string[] | Filter by a comma-separated list of InvoiceNumbers. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
+$contact_i_ds = array('contact_i_ds_example'); // string[] | Filter by a comma-separated list of ContactIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
+$statuses = array('statuses_example'); // string[] | Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
 $page = 56; // int | e.g. page=1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice
 $include_archived = True; // bool | e.g. includeArchived=true - Contacts with a status of ARCHIVED will be included in the response
 $created_by_my_app = True; // bool | When set to true you'll only retrieve Invoices created by your app
@@ -6215,10 +6918,10 @@ Name | Type | Description  | Notes
  **if_modified_since** | **\DateTime**| Only records created or modified since this timestamp will be returned | [optional]
  **where** | **string**| Filter by an any element | [optional]
  **order** | **string**| Order by an any element | [optional]
- **i_ds** | **string**| Filter by a comma-separated list of InvoicesIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. | [optional]
- **invoice_numbers** | **string**| Filter by a comma-separated list of InvoiceNumbers. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. | [optional]
- **contact_i_ds** | **string**| Filter by a comma-separated list of ContactIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. | [optional]
- **statuses** | **string**| Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. | [optional]
+ **i_ds** | [**string[]**](../Model/string.md)| Filter by a comma-separated list of InvoicesIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. | [optional]
+ **invoice_numbers** | [**string[]**](../Model/string.md)| Filter by a comma-separated list of InvoiceNumbers. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. | [optional]
+ **contact_i_ds** | [**string[]**](../Model/string.md)| Filter by a comma-separated list of ContactIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. | [optional]
+ **statuses** | [**string[]**](../Model/string.md)| Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. | [optional]
  **page** | **int**| e.g. page&#x3D;1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice | [optional]
  **include_archived** | **bool**| e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response | [optional]
  **created_by_my_app** | **bool**| When set to true you&#39;ll only retrieve Invoices created by your app | [optional]
@@ -6230,14 +6933,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getItem**
 > \XeroAPI\XeroPHP\Models\Accounting\Items getItem($xero_tenant_id, $item_id)
@@ -6283,14 +6986,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getItemHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getItemHistory($xero_tenant_id, $item_id)
@@ -6336,14 +7039,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getItems**
 > \XeroAPI\XeroPHP\Models\Accounting\Items getItems($xero_tenant_id, $if_modified_since, $where, $order, $unitdp)
@@ -6395,14 +7098,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getJournal**
 > \XeroAPI\XeroPHP\Models\Accounting\Journals getJournal($xero_tenant_id, $journal_id)
@@ -6448,14 +7151,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getJournals**
 > \XeroAPI\XeroPHP\Models\Accounting\Journals getJournals($xero_tenant_id, $if_modified_since, $offset, $payments_only)
@@ -6505,14 +7208,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLinkedTransaction**
 > \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions getLinkedTransaction($xero_tenant_id, $linked_transaction_id)
@@ -6558,14 +7261,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLinkedTransactions**
 > \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions getLinkedTransactions($xero_tenant_id, $page, $linked_transaction_id, $source_transaction_id, $contact_id, $status, $target_transaction_id)
@@ -6621,14 +7324,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getManualJournal**
 > \XeroAPI\XeroPHP\Models\Accounting\ManualJournals getManualJournal($xero_tenant_id, $manual_journal_id)
@@ -6674,14 +7377,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getManualJournalAttachmentByFileName**
 > \SplFileObject getManualJournalAttachmentByFileName($xero_tenant_id, $manual_journal_id, $file_name, $content_type)
@@ -6731,14 +7434,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getManualJournalAttachmentById**
 > \SplFileObject getManualJournalAttachmentById($xero_tenant_id, $manual_journal_id, $attachment_id, $content_type)
@@ -6788,14 +7491,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getManualJournalAttachments**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments getManualJournalAttachments($xero_tenant_id, $manual_journal_id)
@@ -6841,14 +7544,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getManualJournals**
 > \XeroAPI\XeroPHP\Models\Accounting\ManualJournals getManualJournals($xero_tenant_id, $if_modified_since, $where, $order, $page)
@@ -6900,14 +7603,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOnlineInvoice**
 > \XeroAPI\XeroPHP\Models\Accounting\OnlineInvoices getOnlineInvoice($xero_tenant_id, $invoice_id)
@@ -6953,14 +7656,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOrganisationCISSettings**
 > \XeroAPI\XeroPHP\Models\Accounting\CISOrgSetting getOrganisationCISSettings($xero_tenant_id, $organisation_id)
@@ -7006,14 +7709,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOrganisations**
 > \XeroAPI\XeroPHP\Models\Accounting\Organisations getOrganisations($xero_tenant_id)
@@ -7057,14 +7760,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOverpayment**
 > \XeroAPI\XeroPHP\Models\Accounting\Overpayments getOverpayment($xero_tenant_id, $overpayment_id)
@@ -7110,14 +7813,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOverpaymentHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getOverpaymentHistory($xero_tenant_id, $overpayment_id)
@@ -7163,14 +7866,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOverpayments**
 > \XeroAPI\XeroPHP\Models\Accounting\Overpayments getOverpayments($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp)
@@ -7224,14 +7927,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPayment**
 > \XeroAPI\XeroPHP\Models\Accounting\Payments getPayment($xero_tenant_id, $payment_id)
@@ -7277,14 +7980,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPaymentHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getPaymentHistory($xero_tenant_id, $payment_id)
@@ -7330,14 +8033,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPaymentServices**
 > \XeroAPI\XeroPHP\Models\Accounting\PaymentServices getPaymentServices($xero_tenant_id)
@@ -7381,14 +8084,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPayments**
 > \XeroAPI\XeroPHP\Models\Accounting\Payments getPayments($xero_tenant_id, $if_modified_since, $where, $order)
@@ -7438,14 +8141,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPrepayment**
 > \XeroAPI\XeroPHP\Models\Accounting\Prepayments getPrepayment($xero_tenant_id, $prepayment_id)
@@ -7491,14 +8194,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPrepaymentHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getPrepaymentHistory($xero_tenant_id, $prepayment_id)
@@ -7544,14 +8247,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPrepayments**
 > \XeroAPI\XeroPHP\Models\Accounting\Prepayments getPrepayments($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp)
@@ -7605,14 +8308,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPurchaseOrder**
 > \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders getPurchaseOrder($xero_tenant_id, $purchase_order_id)
@@ -7658,14 +8361,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPurchaseOrderHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getPurchaseOrderHistory($xero_tenant_id, $purchase_order_id)
@@ -7711,14 +8414,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPurchaseOrders**
 > \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders getPurchaseOrders($xero_tenant_id, $if_modified_since, $status, $date_from, $date_to, $order, $page)
@@ -7774,14 +8477,128 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getQuote**
+> \XeroAPI\XeroPHP\Models\Accounting\Quotes getQuote($xero_tenant_id, $quote_id)
+
+Allows you to retrieve a specified quote
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$quote_id = 'quote_id_example'; // string | Unique identifier for an Quote
+
+try {
+    $result = $apiInstance->getQuote($xero_tenant_id, $quote_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->getQuote: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **quote_id** | [**string**](../Model/.md)| Unique identifier for an Quote |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getQuotes**
+> \XeroAPI\XeroPHP\Models\Accounting\Quotes getQuotes($xero_tenant_id, $if_modified_since, $date_from, $date_to, $expiry_date_from, $expiry_date_to, $contact_id, $status, $page, $order)
+
+Allows you to retrieve any sales quotes
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
+$date_from = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter for quotes after a particular date
+$date_to = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter for quotes before a particular date
+$expiry_date_from = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter for quotes expiring after a particular date
+$expiry_date_to = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter for quotes before a particular date
+$contact_id = 'contact_id_example'; // string | Filter for quotes belonging to a particular contact
+$status = 'status_example'; // string | Filter for quotes of a particular Status
+$page = 56; // int | e.g. page=1 – Up to 100 Quotes will be returned in a single API call with line items shown for each quote
+$order = 'order_example'; // string | Order by an any element
+
+try {
+    $result = $apiInstance->getQuotes($xero_tenant_id, $if_modified_since, $date_from, $date_to, $expiry_date_from, $expiry_date_to, $contact_id, $status, $page, $order);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->getQuotes: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **if_modified_since** | **\DateTime**| Only records created or modified since this timestamp will be returned | [optional]
+ **date_from** | **\DateTime**| Filter for quotes after a particular date | [optional]
+ **date_to** | **\DateTime**| Filter for quotes before a particular date | [optional]
+ **expiry_date_from** | **\DateTime**| Filter for quotes expiring after a particular date | [optional]
+ **expiry_date_to** | **\DateTime**| Filter for quotes before a particular date | [optional]
+ **contact_id** | [**string**](../Model/.md)| Filter for quotes belonging to a particular contact | [optional]
+ **status** | **string**| Filter for quotes of a particular Status | [optional]
+ **page** | **int**| e.g. page&#x3D;1 – Up to 100 Quotes will be returned in a single API call with line items shown for each quote | [optional]
+ **order** | **string**| Order by an any element | [optional]
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReceipt**
 > \XeroAPI\XeroPHP\Models\Accounting\Receipts getReceipt($xero_tenant_id, $receipt_id)
@@ -7827,14 +8644,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReceiptAttachmentByFileName**
 > \SplFileObject getReceiptAttachmentByFileName($xero_tenant_id, $receipt_id, $file_name, $content_type)
@@ -7884,14 +8701,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReceiptAttachmentById**
 > \SplFileObject getReceiptAttachmentById($xero_tenant_id, $receipt_id, $attachment_id, $content_type)
@@ -7941,14 +8758,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReceiptAttachments**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments getReceiptAttachments($xero_tenant_id, $receipt_id)
@@ -7994,14 +8811,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReceiptHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getReceiptHistory($xero_tenant_id, $receipt_id)
@@ -8047,14 +8864,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReceipts**
 > \XeroAPI\XeroPHP\Models\Accounting\Receipts getReceipts($xero_tenant_id, $if_modified_since, $where, $order, $unitdp)
@@ -8106,14 +8923,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getRepeatingInvoice**
 > \XeroAPI\XeroPHP\Models\Accounting\RepeatingInvoices getRepeatingInvoice($xero_tenant_id, $repeating_invoice_id)
@@ -8159,14 +8976,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getRepeatingInvoiceAttachmentByFileName**
 > \SplFileObject getRepeatingInvoiceAttachmentByFileName($xero_tenant_id, $repeating_invoice_id, $file_name, $content_type)
@@ -8216,14 +9033,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getRepeatingInvoiceAttachmentById**
 > \SplFileObject getRepeatingInvoiceAttachmentById($xero_tenant_id, $repeating_invoice_id, $attachment_id, $content_type)
@@ -8273,14 +9090,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/octet-stream
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getRepeatingInvoiceAttachments**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments getRepeatingInvoiceAttachments($xero_tenant_id, $repeating_invoice_id)
@@ -8326,14 +9143,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getRepeatingInvoiceHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getRepeatingInvoiceHistory($xero_tenant_id, $repeating_invoice_id)
@@ -8379,14 +9196,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getRepeatingInvoices**
 > \XeroAPI\XeroPHP\Models\Accounting\RepeatingInvoices getRepeatingInvoices($xero_tenant_id, $where, $order)
@@ -8434,14 +9251,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportAgedPayablesByContact**
 > \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportAgedPayablesByContact($xero_tenant_id, $contact_id, $date, $from_date, $to_date)
@@ -8493,14 +9310,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportAgedReceivablesByContact**
 > \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportAgedReceivablesByContact($xero_tenant_id, $contact_id, $date, $from_date, $to_date)
@@ -8552,14 +9369,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportBASorGST**
 > \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportBASorGST($xero_tenant_id, $report_id)
@@ -8605,14 +9422,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportBASorGSTList**
 > \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportBASorGSTList($xero_tenant_id)
@@ -8656,14 +9473,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportBalanceSheet**
 > \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportBalanceSheet($xero_tenant_id, $date, $periods, $timeframe, $tracking_option_id1, $tracking_option_id2, $standard_layout, $payments_only)
@@ -8721,14 +9538,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportBankSummary**
 > \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportBankSummary($xero_tenant_id, $date, $period, $timeframe)
@@ -8778,14 +9595,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportBudgetSummary**
 > \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportBudgetSummary($xero_tenant_id, $date, $period, $timeframe)
@@ -8835,14 +9652,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportExecutiveSummary**
 > \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportExecutiveSummary($xero_tenant_id, $date)
@@ -8888,14 +9705,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportProfitAndLoss**
 > \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportProfitAndLoss($xero_tenant_id, $from_date, $to_date, $periods, $timeframe, $tracking_category_id, $tracking_category_id2, $tracking_option_id, $tracking_option_id2, $standard_layout, $payments_only)
@@ -8959,14 +9776,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportTenNinetyNine**
 > \XeroAPI\XeroPHP\Models\Accounting\Reports getReportTenNinetyNine($xero_tenant_id, $report_year)
@@ -9012,14 +9829,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportTrialBalance**
 > \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportTrialBalance($xero_tenant_id, $date, $payments_only)
@@ -9067,14 +9884,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTaxRates**
 > \XeroAPI\XeroPHP\Models\Accounting\TaxRates getTaxRates($xero_tenant_id, $where, $order, $tax_type)
@@ -9124,14 +9941,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTrackingCategories**
 > \XeroAPI\XeroPHP\Models\Accounting\TrackingCategories getTrackingCategories($xero_tenant_id, $where, $order, $include_archived)
@@ -9181,14 +9998,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTrackingCategory**
 > \XeroAPI\XeroPHP\Models\Accounting\TrackingCategories getTrackingCategory($xero_tenant_id, $tracking_category_id)
@@ -9234,14 +10051,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUser**
 > \XeroAPI\XeroPHP\Models\Accounting\Users getUser($xero_tenant_id, $user_id)
@@ -9287,14 +10104,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUsers**
 > \XeroAPI\XeroPHP\Models\Accounting\Users getUsers($xero_tenant_id, $if_modified_since, $where, $order)
@@ -9344,14 +10161,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateAccount**
 > \XeroAPI\XeroPHP\Models\Accounting\Accounts updateAccount($xero_tenant_id, $account_id, $accounts)
@@ -9399,14 +10216,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateAccountAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments updateAccountAttachmentByFileName($xero_tenant_id, $account_id, $file_name, $body)
@@ -9456,14 +10273,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/octet-stream
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateBankTransaction**
 > \XeroAPI\XeroPHP\Models\Accounting\BankTransactions updateBankTransaction($xero_tenant_id, $bank_transaction_id, $bank_transactions)
@@ -9514,14 +10331,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateBankTransactionAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments updateBankTransactionAttachmentByFileName($xero_tenant_id, $bank_transaction_id, $file_name, $body)
@@ -9571,14 +10388,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/octet-stream
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateBankTransferAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments updateBankTransferAttachmentByFileName($xero_tenant_id, $bank_transfer_id, $file_name, $body)
@@ -9628,14 +10445,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/octet-stream
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateContact**
 > \XeroAPI\XeroPHP\Models\Accounting\Contacts updateContact($xero_tenant_id, $contact_id, $contacts)
@@ -9683,14 +10500,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateContactAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments updateContactAttachmentByFileName($xero_tenant_id, $contact_id, $file_name, $body)
@@ -9740,14 +10557,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/octet-stream
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateContactGroup**
 > \XeroAPI\XeroPHP\Models\Accounting\ContactGroups updateContactGroup($xero_tenant_id, $contact_group_id, $contact_groups)
@@ -9795,14 +10612,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCreditNote**
 > \XeroAPI\XeroPHP\Models\Accounting\CreditNotes updateCreditNote($xero_tenant_id, $credit_note_id, $credit_notes)
@@ -9850,14 +10667,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCreditNoteAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments updateCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $body)
@@ -9907,14 +10724,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/octet-stream
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateEmployee**
 > \XeroAPI\XeroPHP\Models\Accounting\Employees updateEmployee($xero_tenant_id, $employee_id, $employees)
@@ -9962,14 +10779,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateExpenseClaim**
 > \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims updateExpenseClaim($xero_tenant_id, $expense_claim_id, $expense_claims)
@@ -10018,14 +10835,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateInvoice**
 > \XeroAPI\XeroPHP\Models\Accounting\Invoices updateInvoice($xero_tenant_id, $invoice_id, $invoices)
@@ -10074,14 +10891,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateInvoiceAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments updateInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $body)
@@ -10131,14 +10948,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/octet-stream
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateItem**
 > \XeroAPI\XeroPHP\Models\Accounting\Items updateItem($xero_tenant_id, $item_id, $items)
@@ -10186,14 +11003,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateLinkedTransaction**
 > \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions updateLinkedTransaction($xero_tenant_id, $linked_transaction_id, $linked_transactions)
@@ -10241,14 +11058,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateManualJournal**
 > \XeroAPI\XeroPHP\Models\Accounting\ManualJournals updateManualJournal($xero_tenant_id, $manual_journal_id, $manual_journals)
@@ -10297,14 +11114,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateManualJournalAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments updateManualJournalAttachmentByFileName($xero_tenant_id, $manual_journal_id, $file_name, $body)
@@ -10354,14 +11171,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/octet-stream
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updatePurchaseOrder**
 > \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders updatePurchaseOrder($xero_tenant_id, $purchase_order_id, $purchase_orders)
@@ -10410,14 +11227,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateReceipt**
 > \XeroAPI\XeroPHP\Models\Accounting\Receipts updateReceipt($xero_tenant_id, $receipt_id, $receipts)
@@ -10466,14 +11283,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateReceiptAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments updateReceiptAttachmentByFileName($xero_tenant_id, $receipt_id, $file_name, $body)
@@ -10523,14 +11340,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/octet-stream
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateRepeatingInvoiceAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments updateRepeatingInvoiceAttachmentByFileName($xero_tenant_id, $repeating_invoice_id, $file_name, $body)
@@ -10580,14 +11397,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/octet-stream
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateTaxRate**
 > \XeroAPI\XeroPHP\Models\Accounting\TaxRates updateTaxRate($xero_tenant_id, $tax_rates)
@@ -10633,14 +11450,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateTrackingCategory**
 > \XeroAPI\XeroPHP\Models\Accounting\TrackingCategories updateTrackingCategory($xero_tenant_id, $tracking_category_id, $tracking_category)
@@ -10688,12 +11505,69 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2)
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updateTrackingOptions**
+> \XeroAPI\XeroPHP\Models\Accounting\TrackingOptions updateTrackingOptions($xero_tenant_id, $tracking_category_id, $tracking_option_id, $tracking_option)
+
+Allows you to update options for a specified tracking category
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$tracking_category_id = 'tracking_category_id_example'; // string | Unique identifier for a TrackingCategory
+$tracking_option_id = 'tracking_option_id_example'; // string | Unique identifier for a Tracking Option
+$tracking_option = { "Name":"Bar40423" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingOption | 
+
+try {
+    $result = $apiInstance->updateTrackingOptions($xero_tenant_id, $tracking_category_id, $tracking_option_id, $tracking_option);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->updateTrackingOptions: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **tracking_category_id** | [**string**](../Model/.md)| Unique identifier for a TrackingCategory |
+ **tracking_option_id** | [**string**](../Model/.md)| Unique identifier for a Tracking Option |
+ **tracking_option** | [**\XeroAPI\XeroPHP\Models\Accounting\TrackingOption**](../Model/TrackingOption.md)|  |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\TrackingOptions**](../Model/TrackingOptions.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
