@@ -321,7 +321,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -650,7 +650,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
@@ -973,7 +973,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -1302,7 +1302,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($bank_transaction_id !== null) {
             $resourcePath = str_replace(
@@ -1636,7 +1636,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($bank_transaction_id !== null) {
             $resourcePath = str_replace(
@@ -1960,7 +1960,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -2267,7 +2267,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -2471,7 +2471,7 @@ class AccountingApi
     /**
      * Operation createBankTransferAttachmentByFileNameAsync
      *
-     * 
+     *
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
@@ -2494,7 +2494,7 @@ class AccountingApi
     /**
      * Operation createBankTransferAttachmentByFileNameAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
@@ -2592,7 +2592,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($bank_transfer_id !== null) {
             $resourcePath = str_replace(
@@ -2810,7 +2810,7 @@ class AccountingApi
     /**
      * Operation createBankTransferHistoryRecordAsync
      *
-     * 
+     *
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
@@ -2832,7 +2832,7 @@ class AccountingApi
     /**
      * Operation createBankTransferHistoryRecordAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
@@ -2922,7 +2922,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($bank_transfer_id !== null) {
             $resourcePath = str_replace(
@@ -3237,7 +3237,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -3555,7 +3555,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($batch_payment_id !== null) {
             $resourcePath = str_replace(
@@ -3881,7 +3881,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($branding_theme_id !== null) {
             $resourcePath = str_replace(
@@ -4089,7 +4089,7 @@ class AccountingApi
     /**
      * Operation createContactAsync
      *
-     * 
+     *
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Contact $contact (required)
@@ -4110,7 +4110,7 @@ class AccountingApi
     /**
      * Operation createContactAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Contact $contact (required)
@@ -4192,7 +4192,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -4396,7 +4396,7 @@ class AccountingApi
     /**
      * Operation createContactAttachmentByFileNameAsync
      *
-     * 
+     *
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
@@ -4419,7 +4419,7 @@ class AccountingApi
     /**
      * Operation createContactAttachmentByFileNameAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
@@ -4517,7 +4517,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($contact_id !== null) {
             $resourcePath = str_replace(
@@ -4840,7 +4840,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -5158,7 +5158,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($contact_group_id !== null) {
             $resourcePath = str_replace(
@@ -5484,7 +5484,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($contact_id !== null) {
             $resourcePath = str_replace(
@@ -5571,14 +5571,15 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts contacts (required)
+     * @param  bool $summarize_errors shows validation errors for each contact (optional, default to true)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\Contacts|\XeroAPI\XeroPHP\Models\Accounting\Error
      */
-    public function createContacts($xero_tenant_id, $contacts)
+    public function createContacts($xero_tenant_id, $contacts, $summarize_errors = true)
     {
-        list($response) = $this->createContactsWithHttpInfo($xero_tenant_id, $contacts);
+        list($response) = $this->createContactsWithHttpInfo($xero_tenant_id, $contacts, $summarize_errors);
         return $response;
     }
 
@@ -5587,14 +5588,15 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts (required)
+     * @param  bool $summarize_errors shows validation errors for each contact (optional, default to true)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\Contacts|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createContactsWithHttpInfo($xero_tenant_id, $contacts)
+    public function createContactsWithHttpInfo($xero_tenant_id, $contacts, $summarize_errors = true)
     {
-        $request = $this->createContactsRequest($xero_tenant_id, $contacts);
+        $request = $this->createContactsRequest($xero_tenant_id, $contacts, $summarize_errors);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5692,17 +5694,18 @@ class AccountingApi
     /**
      * Operation createContactsAsync
      *
-     * 
+     *
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts (required)
+     * @param  bool $summarize_errors shows validation errors for each contact (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createContactsAsync($xero_tenant_id, $contacts)
+    public function createContactsAsync($xero_tenant_id, $contacts, $summarize_errors = true)
     {
-        return $this->createContactsAsyncWithHttpInfo($xero_tenant_id, $contacts)
+        return $this->createContactsAsyncWithHttpInfo($xero_tenant_id, $contacts, $summarize_errors)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5713,18 +5716,19 @@ class AccountingApi
     /**
      * Operation createContactsAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts (required)
+     * @param  bool $summarize_errors shows validation errors for each contact (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createContactsAsyncWithHttpInfo($xero_tenant_id, $contacts)
+    public function createContactsAsyncWithHttpInfo($xero_tenant_id, $contacts, $summarize_errors = true)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Contacts';
-        $request = $this->createContactsRequest($xero_tenant_id, $contacts);
+        $request = $this->createContactsRequest($xero_tenant_id, $contacts, $summarize_errors);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5765,11 +5769,12 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts (required)
+     * @param  bool $summarize_errors shows validation errors for each contact (optional, default to true)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createContactsRequest($xero_tenant_id, $contacts)
+    protected function createContactsRequest($xero_tenant_id, $contacts, $summarize_errors = true)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -5784,18 +5789,23 @@ class AccountingApi
             );
         }
 
-        $resourcePath = '/Contacts#bulk';
+        $resourcePath = '/Contacts';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($summarize_errors !== null) {
+            $queryParams['SummarizeErrors'] = AccountingObjectSerializer::toQueryValue($summarize_errors);
+        }
+
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -6102,7 +6112,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -6420,7 +6430,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($credit_note_id !== null) {
             $resourcePath = str_replace(
@@ -6757,7 +6767,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($credit_note_id !== null) {
             $resourcePath = str_replace(
@@ -7091,7 +7101,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($credit_note_id !== null) {
             $resourcePath = str_replace(
@@ -7415,7 +7425,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -7595,7 +7605,7 @@ class AccountingApi
     /**
      * Operation createCurrencyAsync
      *
-     * 
+     *
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Currency $currency (required)
@@ -7616,7 +7626,7 @@ class AccountingApi
     /**
      * Operation createCurrencyAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Currency $currency (required)
@@ -7698,7 +7708,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -8005,7 +8015,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -8312,7 +8322,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -8610,7 +8620,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($expense_claim_id !== null) {
             $resourcePath = str_replace(
@@ -8925,7 +8935,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -9232,7 +9242,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -9561,7 +9571,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
@@ -9895,7 +9905,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
@@ -10219,7 +10229,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -10526,7 +10536,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -10824,7 +10834,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($item_id !== null) {
             $resourcePath = str_replace(
@@ -11139,7 +11149,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -11446,7 +11456,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -11753,7 +11763,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -12060,7 +12070,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -12389,7 +12399,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($manual_journal_id !== null) {
             $resourcePath = str_replace(
@@ -12712,7 +12722,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -13030,7 +13040,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($overpayment_id !== null) {
             $resourcePath = str_replace(
@@ -13356,7 +13366,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($overpayment_id !== null) {
             $resourcePath = str_replace(
@@ -13682,7 +13692,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($overpayment_id !== null) {
             $resourcePath = str_replace(
@@ -13997,7 +14007,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -14315,7 +14325,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($payment_id !== null) {
             $resourcePath = str_replace(
@@ -14630,7 +14640,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -14937,7 +14947,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -15255,7 +15265,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($prepayment_id !== null) {
             $resourcePath = str_replace(
@@ -15581,7 +15591,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($prepayment_id !== null) {
             $resourcePath = str_replace(
@@ -15896,7 +15906,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -16214,7 +16224,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($purchase_order_id !== null) {
             $resourcePath = str_replace(
@@ -16538,7 +16548,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -16845,7 +16855,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -17174,7 +17184,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($receipt_id !== null) {
             $resourcePath = str_replace(
@@ -17508,7 +17518,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($receipt_id !== null) {
             $resourcePath = str_replace(
@@ -17845,7 +17855,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($repeating_invoice_id !== null) {
             $resourcePath = str_replace(
@@ -18179,7 +18189,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($repeating_invoice_id !== null) {
             $resourcePath = str_replace(
@@ -18494,7 +18504,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -18801,7 +18811,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -19108,7 +19118,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -19426,7 +19436,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($tracking_category_id !== null) {
             $resourcePath = str_replace(
@@ -19741,7 +19751,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
@@ -20004,7 +20014,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($contact_group_id !== null) {
             $resourcePath = str_replace(
@@ -20256,7 +20266,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($contact_group_id !== null) {
             $resourcePath = str_replace(
@@ -20508,7 +20518,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($item_id !== null) {
             $resourcePath = str_replace(
@@ -20760,7 +20770,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($linked_transaction_id !== null) {
             $resourcePath = str_replace(
@@ -21083,7 +21093,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($payment_id !== null) {
             $resourcePath = str_replace(
@@ -21398,7 +21408,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($tracking_category_id !== null) {
             $resourcePath = str_replace(
@@ -21721,7 +21731,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($tracking_category_id !== null) {
             $resourcePath = str_replace(
@@ -21992,7 +22002,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
@@ -22287,7 +22297,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
@@ -22605,7 +22615,7 @@ class AccountingApi
         if ($content_type !== null) {
             $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
-        
+
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
@@ -22931,7 +22941,7 @@ class AccountingApi
         if ($content_type !== null) {
             $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
-        
+
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
@@ -23231,7 +23241,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
@@ -23539,7 +23549,7 @@ class AccountingApi
         if ($if_modified_since !== null) {
             $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -23823,7 +23833,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($bank_transaction_id !== null) {
             $resourcePath = str_replace(
@@ -24141,7 +24151,7 @@ class AccountingApi
         if ($content_type !== null) {
             $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
-        
+
         // path params
         if ($bank_transaction_id !== null) {
             $resourcePath = str_replace(
@@ -24467,7 +24477,7 @@ class AccountingApi
         if ($content_type !== null) {
             $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
-        
+
         // path params
         if ($bank_transaction_id !== null) {
             $resourcePath = str_replace(
@@ -24767,7 +24777,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($bank_transaction_id !== null) {
             $resourcePath = str_replace(
@@ -25093,7 +25103,7 @@ class AccountingApi
         if ($if_modified_since !== null) {
             $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -25377,7 +25387,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($bank_transaction_id !== null) {
             $resourcePath = str_replace(
@@ -25669,7 +25679,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($bank_transfer_id !== null) {
             $resourcePath = str_replace(
@@ -25987,7 +25997,7 @@ class AccountingApi
         if ($content_type !== null) {
             $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
-        
+
         // path params
         if ($bank_transfer_id !== null) {
             $resourcePath = str_replace(
@@ -26313,7 +26323,7 @@ class AccountingApi
         if ($content_type !== null) {
             $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
-        
+
         // path params
         if ($bank_transfer_id !== null) {
             $resourcePath = str_replace(
@@ -26613,7 +26623,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($bank_transfer_id !== null) {
             $resourcePath = str_replace(
@@ -26905,7 +26915,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($bank_transfer_id !== null) {
             $resourcePath = str_replace(
@@ -27213,7 +27223,7 @@ class AccountingApi
         if ($if_modified_since !== null) {
             $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -27497,7 +27507,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($batch_payment_id !== null) {
             $resourcePath = str_replace(
@@ -27805,7 +27815,7 @@ class AccountingApi
         if ($if_modified_since !== null) {
             $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -28089,7 +28099,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($branding_theme_id !== null) {
             $resourcePath = str_replace(
@@ -28381,7 +28391,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($branding_theme_id !== null) {
             $resourcePath = str_replace(
@@ -28662,7 +28672,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -28946,7 +28956,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($contact_id !== null) {
             $resourcePath = str_replace(
@@ -29264,7 +29274,7 @@ class AccountingApi
         if ($content_type !== null) {
             $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
-        
+
         // path params
         if ($contact_id !== null) {
             $resourcePath = str_replace(
@@ -29590,7 +29600,7 @@ class AccountingApi
         if ($content_type !== null) {
             $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
-        
+
         // path params
         if ($contact_id !== null) {
             $resourcePath = str_replace(
@@ -29890,7 +29900,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($contact_id !== null) {
             $resourcePath = str_replace(
@@ -30182,7 +30192,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($contact_id !== null) {
             $resourcePath = str_replace(
@@ -30474,7 +30484,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($contact_group_id !== null) {
             $resourcePath = str_replace(
@@ -30773,7 +30783,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -31057,7 +31067,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($contact_id !== null) {
             $resourcePath = str_replace(
@@ -31395,7 +31405,7 @@ class AccountingApi
         if ($if_modified_since !== null) {
             $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -31679,7 +31689,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($credit_note_id !== null) {
             $resourcePath = str_replace(
@@ -31986,7 +31996,7 @@ class AccountingApi
         if ($content_type !== null) {
             $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
-        
+
         // path params
         if ($credit_note_id !== null) {
             $resourcePath = str_replace(
@@ -32304,7 +32314,7 @@ class AccountingApi
         if ($content_type !== null) {
             $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
-        
+
         // path params
         if ($credit_note_id !== null) {
             $resourcePath = str_replace(
@@ -32630,7 +32640,7 @@ class AccountingApi
         if ($content_type !== null) {
             $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
-        
+
         // path params
         if ($credit_note_id !== null) {
             $resourcePath = str_replace(
@@ -32930,7 +32940,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($credit_note_id !== null) {
             $resourcePath = str_replace(
@@ -33222,7 +33232,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($credit_note_id !== null) {
             $resourcePath = str_replace(
@@ -33539,7 +33549,7 @@ class AccountingApi
         if ($if_modified_since !== null) {
             $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -33830,7 +33840,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -34114,7 +34124,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -34422,7 +34432,7 @@ class AccountingApi
         if ($if_modified_since !== null) {
             $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -34706,7 +34716,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($expense_claim_id !== null) {
             $resourcePath = str_replace(
@@ -34998,7 +35008,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($expense_claim_id !== null) {
             $resourcePath = str_replace(
@@ -35306,7 +35316,7 @@ class AccountingApi
         if ($if_modified_since !== null) {
             $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -35590,7 +35600,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
@@ -35897,7 +35907,7 @@ class AccountingApi
         if ($content_type !== null) {
             $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
-        
+
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
@@ -36215,7 +36225,7 @@ class AccountingApi
         if ($content_type !== null) {
             $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
-        
+
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
@@ -36541,7 +36551,7 @@ class AccountingApi
         if ($content_type !== null) {
             $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
-        
+
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
@@ -36841,7 +36851,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
@@ -37133,7 +37143,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
@@ -37414,7 +37424,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -37798,7 +37808,7 @@ class AccountingApi
         if ($if_modified_since !== null) {
             $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -38082,7 +38092,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($item_id !== null) {
             $resourcePath = str_replace(
@@ -38374,7 +38384,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($item_id !== null) {
             $resourcePath = str_replace(
@@ -38691,7 +38701,7 @@ class AccountingApi
         if ($if_modified_since !== null) {
             $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -38975,7 +38985,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($journal_id !== null) {
             $resourcePath = str_replace(
@@ -39283,7 +39293,7 @@ class AccountingApi
         if ($if_modified_since !== null) {
             $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -39567,7 +39577,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($linked_transaction_id !== null) {
             $resourcePath = str_replace(
@@ -39902,7 +39912,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -40186,7 +40196,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($manual_journal_id !== null) {
             $resourcePath = str_replace(
@@ -40504,7 +40514,7 @@ class AccountingApi
         if ($content_type !== null) {
             $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
-        
+
         // path params
         if ($manual_journal_id !== null) {
             $resourcePath = str_replace(
@@ -40830,7 +40840,7 @@ class AccountingApi
         if ($content_type !== null) {
             $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
-        
+
         // path params
         if ($manual_journal_id !== null) {
             $resourcePath = str_replace(
@@ -41130,7 +41140,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($manual_journal_id !== null) {
             $resourcePath = str_replace(
@@ -41447,7 +41457,7 @@ class AccountingApi
         if ($if_modified_since !== null) {
             $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -41731,7 +41741,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
@@ -42023,7 +42033,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($organisation_id !== null) {
             $resourcePath = str_replace(
@@ -42304,7 +42314,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -42588,7 +42598,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($overpayment_id !== null) {
             $resourcePath = str_replace(
@@ -42880,7 +42890,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($overpayment_id !== null) {
             $resourcePath = str_replace(
@@ -43206,7 +43216,7 @@ class AccountingApi
         if ($if_modified_since !== null) {
             $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -43490,7 +43500,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($payment_id !== null) {
             $resourcePath = str_replace(
@@ -43782,7 +43792,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($payment_id !== null) {
             $resourcePath = str_replace(
@@ -44063,7 +44073,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -44363,7 +44373,7 @@ class AccountingApi
         if ($if_modified_since !== null) {
             $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -44647,7 +44657,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($prepayment_id !== null) {
             $resourcePath = str_replace(
@@ -44939,7 +44949,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($prepayment_id !== null) {
             $resourcePath = str_replace(
@@ -45265,7 +45275,7 @@ class AccountingApi
         if ($if_modified_since !== null) {
             $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -45549,7 +45559,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($purchase_order_id !== null) {
             $resourcePath = str_replace(
@@ -45841,7 +45851,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($purchase_order_id !== null) {
             $resourcePath = str_replace(
@@ -46176,7 +46186,7 @@ class AccountingApi
         if ($if_modified_since !== null) {
             $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -46460,7 +46470,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($quote_id !== null) {
             $resourcePath = str_replace(
@@ -46818,7 +46828,7 @@ class AccountingApi
         if ($if_modified_since !== null) {
             $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -47098,7 +47108,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($receipt_id !== null) {
             $resourcePath = str_replace(
@@ -47416,7 +47426,7 @@ class AccountingApi
         if ($content_type !== null) {
             $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
-        
+
         // path params
         if ($receipt_id !== null) {
             $resourcePath = str_replace(
@@ -47742,7 +47752,7 @@ class AccountingApi
         if ($content_type !== null) {
             $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
-        
+
         // path params
         if ($receipt_id !== null) {
             $resourcePath = str_replace(
@@ -48042,7 +48052,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($receipt_id !== null) {
             $resourcePath = str_replace(
@@ -48334,7 +48344,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($receipt_id !== null) {
             $resourcePath = str_replace(
@@ -48651,7 +48661,7 @@ class AccountingApi
         if ($if_modified_since !== null) {
             $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -48935,7 +48945,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($repeating_invoice_id !== null) {
             $resourcePath = str_replace(
@@ -49253,7 +49263,7 @@ class AccountingApi
         if ($content_type !== null) {
             $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
-        
+
         // path params
         if ($repeating_invoice_id !== null) {
             $resourcePath = str_replace(
@@ -49579,7 +49589,7 @@ class AccountingApi
         if ($content_type !== null) {
             $headerParams['contentType'] = AccountingObjectSerializer::toHeaderValue($content_type);
         }
-        
+
         // path params
         if ($repeating_invoice_id !== null) {
             $resourcePath = str_replace(
@@ -49879,7 +49889,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($repeating_invoice_id !== null) {
             $resourcePath = str_replace(
@@ -50171,7 +50181,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($repeating_invoice_id !== null) {
             $resourcePath = str_replace(
@@ -50470,7 +50480,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -50785,7 +50795,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -51100,7 +51110,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -51384,7 +51394,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($report_id !== null) {
             $resourcePath = str_replace(
@@ -51665,7 +51675,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -52001,7 +52011,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -52301,7 +52311,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -52601,7 +52611,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -52883,7 +52893,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -53246,7 +53256,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -53528,7 +53538,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -53819,7 +53829,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -54119,7 +54129,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -54419,7 +54429,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -54703,7 +54713,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($tracking_category_id !== null) {
             $resourcePath = str_replace(
@@ -54995,7 +55005,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($user_id !== null) {
             $resourcePath = str_replace(
@@ -55303,7 +55313,7 @@ class AccountingApi
         if ($if_modified_since !== null) {
             $headerParams['If-Modified-Since'] = AccountingObjectSerializer::toHeaderValue($if_modified_since);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -55618,7 +55628,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
@@ -55955,7 +55965,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($account_id !== null) {
             $resourcePath = str_replace(
@@ -56289,7 +56299,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($bank_transaction_id !== null) {
             $resourcePath = str_replace(
@@ -56626,7 +56636,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($bank_transaction_id !== null) {
             $resourcePath = str_replace(
@@ -56846,7 +56856,7 @@ class AccountingApi
     /**
      * Operation updateBankTransferAttachmentByFileNameAsync
      *
-     * 
+     *
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
@@ -56869,7 +56879,7 @@ class AccountingApi
     /**
      * Operation updateBankTransferAttachmentByFileNameAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
@@ -56967,7 +56977,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($bank_transfer_id !== null) {
             $resourcePath = str_replace(
@@ -57185,7 +57195,7 @@ class AccountingApi
     /**
      * Operation updateContactAsync
      *
-     * 
+     *
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
@@ -57207,7 +57217,7 @@ class AccountingApi
     /**
      * Operation updateContactAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
@@ -57297,7 +57307,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($contact_id !== null) {
             $resourcePath = str_replace(
@@ -57509,7 +57519,7 @@ class AccountingApi
     /**
      * Operation updateContactAttachmentByFileNameAsync
      *
-     * 
+     *
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
@@ -57532,7 +57542,7 @@ class AccountingApi
     /**
      * Operation updateContactAttachmentByFileNameAsyncWithHttpInfo
      *
-     * 
+     *
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
@@ -57630,7 +57640,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($contact_id !== null) {
             $resourcePath = str_replace(
@@ -57964,7 +57974,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($contact_group_id !== null) {
             $resourcePath = str_replace(
@@ -58290,7 +58300,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($credit_note_id !== null) {
             $resourcePath = str_replace(
@@ -58627,7 +58637,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($credit_note_id !== null) {
             $resourcePath = str_replace(
@@ -58961,7 +58971,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($employee_id !== null) {
             $resourcePath = str_replace(
@@ -59287,7 +59297,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($expense_claim_id !== null) {
             $resourcePath = str_replace(
@@ -59613,7 +59623,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
@@ -59950,7 +59960,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($invoice_id !== null) {
             $resourcePath = str_replace(
@@ -60284,7 +60294,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($item_id !== null) {
             $resourcePath = str_replace(
@@ -60610,7 +60620,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($linked_transaction_id !== null) {
             $resourcePath = str_replace(
@@ -60936,7 +60946,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($manual_journal_id !== null) {
             $resourcePath = str_replace(
@@ -61273,7 +61283,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($manual_journal_id !== null) {
             $resourcePath = str_replace(
@@ -61607,7 +61617,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($purchase_order_id !== null) {
             $resourcePath = str_replace(
@@ -61933,7 +61943,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($receipt_id !== null) {
             $resourcePath = str_replace(
@@ -62270,7 +62280,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($receipt_id !== null) {
             $resourcePath = str_replace(
@@ -62615,7 +62625,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($repeating_invoice_id !== null) {
             $resourcePath = str_replace(
@@ -62938,7 +62948,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
 
         // body params
         $_tempBody = null;
@@ -63256,7 +63266,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($tracking_category_id !== null) {
             $resourcePath = str_replace(
@@ -63593,7 +63603,7 @@ class AccountingApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
+
         // path params
         if ($tracking_category_id !== null) {
             $resourcePath = str_replace(
