@@ -90,12 +90,12 @@ class JWTClaims
         return $this->jwtDecoded->{'iat​'};
     }
 
-    //The issue time
+    //The at hash
     public function getAtHash() {
         return $this->jwtDecoded->{'at_hash'};
     }
 
-    //The issue time
+    //The session id
     public function getSid() {
         return $this->jwtDecoded->{'sid'};
     }
