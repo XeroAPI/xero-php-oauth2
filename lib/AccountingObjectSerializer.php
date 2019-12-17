@@ -279,7 +279,9 @@ class AccountingObjectSerializer
            
                 $result = $datetime->format('Y-m-d H:i:s');
                     
-                return $result;
+                $date = new \DateTime($result);
+                return $date;
+                
                 /* OLD matching
                 $match = preg_match('/\/Date\((\d+)([-+])(\d+)\)\//', $data, $date);
 
@@ -288,11 +290,8 @@ class AccountingObjectSerializer
                 $hours = $date[3]*36; // Get the seconds
 
                 $datetime = new \DateTime();
-
                 $datetime->setTimestamp($timestamp);
                 $datetime->modify($operator . $hours . ' seconds');
-                //var_dump($datetime->format('Y-m-d H:i:s'));
-
                 $result = $datetime->format('Y-m-d H:i:s');
                     
                 return $result;
