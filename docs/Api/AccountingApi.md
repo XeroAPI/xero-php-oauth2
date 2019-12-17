@@ -1183,7 +1183,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **contacts** | [**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)|  |
- **summarize_errors** | **bool**| shows validation errors for each invoice | [optional] [default to true]
+ **summarize_errors** | **bool**| shows validation errors for each contact | [optional] [default to true]
 
 ### Return type
 
