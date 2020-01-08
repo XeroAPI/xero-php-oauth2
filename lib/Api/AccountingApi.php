@@ -1954,7 +1954,7 @@ class AccountingApi
 
         // query params
         if ($summarize_errors !== null) {
-            $queryParams['SummarizeErrors'] = AccountingObjectSerializer::toQueryValue($summarize_errors);
+            $queryParams['summarizeErrors'] = $summarizeErrors ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -5806,7 +5806,7 @@ class AccountingApi
 
         // query params
         if ($summarize_errors !== null) {
-            $queryParams['SummarizeErrors'] = AccountingObjectSerializer::toQueryValue($summarize_errors);
+            $queryParams['summarizeErrors'] = $summarizeErrors ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -7426,7 +7426,7 @@ class AccountingApi
 
         // query params
         if ($summarize_errors !== null) {
-            $queryParams['SummarizeErrors'] = AccountingObjectSerializer::toQueryValue($summarize_errors);
+            $queryParams['summarizeErrors'] = $summarizeErrors ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -10230,7 +10230,7 @@ class AccountingApi
 
         // query params
         if ($summarize_errors !== null) {
-            $queryParams['SummarizeErrors'] = AccountingObjectSerializer::toQueryValue($summarize_errors);
+            $queryParams['summarizeErrors'] = $summarizeErrors ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -11159,7 +11159,7 @@ class AccountingApi
 
         // query params
         if ($summarize_errors !== null) {
-            $queryParams['SummarizeErrors'] = AccountingObjectSerializer::toQueryValue($summarize_errors);
+            $queryParams['summarizeErrors'] = $summarizeErrors ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -16251,7 +16251,7 @@ class AccountingApi
 
         // query params
         if ($summarize_errors !== null) {
-            $queryParams['SummarizeErrors'] = AccountingObjectSerializer::toQueryValue($summarize_errors);
+            $queryParams['summarizeErrors'] = $summarizeErrors ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -30797,7 +30797,7 @@ class AccountingApi
         }
         // query params
         if ($include_archived !== null) {
-            $queryParams['includeArchived'] = AccountingObjectSerializer::toQueryValue($include_archived);
+            $queryParams['includeArchived'] = $includeArchived ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -37192,11 +37192,11 @@ class AccountingApi
         }
         // query params
         if ($include_archived !== null) {
-            $queryParams['includeArchived'] = AccountingObjectSerializer::toQueryValue($include_archived);
+            $queryParams['includeArchived'] = $includeArchived ? 'true' : 'false';
         }
         // query params
         if ($created_by_my_app !== null) {
-            $queryParams['createdByMyApp'] = AccountingObjectSerializer::toQueryValue($created_by_my_app);
+            $queryParams['createdByMyApp'] = $createdByMyApp ? 'true' : 'false';
         }
         // query params
         if ($unitdp !== null) {
@@ -38685,7 +38685,7 @@ class AccountingApi
         }
         // query params
         if ($payments_only !== null) {
-            $queryParams['paymentsOnly'] = AccountingObjectSerializer::toQueryValue($payments_only);
+            $queryParams['paymentsOnly'] = $paymentsOnly ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -51403,11 +51403,11 @@ class AccountingApi
         }
         // query params
         if ($standard_layout !== null) {
-            $queryParams['standardLayout'] = AccountingObjectSerializer::toQueryValue($standard_layout);
+            $queryParams['standardLayout'] = $standardLayout ? 'true' : 'false';
         }
         // query params
         if ($payments_only !== null) {
-            $queryParams['paymentsOnly'] = AccountingObjectSerializer::toQueryValue($payments_only);
+            $queryParams['paymentsOnly'] = $paymentsOnly ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -52648,11 +52648,11 @@ class AccountingApi
         }
         // query params
         if ($standard_layout !== null) {
-            $queryParams['standardLayout'] = AccountingObjectSerializer::toQueryValue($standard_layout);
+            $queryParams['standardLayout'] = $standardLayout ? 'true' : 'false';
         }
         // query params
         if ($payments_only !== null) {
-            $queryParams['paymentsOnly'] = AccountingObjectSerializer::toQueryValue($payments_only);
+            $queryParams['paymentsOnly'] = $paymentsOnly ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -53225,7 +53225,7 @@ class AccountingApi
         }
         // query params
         if ($payments_only !== null) {
-            $queryParams['paymentsOnly'] = AccountingObjectSerializer::toQueryValue($payments_only);
+            $queryParams['paymentsOnly'] = $paymentsOnly ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -53825,7 +53825,7 @@ class AccountingApi
         }
         // query params
         if ($include_archived !== null) {
-            $queryParams['includeArchived'] = AccountingObjectSerializer::toQueryValue($include_archived);
+            $queryParams['includeArchived'] = $includeArchived ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
