@@ -67,7 +67,7 @@ class LineItem implements ModelInterface, ArrayAccess
         'tax_amount' => 'double',
         'line_amount' => 'double',
         'tracking' => '\XeroAPI\XeroPHP\Models\Accounting\LineItemTracking[]',
-        'discount_rate' => 'string',
+        'discount_rate' => 'double',
         'discount_amount' => 'double',
         'repeating_invoice_id' => 'string'
     ];
@@ -88,7 +88,7 @@ class LineItem implements ModelInterface, ArrayAccess
         'tax_amount' => 'double',
         'line_amount' => 'double',
         'tracking' => null,
-        'discount_rate' => null,
+        'discount_rate' => 'double',
         'discount_amount' => 'double',
         'repeating_invoice_id' => 'uuid'
     ];
@@ -519,7 +519,7 @@ class LineItem implements ModelInterface, ArrayAccess
     /**
      * Gets discount_rate
      *
-     * @return string|null
+     * @return double|null
      */
     public function getDiscountRate()
     {
@@ -529,7 +529,7 @@ class LineItem implements ModelInterface, ArrayAccess
     /**
      * Sets discount_rate
      *
-     * @param string|null $discount_rate Percentage discount being applied to a line item (only supported on  ACCREC invoices – ACC PAY invoices and credit notes in Xero do not support discounts
+     * @param double|null $discount_rate Percentage discount being applied to a line item (only supported on  ACCREC invoices – ACC PAY invoices and credit notes in Xero do not support discounts
      *
      * @return $this
      */
