@@ -1954,7 +1954,7 @@ class AccountingApi
 
         // query params
         if ($summarize_errors !== null) {
-            $queryParams['summarizeErrors'] = $summarizeErrors ? 'true' : 'false';
+            $queryParams['summarizeErrors'] = $summarize_errors ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -5806,7 +5806,7 @@ class AccountingApi
 
         // query params
         if ($summarize_errors !== null) {
-            $queryParams['summarizeErrors'] = $summarizeErrors ? 'true' : 'false';
+            $queryParams['summarizeErrors'] = $summarize_errors ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -7426,7 +7426,7 @@ class AccountingApi
 
         // query params
         if ($summarize_errors !== null) {
-            $queryParams['summarizeErrors'] = $summarizeErrors ? 'true' : 'false';
+            $queryParams['summarizeErrors'] = $summarize_errors ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -10230,7 +10230,7 @@ class AccountingApi
 
         // query params
         if ($summarize_errors !== null) {
-            $queryParams['summarizeErrors'] = $summarizeErrors ? 'true' : 'false';
+            $queryParams['summarizeErrors'] = $summarize_errors ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -11159,7 +11159,7 @@ class AccountingApi
 
         // query params
         if ($summarize_errors !== null) {
-            $queryParams['summarizeErrors'] = $summarizeErrors ? 'true' : 'false';
+            $queryParams['summarizeErrors'] = $summarize_errors ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -16251,7 +16251,7 @@ class AccountingApi
 
         // query params
         if ($summarize_errors !== null) {
-            $queryParams['summarizeErrors'] = $summarizeErrors ? 'true' : 'false';
+            $queryParams['summarizeErrors'] = $summarize_errors ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -30797,7 +30797,7 @@ class AccountingApi
         }
         // query params
         if ($include_archived !== null) {
-            $queryParams['includeArchived'] = $includeArchived ? 'true' : 'false';
+            $queryParams['includeArchived'] = $include_archived ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -37192,11 +37192,11 @@ class AccountingApi
         }
         // query params
         if ($include_archived !== null) {
-            $queryParams['includeArchived'] = $includeArchived ? 'true' : 'false';
+            $queryParams['includeArchived'] = $include_archived ? 'true' : 'false';
         }
         // query params
         if ($created_by_my_app !== null) {
-            $queryParams['createdByMyApp'] = $createdByMyApp ? 'true' : 'false';
+            $queryParams['createdByMyApp'] = $created_by_my_app ? 'true' : 'false';
         }
         // query params
         if ($unitdp !== null) {
@@ -38685,7 +38685,7 @@ class AccountingApi
         }
         // query params
         if ($payments_only !== null) {
-            $queryParams['paymentsOnly'] = $paymentsOnly ? 'true' : 'false';
+            $queryParams['paymentsOnly'] = $payments_only ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -51403,11 +51403,11 @@ class AccountingApi
         }
         // query params
         if ($standard_layout !== null) {
-            $queryParams['standardLayout'] = $standardLayout ? 'true' : 'false';
+            $queryParams['standardLayout'] = $standard_layout ? 'true' : 'false';
         }
         // query params
         if ($payments_only !== null) {
-            $queryParams['paymentsOnly'] = $paymentsOnly ? 'true' : 'false';
+            $queryParams['paymentsOnly'] = $payments_only ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -52648,11 +52648,11 @@ class AccountingApi
         }
         // query params
         if ($standard_layout !== null) {
-            $queryParams['standardLayout'] = $standardLayout ? 'true' : 'false';
+            $queryParams['standardLayout'] = $standard_layout ? 'true' : 'false';
         }
         // query params
         if ($payments_only !== null) {
-            $queryParams['paymentsOnly'] = $paymentsOnly ? 'true' : 'false';
+            $queryParams['paymentsOnly'] = $payments_only ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -53225,7 +53225,7 @@ class AccountingApi
         }
         // query params
         if ($payments_only !== null) {
-            $queryParams['paymentsOnly'] = $paymentsOnly ? 'true' : 'false';
+            $queryParams['paymentsOnly'] = $payments_only ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -53825,7 +53825,7 @@ class AccountingApi
         }
         // query params
         if ($include_archived !== null) {
-            $queryParams['includeArchived'] = $includeArchived ? 'true' : 'false';
+            $queryParams['includeArchived'] = $include_archived ? 'true' : 'false';
         }
         // header params
         if ($xero_tenant_id !== null) {
