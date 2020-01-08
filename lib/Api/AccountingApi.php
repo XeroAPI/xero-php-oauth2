@@ -30786,7 +30786,7 @@ class AccountingApi
         }
         // query params
         if (is_array($i_ds)) {
-            $i_ds = AccountingObjectSerializer::serializeCollection($i_ds, 'multi', true);
+            $i_ds = AccountingObjectSerializer::serializeCollection($i_ds, 'csv', true);
         }
         if ($i_ds !== null) {
             $queryParams['IDs'] = AccountingObjectSerializer::toQueryValue($i_ds);
@@ -37160,28 +37160,28 @@ class AccountingApi
         }
         // query params
         if (is_array($i_ds)) {
-            $i_ds = AccountingObjectSerializer::serializeCollection($i_ds, 'multi', true);
+            $i_ds = AccountingObjectSerializer::serializeCollection($i_ds, 'csv', true);
         }
         if ($i_ds !== null) {
             $queryParams['IDs'] = AccountingObjectSerializer::toQueryValue($i_ds);
         }
         // query params
         if (is_array($invoice_numbers)) {
-            $invoice_numbers = AccountingObjectSerializer::serializeCollection($invoice_numbers, 'multi', true);
+            $invoice_numbers = AccountingObjectSerializer::serializeCollection($invoice_numbers, 'csv', true);
         }
         if ($invoice_numbers !== null) {
             $queryParams['InvoiceNumbers'] = AccountingObjectSerializer::toQueryValue($invoice_numbers);
         }
         // query params
         if (is_array($contact_i_ds)) {
-            $contact_i_ds = AccountingObjectSerializer::serializeCollection($contact_i_ds, 'multi', true);
+            $contact_i_ds = AccountingObjectSerializer::serializeCollection($contact_i_ds, 'csv', true);
         }
         if ($contact_i_ds !== null) {
             $queryParams['ContactIDs'] = AccountingObjectSerializer::toQueryValue($contact_i_ds);
         }
         // query params
         if (is_array($statuses)) {
-            $statuses = AccountingObjectSerializer::serializeCollection($statuses, 'multi', true);
+            $statuses = AccountingObjectSerializer::serializeCollection($statuses, 'csv', true);
         }
         if ($statuses !== null) {
             $queryParams['Statuses'] = AccountingObjectSerializer::toQueryValue($statuses);

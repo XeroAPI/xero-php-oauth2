@@ -6,63 +6,61 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createAccount**](AccountingApi.md#createAccount) | **PUT** /Accounts | Allows you to create a new chart of accounts
 [**createAccountAttachmentByFileName**](AccountingApi.md#createAccountAttachmentByFileName) | **PUT** /Accounts/{AccountID}/Attachments/{FileName} | Allows you to create Attachment on Account
-[**createBankTransaction**](AccountingApi.md#createBankTransaction) | **PUT** /BankTransactions | Allows you to create a spend or receive money transaction
+[**createBankTransaction**](AccountingApi.md#createBankTransaction) | **POST** /BankTransactions | Allows you to create a single spend or receive money transaction
 [**createBankTransactionAttachmentByFileName**](AccountingApi.md#createBankTransactionAttachmentByFileName) | **PUT** /BankTransactions/{BankTransactionID}/Attachments/{FileName} | Allows you to createa an Attachment on BankTransaction by Filename
 [**createBankTransactionHistoryRecord**](AccountingApi.md#createBankTransactionHistoryRecord) | **PUT** /BankTransactions/{BankTransactionID}/History | Allows you to create history record for a bank transactions
-[**createBankTransactions**](AccountingApi.md#createBankTransactions) | **PUT** /BankTransactions#bulk | Allows you to create a spend or receive money transaction
+[**createBankTransactions**](AccountingApi.md#createBankTransactions) | **PUT** /BankTransactions | Allows you to create a spend or receive money transaction
 [**createBankTransfer**](AccountingApi.md#createBankTransfer) | **PUT** /BankTransfers | Allows you to create a bank transfers
 [**createBankTransferAttachmentByFileName**](AccountingApi.md#createBankTransferAttachmentByFileName) | **PUT** /BankTransfers/{BankTransferID}/Attachments/{FileName} | 
 [**createBankTransferHistoryRecord**](AccountingApi.md#createBankTransferHistoryRecord) | **PUT** /BankTransfers/{BankTransferID}/History | 
 [**createBatchPayment**](AccountingApi.md#createBatchPayment) | **PUT** /BatchPayments | Create one or many BatchPayments for invoices
 [**createBatchPaymentHistoryRecord**](AccountingApi.md#createBatchPaymentHistoryRecord) | **PUT** /BatchPayments/{BatchPaymentID}/History | Allows you to create a history record for a Batch Payment
 [**createBrandingThemePaymentServices**](AccountingApi.md#createBrandingThemePaymentServices) | **POST** /BrandingThemes/{BrandingThemeID}/PaymentServices | Allow for the creation of new custom payment service for specified Branding Theme
-[**createContact**](AccountingApi.md#createContact) | **PUT** /Contacts | 
+[**createContact**](AccountingApi.md#createContact) | **POST** /Contacts | Allows you to create a single contact in a Xero organisation
 [**createContactAttachmentByFileName**](AccountingApi.md#createContactAttachmentByFileName) | **PUT** /Contacts/{ContactID}/Attachments/{FileName} | 
 [**createContactGroup**](AccountingApi.md#createContactGroup) | **PUT** /ContactGroups | Allows you to create a contact group
 [**createContactGroupContacts**](AccountingApi.md#createContactGroupContacts) | **PUT** /ContactGroups/{ContactGroupID}/Contacts | Allows you to add Contacts to a Contract Group
 [**createContactHistory**](AccountingApi.md#createContactHistory) | **PUT** /Contacts/{ContactID}/History | Allows you to retrieve a history records of an Contact
-[**createContacts**](AccountingApi.md#createContacts) | **PUT** /Contacts#bulk | 
-[**createCreditNote**](AccountingApi.md#createCreditNote) | **PUT** /CreditNotes | Allows you to create a credit note
+[**createContacts**](AccountingApi.md#createContacts) | **PUT** /Contacts | Allows you to create a multiple contacts (bulk) in a Xero organisation
+[**createCreditNote**](AccountingApi.md#createCreditNote) | **POST** /CreditNotes | Allows you to create a single credit note
 [**createCreditNoteAllocation**](AccountingApi.md#createCreditNoteAllocation) | **PUT** /CreditNotes/{CreditNoteID}/Allocations | Allows you to create Allocation on CreditNote
 [**createCreditNoteAttachmentByFileName**](AccountingApi.md#createCreditNoteAttachmentByFileName) | **PUT** /CreditNotes/{CreditNoteID}/Attachments/{FileName} | Allows you to create Attachments on CreditNote by file name
 [**createCreditNoteHistory**](AccountingApi.md#createCreditNoteHistory) | **PUT** /CreditNotes/{CreditNoteID}/History | Allows you to retrieve a history records of an CreditNote
-[**createCreditNotes**](AccountingApi.md#createCreditNotes) | **PUT** /CreditNotes#bulk | Allows you to create a credit note
+[**createCreditNotes**](AccountingApi.md#createCreditNotes) | **PUT** /CreditNotes | Allows you to create a credit note
 [**createCurrency**](AccountingApi.md#createCurrency) | **PUT** /Currencies | 
-[**createEmployee**](AccountingApi.md#createEmployee) | **PUT** /Employees | Allows you to create new employees used in Xero payrun
-[**createEmployees**](AccountingApi.md#createEmployees) | **PUT** /Employees#bulk | Allows you to create new employees used in Xero payrun
+[**createEmployee**](AccountingApi.md#createEmployee) | **POST** /Employees | Allows you to create a single new employees used in Xero payrun
+[**createEmployees**](AccountingApi.md#createEmployees) | **PUT** /Employees | Allows you to create new employees used in Xero payrun
 [**createExpenseClaimHistory**](AccountingApi.md#createExpenseClaimHistory) | **PUT** /ExpenseClaims/{ExpenseClaimID}/History | Allows you to create a history records of an ExpenseClaim
 [**createExpenseClaims**](AccountingApi.md#createExpenseClaims) | **PUT** /ExpenseClaims | Allows you to retrieve expense claims
-[**createInvoice**](AccountingApi.md#createInvoice) | **PUT** /Invoices | Allows you to create any sales invoices or purchase bills
+[**createInvoice**](AccountingApi.md#createInvoice) | **POST** /Invoices | Allows you to create any sales invoices or purchase bills
 [**createInvoiceAttachmentByFileName**](AccountingApi.md#createInvoiceAttachmentByFileName) | **PUT** /Invoices/{InvoiceID}/Attachments/{FileName} | Allows you to create an Attachment on invoices or purchase bills by it&#39;s filename
 [**createInvoiceHistory**](AccountingApi.md#createInvoiceHistory) | **PUT** /Invoices/{InvoiceID}/History | Allows you to retrieve a history records of an invoice
-[**createInvoices**](AccountingApi.md#createInvoices) | **PUT** /Invoices#bulk | Allows you to create any sales invoices or purchase bills
-[**createItem**](AccountingApi.md#createItem) | **PUT** /Items | Allows you to create an item
+[**createInvoices**](AccountingApi.md#createInvoices) | **PUT** /Invoices | Allows you to create a single sales invoices or purchase bills
+[**createItem**](AccountingApi.md#createItem) | **POST** /Items | Allows you to create a single item
 [**createItemHistory**](AccountingApi.md#createItemHistory) | **PUT** /Items/{ItemID}/History | Allows you to create a history record for items
-[**createItems**](AccountingApi.md#createItems) | **PUT** /Items#bulk | Allows you to create an item
+[**createItems**](AccountingApi.md#createItems) | **PUT** /Items | Allows you to create multiple items
 [**createLinkedTransaction**](AccountingApi.md#createLinkedTransaction) | **PUT** /LinkedTransactions | Allows you to create linked transactions (billable expenses)
-[**createLinkedTransactions**](AccountingApi.md#createLinkedTransactions) | **PUT** /LinkedTransactions#bulk | Allows you to create linked transactions (billable expenses)
-[**createManualJournal**](AccountingApi.md#createManualJournal) | **PUT** /ManualJournals | Allows you to create a manual journal
+[**createManualJournal**](AccountingApi.md#createManualJournal) | **POST** /ManualJournals | Allows you to create a single manual journal
 [**createManualJournalAttachmentByFileName**](AccountingApi.md#createManualJournalAttachmentByFileName) | **PUT** /ManualJournals/{ManualJournalID}/Attachments/{FileName} | Allows you to create a specified Attachment on ManualJournal by file name
-[**createManualJournals**](AccountingApi.md#createManualJournals) | **PUT** /ManualJournals#bulk | Allows you to create a manual journal
-[**createOverpaymentAllocation**](AccountingApi.md#createOverpaymentAllocation) | **PUT** /Overpayments/{OverpaymentID}/Allocations | Allows you to retrieve Allocations for overpayments
-[**createOverpaymentAllocations**](AccountingApi.md#createOverpaymentAllocations) | **PUT** /Overpayments/{OverpaymentID}/Allocations#bulk | Allows you to retrieve Allocations for overpayments
+[**createManualJournals**](AccountingApi.md#createManualJournals) | **PUT** /ManualJournals | Allows you to create multiple manual journals
+[**createOverpaymentAllocation**](AccountingApi.md#createOverpaymentAllocation) | **POST** /Overpayments/{OverpaymentID}/Allocations | Allows you to create a single allocations for overpayments
+[**createOverpaymentAllocations**](AccountingApi.md#createOverpaymentAllocations) | **PUT** /Overpayments/{OverpaymentID}/Allocations | Allows you to create a single allocation for an overpayment
 [**createOverpaymentHistory**](AccountingApi.md#createOverpaymentHistory) | **PUT** /Overpayments/{OverpaymentID}/History | Allows you to create history records of an Overpayment
-[**createPayment**](AccountingApi.md#createPayment) | **PUT** /Payments | Allows you to create payments for invoices and credit notes
+[**createPayment**](AccountingApi.md#createPayment) | **POST** /Payments | Allows you to create a single payment for invoices or credit notes
 [**createPaymentHistory**](AccountingApi.md#createPaymentHistory) | **PUT** /Payments/{PaymentID}/History | Allows you to create a history record for a payment
 [**createPaymentService**](AccountingApi.md#createPaymentService) | **PUT** /PaymentServices | Allows you to create payment services
-[**createPayments**](AccountingApi.md#createPayments) | **PUT** /Payments#bulk | Allows you to create payments for invoices and credit notes
+[**createPayments**](AccountingApi.md#createPayments) | **PUT** /Payments | Allows you to create multiple payments for invoices or credit notes
 [**createPrepaymentAllocation**](AccountingApi.md#createPrepaymentAllocation) | **PUT** /Prepayments/{PrepaymentID}/Allocations | Allows you to create an Allocation for prepayments
 [**createPrepaymentHistory**](AccountingApi.md#createPrepaymentHistory) | **PUT** /Prepayments/{PrepaymentID}/History | Allows you to create a history record for an Prepayment
-[**createPurchaseOrder**](AccountingApi.md#createPurchaseOrder) | **PUT** /PurchaseOrders | Allows you to create purchase orders
+[**createPurchaseOrder**](AccountingApi.md#createPurchaseOrder) | **POST** /PurchaseOrders | Allows you to create a single purchase order
 [**createPurchaseOrderHistory**](AccountingApi.md#createPurchaseOrderHistory) | **PUT** /PurchaseOrders/{PurchaseOrderID}/History | Allows you to create HistoryRecord for purchase orders
-[**createPurchaseOrders**](AccountingApi.md#createPurchaseOrders) | **PUT** /PurchaseOrders#bulk | Allows you to create purchase orders
+[**createPurchaseOrders**](AccountingApi.md#createPurchaseOrders) | **PUT** /PurchaseOrders | Allows you to create multiple purchase orders
 [**createReceipt**](AccountingApi.md#createReceipt) | **PUT** /Receipts | Allows you to create draft expense claim receipts for any user
 [**createReceiptAttachmentByFileName**](AccountingApi.md#createReceiptAttachmentByFileName) | **PUT** /Receipts/{ReceiptID}/Attachments/{FileName} | Allows you to create Attachment on expense claim receipts by file name
 [**createReceiptHistory**](AccountingApi.md#createReceiptHistory) | **PUT** /Receipts/{ReceiptID}/History | Allows you to retrieve a history records of an Receipt
 [**createRepeatingInvoiceAttachmentByFileName**](AccountingApi.md#createRepeatingInvoiceAttachmentByFileName) | **PUT** /RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{FileName} | Allows you to create attachment on repeating invoices by file name
 [**createRepeatingInvoiceHistory**](AccountingApi.md#createRepeatingInvoiceHistory) | **PUT** /RepeatingInvoices/{RepeatingInvoiceID}/History | Allows you to create history for a repeating invoice
-[**createTaxRate**](AccountingApi.md#createTaxRate) | **PUT** /TaxRates | Allows you to create Tax Rates
-[**createTaxRates**](AccountingApi.md#createTaxRates) | **PUT** /TaxRates#bulk | Allows you to create Tax Rates
+[**createTaxRates**](AccountingApi.md#createTaxRates) | **PUT** /TaxRates | Allows you to create one or more Tax Rates
 [**createTrackingCategory**](AccountingApi.md#createTrackingCategory) | **PUT** /TrackingCategories | Allows you to create tracking categories
 [**createTrackingOptions**](AccountingApi.md#createTrackingOptions) | **PUT** /TrackingCategories/{TrackingCategoryID}/Options | Allows you to create options for a specified tracking category
 [**deleteAccount**](AccountingApi.md#deleteAccount) | **DELETE** /Accounts/{AccountID} | Allows you to delete a chart of accounts
@@ -198,7 +196,7 @@ Method | HTTP request | Description
 [**updateExpenseClaim**](AccountingApi.md#updateExpenseClaim) | **POST** /ExpenseClaims/{ExpenseClaimID} | Allows you to update specified expense claims
 [**updateInvoice**](AccountingApi.md#updateInvoice) | **POST** /Invoices/{InvoiceID} | Allows you to update a specified sales invoices or purchase bills
 [**updateInvoiceAttachmentByFileName**](AccountingApi.md#updateInvoiceAttachmentByFileName) | **POST** /Invoices/{InvoiceID}/Attachments/{FileName} | Allows you to update Attachment on invoices or purchase bills by it&#39;s filename
-[**updateItem**](AccountingApi.md#updateItem) | **POST** /Items/{ItemID} | Allows you to udpate a specified item
+[**updateItem**](AccountingApi.md#updateItem) | **POST** /Items/{ItemID} | Allows you to update a specified item
 [**updateLinkedTransaction**](AccountingApi.md#updateLinkedTransaction) | **POST** /LinkedTransactions/{LinkedTransactionID} | Allows you to update a specified linked transactions (billable expenses)
 [**updateManualJournal**](AccountingApi.md#updateManualJournal) | **POST** /ManualJournals/{ManualJournalID} | Allows you to update a specified manual journal
 [**updateManualJournalAttachmentByFileName**](AccountingApi.md#updateManualJournalAttachmentByFileName) | **POST** /ManualJournals/{ManualJournalID}/Attachments/{FileName} | Allows you to update a specified Attachment on ManualJournal by file name
@@ -324,7 +322,7 @@ Name | Type | Description  | Notes
 # **createBankTransaction**
 > \XeroAPI\XeroPHP\Models\Accounting\BankTransactions createBankTransaction($xero_tenant_id, $bank_transaction)
 
-Allows you to create a spend or receive money transaction
+Allows you to create a single spend or receive money transaction
 
 ### Example
 ```php
@@ -507,7 +505,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $bank_transactions = { "BankTransactions":[ { "Type":"SPEND", "Contact":{ "ContactID":"5cc8cf28-567e-4d43-b287-687cfcaec47c" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"400" } ], "BankAccount":{ "Code":"088" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
-$summarize_errors = true; // bool | response format that shows validation errors for each bank transaction
+$summarize_errors = false; // bool | response format that shows validation errors for each bank transaction
 
 try {
     $result = $apiInstance->createBankTransactions($xero_tenant_id, $bank_transactions, $summarize_errors);
@@ -524,7 +522,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **bank_transactions** | [**\XeroAPI\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)|  |
- **summarize_errors** | **bool**| response format that shows validation errors for each bank transaction | [optional] [default to true]
+ **summarize_errors** | **bool**| response format that shows validation errors for each bank transaction | [optional] [default to false]
 
 ### Return type
 
@@ -875,7 +873,7 @@ Name | Type | Description  | Notes
 # **createContact**
 > \XeroAPI\XeroPHP\Models\Accounting\Contacts createContact($xero_tenant_id, $contact)
 
-
+Allows you to create a single contact in a Xero organisation
 
 ### Example
 ```php
@@ -1146,9 +1144,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createContacts**
-> \XeroAPI\XeroPHP\Models\Accounting\Contacts createContacts($xero_tenant_id, $contacts)
+> \XeroAPI\XeroPHP\Models\Accounting\Contacts createContacts($xero_tenant_id, $contacts, $summarize_errors)
 
-
+Allows you to create a multiple contacts (bulk) in a Xero organisation
 
 ### Example
 ```php
@@ -1166,9 +1164,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $contacts = { "Name":"Foo9987", "EmailAddress":"sid32476@blah.com", "Phones":[ { "PhoneType":"MOBILE", "PhoneNumber":"555-1212", "PhoneAreaCode":"415" } ], "PaymentTerms":{ "Bills":{ "Day":15, "Type":"OFCURRENTMONTH" }, "Sales":{ "Day":10, "Type":"DAYSAFTERBILLMONTH" } } }; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | 
+$summarize_errors = false; // bool | response format that shows validation errors for each bank transaction
 
 try {
-    $result = $apiInstance->createContacts($xero_tenant_id, $contacts);
+    $result = $apiInstance->createContacts($xero_tenant_id, $contacts, $summarize_errors);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createContacts: ', $e->getMessage(), PHP_EOL;
@@ -1182,6 +1181,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **contacts** | [**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)|  |
+ **summarize_errors** | **bool**| response format that shows validation errors for each bank transaction | [optional] [default to false]
 
 ### Return type
 
@@ -1201,7 +1201,7 @@ Name | Type | Description  | Notes
 # **createCreditNote**
 > \XeroAPI\XeroPHP\Models\Accounting\CreditNotes createCreditNote($xero_tenant_id, $credit_note)
 
-Allows you to create a credit note
+Allows you to create a single credit note
 
 ### Example
 ```php
@@ -1440,7 +1440,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $credit_notes = { "CreditNotes":[ { "Type":"ACCPAYCREDIT", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "Date":"2019-01-05", "LineItems":[ { "Description":"Foobar", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"400" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\CreditNotes | an array of Credit Notes with a single CreditNote object.
-$summarize_errors = true; // bool | shows validation errors for each credit note
+$summarize_errors = false; // bool | shows validation errors for each credit note
 
 try {
     $result = $apiInstance->createCreditNotes($xero_tenant_id, $credit_notes, $summarize_errors);
@@ -1457,7 +1457,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **credit_notes** | [**\XeroAPI\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)| an array of Credit Notes with a single CreditNote object. |
- **summarize_errors** | **bool**| shows validation errors for each credit note | [optional] [default to true]
+ **summarize_errors** | **bool**| shows validation errors for each credit note | [optional] [default to false]
 
 ### Return type
 
@@ -1530,7 +1530,7 @@ Name | Type | Description  | Notes
 # **createEmployee**
 > \XeroAPI\XeroPHP\Models\Accounting\Employees createEmployee($xero_tenant_id, $employee)
 
-Allows you to create new employees used in Xero payrun
+Allows you to create a single new employees used in Xero payrun
 
 ### Example
 ```php
@@ -1762,30 +1762,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-
-$where = 'ContactStatus=="ACTIVE"';
-$getContact = $apiInstance->getContacts($xeroTenantId, null, $where); 
-$contactId = $getContact->getContacts()[0]->getContactId();
-
-$contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
-$contact->setContactId($contactId);
-
-$lineitem = new XeroAPI\XeroPHP\Models\Accounting\LineItem;
-$lineitem->setDescription('Sample Item')
-    ->setQuantity(1)
-    ->setUnitAmount(20)
-    ->setAccountCode("400");
-$lineitems = [];    
-array_push($lineitems, $lineitem);
-
-$invoice = new XeroAPI\XeroPHP\Models\Accounting\Invoice;
-$invoice->setReference('Ref-num')
-  ->setDueDate(new DateTime('2017-01-02'))
-  ->setContact($contact)
-  ->setLineItems($lineitems)
-  ->setStatus(XeroAPI\XeroPHP\Models\Accounting\Invoice::STATUS_AUTHORISED)
-  ->setType(XeroAPI\XeroPHP\Models\Accounting\Invoice::TYPE_ACCPAY)
-  ->setLineAmountTypes(\XeroAPI\XeroPHP\Models\Accounting\LineAmountTypes::EXCLUSIVE);
+$invoice = { "Invoices":[ { "Type":"ACCREC", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems":[ { "Description":"Acme Tires", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"200", "TaxType":"NONE", "LineAmount":40.0 } ], "Date":"2019-03-11", "DueDate":"2018-12-10", "Reference":"Website Design", "Status":"AUTHORISED" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Invoice | 
 
 try {
     $result = $apiInstance->createInvoice($xero_tenant_id, $invoice);
@@ -1933,7 +1910,7 @@ Name | Type | Description  | Notes
 # **createInvoices**
 > \XeroAPI\XeroPHP\Models\Accounting\Invoices createInvoices($xero_tenant_id, $invoices, $summarize_errors)
 
-Allows you to create any sales invoices or purchase bills
+Allows you to create a single sales invoices or purchase bills
 
 ### Example
 ```php
@@ -1950,41 +1927,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$where = 'ContactStatus=="ACTIVE"';
-$getContact = $apiInstance->getContacts($xero_tenant_id, null, $where); 
-$contactId = $getContact->getContacts()[0]->getContactId();
-
-$contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
-$contact->setContactId($contactId);
-
-$lineitem = new XeroAPI\XeroPHP\Models\Accounting\LineItem;
-$lineitem->setDescription('Sample Item')
-    ->setQuantity(1)
-    ->setUnitAmount(20)
-    ->setAccountCode("400");
-$lineitems = [];    
-array_push($lineitems, $lineitem);
-
-$invoice = new XeroAPI\XeroPHP\Models\Accounting\Invoice;
-$invoice->setReference('Ref-num')
-  ->setDueDate(new DateTime('2017-01-02'))
-  ->setContact($contact)
-  ->setLineItems($lineitems)
-  ->setStatus(XeroAPI\XeroPHP\Models\Accounting\Invoice::STATUS_AUTHORISED)
-  ->setType(XeroAPI\XeroPHP\Models\Accounting\Invoice::TYPE_ACCPAY)
-  ->setLineAmountTypes(\XeroAPI\XeroPHP\Models\Accounting\LineAmountTypes::EXCLUSIVE);
-
-$arr_invoices = [];   
-array_push($arr_invoices, $invoice);
-array_push($arr_invoices, $invoice);
-$invoices = new XeroAPI\XeroPHP\Models\Accounting\Invoices;
-$invoices->setInvoices($arr_invoices);
+$invoices = { "Invoices":[ { "Type":"ACCREC", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems":[ { "Description":"Acme Tires", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"200", "TaxType":"NONE", "LineAmount":40.0 } ], "Date":"2019-03-11", "DueDate":"2018-12-10", "Reference":"Website Design", "Status":"AUTHORISED" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | 
+$summarize_errors = false; // bool | shows validation errors for each invoice
 
 try {
-    $result = $apiInstance->createInvoices($xero_tenant_id, $invoices, true);
+    $result = $apiInstance->createInvoices($xero_tenant_id, $invoices, $summarize_errors);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AccountingApi->createInvoice: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AccountingApi->createInvoices: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1995,7 +1945,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **invoices** | [**\XeroAPI\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)|  |
- **summarize_errors** | **bool**| shows validation errors for each invoice | [optional] [default to true]
+ **summarize_errors** | **bool**| shows validation errors for each invoice | [optional] [default to false]
 
 ### Return type
 
@@ -2015,7 +1965,7 @@ Name | Type | Description  | Notes
 # **createItem**
 > \XeroAPI\XeroPHP\Models\Accounting\Items createItem($xero_tenant_id, $item)
 
-Allows you to create an item
+Allows you to create a single item
 
 ### Example
 ```php
@@ -2121,9 +2071,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createItems**
-> \XeroAPI\XeroPHP\Models\Accounting\Items createItems($xero_tenant_id, $items)
+> \XeroAPI\XeroPHP\Models\Accounting\Items createItems($xero_tenant_id, $items, $summarize_errors)
 
-Allows you to create an item
+Allows you to create multiple items
 
 ### Example
 ```php
@@ -2141,9 +2091,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $items = { "Items":[ { "Code":"abc65591", "Name":"Hello11350", "Description":"foobar" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | 
+$summarize_errors = false; // bool | response format that shows validation errors for each bank transaction
 
 try {
-    $result = $apiInstance->createItems($xero_tenant_id, $items);
+    $result = $apiInstance->createItems($xero_tenant_id, $items, $summarize_errors);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createItems: ', $e->getMessage(), PHP_EOL;
@@ -2157,6 +2108,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **items** | [**\XeroAPI\XeroPHP\Models\Accounting\Items**](../Model/Items.md)|  |
+ **summarize_errors** | **bool**| response format that shows validation errors for each bank transaction | [optional] [default to false]
 
 ### Return type
 
@@ -2226,63 +2178,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **createLinkedTransactions**
-> \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions createLinkedTransactions($xero_tenant_id, $linked_transactions)
-
-Allows you to create linked transactions (billable expenses)
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$linked_transactions = { "LinkedTransactions":[ { "SourceTransactionID":"a848644a-f20f-4630-98c3-386bd7505631", "SourceLineItemID":"b0df260d-3cc8-4ced-9bd6-41924f624ed3" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions | 
-
-try {
-    $result = $apiInstance->createLinkedTransactions($xero_tenant_id, $linked_transactions);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AccountingApi->createLinkedTransactions: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **linked_transactions** | [**\XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions**](../Model/LinkedTransactions.md)|  |
-
-### Return type
-
-[**\XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions**](../Model/LinkedTransactions.md)
-
-### Authorization
-
-[OAuth2](../../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
 # **createManualJournal**
 > \XeroAPI\XeroPHP\Models\Accounting\ManualJournals createManualJournal($xero_tenant_id, $manual_journal)
 
-Allows you to create a manual journal
+Allows you to create a single manual journal
 
 ### Example
 ```php
@@ -2392,7 +2291,7 @@ Name | Type | Description  | Notes
 # **createManualJournals**
 > \XeroAPI\XeroPHP\Models\Accounting\ManualJournals createManualJournals($xero_tenant_id, $manual_journals)
 
-Allows you to create a manual journal
+Allows you to create multiple manual journals
 
 ### Example
 ```php
@@ -2445,7 +2344,7 @@ Name | Type | Description  | Notes
 # **createOverpaymentAllocation**
 > \XeroAPI\XeroPHP\Models\Accounting\Allocations createOverpaymentAllocation($xero_tenant_id, $overpayment_id, $allocation)
 
-Allows you to retrieve Allocations for overpayments
+Allows you to create a single allocations for overpayments
 
 ### Example
 ```php
@@ -2501,7 +2400,7 @@ Name | Type | Description  | Notes
 # **createOverpaymentAllocations**
 > \XeroAPI\XeroPHP\Models\Accounting\Allocations createOverpaymentAllocations($xero_tenant_id, $overpayment_id, $allocations)
 
-Allows you to retrieve Allocations for overpayments
+Allows you to create a single allocation for an overpayment
 
 ### Example
 ```php
@@ -2612,7 +2511,7 @@ Name | Type | Description  | Notes
 # **createPayment**
 > \XeroAPI\XeroPHP\Models\Accounting\Payments createPayment($xero_tenant_id, $payment)
 
-Allows you to create payments for invoices and credit notes
+Allows you to create a single payment for invoices or credit notes
 
 ### Example
 ```php
@@ -2774,7 +2673,7 @@ Name | Type | Description  | Notes
 # **createPayments**
 > \XeroAPI\XeroPHP\Models\Accounting\Payments createPayments($xero_tenant_id, $payments)
 
-Allows you to create payments for invoices and credit notes
+Allows you to create multiple payments for invoices or credit notes
 
 ### Example
 ```php
@@ -2939,7 +2838,7 @@ Name | Type | Description  | Notes
 # **createPurchaseOrder**
 > \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders createPurchaseOrder($xero_tenant_id, $purchase_order)
 
-Allows you to create purchase orders
+Allows you to create a single purchase order
 
 ### Example
 ```php
@@ -3047,7 +2946,7 @@ Name | Type | Description  | Notes
 # **createPurchaseOrders**
 > \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders createPurchaseOrders($xero_tenant_id, $purchase_orders, $summarize_errors)
 
-Allows you to create purchase orders
+Allows you to create multiple purchase orders
 
 ### Example
 ```php
@@ -3065,7 +2964,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $purchase_orders = { "PurchaseOrders":[ { "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"710" } ], "Date":"2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | 
-$summarize_errors = true; // bool | shows validation errors for each purchase order.
+$summarize_errors = false; // bool | shows validation errors for each purchase order.
 
 try {
     $result = $apiInstance->createPurchaseOrders($xero_tenant_id, $purchase_orders, $summarize_errors);
@@ -3082,7 +2981,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **purchase_orders** | [**\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)|  |
- **summarize_errors** | **bool**| shows validation errors for each purchase order. | [optional] [default to true]
+ **summarize_errors** | **bool**| shows validation errors for each purchase order. | [optional] [default to false]
 
 ### Return type
 
@@ -3376,63 +3275,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **createTaxRate**
-> \XeroAPI\XeroPHP\Models\Accounting\TaxRates createTaxRate($xero_tenant_id, $tax_rate)
-
-Allows you to create Tax Rates
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$tax_rate = { "TaxRates":[ { "Name":"SDKTax29067", "TaxComponents":[ { "Name":"State Tax", "Rate":2.25 } ], "ReportTaxType":"INPUT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\TaxRate | 
-
-try {
-    $result = $apiInstance->createTaxRate($xero_tenant_id, $tax_rate);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AccountingApi->createTaxRate: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **tax_rate** | [**\XeroAPI\XeroPHP\Models\Accounting\TaxRate**](../Model/TaxRate.md)|  |
-
-### Return type
-
-[**\XeroAPI\XeroPHP\Models\Accounting\TaxRates**](../Model/TaxRates.md)
-
-### Authorization
-
-[OAuth2](../../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
 # **createTaxRates**
 > \XeroAPI\XeroPHP\Models\Accounting\TaxRates createTaxRates($xero_tenant_id, $tax_rates)
 
-Allows you to create Tax Rates
+Allows you to create one or more Tax Rates
 
 ### Example
 ```php
@@ -10960,7 +10806,7 @@ Name | Type | Description  | Notes
 # **updateItem**
 > \XeroAPI\XeroPHP\Models\Accounting\Items updateItem($xero_tenant_id, $item_id, $items)
 
-Allows you to udpate a specified item
+Allows you to update a specified item
 
 ### Example
 ```php

@@ -28,20 +28,19 @@ Follow these steps to create your Xero app
 
 * Create a [free Xero user account](https://www.xero.com/us/signup/api/) (if you don't have one)
 * Login to [Xero developer center](https://developer.xero.com/myapps)
-* Click "Try oAuth2" link
+* Click "New App" link
 * Enter your App name, company url, privacy policy url.
 * Enter the redirect URI (something like http://localhost:8888/pathToApp/callback.php)
 * Agree to terms and condition and click "Create App".
 * Click "Generate a secret" button.
-* Copy your client id and client secret and save for use later.
+* Copy your client id and client secret and **save for use later**.
 * Click the "Save" button. Your secret is now hidden.
 
 
 ## Installation & Usage
 ### Composer
 
-
-To install the bindings via [Composer](http://getcomposer.org/), and add to your `composer.json`:
+To install the bindings via [Composer](http://getcomposer.org/), and add the xero-php-oauth2 sdk to your `composer.json`:
 
 Navigate to where your composer.json file is and run the command
 ```
@@ -53,20 +52,15 @@ If no `composer.json` file exists, create one by running the following command. 
 composer init
 ```
 
-### Manual Installation
+## How to use xero-php-oauth2
+Below is a barebones example of the oAuth 2 flow.  You can copy/paste the code below into 4 separate PHP files and substitute your **ClientId, ClientSecret and RedirectURI**
 
-Download the files and include `autoload.php`:
+#### Important 
+The RedirectURI (something like http://localhost:8888/pathToApp/callback.php) in your code needs to point to the callback.php file and match the RedirectURI you set when creating your Xero app. 
 
-```php
-require_once('/path/to/xeroapi/autoload.php');
-```
-
-## How to use the xero-php-oauth2 SDK
-Below is a barebones example of the oAuth 2 flow.  You can copy/paste the 4 files below and substitute your ClientId, ClientSecret and RedirectURI from developer.xero.com.
-
-1. Point your browser to authorization.php, you'll be redirected to Xero where you'll login and select a Xero org to authorize.  
+1. Point your browser to authorization.php, you'll be redirected to Xero where you'll login and select a Xero org to authorize.  We  recommend the **Demo Company** org, since this code will modify data in the org you connect to. 
 2. Once complete, you'll be returned to your app to the redirect URI which should point to the callback.php. 
-3. In the callback, you'll obtain an access token which we'll use in authorizedResource.php to read the Organisation details.
+3. In callback.php, you'll obtain an access token which we'll use in authorizedResource.php to create, read, update and delete information in the connected Xero org.
 
 ### authorization.php
 
@@ -91,29 +85,22 @@ Below is a barebones example of the oAuth 2 flow.  You can copy/paste the 4 file
     'urlResourceOwnerDetails' => 'https://api.xero.com/api.xro/2.0/Organisation'
   ]);
 
-  // If we don't have an authorization code then get one
-  if (!isset($_GET['code'])) {
-    $options = [
-        'scope' => ['openid email profile offline_access accounting.settings accounting.transactions accounting.contacts accounting.journals.read accounting.reports.read accounting.attachments']
-    ];
+  // Scope defines the data your app has permission to access.
+  // Learn more about scopes at https://developer.xero.com/documentation/oauth2/scopes
+  $options = [
+      'scope' => ['openid email profile offline_access accounting.settings accounting.transactions accounting.contacts accounting.journals.read accounting.reports.read accounting.attachments']
+  ];
 
-    // Fetch the authorization URL from the provider; this returns the urlAuthorize option and generates and applies any necessary parameters (e.g. state).
-    $authorizationUrl = $provider->getAuthorizationUrl($options);
+  // This returns the authorizeUrl with necessary parameters applied (e.g. state).
+  $authorizationUrl = $provider->getAuthorizationUrl($options);
 
-    // Get the state generated for you and store it to the session.
-    $_SESSION['oauth2state'] = $provider->getState();
+  // Save the state generated for you and store it to the session.
+  // For security, on callback we compare the saved state with the one returned to ensure they match.
+  $_SESSION['oauth2state'] = $provider->getState();
 
-    // Redirect the user to the authorization URL.
-    header('Location: ' . $authorizationUrl);
-    exit();
-
-  // Check given state against previously stored one to mitigate CSRF attack
-  } elseif (empty($_GET['state']) || ($_GET['state'] !== $_SESSION['oauth2state'])) {
-      unset($_SESSION['oauth2state']);
-      exit('Invalid state');
-  } else {
-    //no action
-  }
+  // Redirect the user to the authorization URL.
+  header('Location: ' . $authorizationUrl);
+  exit();
 ?>
 ```
 
@@ -139,8 +126,8 @@ Below is a barebones example of the oAuth 2 flow.  You can copy/paste the 4 file
    
   // If we don't have an authorization code then get one
   if (!isset($_GET['code'])) {
-      header("Location: index.php?error=true");
-      exit();
+    echo "Something went wrong, no authorization code found";
+    exit("Something went wrong, no authorization code found");
 
   // Check given state against previously stored one to mitigate CSRF attack
   } elseif (empty($_GET['state']) || ($_GET['state'] !== $_SESSION['oauth2state'])) {
@@ -156,11 +143,7 @@ Below is a barebones example of the oAuth 2 flow.  You can copy/paste the 4 file
       ]);
            
       $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( (string)$accessToken->getToken() );
-
-      // Decode JWT
-      $jwt = new XeroAPI\XeroPHP\JWTClaims($accessToken->getValues()["id_token"]);
-      $jwt->decode();
-          
+    
       $config->setHost("https://api.xero.com"); 
       $identityInstance = new XeroAPI\XeroPHP\Api\IdentityApi(
         new GuzzleHttp\Client(),
@@ -169,7 +152,7 @@ Below is a barebones example of the oAuth 2 flow.  You can copy/paste the 4 file
        
       $result = $identityInstance->getConnections();
 
-      // Save my token, expiration and tenant_id
+      // Save my tokens, expiration tenant_id
       $storage->setToken(
           $accessToken->getToken(),
           $accessToken->getExpires(),
@@ -288,6 +271,9 @@ class StorageClass
   require __DIR__ . '/vendor/autoload.php';
   require_once('storage.php');
 
+  // Use this class to deserialize error caught
+  use XeroAPI\XeroPHP\AccountingObjectSerializer;
+
   // Storage Classe uses sessions for storing token > extend to your DB of choice
   $storage = new StorageClass();
   $xeroTenantId = (string)$storage->getSession()['tenant_id'];
@@ -296,7 +282,7 @@ class StorageClass
     $provider = new \League\OAuth2\Client\Provider\GenericProvider([
       'clientId'                => '__YOUR_CLIENT_ID__',   
       'clientSecret'            => '__YOUR_CLIENT_SECRET__',
-      'redirectUri'             => 'http://localhost:8888/pathToApp/callback.php',
+      'redirectUri'             => 'http://localhost:8888/pathToApp/callback.php', 
       'urlAuthorize'            => 'https://login.xero.com/identity/connect/authorize',
       'urlAccessToken'          => 'https://identity.xero.com/connect/token',
       'urlResourceOwnerDetails' => 'https://api.xero.com/api.xro/2.0/Organisation'
@@ -308,11 +294,11 @@ class StorageClass
     
     // Save my token, expiration and refresh token
     $storage->setToken(
-      $newAccessToken->getToken(),
-      $newAccessToken->getExpires(), 
-      $xeroTenantId,
-      $newAccessToken->getRefreshToken()
-    );
+        $newAccessToken->getToken(),
+        $newAccessToken->getExpires(), 
+        $xeroTenantId,
+        $newAccessToken->getRefreshToken(),
+        $newAccessToken->getValues()["id_token"] );
   }
 
   $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( (string)$storage->getSession()['token'] );
@@ -322,12 +308,83 @@ class StorageClass
       new GuzzleHttp\Client(),
       $config
   );
+  $message = "no API calls";
+  if (isset($_GET['action'])) { 
+      if ($_GET["action"] == 1) {
+          // Get Organisation details
+          $apiResponse = $apiInstance->getOrganisations($xeroTenantId); 
+          $message = 'Organisation Name: ' . $apiResponse->getOrganisations()[0]->getName();
+      } else if ($_GET["action"] == 2) {
+          // Create Contact
+          try {
+              $person = new XeroAPI\XeroPHP\Models\Accounting\ContactPerson;
+              $person->setFirstName("John")
+                  ->setLastName("Smith")
+                  ->setEmailAddress("john.smith@24locks.com")
+                  ->setIncludeInEmails(true);
 
-  // Get Organisation details
-  $apiResponse = $apiInstance->getOrganisations($xeroTenantId); 
-  var_dump($apiResponse);
-  
+              $persons = [];		
+              array_push($persons, $person);
+
+              $contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
+              $contact->setName('FooBar')
+                  ->setFirstName("Foo")
+                  ->setLastName("Bar")
+                  ->setEmailAddress("ben.bowden@24locks.com")
+                  ->setContactPersons($persons);	
+              $apiResponse = $apiInstance->createContact($xeroTenantId,$contact);
+              $message = 'New Contact Name: ' . $apiResponse->getContacts()[0]->getName();
+          } catch (\XeroAPI\XeroPHP\ApiException $e) {
+              $error = AccountingObjectSerializer::deserialize(
+                  $e->getResponseBody(),
+                  '\XeroAPI\XeroPHP\Models\Accounting\Error',
+                  []
+              );
+              $message = "ApiException - " . $error->getElements()[0]["validation_errors"][0]["message"];
+          } 
+    
+      } else if ($_GET["action"] == 3) {
+          $if_modified_since = new \DateTime("2019-01-02T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp
+          $if_modified_since = null;
+          $where = 'Type=="ACCREC"'; // string 
+          $where = null;
+          $order = null; // string 
+          $ids = null; // string[] | Filter by a comma-separated list of Invoice Ids. 
+          $invoice_numbers = null; // string[] |  Filter by a comma-separated list of Invoice Numbers. 
+          $contact_ids = null; // string[] | Filter by a comma-separated list of ContactIDs. 
+          $statuses = array("DRAFT", "SUBMITTED");;		
+          $page = 1; // int | e.g. page=1 – Up to 100 invoices will be returned 
+          $include_archived = null; // bool | e.g. includeArchived=true 
+          $created_by_my_app = null; // bool | When  true  retrieve Invoices created by your app
+          $unitdp = null; // int | e.g. unitdp=4 – opt in to use four decimal places 
+
+          try {
+              $apiResponse = $apiInstance->getInvoices($xeroTenantId, $if_modified_since, $where, $order, $ids, $invoice_numbers, $contact_ids, $statuses, $page, $include_archived, $created_by_my_app, $unitdp);
+              if (  count($apiResponse->getInvoices()) > 0 ) {
+                  $message = 'Total invoices found: ' . count($apiResponse->getInvoices());
+              } else {
+                  $message = "No invoices found matching filter criteria";
+              }
+          } catch (Exception $e) {
+              echo 'Exception when calling AccountingApi->getInvoices: ', $e->getMessage(), PHP_EOL;
+          }
+      }
+  }
 ?>
+<html>
+    <body>
+        <ul>
+            <li><a href="authorizedResource.php?action=1">Get Organisation Name</a></li>
+            <li><a href="authorizedResource.php?action=2">Create Contact</a></li>
+            <li><a href="authorizedResource.php?action=3">Get Invoice with Filters</a></li>
+        </ul>
+        <div>
+        <?php
+            echo($message );
+        ?>
+        </div>
+    </body>
+</html>
 ```
 
 ## JWT decoding and Signup with Xero
@@ -339,11 +396,9 @@ Looking to implement [Signup with Xero](https://developer.xero.com/documentation
   $jwt = new XeroAPI\XeroPHP\JWTClaims($accessToken->getValues()["id_token"]);
   $jwt->decode();
 
- $sub​ = $jwt->getSub();
+  $sub​ = $jwt->getSub();
   $iss = $jwt->getIss();
-  $aud = $jwt->getAud();
   $exp = $jwt->getExp();
-  $iat = $jwt->getIat();
   $given_name = $jwt->getGivenName();
   $family_name =  $jwt->getFamilyName();
   $email = $jwt->getEmail();
