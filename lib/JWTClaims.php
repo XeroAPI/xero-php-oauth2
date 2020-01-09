@@ -24,11 +24,11 @@ class JWTClaims
     private $iat​;
 
     public function decode() {
-        
+
         $tks = explode('.', $this->idToken);
         list($headb64, $bodyb64, $cryptob64) = $tks;
         $this->jwtDecoded = JWT::jsonDecode(JWT::urlsafeB64Decode($bodyb64),true);
-        
+
         $this->sub​value = $this->jwtDecoded->{'sub'};
         $this->expiration = $this->jwtDecoded->{'exp'};
         $this->email = $this->jwtDecoded->{'email'};
@@ -41,7 +41,7 @@ class JWTClaims
         $this->iss = $this->jwtDecoded->{'iss'};
         $this->at_hash = $this->jwtDecoded->{'at_hash'};
         $this->sid = $this->jwtDecoded->{'sid'};
-        
+
         // No idea why these values can't be read
         //but appear when dumping jwtDecoded?!?!
         //$this->aud = $this->jwtDecoded->{'aud​'};
