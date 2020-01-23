@@ -71,6 +71,7 @@ class Item implements ModelInterface, ArrayAccess
         'quantity_on_hand' => 'double',
         'updated_date_utc' => '\DateTime',
         'item_id' => 'string',
+        'status_attribute_string' => 'string',
         'validation_errors' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]'
     ];
 
@@ -94,6 +95,7 @@ class Item implements ModelInterface, ArrayAccess
         'quantity_on_hand' => 'double',
         'updated_date_utc' => 'date-time',
         'item_id' => 'uuid',
+        'status_attribute_string' => null,
         'validation_errors' => null
     ];
 
@@ -138,6 +140,7 @@ class Item implements ModelInterface, ArrayAccess
         'quantity_on_hand' => 'QuantityOnHand',
         'updated_date_utc' => 'UpdatedDateUTC',
         'item_id' => 'ItemID',
+        'status_attribute_string' => 'StatusAttributeString',
         'validation_errors' => 'ValidationErrors'
     ];
 
@@ -161,6 +164,7 @@ class Item implements ModelInterface, ArrayAccess
         'quantity_on_hand' => 'setQuantityOnHand',
         'updated_date_utc' => 'setUpdatedDateUtc',
         'item_id' => 'setItemId',
+        'status_attribute_string' => 'setStatusAttributeString',
         'validation_errors' => 'setValidationErrors'
     ];
 
@@ -184,6 +188,7 @@ class Item implements ModelInterface, ArrayAccess
         'quantity_on_hand' => 'getQuantityOnHand',
         'updated_date_utc' => 'getUpdatedDateUtc',
         'item_id' => 'getItemId',
+        'status_attribute_string' => 'getStatusAttributeString',
         'validation_errors' => 'getValidationErrors'
     ];
 
@@ -261,6 +266,7 @@ class Item implements ModelInterface, ArrayAccess
         $this->container['quantity_on_hand'] = isset($data['quantity_on_hand']) ? $data['quantity_on_hand'] : null;
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
         $this->container['item_id'] = isset($data['item_id']) ? $data['item_id'] : null;
+        $this->container['status_attribute_string'] = isset($data['status_attribute_string']) ? $data['status_attribute_string'] : null;
         $this->container['validation_errors'] = isset($data['validation_errors']) ? $data['validation_errors'] : null;
     }
 
@@ -658,6 +664,30 @@ class Item implements ModelInterface, ArrayAccess
     public function setItemId($item_id)
     {
         $this->container['item_id'] = $item_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets status_attribute_string
+     *
+     * @return string|null
+     */
+    public function getStatusAttributeString()
+    {
+        return $this->container['status_attribute_string'];
+    }
+
+    /**
+     * Sets status_attribute_string
+     *
+     * @param string|null $status_attribute_string Status of object
+     *
+     * @return $this
+     */
+    public function setStatusAttributeString($status_attribute_string)
+    {
+        $this->container['status_attribute_string'] = $status_attribute_string;
 
         return $this;
     }
