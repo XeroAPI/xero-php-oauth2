@@ -94,7 +94,8 @@ class Contact implements ModelInterface, ArrayAccess
         'attachments' => '\XeroAPI\XeroPHP\Models\Accounting\Attachment[]',
         'has_attachments' => 'bool',
         'validation_errors' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]',
-        'has_validation_errors' => 'bool'
+        'has_validation_errors' => 'bool',
+        'status_attribute_string' => 'string'
     ];
 
     /**
@@ -140,7 +141,8 @@ class Contact implements ModelInterface, ArrayAccess
         'attachments' => null,
         'has_attachments' => null,
         'validation_errors' => null,
-        'has_validation_errors' => null
+        'has_validation_errors' => null,
+        'status_attribute_string' => null
     ];
 
     /**
@@ -207,7 +209,8 @@ class Contact implements ModelInterface, ArrayAccess
         'attachments' => 'Attachments',
         'has_attachments' => 'HasAttachments',
         'validation_errors' => 'ValidationErrors',
-        'has_validation_errors' => 'HasValidationErrors'
+        'has_validation_errors' => 'HasValidationErrors',
+        'status_attribute_string' => 'StatusAttributeString'
     ];
 
     /**
@@ -253,7 +256,8 @@ class Contact implements ModelInterface, ArrayAccess
         'attachments' => 'setAttachments',
         'has_attachments' => 'setHasAttachments',
         'validation_errors' => 'setValidationErrors',
-        'has_validation_errors' => 'setHasValidationErrors'
+        'has_validation_errors' => 'setHasValidationErrors',
+        'status_attribute_string' => 'setStatusAttributeString'
     ];
 
     /**
@@ -299,7 +303,8 @@ class Contact implements ModelInterface, ArrayAccess
         'attachments' => 'getAttachments',
         'has_attachments' => 'getHasAttachments',
         'validation_errors' => 'getValidationErrors',
-        'has_validation_errors' => 'getHasValidationErrors'
+        'has_validation_errors' => 'getHasValidationErrors',
+        'status_attribute_string' => 'getStatusAttributeString'
     ];
 
     /**
@@ -417,6 +422,7 @@ class Contact implements ModelInterface, ArrayAccess
         $this->container['has_attachments'] = isset($data['has_attachments']) ? $data['has_attachments'] : null;
         $this->container['validation_errors'] = isset($data['validation_errors']) ? $data['validation_errors'] : null;
         $this->container['has_validation_errors'] = isset($data['has_validation_errors']) ? $data['has_validation_errors'] : null;
+        $this->container['status_attribute_string'] = isset($data['status_attribute_string']) ? $data['status_attribute_string'] : null;
     }
 
     /**
@@ -1424,6 +1430,30 @@ class Contact implements ModelInterface, ArrayAccess
     public function setHasValidationErrors($has_validation_errors)
     {
         $this->container['has_validation_errors'] = $has_validation_errors;
+
+        return $this;
+    }
+
+    /**
+     * Gets status_attribute_string
+     *
+     * @return string|null
+     */
+    public function getStatusAttributeString()
+    {
+        return $this->container['status_attribute_string'];
+    }
+
+    /**
+     * Sets status_attribute_string
+     *
+     * @param string|null $status_attribute_string Status of object
+     *
+     * @return $this
+     */
+    public function setStatusAttributeString($status_attribute_string)
+    {
+        $this->container['status_attribute_string'] = $status_attribute_string;
 
         return $this;
     }

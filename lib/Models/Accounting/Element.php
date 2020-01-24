@@ -57,7 +57,14 @@ class Element implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'validation_errors' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]'
+        'validation_errors' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]',
+        'batch_payment_id' => 'string',
+        'bank_transaction_id' => 'string',
+        'credit_note_id' => 'string',
+        'contact_id' => 'string',
+        'invoice_id' => 'string',
+        'item_id' => 'string',
+        'purchase_order_id' => 'string'
     ];
 
     /**
@@ -66,7 +73,14 @@ class Element implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'validation_errors' => null
+        'validation_errors' => null,
+        'batch_payment_id' => 'uuid',
+        'bank_transaction_id' => 'uuid',
+        'credit_note_id' => 'uuid',
+        'contact_id' => 'uuid',
+        'invoice_id' => 'uuid',
+        'item_id' => 'uuid',
+        'purchase_order_id' => 'uuid'
     ];
 
     /**
@@ -96,7 +110,14 @@ class Element implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'validation_errors' => 'ValidationErrors'
+        'validation_errors' => 'ValidationErrors',
+        'batch_payment_id' => 'BatchPaymentID',
+        'bank_transaction_id' => 'BankTransactionID',
+        'credit_note_id' => 'CreditNoteID',
+        'contact_id' => 'ContactID',
+        'invoice_id' => 'InvoiceID',
+        'item_id' => 'ItemID',
+        'purchase_order_id' => 'PurchaseOrderID'
     ];
 
     /**
@@ -105,7 +126,14 @@ class Element implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'validation_errors' => 'setValidationErrors'
+        'validation_errors' => 'setValidationErrors',
+        'batch_payment_id' => 'setBatchPaymentId',
+        'bank_transaction_id' => 'setBankTransactionId',
+        'credit_note_id' => 'setCreditNoteId',
+        'contact_id' => 'setContactId',
+        'invoice_id' => 'setInvoiceId',
+        'item_id' => 'setItemId',
+        'purchase_order_id' => 'setPurchaseOrderId'
     ];
 
     /**
@@ -114,7 +142,14 @@ class Element implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'validation_errors' => 'getValidationErrors'
+        'validation_errors' => 'getValidationErrors',
+        'batch_payment_id' => 'getBatchPaymentId',
+        'bank_transaction_id' => 'getBankTransactionId',
+        'credit_note_id' => 'getCreditNoteId',
+        'contact_id' => 'getContactId',
+        'invoice_id' => 'getInvoiceId',
+        'item_id' => 'getItemId',
+        'purchase_order_id' => 'getPurchaseOrderId'
     ];
 
     /**
@@ -178,6 +213,13 @@ class Element implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['validation_errors'] = isset($data['validation_errors']) ? $data['validation_errors'] : null;
+        $this->container['batch_payment_id'] = isset($data['batch_payment_id']) ? $data['batch_payment_id'] : null;
+        $this->container['bank_transaction_id'] = isset($data['bank_transaction_id']) ? $data['bank_transaction_id'] : null;
+        $this->container['credit_note_id'] = isset($data['credit_note_id']) ? $data['credit_note_id'] : null;
+        $this->container['contact_id'] = isset($data['contact_id']) ? $data['contact_id'] : null;
+        $this->container['invoice_id'] = isset($data['invoice_id']) ? $data['invoice_id'] : null;
+        $this->container['item_id'] = isset($data['item_id']) ? $data['item_id'] : null;
+        $this->container['purchase_order_id'] = isset($data['purchase_order_id']) ? $data['purchase_order_id'] : null;
     }
 
     /**
@@ -224,6 +266,174 @@ class Element implements ModelInterface, ArrayAccess
     public function setValidationErrors($validation_errors)
     {
         $this->container['validation_errors'] = $validation_errors;
+
+        return $this;
+    }
+
+    /**
+     * Gets batch_payment_id
+     *
+     * @return string|null
+     */
+    public function getBatchPaymentId()
+    {
+        return $this->container['batch_payment_id'];
+    }
+
+    /**
+     * Sets batch_payment_id
+     *
+     * @param string|null $batch_payment_id Unique ID for batch payment object with validation error
+     *
+     * @return $this
+     */
+    public function setBatchPaymentId($batch_payment_id)
+    {
+        $this->container['batch_payment_id'] = $batch_payment_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets bank_transaction_id
+     *
+     * @return string|null
+     */
+    public function getBankTransactionId()
+    {
+        return $this->container['bank_transaction_id'];
+    }
+
+    /**
+     * Sets bank_transaction_id
+     *
+     * @param string|null $bank_transaction_id bank_transaction_id
+     *
+     * @return $this
+     */
+    public function setBankTransactionId($bank_transaction_id)
+    {
+        $this->container['bank_transaction_id'] = $bank_transaction_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets credit_note_id
+     *
+     * @return string|null
+     */
+    public function getCreditNoteId()
+    {
+        return $this->container['credit_note_id'];
+    }
+
+    /**
+     * Sets credit_note_id
+     *
+     * @param string|null $credit_note_id credit_note_id
+     *
+     * @return $this
+     */
+    public function setCreditNoteId($credit_note_id)
+    {
+        $this->container['credit_note_id'] = $credit_note_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets contact_id
+     *
+     * @return string|null
+     */
+    public function getContactId()
+    {
+        return $this->container['contact_id'];
+    }
+
+    /**
+     * Sets contact_id
+     *
+     * @param string|null $contact_id contact_id
+     *
+     * @return $this
+     */
+    public function setContactId($contact_id)
+    {
+        $this->container['contact_id'] = $contact_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets invoice_id
+     *
+     * @return string|null
+     */
+    public function getInvoiceId()
+    {
+        return $this->container['invoice_id'];
+    }
+
+    /**
+     * Sets invoice_id
+     *
+     * @param string|null $invoice_id invoice_id
+     *
+     * @return $this
+     */
+    public function setInvoiceId($invoice_id)
+    {
+        $this->container['invoice_id'] = $invoice_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_id
+     *
+     * @return string|null
+     */
+    public function getItemId()
+    {
+        return $this->container['item_id'];
+    }
+
+    /**
+     * Sets item_id
+     *
+     * @param string|null $item_id item_id
+     *
+     * @return $this
+     */
+    public function setItemId($item_id)
+    {
+        $this->container['item_id'] = $item_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets purchase_order_id
+     *
+     * @return string|null
+     */
+    public function getPurchaseOrderId()
+    {
+        return $this->container['purchase_order_id'];
+    }
+
+    /**
+     * Sets purchase_order_id
+     *
+     * @param string|null $purchase_order_id purchase_order_id
+     *
+     * @return $this
+     */
+    public function setPurchaseOrderId($purchase_order_id)
+    {
+        $this->container['purchase_order_id'] = $purchase_order_id;
 
         return $this;
     }

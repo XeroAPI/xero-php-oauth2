@@ -42,6 +42,26 @@ use XeroAPI\XeroPHP\Models\Identity\ModelInterface;
 class IdentityObjectSerializer
 {
     /**
+     * Validate if date
+     *
+     * @param  $value the data to validate as a date
+     * @return boolean true/false 
+     */
+    public static function function isDate($value) 
+    {
+        if (!$value) {
+            return false;
+        }
+
+        try {
+            new \DateTime($value);
+            return true;
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
+
+    /**
      * Serialize data
      *
      * @param mixed  $data   the data to serialize
@@ -269,7 +289,23 @@ class IdentityObjectSerializer
             // be interpreted as a missing field/value. Let's handle
             // this graceful.
             if (!empty($data)) {
-                return new \DateTime($data);
+                
+                if(isDate($data)) {
+                    return new \DateTime($data);
+                } else {
+                    // Data not in a format that simply converts to a new DateTime();
+                    // Custom Date Deserializer to allow for Xero's use of .NET JSON Date format
+                    $match = preg_match( '/([\d]{13})/', $data, $date );
+                    $timestamp = $date[1]/1000;
+                    
+                    $datetime = new \DateTime();
+                    $datetime->setTimestamp($timestamp);
+            
+                    $result = $datetime->format('Y-m-d H:i:s');
+                        
+                    $date = new \DateTime($result);
+                    return $date;
+                }
             } else {
                 return null;
             }
