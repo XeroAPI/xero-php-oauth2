@@ -42,6 +42,26 @@ use XeroAPI\XeroPHP\Models\Accounting\ModelInterface;
 class AccountingObjectSerializer
 {
     /**
+     * Validate if date
+     *
+     * @param  $value the data to validate as a date
+     * @return boolean true/false 
+     */
+    public static function function isDate($value) 
+    {
+        if (!$value) {
+            return false;
+        }
+
+        try {
+            new \DateTime($value);
+            return true;
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
+
+    /**
      * Serialize data
      *
      * @param mixed  $data   the data to serialize
@@ -270,33 +290,22 @@ class AccountingObjectSerializer
             // this graceful.
             if (!empty($data)) {
                 
-                // CUSTOM Date Deserializer to allow for Xero's use of .NET JSON Date format
-                $match = preg_match( '/([\d]{13})/', $data, $date );
-                $timestamp = $date[1]/1000;
-                
-                $datetime = new \DateTime();
-                $datetime->setTimestamp($timestamp);
-           
-                $result = $datetime->format('Y-m-d H:i:s');
+                if(isDate($data)) {
+                    return new \DateTime($data);
+                } else {
+                    // Data not in a format that simply converts to a new DateTime();
+                    // Custom Date Deserializer to allow for Xero's use of .NET JSON Date format
+                    $match = preg_match( '/([\d]{13})/', $data, $date );
+                    $timestamp = $date[1]/1000;
                     
-                $date = new \DateTime($result);
-                return $date;
-                
-                /* OLD matching
-                $match = preg_match('/\/Date\((\d+)([-+])(\d+)\)\//', $data, $date);
-
-                $timestamp = $date[1]/1000;
-                $operator = $date[2];
-                $hours = $date[3]*36; // Get the seconds
-
-                $datetime = new \DateTime();
-                $datetime->setTimestamp($timestamp);
-                $datetime->modify($operator . $hours . ' seconds');
-                $result = $datetime->format('Y-m-d H:i:s');
-                    
-                return $result;
-                */
-                //return new \DateTime($data);
+                    $datetime = new \DateTime();
+                    $datetime->setTimestamp($timestamp);
+            
+                    $result = $datetime->format('Y-m-d H:i:s');
+                        
+                    $date = new \DateTime($result);
+                    return $date;
+                }
             } else {
                 return null;
             }
