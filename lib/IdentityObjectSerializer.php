@@ -47,7 +47,7 @@ class IdentityObjectSerializer
      * @param  $value the data to validate as a date
      * @return boolean true/false 
      */
-    public static function function isDate($value) 
+    public static function isDate($value) 
     {
         if (!$value) {
             return false;
@@ -287,10 +287,10 @@ class IdentityObjectSerializer
             // the current time for empty input which is probably not
             // what is meant. The invalid empty string is probably to
             // be interpreted as a missing field/value. Let's handle
-            // this graceful.
+            // this gracefully.
             if (!empty($data)) {
                 
-                if(isDate($data)) {
+                if( self::isDate($data) ) {
                     return new \DateTime($data);
                 } else {
                     // Data not in a format that simply converts to a new DateTime();
