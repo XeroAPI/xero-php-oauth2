@@ -47,7 +47,7 @@ class AccountingObjectSerializer
      * @param  $value the data to validate as a date
      * @return boolean true/false 
      */
-    public static function function isDate($value) 
+    public static function isDate($value) 
     {
         if (!$value) {
             return false;
@@ -290,7 +290,7 @@ class AccountingObjectSerializer
             // this graceful.
             if (!empty($data)) {
                 
-                if(isDate($data)) {
+                if( self::isDate($data) ) {
                     return new \DateTime($data);
                 } else {
                     // Data not in a format that simply converts to a new DateTime();
