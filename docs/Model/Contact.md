@@ -41,6 +41,7 @@ Name | Type | Description | Notes
 **has_attachments** | **bool** | A boolean to indicate if a contact has an attachment | [optional] 
 **validation_errors** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays validation errors returned from the API | [optional] 
 **has_validation_errors** | **bool** | A boolean to indicate if a contact has an validation errors | [optional] 
+**status_attribute_string** | **string** | Status of object | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

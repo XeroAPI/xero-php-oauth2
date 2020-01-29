@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **quantity_on_hand** | **double** | The quantity of the item on hand | [optional] 
 **updated_date_utc** | [**\DateTime**](\DateTime.md) | Last modified date in UTC format | [optional] 
 **item_id** | **string** | The Xero identifier for an Item | [optional] 
+**status_attribute_string** | **string** | Status of object | [optional] 
 **validation_errors** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
