@@ -448,7 +448,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Gets line_amount_types
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\LineAmountTypes|null
+     * @return string|null
      */
     public function getLineAmountTypes()
     {
@@ -520,7 +520,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Gets currency_code
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\CurrencyCode|null
+     * @return string|null
      */
     public function getCurrencyCode()
     {

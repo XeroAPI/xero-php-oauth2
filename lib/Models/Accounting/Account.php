@@ -553,7 +553,7 @@ class Account implements ModelInterface, ArrayAccess
     /**
      * Gets type
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\AccountType|null
+     * @return string|null
      */
     public function getType()
     {
@@ -691,7 +691,7 @@ class Account implements ModelInterface, ArrayAccess
     /**
      * Gets currency_code
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\CurrencyCode|null
+     * @return string|null
      */
     public function getCurrencyCode()
     {

@@ -345,7 +345,7 @@ class JournalLine implements ModelInterface, ArrayAccess
     /**
      * Gets account_type
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\AccountType|null
+     * @return string|null
      */
     public function getAccountType()
     {

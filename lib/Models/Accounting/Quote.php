@@ -461,7 +461,7 @@ class Quote implements ModelInterface, ArrayAccess
     /**
      * Gets contact
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Contact|null
+     * @return string|null
      */
     public function getContact()
     {
@@ -605,7 +605,7 @@ class Quote implements ModelInterface, ArrayAccess
     /**
      * Gets status
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\QuoteStatusCodes|null
+     * @return string|null
      */
     public function getStatus()
     {
@@ -629,7 +629,7 @@ class Quote implements ModelInterface, ArrayAccess
     /**
      * Gets currency_code
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\CurrencyCode|null
+     * @return string|null
      */
     public function getCurrencyCode()
     {
@@ -877,7 +877,7 @@ class Quote implements ModelInterface, ArrayAccess
     /**
      * Gets line_amount_types
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\QuoteLineAmountTypes|null
+     * @return string|null
      */
     public function getLineAmountTypes()
     {
