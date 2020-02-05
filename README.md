@@ -53,7 +53,9 @@ composer init
 ```
 
 ## How to use xero-php-oauth2
-Below is a barebones example of the oAuth 2 flow.  You can copy/paste the code below into 4 separate PHP files and substitute your **ClientId, ClientSecret and RedirectURI**
+Below is starter code with the oAuth 2 flow.  You can copy/paste the code below into 4 separate PHP files and substitute your **ClientId, ClientSecret and RedirectURI**
+
+### [Download starter code](https://github.com/XeroAPI/xero-php-oauth2-starter)
 
 #### Important 
 The RedirectURI (something like http://localhost:8888/pathToApp/callback.php) in your code needs to point to the callback.php file and match the RedirectURI you set when creating your Xero app. 
