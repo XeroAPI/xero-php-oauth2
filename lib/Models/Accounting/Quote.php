@@ -471,7 +471,7 @@ class Quote implements ModelInterface, ArrayAccess
     /**
      * Sets contact
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Contact|null $contact contact
+     * @param string|null $contact contact
      *
      * @return $this
      */
@@ -615,7 +615,7 @@ class Quote implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\QuoteStatusCodes|null $status status
+     * @param string|null $status status
      *
      * @return $this
      */
@@ -639,7 +639,7 @@ class Quote implements ModelInterface, ArrayAccess
     /**
      * Sets currency_code
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\CurrencyCode|null $currency_code currency_code
+     * @param string|null $currency_code currency_code
      *
      * @return $this
      */
@@ -887,7 +887,7 @@ class Quote implements ModelInterface, ArrayAccess
     /**
      * Sets line_amount_types
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\QuoteLineAmountTypes|null $line_amount_types line_amount_types
+     * @param string|null $line_amount_types line_amount_types
      *
      * @return $this
      */

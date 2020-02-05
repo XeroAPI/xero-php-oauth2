@@ -391,7 +391,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Sets line_amount_types
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\LineAmountTypes|null $line_amount_types line_amount_types
+     * @param string|null $line_amount_types line_amount_types
      *
      * @return $this
      */

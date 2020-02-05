@@ -355,7 +355,7 @@ class JournalLine implements ModelInterface, ArrayAccess
     /**
      * Sets account_type
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\AccountType|null $account_type account_type
+     * @param string|null $account_type account_type
      *
      * @return $this
      */

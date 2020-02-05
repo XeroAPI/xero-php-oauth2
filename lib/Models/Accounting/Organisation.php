@@ -860,7 +860,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Sets base_currency
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\CurrencyCode|null $base_currency base_currency
+     * @param string|null $base_currency base_currency
      *
      * @return $this
      */
@@ -884,7 +884,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Sets country_code
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\CountryCode|null $country_code country_code
+     * @param string|null $country_code country_code
      *
      * @return $this
      */
@@ -1238,7 +1238,7 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Sets timezone
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\TimeZone|null $timezone timezone
+     * @param string|null $timezone timezone
      *
      * @return $this
      */
