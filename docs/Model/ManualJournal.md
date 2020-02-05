@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **narration** | **string** | Description of journal being posted | 
-**journal_lines** | [**\XeroAPI\XeroPHP\Models\Accounting\ManualJournalLine[]**](ManualJournalLine.md) | See JournalLines | 
+**journal_lines** | [**\XeroAPI\XeroPHP\Models\Accounting\ManualJournalLine[]**](ManualJournalLine.md) | See JournalLines | [optional] 
 **date** | [**\DateTime**](\DateTime.md) | Date journal was posted – YYYY-MM-DD | [optional] 
 **line_amount_types** | [**\XeroAPI\XeroPHP\Models\Accounting\LineAmountTypes**](LineAmountTypes.md) |  | [optional] 
 **status** | **string** | See Manual Journal Status Codes | [optional] 

@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**date** | [**\DateTime**](\DateTime.md) | Date of receipt – YYYY-MM-DD | 
-**contact** | [**\XeroAPI\XeroPHP\Models\Accounting\Contact**](Contact.md) |  | 
-**line_items** | [**\XeroAPI\XeroPHP\Models\Accounting\LineItem[]**](LineItem.md) |  | 
-**user** | [**\XeroAPI\XeroPHP\Models\Accounting\User**](User.md) |  | 
+**date** | [**\DateTime**](\DateTime.md) | Date of receipt – YYYY-MM-DD | [optional] 
+**contact** | [**\XeroAPI\XeroPHP\Models\Accounting\Contact**](Contact.md) |  | [optional] 
+**line_items** | [**\XeroAPI\XeroPHP\Models\Accounting\LineItem[]**](LineItem.md) |  | [optional] 
+**user** | [**\XeroAPI\XeroPHP\Models\Accounting\User**](User.md) |  | [optional] 
 **reference** | **string** | Additional reference number | [optional] 
 **line_amount_types** | [**\XeroAPI\XeroPHP\Models\Accounting\LineAmountTypes**](LineAmountTypes.md) |  | [optional] 
 **sub_total** | **double** | Total of receipt excluding taxes | [optional] 

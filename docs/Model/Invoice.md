@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **string** | See Invoice Types | 
-**contact** | [**\XeroAPI\XeroPHP\Models\Accounting\Contact**](Contact.md) |  | 
-**line_items** | [**\XeroAPI\XeroPHP\Models\Accounting\LineItem[]**](LineItem.md) | See LineItems | 
+**type** | **string** | See Invoice Types | [optional] 
+**contact** | [**\XeroAPI\XeroPHP\Models\Accounting\Contact**](Contact.md) |  | [optional] 
+**line_items** | [**\XeroAPI\XeroPHP\Models\Accounting\LineItem[]**](LineItem.md) | See LineItems | [optional] 
 **date** | [**\DateTime**](\DateTime.md) | Date invoice was issued – YYYY-MM-DD. If the Date element is not specified it will default to the current date based on the timezone setting of the organisation | [optional] 
 **due_date** | [**\DateTime**](\DateTime.md) | Date invoice is due – YYYY-MM-DD | [optional] 
 **line_amount_types** | [**\XeroAPI\XeroPHP\Models\Accounting\LineAmountTypes**](LineAmountTypes.md) |  | [optional] 

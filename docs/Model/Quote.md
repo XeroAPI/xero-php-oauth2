@@ -3,11 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**quote_id** | **string** | Xero generated unique identifier for quote | [optional] 
-**quote_number** | **string** | Unique alpha numeric code identifying quote (when missing will auto-generate from your Organisation Invoice Settings) | [optional] 
+**quote_id** | **string** | QuoteID GUID is automatically generated and is returned after create or GET. | [optional] 
+**quote_number** | **string** | Unique alpha numeric code identifying a quote (Max Length &#x3D; 255) | [optional] 
 **reference** | **string** | Additional reference number | [optional] 
 **terms** | **string** | Terms of the quote | [optional] 
-**contact** | [**\XeroAPI\XeroPHP\Models\Accounting\Contact**](Contact.md) |  | 
+**contact** | [**\XeroAPI\XeroPHP\Models\Accounting\Contact**](Contact.md) |  | [optional] 
 **line_items** | [**\XeroAPI\XeroPHP\Models\Accounting\LineItem[]**](LineItem.md) | See LineItems | [optional] 
 **date** | [**\DateTime**](\DateTime.md) | Date quote was issued – YYYY-MM-DD. If the Date element is not specified it will default to the current date based on the timezone setting of the organisation | [optional] 
 **date_string** | **string** | Date the quote was issued (YYYY-MM-DD) | [optional] 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **expiry_date_string** | **string** | Date the quote expires – YYYY-MM-DD. | [optional] 
 **status** | [**\XeroAPI\XeroPHP\Models\Accounting\QuoteStatusCodes**](QuoteStatusCodes.md) |  | [optional] 
 **currency_code** | [**\XeroAPI\XeroPHP\Models\Accounting\CurrencyCode**](CurrencyCode.md) |  | [optional] 
-**currency_rate** | **double** | The currency rate for a multicurrency quote. If no rate is specified, the XE.com day rate is used. | [optional] 
+**currency_rate** | **double** | The currency rate for a multicurrency quote | [optional] 
 **sub_total** | **double** | Total of quote excluding taxes. | [optional] 
 **total_tax** | **double** | Total tax on quote | [optional] 
 **total** | **double** | Total of Quote tax inclusive (i.e. SubTotal + TotalTax). This will be ignored if it doesn’t equal the sum of the LineAmounts | [optional] 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **summary** | **string** | Summary text for the quote | [optional] 
 **branding_theme_id** | **string** | See BrandingThemes | [optional] 
 **updated_date_utc** | [**\DateTime**](\DateTime.md) | Last modified date UTC format | [optional] 
-**line_amount_types** | [**\XeroAPI\XeroPHP\Models\Accounting\LineAmountTypes**](LineAmountTypes.md) |  | [optional] 
+**line_amount_types** | [**\XeroAPI\XeroPHP\Models\Accounting\QuoteLineAmountTypes**](QuoteLineAmountTypes.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
