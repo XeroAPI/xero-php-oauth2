@@ -563,7 +563,7 @@ class Account implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\AccountType|null $type type
+     * @param string|null $type type
      *
      * @return $this
      */
@@ -701,7 +701,7 @@ class Account implements ModelInterface, ArrayAccess
     /**
      * Sets currency_code
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\CurrencyCode|null $currency_code currency_code
+     * @param string|null $currency_code currency_code
      *
      * @return $this
      */

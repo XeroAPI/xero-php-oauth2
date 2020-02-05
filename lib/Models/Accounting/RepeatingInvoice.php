@@ -458,7 +458,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Sets line_amount_types
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\LineAmountTypes|null $line_amount_types line_amount_types
+     * @param string|null $line_amount_types line_amount_types
      *
      * @return $this
      */
@@ -530,7 +530,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Sets currency_code
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\CurrencyCode|null $currency_code currency_code
+     * @param string|null $currency_code currency_code
      *
      * @return $this
      */

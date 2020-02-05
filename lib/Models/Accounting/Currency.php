@@ -223,7 +223,7 @@ class Currency implements ModelInterface, ArrayAccess
     /**
      * Sets code
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\CurrencyCode|null $code code
+     * @param string|null $code code
      *
      * @return $this
      */
