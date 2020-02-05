@@ -78,7 +78,7 @@ class Quote implements ModelInterface, ArrayAccess
         'summary' => 'string',
         'branding_theme_id' => 'string',
         'updated_date_utc' => '\DateTime',
-        'line_amount_types' => '\XeroAPI\XeroPHP\Models\Accounting\LineAmountTypes'
+        'line_amount_types' => '\XeroAPI\XeroPHP\Models\Accounting\QuoteLineAmountTypes'
     ];
 
     /**
@@ -327,15 +327,12 @@ class Quote implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'terms', the character length must be smaller than or equal to 4000.";
         }
 
-        if ($this->container['contact'] === null) {
-            $invalidProperties[] = "'contact' can't be null";
-        }
         if (!is_null($this->container['title']) && (mb_strlen($this->container['title']) > 100)) {
             $invalidProperties[] = "invalid value for 'title', the character length must be smaller than or equal to 100.";
         }
 
-        if (!is_null($this->container['summary']) && (mb_strlen($this->container['summary']) > 4000)) {
-            $invalidProperties[] = "invalid value for 'summary', the character length must be smaller than or equal to 4000.";
+        if (!is_null($this->container['summary']) && (mb_strlen($this->container['summary']) > 3000)) {
+            $invalidProperties[] = "invalid value for 'summary', the character length must be smaller than or equal to 3000.";
         }
 
         return $invalidProperties;
@@ -366,7 +363,7 @@ class Quote implements ModelInterface, ArrayAccess
     /**
      * Sets quote_id
      *
-     * @param string|null $quote_id Xero generated unique identifier for quote
+     * @param string|null $quote_id QuoteID GUID is automatically generated and is returned after create or GET.
      *
      * @return $this
      */
@@ -390,7 +387,7 @@ class Quote implements ModelInterface, ArrayAccess
     /**
      * Sets quote_number
      *
-     * @param string|null $quote_number Unique alpha numeric code identifying quote (when missing will auto-generate from your Organisation Invoice Settings)
+     * @param string|null $quote_number Unique alpha numeric code identifying a quote (Max Length = 255)
      *
      * @return $this
      */
@@ -464,7 +461,7 @@ class Quote implements ModelInterface, ArrayAccess
     /**
      * Gets contact
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Contact
+     * @return \XeroAPI\XeroPHP\Models\Accounting\Contact|null
      */
     public function getContact()
     {
@@ -474,7 +471,7 @@ class Quote implements ModelInterface, ArrayAccess
     /**
      * Sets contact
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Contact $contact contact
+     * @param \XeroAPI\XeroPHP\Models\Accounting\Contact|null $contact contact
      *
      * @return $this
      */
@@ -666,7 +663,7 @@ class Quote implements ModelInterface, ArrayAccess
     /**
      * Sets currency_rate
      *
-     * @param double|null $currency_rate The currency rate for a multicurrency quote. If no rate is specified, the XE.com day rate is used.
+     * @param double|null $currency_rate The currency rate for a multicurrency quote
      *
      * @return $this
      */
@@ -820,8 +817,8 @@ class Quote implements ModelInterface, ArrayAccess
      */
     public function setSummary($summary)
     {
-        if (!is_null($summary) && (mb_strlen($summary) > 4000)) {
-            throw new \InvalidArgumentException('invalid length for $summary when calling Quote., must be smaller than or equal to 4000.');
+        if (!is_null($summary) && (mb_strlen($summary) > 3000)) {
+            throw new \InvalidArgumentException('invalid length for $summary when calling Quote., must be smaller than or equal to 3000.');
         }
 
         $this->container['summary'] = $summary;
@@ -880,7 +877,7 @@ class Quote implements ModelInterface, ArrayAccess
     /**
      * Gets line_amount_types
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\LineAmountTypes|null
+     * @return \XeroAPI\XeroPHP\Models\Accounting\QuoteLineAmountTypes|null
      */
     public function getLineAmountTypes()
     {
@@ -890,7 +887,7 @@ class Quote implements ModelInterface, ArrayAccess
     /**
      * Sets line_amount_types
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\LineAmountTypes|null $line_amount_types line_amount_types
+     * @param \XeroAPI\XeroPHP\Models\Accounting\QuoteLineAmountTypes|null $line_amount_types line_amount_types
      *
      * @return $this
      */

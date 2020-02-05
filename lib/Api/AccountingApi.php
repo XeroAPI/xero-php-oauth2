@@ -94,7 +94,7 @@ class AccountingApi
      * Allows you to create a new chart of accounts
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Account $account Request of type Account (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Account $account Account object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -112,7 +112,7 @@ class AccountingApi
      * Allows you to create a new chart of accounts
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Account $account Request of type Account (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Account $account Account object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -221,7 +221,7 @@ class AccountingApi
      * Allows you to create a new chart of accounts
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Account $account Request of type Account (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Account $account Account object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -242,7 +242,7 @@ class AccountingApi
      * Allows you to create a new chart of accounts
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Account $account Request of type Account (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Account $account Account object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -290,7 +290,7 @@ class AccountingApi
      * Create request for operation 'createAccount'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Account $account Request of type Account (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Account $account Account object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1092,7 +1092,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1111,7 +1111,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1221,7 +1221,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1243,7 +1243,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1292,7 +1292,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1417,8 +1417,8 @@ class AccountingApi
      * Allows you to create one or more spend or receive money transaction
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions bank_transactions (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions BankTransactions with an array of BankTransaction objects in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1436,8 +1436,8 @@ class AccountingApi
      * Allows you to create one or more spend or receive money transaction
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions BankTransactions with an array of BankTransaction objects in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1546,8 +1546,8 @@ class AccountingApi
      * Allows you to create one or more spend or receive money transaction
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions BankTransactions with an array of BankTransaction objects in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1568,8 +1568,8 @@ class AccountingApi
      * Allows you to create one or more spend or receive money transaction
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions BankTransactions with an array of BankTransaction objects in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1617,8 +1617,8 @@ class AccountingApi
      * Create request for operation 'createBankTransactions'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions BankTransactions with an array of BankTransaction objects in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1733,7 +1733,7 @@ class AccountingApi
      * Allows you to create a bank transfers
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransfers $bank_transfers bank_transfers (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransfers $bank_transfers BankTransfers with array of BankTransfer objects in request body (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1751,7 +1751,7 @@ class AccountingApi
      * Allows you to create a bank transfers
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransfers $bank_transfers (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransfers $bank_transfers BankTransfers with array of BankTransfer objects in request body (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1860,7 +1860,7 @@ class AccountingApi
      * Allows you to create a bank transfers
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransfers $bank_transfers (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransfers $bank_transfers BankTransfers with array of BankTransfer objects in request body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1881,7 +1881,7 @@ class AccountingApi
      * Allows you to create a bank transfers
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransfers $bank_transfers (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransfers $bank_transfers BankTransfers with array of BankTransfer objects in request body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1929,7 +1929,7 @@ class AccountingApi
      * Create request for operation 'createBankTransfer'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransfers $bank_transfers (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransfers $bank_transfers BankTransfers with array of BankTransfer objects in request body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2380,7 +2380,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2397,7 +2397,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2507,7 +2507,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2529,7 +2529,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2578,7 +2578,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2703,8 +2703,8 @@ class AccountingApi
      * Create one or many BatchPayments for invoices
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\BatchPayments $batch_payments Request of type BatchPayments containing a Payments array with one or more Payment objects (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\BatchPayments $batch_payments BatchPayments with an array of Payments in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2722,8 +2722,8 @@ class AccountingApi
      * Create one or many BatchPayments for invoices
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\BatchPayments $batch_payments Request of type BatchPayments containing a Payments array with one or more Payment objects (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\BatchPayments $batch_payments BatchPayments with an array of Payments in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2832,8 +2832,8 @@ class AccountingApi
      * Create one or many BatchPayments for invoices
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\BatchPayments $batch_payments Request of type BatchPayments containing a Payments array with one or more Payment objects (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\BatchPayments $batch_payments BatchPayments with an array of Payments in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2854,8 +2854,8 @@ class AccountingApi
      * Create one or many BatchPayments for invoices
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\BatchPayments $batch_payments Request of type BatchPayments containing a Payments array with one or more Payment objects (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\BatchPayments $batch_payments BatchPayments with an array of Payments in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2903,8 +2903,8 @@ class AccountingApi
      * Create request for operation 'createBatchPayment'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\BatchPayments $batch_payments Request of type BatchPayments containing a Payments array with one or more Payment objects (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\BatchPayments $batch_payments BatchPayments with an array of Payments in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3020,7 +3020,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $batch_payment_id Unique identifier for BatchPayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3039,7 +3039,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $batch_payment_id Unique identifier for BatchPayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3149,7 +3149,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $batch_payment_id Unique identifier for BatchPayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3171,7 +3171,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $batch_payment_id Unique identifier for BatchPayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3220,7 +3220,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $batch_payment_id Unique identifier for BatchPayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3346,7 +3346,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $branding_theme_id Unique identifier for a Branding Theme (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\PaymentService $payment_service payment_service (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\PaymentService $payment_service PaymentService object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3365,7 +3365,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $branding_theme_id Unique identifier for a Branding Theme (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\PaymentService $payment_service (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\PaymentService $payment_service PaymentService object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3475,7 +3475,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $branding_theme_id Unique identifier for a Branding Theme (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\PaymentService $payment_service (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\PaymentService $payment_service PaymentService object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3497,7 +3497,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $branding_theme_id Unique identifier for a Branding Theme (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\PaymentService $payment_service (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\PaymentService $payment_service PaymentService object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3546,7 +3546,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $branding_theme_id Unique identifier for a Branding Theme (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\PaymentService $payment_service (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\PaymentService $payment_service PaymentService object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4012,7 +4012,7 @@ class AccountingApi
      * Allows you to create a contact group
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ContactGroups $contact_groups an array of contact groups with names specified (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ContactGroups $contact_groups ContactGroups with an array of names in request body (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4030,7 +4030,7 @@ class AccountingApi
      * Allows you to create a contact group
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ContactGroups $contact_groups an array of contact groups with names specified (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ContactGroups $contact_groups ContactGroups with an array of names in request body (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4139,7 +4139,7 @@ class AccountingApi
      * Allows you to create a contact group
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ContactGroups $contact_groups an array of contact groups with names specified (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ContactGroups $contact_groups ContactGroups with an array of names in request body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4160,7 +4160,7 @@ class AccountingApi
      * Allows you to create a contact group
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ContactGroups $contact_groups an array of contact groups with names specified (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ContactGroups $contact_groups ContactGroups with an array of names in request body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4208,7 +4208,7 @@ class AccountingApi
      * Create request for operation 'createContactGroup'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ContactGroups $contact_groups an array of contact groups with names specified (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ContactGroups $contact_groups ContactGroups with an array of names in request body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4320,7 +4320,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts an array of contacts with ContactID to be added to ContactGroup (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts Contacts with array of contacts specifiying the ContactID to be added to ContactGroup in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4339,7 +4339,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts an array of contacts with ContactID to be added to ContactGroup (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts Contacts with array of contacts specifiying the ContactID to be added to ContactGroup in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4449,7 +4449,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts an array of contacts with ContactID to be added to ContactGroup (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts Contacts with array of contacts specifiying the ContactID to be added to ContactGroup in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4471,7 +4471,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts an array of contacts with ContactID to be added to ContactGroup (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts Contacts with array of contacts specifiying the ContactID to be added to ContactGroup in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4520,7 +4520,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_group_id Unique identifier for a Contact Group (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts an array of contacts with ContactID to be added to ContactGroup (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts Contacts with array of contacts specifiying the ContactID to be added to ContactGroup in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4646,7 +4646,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4665,7 +4665,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4775,7 +4775,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4797,7 +4797,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4846,7 +4846,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -4971,8 +4971,8 @@ class AccountingApi
      * Allows you to create a multiple contacts (bulk) in a Xero organisation
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts contacts (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts Contacts with an array of Contact objects to create in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4990,8 +4990,8 @@ class AccountingApi
      * Allows you to create a multiple contacts (bulk) in a Xero organisation
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts Contacts with an array of Contact objects to create in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5100,8 +5100,8 @@ class AccountingApi
      * Allows you to create a multiple contacts (bulk) in a Xero organisation
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts Contacts with an array of Contact objects to create in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5122,8 +5122,8 @@ class AccountingApi
      * Allows you to create a multiple contacts (bulk) in a Xero organisation
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts Contacts with an array of Contact objects to create in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5171,8 +5171,8 @@ class AccountingApi
      * Create request for operation 'createContacts'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts Contacts with an array of Contact objects to create in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5288,7 +5288,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations an array of Allocations with single Allocation object defined. (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations Allocations with array of Allocation object in body of request. (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5307,7 +5307,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations an array of Allocations with single Allocation object defined. (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations Allocations with array of Allocation object in body of request. (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5417,7 +5417,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations an array of Allocations with single Allocation object defined. (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations Allocations with array of Allocation object in body of request. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5439,7 +5439,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations an array of Allocations with single Allocation object defined. (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations Allocations with array of Allocation object in body of request. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5488,7 +5488,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations an array of Allocations with single Allocation object defined. (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations Allocations with array of Allocation object in body of request. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5615,15 +5615,16 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
+     * @param  bool $include_online Set an attachment to be included with the invoice when viewed online (through Xero) (required)
      * @param  string $body Byte array of file in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\Attachments|\XeroAPI\XeroPHP\Models\Accounting\Error
      */
-    public function createCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $body)
+    public function createCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $include_online, $body)
     {
-        list($response) = $this->createCreditNoteAttachmentByFileNameWithHttpInfo($xero_tenant_id, $credit_note_id, $file_name, $body);
+        list($response) = $this->createCreditNoteAttachmentByFileNameWithHttpInfo($xero_tenant_id, $credit_note_id, $file_name, $include_online, $body);
         return $response;
     }
 
@@ -5635,15 +5636,16 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
+     * @param  bool $include_online Set an attachment to be included with the invoice when viewed online (through Xero) (required)
      * @param  string $body Byte array of file in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\Attachments|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCreditNoteAttachmentByFileNameWithHttpInfo($xero_tenant_id, $credit_note_id, $file_name, $body)
+    public function createCreditNoteAttachmentByFileNameWithHttpInfo($xero_tenant_id, $credit_note_id, $file_name, $include_online, $body)
     {
-        $request = $this->createCreditNoteAttachmentByFileNameRequest($xero_tenant_id, $credit_note_id, $file_name, $body);
+        $request = $this->createCreditNoteAttachmentByFileNameRequest($xero_tenant_id, $credit_note_id, $file_name, $include_online, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5746,14 +5748,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
+     * @param  bool $include_online Set an attachment to be included with the invoice when viewed online (through Xero) (required)
      * @param  string $body Byte array of file in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCreditNoteAttachmentByFileNameAsync($xero_tenant_id, $credit_note_id, $file_name, $body)
+    public function createCreditNoteAttachmentByFileNameAsync($xero_tenant_id, $credit_note_id, $file_name, $include_online, $body)
     {
-        return $this->createCreditNoteAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $file_name, $body)
+        return $this->createCreditNoteAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $file_name, $include_online, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5769,15 +5772,16 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
+     * @param  bool $include_online Set an attachment to be included with the invoice when viewed online (through Xero) (required)
      * @param  string $body Byte array of file in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCreditNoteAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $file_name, $body)
+    public function createCreditNoteAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $file_name, $include_online, $body)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Attachments';
-        $request = $this->createCreditNoteAttachmentByFileNameRequest($xero_tenant_id, $credit_note_id, $file_name, $body);
+        $request = $this->createCreditNoteAttachmentByFileNameRequest($xero_tenant_id, $credit_note_id, $file_name, $include_online, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5819,12 +5823,13 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the file you are attaching to Credit Note (required)
+     * @param  bool $include_online Set an attachment to be included with the invoice when viewed online (through Xero) (required)
      * @param  string $body Byte array of file in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createCreditNoteAttachmentByFileNameRequest($xero_tenant_id, $credit_note_id, $file_name, $body)
+    protected function createCreditNoteAttachmentByFileNameRequest($xero_tenant_id, $credit_note_id, $file_name, $include_online, $body)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -5842,6 +5847,12 @@ class AccountingApi
         if ($file_name === null || (is_array($file_name) && count($file_name) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $file_name when calling createCreditNoteAttachmentByFileName'
+            );
+        }
+        // verify the required parameter 'include_online' is set
+        if ($include_online === null || (is_array($include_online) && count($include_online) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $include_online when calling createCreditNoteAttachmentByFileName'
             );
         }
         // verify the required parameter 'body' is set
@@ -5876,6 +5887,14 @@ class AccountingApi
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
                 AccountingObjectSerializer::toPathValue($file_name),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($include_online !== null) {
+            $resourcePath = str_replace(
+                '{' . 'IncludeOnline' . '}',
+                AccountingObjectSerializer::toPathValue($include_online),
                 $resourcePath
             );
         }
@@ -5959,7 +5978,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5978,7 +5997,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6088,7 +6107,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6110,7 +6129,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6159,7 +6178,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6284,8 +6303,8 @@ class AccountingApi
      * Allows you to create a credit note
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes an array of Credit Notes with a single CreditNote object. (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes Credit Notes with array of CreditNote object in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6303,8 +6322,8 @@ class AccountingApi
      * Allows you to create a credit note
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes an array of Credit Notes with a single CreditNote object. (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes Credit Notes with array of CreditNote object in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6413,8 +6432,8 @@ class AccountingApi
      * Allows you to create a credit note
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes an array of Credit Notes with a single CreditNote object. (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes Credit Notes with array of CreditNote object in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6435,8 +6454,8 @@ class AccountingApi
      * Allows you to create a credit note
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes an array of Credit Notes with a single CreditNote object. (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes Credit Notes with array of CreditNote object in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6484,8 +6503,8 @@ class AccountingApi
      * Create request for operation 'createCreditNotes'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes an array of Credit Notes with a single CreditNote object. (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes Credit Notes with array of CreditNote object in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6598,7 +6617,7 @@ class AccountingApi
      * Operation createCurrency
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Currency $currency currency (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Currency $currency Currency obejct in the body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6614,7 +6633,7 @@ class AccountingApi
      * Operation createCurrencyWithHttpInfo
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Currency $currency (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Currency $currency Currency obejct in the body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6703,7 +6722,7 @@ class AccountingApi
      * 
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Currency $currency (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Currency $currency Currency obejct in the body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6724,7 +6743,7 @@ class AccountingApi
      * 
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Currency $currency (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Currency $currency Currency obejct in the body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -6772,7 +6791,7 @@ class AccountingApi
      * Create request for operation 'createCurrency'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Currency $currency (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Currency $currency Currency obejct in the body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -6883,7 +6902,7 @@ class AccountingApi
      * Allows you to create a single new employees used in Xero payrun
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Employee $employee employee (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Employee $employee Employee object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -6901,7 +6920,7 @@ class AccountingApi
      * Allows you to create a single new employees used in Xero payrun
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Employee $employee (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Employee $employee Employee object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7010,7 +7029,7 @@ class AccountingApi
      * Allows you to create a single new employees used in Xero payrun
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Employee $employee (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Employee $employee Employee object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7031,7 +7050,7 @@ class AccountingApi
      * Allows you to create a single new employees used in Xero payrun
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Employee $employee (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Employee $employee Employee object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7079,7 +7098,7 @@ class AccountingApi
      * Create request for operation 'createEmployee'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Employee $employee (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Employee $employee Employee object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7190,7 +7209,7 @@ class AccountingApi
      * Allows you to create new employees used in Xero payrun
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Employees $employees employees (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Employees $employees Employees with array of Employee object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7208,7 +7227,7 @@ class AccountingApi
      * Allows you to create new employees used in Xero payrun
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Employees $employees (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Employees $employees Employees with array of Employee object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7317,7 +7336,7 @@ class AccountingApi
      * Allows you to create new employees used in Xero payrun
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Employees $employees (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Employees $employees Employees with array of Employee object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7338,7 +7357,7 @@ class AccountingApi
      * Allows you to create new employees used in Xero payrun
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Employees $employees (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Employees $employees Employees with array of Employee object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7386,7 +7405,7 @@ class AccountingApi
      * Create request for operation 'createEmployees'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Employees $employees (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Employees $employees Employees with array of Employee object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7498,7 +7517,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7517,7 +7536,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7607,7 +7626,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7629,7 +7648,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7678,7 +7697,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $expense_claim_id Unique identifier for a ExpenseClaim (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7803,7 +7822,7 @@ class AccountingApi
      * Allows you to retrieve expense claims
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims $expense_claims expense_claims (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims $expense_claims ExpenseClaims with array of ExpenseClaim object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7821,7 +7840,7 @@ class AccountingApi
      * Allows you to retrieve expense claims
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims $expense_claims (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims $expense_claims ExpenseClaims with array of ExpenseClaim object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -7930,7 +7949,7 @@ class AccountingApi
      * Allows you to retrieve expense claims
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims $expense_claims (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims $expense_claims ExpenseClaims with array of ExpenseClaim object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7951,7 +7970,7 @@ class AccountingApi
      * Allows you to retrieve expense claims
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims $expense_claims (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims $expense_claims ExpenseClaims with array of ExpenseClaim object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -7999,7 +8018,7 @@ class AccountingApi
      * Create request for operation 'createExpenseClaims'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims $expense_claims (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims $expense_claims ExpenseClaims with array of ExpenseClaim object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -8112,15 +8131,16 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the file you are attaching (required)
+     * @param  bool $include_online Set an attachment to be included with the invoice when viewed online (through Xero) (required)
      * @param  string $body Byte array of file in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\Attachments|\XeroAPI\XeroPHP\Models\Accounting\Error
      */
-    public function createInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $body)
+    public function createInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $include_online, $body)
     {
-        list($response) = $this->createInvoiceAttachmentByFileNameWithHttpInfo($xero_tenant_id, $invoice_id, $file_name, $body);
+        list($response) = $this->createInvoiceAttachmentByFileNameWithHttpInfo($xero_tenant_id, $invoice_id, $file_name, $include_online, $body);
         return $response;
     }
 
@@ -8132,15 +8152,16 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the file you are attaching (required)
+     * @param  bool $include_online Set an attachment to be included with the invoice when viewed online (through Xero) (required)
      * @param  string $body Byte array of file in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\Attachments|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createInvoiceAttachmentByFileNameWithHttpInfo($xero_tenant_id, $invoice_id, $file_name, $body)
+    public function createInvoiceAttachmentByFileNameWithHttpInfo($xero_tenant_id, $invoice_id, $file_name, $include_online, $body)
     {
-        $request = $this->createInvoiceAttachmentByFileNameRequest($xero_tenant_id, $invoice_id, $file_name, $body);
+        $request = $this->createInvoiceAttachmentByFileNameRequest($xero_tenant_id, $invoice_id, $file_name, $include_online, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8243,14 +8264,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the file you are attaching (required)
+     * @param  bool $include_online Set an attachment to be included with the invoice when viewed online (through Xero) (required)
      * @param  string $body Byte array of file in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createInvoiceAttachmentByFileNameAsync($xero_tenant_id, $invoice_id, $file_name, $body)
+    public function createInvoiceAttachmentByFileNameAsync($xero_tenant_id, $invoice_id, $file_name, $include_online, $body)
     {
-        return $this->createInvoiceAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $file_name, $body)
+        return $this->createInvoiceAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $file_name, $include_online, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8266,15 +8288,16 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the file you are attaching (required)
+     * @param  bool $include_online Set an attachment to be included with the invoice when viewed online (through Xero) (required)
      * @param  string $body Byte array of file in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createInvoiceAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $file_name, $body)
+    public function createInvoiceAttachmentByFileNameAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $file_name, $include_online, $body)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Attachments';
-        $request = $this->createInvoiceAttachmentByFileNameRequest($xero_tenant_id, $invoice_id, $file_name, $body);
+        $request = $this->createInvoiceAttachmentByFileNameRequest($xero_tenant_id, $invoice_id, $file_name, $include_online, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8316,12 +8339,13 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the file you are attaching (required)
+     * @param  bool $include_online Set an attachment to be included with the invoice when viewed online (through Xero) (required)
      * @param  string $body Byte array of file in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createInvoiceAttachmentByFileNameRequest($xero_tenant_id, $invoice_id, $file_name, $body)
+    protected function createInvoiceAttachmentByFileNameRequest($xero_tenant_id, $invoice_id, $file_name, $include_online, $body)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -8339,6 +8363,12 @@ class AccountingApi
         if ($file_name === null || (is_array($file_name) && count($file_name) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $file_name when calling createInvoiceAttachmentByFileName'
+            );
+        }
+        // verify the required parameter 'include_online' is set
+        if ($include_online === null || (is_array($include_online) && count($include_online) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $include_online when calling createInvoiceAttachmentByFileName'
             );
         }
         // verify the required parameter 'body' is set
@@ -8373,6 +8403,14 @@ class AccountingApi
             $resourcePath = str_replace(
                 '{' . 'FileName' . '}',
                 AccountingObjectSerializer::toPathValue($file_name),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($include_online !== null) {
+            $resourcePath = str_replace(
+                '{' . 'IncludeOnline' . '}',
+                AccountingObjectSerializer::toPathValue($include_online),
                 $resourcePath
             );
         }
@@ -8456,7 +8494,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8475,7 +8513,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8585,7 +8623,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8607,7 +8645,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8656,7 +8694,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -8781,8 +8819,8 @@ class AccountingApi
      * Allows you to create one or more sales invoices or purchase bills
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices invoices (required)
-     * @param  bool $summarize_errors shows validation errors for each invoice (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices Invoices with an array of invoice objects in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8800,8 +8838,8 @@ class AccountingApi
      * Allows you to create one or more sales invoices or purchase bills
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices (required)
-     * @param  bool $summarize_errors shows validation errors for each invoice (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices Invoices with an array of invoice objects in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8910,8 +8948,8 @@ class AccountingApi
      * Allows you to create one or more sales invoices or purchase bills
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices (required)
-     * @param  bool $summarize_errors shows validation errors for each invoice (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices Invoices with an array of invoice objects in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8932,8 +8970,8 @@ class AccountingApi
      * Allows you to create one or more sales invoices or purchase bills
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices (required)
-     * @param  bool $summarize_errors shows validation errors for each invoice (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices Invoices with an array of invoice objects in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8981,8 +9019,8 @@ class AccountingApi
      * Create request for operation 'createInvoices'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices (required)
-     * @param  bool $summarize_errors shows validation errors for each invoice (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices Invoices with an array of invoice objects in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -9098,7 +9136,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -9117,7 +9155,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -9207,7 +9245,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9229,7 +9267,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9278,7 +9316,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -9403,8 +9441,8 @@ class AccountingApi
      * Allows you to create one or more items
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items items (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items Items with an array of Item objects in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -9422,8 +9460,8 @@ class AccountingApi
      * Allows you to create one or more items
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items Items with an array of Item objects in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -9532,8 +9570,8 @@ class AccountingApi
      * Allows you to create one or more items
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items Items with an array of Item objects in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9554,8 +9592,8 @@ class AccountingApi
      * Allows you to create one or more items
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items Items with an array of Item objects in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9603,8 +9641,8 @@ class AccountingApi
      * Create request for operation 'createItems'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items Items with an array of Item objects in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -9719,7 +9757,7 @@ class AccountingApi
      * Allows you to create linked transactions (billable expenses)
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction $linked_transaction linked_transaction (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction $linked_transaction LinkedTransaction object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -9737,7 +9775,7 @@ class AccountingApi
      * Allows you to create linked transactions (billable expenses)
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction $linked_transaction (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction $linked_transaction LinkedTransaction object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -9846,7 +9884,7 @@ class AccountingApi
      * Allows you to create linked transactions (billable expenses)
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction $linked_transaction (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction $linked_transaction LinkedTransaction object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9867,7 +9905,7 @@ class AccountingApi
      * Allows you to create linked transactions (billable expenses)
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction $linked_transaction (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction $linked_transaction LinkedTransaction object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -9915,7 +9953,7 @@ class AccountingApi
      * Create request for operation 'createLinkedTransaction'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction $linked_transaction (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction $linked_transaction LinkedTransaction object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -10026,7 +10064,7 @@ class AccountingApi
      * Allows you to create a single manual journal
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournal $manual_journal manual_journal (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournal $manual_journal ManualJournal object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -10044,7 +10082,7 @@ class AccountingApi
      * Allows you to create a single manual journal
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournal $manual_journal (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournal $manual_journal ManualJournal object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -10153,7 +10191,7 @@ class AccountingApi
      * Allows you to create a single manual journal
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournal $manual_journal (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournal $manual_journal ManualJournal object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -10174,7 +10212,7 @@ class AccountingApi
      * Allows you to create a single manual journal
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournal $manual_journal (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournal $manual_journal ManualJournal object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -10222,7 +10260,7 @@ class AccountingApi
      * Create request for operation 'createManualJournal'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournal $manual_journal (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournal $manual_journal ManualJournal object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -10675,10 +10713,10 @@ class AccountingApi
     /**
      * Operation createManualJournals
      *
-     * Allows you to create multiple manual journals
+     * Allows you to create one or more manual journals
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournals $manual_journals manual_journals (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournals $manual_journals ManualJournals array with ManualJournal object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -10693,10 +10731,10 @@ class AccountingApi
     /**
      * Operation createManualJournalsWithHttpInfo
      *
-     * Allows you to create multiple manual journals
+     * Allows you to create one or more manual journals
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournals $manual_journals (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournals $manual_journals ManualJournals array with ManualJournal object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -10802,10 +10840,10 @@ class AccountingApi
     /**
      * Operation createManualJournalsAsync
      *
-     * Allows you to create multiple manual journals
+     * Allows you to create one or more manual journals
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournals $manual_journals (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournals $manual_journals ManualJournals array with ManualJournal object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -10823,10 +10861,10 @@ class AccountingApi
     /**
      * Operation createManualJournalsAsyncWithHttpInfo
      *
-     * Allows you to create multiple manual journals
+     * Allows you to create one or more manual journals
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournals $manual_journals (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournals $manual_journals ManualJournals array with ManualJournal object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -10874,7 +10912,7 @@ class AccountingApi
      * Create request for operation 'createManualJournals'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournals $manual_journals (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\ManualJournals $manual_journals ManualJournals array with ManualJournal object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -10986,7 +11024,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocation $allocation allocation (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocation $allocation Allocation object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -11005,7 +11043,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocation $allocation (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocation $allocation Allocation object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -11115,7 +11153,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocation $allocation (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocation $allocation Allocation object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -11137,7 +11175,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocation $allocation (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocation $allocation Allocation object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -11186,7 +11224,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocation $allocation (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocation $allocation Allocation object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -11312,7 +11350,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations allocations (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations Allocations array with Allocation object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -11331,7 +11369,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations Allocations array with Allocation object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -11441,7 +11479,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations Allocations array with Allocation object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -11463,7 +11501,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations Allocations array with Allocation object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -11512,7 +11550,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations Allocations array with Allocation object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -11638,7 +11676,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -11657,7 +11695,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -11767,7 +11805,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -11789,7 +11827,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -11838,7 +11876,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $overpayment_id Unique identifier for a Overpayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -11963,7 +12001,7 @@ class AccountingApi
      * Allows you to create a single payment for invoices or credit notes
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payment $payment payment (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payment $payment Request body with a single Payment object (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -11981,7 +12019,7 @@ class AccountingApi
      * Allows you to create a single payment for invoices or credit notes
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payment $payment (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payment $payment Request body with a single Payment object (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -12090,7 +12128,7 @@ class AccountingApi
      * Allows you to create a single payment for invoices or credit notes
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payment $payment (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payment $payment Request body with a single Payment object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -12111,7 +12149,7 @@ class AccountingApi
      * Allows you to create a single payment for invoices or credit notes
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payment $payment (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payment $payment Request body with a single Payment object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -12159,7 +12197,7 @@ class AccountingApi
      * Create request for operation 'createPayment'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payment $payment (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payment $payment Request body with a single Payment object (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -12271,7 +12309,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -12290,7 +12328,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -12400,7 +12438,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -12422,7 +12460,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -12471,7 +12509,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $payment_id Unique identifier for a Payment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -12596,7 +12634,7 @@ class AccountingApi
      * Allows you to create payment services
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\PaymentServices $payment_services payment_services (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\PaymentServices $payment_services PaymentServices array with PaymentService object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -12614,7 +12652,7 @@ class AccountingApi
      * Allows you to create payment services
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\PaymentServices $payment_services (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\PaymentServices $payment_services PaymentServices array with PaymentService object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -12723,7 +12761,7 @@ class AccountingApi
      * Allows you to create payment services
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\PaymentServices $payment_services (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\PaymentServices $payment_services PaymentServices array with PaymentService object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -12744,7 +12782,7 @@ class AccountingApi
      * Allows you to create payment services
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\PaymentServices $payment_services (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\PaymentServices $payment_services PaymentServices array with PaymentService object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -12792,7 +12830,7 @@ class AccountingApi
      * Create request for operation 'createPaymentService'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\PaymentServices $payment_services (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\PaymentServices $payment_services PaymentServices array with PaymentService object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -12903,7 +12941,7 @@ class AccountingApi
      * Allows you to create multiple payments for invoices or credit notes
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payments $payments payments (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payments $payments Payments array with Payment object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -12921,7 +12959,7 @@ class AccountingApi
      * Allows you to create multiple payments for invoices or credit notes
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payments $payments (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payments $payments Payments array with Payment object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -13030,7 +13068,7 @@ class AccountingApi
      * Allows you to create multiple payments for invoices or credit notes
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payments $payments (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payments $payments Payments array with Payment object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -13051,7 +13089,7 @@ class AccountingApi
      * Allows you to create multiple payments for invoices or credit notes
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payments $payments (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payments $payments Payments array with Payment object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -13099,7 +13137,7 @@ class AccountingApi
      * Create request for operation 'createPayments'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payments $payments (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Payments $payments Payments array with Payment object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -13210,8 +13248,8 @@ class AccountingApi
      * Allows you to create an Allocation for prepayments
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  string $prepayment_id prepayment_id (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations allocations (required)
+     * @param  string $prepayment_id Unique identifier for Prepayment (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations Allocations with an array of Allocation object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -13229,8 +13267,8 @@ class AccountingApi
      * Allows you to create an Allocation for prepayments
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  string $prepayment_id (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations (required)
+     * @param  string $prepayment_id Unique identifier for Prepayment (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations Allocations with an array of Allocation object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -13339,8 +13377,8 @@ class AccountingApi
      * Allows you to create an Allocation for prepayments
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  string $prepayment_id (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations (required)
+     * @param  string $prepayment_id Unique identifier for Prepayment (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations Allocations with an array of Allocation object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -13361,8 +13399,8 @@ class AccountingApi
      * Allows you to create an Allocation for prepayments
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  string $prepayment_id (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations (required)
+     * @param  string $prepayment_id Unique identifier for Prepayment (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations Allocations with an array of Allocation object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -13410,8 +13448,8 @@ class AccountingApi
      * Create request for operation 'createPrepaymentAllocation'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  string $prepayment_id (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations (required)
+     * @param  string $prepayment_id Unique identifier for Prepayment (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Allocations $allocations Allocations with an array of Allocation object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -13537,7 +13575,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -13556,7 +13594,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -13666,7 +13704,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -13688,7 +13726,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -13737,7 +13775,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $prepayment_id Unique identifier for a PrePayment (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -13863,7 +13901,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -13882,7 +13920,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -13992,7 +14030,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -14014,7 +14052,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -14063,7 +14101,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for a PurchaseOrder (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -14188,8 +14226,8 @@ class AccountingApi
      * Allows you to create one or more purchase orders
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders $purchase_orders purchase_orders (required)
-     * @param  bool $summarize_errors shows validation errors for each purchase order. (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders $purchase_orders PurchaseOrders with an array of PurchaseOrder object in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -14207,8 +14245,8 @@ class AccountingApi
      * Allows you to create one or more purchase orders
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders $purchase_orders (required)
-     * @param  bool $summarize_errors shows validation errors for each purchase order. (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders $purchase_orders PurchaseOrders with an array of PurchaseOrder object in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -14317,8 +14355,8 @@ class AccountingApi
      * Allows you to create one or more purchase orders
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders $purchase_orders (required)
-     * @param  bool $summarize_errors shows validation errors for each purchase order. (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders $purchase_orders PurchaseOrders with an array of PurchaseOrder object in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -14339,8 +14377,8 @@ class AccountingApi
      * Allows you to create one or more purchase orders
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders $purchase_orders (required)
-     * @param  bool $summarize_errors shows validation errors for each purchase order. (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders $purchase_orders PurchaseOrders with an array of PurchaseOrder object in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -14388,8 +14426,8 @@ class AccountingApi
      * Create request for operation 'createPurchaseOrders'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders $purchase_orders (required)
-     * @param  bool $summarize_errors shows validation errors for each purchase order. (optional, default to false)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders $purchase_orders PurchaseOrders with an array of PurchaseOrder object in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -14499,12 +14537,654 @@ class AccountingApi
 
 
     /**
+     * Operation createQuoteHistory
+     *
+     * Allows you to retrieve a history records of an quote
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  string $quote_id Unique identifier for an Quote (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
+     *
+     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords|\XeroAPI\XeroPHP\Models\Accounting\Error
+     */
+    public function createQuoteHistory($xero_tenant_id, $quote_id, $history_records)
+    {
+        list($response) = $this->createQuoteHistoryWithHttpInfo($xero_tenant_id, $quote_id, $history_records);
+        return $response;
+    }
+
+    /**
+     * Operation createQuoteHistoryWithHttpInfo
+     *
+     * Allows you to retrieve a history records of an quote
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  string $quote_id Unique identifier for an Quote (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
+     *
+     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createQuoteHistoryWithHttpInfo($xero_tenant_id, $quote_id, $history_records)
+    {
+        $request = $this->createQuoteHistoryRequest($xero_tenant_id, $quote_id, $history_records);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\XeroAPI\XeroPHP\Models\Accounting\Error' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Accounting\Error', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = AccountingObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = AccountingObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\XeroAPI\XeroPHP\Models\Accounting\Error',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createQuoteHistoryAsync
+     *
+     * Allows you to retrieve a history records of an quote
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  string $quote_id Unique identifier for an Quote (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createQuoteHistoryAsync($xero_tenant_id, $quote_id, $history_records)
+    {
+        return $this->createQuoteHistoryAsyncWithHttpInfo($xero_tenant_id, $quote_id, $history_records)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createQuoteHistoryAsyncWithHttpInfo
+     *
+     * Allows you to retrieve a history records of an quote
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  string $quote_id Unique identifier for an Quote (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createQuoteHistoryAsyncWithHttpInfo($xero_tenant_id, $quote_id, $history_records)
+    {
+        $returnType = '\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords';
+        $request = $this->createQuoteHistoryRequest($xero_tenant_id, $quote_id, $history_records);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createQuoteHistory'
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  string $quote_id Unique identifier for an Quote (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createQuoteHistoryRequest($xero_tenant_id, $quote_id, $history_records)
+    {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createQuoteHistory'
+            );
+        }
+        // verify the required parameter 'quote_id' is set
+        if ($quote_id === null || (is_array($quote_id) && count($quote_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $quote_id when calling createQuoteHistory'
+            );
+        }
+        // verify the required parameter 'history_records' is set
+        if ($history_records === null || (is_array($history_records) && count($history_records) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $history_records when calling createQuoteHistory'
+            );
+        }
+
+        $resourcePath = '/Quotes/{QuoteID}/History';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['xero-tenant-id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
+        
+        // path params
+        if ($quote_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'QuoteID' . '}',
+                AccountingObjectSerializer::toPathValue($quote_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($history_records)) {
+            $_tempBody = $history_records;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+
+    /**
+     * Operation createQuotes
+     *
+     * Allows you to create one or more quotes
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Quotes $quotes Quotes with an array of Quote object in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     *
+     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \XeroAPI\XeroPHP\Models\Accounting\Quotes|\XeroAPI\XeroPHP\Models\Accounting\Error
+     */
+    public function createQuotes($xero_tenant_id, $quotes, $summarize_errors = false)
+    {
+        list($response) = $this->createQuotesWithHttpInfo($xero_tenant_id, $quotes, $summarize_errors);
+        return $response;
+    }
+
+    /**
+     * Operation createQuotesWithHttpInfo
+     *
+     * Allows you to create one or more quotes
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Quotes $quotes Quotes with an array of Quote object in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     *
+     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \XeroAPI\XeroPHP\Models\Accounting\Quotes|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createQuotesWithHttpInfo($xero_tenant_id, $quotes, $summarize_errors = false)
+    {
+        $request = $this->createQuotesRequest($xero_tenant_id, $quotes, $summarize_errors);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\XeroAPI\XeroPHP\Models\Accounting\Quotes' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Accounting\Quotes', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\XeroAPI\XeroPHP\Models\Accounting\Error' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Accounting\Error', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Quotes';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = AccountingObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\XeroAPI\XeroPHP\Models\Accounting\Quotes',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = AccountingObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\XeroAPI\XeroPHP\Models\Accounting\Error',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createQuotesAsync
+     *
+     * Allows you to create one or more quotes
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Quotes $quotes Quotes with an array of Quote object in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createQuotesAsync($xero_tenant_id, $quotes, $summarize_errors = false)
+    {
+        return $this->createQuotesAsyncWithHttpInfo($xero_tenant_id, $quotes, $summarize_errors)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createQuotesAsyncWithHttpInfo
+     *
+     * Allows you to create one or more quotes
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Quotes $quotes Quotes with an array of Quote object in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createQuotesAsyncWithHttpInfo($xero_tenant_id, $quotes, $summarize_errors = false)
+    {
+        $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Quotes';
+        $request = $this->createQuotesRequest($xero_tenant_id, $quotes, $summarize_errors);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createQuotes'
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Quotes $quotes Quotes with an array of Quote object in body of request (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function createQuotesRequest($xero_tenant_id, $quotes, $summarize_errors = false)
+    {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling createQuotes'
+            );
+        }
+        // verify the required parameter 'quotes' is set
+        if ($quotes === null || (is_array($quotes) && count($quotes) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $quotes when calling createQuotes'
+            );
+        }
+
+        $resourcePath = '/Quotes';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($summarize_errors !== null) {
+            $queryParams['summarizeErrors'] = $summarize_errors ? 'true' : 'false';
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['xero-tenant-id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
+        
+
+        // body params
+        $_tempBody = null;
+        if (isset($quotes)) {
+            $_tempBody = $quotes;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+
+    /**
      * Operation createReceipt
      *
      * Allows you to create draft expense claim receipts for any user
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Receipts $receipts receipts (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Receipts $receipts Receipts with an array of Receipt object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -14522,7 +15202,7 @@ class AccountingApi
      * Allows you to create draft expense claim receipts for any user
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Receipts $receipts (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Receipts $receipts Receipts with an array of Receipt object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -14631,7 +15311,7 @@ class AccountingApi
      * Allows you to create draft expense claim receipts for any user
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Receipts $receipts (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Receipts $receipts Receipts with an array of Receipt object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -14652,7 +15332,7 @@ class AccountingApi
      * Allows you to create draft expense claim receipts for any user
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Receipts $receipts (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Receipts $receipts Receipts with an array of Receipt object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -14700,7 +15380,7 @@ class AccountingApi
      * Create request for operation 'createReceipt'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\Receipts $receipts (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Receipts $receipts Receipts with an array of Receipt object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -15157,7 +15837,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -15176,7 +15856,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -15286,7 +15966,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -15308,7 +15988,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -15357,7 +16037,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -15828,7 +16508,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -15847,7 +16527,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -15957,7 +16637,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -15979,7 +16659,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -16028,7 +16708,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords $history_records HistoryRecords containing an array of HistoryRecord objects in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -16153,7 +16833,7 @@ class AccountingApi
      * Allows you to create one or more Tax Rates
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRates $tax_rates tax_rates (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRates $tax_rates TaxRates array with TaxRate object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -16171,7 +16851,7 @@ class AccountingApi
      * Allows you to create one or more Tax Rates
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRates $tax_rates (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRates $tax_rates TaxRates array with TaxRate object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -16280,7 +16960,7 @@ class AccountingApi
      * Allows you to create one or more Tax Rates
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRates $tax_rates (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRates $tax_rates TaxRates array with TaxRate object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -16301,7 +16981,7 @@ class AccountingApi
      * Allows you to create one or more Tax Rates
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRates $tax_rates (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRates $tax_rates TaxRates array with TaxRate object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -16349,7 +17029,7 @@ class AccountingApi
      * Create request for operation 'createTaxRates'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRates $tax_rates (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TaxRates $tax_rates TaxRates array with TaxRate object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -16460,7 +17140,7 @@ class AccountingApi
      * Allows you to create tracking categories
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory $tracking_category tracking_category (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory $tracking_category TrackingCategory object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -16478,7 +17158,7 @@ class AccountingApi
      * Allows you to create tracking categories
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory $tracking_category (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory $tracking_category TrackingCategory object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -16587,7 +17267,7 @@ class AccountingApi
      * Allows you to create tracking categories
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory $tracking_category (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory $tracking_category TrackingCategory object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -16608,7 +17288,7 @@ class AccountingApi
      * Allows you to create tracking categories
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory $tracking_category (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory $tracking_category TrackingCategory object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -16656,7 +17336,7 @@ class AccountingApi
      * Create request for operation 'createTrackingCategory'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory $tracking_category (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory $tracking_category TrackingCategory object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -16768,7 +17448,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\TrackingOption $tracking_option tracking_option (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TrackingOption $tracking_option TrackingOption object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -16787,7 +17467,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\TrackingOption $tracking_option (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TrackingOption $tracking_option TrackingOption object in body of request (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -16897,7 +17577,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\TrackingOption $tracking_option (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TrackingOption $tracking_option TrackingOption object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -16919,7 +17599,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\TrackingOption $tracking_option (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TrackingOption $tracking_option TrackingOption object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -16968,7 +17648,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $tracking_category_id Unique identifier for a TrackingCategory (required)
-     * @param  \XeroAPI\XeroPHP\Models\Accounting\TrackingOption $tracking_option (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\TrackingOption $tracking_option TrackingOption object in body of request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -22434,8 +23114,8 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
-     * @param  int $page e.g. page&#x3D;1 – Up to 100 bank transactions will be returned in a single API call with line items shown for each bank transaction (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $page Up to 100 bank transactions will be returned in a single API call with line items details (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -22456,8 +23136,8 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
-     * @param  int $page e.g. page&#x3D;1 – Up to 100 bank transactions will be returned in a single API call with line items shown for each bank transaction (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $page Up to 100 bank transactions will be returned in a single API call with line items details (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -22549,8 +23229,8 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
-     * @param  int $page e.g. page&#x3D;1 – Up to 100 bank transactions will be returned in a single API call with line items shown for each bank transaction (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $page Up to 100 bank transactions will be returned in a single API call with line items details (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -22574,8 +23254,8 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
-     * @param  int $page e.g. page&#x3D;1 – Up to 100 bank transactions will be returned in a single API call with line items shown for each bank transaction (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $page Up to 100 bank transactions will be returned in a single API call with line items details (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -22626,8 +23306,8 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
-     * @param  int $page e.g. page&#x3D;1 – Up to 100 bank transactions will be returned in a single API call with line items shown for each bank transaction (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $page Up to 100 bank transactions will be returned in a single API call with line items details (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -29344,7 +30024,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
+     * @param  string $content_type The mime type of the attachment file you are retrieving i.e application/pdf (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -29363,7 +30043,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
+     * @param  string $content_type The mime type of the attachment file you are retrieving i.e application/pdf (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -29453,7 +30133,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
+     * @param  string $content_type The mime type of the attachment file you are retrieving i.e application/pdf (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -29475,7 +30155,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
+     * @param  string $content_type The mime type of the attachment file you are retrieving i.e application/pdf (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -29524,7 +30204,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
-     * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
+     * @param  string $content_type The mime type of the attachment file you are retrieving i.e application/pdf (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -33255,7 +33935,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
+     * @param  string $content_type The mime type of the attachment file you are retrieving (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -33274,7 +33954,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
+     * @param  string $content_type The mime type of the attachment file you are retrieving (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -33364,7 +34044,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
+     * @param  string $content_type The mime type of the attachment file you are retrieving (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -33386,7 +34066,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
+     * @param  string $content_type The mime type of the attachment file you are retrieving (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -33435,7 +34115,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
-     * @param  string $content_type The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf (required)
+     * @param  string $content_type The mime type of the attachment file you are retrieving (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -35073,14 +35753,14 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
-     * @param  string[] $i_ds Filter by a comma-separated list of InvoicesIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. (optional)
-     * @param  string[] $invoice_numbers Filter by a comma-separated list of InvoiceNumbers. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. (optional)
-     * @param  string[] $contact_i_ds Filter by a comma-separated list of ContactIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. (optional)
+     * @param  string[] $i_ds Filter by a comma-separated list of InvoicesIDs. (optional)
+     * @param  string[] $invoice_numbers Filter by a comma-separated list of InvoiceNumbers. (optional)
+     * @param  string[] $contact_i_ds Filter by a comma-separated list of ContactIDs. (optional)
      * @param  string[] $statuses Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice (optional)
      * @param  bool $include_archived e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response (optional)
      * @param  bool $created_by_my_app When set to true you&#39;ll only retrieve Invoices created by your app (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -35101,14 +35781,14 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
-     * @param  string[] $i_ds Filter by a comma-separated list of InvoicesIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. (optional)
-     * @param  string[] $invoice_numbers Filter by a comma-separated list of InvoiceNumbers. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. (optional)
-     * @param  string[] $contact_i_ds Filter by a comma-separated list of ContactIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. (optional)
+     * @param  string[] $i_ds Filter by a comma-separated list of InvoicesIDs. (optional)
+     * @param  string[] $invoice_numbers Filter by a comma-separated list of InvoiceNumbers. (optional)
+     * @param  string[] $contact_i_ds Filter by a comma-separated list of ContactIDs. (optional)
      * @param  string[] $statuses Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice (optional)
      * @param  bool $include_archived e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response (optional)
      * @param  bool $created_by_my_app When set to true you&#39;ll only retrieve Invoices created by your app (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -35200,14 +35880,14 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
-     * @param  string[] $i_ds Filter by a comma-separated list of InvoicesIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. (optional)
-     * @param  string[] $invoice_numbers Filter by a comma-separated list of InvoiceNumbers. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. (optional)
-     * @param  string[] $contact_i_ds Filter by a comma-separated list of ContactIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. (optional)
+     * @param  string[] $i_ds Filter by a comma-separated list of InvoicesIDs. (optional)
+     * @param  string[] $invoice_numbers Filter by a comma-separated list of InvoiceNumbers. (optional)
+     * @param  string[] $contact_i_ds Filter by a comma-separated list of ContactIDs. (optional)
      * @param  string[] $statuses Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice (optional)
      * @param  bool $include_archived e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response (optional)
      * @param  bool $created_by_my_app When set to true you&#39;ll only retrieve Invoices created by your app (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -35231,14 +35911,14 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
-     * @param  string[] $i_ds Filter by a comma-separated list of InvoicesIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. (optional)
-     * @param  string[] $invoice_numbers Filter by a comma-separated list of InvoiceNumbers. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. (optional)
-     * @param  string[] $contact_i_ds Filter by a comma-separated list of ContactIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. (optional)
+     * @param  string[] $i_ds Filter by a comma-separated list of InvoicesIDs. (optional)
+     * @param  string[] $invoice_numbers Filter by a comma-separated list of InvoiceNumbers. (optional)
+     * @param  string[] $contact_i_ds Filter by a comma-separated list of ContactIDs. (optional)
      * @param  string[] $statuses Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice (optional)
      * @param  bool $include_archived e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response (optional)
      * @param  bool $created_by_my_app When set to true you&#39;ll only retrieve Invoices created by your app (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -35289,14 +35969,14 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
-     * @param  string[] $i_ds Filter by a comma-separated list of InvoicesIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. (optional)
-     * @param  string[] $invoice_numbers Filter by a comma-separated list of InvoiceNumbers. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. (optional)
-     * @param  string[] $contact_i_ds Filter by a comma-separated list of ContactIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. (optional)
+     * @param  string[] $i_ds Filter by a comma-separated list of InvoicesIDs. (optional)
+     * @param  string[] $invoice_numbers Filter by a comma-separated list of InvoiceNumbers. (optional)
+     * @param  string[] $contact_i_ds Filter by a comma-separated list of ContactIDs. (optional)
      * @param  string[] $statuses Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice (optional)
      * @param  bool $include_archived e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response (optional)
      * @param  bool $created_by_my_app When set to true you&#39;ll only retrieve Invoices created by your app (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -36041,7 +36721,7 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -36062,7 +36742,7 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -36154,7 +36834,7 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -36178,7 +36858,7 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -36229,7 +36909,7 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -37233,9 +37913,9 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  int $page Up to 100 linked transactions will be returned in a single API call. Use the page parameter to specify the page to be returned e.g. page&#x3D;1. (optional)
      * @param  string $linked_transaction_id The Xero identifier for an Linked Transaction (optional)
-     * @param  string $source_transaction_id Filter by the SourceTransactionID. Get all the linked transactions created from a particular ACCPAY invoice (optional)
+     * @param  string $source_transaction_id Filter by the SourceTransactionID. Get the linked transactions created from a particular ACCPAY invoice (optional)
      * @param  string $contact_id Filter by the ContactID. Get all the linked transactions that have been assigned to a particular customer. (optional)
-     * @param  string $status Filter by the combination of ContactID and Status. Get all the linked transactions that have been assigned to a particular customer and have a particular status e.g. GET /LinkedTransactions?ContactID&#x3D;4bb34b03-3378-4bb2-a0ed-6345abf3224e&amp;Status&#x3D;APPROVED. (optional)
+     * @param  string $status Filter by the combination of ContactID and Status. Get  the linked transactions associaed to a  customer and with a status (optional)
      * @param  string $target_transaction_id Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
@@ -37256,9 +37936,9 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  int $page Up to 100 linked transactions will be returned in a single API call. Use the page parameter to specify the page to be returned e.g. page&#x3D;1. (optional)
      * @param  string $linked_transaction_id The Xero identifier for an Linked Transaction (optional)
-     * @param  string $source_transaction_id Filter by the SourceTransactionID. Get all the linked transactions created from a particular ACCPAY invoice (optional)
+     * @param  string $source_transaction_id Filter by the SourceTransactionID. Get the linked transactions created from a particular ACCPAY invoice (optional)
      * @param  string $contact_id Filter by the ContactID. Get all the linked transactions that have been assigned to a particular customer. (optional)
-     * @param  string $status Filter by the combination of ContactID and Status. Get all the linked transactions that have been assigned to a particular customer and have a particular status e.g. GET /LinkedTransactions?ContactID&#x3D;4bb34b03-3378-4bb2-a0ed-6345abf3224e&amp;Status&#x3D;APPROVED. (optional)
+     * @param  string $status Filter by the combination of ContactID and Status. Get  the linked transactions associaed to a  customer and with a status (optional)
      * @param  string $target_transaction_id Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
@@ -37350,9 +38030,9 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  int $page Up to 100 linked transactions will be returned in a single API call. Use the page parameter to specify the page to be returned e.g. page&#x3D;1. (optional)
      * @param  string $linked_transaction_id The Xero identifier for an Linked Transaction (optional)
-     * @param  string $source_transaction_id Filter by the SourceTransactionID. Get all the linked transactions created from a particular ACCPAY invoice (optional)
+     * @param  string $source_transaction_id Filter by the SourceTransactionID. Get the linked transactions created from a particular ACCPAY invoice (optional)
      * @param  string $contact_id Filter by the ContactID. Get all the linked transactions that have been assigned to a particular customer. (optional)
-     * @param  string $status Filter by the combination of ContactID and Status. Get all the linked transactions that have been assigned to a particular customer and have a particular status e.g. GET /LinkedTransactions?ContactID&#x3D;4bb34b03-3378-4bb2-a0ed-6345abf3224e&amp;Status&#x3D;APPROVED. (optional)
+     * @param  string $status Filter by the combination of ContactID and Status. Get  the linked transactions associaed to a  customer and with a status (optional)
      * @param  string $target_transaction_id Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice (optional)
      *
      * @throws \InvalidArgumentException
@@ -37376,9 +38056,9 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  int $page Up to 100 linked transactions will be returned in a single API call. Use the page parameter to specify the page to be returned e.g. page&#x3D;1. (optional)
      * @param  string $linked_transaction_id The Xero identifier for an Linked Transaction (optional)
-     * @param  string $source_transaction_id Filter by the SourceTransactionID. Get all the linked transactions created from a particular ACCPAY invoice (optional)
+     * @param  string $source_transaction_id Filter by the SourceTransactionID. Get the linked transactions created from a particular ACCPAY invoice (optional)
      * @param  string $contact_id Filter by the ContactID. Get all the linked transactions that have been assigned to a particular customer. (optional)
-     * @param  string $status Filter by the combination of ContactID and Status. Get all the linked transactions that have been assigned to a particular customer and have a particular status e.g. GET /LinkedTransactions?ContactID&#x3D;4bb34b03-3378-4bb2-a0ed-6345abf3224e&amp;Status&#x3D;APPROVED. (optional)
+     * @param  string $status Filter by the combination of ContactID and Status. Get  the linked transactions associaed to a  customer and with a status (optional)
      * @param  string $target_transaction_id Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice (optional)
      *
      * @throws \InvalidArgumentException
@@ -37429,9 +38109,9 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  int $page Up to 100 linked transactions will be returned in a single API call. Use the page parameter to specify the page to be returned e.g. page&#x3D;1. (optional)
      * @param  string $linked_transaction_id The Xero identifier for an Linked Transaction (optional)
-     * @param  string $source_transaction_id Filter by the SourceTransactionID. Get all the linked transactions created from a particular ACCPAY invoice (optional)
+     * @param  string $source_transaction_id Filter by the SourceTransactionID. Get the linked transactions created from a particular ACCPAY invoice (optional)
      * @param  string $contact_id Filter by the ContactID. Get all the linked transactions that have been assigned to a particular customer. (optional)
-     * @param  string $status Filter by the combination of ContactID and Status. Get all the linked transactions that have been assigned to a particular customer and have a particular status e.g. GET /LinkedTransactions?ContactID&#x3D;4bb34b03-3378-4bb2-a0ed-6345abf3224e&amp;Status&#x3D;APPROVED. (optional)
+     * @param  string $status Filter by the combination of ContactID and Status. Get  the linked transactions associaed to a  customer and with a status (optional)
      * @param  string $target_transaction_id Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice (optional)
      *
      * @throws \InvalidArgumentException
@@ -39395,7 +40075,7 @@ class AccountingApi
      * Allows you To verify if an organisation is using contruction industry scheme, you can retrieve the CIS settings for the organistaion.
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  string $organisation_id organisation_id (required)
+     * @param  string $organisation_id The unique Xero identifier for an organisation (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -39413,7 +40093,7 @@ class AccountingApi
      * Allows you To verify if an organisation is using contruction industry scheme, you can retrieve the CIS settings for the organistaion.
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  string $organisation_id (required)
+     * @param  string $organisation_id The unique Xero identifier for an organisation (required)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -39502,7 +40182,7 @@ class AccountingApi
      * Allows you To verify if an organisation is using contruction industry scheme, you can retrieve the CIS settings for the organistaion.
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  string $organisation_id (required)
+     * @param  string $organisation_id The unique Xero identifier for an organisation (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -39523,7 +40203,7 @@ class AccountingApi
      * Allows you To verify if an organisation is using contruction industry scheme, you can retrieve the CIS settings for the organistaion.
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  string $organisation_id (required)
+     * @param  string $organisation_id The unique Xero identifier for an organisation (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -39571,7 +40251,7 @@ class AccountingApi
      * Create request for operation 'getOrganisationCISSettings'
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     * @param  string $organisation_id (required)
+     * @param  string $organisation_id The unique Xero identifier for an organisation (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -40548,7 +41228,7 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -40570,7 +41250,7 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -40663,7 +41343,7 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -40688,7 +41368,7 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -40740,7 +41420,7 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -42607,7 +43287,7 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -42629,7 +43309,7 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -42722,7 +43402,7 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -42747,7 +43427,7 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -42799,7 +43479,7 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -44029,6 +44709,298 @@ class AccountingApi
         }
 
         $resourcePath = '/Quotes/{QuoteID}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['xero-tenant-id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
+        
+        // path params
+        if ($quote_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'QuoteID' . '}',
+                AccountingObjectSerializer::toPathValue($quote_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+
+    /**
+     * Operation getQuoteHistory
+     *
+     * Allows you to retrieve a history records of an quote
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  string $quote_id Unique identifier for an Quote (required)
+     *
+     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords
+     */
+    public function getQuoteHistory($xero_tenant_id, $quote_id)
+    {
+        list($response) = $this->getQuoteHistoryWithHttpInfo($xero_tenant_id, $quote_id);
+        return $response;
+    }
+
+    /**
+     * Operation getQuoteHistoryWithHttpInfo
+     *
+     * Allows you to retrieve a history records of an quote
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  string $quote_id Unique identifier for an Quote (required)
+     *
+     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getQuoteHistoryWithHttpInfo($xero_tenant_id, $quote_id)
+    {
+        $request = $this->getQuoteHistoryRequest($xero_tenant_id, $quote_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = AccountingObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getQuoteHistoryAsync
+     *
+     * Allows you to retrieve a history records of an quote
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  string $quote_id Unique identifier for an Quote (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getQuoteHistoryAsync($xero_tenant_id, $quote_id)
+    {
+        return $this->getQuoteHistoryAsyncWithHttpInfo($xero_tenant_id, $quote_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getQuoteHistoryAsyncWithHttpInfo
+     *
+     * Allows you to retrieve a history records of an quote
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  string $quote_id Unique identifier for an Quote (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getQuoteHistoryAsyncWithHttpInfo($xero_tenant_id, $quote_id)
+    {
+        $returnType = '\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords';
+        $request = $this->getQuoteHistoryRequest($xero_tenant_id, $quote_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getQuoteHistory'
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  string $quote_id Unique identifier for an Quote (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function getQuoteHistoryRequest($xero_tenant_id, $quote_id)
+    {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling getQuoteHistory'
+            );
+        }
+        // verify the required parameter 'quote_id' is set
+        if ($quote_id === null || (is_array($quote_id) && count($quote_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $quote_id when calling getQuoteHistory'
+            );
+        }
+
+        $resourcePath = '/Quotes/{QuoteID}/History';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -46009,7 +46981,7 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -46030,7 +47002,7 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -46122,7 +47094,7 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -46146,7 +47118,7 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -46197,7 +47169,7 @@ class AccountingApi
      * @param  \DateTime $if_modified_since Only records created or modified since this timestamp will be returned (optional)
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
-     * @param  int $unitdp e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -58948,7 +59920,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions bank_transactions (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -58967,7 +59939,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -59077,7 +60049,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -59099,7 +60071,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -59148,7 +60120,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -59264,7 +60236,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts contacts (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -59283,7 +60255,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -59393,7 +60365,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -59415,7 +60387,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -59464,7 +60436,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Contacts $contacts (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -59580,7 +60552,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes an array of Credit Notes with a single CreditNote object. (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -59599,7 +60571,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes an array of Credit Notes with a single CreditNote object. (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -59709,7 +60681,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes an array of Credit Notes with a single CreditNote object. (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -59731,7 +60703,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes an array of Credit Notes with a single CreditNote object. (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -59780,7 +60752,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes an array of Credit Notes with a single CreditNote object. (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -59896,7 +60868,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices invoices (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -59915,7 +60887,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -60025,7 +60997,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -60047,7 +61019,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -60096,7 +61068,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -60212,7 +61184,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items items (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -60231,7 +61203,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -60341,7 +61313,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -60363,7 +61335,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -60412,7 +61384,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items (required)
-     * @param  bool $summarize_errors response format that shows validation errors for each bank transaction (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -60528,7 +61500,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders $purchase_orders purchase_orders (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -60547,7 +61519,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders $purchase_orders (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -60657,7 +61629,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders $purchase_orders (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -60679,7 +61651,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders $purchase_orders (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -60728,7 +61700,7 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders $purchase_orders (required)
-     * @param  bool $summarize_errors shows validation errors for each credit note (optional, default to false)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -60769,6 +61741,322 @@ class AccountingApi
         $_tempBody = null;
         if (isset($purchase_orders)) {
             $_tempBody = $purchase_orders;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+
+    /**
+     * Operation updateOrCreateQuotes
+     *
+     * Allows you to update OR create one or more quotes
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Quotes $quotes quotes (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     *
+     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \XeroAPI\XeroPHP\Models\Accounting\Quotes|\XeroAPI\XeroPHP\Models\Accounting\Error
+     */
+    public function updateOrCreateQuotes($xero_tenant_id, $quotes, $summarize_errors = false)
+    {
+        list($response) = $this->updateOrCreateQuotesWithHttpInfo($xero_tenant_id, $quotes, $summarize_errors);
+        return $response;
+    }
+
+    /**
+     * Operation updateOrCreateQuotesWithHttpInfo
+     *
+     * Allows you to update OR create one or more quotes
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Quotes $quotes (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     *
+     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \XeroAPI\XeroPHP\Models\Accounting\Quotes|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateOrCreateQuotesWithHttpInfo($xero_tenant_id, $quotes, $summarize_errors = false)
+    {
+        $request = $this->updateOrCreateQuotesRequest($xero_tenant_id, $quotes, $summarize_errors);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\XeroAPI\XeroPHP\Models\Accounting\Quotes' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Accounting\Quotes', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\XeroAPI\XeroPHP\Models\Accounting\Error' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Accounting\Error', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Quotes';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = AccountingObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\XeroAPI\XeroPHP\Models\Accounting\Quotes',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = AccountingObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\XeroAPI\XeroPHP\Models\Accounting\Error',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateOrCreateQuotesAsync
+     *
+     * Allows you to update OR create one or more quotes
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Quotes $quotes (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateOrCreateQuotesAsync($xero_tenant_id, $quotes, $summarize_errors = false)
+    {
+        return $this->updateOrCreateQuotesAsyncWithHttpInfo($xero_tenant_id, $quotes, $summarize_errors)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateOrCreateQuotesAsyncWithHttpInfo
+     *
+     * Allows you to update OR create one or more quotes
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Quotes $quotes (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateOrCreateQuotesAsyncWithHttpInfo($xero_tenant_id, $quotes, $summarize_errors = false)
+    {
+        $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Quotes';
+        $request = $this->updateOrCreateQuotesRequest($xero_tenant_id, $quotes, $summarize_errors);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateOrCreateQuotes'
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Quotes $quotes (required)
+     * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateOrCreateQuotesRequest($xero_tenant_id, $quotes, $summarize_errors = false)
+    {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling updateOrCreateQuotes'
+            );
+        }
+        // verify the required parameter 'quotes' is set
+        if ($quotes === null || (is_array($quotes) && count($quotes) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $quotes when calling updateOrCreateQuotes'
+            );
+        }
+
+        $resourcePath = '/Quotes';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($summarize_errors !== null) {
+            $queryParams['summarizeErrors'] = $summarize_errors ? 'true' : 'false';
+        }
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['xero-tenant-id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
+        
+
+        // body params
+        $_tempBody = null;
+        if (isset($quotes)) {
+            $_tempBody = $quotes;
         }
 
         if ($multipart) {
@@ -61095,6 +62383,332 @@ class AccountingApi
         $_tempBody = null;
         if (isset($purchase_orders)) {
             $_tempBody = $purchase_orders;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(AccountingObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+
+    /**
+     * Operation updateQuote
+     *
+     * Allows you to update a specified quote
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  string $quote_id Unique identifier for an Quote (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Quotes $quotes quotes (required)
+     *
+     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \XeroAPI\XeroPHP\Models\Accounting\Quotes|\XeroAPI\XeroPHP\Models\Accounting\Error
+     */
+    public function updateQuote($xero_tenant_id, $quote_id, $quotes)
+    {
+        list($response) = $this->updateQuoteWithHttpInfo($xero_tenant_id, $quote_id, $quotes);
+        return $response;
+    }
+
+    /**
+     * Operation updateQuoteWithHttpInfo
+     *
+     * Allows you to update a specified quote
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  string $quote_id Unique identifier for an Quote (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Quotes $quotes (required)
+     *
+     * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \XeroAPI\XeroPHP\Models\Accounting\Quotes|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateQuoteWithHttpInfo($xero_tenant_id, $quote_id, $quotes)
+    {
+        $request = $this->updateQuoteRequest($xero_tenant_id, $quote_id, $quotes);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\XeroAPI\XeroPHP\Models\Accounting\Quotes' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Accounting\Quotes', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\XeroAPI\XeroPHP\Models\Accounting\Error' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Accounting\Error', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Quotes';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                AccountingObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = AccountingObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\XeroAPI\XeroPHP\Models\Accounting\Quotes',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = AccountingObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\XeroAPI\XeroPHP\Models\Accounting\Error',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateQuoteAsync
+     *
+     * Allows you to update a specified quote
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  string $quote_id Unique identifier for an Quote (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Quotes $quotes (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateQuoteAsync($xero_tenant_id, $quote_id, $quotes)
+    {
+        return $this->updateQuoteAsyncWithHttpInfo($xero_tenant_id, $quote_id, $quotes)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateQuoteAsyncWithHttpInfo
+     *
+     * Allows you to update a specified quote
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  string $quote_id Unique identifier for an Quote (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Quotes $quotes (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateQuoteAsyncWithHttpInfo($xero_tenant_id, $quote_id, $quotes)
+    {
+        $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Quotes';
+        $request = $this->updateQuoteRequest($xero_tenant_id, $quote_id, $quotes);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        AccountingObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateQuote'
+     *
+     * @param  string $xero_tenant_id Xero identifier for Tenant (required)
+     * @param  string $quote_id Unique identifier for an Quote (required)
+     * @param  \XeroAPI\XeroPHP\Models\Accounting\Quotes $quotes (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function updateQuoteRequest($xero_tenant_id, $quote_id, $quotes)
+    {
+        // verify the required parameter 'xero_tenant_id' is set
+        if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $xero_tenant_id when calling updateQuote'
+            );
+        }
+        // verify the required parameter 'quote_id' is set
+        if ($quote_id === null || (is_array($quote_id) && count($quote_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $quote_id when calling updateQuote'
+            );
+        }
+        // verify the required parameter 'quotes' is set
+        if ($quotes === null || (is_array($quotes) && count($quotes) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $quotes when calling updateQuote'
+            );
+        }
+
+        $resourcePath = '/Quotes/{QuoteID}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($xero_tenant_id !== null) {
+            $headerParams['xero-tenant-id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
+        }
+        
+        // path params
+        if ($quote_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'QuoteID' . '}',
+                AccountingObjectSerializer::toPathValue($quote_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($quotes)) {
+            $_tempBody = $quotes;
         }
 
         if ($multipart) {

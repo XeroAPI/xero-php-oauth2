@@ -304,18 +304,6 @@ class Receipt implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['date'] === null) {
-            $invalidProperties[] = "'date' can't be null";
-        }
-        if ($this->container['contact'] === null) {
-            $invalidProperties[] = "'contact' can't be null";
-        }
-        if ($this->container['line_items'] === null) {
-            $invalidProperties[] = "'line_items' can't be null";
-        }
-        if ($this->container['user'] === null) {
-            $invalidProperties[] = "'user' can't be null";
-        }
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -342,7 +330,7 @@ class Receipt implements ModelInterface, ArrayAccess
     /**
      * Gets date
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getDate()
     {
@@ -352,7 +340,7 @@ class Receipt implements ModelInterface, ArrayAccess
     /**
      * Sets date
      *
-     * @param \DateTime $date Date of receipt – YYYY-MM-DD
+     * @param \DateTime|null $date Date of receipt – YYYY-MM-DD
      *
      * @return $this
      */
@@ -366,7 +354,7 @@ class Receipt implements ModelInterface, ArrayAccess
     /**
      * Gets contact
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Contact
+     * @return \XeroAPI\XeroPHP\Models\Accounting\Contact|null
      */
     public function getContact()
     {
@@ -376,7 +364,7 @@ class Receipt implements ModelInterface, ArrayAccess
     /**
      * Sets contact
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Contact $contact contact
+     * @param \XeroAPI\XeroPHP\Models\Accounting\Contact|null $contact contact
      *
      * @return $this
      */
@@ -390,7 +378,7 @@ class Receipt implements ModelInterface, ArrayAccess
     /**
      * Gets line_items
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\LineItem[]
+     * @return \XeroAPI\XeroPHP\Models\Accounting\LineItem[]|null
      */
     public function getLineItems()
     {
@@ -400,7 +388,7 @@ class Receipt implements ModelInterface, ArrayAccess
     /**
      * Sets line_items
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\LineItem[] $line_items line_items
+     * @param \XeroAPI\XeroPHP\Models\Accounting\LineItem[]|null $line_items line_items
      *
      * @return $this
      */
@@ -414,7 +402,7 @@ class Receipt implements ModelInterface, ArrayAccess
     /**
      * Gets user
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\User
+     * @return \XeroAPI\XeroPHP\Models\Accounting\User|null
      */
     public function getUser()
     {
@@ -424,7 +412,7 @@ class Receipt implements ModelInterface, ArrayAccess
     /**
      * Sets user
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\User $user user
+     * @param \XeroAPI\XeroPHP\Models\Accounting\User|null $user user
      *
      * @return $this
      */

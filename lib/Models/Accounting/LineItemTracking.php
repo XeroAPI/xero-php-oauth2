@@ -58,6 +58,7 @@ class LineItemTracking implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'tracking_category_id' => 'string',
+        'tracking_option_id' => 'string',
         'name' => 'string',
         'option' => 'string'
     ];
@@ -69,6 +70,7 @@ class LineItemTracking implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'tracking_category_id' => 'uuid',
+        'tracking_option_id' => 'uuid',
         'name' => null,
         'option' => null
     ];
@@ -101,6 +103,7 @@ class LineItemTracking implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'tracking_category_id' => 'TrackingCategoryID',
+        'tracking_option_id' => 'TrackingOptionID',
         'name' => 'Name',
         'option' => 'Option'
     ];
@@ -112,6 +115,7 @@ class LineItemTracking implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'tracking_category_id' => 'setTrackingCategoryId',
+        'tracking_option_id' => 'setTrackingOptionId',
         'name' => 'setName',
         'option' => 'setOption'
     ];
@@ -123,6 +127,7 @@ class LineItemTracking implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'tracking_category_id' => 'getTrackingCategoryId',
+        'tracking_option_id' => 'getTrackingOptionId',
         'name' => 'getName',
         'option' => 'getOption'
     ];
@@ -188,6 +193,7 @@ class LineItemTracking implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['tracking_category_id'] = isset($data['tracking_category_id']) ? $data['tracking_category_id'] : null;
+        $this->container['tracking_option_id'] = isset($data['tracking_option_id']) ? $data['tracking_option_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['option'] = isset($data['option']) ? $data['option'] : null;
     }
@@ -240,6 +246,30 @@ class LineItemTracking implements ModelInterface, ArrayAccess
     public function setTrackingCategoryId($tracking_category_id)
     {
         $this->container['tracking_category_id'] = $tracking_category_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets tracking_option_id
+     *
+     * @return string|null
+     */
+    public function getTrackingOptionId()
+    {
+        return $this->container['tracking_option_id'];
+    }
+
+    /**
+     * Sets tracking_option_id
+     *
+     * @param string|null $tracking_option_id The Xero identifier for a tracking category option
+     *
+     * @return $this
+     */
+    public function setTrackingOptionId($tracking_option_id)
+    {
+        $this->container['tracking_option_id'] = $tracking_option_id;
 
         return $this;
     }
