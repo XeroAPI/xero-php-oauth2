@@ -30230,7 +30230,7 @@ class AccountingApi
             );
         }
 
-        $resourcePath = '/CreditNotes/{CreditNoteID}/pdf';
+        $resourcePath = '/CreditNotes/{CreditNoteID}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -34141,7 +34141,7 @@ class AccountingApi
             );
         }
 
-        $resourcePath = '/Invoices/{InvoiceID}/pdf';
+        $resourcePath = '/Invoices/{InvoiceID}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
