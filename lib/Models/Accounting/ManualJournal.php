@@ -283,9 +283,6 @@ class ManualJournal implements ModelInterface, ArrayAccess
         if ($this->container['narration'] === null) {
             $invalidProperties[] = "'narration' can't be null";
         }
-        if ($this->container['journal_lines'] === null) {
-            $invalidProperties[] = "'journal_lines' can't be null";
-        }
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -336,7 +333,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Gets journal_lines
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ManualJournalLine[]
+     * @return \XeroAPI\XeroPHP\Models\Accounting\ManualJournalLine[]|null
      */
     public function getJournalLines()
     {
@@ -346,7 +343,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Sets journal_lines
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ManualJournalLine[] $journal_lines See JournalLines
+     * @param \XeroAPI\XeroPHP\Models\Accounting\ManualJournalLine[]|null $journal_lines See JournalLines
      *
      * @return $this
      */
@@ -384,7 +381,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     /**
      * Gets line_amount_types
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\LineAmountTypes|null
+     * @return string|null
      */
     public function getLineAmountTypes()
     {

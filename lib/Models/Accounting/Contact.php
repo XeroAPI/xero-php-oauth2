@@ -957,7 +957,7 @@ class Contact implements ModelInterface, ArrayAccess
     /**
      * Gets default_currency
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\CurrencyCode|null
+     * @return string|null
      */
     public function getDefaultCurrency()
     {

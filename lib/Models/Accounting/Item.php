@@ -286,9 +286,6 @@ class Item implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'code', the character length must be smaller than or equal to 30.";
         }
 
-        if ($this->container['inventory_asset_account_code'] === null) {
-            $invalidProperties[] = "'inventory_asset_account_code' can't be null";
-        }
         if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 50)) {
             $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 50.";
         }
@@ -347,7 +344,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets inventory_asset_account_code
      *
-     * @return string
+     * @return string|null
      */
     public function getInventoryAssetAccountCode()
     {
@@ -357,7 +354,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets inventory_asset_account_code
      *
-     * @param string $inventory_asset_account_code The inventory asset account for the item. The account must be of type INVENTORY. The  COGSAccountCode in PurchaseDetails is also required to create a tracked item
+     * @param string|null $inventory_asset_account_code The inventory asset account for the item. The account must be of type INVENTORY. The  COGSAccountCode in PurchaseDetails is also required to create a tracked item
      *
      * @return $this
      */

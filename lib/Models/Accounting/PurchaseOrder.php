@@ -372,12 +372,6 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['contact'] === null) {
-            $invalidProperties[] = "'contact' can't be null";
-        }
-        if ($this->container['line_items'] === null) {
-            $invalidProperties[] = "'line_items' can't be null";
-        }
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -404,7 +398,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Gets contact
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Contact
+     * @return \XeroAPI\XeroPHP\Models\Accounting\Contact|null
      */
     public function getContact()
     {
@@ -414,7 +408,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Sets contact
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Contact $contact contact
+     * @param \XeroAPI\XeroPHP\Models\Accounting\Contact|null $contact contact
      *
      * @return $this
      */
@@ -428,7 +422,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Gets line_items
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\LineItem[]
+     * @return \XeroAPI\XeroPHP\Models\Accounting\LineItem[]|null
      */
     public function getLineItems()
     {
@@ -438,7 +432,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Sets line_items
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\LineItem[] $line_items See LineItems
+     * @param \XeroAPI\XeroPHP\Models\Accounting\LineItem[]|null $line_items See LineItems
      *
      * @return $this
      */
@@ -500,7 +494,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Gets line_amount_types
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\LineAmountTypes|null
+     * @return string|null
      */
     public function getLineAmountTypes()
     {
@@ -596,7 +590,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     /**
      * Gets currency_code
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\CurrencyCode|null
+     * @return string|null
      */
     public function getCurrencyCode()
     {

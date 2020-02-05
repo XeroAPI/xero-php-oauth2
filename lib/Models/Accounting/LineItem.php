@@ -577,7 +577,7 @@ class LineItem implements ModelInterface, ArrayAccess
     /**
      * Sets repeating_invoice_id
      *
-     * @param string|null $repeating_invoice_id The Xero identifier for a Repeating Invoicee.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9
+     * @param string|null $repeating_invoice_id The Xero identifier for a Repeating Invoice
      *
      * @return $this
      */

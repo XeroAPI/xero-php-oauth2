@@ -287,7 +287,7 @@ class IdentityObjectSerializer
             // the current time for empty input which is probably not
             // what is meant. The invalid empty string is probably to
             // be interpreted as a missing field/value. Let's handle
-            // this gracefully.
+            // this graceful.
             if (!empty($data)) {
                 
                 if( self::isDate($data) ) {

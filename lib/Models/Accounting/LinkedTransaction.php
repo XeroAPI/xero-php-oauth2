@@ -298,9 +298,6 @@ class LinkedTransaction implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['source_line_item_id'] === null) {
-            $invalidProperties[] = "'source_line_item_id' can't be null";
-        }
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -367,7 +364,7 @@ class LinkedTransaction implements ModelInterface, ArrayAccess
     /**
      * Gets source_line_item_id
      *
-     * @return string
+     * @return string|null
      */
     public function getSourceLineItemId()
     {
@@ -377,7 +374,7 @@ class LinkedTransaction implements ModelInterface, ArrayAccess
     /**
      * Sets source_line_item_id
      *
-     * @param string $source_line_item_id The line item identifier from the source transaction.
+     * @param string|null $source_line_item_id The line item identifier from the source transaction.
      *
      * @return $this
      */
@@ -473,7 +470,7 @@ class LinkedTransaction implements ModelInterface, ArrayAccess
     /**
      * Sets linked_transaction_id
      *
-     * @param string|null $linked_transaction_id The Xero identifier for an Linked Transaction e.g. /LinkedTransactions/297c2dc5-cc47-4afd-8ec8-74990b8761e9
+     * @param string|null $linked_transaction_id The Xero identifier for an Linked Transaction e.g./LinkedTransactions/297c2dc5-cc47-4afd-8ec8-74990b8761e9
      *
      * @return $this
      */

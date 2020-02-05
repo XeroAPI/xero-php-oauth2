@@ -340,9 +340,11 @@ class Invoice implements ModelInterface, ArrayAccess
 
     const TYPE_ACCPAY = 'ACCPAY';
     const TYPE_ACCPAYCREDIT = 'ACCPAYCREDIT';
-    const TYPE_AROVERPAYMENT = 'AROVERPAYMENT';
+    const TYPE_APOVERPAYMENT = 'APOVERPAYMENT';
+    const TYPE_APPREPAYMENT = 'APPREPAYMENT';
     const TYPE_ACCREC = 'ACCREC';
     const TYPE_ACCRECCREDIT = 'ACCRECCREDIT';
+    const TYPE_AROVERPAYMENT = 'AROVERPAYMENT';
     const STATUS_DRAFT = 'DRAFT';
     const STATUS_SUBMITTED = 'SUBMITTED';
     const STATUS_DELETED = 'DELETED';
@@ -362,9 +364,11 @@ class Invoice implements ModelInterface, ArrayAccess
         return [
             self::TYPE_ACCPAY,
             self::TYPE_ACCPAYCREDIT,
-            self::TYPE_AROVERPAYMENT,
+            self::TYPE_APOVERPAYMENT,
+            self::TYPE_APPREPAYMENT,
             self::TYPE_ACCREC,
             self::TYPE_ACCRECCREDIT,
+            self::TYPE_AROVERPAYMENT,
         ];
     }
     
@@ -449,9 +453,6 @@ class Invoice implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -460,12 +461,6 @@ class Invoice implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['contact'] === null) {
-            $invalidProperties[] = "'contact' can't be null";
-        }
-        if ($this->container['line_items'] === null) {
-            $invalidProperties[] = "'line_items' can't be null";
-        }
         if (!is_null($this->container['invoice_number']) && (mb_strlen($this->container['invoice_number']) > 255)) {
             $invalidProperties[] = "invalid value for 'invoice_number', the character length must be smaller than or equal to 255.";
         }
@@ -500,7 +495,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -510,14 +505,14 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type See Invoice Types
+     * @param string|null $type See Invoice Types
      *
      * @return $this
      */
     public function setType($type)
     {
         $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'type', must be one of '%s'",
@@ -533,7 +528,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Gets contact
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Contact
+     * @return \XeroAPI\XeroPHP\Models\Accounting\Contact|null
      */
     public function getContact()
     {
@@ -543,7 +538,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets contact
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Contact $contact contact
+     * @param \XeroAPI\XeroPHP\Models\Accounting\Contact|null $contact contact
      *
      * @return $this
      */
@@ -557,7 +552,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Gets line_items
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\LineItem[]
+     * @return \XeroAPI\XeroPHP\Models\Accounting\LineItem[]|null
      */
     public function getLineItems()
     {
@@ -567,7 +562,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets line_items
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\LineItem[] $line_items See LineItems
+     * @param \XeroAPI\XeroPHP\Models\Accounting\LineItem[]|null $line_items See LineItems
      *
      * @return $this
      */
@@ -629,7 +624,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Gets line_amount_types
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\LineAmountTypes|null
+     * @return string|null
      */
     public function getLineAmountTypes()
     {
@@ -757,7 +752,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Gets currency_code
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\CurrencyCode|null
+     * @return string|null
      */
     public function getCurrencyCode()
     {
