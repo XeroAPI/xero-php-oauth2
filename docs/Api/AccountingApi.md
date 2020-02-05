@@ -37,7 +37,7 @@ Method | HTTP request | Description
 [**createLinkedTransaction**](AccountingApi.md#createLinkedTransaction) | **PUT** /LinkedTransactions | Allows you to create linked transactions (billable expenses)
 [**createManualJournal**](AccountingApi.md#createManualJournal) | **POST** /ManualJournals | Allows you to create a single manual journal
 [**createManualJournalAttachmentByFileName**](AccountingApi.md#createManualJournalAttachmentByFileName) | **PUT** /ManualJournals/{ManualJournalID}/Attachments/{FileName} | Allows you to create a specified Attachment on ManualJournal by file name
-[**createManualJournals**](AccountingApi.md#createManualJournals) | **PUT** /ManualJournals | Allows you to create multiple manual journals
+[**createManualJournals**](AccountingApi.md#createManualJournals) | **PUT** /ManualJournals | Allows you to create one or more manual journals
 [**createOverpaymentAllocation**](AccountingApi.md#createOverpaymentAllocation) | **POST** /Overpayments/{OverpaymentID}/Allocations | Allows you to create a single allocations for overpayments
 [**createOverpaymentAllocations**](AccountingApi.md#createOverpaymentAllocations) | **PUT** /Overpayments/{OverpaymentID}/Allocations | Allows you to create a single allocation for an overpayment
 [**createOverpaymentHistory**](AccountingApi.md#createOverpaymentHistory) | **PUT** /Overpayments/{OverpaymentID}/History | Allows you to create history records of an Overpayment
@@ -49,6 +49,8 @@ Method | HTTP request | Description
 [**createPrepaymentHistory**](AccountingApi.md#createPrepaymentHistory) | **PUT** /Prepayments/{PrepaymentID}/History | Allows you to create a history record for an Prepayment
 [**createPurchaseOrderHistory**](AccountingApi.md#createPurchaseOrderHistory) | **PUT** /PurchaseOrders/{PurchaseOrderID}/History | Allows you to create HistoryRecord for purchase orders
 [**createPurchaseOrders**](AccountingApi.md#createPurchaseOrders) | **PUT** /PurchaseOrders | Allows you to create one or more purchase orders
+[**createQuoteHistory**](AccountingApi.md#createQuoteHistory) | **PUT** /Quotes/{QuoteID}/History | Allows you to retrieve a history records of an quote
+[**createQuotes**](AccountingApi.md#createQuotes) | **PUT** /Quotes | Allows you to create one or more quotes
 [**createReceipt**](AccountingApi.md#createReceipt) | **PUT** /Receipts | Allows you to create draft expense claim receipts for any user
 [**createReceiptAttachmentByFileName**](AccountingApi.md#createReceiptAttachmentByFileName) | **PUT** /Receipts/{ReceiptID}/Attachments/{FileName} | Allows you to create Attachment on expense claim receipts by file name
 [**createReceiptHistory**](AccountingApi.md#createReceiptHistory) | **PUT** /Receipts/{ReceiptID}/History | Allows you to retrieve a history records of an Receipt
@@ -147,6 +149,7 @@ Method | HTTP request | Description
 [**getPurchaseOrderHistory**](AccountingApi.md#getPurchaseOrderHistory) | **GET** /PurchaseOrders/{PurchaseOrderID}/History | Allows you to retrieve history for PurchaseOrder
 [**getPurchaseOrders**](AccountingApi.md#getPurchaseOrders) | **GET** /PurchaseOrders | Allows you to retrieve purchase orders
 [**getQuote**](AccountingApi.md#getQuote) | **GET** /Quotes/{QuoteID} | Allows you to retrieve a specified quote
+[**getQuoteHistory**](AccountingApi.md#getQuoteHistory) | **GET** /Quotes/{QuoteID}/History | Allows you to retrieve a history records of an quote
 [**getQuotes**](AccountingApi.md#getQuotes) | **GET** /Quotes | Allows you to retrieve any sales quotes
 [**getReceipt**](AccountingApi.md#getReceipt) | **GET** /Receipts/{ReceiptID} | Allows you to retrieve a specified draft expense claim receipts
 [**getReceiptAttachmentByFileName**](AccountingApi.md#getReceiptAttachmentByFileName) | **GET** /Receipts/{ReceiptID}/Attachments/{FileName} | Allows you to retrieve Attachments on expense claim receipts by file name
@@ -200,7 +203,9 @@ Method | HTTP request | Description
 [**updateOrCreateInvoices**](AccountingApi.md#updateOrCreateInvoices) | **POST** /Invoices | Allows you to update OR create one or more sales invoices or purchase bills
 [**updateOrCreateItems**](AccountingApi.md#updateOrCreateItems) | **POST** /Items | Allows you to update or create one or more items
 [**updateOrCreatePurchaseOrders**](AccountingApi.md#updateOrCreatePurchaseOrders) | **POST** /PurchaseOrders | Allows you to update or create one or more purchase orders
+[**updateOrCreateQuotes**](AccountingApi.md#updateOrCreateQuotes) | **POST** /Quotes | Allows you to update OR create one or more quotes
 [**updatePurchaseOrder**](AccountingApi.md#updatePurchaseOrder) | **POST** /PurchaseOrders/{PurchaseOrderID} | Allows you to update a specified purchase order
+[**updateQuote**](AccountingApi.md#updateQuote) | **POST** /Quotes/{QuoteID} | Allows you to update a specified quote
 [**updateReceipt**](AccountingApi.md#updateReceipt) | **POST** /Receipts/{ReceiptID} | Allows you to retrieve a specified draft expense claim receipts
 [**updateReceiptAttachmentByFileName**](AccountingApi.md#updateReceiptAttachmentByFileName) | **POST** /Receipts/{ReceiptID}/Attachments/{FileName} | Allows you to update Attachment on expense claim receipts by file name
 [**updateRepeatingInvoiceAttachmentByFileName**](AccountingApi.md#updateRepeatingInvoiceAttachmentByFileName) | **POST** /RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{FileName} | Allows you to update specified attachment on repeating invoices by file name
@@ -228,8 +233,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$account = { "Code":"123456", "Name":"Foobar", "Type":"EXPENSE", "Description":"Hello World" }; // \XeroAPI\XeroPHP\Models\Accounting\Account | Request of type Account
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$account = { code: "123456", name: "Foobar", type: AccountType.EXPENSE, description: "Hello World" }; // \XeroAPI\XeroPHP\Models\Accounting\Account | Account object in body of request
 
 try {
     $result = $apiInstance->createAccount($xero_tenant_id, $account);
@@ -245,7 +250,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **account** | [**\XeroAPI\XeroPHP\Models\Accounting\Account**](../Model/Account.md)| Request of type Account |
+ **account** | [**\XeroAPI\XeroPHP\Models\Accounting\Account**](../Model/Account.md)| Account object in body of request |
 
 ### Return type
 
@@ -281,9 +286,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$account_id = 'account_id_example'; // string | Unique identifier for Account object
-$file_name = 'file_name_example'; // string | Name of the attachment
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$account_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Account object
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -338,9 +343,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transaction_id = 'bank_transaction_id_example'; // string | Xero generated unique identifier for a bank transaction
-$file_name = 'file_name_example'; // string | The name of the file being attached
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
+$file_name = xero-dev.jpg; // string | The name of the file being attached
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -395,9 +400,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transaction_id = 'bank_transaction_id_example'; // string | Xero generated unique identifier for a bank transaction
-$history_records = new \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords(); // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createBankTransactionHistoryRecord($xero_tenant_id, $bank_transaction_id, $history_records);
@@ -414,7 +419,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **bank_transaction_id** | [**string**](../Model/.md)| Xero generated unique identifier for a bank transaction |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)|  |
+ **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
@@ -450,9 +455,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transactions = { "BankTransactions":[ { "Type":"SPEND", "Contact":{ "ContactID":"5cc8cf28-567e-4d43-b287-687cfcaec47c" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"400" } ], "BankAccount":{ "Code":"088" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
-$summarize_errors = false; // bool | response format that shows validation errors for each bank transaction
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, contact: { contactID:"5cc8cf28-567e-4d43-b287-687cfcaec47c" }, lineItems:[ { description:"Foobar", quantity: 1.0, unitAmount:20.0, accountCode:"400" } ], bankAccount:{ code:"088" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | BankTransactions with an array of BankTransaction objects in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
     $result = $apiInstance->createBankTransactions($xero_tenant_id, $bank_transactions, $summarize_errors);
@@ -468,8 +473,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **bank_transactions** | [**\XeroAPI\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)|  |
- **summarize_errors** | **bool**| response format that shows validation errors for each bank transaction | [optional] [default to false]
+ **bank_transactions** | [**\XeroAPI\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)| BankTransactions with an array of BankTransaction objects in body of request |
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -505,8 +510,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transfers = { "BankTransfers":[ { "FromBankAccount":{ "Code":"090", "Name":"My Savings", "AccountID":"7e5e243b-9fcd-4aef-8e3a-c70be1e39bfa", "Type":"BANK", "BankAccountNumber":"123455", "Status":"ACTIVE", "BankAccountType":"BANK", "CurrencyCode":"USD", "TaxType":"NONE", "EnablePaymentsToAccount":false, "ShowInExpenseClaims":false, "Class":"ASSET", "ReportingCode":"ASS", "ReportingCodeName":"Assets", "HasAttachments":false, "UpdatedDateUTC":"2016-10-17T13:45:33.993-07:00" }, "ToBankAccount":{ "Code":"088", "Name":"Business Wells Fargo", "AccountID":"6f7594f2-f059-4d56-9e67-47ac9733bfe9", "Type":"BANK", "BankAccountNumber":"123455", "Status":"ACTIVE", "BankAccountType":"BANK", "CurrencyCode":"USD", "TaxType":"NONE", "EnablePaymentsToAccount":false, "ShowInExpenseClaims":false, "Class":"ASSET", "ReportingCode":"ASS", "ReportingCodeName":"Assets", "HasAttachments":false, "UpdatedDateUTC":"2016-06-03T08:31:14.517-07:00" }, "Amount":"50.00" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransfers | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$bank_transfers = { bankTransfers:[ { fromBankAccount: { code:"090", accountID:"7e5e243b-9fcd-4aef-8e3a-c70be1e39bfa"}, toBankAccount:{ code:"088", accountID:"6f7594f2-f059-4d56-9e67-47ac9733bfe9"}, amount:"50.00" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransfers | BankTransfers with array of BankTransfer objects in request body
 
 try {
     $result = $apiInstance->createBankTransfer($xero_tenant_id, $bank_transfers);
@@ -522,7 +527,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **bank_transfers** | [**\XeroAPI\XeroPHP\Models\Accounting\BankTransfers**](../Model/BankTransfers.md)|  |
+ **bank_transfers** | [**\XeroAPI\XeroPHP\Models\Accounting\BankTransfers**](../Model/BankTransfers.md)| BankTransfers with array of BankTransfer objects in request body |
 
 ### Return type
 
@@ -558,9 +563,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transfer_id = 'bank_transfer_id_example'; // string | Xero generated unique identifier for a bank transfer
-$file_name = 'file_name_example'; // string | The name of the file being attached to a Bank Transfer
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$bank_transfer_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transfer
+$file_name = xero-dev.jpg; // string | The name of the file being attached to a Bank Transfer
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -615,9 +620,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transfer_id = 'bank_transfer_id_example'; // string | Xero generated unique identifier for a bank transfer
-$history_records = new \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords(); // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$bank_transfer_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transfer
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createBankTransferHistoryRecord($xero_tenant_id, $bank_transfer_id, $history_records);
@@ -634,7 +639,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **bank_transfer_id** | [**string**](../Model/.md)| Xero generated unique identifier for a bank transfer |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)|  |
+ **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
@@ -670,12 +675,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$batch_payments = { "BatchPayments":[ { "Account":{ "AccountID":"5ec2f302-cd60-4f8b-a915-9229dd45e6fa" }, "Reference":"Foobar38515", "Date":"2019-02-22", "Amount":3.0, "Payments":[ { "Invoice":{ "LineItems":[
-], "InvoiceID":"e6039672-b161-40cd-b07b-a0178e7186ad" }, "Account":{ "AccountID":"5ec2f302-cd60-4f8b-a915-9229dd45e6fa" }, "Date":"2019-02-22", "Amount":1.0 }, { "Invoice":{ "LineItems":[
-], "InvoiceID":"e4abafb4-1f5b-4d9f-80b3-9a7b815bc302" }, "Account":{ "AccountID":"5ec2f302-cd60-4f8b-a915-9229dd45e6fa" }, "Date":"2019-02-22", "Amount":1.0 }, { "Invoice":{ "LineItems":[
-], "InvoiceID":"3323652c-155e-433b-8a73-4dde7cfbf410" }, "Account":{ "AccountID":"5ec2f302-cd60-4f8b-a915-9229dd45e6fa" }, "Date":"2019-02-22", "Amount":1.0 } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BatchPayments | Request of type BatchPayments containing a Payments array with one or more Payment objects
-$summarize_errors = false; // bool | shows validation errors for each credit note
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$batch_payments = { batchPayments: [ { account: { accountID: "00000000-0000-0000-000-000000000000" }, reference: "ref", date: "2018-08-01", payments: [ { account: { code: "001" }, date: "2019-12-31", amount: 500, invoice: { invoiceID: "00000000-0000-0000-000-000000000000", lineItems: [], contact: {}, type: Invoice.TypeEnum.ACCPAY } } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BatchPayments | BatchPayments with an array of Payments in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
     $result = $apiInstance->createBatchPayment($xero_tenant_id, $batch_payments, $summarize_errors);
@@ -691,8 +693,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **batch_payments** | [**\XeroAPI\XeroPHP\Models\Accounting\BatchPayments**](../Model/BatchPayments.md)| Request of type BatchPayments containing a Payments array with one or more Payment objects |
- **summarize_errors** | **bool**| shows validation errors for each credit note | [optional] [default to false]
+ **batch_payments** | [**\XeroAPI\XeroPHP\Models\Accounting\BatchPayments**](../Model/BatchPayments.md)| BatchPayments with an array of Payments in body of request |
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -728,9 +730,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$batch_payment_id = 'batch_payment_id_example'; // string | Unique identifier for BatchPayment
-$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$batch_payment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for BatchPayment
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createBatchPaymentHistoryRecord($xero_tenant_id, $batch_payment_id, $history_records);
@@ -747,7 +749,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **batch_payment_id** | [**string**](../Model/.md)| Unique identifier for BatchPayment |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)|  |
+ **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
@@ -783,9 +785,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$branding_theme_id = 'branding_theme_id_example'; // string | Unique identifier for a Branding Theme
-$payment_service = { "PaymentServiceID":"dede7858-14e3-4a46-bf95-4d4cc491e645", "PaymentServiceName":"ACME Payments", "PaymentServiceUrl":"https://www.payupnow.com/", "PayNowText":"Pay Now" }; // \XeroAPI\XeroPHP\Models\Accounting\PaymentService | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$branding_theme_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Branding Theme
+$payment_service = { paymentServiceID:"dede7858-14e3-4a46-bf95-4d4cc491e645", paymentServiceName:"ACME Payments", paymentServiceUrl:"https://www.payupnow.com/", payNowText:"Pay Now" }; // \XeroAPI\XeroPHP\Models\Accounting\PaymentService | PaymentService object in body of request
 
 try {
     $result = $apiInstance->createBrandingThemePaymentServices($xero_tenant_id, $branding_theme_id, $payment_service);
@@ -802,7 +804,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **branding_theme_id** | [**string**](../Model/.md)| Unique identifier for a Branding Theme |
- **payment_service** | [**\XeroAPI\XeroPHP\Models\Accounting\PaymentService**](../Model/PaymentService.md)|  |
+ **payment_service** | [**\XeroAPI\XeroPHP\Models\Accounting\PaymentService**](../Model/PaymentService.md)| PaymentService object in body of request |
 
 ### Return type
 
@@ -838,9 +840,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$contact_id = 'contact_id_example'; // string | Unique identifier for a Contact
-$file_name = 'file_name_example'; // string | Name for the file you are attaching
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
+$file_name = xero-dev.jpg; // string | Name for the file you are attaching
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -895,8 +897,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$contact_groups = { "ContactGroups":[ { "Name":"Suppliers" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ContactGroups | an array of contact groups with names specified
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$contact_groups = { contactGroups:[ { name:"Suppliers" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ContactGroups | ContactGroups with an array of names in request body
 
 try {
     $result = $apiInstance->createContactGroup($xero_tenant_id, $contact_groups);
@@ -912,7 +914,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **contact_groups** | [**\XeroAPI\XeroPHP\Models\Accounting\ContactGroups**](../Model/ContactGroups.md)| an array of contact groups with names specified |
+ **contact_groups** | [**\XeroAPI\XeroPHP\Models\Accounting\ContactGroups**](../Model/ContactGroups.md)| ContactGroups with an array of names in request body |
 
 ### Return type
 
@@ -948,9 +950,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$contact_group_id = 'contact_group_id_example'; // string | Unique identifier for a Contact Group
-$contacts = { "Contacts":[ { "ContactID":"a3675fc4-f8dd-4f03-ba5b-f1870566bcd7" }, { "ContactID":"4e1753b9-018a-4775-b6aa-1bc7871cfee3" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | an array of contacts with ContactID to be added to ContactGroup
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$contact_group_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact Group
+$contacts = { contacts:[ { contactID:"a3675fc4-f8dd-4f03-ba5b-f1870566bcd7" }, { contactID:"4e1753b9-018a-4775-b6aa-1bc7871cfee3" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | Contacts with array of contacts specifiying the ContactID to be added to ContactGroup in body of request
 
 try {
     $result = $apiInstance->createContactGroupContacts($xero_tenant_id, $contact_group_id, $contacts);
@@ -967,7 +969,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **contact_group_id** | [**string**](../Model/.md)| Unique identifier for a Contact Group |
- **contacts** | [**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)| an array of contacts with ContactID to be added to ContactGroup |
+ **contacts** | [**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)| Contacts with array of contacts specifiying the ContactID to be added to ContactGroup in body of request |
 
 ### Return type
 
@@ -1003,9 +1005,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$contact_id = 'contact_id_example'; // string | Unique identifier for a Contact
-$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createContactHistory($xero_tenant_id, $contact_id, $history_records);
@@ -1022,7 +1024,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **contact_id** | [**string**](../Model/.md)| Unique identifier for a Contact |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)|  |
+ **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
@@ -1058,9 +1060,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$contacts = { "Name":"Foo9987", "EmailAddress":"sid32476@blah.com", "Phones":[ { "PhoneType":"MOBILE", "PhoneNumber":"555-1212", "PhoneAreaCode":"415" } ], "PaymentTerms":{ "Bills":{ "Day":15, "Type":"OFCURRENTMONTH" }, "Sales":{ "Day":10, "Type":"DAYSAFTERBILLMONTH" } } }; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | 
-$summarize_errors = false; // bool | response format that shows validation errors for each bank transaction
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$contacts = {contacts: [{ name:"Bruce Banner", emailAddress:"hulk@avengers.com", phones:[ { phoneType: Phone.PhoneTypeEnum.MOBILE, phoneNumber:"555-1212", phoneAreaCode:"415" } ], paymentTerms:{ bills:{ day:15, type: PaymentTermType.OFCURRENTMONTH }, sales:{ day:10, type: PaymentTermType.DAYSAFTERBILLMONTH } } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | Contacts with an array of Contact objects to create in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
     $result = $apiInstance->createContacts($xero_tenant_id, $contacts, $summarize_errors);
@@ -1076,8 +1078,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **contacts** | [**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)|  |
- **summarize_errors** | **bool**| response format that shows validation errors for each bank transaction | [optional] [default to false]
+ **contacts** | [**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)| Contacts with an array of Contact objects to create in body of request |
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -1113,10 +1115,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$credit_note_id = 'credit_note_id_example'; // string | Unique identifier for a Credit Note
-$allocations = { "Allocations":[ { "Invoice":{ "LineItems":[
-], "InvoiceID":"c45720a1-ade3-4a38-a064-d15489be6841" }, "Amount":1.0, "Date":"2019-03-05" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | an array of Allocations with single Allocation object defined.
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
+$allocations = { allocations:[ { amount:1.0, date:"2019-03-05", invoice:{ invoiceID:"c45720a1-ade3-4a38-a064-d15489be6841", lineItems:[], type: Invoice.TypeEnum.ACCPAY, contact:{} } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | Allocations with array of Allocation object in body of request.
 
 try {
     $result = $apiInstance->createCreditNoteAllocation($xero_tenant_id, $credit_note_id, $allocations);
@@ -1133,7 +1134,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **credit_note_id** | [**string**](../Model/.md)| Unique identifier for a Credit Note |
- **allocations** | [**\XeroAPI\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)| an array of Allocations with single Allocation object defined. |
+ **allocations** | [**\XeroAPI\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)| Allocations with array of Allocation object in body of request. |
 
 ### Return type
 
@@ -1151,7 +1152,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createCreditNoteAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments createCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $body)
+> \XeroAPI\XeroPHP\Models\Accounting\Attachments createCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $include_online, $body)
 
 Allows you to create Attachments on CreditNote by file name
 
@@ -1169,13 +1170,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$credit_note_id = 'credit_note_id_example'; // string | Unique identifier for a Credit Note
-$file_name = 'file_name_example'; // string | Name of the file you are attaching to Credit Note
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
+$file_name = xero-dev.jpg; // string | Name of the file you are attaching to Credit Note
+$include_online = True; // bool | Set an attachment to be included with the invoice when viewed online (through Xero)
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
-    $result = $apiInstance->createCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $body);
+    $result = $apiInstance->createCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $include_online, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createCreditNoteAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
@@ -1190,6 +1192,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **credit_note_id** | [**string**](../Model/.md)| Unique identifier for a Credit Note |
  **file_name** | **string**| Name of the file you are attaching to Credit Note |
+ **include_online** | **bool**| Set an attachment to be included with the invoice when viewed online (through Xero) |
  **body** | **string**| Byte array of file in body of request |
 
 ### Return type
@@ -1226,9 +1229,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$credit_note_id = 'credit_note_id_example'; // string | Unique identifier for a Credit Note
-$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createCreditNoteHistory($xero_tenant_id, $credit_note_id, $history_records);
@@ -1245,7 +1248,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **credit_note_id** | [**string**](../Model/.md)| Unique identifier for a Credit Note |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)|  |
+ **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
@@ -1281,9 +1284,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$credit_notes = { "CreditNotes":[ { "Type":"ACCPAYCREDIT", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "Date":"2019-01-05", "LineItems":[ { "Description":"Foobar", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"400" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\CreditNotes | an array of Credit Notes with a single CreditNote object.
-$summarize_errors = false; // bool | shows validation errors for each credit note
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$credit_notes = { creditNotes:[ { type: CreditNote.TypeEnum.ACCPAYCREDIT, contact:{ contactID:"430fa14a-f945-44d3-9f97-5df5e28441b8" }, date:"2019-01-05", lineItems:[ { description:"Foobar", quantity:2.0, unitAmount:20.0, accountCode:"400" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\CreditNotes | Credit Notes with array of CreditNote object in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
     $result = $apiInstance->createCreditNotes($xero_tenant_id, $credit_notes, $summarize_errors);
@@ -1299,8 +1302,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **credit_notes** | [**\XeroAPI\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)| an array of Credit Notes with a single CreditNote object. |
- **summarize_errors** | **bool**| shows validation errors for each credit note | [optional] [default to false]
+ **credit_notes** | [**\XeroAPI\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)| Credit Notes with array of CreditNote object in body of request |
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -1336,8 +1339,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$currency = { "Code":"USD", "Description":"United States Dollar" }; // \XeroAPI\XeroPHP\Models\Accounting\Currency | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$currency = { code: CurrencyCode.USD, description:"United States Dollar" }; // \XeroAPI\XeroPHP\Models\Accounting\Currency | Currency obejct in the body of request
 
 try {
     $result = $apiInstance->createCurrency($xero_tenant_id, $currency);
@@ -1353,7 +1356,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **currency** | [**\XeroAPI\XeroPHP\Models\Accounting\Currency**](../Model/Currency.md)|  |
+ **currency** | [**\XeroAPI\XeroPHP\Models\Accounting\Currency**](../Model/Currency.md)| Currency obejct in the body of request |
 
 ### Return type
 
@@ -1389,8 +1392,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$employee = { "Employees":[ { "FirstName":"Nick", "LastName":"Fury", "ExternalLink":{ "Url":"http://twitter.com/#!/search/Nick+Fury" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Employee | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$employee = { firstName:"Nick", lastName:"Fury", externalLink:{ url:"http://twitter.com/#!/search/Nick+Fury" } }; // \XeroAPI\XeroPHP\Models\Accounting\Employee | Employee object in body of request
 
 try {
     $result = $apiInstance->createEmployee($xero_tenant_id, $employee);
@@ -1406,7 +1409,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **employee** | [**\XeroAPI\XeroPHP\Models\Accounting\Employee**](../Model/Employee.md)|  |
+ **employee** | [**\XeroAPI\XeroPHP\Models\Accounting\Employee**](../Model/Employee.md)| Employee object in body of request |
 
 ### Return type
 
@@ -1442,8 +1445,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$employees = { "Employees":[ { "FirstName":"Nick", "LastName":"Fury", "ExternalLink":{ "Url":"http://twitter.com/#!/search/Nick+Fury" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Employees | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$employees = { employees:[ { firstName:"Nick", lastName:"Fury", externalLink:{ url:"http://twitter.com/#!/search/Nick+Fury" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Employees | Employees with array of Employee object in body of request
 
 try {
     $result = $apiInstance->createEmployees($xero_tenant_id, $employees);
@@ -1459,7 +1462,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **employees** | [**\XeroAPI\XeroPHP\Models\Accounting\Employees**](../Model/Employees.md)|  |
+ **employees** | [**\XeroAPI\XeroPHP\Models\Accounting\Employees**](../Model/Employees.md)| Employees with array of Employee object in body of request |
 
 ### Return type
 
@@ -1495,9 +1498,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$expense_claim_id = 'expense_claim_id_example'; // string | Unique identifier for a ExpenseClaim
-$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$expense_claim_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ExpenseClaim
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createExpenseClaimHistory($xero_tenant_id, $expense_claim_id, $history_records);
@@ -1514,7 +1517,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **expense_claim_id** | [**string**](../Model/.md)| Unique identifier for a ExpenseClaim |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)|  |
+ **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
@@ -1550,9 +1553,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$expense_claims = { "ExpenseClaims":[ { "Status":"SUBMITTED", "User":{ "UserID":"d1164823-0ac1-41ad-987b-b4e30fe0b273" }, "Receipts":[ { "LineItems":[
-], "ReceiptID":"dc1c7f6d-0a4c-402f-acac-551d62ce5816" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$expense_claims = { expenseClaims:[ { status: ExpenseClaim.StatusEnum.SUBMITTED, user:{ userID:"d1164823-0ac1-41ad-987b-b4e30fe0b273" }, receipts:[ { receiptID:"dc1c7f6d-0a4c-402f-acac-551d62ce5816", lineItems:[], contact: {}, user: {}, date: "2018-01-01" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims | ExpenseClaims with array of ExpenseClaim object in body of request
 
 try {
     $result = $apiInstance->createExpenseClaims($xero_tenant_id, $expense_claims);
@@ -1568,7 +1570,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **expense_claims** | [**\XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims**](../Model/ExpenseClaims.md)|  |
+ **expense_claims** | [**\XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims**](../Model/ExpenseClaims.md)| ExpenseClaims with array of ExpenseClaim object in body of request |
 
 ### Return type
 
@@ -1586,7 +1588,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createInvoiceAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments createInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $body)
+> \XeroAPI\XeroPHP\Models\Accounting\Attachments createInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $include_online, $body)
 
 Allows you to create an Attachment on invoices or purchase bills by it's filename
 
@@ -1604,13 +1606,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$invoice_id = 'invoice_id_example'; // string | Unique identifier for an Invoice
-$file_name = 'file_name_example'; // string | Name of the file you are attaching
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
+$file_name = xero-dev.jpg; // string | Name of the file you are attaching
+$include_online = True; // bool | Set an attachment to be included with the invoice when viewed online (through Xero)
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
-    $result = $apiInstance->createInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $body);
+    $result = $apiInstance->createInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $include_online, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createInvoiceAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
@@ -1625,6 +1628,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **invoice_id** | [**string**](../Model/.md)| Unique identifier for an Invoice |
  **file_name** | **string**| Name of the file you are attaching |
+ **include_online** | **bool**| Set an attachment to be included with the invoice when viewed online (through Xero) |
  **body** | **string**| Byte array of file in body of request |
 
 ### Return type
@@ -1661,9 +1665,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$invoice_id = 'invoice_id_example'; // string | Unique identifier for an Invoice
-$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createInvoiceHistory($xero_tenant_id, $invoice_id, $history_records);
@@ -1680,7 +1684,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **invoice_id** | [**string**](../Model/.md)| Unique identifier for an Invoice |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)|  |
+ **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
@@ -1716,9 +1720,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$invoices = { "Invoices":[ { "Type":"ACCREC", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems":[ { "Description":"Acme Tires", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"200", "TaxType":"NONE", "LineAmount":40.0 } ], "Date":"2019-03-11", "DueDate":"2018-12-10", "Reference":"Website Design", "Status":"AUTHORISED" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | 
-$summarize_errors = false; // bool | shows validation errors for each invoice
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$invoices = { invoices:[ { type: Invoice.TypeEnum.ACCREC, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Acme Tires", quantity:2.0, unitAmount:20.0, accountCode:"200", taxType:"NONE", lineAmount:40.0 } ], date:"2019-03-11", dueDate:"2018-12-10", reference:"Website Design", status: Invoice.StatusEnum.AUTHORISED } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | Invoices with an array of invoice objects in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
     $result = $apiInstance->createInvoices($xero_tenant_id, $invoices, $summarize_errors);
@@ -1734,8 +1738,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **invoices** | [**\XeroAPI\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)|  |
- **summarize_errors** | **bool**| shows validation errors for each invoice | [optional] [default to false]
+ **invoices** | [**\XeroAPI\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)| Invoices with an array of invoice objects in body of request |
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -1771,9 +1775,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$item_id = 'item_id_example'; // string | Unique identifier for an Item
-$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$item_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Item
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createItemHistory($xero_tenant_id, $item_id, $history_records);
@@ -1790,7 +1794,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **item_id** | [**string**](../Model/.md)| Unique identifier for an Item |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)|  |
+ **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
@@ -1826,9 +1830,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$items = { "Items":[ { "Code":"abc65591", "Name":"Hello11350", "Description":"foobar" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | 
-$summarize_errors = false; // bool | response format that shows validation errors for each bank transaction
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$items = { items:[ { code:"abcXYZ123", name:"HelloWorld11", description:"Foobar", inventoryAssetAccountCode:"140", purchaseDetails: {cOGSAccountCode:"500"} } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | Items with an array of Item objects in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
     $result = $apiInstance->createItems($xero_tenant_id, $items, $summarize_errors);
@@ -1844,8 +1848,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **items** | [**\XeroAPI\XeroPHP\Models\Accounting\Items**](../Model/Items.md)|  |
- **summarize_errors** | **bool**| response format that shows validation errors for each bank transaction | [optional] [default to false]
+ **items** | [**\XeroAPI\XeroPHP\Models\Accounting\Items**](../Model/Items.md)| Items with an array of Item objects in body of request |
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -1881,8 +1885,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$linked_transaction = { "LinkedTransactions":[ { "SourceTransactionID":"a848644a-f20f-4630-98c3-386bd7505631", "SourceLineItemID":"b0df260d-3cc8-4ced-9bd6-41924f624ed3" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$linked_transaction = { sourceTransactionID:"00000000-0000-0000-000-000000000000", sourceLineItemID:"00000000-0000-0000-000-000000000000"}; // \XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction | LinkedTransaction object in body of request
 
 try {
     $result = $apiInstance->createLinkedTransaction($xero_tenant_id, $linked_transaction);
@@ -1898,7 +1902,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **linked_transaction** | [**\XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction**](../Model/LinkedTransaction.md)|  |
+ **linked_transaction** | [**\XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction**](../Model/LinkedTransaction.md)| LinkedTransaction object in body of request |
 
 ### Return type
 
@@ -1934,8 +1938,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$manual_journal = { "ManualJournals":[ { "Narration":"Foo bar", "JournalLines":[ { "LineAmount":100.0, "AccountCode":"400", "Description":"Hello there" }, { "LineAmount":-100.0, "AccountCode":"400", "Description":"Goodbye", "Tracking":[ { "Name":"Simpsons", "Option":"Bart" } ] } ], "Date":"2019-03-14" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournal | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$manual_journal = { narration:"Foo bar", journalLines:[ { lineAmount:100.0, accountCode:"400", description:"Hello there" }, { lineAmount:-100.0, accountCode:"400", description:"Goodbye", tracking:[ { name:"Simpsons", option:"Bart" } ] } ], date:"2019-03-14" }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournal | ManualJournal object in body of request
 
 try {
     $result = $apiInstance->createManualJournal($xero_tenant_id, $manual_journal);
@@ -1951,7 +1955,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **manual_journal** | [**\XeroAPI\XeroPHP\Models\Accounting\ManualJournal**](../Model/ManualJournal.md)|  |
+ **manual_journal** | [**\XeroAPI\XeroPHP\Models\Accounting\ManualJournal**](../Model/ManualJournal.md)| ManualJournal object in body of request |
 
 ### Return type
 
@@ -1987,9 +1991,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$manual_journal_id = 'manual_journal_id_example'; // string | Unique identifier for a ManualJournal
-$file_name = 'file_name_example'; // string | The name of the file being attached to a ManualJournal
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$manual_journal_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ManualJournal
+$file_name = xero-dev.jpg; // string | The name of the file being attached to a ManualJournal
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -2028,7 +2032,7 @@ Name | Type | Description  | Notes
 # **createManualJournals**
 > \XeroAPI\XeroPHP\Models\Accounting\ManualJournals createManualJournals($xero_tenant_id, $manual_journals)
 
-Allows you to create multiple manual journals
+Allows you to create one or more manual journals
 
 ### Example
 ```php
@@ -2044,8 +2048,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$manual_journals = { "ManualJournals":[ { "Narration":"Foo bar", "JournalLines":[ { "LineAmount":100.0, "AccountCode":"400", "Description":"Hello there" }, { "LineAmount":-100.0, "AccountCode":"400", "Description":"Goodbye", "Tracking":[ { "Name":"Simpsons", "Option":"Bart" } ] } ], "Date":"2019-03-14" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournals | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$manual_journals = { manualJournals:[ { narration:"Foo bar", journalLines:[ { lineAmount:100.0, accountCode:"400", description:"Hello there" }, { lineAmount:-100.0, accountCode:"400", description:"Goodbye", tracking:[ { name:"Simpsons", option:"Bart" } ] } ], date:"2019-03-14" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournals | ManualJournals array with ManualJournal object in body of request
 
 try {
     $result = $apiInstance->createManualJournals($xero_tenant_id, $manual_journals);
@@ -2061,7 +2065,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **manual_journals** | [**\XeroAPI\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)|  |
+ **manual_journals** | [**\XeroAPI\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)| ManualJournals array with ManualJournal object in body of request |
 
 ### Return type
 
@@ -2097,10 +2101,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$overpayment_id = 'overpayment_id_example'; // string | Unique identifier for a Overpayment
-$allocation = { "Allocations":[ { "Invoice":{ "LineItems":[
-], "InvoiceID":"c45720a1-ade3-4a38-a064-d15489be6841" }, "Amount":1.0, "Date":"2019-03-12" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocation | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$overpayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Overpayment
+$allocation = { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: Invoice.TypeEnum.ACCPAY }, amount:1.0, date:"2019-03-12" }; // \XeroAPI\XeroPHP\Models\Accounting\Allocation | Allocation object in body of request
 
 try {
     $result = $apiInstance->createOverpaymentAllocation($xero_tenant_id, $overpayment_id, $allocation);
@@ -2117,7 +2120,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **overpayment_id** | [**string**](../Model/.md)| Unique identifier for a Overpayment |
- **allocation** | [**\XeroAPI\XeroPHP\Models\Accounting\Allocation**](../Model/Allocation.md)|  |
+ **allocation** | [**\XeroAPI\XeroPHP\Models\Accounting\Allocation**](../Model/Allocation.md)| Allocation object in body of request |
 
 ### Return type
 
@@ -2153,10 +2156,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$overpayment_id = 'overpayment_id_example'; // string | Unique identifier for a Overpayment
-$allocations = { "Allocations":[ { "Invoice":{ "LineItems":[
-], "InvoiceID":"c45720a1-ade3-4a38-a064-d15489be6841" }, "Amount":1.0, "Date":"2019-03-12" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$overpayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Overpayment
+$allocations = { allocations:[ { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: Invoice.TypeEnum.ACCPAY }, amount:1.0, date:"2019-03-12" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | Allocations array with Allocation object in body of request
 
 try {
     $result = $apiInstance->createOverpaymentAllocations($xero_tenant_id, $overpayment_id, $allocations);
@@ -2173,7 +2175,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **overpayment_id** | [**string**](../Model/.md)| Unique identifier for a Overpayment |
- **allocations** | [**\XeroAPI\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)|  |
+ **allocations** | [**\XeroAPI\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)| Allocations array with Allocation object in body of request |
 
 ### Return type
 
@@ -2209,9 +2211,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$overpayment_id = 'overpayment_id_example'; // string | Unique identifier for a Overpayment
-$history_records = new \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords(); // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$overpayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Overpayment
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createOverpaymentHistory($xero_tenant_id, $overpayment_id, $history_records);
@@ -2228,7 +2230,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **overpayment_id** | [**string**](../Model/.md)| Unique identifier for a Overpayment |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)|  |
+ **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
@@ -2264,9 +2266,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$payment = { "Payments":[ { "Invoice":{ "LineItems":[
-], "InvoiceID":"c7c37b83-ac95-45ea-88ba-8ad83a5f22fe" }, "Account":{ "Code":"970" }, "Date":"2019-03-12", "Amount":1.0 } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Payment | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$payment = { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: Invoice.TypeEnum.ACCPAY }, account:{ code:"970" }, date:"2019-03-12", amount:1.0 }; // \XeroAPI\XeroPHP\Models\Accounting\Payment | Request body with a single Payment object
 
 try {
     $result = $apiInstance->createPayment($xero_tenant_id, $payment);
@@ -2282,7 +2283,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **payment** | [**\XeroAPI\XeroPHP\Models\Accounting\Payment**](../Model/Payment.md)|  |
+ **payment** | [**\XeroAPI\XeroPHP\Models\Accounting\Payment**](../Model/Payment.md)| Request body with a single Payment object |
 
 ### Return type
 
@@ -2318,9 +2319,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$payment_id = 'payment_id_example'; // string | Unique identifier for a Payment
-$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$payment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Payment
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createPaymentHistory($xero_tenant_id, $payment_id, $history_records);
@@ -2337,7 +2338,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **payment_id** | [**string**](../Model/.md)| Unique identifier for a Payment |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)|  |
+ **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
@@ -2373,8 +2374,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$payment_services = { "PaymentServices":[ { "PaymentServiceName":"PayUpNow", "PaymentServiceUrl":"https://www.payupnow.com/", "PayNowText":"Time To Pay" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PaymentServices | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$payment_services = { paymentServices:[ { paymentServiceName:"PayUpNow", paymentServiceUrl:"https://www.payupnow.com/", payNowText:"Time To Pay" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PaymentServices | PaymentServices array with PaymentService object in body of request
 
 try {
     $result = $apiInstance->createPaymentService($xero_tenant_id, $payment_services);
@@ -2390,7 +2391,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **payment_services** | [**\XeroAPI\XeroPHP\Models\Accounting\PaymentServices**](../Model/PaymentServices.md)|  |
+ **payment_services** | [**\XeroAPI\XeroPHP\Models\Accounting\PaymentServices**](../Model/PaymentServices.md)| PaymentServices array with PaymentService object in body of request |
 
 ### Return type
 
@@ -2426,9 +2427,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$payments = { "Payments":[ { "Invoice":{ "LineItems":[
-], "InvoiceID":"c7c37b83-ac95-45ea-88ba-8ad83a5f22fe" }, "Account":{ "Code":"970" }, "Date":"2019-03-12", "Amount":1.0 } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Payments | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$payments = { payments:[ { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: Invoice.TypeEnum.ACCPAY }, account:{ code:"970" }, date:"2019-03-12", amount:1.0 } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Payments | Payments array with Payment object in body of request
 
 try {
     $result = $apiInstance->createPayments($xero_tenant_id, $payments);
@@ -2444,7 +2444,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **payments** | [**\XeroAPI\XeroPHP\Models\Accounting\Payments**](../Model/Payments.md)|  |
+ **payments** | [**\XeroAPI\XeroPHP\Models\Accounting\Payments**](../Model/Payments.md)| Payments array with Payment object in body of request |
 
 ### Return type
 
@@ -2480,10 +2480,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$prepayment_id = 'prepayment_id_example'; // string | 
-$allocations = { "Allocations":[ { "Invoice":{ "LineItems":[
-], "InvoiceID":"c7c37b83-ac95-45ea-88ba-8ad83a5f22fe" }, "Amount":1.0, "Date":"2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$prepayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Prepayment
+$allocations = { allocations:[ { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: null }, amount:1.0, date:"2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | Allocations with an array of Allocation object in body of request
 
 try {
     $result = $apiInstance->createPrepaymentAllocation($xero_tenant_id, $prepayment_id, $allocations);
@@ -2499,8 +2498,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **prepayment_id** | [**string**](../Model/.md)|  |
- **allocations** | [**\XeroAPI\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)|  |
+ **prepayment_id** | [**string**](../Model/.md)| Unique identifier for Prepayment |
+ **allocations** | [**\XeroAPI\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)| Allocations with an array of Allocation object in body of request |
 
 ### Return type
 
@@ -2536,9 +2535,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$prepayment_id = 'prepayment_id_example'; // string | Unique identifier for a PrePayment
-$history_records = new \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords(); // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$prepayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a PrePayment
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createPrepaymentHistory($xero_tenant_id, $prepayment_id, $history_records);
@@ -2555,7 +2554,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **prepayment_id** | [**string**](../Model/.md)| Unique identifier for a PrePayment |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)|  |
+ **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
@@ -2591,9 +2590,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$purchase_order_id = 'purchase_order_id_example'; // string | Unique identifier for a PurchaseOrder
-$history_records = { "HistoryRecords":[ { "Details":"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$purchase_order_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a PurchaseOrder
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createPurchaseOrderHistory($xero_tenant_id, $purchase_order_id, $history_records);
@@ -2610,7 +2609,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for a PurchaseOrder |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)|  |
+ **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
@@ -2646,9 +2645,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$purchase_orders = { "PurchaseOrders":[ { "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"710" } ], "Date":"2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | 
-$summarize_errors = false; // bool | shows validation errors for each purchase order.
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$purchase_orders = { purchaseOrders:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"710" } ], date:"2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | PurchaseOrders with an array of PurchaseOrder object in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
     $result = $apiInstance->createPurchaseOrders($xero_tenant_id, $purchase_orders, $summarize_errors);
@@ -2664,12 +2663,122 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **purchase_orders** | [**\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)|  |
- **summarize_errors** | **bool**| shows validation errors for each purchase order. | [optional] [default to false]
+ **purchase_orders** | [**\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)| PurchaseOrders with an array of PurchaseOrder object in body of request |
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
 [**\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **createQuoteHistory**
+> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createQuoteHistory($xero_tenant_id, $quote_id, $history_records)
+
+Allows you to retrieve a history records of an quote
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Quote
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+
+try {
+    $result = $apiInstance->createQuoteHistory($xero_tenant_id, $quote_id, $history_records);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->createQuoteHistory: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **quote_id** | [**string**](../Model/.md)| Unique identifier for an Quote |
+ **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **createQuotes**
+> \XeroAPI\XeroPHP\Models\Accounting\Quotes createQuotes($xero_tenant_id, $quotes, $summarize_errors)
+
+Allows you to create one or more quotes
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$quotes = { quotes:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"12775" } ], date:"2020-02-01" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Quotes | Quotes with an array of Quote object in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+
+try {
+    $result = $apiInstance->createQuotes($xero_tenant_id, $quotes, $summarize_errors);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->createQuotes: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **quotes** | [**\XeroAPI\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)| Quotes with an array of Quote object in body of request |
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)
 
 ### Authorization
 
@@ -2701,8 +2810,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$receipts = { "Receipts":[ { "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems":[ { "Description":"Foobar", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"400", "TaxType":"NONE", "LineAmount":40.0 } ], "User":{ "UserID":"d1164823-0ac1-41ad-987b-b4e30fe0b273" }, "LineAmountTypes":"NoTax", "Status":"DRAFT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Receipts | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$receipts = { receipts:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:2.0, unitAmount:20.0, accountCode:"400", taxType:"NONE", lineAmount:40.0 } ], user:{ userID:"00000000-0000-0000-000-000000000000" }, lineAmountTypes: LineAmountTypes.Inclusive, status: Receipt.StatusEnum.DRAFT , date: null} ] }; // \XeroAPI\XeroPHP\Models\Accounting\Receipts | Receipts with an array of Receipt object in body of request
 
 try {
     $result = $apiInstance->createReceipt($xero_tenant_id, $receipts);
@@ -2718,7 +2827,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **receipts** | [**\XeroAPI\XeroPHP\Models\Accounting\Receipts**](../Model/Receipts.md)|  |
+ **receipts** | [**\XeroAPI\XeroPHP\Models\Accounting\Receipts**](../Model/Receipts.md)| Receipts with an array of Receipt object in body of request |
 
 ### Return type
 
@@ -2754,9 +2863,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$receipt_id = 'receipt_id_example'; // string | Unique identifier for a Receipt
-$file_name = 'file_name_example'; // string | The name of the file being attached to the Receipt
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
+$file_name = xero-dev.jpg; // string | The name of the file being attached to the Receipt
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -2811,9 +2920,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$receipt_id = 'receipt_id_example'; // string | Unique identifier for a Receipt
-$history_records = new \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords(); // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createReceiptHistory($xero_tenant_id, $receipt_id, $history_records);
@@ -2830,7 +2939,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **receipt_id** | [**string**](../Model/.md)| Unique identifier for a Receipt |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)|  |
+ **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
@@ -2866,9 +2975,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$repeating_invoice_id = 'repeating_invoice_id_example'; // string | Unique identifier for a Repeating Invoice
-$file_name = 'file_name_example'; // string | The name of the file being attached to a Repeating Invoice
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$repeating_invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Repeating Invoice
+$file_name = xero-dev.jpg; // string | The name of the file being attached to a Repeating Invoice
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -2923,9 +3032,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$repeating_invoice_id = 'repeating_invoice_id_example'; // string | Unique identifier for a Repeating Invoice
-$history_records = new \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords(); // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$repeating_invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Repeating Invoice
+$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createRepeatingInvoiceHistory($xero_tenant_id, $repeating_invoice_id, $history_records);
@@ -2942,7 +3051,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **repeating_invoice_id** | [**string**](../Model/.md)| Unique identifier for a Repeating Invoice |
- **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)|  |
+ **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
 
@@ -2978,8 +3087,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$tax_rates = { "TaxRates":[ { "Name":"SDKTax29067", "TaxComponents":[ { "Name":"State Tax", "Rate":2.25 } ], "ReportTaxType":"INPUT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\TaxRates | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$tax_rates = { taxRates:[ { name:"CA State Tax", taxComponents:[ { name:"State Tax", rate:2.25 } ], reportTaxType:"INPUT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\TaxRates | TaxRates array with TaxRate object in body of request
 
 try {
     $result = $apiInstance->createTaxRates($xero_tenant_id, $tax_rates);
@@ -2995,7 +3104,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **tax_rates** | [**\XeroAPI\XeroPHP\Models\Accounting\TaxRates**](../Model/TaxRates.md)|  |
+ **tax_rates** | [**\XeroAPI\XeroPHP\Models\Accounting\TaxRates**](../Model/TaxRates.md)| TaxRates array with TaxRate object in body of request |
 
 ### Return type
 
@@ -3031,8 +3140,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$tracking_category = { "Name":"FooBar" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$tracking_category = { name:"FooBar" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory | TrackingCategory object in body of request
 
 try {
     $result = $apiInstance->createTrackingCategory($xero_tenant_id, $tracking_category);
@@ -3048,7 +3157,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **tracking_category** | [**\XeroAPI\XeroPHP\Models\Accounting\TrackingCategory**](../Model/TrackingCategory.md)|  |
+ **tracking_category** | [**\XeroAPI\XeroPHP\Models\Accounting\TrackingCategory**](../Model/TrackingCategory.md)| TrackingCategory object in body of request |
 
 ### Return type
 
@@ -3084,9 +3193,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$tracking_category_id = 'tracking_category_id_example'; // string | Unique identifier for a TrackingCategory
-$tracking_option = { "Name":"Bar40423" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingOption | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$tracking_category_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a TrackingCategory
+$tracking_option = { name:"Bar" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingOption | TrackingOption object in body of request
 
 try {
     $result = $apiInstance->createTrackingOptions($xero_tenant_id, $tracking_category_id, $tracking_option);
@@ -3103,7 +3212,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **tracking_category_id** | [**string**](../Model/.md)| Unique identifier for a TrackingCategory |
- **tracking_option** | [**\XeroAPI\XeroPHP\Models\Accounting\TrackingOption**](../Model/TrackingOption.md)|  |
+ **tracking_option** | [**\XeroAPI\XeroPHP\Models\Accounting\TrackingOption**](../Model/TrackingOption.md)| TrackingOption object in body of request |
 
 ### Return type
 
@@ -3139,8 +3248,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$account_id = 'account_id_example'; // string | Unique identifier for retrieving single object
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$account_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for retrieving single object
 
 try {
     $result = $apiInstance->deleteAccount($xero_tenant_id, $account_id);
@@ -3192,9 +3301,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$contact_group_id = 'contact_group_id_example'; // string | Unique identifier for a Contact Group
-$contact_id = 'contact_id_example'; // string | Unique identifier for a Contact
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$contact_group_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact Group
+$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
 
 try {
     $apiInstance->deleteContactGroupContact($xero_tenant_id, $contact_group_id, $contact_id);
@@ -3246,8 +3355,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$contact_group_id = 'contact_group_id_example'; // string | Unique identifier for a Contact Group
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$contact_group_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact Group
 
 try {
     $apiInstance->deleteContactGroupContacts($xero_tenant_id, $contact_group_id);
@@ -3298,8 +3407,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$item_id = 'item_id_example'; // string | Unique identifier for an Item
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$item_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Item
 
 try {
     $apiInstance->deleteItem($xero_tenant_id, $item_id);
@@ -3350,8 +3459,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$linked_transaction_id = 'linked_transaction_id_example'; // string | Unique identifier for a LinkedTransaction
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$linked_transaction_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a LinkedTransaction
 
 try {
     $apiInstance->deleteLinkedTransaction($xero_tenant_id, $linked_transaction_id);
@@ -3402,9 +3511,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$payment_id = 'payment_id_example'; // string | Unique identifier for a Payment
-$payments = { "Payments":[ { "Status":"DELETED" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Payments | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$payment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Payment
+$payments = { payments:[ { status:"DELETED" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Payments | 
 
 try {
     $result = $apiInstance->deletePayment($xero_tenant_id, $payment_id, $payments);
@@ -3457,8 +3566,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$tracking_category_id = 'tracking_category_id_example'; // string | Unique identifier for a TrackingCategory
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$tracking_category_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a TrackingCategory
 
 try {
     $result = $apiInstance->deleteTrackingCategory($xero_tenant_id, $tracking_category_id);
@@ -3510,9 +3619,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$tracking_category_id = 'tracking_category_id_example'; // string | Unique identifier for a TrackingCategory
-$tracking_option_id = 'tracking_option_id_example'; // string | Unique identifier for a Tracking Option
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$tracking_category_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a TrackingCategory
+$tracking_option_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Tracking Option
 
 try {
     $result = $apiInstance->deleteTrackingOptions($xero_tenant_id, $tracking_category_id, $tracking_option_id);
@@ -3565,9 +3674,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$invoice_id = 'invoice_id_example'; // string | Unique identifier for an Invoice
-$request_empty = new \XeroAPI\XeroPHP\Models\Accounting\RequestEmpty(); // \XeroAPI\XeroPHP\Models\Accounting\RequestEmpty | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
+$request_empty = {}; // \XeroAPI\XeroPHP\Models\Accounting\RequestEmpty | 
 
 try {
     $apiInstance->emailInvoice($xero_tenant_id, $invoice_id, $request_empty);
@@ -3619,8 +3728,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$account_id = 'account_id_example'; // string | Unique identifier for retrieving single object
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$account_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for retrieving single object
 
 try {
     $result = $apiInstance->getAccount($xero_tenant_id, $account_id);
@@ -3672,10 +3781,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$account_id = 'account_id_example'; // string | Unique identifier for Account object
-$file_name = 'file_name_example'; // string | Name of the attachment
-$content_type = 'content_type_example'; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$account_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Account object
+$file_name = xero-dev.jpg; // string | Name of the attachment
+$content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
     $result = $apiInstance->getAccountAttachmentByFileName($xero_tenant_id, $account_id, $file_name, $content_type);
@@ -3729,10 +3838,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$account_id = 'account_id_example'; // string | Unique identifier for Account object
-$attachment_id = 'attachment_id_example'; // string | Unique identifier for Attachment object
-$content_type = 'content_type_example'; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$account_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Account object
+$attachment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Attachment object
+$content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
     $result = $apiInstance->getAccountAttachmentById($xero_tenant_id, $account_id, $attachment_id, $content_type);
@@ -3786,8 +3895,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$account_id = 'account_id_example'; // string | Unique identifier for Account object
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$account_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Account object
 
 try {
     $result = $apiInstance->getAccountAttachments($xero_tenant_id, $account_id);
@@ -3839,10 +3948,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = 'where_example'; // string | Filter by an any element
-$order = 'order_example'; // string | Order by an any element
+$where = Status=="' + Account.StatusEnum.ACTIVE + '" AND Type=="' + Account.BankAccountTypeEnum.BANK + '"; // string | Filter by an any element
+$order = ASC; // string | Order by an any element
 
 try {
     $result = $apiInstance->getAccounts($xero_tenant_id, $if_modified_since, $where, $order);
@@ -3896,8 +4005,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transaction_id = 'bank_transaction_id_example'; // string | Xero generated unique identifier for a bank transaction
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
 
 try {
     $result = $apiInstance->getBankTransaction($xero_tenant_id, $bank_transaction_id);
@@ -3949,10 +4058,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transaction_id = 'bank_transaction_id_example'; // string | Xero generated unique identifier for a bank transaction
-$file_name = 'file_name_example'; // string | The name of the file being attached
-$content_type = 'content_type_example'; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
+$file_name = xero-dev.jpg; // string | The name of the file being attached
+$content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
     $result = $apiInstance->getBankTransactionAttachmentByFileName($xero_tenant_id, $bank_transaction_id, $file_name, $content_type);
@@ -4006,10 +4115,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transaction_id = 'bank_transaction_id_example'; // string | Xero generated unique identifier for a bank transaction
-$attachment_id = 'attachment_id_example'; // string | Xero generated unique identifier for an attachment
-$content_type = 'content_type_example'; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
+$attachment_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for an attachment
+$content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
     $result = $apiInstance->getBankTransactionAttachmentById($xero_tenant_id, $bank_transaction_id, $attachment_id, $content_type);
@@ -4063,8 +4172,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transaction_id = 'bank_transaction_id_example'; // string | Xero generated unique identifier for a bank transaction
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
 
 try {
     $result = $apiInstance->getBankTransactionAttachments($xero_tenant_id, $bank_transaction_id);
@@ -4116,12 +4225,12 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = 'where_example'; // string | Filter by an any element
-$order = 'order_example'; // string | Order by an any element
-$page = 56; // int | e.g. page=1 – Up to 100 bank transactions will be returned in a single API call with line items shown for each bank transaction
-$unitdp = 56; // int | e.g. unitdp=4 – You can opt in to use four decimal places for unit amounts
+$where = Status=="' + BankTransaction.StatusEnum.ACTIVE + '"; // string | Filter by an any element
+$order = ASC; // string | Order by an any element
+$page = 1; // int | Up to 100 bank transactions will be returned in a single API call with line items details
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
     $result = $apiInstance->getBankTransactions($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp);
@@ -4140,8 +4249,8 @@ Name | Type | Description  | Notes
  **if_modified_since** | **\DateTime**| Only records created or modified since this timestamp will be returned | [optional]
  **where** | **string**| Filter by an any element | [optional]
  **order** | **string**| Order by an any element | [optional]
- **page** | **int**| e.g. page&#x3D;1 – Up to 100 bank transactions will be returned in a single API call with line items shown for each bank transaction | [optional]
- **unitdp** | **int**| e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts | [optional]
+ **page** | **int**| Up to 100 bank transactions will be returned in a single API call with line items details | [optional]
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -4177,8 +4286,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transaction_id = 'bank_transaction_id_example'; // string | Xero generated unique identifier for a bank transaction
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
 
 try {
     $result = $apiInstance->getBankTransactionsHistory($xero_tenant_id, $bank_transaction_id);
@@ -4230,8 +4339,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transfer_id = 'bank_transfer_id_example'; // string | Xero generated unique identifier for a bank transfer
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$bank_transfer_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transfer
 
 try {
     $result = $apiInstance->getBankTransfer($xero_tenant_id, $bank_transfer_id);
@@ -4283,10 +4392,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transfer_id = 'bank_transfer_id_example'; // string | Xero generated unique identifier for a bank transfer
-$file_name = 'file_name_example'; // string | The name of the file being attached to a Bank Transfer
-$content_type = 'content_type_example'; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$bank_transfer_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transfer
+$file_name = xero-dev.jpg; // string | The name of the file being attached to a Bank Transfer
+$content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
     $result = $apiInstance->getBankTransferAttachmentByFileName($xero_tenant_id, $bank_transfer_id, $file_name, $content_type);
@@ -4340,10 +4449,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transfer_id = 'bank_transfer_id_example'; // string | Xero generated unique identifier for a bank transfer
-$attachment_id = 'attachment_id_example'; // string | Xero generated unique identifier for an Attachment to a bank transfer
-$content_type = 'content_type_example'; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$bank_transfer_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transfer
+$attachment_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for an Attachment to a bank transfer
+$content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
     $result = $apiInstance->getBankTransferAttachmentById($xero_tenant_id, $bank_transfer_id, $attachment_id, $content_type);
@@ -4397,8 +4506,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transfer_id = 'bank_transfer_id_example'; // string | Xero generated unique identifier for a bank transfer
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$bank_transfer_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transfer
 
 try {
     $result = $apiInstance->getBankTransferAttachments($xero_tenant_id, $bank_transfer_id);
@@ -4450,8 +4559,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transfer_id = 'bank_transfer_id_example'; // string | Xero generated unique identifier for a bank transfer
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$bank_transfer_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transfer
 
 try {
     $result = $apiInstance->getBankTransferHistory($xero_tenant_id, $bank_transfer_id);
@@ -4503,10 +4612,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = 'where_example'; // string | Filter by an any element
-$order = 'order_example'; // string | Order by an any element
+$where = Status=="' + BankTransfer.StatusEnum.ACTIVE + '"; // string | Filter by an any element
+$order = ASC; // string | Order by an any element
 
 try {
     $result = $apiInstance->getBankTransfers($xero_tenant_id, $if_modified_since, $where, $order);
@@ -4560,8 +4669,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$batch_payment_id = 'batch_payment_id_example'; // string | Unique identifier for BatchPayment
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$batch_payment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for BatchPayment
 
 try {
     $result = $apiInstance->getBatchPaymentHistory($xero_tenant_id, $batch_payment_id);
@@ -4613,10 +4722,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = 'where_example'; // string | Filter by an any element
-$order = 'order_example'; // string | Order by an any element
+$where = Status=="' + BatchPayment.StatusEnum.ACTIVE + '"; // string | Filter by an any element
+$order = ASC; // string | Order by an any element
 
 try {
     $result = $apiInstance->getBatchPayments($xero_tenant_id, $if_modified_since, $where, $order);
@@ -4670,8 +4779,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$branding_theme_id = 'branding_theme_id_example'; // string | Unique identifier for a Branding Theme
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$branding_theme_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Branding Theme
 
 try {
     $result = $apiInstance->getBrandingTheme($xero_tenant_id, $branding_theme_id);
@@ -4723,8 +4832,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$branding_theme_id = 'branding_theme_id_example'; // string | Unique identifier for a Branding Theme
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$branding_theme_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Branding Theme
 
 try {
     $result = $apiInstance->getBrandingThemePaymentServices($xero_tenant_id, $branding_theme_id);
@@ -4776,7 +4885,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 
 try {
     $result = $apiInstance->getBrandingThemes($xero_tenant_id);
@@ -4827,8 +4936,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$contact_id = 'contact_id_example'; // string | Unique identifier for a Contact
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
 
 try {
     $result = $apiInstance->getContact($xero_tenant_id, $contact_id);
@@ -4880,10 +4989,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$contact_id = 'contact_id_example'; // string | Unique identifier for a Contact
-$file_name = 'file_name_example'; // string | Name for the file you are attaching
-$content_type = 'content_type_example'; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
+$file_name = xero-dev.jpg; // string | Name for the file you are attaching
+$content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
     $result = $apiInstance->getContactAttachmentByFileName($xero_tenant_id, $contact_id, $file_name, $content_type);
@@ -4937,10 +5046,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$contact_id = 'contact_id_example'; // string | Unique identifier for a Contact
-$attachment_id = 'attachment_id_example'; // string | Unique identifier for a Attachment
-$content_type = 'content_type_example'; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
+$attachment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Attachment
+$content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
     $result = $apiInstance->getContactAttachmentById($xero_tenant_id, $contact_id, $attachment_id, $content_type);
@@ -4994,8 +5103,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$contact_id = 'contact_id_example'; // string | Unique identifier for a Contact
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
 
 try {
     $result = $apiInstance->getContactAttachments($xero_tenant_id, $contact_id);
@@ -5047,8 +5156,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$contact_id = 'contact_id_example'; // string | Unique identifier for a Contact
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
 
 try {
     $result = $apiInstance->getContactCISSettings($xero_tenant_id, $contact_id);
@@ -5100,8 +5209,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$contact_group_id = 'contact_group_id_example'; // string | Unique identifier for a Contact Group
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$contact_group_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact Group
 
 try {
     $result = $apiInstance->getContactGroup($xero_tenant_id, $contact_group_id);
@@ -5153,9 +5262,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$where = 'where_example'; // string | Filter by an any element
-$order = 'order_example'; // string | Order by an any element
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$where = Status=="' + ContactGroup.StatusEnum.ACTIVE + '"; // string | Filter by an any element
+$order = ASC; // string | Order by an any element
 
 try {
     $result = $apiInstance->getContactGroups($xero_tenant_id, $where, $order);
@@ -5208,8 +5317,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$contact_id = 'contact_id_example'; // string | Unique identifier for a Contact
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
 
 try {
     $result = $apiInstance->getContactHistory($xero_tenant_id, $contact_id);
@@ -5261,12 +5370,12 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = 'where_example'; // string | Filter by an any element
-$order = 'order_example'; // string | Order by an any element
-$i_ds = array('i_ds_example'); // string[] | Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call.
-$page = 56; // int | e.g. page=1 - Up to 100 contacts will be returned in a single API call.
+$where = Status=="' + Contact.ContactStatusEnum.ACTIVE + '"; // string | Filter by an any element
+$order = ASC; // string | Order by an any element
+$i_ds = 00000000-0000-0000-000-000000000000,00000000-0000-0000-000-000000000000; // string[] | Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call.
+$page = 1; // int | e.g. page=1 - Up to 100 contacts will be returned in a single API call.
 $include_archived = True; // bool | e.g. includeArchived=true - Contacts with a status of ARCHIVED will be included in the response
 
 try {
@@ -5324,8 +5433,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$credit_note_id = 'credit_note_id_example'; // string | Unique identifier for a Credit Note
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
 
 try {
     $result = $apiInstance->getCreditNote($xero_tenant_id, $credit_note_id);
@@ -5377,9 +5486,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$credit_note_id = 'credit_note_id_example'; // string | Unique identifier for a Credit Note
-$content_type = 'content_type_example'; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
+$content_type = application/pdf; // string | The mime type of the attachment file you are retrieving i.e application/pdf
 
 try {
     $result = $apiInstance->getCreditNoteAsPdf($xero_tenant_id, $credit_note_id, $content_type);
@@ -5396,7 +5505,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **credit_note_id** | [**string**](../Model/.md)| Unique identifier for a Credit Note |
- **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
+ **content_type** | **string**| The mime type of the attachment file you are retrieving i.e application/pdf |
 
 ### Return type
 
@@ -5432,10 +5541,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$credit_note_id = 'credit_note_id_example'; // string | Unique identifier for a Credit Note
-$file_name = 'file_name_example'; // string | Name of the file you are attaching to Credit Note
-$content_type = 'content_type_example'; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
+$file_name = xero-dev.jpg; // string | Name of the file you are attaching to Credit Note
+$content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
     $result = $apiInstance->getCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $content_type);
@@ -5489,10 +5598,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$credit_note_id = 'credit_note_id_example'; // string | Unique identifier for a Credit Note
-$attachment_id = 'attachment_id_example'; // string | Unique identifier for a Attachment
-$content_type = 'content_type_example'; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
+$attachment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Attachment
+$content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
     $result = $apiInstance->getCreditNoteAttachmentById($xero_tenant_id, $credit_note_id, $attachment_id, $content_type);
@@ -5546,8 +5655,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$credit_note_id = 'credit_note_id_example'; // string | Unique identifier for a Credit Note
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
 
 try {
     $result = $apiInstance->getCreditNoteAttachments($xero_tenant_id, $credit_note_id);
@@ -5599,8 +5708,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$credit_note_id = 'credit_note_id_example'; // string | Unique identifier for a Credit Note
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
 
 try {
     $result = $apiInstance->getCreditNoteHistory($xero_tenant_id, $credit_note_id);
@@ -5652,11 +5761,11 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = 'where_example'; // string | Filter by an any element
-$order = 'order_example'; // string | Order by an any element
-$page = 56; // int | e.g. page=1 – Up to 100 credit notes will be returned in a single API call with line items shown for each credit note
+$where = Status=="' + CreditNote.StatusEnum.ACTIVE + '"; // string | Filter by an any element
+$order = ASC; // string | Order by an any element
+$page = 1; // int | e.g. page=1 – Up to 100 credit notes will be returned in a single API call with line items shown for each credit note
 
 try {
     $result = $apiInstance->getCreditNotes($xero_tenant_id, $if_modified_since, $where, $order, $page);
@@ -5711,9 +5820,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$where = 'where_example'; // string | Filter by an any element
-$order = 'order_example'; // string | Order by an any element
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$where = Status=="' + Currency.StatusEnum.ACTIVE + '"; // string | Filter by an any element
+$order = ASC; // string | Order by an any element
 
 try {
     $result = $apiInstance->getCurrencies($xero_tenant_id, $where, $order);
@@ -5766,8 +5875,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$employee_id = 'employee_id_example'; // string | Unique identifier for a Employee
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$employee_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Employee
 
 try {
     $result = $apiInstance->getEmployee($xero_tenant_id, $employee_id);
@@ -5819,10 +5928,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = 'where_example'; // string | Filter by an any element
-$order = 'order_example'; // string | Order by an any element
+$where = Status=="' + Employee.StatusEnum.ACTIVE + '"; // string | Filter by an any element
+$order = ASC; // string | Order by an any element
 
 try {
     $result = $apiInstance->getEmployees($xero_tenant_id, $if_modified_since, $where, $order);
@@ -5876,8 +5985,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$expense_claim_id = 'expense_claim_id_example'; // string | Unique identifier for a ExpenseClaim
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$expense_claim_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ExpenseClaim
 
 try {
     $result = $apiInstance->getExpenseClaim($xero_tenant_id, $expense_claim_id);
@@ -5929,8 +6038,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$expense_claim_id = 'expense_claim_id_example'; // string | Unique identifier for a ExpenseClaim
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$expense_claim_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ExpenseClaim
 
 try {
     $result = $apiInstance->getExpenseClaimHistory($xero_tenant_id, $expense_claim_id);
@@ -5982,10 +6091,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = 'where_example'; // string | Filter by an any element
-$order = 'order_example'; // string | Order by an any element
+$where = Status=="' + ExpenseClaim.StatusEnum.ACTIVE + '"; // string | Filter by an any element
+$order = ASC; // string | Order by an any element
 
 try {
     $result = $apiInstance->getExpenseClaims($xero_tenant_id, $if_modified_since, $where, $order);
@@ -6039,8 +6148,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$invoice_id = 'invoice_id_example'; // string | Unique identifier for an Invoice
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
 
 try {
     $result = $apiInstance->getInvoice($xero_tenant_id, $invoice_id);
@@ -6092,9 +6201,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$invoice_id = 'invoice_id_example'; // string | Unique identifier for an Invoice
-$content_type = 'content_type_example'; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
+$content_type = application/pdf; // string | The mime type of the attachment file you are retrieving
 
 try {
     $result = $apiInstance->getInvoiceAsPdf($xero_tenant_id, $invoice_id, $content_type);
@@ -6111,7 +6220,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **invoice_id** | [**string**](../Model/.md)| Unique identifier for an Invoice |
- **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
+ **content_type** | **string**| The mime type of the attachment file you are retrieving |
 
 ### Return type
 
@@ -6147,10 +6256,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$invoice_id = 'invoice_id_example'; // string | Unique identifier for an Invoice
-$file_name = 'file_name_example'; // string | Name of the file you are attaching
-$content_type = 'content_type_example'; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
+$file_name = xero-dev.jpg; // string | Name of the file you are attaching
+$content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
     $result = $apiInstance->getInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $content_type);
@@ -6204,10 +6313,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$invoice_id = 'invoice_id_example'; // string | Unique identifier for an Invoice
-$attachment_id = 'attachment_id_example'; // string | Unique identifier for an Attachment
-$content_type = 'content_type_example'; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
+$attachment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Attachment
+$content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
     $result = $apiInstance->getInvoiceAttachmentById($xero_tenant_id, $invoice_id, $attachment_id, $content_type);
@@ -6261,8 +6370,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$invoice_id = 'invoice_id_example'; // string | Unique identifier for an Invoice
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
 
 try {
     $result = $apiInstance->getInvoiceAttachments($xero_tenant_id, $invoice_id);
@@ -6314,8 +6423,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$invoice_id = 'invoice_id_example'; // string | Unique identifier for an Invoice
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
 
 try {
     $result = $apiInstance->getInvoiceHistory($xero_tenant_id, $invoice_id);
@@ -6367,7 +6476,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 
 try {
     $result = $apiInstance->getInvoiceReminders($xero_tenant_id);
@@ -6418,18 +6527,18 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = 'where_example'; // string | Filter by an any element
-$order = 'order_example'; // string | Order by an any element
-$i_ds = array('i_ds_example'); // string[] | Filter by a comma-separated list of InvoicesIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
-$invoice_numbers = array('invoice_numbers_example'); // string[] | Filter by a comma-separated list of InvoiceNumbers. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
-$contact_i_ds = array('contact_i_ds_example'); // string[] | Filter by a comma-separated list of ContactIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
-$statuses = array('statuses_example'); // string[] | Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
-$page = 56; // int | e.g. page=1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice
+$where = Status=="' + Invoice.StatusEnum.ACTIVE + '"; // string | Filter by an any element
+$order = ASC; // string | Order by an any element
+$i_ds = 00000000-0000-0000-000-000000000000,00000000-0000-0000-000-000000000000; // string[] | Filter by a comma-separated list of InvoicesIDs.
+$invoice_numbers = null; // string[] | Filter by a comma-separated list of InvoiceNumbers.
+$contact_i_ds = 00000000-0000-0000-000-000000000000,00000000-0000-0000-000-000000000000; // string[] | Filter by a comma-separated list of ContactIDs.
+$statuses = null; // string[] | Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
+$page = 1; // int | e.g. page=1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice
 $include_archived = True; // bool | e.g. includeArchived=true - Contacts with a status of ARCHIVED will be included in the response
-$created_by_my_app = True; // bool | When set to true you'll only retrieve Invoices created by your app
-$unitdp = 56; // int | e.g. unitdp=4 – You can opt in to use four decimal places for unit amounts
+$created_by_my_app = false; // bool | When set to true you'll only retrieve Invoices created by your app
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
     $result = $apiInstance->getInvoices($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $invoice_numbers, $contact_i_ds, $statuses, $page, $include_archived, $created_by_my_app, $unitdp);
@@ -6448,14 +6557,14 @@ Name | Type | Description  | Notes
  **if_modified_since** | **\DateTime**| Only records created or modified since this timestamp will be returned | [optional]
  **where** | **string**| Filter by an any element | [optional]
  **order** | **string**| Order by an any element | [optional]
- **i_ds** | [**string[]**](../Model/string.md)| Filter by a comma-separated list of InvoicesIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. | [optional]
- **invoice_numbers** | [**string[]**](../Model/string.md)| Filter by a comma-separated list of InvoiceNumbers. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. | [optional]
- **contact_i_ds** | [**string[]**](../Model/string.md)| Filter by a comma-separated list of ContactIDs. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. | [optional]
+ **i_ds** | [**string[]**](../Model/string.md)| Filter by a comma-separated list of InvoicesIDs. | [optional]
+ **invoice_numbers** | [**string[]**](../Model/string.md)| Filter by a comma-separated list of InvoiceNumbers. | [optional]
+ **contact_i_ds** | [**string[]**](../Model/string.md)| Filter by a comma-separated list of ContactIDs. | [optional]
  **statuses** | [**string[]**](../Model/string.md)| Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. | [optional]
  **page** | **int**| e.g. page&#x3D;1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice | [optional]
  **include_archived** | **bool**| e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response | [optional]
  **created_by_my_app** | **bool**| When set to true you&#39;ll only retrieve Invoices created by your app | [optional]
- **unitdp** | **int**| e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts | [optional]
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -6491,8 +6600,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$item_id = 'item_id_example'; // string | Unique identifier for an Item
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$item_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Item
 
 try {
     $result = $apiInstance->getItem($xero_tenant_id, $item_id);
@@ -6544,8 +6653,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$item_id = 'item_id_example'; // string | Unique identifier for an Item
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$item_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Item
 
 try {
     $result = $apiInstance->getItemHistory($xero_tenant_id, $item_id);
@@ -6597,11 +6706,11 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = 'where_example'; // string | Filter by an any element
-$order = 'order_example'; // string | Order by an any element
-$unitdp = 56; // int | e.g. unitdp=4 – You can opt in to use four decimal places for unit amounts
+$where = Status=="' + Item.StatusEnum.ACTIVE + '"; // string | Filter by an any element
+$order = ASC; // string | Order by an any element
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
     $result = $apiInstance->getItems($xero_tenant_id, $if_modified_since, $where, $order, $unitdp);
@@ -6620,7 +6729,7 @@ Name | Type | Description  | Notes
  **if_modified_since** | **\DateTime**| Only records created or modified since this timestamp will be returned | [optional]
  **where** | **string**| Filter by an any element | [optional]
  **order** | **string**| Order by an any element | [optional]
- **unitdp** | **int**| e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts | [optional]
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -6656,8 +6765,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$journal_id = 'journal_id_example'; // string | Unique identifier for a Journal
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$journal_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Journal
 
 try {
     $result = $apiInstance->getJournal($xero_tenant_id, $journal_id);
@@ -6709,9 +6818,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$offset = 56; // int | Offset by a specified journal number. e.g. journals with a JournalNumber greater than the offset will be returned
+$offset = 10; // int | Offset by a specified journal number. e.g. journals with a JournalNumber greater than the offset will be returned
 $payments_only = True; // bool | Filter to retrieve journals on a cash basis. Journals are returned on an accrual basis by default.
 
 try {
@@ -6766,8 +6875,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$linked_transaction_id = 'linked_transaction_id_example'; // string | Unique identifier for a LinkedTransaction
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$linked_transaction_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a LinkedTransaction
 
 try {
     $result = $apiInstance->getLinkedTransaction($xero_tenant_id, $linked_transaction_id);
@@ -6819,13 +6928,13 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$page = 56; // int | Up to 100 linked transactions will be returned in a single API call. Use the page parameter to specify the page to be returned e.g. page=1.
-$linked_transaction_id = 'linked_transaction_id_example'; // string | The Xero identifier for an Linked Transaction
-$source_transaction_id = 'source_transaction_id_example'; // string | Filter by the SourceTransactionID. Get all the linked transactions created from a particular ACCPAY invoice
-$contact_id = 'contact_id_example'; // string | Filter by the ContactID. Get all the linked transactions that have been assigned to a particular customer.
-$status = 'status_example'; // string | Filter by the combination of ContactID and Status. Get all the linked transactions that have been assigned to a particular customer and have a particular status e.g. GET /LinkedTransactions?ContactID=4bb34b03-3378-4bb2-a0ed-6345abf3224e&Status=APPROVED.
-$target_transaction_id = 'target_transaction_id_example'; // string | Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$page = 1; // int | Up to 100 linked transactions will be returned in a single API call. Use the page parameter to specify the page to be returned e.g. page=1.
+$linked_transaction_id = 00000000-0000-0000-000-000000000000; // string | The Xero identifier for an Linked Transaction
+$source_transaction_id = 00000000-0000-0000-000-000000000000; // string | Filter by the SourceTransactionID. Get the linked transactions created from a particular ACCPAY invoice
+$contact_id = 00000000-0000-0000-000-000000000000; // string | Filter by the ContactID. Get all the linked transactions that have been assigned to a particular customer.
+$status = APPROVED; // string | Filter by the combination of ContactID and Status. Get  the linked transactions associaed to a  customer and with a status
+$target_transaction_id = 00000000-0000-0000-000-000000000000; // string | Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice
 
 try {
     $result = $apiInstance->getLinkedTransactions($xero_tenant_id, $page, $linked_transaction_id, $source_transaction_id, $contact_id, $status, $target_transaction_id);
@@ -6843,9 +6952,9 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **page** | **int**| Up to 100 linked transactions will be returned in a single API call. Use the page parameter to specify the page to be returned e.g. page&#x3D;1. | [optional]
  **linked_transaction_id** | **string**| The Xero identifier for an Linked Transaction | [optional]
- **source_transaction_id** | **string**| Filter by the SourceTransactionID. Get all the linked transactions created from a particular ACCPAY invoice | [optional]
+ **source_transaction_id** | **string**| Filter by the SourceTransactionID. Get the linked transactions created from a particular ACCPAY invoice | [optional]
  **contact_id** | **string**| Filter by the ContactID. Get all the linked transactions that have been assigned to a particular customer. | [optional]
- **status** | **string**| Filter by the combination of ContactID and Status. Get all the linked transactions that have been assigned to a particular customer and have a particular status e.g. GET /LinkedTransactions?ContactID&#x3D;4bb34b03-3378-4bb2-a0ed-6345abf3224e&amp;Status&#x3D;APPROVED. | [optional]
+ **status** | **string**| Filter by the combination of ContactID and Status. Get  the linked transactions associaed to a  customer and with a status | [optional]
  **target_transaction_id** | **string**| Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice | [optional]
 
 ### Return type
@@ -6882,8 +6991,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$manual_journal_id = 'manual_journal_id_example'; // string | Unique identifier for a ManualJournal
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$manual_journal_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ManualJournal
 
 try {
     $result = $apiInstance->getManualJournal($xero_tenant_id, $manual_journal_id);
@@ -6935,10 +7044,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$manual_journal_id = 'manual_journal_id_example'; // string | Unique identifier for a ManualJournal
-$file_name = 'file_name_example'; // string | The name of the file being attached to a ManualJournal
-$content_type = 'content_type_example'; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$manual_journal_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ManualJournal
+$file_name = xero-dev.jpg; // string | The name of the file being attached to a ManualJournal
+$content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
     $result = $apiInstance->getManualJournalAttachmentByFileName($xero_tenant_id, $manual_journal_id, $file_name, $content_type);
@@ -6992,10 +7101,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$manual_journal_id = 'manual_journal_id_example'; // string | Unique identifier for a ManualJournal
-$attachment_id = 'attachment_id_example'; // string | Unique identifier for a Attachment
-$content_type = 'content_type_example'; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$manual_journal_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ManualJournal
+$attachment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Attachment
+$content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
     $result = $apiInstance->getManualJournalAttachmentById($xero_tenant_id, $manual_journal_id, $attachment_id, $content_type);
@@ -7049,8 +7158,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$manual_journal_id = 'manual_journal_id_example'; // string | Unique identifier for a ManualJournal
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$manual_journal_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ManualJournal
 
 try {
     $result = $apiInstance->getManualJournalAttachments($xero_tenant_id, $manual_journal_id);
@@ -7102,11 +7211,11 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = 'where_example'; // string | Filter by an any element
-$order = 'order_example'; // string | Order by an any element
-$page = 56; // int | e.g. page=1 – Up to 100 manual journals will be returned in a single API call with line items shown for each overpayment
+$where = Status=="' + ManualJournal.StatusEnum.ACTIVE + '"; // string | Filter by an any element
+$order = ASC; // string | Order by an any element
+$page = 1; // int | e.g. page=1 – Up to 100 manual journals will be returned in a single API call with line items shown for each overpayment
 
 try {
     $result = $apiInstance->getManualJournals($xero_tenant_id, $if_modified_since, $where, $order, $page);
@@ -7161,8 +7270,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$invoice_id = 'invoice_id_example'; // string | Unique identifier for an Invoice
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
 
 try {
     $result = $apiInstance->getOnlineInvoice($xero_tenant_id, $invoice_id);
@@ -7214,8 +7323,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$organisation_id = 'organisation_id_example'; // string | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$organisation_id = 00000000-0000-0000-000-000000000000; // string | The unique Xero identifier for an organisation
 
 try {
     $result = $apiInstance->getOrganisationCISSettings($xero_tenant_id, $organisation_id);
@@ -7231,7 +7340,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **organisation_id** | [**string**](../Model/.md)|  |
+ **organisation_id** | [**string**](../Model/.md)| The unique Xero identifier for an organisation |
 
 ### Return type
 
@@ -7267,7 +7376,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 
 try {
     $result = $apiInstance->getOrganisations($xero_tenant_id);
@@ -7318,8 +7427,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$overpayment_id = 'overpayment_id_example'; // string | Unique identifier for a Overpayment
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$overpayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Overpayment
 
 try {
     $result = $apiInstance->getOverpayment($xero_tenant_id, $overpayment_id);
@@ -7371,8 +7480,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$overpayment_id = 'overpayment_id_example'; // string | Unique identifier for a Overpayment
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$overpayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Overpayment
 
 try {
     $result = $apiInstance->getOverpaymentHistory($xero_tenant_id, $overpayment_id);
@@ -7424,12 +7533,12 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = 'where_example'; // string | Filter by an any element
-$order = 'order_example'; // string | Order by an any element
-$page = 56; // int | e.g. page=1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment
-$unitdp = 56; // int | e.g. unitdp=4 – You can opt in to use four decimal places for unit amounts
+$where = Status=="' + Overpayment.StatusEnum.ACTIVE + '"; // string | Filter by an any element
+$order = ASC; // string | Order by an any element
+$page = 1; // int | e.g. page=1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
     $result = $apiInstance->getOverpayments($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp);
@@ -7449,7 +7558,7 @@ Name | Type | Description  | Notes
  **where** | **string**| Filter by an any element | [optional]
  **order** | **string**| Order by an any element | [optional]
  **page** | **int**| e.g. page&#x3D;1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment | [optional]
- **unitdp** | **int**| e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts | [optional]
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -7485,8 +7594,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$payment_id = 'payment_id_example'; // string | Unique identifier for a Payment
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$payment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Payment
 
 try {
     $result = $apiInstance->getPayment($xero_tenant_id, $payment_id);
@@ -7538,8 +7647,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$payment_id = 'payment_id_example'; // string | Unique identifier for a Payment
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$payment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Payment
 
 try {
     $result = $apiInstance->getPaymentHistory($xero_tenant_id, $payment_id);
@@ -7591,7 +7700,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 
 try {
     $result = $apiInstance->getPaymentServices($xero_tenant_id);
@@ -7642,10 +7751,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = 'where_example'; // string | Filter by an any element
-$order = 'order_example'; // string | Order by an any element
+$where = Status=="' + Payment.StatusEnum.ACTIVE + '"; // string | Filter by an any element
+$order = ASC; // string | Order by an any element
 
 try {
     $result = $apiInstance->getPayments($xero_tenant_id, $if_modified_since, $where, $order);
@@ -7699,8 +7808,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$prepayment_id = 'prepayment_id_example'; // string | Unique identifier for a PrePayment
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$prepayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a PrePayment
 
 try {
     $result = $apiInstance->getPrepayment($xero_tenant_id, $prepayment_id);
@@ -7752,8 +7861,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$prepayment_id = 'prepayment_id_example'; // string | Unique identifier for a PrePayment
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$prepayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a PrePayment
 
 try {
     $result = $apiInstance->getPrepaymentHistory($xero_tenant_id, $prepayment_id);
@@ -7805,12 +7914,12 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = 'where_example'; // string | Filter by an any element
-$order = 'order_example'; // string | Order by an any element
-$page = 56; // int | e.g. page=1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment
-$unitdp = 56; // int | e.g. unitdp=4 – You can opt in to use four decimal places for unit amounts
+$where = Status=="' + Prepayment.StatusEnum.ACTIVE + '"; // string | Filter by an any element
+$order = ASC; // string | Order by an any element
+$page = 1; // int | e.g. page=1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
     $result = $apiInstance->getPrepayments($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp);
@@ -7830,7 +7939,7 @@ Name | Type | Description  | Notes
  **where** | **string**| Filter by an any element | [optional]
  **order** | **string**| Order by an any element | [optional]
  **page** | **int**| e.g. page&#x3D;1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment | [optional]
- **unitdp** | **int**| e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts | [optional]
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -7866,8 +7975,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$purchase_order_id = 'purchase_order_id_example'; // string | Unique identifier for a PurchaseOrder
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$purchase_order_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a PurchaseOrder
 
 try {
     $result = $apiInstance->getPurchaseOrder($xero_tenant_id, $purchase_order_id);
@@ -7919,8 +8028,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$purchase_order_id = 'purchase_order_id_example'; // string | Unique identifier for a PurchaseOrder
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$purchase_order_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a PurchaseOrder
 
 try {
     $result = $apiInstance->getPurchaseOrderHistory($xero_tenant_id, $purchase_order_id);
@@ -7972,13 +8081,13 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$status = 'status_example'; // string | Filter by purchase order status
-$date_from = 'date_from_example'; // string | Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom=2015-12-01&DateTo=2015-12-31
-$date_to = 'date_to_example'; // string | Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom=2015-12-01&DateTo=2015-12-31
-$order = 'order_example'; // string | Order by an any element
-$page = 56; // int | To specify a page, append the page parameter to the URL e.g. ?page=1. If there are 100 records in the response you will need to check if there is any more data by fetching the next page e.g ?page=2 and continuing this process until no more results are returned.
+$status = SUBMITTED; // string | Filter by purchase order status
+$date_from = 2019-12-01; // string | Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom=2015-12-01&DateTo=2015-12-31
+$date_to = 2019-12-31; // string | Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom=2015-12-01&DateTo=2015-12-31
+$order = ASC; // string | Order by an any element
+$page = 1; // int | To specify a page, append the page parameter to the URL e.g. ?page=1. If there are 100 records in the response you will need to check if there is any more data by fetching the next page e.g ?page=2 and continuing this process until no more results are returned.
 
 try {
     $result = $apiInstance->getPurchaseOrders($xero_tenant_id, $if_modified_since, $status, $date_from, $date_to, $order, $page);
@@ -8035,8 +8144,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$quote_id = 'quote_id_example'; // string | Unique identifier for an Quote
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Quote
 
 try {
     $result = $apiInstance->getQuote($xero_tenant_id, $quote_id);
@@ -8069,6 +8178,59 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **getQuoteHistory**
+> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getQuoteHistory($xero_tenant_id, $quote_id)
+
+Allows you to retrieve a history records of an quote
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Quote
+
+try {
+    $result = $apiInstance->getQuoteHistory($xero_tenant_id, $quote_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->getQuoteHistory: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **quote_id** | [**string**](../Model/.md)| Unique identifier for an Quote |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **getQuotes**
 > \XeroAPI\XeroPHP\Models\Accounting\Quotes getQuotes($xero_tenant_id, $if_modified_since, $date_from, $date_to, $expiry_date_from, $expiry_date_to, $contact_id, $status, $page, $order)
 
@@ -8088,16 +8250,16 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
 $date_from = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter for quotes after a particular date
 $date_to = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter for quotes before a particular date
 $expiry_date_from = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter for quotes expiring after a particular date
 $expiry_date_to = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter for quotes before a particular date
-$contact_id = 'contact_id_example'; // string | Filter for quotes belonging to a particular contact
+$contact_id = 00000000-0000-0000-000-000000000000; // string | Filter for quotes belonging to a particular contact
 $status = 'status_example'; // string | Filter for quotes of a particular Status
-$page = 56; // int | e.g. page=1 – Up to 100 Quotes will be returned in a single API call with line items shown for each quote
-$order = 'order_example'; // string | Order by an any element
+$page = 1; // int | e.g. page=1 – Up to 100 Quotes will be returned in a single API call with line items shown for each quote
+$order = ASC; // string | Order by an any element
 
 try {
     $result = $apiInstance->getQuotes($xero_tenant_id, $if_modified_since, $date_from, $date_to, $expiry_date_from, $expiry_date_to, $contact_id, $status, $page, $order);
@@ -8157,8 +8319,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$receipt_id = 'receipt_id_example'; // string | Unique identifier for a Receipt
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
 
 try {
     $result = $apiInstance->getReceipt($xero_tenant_id, $receipt_id);
@@ -8210,10 +8372,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$receipt_id = 'receipt_id_example'; // string | Unique identifier for a Receipt
-$file_name = 'file_name_example'; // string | The name of the file being attached to the Receipt
-$content_type = 'content_type_example'; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
+$file_name = xero-dev.jpg; // string | The name of the file being attached to the Receipt
+$content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
     $result = $apiInstance->getReceiptAttachmentByFileName($xero_tenant_id, $receipt_id, $file_name, $content_type);
@@ -8267,10 +8429,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$receipt_id = 'receipt_id_example'; // string | Unique identifier for a Receipt
-$attachment_id = 'attachment_id_example'; // string | Unique identifier for a Attachment
-$content_type = 'content_type_example'; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
+$attachment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Attachment
+$content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
     $result = $apiInstance->getReceiptAttachmentById($xero_tenant_id, $receipt_id, $attachment_id, $content_type);
@@ -8324,8 +8486,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$receipt_id = 'receipt_id_example'; // string | Unique identifier for a Receipt
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
 
 try {
     $result = $apiInstance->getReceiptAttachments($xero_tenant_id, $receipt_id);
@@ -8377,8 +8539,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$receipt_id = 'receipt_id_example'; // string | Unique identifier for a Receipt
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
 
 try {
     $result = $apiInstance->getReceiptHistory($xero_tenant_id, $receipt_id);
@@ -8430,11 +8592,11 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = 'where_example'; // string | Filter by an any element
-$order = 'order_example'; // string | Order by an any element
-$unitdp = 56; // int | e.g. unitdp=4 – You can opt in to use four decimal places for unit amounts
+$where = Status=="' + Receipt.StatusEnum.ACTIVE + '"; // string | Filter by an any element
+$order = ASC; // string | Order by an any element
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
     $result = $apiInstance->getReceipts($xero_tenant_id, $if_modified_since, $where, $order, $unitdp);
@@ -8453,7 +8615,7 @@ Name | Type | Description  | Notes
  **if_modified_since** | **\DateTime**| Only records created or modified since this timestamp will be returned | [optional]
  **where** | **string**| Filter by an any element | [optional]
  **order** | **string**| Order by an any element | [optional]
- **unitdp** | **int**| e.g. unitdp&#x3D;4 – You can opt in to use four decimal places for unit amounts | [optional]
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -8489,8 +8651,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$repeating_invoice_id = 'repeating_invoice_id_example'; // string | Unique identifier for a Repeating Invoice
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$repeating_invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Repeating Invoice
 
 try {
     $result = $apiInstance->getRepeatingInvoice($xero_tenant_id, $repeating_invoice_id);
@@ -8542,10 +8704,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$repeating_invoice_id = 'repeating_invoice_id_example'; // string | Unique identifier for a Repeating Invoice
-$file_name = 'file_name_example'; // string | The name of the file being attached to a Repeating Invoice
-$content_type = 'content_type_example'; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$repeating_invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Repeating Invoice
+$file_name = xero-dev.jpg; // string | The name of the file being attached to a Repeating Invoice
+$content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
     $result = $apiInstance->getRepeatingInvoiceAttachmentByFileName($xero_tenant_id, $repeating_invoice_id, $file_name, $content_type);
@@ -8599,10 +8761,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$repeating_invoice_id = 'repeating_invoice_id_example'; // string | Unique identifier for a Repeating Invoice
-$attachment_id = 'attachment_id_example'; // string | Unique identifier for a Attachment
-$content_type = 'content_type_example'; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$repeating_invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Repeating Invoice
+$attachment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Attachment
+$content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
     $result = $apiInstance->getRepeatingInvoiceAttachmentById($xero_tenant_id, $repeating_invoice_id, $attachment_id, $content_type);
@@ -8656,8 +8818,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$repeating_invoice_id = 'repeating_invoice_id_example'; // string | Unique identifier for a Repeating Invoice
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$repeating_invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Repeating Invoice
 
 try {
     $result = $apiInstance->getRepeatingInvoiceAttachments($xero_tenant_id, $repeating_invoice_id);
@@ -8709,8 +8871,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$repeating_invoice_id = 'repeating_invoice_id_example'; // string | Unique identifier for a Repeating Invoice
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$repeating_invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Repeating Invoice
 
 try {
     $result = $apiInstance->getRepeatingInvoiceHistory($xero_tenant_id, $repeating_invoice_id);
@@ -8762,9 +8924,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$where = 'where_example'; // string | Filter by an any element
-$order = 'order_example'; // string | Order by an any element
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$where = Status=="' + RepeatingInvoice.StatusEnum.ACTIVE + '"; // string | Filter by an any element
+$order = ASC; // string | Order by an any element
 
 try {
     $result = $apiInstance->getRepeatingInvoices($xero_tenant_id, $where, $order);
@@ -8817,8 +8979,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$contact_id = 'contact_id_example'; // string | Unique identifier for a Contact
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
 $date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The date of the Aged Payables By Contact report
 $from_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The from date of the Aged Payables By Contact report
 $to_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The to date of the Aged Payables By Contact report
@@ -8876,8 +9038,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$contact_id = 'contact_id_example'; // string | Unique identifier for a Contact
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
 $date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The date of the Aged Receivables By Contact report
 $from_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The from date of the Aged Receivables By Contact report
 $to_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The to date of the Aged Receivables By Contact report
@@ -8935,8 +9097,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$report_id = 'report_id_example'; // string | Unique identifier for a Report
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$report_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Report
 
 try {
     $result = $apiInstance->getReportBASorGST($xero_tenant_id, $report_id);
@@ -8988,7 +9150,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 
 try {
     $result = $apiInstance->getReportBASorGSTList($xero_tenant_id);
@@ -9039,14 +9201,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$date = 'date_example'; // string | The date of the Balance Sheet report
-$periods = 56; // int | The number of periods for the Balance Sheet report
-$timeframe = 'timeframe_example'; // string | The period size to compare to (MONTH, QUARTER, YEAR)
-$tracking_option_id1 = 'tracking_option_id1_example'; // string | The tracking option 1 for the Balance Sheet report
-$tracking_option_id2 = 'tracking_option_id2_example'; // string | The tracking option 2 for the Balance Sheet report
-$standard_layout = True; // bool | The standard layout boolean for the Balance Sheet report
-$payments_only = True; // bool | return a cash basis for the Balance Sheet report
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$date = 2019-11-01; // string | The date of the Balance Sheet report
+$periods = 3; // int | The number of periods for the Balance Sheet report
+$timeframe = MONTH; // string | The period size to compare to (MONTH, QUARTER, YEAR)
+$tracking_option_id1 = 00000000-0000-0000-000-000000000000; // string | The tracking option 1 for the Balance Sheet report
+$tracking_option_id2 = 00000000-0000-0000-000-000000000000; // string | The tracking option 2 for the Balance Sheet report
+$standard_layout = true; // bool | The standard layout boolean for the Balance Sheet report
+$payments_only = false; // bool | return a cash basis for the Balance Sheet report
 
 try {
     $result = $apiInstance->getReportBalanceSheet($xero_tenant_id, $date, $periods, $timeframe, $tracking_option_id1, $tracking_option_id2, $standard_layout, $payments_only);
@@ -9104,9 +9266,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$from_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The from date for the Bank Summary report e.g. 2018-03-31
-$to_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The to date for the Bank Summary report e.g. 2018-03-31
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$from_date = 2019-11-01; // \DateTime | The from date for the Bank Summary report e.g. 2018-03-31
+$to_date = 2019-11-30; // \DateTime | The to date for the Bank Summary report e.g. 2018-03-31
 
 try {
     $result = $apiInstance->getReportBankSummary($xero_tenant_id, $from_date, $to_date);
@@ -9159,10 +9321,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The date for the Bank Summary report e.g. 2018-03-31
-$period = 56; // int | The number of periods to compare (integer between 1 and 12)
-$timeframe = 56; // int | The period size to compare to (1=month, 3=quarter, 12=year)
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$date = 2019-03-31; // \DateTime | The date for the Bank Summary report e.g. 2018-03-31
+$period = 2; // int | The number of periods to compare (integer between 1 and 12)
+$timeframe = 3; // int | The period size to compare to (1=month, 3=quarter, 12=year)
 
 try {
     $result = $apiInstance->getReportBudgetSummary($xero_tenant_id, $date, $period, $timeframe);
@@ -9216,8 +9378,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The date for the Bank Summary report e.g. 2018-03-31
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$date = 2019-03-31; // \DateTime | The date for the Bank Summary report e.g. 2018-03-31
 
 try {
     $result = $apiInstance->getReportExecutiveSummary($xero_tenant_id, $date);
@@ -9269,17 +9431,17 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$from_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The from date for the ProfitAndLoss report e.g. 2018-03-31
-$to_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The to date for the ProfitAndLoss report e.g. 2018-03-31
-$periods = 56; // int | The number of periods to compare (integer between 1 and 12)
-$timeframe = 'timeframe_example'; // string | The period size to compare to (MONTH, QUARTER, YEAR)
-$tracking_category_id = 'tracking_category_id_example'; // string | The trackingCategory 1 for the ProfitAndLoss report
-$tracking_category_id2 = 'tracking_category_id2_example'; // string | The trackingCategory 2 for the ProfitAndLoss report
-$tracking_option_id = 'tracking_option_id_example'; // string | The tracking option 1 for the ProfitAndLoss report
-$tracking_option_id2 = 'tracking_option_id2_example'; // string | The tracking option 2 for the ProfitAndLoss report
-$standard_layout = True; // bool | Return the standard layout for the ProfitAndLoss report
-$payments_only = True; // bool | Return cash only basis for the ProfitAndLoss report
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$from_date = 2019-03-01; // \DateTime | The from date for the ProfitAndLoss report e.g. 2018-03-31
+$to_date = 2019-03-31; // \DateTime | The to date for the ProfitAndLoss report e.g. 2018-03-31
+$periods = 3; // int | The number of periods to compare (integer between 1 and 12)
+$timeframe = MONTH; // string | The period size to compare to (MONTH, QUARTER, YEAR)
+$tracking_category_id = 00000000-0000-0000-000-000000000000; // string | The trackingCategory 1 for the ProfitAndLoss report
+$tracking_category_id2 = 00000000-0000-0000-000-000000000000; // string | The trackingCategory 2 for the ProfitAndLoss report
+$tracking_option_id = 00000000-0000-0000-000-000000000000; // string | The tracking option 1 for the ProfitAndLoss report
+$tracking_option_id2 = 00000000-0000-0000-000-000000000000; // string | The tracking option 2 for the ProfitAndLoss report
+$standard_layout = true; // bool | Return the standard layout for the ProfitAndLoss report
+$payments_only = false; // bool | Return cash only basis for the ProfitAndLoss report
 
 try {
     $result = $apiInstance->getReportProfitAndLoss($xero_tenant_id, $from_date, $to_date, $periods, $timeframe, $tracking_category_id, $tracking_category_id2, $tracking_option_id, $tracking_option_id2, $standard_layout, $payments_only);
@@ -9340,8 +9502,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$report_year = 'report_year_example'; // string | The year of the 1099 report
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$report_year = 2019; // string | The year of the 1099 report
 
 try {
     $result = $apiInstance->getReportTenNinetyNine($xero_tenant_id, $report_year);
@@ -9393,9 +9555,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The date for the Trial Balance report e.g. 2018-03-31
-$payments_only = True; // bool | Return cash only basis for the Trial Balance report
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$date = 2019-10-31; // \DateTime | The date for the Trial Balance report e.g. 2018-03-31
+$payments_only = true; // bool | Return cash only basis for the Trial Balance report
 
 try {
     $result = $apiInstance->getReportTrialBalance($xero_tenant_id, $date, $payments_only);
@@ -9448,10 +9610,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$where = 'where_example'; // string | Filter by an any element
-$order = 'order_example'; // string | Order by an any element
-$tax_type = 'tax_type_example'; // string | Filter by tax type
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$where = Status=="' + TaxRate.StatusEnum.ACTIVE + '"; // string | Filter by an any element
+$order = ASC; // string | Order by an any element
+$tax_type = INPUT; // string | Filter by tax type
 
 try {
     $result = $apiInstance->getTaxRates($xero_tenant_id, $where, $order, $tax_type);
@@ -9505,9 +9667,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$where = 'where_example'; // string | Filter by an any element
-$order = 'order_example'; // string | Order by an any element
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$where = Status=="' + TrackingCategory.StatusEnum.ACTIVE + '"; // string | Filter by an any element
+$order = ASC; // string | Order by an any element
 $include_archived = True; // bool | e.g. includeArchived=true - Categories and options with a status of ARCHIVED will be included in the response
 
 try {
@@ -9562,8 +9724,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$tracking_category_id = 'tracking_category_id_example'; // string | Unique identifier for a TrackingCategory
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$tracking_category_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a TrackingCategory
 
 try {
     $result = $apiInstance->getTrackingCategory($xero_tenant_id, $tracking_category_id);
@@ -9615,8 +9777,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$user_id = 'user_id_example'; // string | Unique identifier for a User
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$user_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a User
 
 try {
     $result = $apiInstance->getUser($xero_tenant_id, $user_id);
@@ -9668,10 +9830,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = 'where_example'; // string | Filter by an any element
-$order = 'order_example'; // string | Order by an any element
+$where = Status=="' + User.StatusEnum.ACTIVE + '"; // string | Filter by an any element
+$order = ASC; // string | Order by an any element
 
 try {
     $result = $apiInstance->getUsers($xero_tenant_id, $if_modified_since, $where, $order);
@@ -9725,9 +9887,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$account_id = 'account_id_example'; // string | Unique identifier for retrieving single object
-$accounts = { "Accounts":[ { "Code":"123456", "Name":"BarFoo", "AccountID":"99ce6032-0678-4aa0-8148-240c75fee33a", "Type":"EXPENSE", "Description":"GoodBye World", "TaxType":"INPUT", "EnablePaymentsToAccount":false, "ShowInExpenseClaims":false, "Class":"EXPENSE", "ReportingCode":"EXP", "ReportingCodeName":"Expense", "UpdatedDateUTC":"2019-02-21T16:29:47.96-08:00" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Accounts | Request of type Accounts array with one Account
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$account_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for retrieving single object
+$accounts = { accounts:[ { code:"123456", name:"BarFoo", accountID:"00000000-0000-0000-000-000000000000", type:AccountType.EXPENSE, description:"GoodBye World", taxType:"INPUT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Accounts | Request of type Accounts array with one Account
 
 try {
     $result = $apiInstance->updateAccount($xero_tenant_id, $account_id, $accounts);
@@ -9780,9 +9942,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$account_id = 'account_id_example'; // string | Unique identifier for Account object
-$file_name = 'file_name_example'; // string | Name of the attachment
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$account_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Account object
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -9837,12 +9999,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transaction_id = 'bank_transaction_id_example'; // string | Xero generated unique identifier for a bank transaction
-$bank_transactions = { "BankTransactions":[ { "Type":"SPEND", "Contact":{ "ContactID":"5cc8cf28-567e-4d43-b287-687cfcaec47c", "ContactStatus":"ACTIVE", "Name":"Katherine Warren", "FirstName":"Katherine", "LastName":"Warren", "EmailAddress":"kat.warren@clampett.com", "ContactPersons":[
-], "BankAccountDetails":"", "Addresses":[ { "AddressType":"STREET", "City":"", "Region":"", "PostalCode":"", "Country":"" }, { "AddressType":"POBOX", "AddressLine1":"", "AddressLine2":"", "AddressLine3":"", "AddressLine4":"", "City":"Palo Alto", "Region":"CA", "PostalCode":"94020", "Country":"United States" } ], "Phones":[ { "PhoneType":"DEFAULT", "PhoneNumber":"847-1294", "PhoneAreaCode":"(626)", "PhoneCountryCode":"" }, { "PhoneType":"DDI", "PhoneNumber":"", "PhoneAreaCode":"", "PhoneCountryCode":"" }, { "PhoneType":"FAX", "PhoneNumber":"", "PhoneAreaCode":"", "PhoneCountryCode":"" }, { "PhoneType":"MOBILE", "PhoneNumber":"", "PhoneAreaCode":"", "PhoneCountryCode":"" } ], "UpdatedDateUTC":"2017-08-21T13:49:04.227-07:00", "ContactGroups":[
-] }, "LineItems":[
-], "BankAccount":{ "Code":"088", "Name":"Business Wells Fargo", "AccountID":"6f7594f2-f059-4d56-9e67-47ac9733bfe9" }, "IsReconciled":false, "Date":"2019-02-25", "Reference":"You just updated", "CurrencyCode":"USD", "CurrencyRate":1.0, "Status":"AUTHORISED", "LineAmountTypes":"Inclusive", "TotalTax":1.74, "BankTransactionID":"1289c190-e46d-434b-9628-463ffdb52f00", "UpdatedDateUTC":"2019-02-26T12:39:27.813-08:00" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
+$bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, date:"2019-02-25", reference:"You just updated", status:BankTransaction.StatusEnum.AUTHORISED, bankTransactionID:"00000000-0000-0000-000-000000000000", lineItems: [],contact: {}, bankAccount: {accountID: "00000000-0000-0000-000-000000000000"} } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
 
 try {
     $result = $apiInstance->updateBankTransaction($xero_tenant_id, $bank_transaction_id, $bank_transactions);
@@ -9895,9 +10054,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transaction_id = 'bank_transaction_id_example'; // string | Xero generated unique identifier for a bank transaction
-$file_name = 'file_name_example'; // string | The name of the file being attached
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
+$file_name = xero-dev.jpg; // string | The name of the file being attached
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -9952,9 +10111,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transfer_id = 'bank_transfer_id_example'; // string | Xero generated unique identifier for a bank transfer
-$file_name = 'file_name_example'; // string | The name of the file being attached to a Bank Transfer
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$bank_transfer_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transfer
+$file_name = xero-dev.jpg; // string | The name of the file being attached to a Bank Transfer
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -10009,9 +10168,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$contact_id = 'contact_id_example'; // string | Unique identifier for a Contact
-$contacts = { "Contacts":[ { "ContactID":"d5be01fb-b09f-4c3a-9c67-e10c2a03412c", "Name":"FooBar" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | an array of Contacts containing single Contact object with properties to update
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
+$contacts = { contacts:[ { contactID:"00000000-0000-0000-000-000000000000", name:"Thanos" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | an array of Contacts containing single Contact object with properties to update
 
 try {
     $result = $apiInstance->updateContact($xero_tenant_id, $contact_id, $contacts);
@@ -10064,9 +10223,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$contact_id = 'contact_id_example'; // string | Unique identifier for a Contact
-$file_name = 'file_name_example'; // string | Name for the file you are attaching
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
+$file_name = xero-dev.jpg; // string | Name for the file you are attaching
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -10121,9 +10280,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$contact_group_id = 'contact_group_id_example'; // string | Unique identifier for a Contact Group
-$contact_groups = { "ContactGroups":[ { "Name":"Vendor" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ContactGroups | an array of Contact groups with Name of specific group to update
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$contact_group_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact Group
+$contact_groups = { contactGroups:[ { name:"Vendor" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ContactGroups | an array of Contact groups with Name of specific group to update
 
 try {
     $result = $apiInstance->updateContactGroup($xero_tenant_id, $contact_group_id, $contact_groups);
@@ -10176,9 +10335,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$credit_note_id = 'credit_note_id_example'; // string | Unique identifier for a Credit Note
-$credit_notes = { "CreditNotes":[ { "Type":"ACCPAYCREDIT", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "Date":"2019-01-05", "Status":"AUTHORISED", "Reference": "HelloWorld", "LineItems":[ { "Description":"Foobar", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"400" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\CreditNotes | an array of Credit Notes containing credit note details to update
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
+$credit_notes = { creditNotes:[ { type:CreditNote.TypeEnum.ACCPAYCREDIT, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, date:"2019-01-05", status: CreditNote.StatusEnum.AUTHORISED, reference: "Mind stone", lineItems:[ { description:"Infinity Stones", quantity:1.0, unitAmount:100.0, accountCode:"400" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\CreditNotes | an array of Credit Notes containing credit note details to update
 
 try {
     $result = $apiInstance->updateCreditNote($xero_tenant_id, $credit_note_id, $credit_notes);
@@ -10231,9 +10390,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$credit_note_id = 'credit_note_id_example'; // string | Unique identifier for a Credit Note
-$file_name = 'file_name_example'; // string | Name of the file you are attaching to Credit Note
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
+$file_name = xero-dev.jpg; // string | Name of the file you are attaching to Credit Note
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -10288,9 +10447,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$employee_id = 'employee_id_example'; // string | Unique identifier for a Employee
-$employees = { "Employees":[ { "EmployeeID":"ad3db144-6362-459c-8c36-5d31d196e629", "FirstName":"Bruce", "LastName":"Banner" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Employees | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$employee_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Employee
+$employees = { employees:[ { employeeID:"00000000-0000-0000-000-000000000000", firstName:"Natasha", lastName:"Romanoff" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Employees | 
 
 try {
     $result = $apiInstance->updateEmployee($xero_tenant_id, $employee_id, $employees);
@@ -10343,10 +10502,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$expense_claim_id = 'expense_claim_id_example'; // string | Unique identifier for a ExpenseClaim
-$expense_claims = { "ExpenseClaims":[ { "Status":"AUTHORISED", "User":{ "UserID":"d1164823-0ac1-41ad-987b-b4e30fe0b273" }, "Receipts":[ { "LineItems":[
-], "ReceiptID":"dc1c7f6d-0a4c-402f-acac-551d62ce5816" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$expense_claim_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ExpenseClaim
+$expense_claims = { expenseClaims:[ { status:ExpenseClaim.StatusEnum.AUTHORISED, user:{ userID:"00000000-0000-0000-000-000000000000" }, receipts:[ { receiptID:"00000000-0000-0000-000-000000000000", lineItems: [], contact: {}, date:"2020-01-01", user:{} } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims | 
 
 try {
     $result = $apiInstance->updateExpenseClaim($xero_tenant_id, $expense_claim_id, $expense_claims);
@@ -10399,10 +10557,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$invoice_id = 'invoice_id_example'; // string | Unique identifier for an Invoice
-$invoices = { "Invoices":[ { "LineItems":[
-], "Reference":"My the Force be With You", "InvoiceID":"4074292c-09b3-456d-84e7-add864c6c39b" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
+$invoices = { invoices:[ { reference:"I am Iron Man", invoiceID:"00000000-0000-0000-000-000000000000", lineItems: [],contact: {},type: Invoice.TypeEnum.ACCPAY } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | 
 
 try {
     $result = $apiInstance->updateInvoice($xero_tenant_id, $invoice_id, $invoices);
@@ -10455,9 +10612,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$invoice_id = 'invoice_id_example'; // string | Unique identifier for an Invoice
-$file_name = 'file_name_example'; // string | Name of the file you are attaching
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
+$file_name = xero-dev.jpg; // string | Name of the file you are attaching
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -10512,9 +10669,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$item_id = 'item_id_example'; // string | Unique identifier for an Item
-$items = { "Items":[ { "Code":"abc38306", "Description":"Hello Xero" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$item_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Item
+$items = { items:[ { code:"abc123", description:"Hello Xero",inventoryAssetAccountCode:"000" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | 
 
 try {
     $result = $apiInstance->updateItem($xero_tenant_id, $item_id, $items);
@@ -10567,9 +10724,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$linked_transaction_id = 'linked_transaction_id_example'; // string | Unique identifier for a LinkedTransaction
-$linked_transactions = { "LinkedTransactions":[ { "ContactID":"4e1753b9-018a-4775-b6aa-1bc7871cfee3" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$linked_transaction_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a LinkedTransaction
+$linked_transactions = { linkedTransactions:[ {sourceLineItemID:"00000000-0000-0000-000-000000000000", contactID:"00000000-0000-0000-000-000000000000" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions | 
 
 try {
     $result = $apiInstance->updateLinkedTransaction($xero_tenant_id, $linked_transaction_id, $linked_transactions);
@@ -10622,10 +10779,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$manual_journal_id = 'manual_journal_id_example'; // string | Unique identifier for a ManualJournal
-$manual_journals = { "ManualJournals":[ { "Narration":"Hello Xero", "JournalLines":[
-], "ManualJournalID":"07eac261-78ef-47a0-a0eb-a57b74137877" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournals | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$manual_journal_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ManualJournal
+$manual_journals = { manualJournals:[ { narration:"Hello Xero", manualJournalID:"00000000-0000-0000-000-000000000000",journalLines:[] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournals | 
 
 try {
     $result = $apiInstance->updateManualJournal($xero_tenant_id, $manual_journal_id, $manual_journals);
@@ -10678,9 +10834,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$manual_journal_id = 'manual_journal_id_example'; // string | Unique identifier for a ManualJournal
-$file_name = 'file_name_example'; // string | The name of the file being attached to a ManualJournal
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$manual_journal_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ManualJournal
+$file_name = xero-dev.jpg; // string | The name of the file being attached to a ManualJournal
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -10735,9 +10891,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$bank_transactions = { "BankTransactions":[ { "Type":"SPEND", "Contact":{ "ContactID":"5cc8cf28-567e-4d43-b287-687cfcaec47c" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"400" } ], "BankAccount":{ "Code":"088" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
-$summarize_errors = false; // bool | response format that shows validation errors for each bank transaction
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, contact: { contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity: 1.0, unitAmount:20.0, accountCode:"400" } ], bankAccount:{ code:"088" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
     $result = $apiInstance->updateOrCreateBankTransactions($xero_tenant_id, $bank_transactions, $summarize_errors);
@@ -10754,7 +10910,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **bank_transactions** | [**\XeroAPI\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)|  |
- **summarize_errors** | **bool**| response format that shows validation errors for each bank transaction | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -10790,9 +10946,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$contacts = { "Name":"Foo9987", "EmailAddress":"sid32476@blah.com", "Phones":[ { "PhoneType":"MOBILE", "PhoneNumber":"555-1212", "PhoneAreaCode":"415" } ], "PaymentTerms":{ "Bills":{ "Day":15, "Type":"OFCURRENTMONTH" }, "Sales":{ "Day":10, "Type":"DAYSAFTERBILLMONTH" } } }; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | 
-$summarize_errors = false; // bool | response format that shows validation errors for each bank transaction
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$contacts = {contacts: [{ name:"Bruce Banner", emailAddress:"hulk@avengers.com", phones:[ { phoneType: Phone.PhoneTypeEnum.MOBILE, phoneNumber:"555-1212", phoneAreaCode:"415" } ], paymentTerms:{ bills:{ day:15, type: PaymentTermType.OFCURRENTMONTH }, sales:{ day:10, type: PaymentTermType.DAYSAFTERBILLMONTH } } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | 
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
     $result = $apiInstance->updateOrCreateContacts($xero_tenant_id, $contacts, $summarize_errors);
@@ -10809,7 +10965,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **contacts** | [**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)|  |
- **summarize_errors** | **bool**| response format that shows validation errors for each bank transaction | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -10845,9 +11001,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$credit_notes = { "CreditNotes":[ { "Type":"ACCPAYCREDIT", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "Date":"2019-01-05", "LineItems":[ { "Description":"Foobar", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"400" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\CreditNotes | an array of Credit Notes with a single CreditNote object.
-$summarize_errors = false; // bool | shows validation errors for each credit note
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$credit_notes = { creditNotes:[ { type: CreditNote.TypeEnum.ACCPAYCREDIT, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, date:"2019-01-05", lineItems:[ { description:"Foobar", quantity:2.0, unitAmount:20.0, accountCode:"400" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\CreditNotes | an array of Credit Notes with a single CreditNote object.
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
     $result = $apiInstance->updateOrCreateCreditNotes($xero_tenant_id, $credit_notes, $summarize_errors);
@@ -10864,7 +11020,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **credit_notes** | [**\XeroAPI\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)| an array of Credit Notes with a single CreditNote object. |
- **summarize_errors** | **bool**| shows validation errors for each credit note | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -10900,9 +11056,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$invoices = { "Invoices":[ { "Type":"ACCREC", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems":[ { "Description":"Acme Tires", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"200", "TaxType":"NONE", "LineAmount":40.0 } ], "Date":"2019-03-11", "DueDate":"2018-12-10", "Reference":"Website Design", "Status":"AUTHORISED" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | 
-$summarize_errors = false; // bool | shows validation errors for each credit note
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$invoices = { invoices:[ { type: Invoice.TypeEnum.ACCREC, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Acme Tires", quantity:2.0, unitAmount:20.0, accountCode:"200", taxType:"NONE", lineAmount:40.0 } ], date:"2019-03-11", dueDate:"2018-12-10", reference:"Website Design", status: Invoice.StatusEnum.AUTHORISED } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | 
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
     $result = $apiInstance->updateOrCreateInvoices($xero_tenant_id, $invoices, $summarize_errors);
@@ -10919,7 +11075,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **invoices** | [**\XeroAPI\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)|  |
- **summarize_errors** | **bool**| shows validation errors for each credit note | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -10955,9 +11111,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$items = { "Items":[ { "Code":"abc65591", "Name":"Hello11350", "Description":"foobar" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | 
-$summarize_errors = false; // bool | response format that shows validation errors for each bank transaction
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$items = { items:[ { code:"abcXYZ", name:"HelloWorld", description:"Foobar", inventoryAssetAccountCode:"140" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | 
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
     $result = $apiInstance->updateOrCreateItems($xero_tenant_id, $items, $summarize_errors);
@@ -10974,7 +11130,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **items** | [**\XeroAPI\XeroPHP\Models\Accounting\Items**](../Model/Items.md)|  |
- **summarize_errors** | **bool**| response format that shows validation errors for each bank transaction | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -11010,9 +11166,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$purchase_orders = { "PurchaseOrders":[ { "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems":[ { "Description":"Foobar", "Quantity":1.0, "UnitAmount":20.0, "AccountCode":"710" } ], "Date":"2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | 
-$summarize_errors = false; // bool | shows validation errors for each credit note
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$purchase_orders = { purchaseOrders:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"710" } ], date:"2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | 
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
     $result = $apiInstance->updateOrCreatePurchaseOrders($xero_tenant_id, $purchase_orders, $summarize_errors);
@@ -11029,11 +11185,66 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **purchase_orders** | [**\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)|  |
- **summarize_errors** | **bool**| shows validation errors for each credit note | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
 [**\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updateOrCreateQuotes**
+> \XeroAPI\XeroPHP\Models\Accounting\Quotes updateOrCreateQuotes($xero_tenant_id, $quotes, $summarize_errors)
+
+Allows you to update OR create one or more quotes
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$quotes = { quotes:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:1.0, unitAmount:20.0, accountCode:"12775" } ], date:"2020-02-01" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Quotes | 
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+
+try {
+    $result = $apiInstance->updateOrCreateQuotes($xero_tenant_id, $quotes, $summarize_errors);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->updateOrCreateQuotes: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **quotes** | [**\XeroAPI\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)|  |
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)
 
 ### Authorization
 
@@ -11065,10 +11276,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$purchase_order_id = 'purchase_order_id_example'; // string | Unique identifier for a PurchaseOrder
-$purchase_orders = { "PurchaseOrders":[ { "LineItems":[
-], "AttentionTo":"Jimmy" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$purchase_order_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a PurchaseOrder
+$purchase_orders = { purchaseOrders:[ { attentionTo:"Peter Parker",lineItems: [],contact: {} } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | 
 
 try {
     $result = $apiInstance->updatePurchaseOrder($xero_tenant_id, $purchase_order_id, $purchase_orders);
@@ -11102,6 +11312,61 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **updateQuote**
+> \XeroAPI\XeroPHP\Models\Accounting\Quotes updateQuote($xero_tenant_id, $quote_id, $quotes)
+
+Allows you to update a specified quote
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Quote
+$quotes = {quotes:[{reference:"I am an update",contact:{contactID:"00000000-0000-0000-000-000000000000"},date:"2020-02-01"}]}; // \XeroAPI\XeroPHP\Models\Accounting\Quotes | 
+
+try {
+    $result = $apiInstance->updateQuote($xero_tenant_id, $quote_id, $quotes);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->updateQuote: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **quote_id** | [**string**](../Model/.md)| Unique identifier for an Quote |
+ **quotes** | [**\XeroAPI\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)|  |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **updateReceipt**
 > \XeroAPI\XeroPHP\Models\Accounting\Receipts updateReceipt($xero_tenant_id, $receipt_id, $receipts)
 
@@ -11121,10 +11386,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$receipt_id = 'receipt_id_example'; // string | Unique identifier for a Receipt
-$receipts = { "Receipts":[ { "LineItems":[
-], "User":{ "UserID":"d1164823-0ac1-41ad-987b-b4e30fe0b273" }, "Reference":"Foobar" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Receipts | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
+$receipts = { receipts:[ { user:{ userID:"00000000-0000-0000-000-000000000000" }, reference:"Foobar", date: "2020-01-01",contact: {},lineItems: []} ] }; // \XeroAPI\XeroPHP\Models\Accounting\Receipts | 
 
 try {
     $result = $apiInstance->updateReceipt($xero_tenant_id, $receipt_id, $receipts);
@@ -11177,9 +11441,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$receipt_id = 'receipt_id_example'; // string | Unique identifier for a Receipt
-$file_name = 'file_name_example'; // string | The name of the file being attached to the Receipt
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
+$file_name = xero-dev.jpg; // string | The name of the file being attached to the Receipt
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -11234,9 +11498,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$repeating_invoice_id = 'repeating_invoice_id_example'; // string | Unique identifier for a Repeating Invoice
-$file_name = 'file_name_example'; // string | The name of the file being attached to a Repeating Invoice
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$repeating_invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Repeating Invoice
+$file_name = xero-dev.jpg; // string | The name of the file being attached to a Repeating Invoice
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -11291,8 +11555,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$tax_rates = { "TaxRates":[ { "Name":"SDKTax29067", "TaxComponents":[ { "Name":"State Tax", "Rate":2.25 } ], "Status":"DELETED", "ReportTaxType":"INPUT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\TaxRates | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$tax_rates = { taxRates:[ { name:"State Tax NY", taxComponents:[ { name:"State Tax", rate:2.25 } ], status:"DELETED", reportTaxType:"INPUT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\TaxRates | 
 
 try {
     $result = $apiInstance->updateTaxRate($xero_tenant_id, $tax_rates);
@@ -11344,9 +11608,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$tracking_category_id = 'tracking_category_id_example'; // string | Unique identifier for a TrackingCategory
-$tracking_category = { "Name":"BarFoo" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$tracking_category_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a TrackingCategory
+$tracking_category = { name:"Avengers" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory | 
 
 try {
     $result = $apiInstance->updateTrackingCategory($xero_tenant_id, $tracking_category_id, $tracking_category);
@@ -11399,10 +11663,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$tracking_category_id = 'tracking_category_id_example'; // string | Unique identifier for a TrackingCategory
-$tracking_option_id = 'tracking_option_id_example'; // string | Unique identifier for a Tracking Option
-$tracking_option = { "Name":"Bar40423" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingOption | 
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$tracking_category_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a TrackingCategory
+$tracking_option_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Tracking Option
+$tracking_option = { name:"Vision" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingOption | 
 
 try {
     $result = $apiInstance->updateTrackingOptions($xero_tenant_id, $tracking_category_id, $tracking_option_id, $tracking_option);

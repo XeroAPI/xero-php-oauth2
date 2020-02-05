@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tracking_category_id** | **string** | The Xero identifier for a tracking category | [optional] 
+**tracking_option_id** | **string** | The Xero identifier for a tracking category option | [optional] 
 **name** | **string** | The name of the tracking category | [optional] 
 **option** | **string** | See Tracking Options | [optional] 
 
