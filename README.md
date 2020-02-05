@@ -280,9 +280,9 @@ class StorageClass
 
   if ($storage->getHasExpired()) {
     $provider = new \League\OAuth2\Client\Provider\GenericProvider([
-      'clientId'                => '__YOUR_CLIENT_ID__',   
+      'clientId'                => '__YOUR_CLIENT_ID__',
       'clientSecret'            => '__YOUR_CLIENT_SECRET__',
-      'redirectUri'             => 'http://localhost:8888/pathToApp/callback.php', 
+      'redirectUri'             => 'http://localhost:8888/xero-php-oauth2-starter/callback.php',
       'urlAuthorize'            => 'https://login.xero.com/identity/connect/authorize',
       'urlAccessToken'          => 'https://identity.xero.com/connect/token',
       'urlResourceOwnerDetails' => 'https://api.xero.com/api.xro/2.0/Organisation'
@@ -291,28 +291,28 @@ class StorageClass
     $newAccessToken = $provider->getAccessToken('refresh_token', [
       'refresh_token' => $storage->getRefreshToken()
     ]);
-    
+
     // Save my token, expiration and refresh token
     $storage->setToken(
         $newAccessToken->getToken(),
-        $newAccessToken->getExpires(), 
+        $newAccessToken->getExpires(),
         $xeroTenantId,
         $newAccessToken->getRefreshToken(),
         $newAccessToken->getValues()["id_token"] );
   }
 
   $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( (string)$storage->getSession()['token'] );
-  $config->setHost("https://api.xero.com/api.xro/2.0");        
+  $config->setHost("https://api.xero.com/api.xro/2.0");
 
   $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
       new GuzzleHttp\Client(),
       $config
   );
   $message = "no API calls";
-  if (isset($_GET['action'])) { 
+  if (isset($_GET['action'])) {
     if ($_GET["action"] == 1) {
         // Get Organisation details
-        $apiResponse = $apiInstance->getOrganisations($xeroTenantId); 
+        $apiResponse = $apiInstance->getOrganisations($xeroTenantId);
         $message = 'Organisation Name: ' . $apiResponse->getOrganisations()[0]->getName();
     } else if ($_GET["action"] == 2) {
         // Create Contact
@@ -323,16 +323,22 @@ class StorageClass
                 ->setEmailAddress("john.smith@24locks.com")
                 ->setIncludeInEmails(true);
 
-            $persons = [];		
-            array_push($persons, $person);
+            $arr_persons = [];
+            array_push($arr_persons, $person);
 
             $contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
             $contact->setName('FooBar')
                 ->setFirstName("Foo")
                 ->setLastName("Bar")
                 ->setEmailAddress("ben.bowden@24locks.com")
-                ->setContactPersons($persons);	
-            $apiResponse = $apiInstance->createContact($xeroTenantId,$contact);
+                ->setContactPersons($arr_persons);
+            
+            $arr_contacts = [];
+            array_push($arr_contacts, $contact);
+            $contacts = new XeroAPI\XeroPHP\Models\Accounting\Contacts;
+            $contacts->setContacts($arr_contacts);
+
+            $apiResponse = $apiInstance->createContacts($xeroTenantId,$contacts);
             $message = 'New Contact Name: ' . $apiResponse->getContacts()[0]->getName();
         } catch (\XeroAPI\XeroPHP\ApiException $e) {
             $error = AccountingObjectSerializer::deserialize(
@@ -341,18 +347,18 @@ class StorageClass
                 []
             );
             $message = "ApiException - " . $error->getElements()[0]["validation_errors"][0]["message"];
-        } 
-    
+        }
+
     } else if ($_GET["action"] == 3) {
         $if_modified_since = new \DateTime("2019-01-02T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
         $if_modified_since = null;
-        $where = 'Type=="ACCREC"'; // string 
+        $where = 'Type=="ACCREC"'; // string
         $where = null;
-        $order = null; // string 
-        $ids = null; // string[] | Filter by a comma-separated list of Invoice Ids. 
-        $invoice_numbers = null; // string[] |  Filter by a comma-separated list of Invoice Numbers. 
-        $contact_ids = null; // string[] | Filter by a comma-separated list of ContactIDs. 
-        $statuses = array("DRAFT", "SUBMITTED");;		
+        $order = null; // string
+        $ids = null; // string[] | Filter by a comma-separated list of Invoice Ids.
+        $invoice_numbers = null; // string[] |  Filter by a comma-separated list of Invoice Numbers.
+        $contact_ids = null; // string[] | Filter by a comma-separated list of ContactIDs.
+        $statuses = array("DRAFT", "SUBMITTED");;
         $page = 1; // int | e.g. page=1 – Up to 100 invoices will be returned in a single API call with line items
         $include_archived = null; // bool | e.g. includeArchived=true - Contacts with a status of ARCHIVED will be included
         $created_by_my_app = null; // bool | When set to true you'll only retrieve Invoices created by your app
@@ -375,11 +381,11 @@ class StorageClass
             $contact->setName('George Jetson')
                 ->setFirstName("George")
                 ->setLastName("Jetson")
-                ->setEmailAddress("george.jetson@aol.com");	
-            
-            // Add the same contact twice - the first one will succeed, but the 
+                ->setEmailAddress("george.jetson@aol.com");
+
+            // Add the same contact twice - the first one will succeed, but the
             // second contact will throw a validation error which we'll catch.
-            $arr_contacts = [];		
+            $arr_contacts = [];
             array_push($arr_contacts, $contact);
             array_push($arr_contacts, $contact);
             $contacts = new XeroAPI\XeroPHP\Models\Accounting\Contacts;
@@ -399,7 +405,7 @@ class StorageClass
                 []
             );
             $message = "ApiException - " . $error->getElements()[0]["validation_errors"][0]["message"];
-        } 
+        }
     }
   }
 ?>
