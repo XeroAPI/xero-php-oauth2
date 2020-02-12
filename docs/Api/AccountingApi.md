@@ -456,7 +456,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, contact: { contactID:"5cc8cf28-567e-4d43-b287-687cfcaec47c" }, lineItems:[ { description:"Foobar", quantity: 1.0, unitAmount:20.0, accountCode:"400" } ], bankAccount:{ code:"088" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | BankTransactions with an array of BankTransaction objects in body of request
+$bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, contact: { contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity: 1.0, unitAmount:20.0, accountCode:"000" } ], bankAccount:{ code:"000" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | BankTransactions with an array of BankTransaction objects in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
@@ -511,7 +511,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transfers = { bankTransfers:[ { fromBankAccount: { code:"090", accountID:"7e5e243b-9fcd-4aef-8e3a-c70be1e39bfa"}, toBankAccount:{ code:"088", accountID:"6f7594f2-f059-4d56-9e67-47ac9733bfe9"}, amount:"50.00" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransfers | BankTransfers with array of BankTransfer objects in request body
+$bank_transfers = { bankTransfers:[ { fromBankAccount: { code:"000", accountID:"00000000-0000-0000-000-000000000000"}, toBankAccount:{ code:"001", accountID:"00000000-0000-0000-000-000000000000"}, amount:"50.00" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransfers | BankTransfers with array of BankTransfer objects in request body
 
 try {
     $result = $apiInstance->createBankTransfer($xero_tenant_id, $bank_transfers);
@@ -898,7 +898,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contact_groups = { contactGroups:[ { name:"Suppliers" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ContactGroups | ContactGroups with an array of names in request body
+$contact_groups = { contactGroups:[ { name:"VIPs" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ContactGroups | ContactGroups with an array of names in request body
 
 try {
     $result = $apiInstance->createContactGroup($xero_tenant_id, $contact_groups);
@@ -1721,7 +1721,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$invoices = { invoices:[ { type: Invoice.TypeEnum.ACCREC, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Acme Tires", quantity:2.0, unitAmount:20.0, accountCode:"200", taxType:"NONE", lineAmount:40.0 } ], date:"2019-03-11", dueDate:"2018-12-10", reference:"Website Design", status: Invoice.StatusEnum.AUTHORISED } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | Invoices with an array of invoice objects in body of request
+$invoices = { invoices:[ { type: Invoice.TypeEnum.ACCREC, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Acme Tires", quantity:2.0, unitAmount:20.0, accountCode:"000", taxType:"NONE", lineAmount:40.0 } ], date:"2019-03-11", dueDate:"2018-12-10", reference:"Website Design", status: Invoice.StatusEnum.DRAFT } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | Invoices with an array of invoice objects in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
@@ -3088,7 +3088,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$tax_rates = { taxRates:[ { name:"CA State Tax", taxComponents:[ { name:"State Tax", rate:2.25 } ], reportTaxType:"INPUT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\TaxRates | TaxRates array with TaxRate object in body of request
+$tax_rates = { taxRates:[ { name:"CA State Tax", taxComponents:[ { name:"State Tax", rate:2.25 } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\TaxRates | TaxRates array with TaxRate object in body of request
 
 try {
     $result = $apiInstance->createTaxRates($xero_tenant_id, $tax_rates);
@@ -3949,9 +3949,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
+$if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records created or modified since this timestamp will be returned
 $where = Status=="' + Account.StatusEnum.ACTIVE + '" AND Type=="' + Account.BankAccountTypeEnum.BANK + '"; // string | Filter by an any element
-$order = ASC; // string | Order by an any element
+$order = Name ASC; // string | Order by an any element
 
 try {
     $result = $apiInstance->getAccounts($xero_tenant_id, $if_modified_since, $where, $order);
@@ -4226,9 +4226,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
+$if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records created or modified since this timestamp will be returned
 $where = Status=="' + BankTransaction.StatusEnum.ACTIVE + '"; // string | Filter by an any element
-$order = ASC; // string | Order by an any element
+$order = Type ASC; // string | Order by an any element
 $page = 1; // int | Up to 100 bank transactions will be returned in a single API call with line items details
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
@@ -4613,9 +4613,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
+$if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records created or modified since this timestamp will be returned
 $where = Status=="' + BankTransfer.StatusEnum.ACTIVE + '"; // string | Filter by an any element
-$order = ASC; // string | Order by an any element
+$order = Amount ASC; // string | Order by an any element
 
 try {
     $result = $apiInstance->getBankTransfers($xero_tenant_id, $if_modified_since, $where, $order);
@@ -4723,9 +4723,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
+$if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records created or modified since this timestamp will be returned
 $where = Status=="' + BatchPayment.StatusEnum.ACTIVE + '"; // string | Filter by an any element
-$order = ASC; // string | Order by an any element
+$order = Date ASC; // string | Order by an any element
 
 try {
     $result = $apiInstance->getBatchPayments($xero_tenant_id, $if_modified_since, $where, $order);
@@ -5264,7 +5264,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $where = Status=="' + ContactGroup.StatusEnum.ACTIVE + '"; // string | Filter by an any element
-$order = ASC; // string | Order by an any element
+$order = Name ASC; // string | Order by an any element
 
 try {
     $result = $apiInstance->getContactGroups($xero_tenant_id, $where, $order);
@@ -5371,9 +5371,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
+$if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records created or modified since this timestamp will be returned
 $where = Status=="' + Contact.ContactStatusEnum.ACTIVE + '"; // string | Filter by an any element
-$order = ASC; // string | Order by an any element
+$order = Name ASC; // string | Order by an any element
 $i_ds = 00000000-0000-0000-000-000000000000,00000000-0000-0000-000-000000000000; // string[] | Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call.
 $page = 1; // int | e.g. page=1 - Up to 100 contacts will be returned in a single API call.
 $include_archived = True; // bool | e.g. includeArchived=true - Contacts with a status of ARCHIVED will be included in the response
@@ -5762,9 +5762,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = Status=="' + CreditNote.StatusEnum.ACTIVE + '"; // string | Filter by an any element
-$order = ASC; // string | Order by an any element
+$if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records created or modified since this timestamp will be returned
+$where = Status=="' + CreditNote.StatusEnum.DRAFT + '"; // string | Filter by an any element
+$order = CreditNoteNumber ASC; // string | Order by an any element
 $page = 1; // int | e.g. page=1 – Up to 100 credit notes will be returned in a single API call with line items shown for each credit note
 
 try {
@@ -5822,7 +5822,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $where = Status=="' + Currency.StatusEnum.ACTIVE + '"; // string | Filter by an any element
-$order = ASC; // string | Order by an any element
+$order = Code ASC; // string | Order by an any element
 
 try {
     $result = $apiInstance->getCurrencies($xero_tenant_id, $where, $order);
@@ -5929,7 +5929,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
+$if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records created or modified since this timestamp will be returned
 $where = Status=="' + Employee.StatusEnum.ACTIVE + '"; // string | Filter by an any element
 $order = ASC; // string | Order by an any element
 
@@ -6092,9 +6092,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = Status=="' + ExpenseClaim.StatusEnum.ACTIVE + '"; // string | Filter by an any element
-$order = ASC; // string | Order by an any element
+$if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records created or modified since this timestamp will be returned
+$where = Status=="' + ExpenseClaim.StatusEnum.SUBMITTED + '"; // string | Filter by an any element
+$order = Status ASC; // string | Order by an any element
 
 try {
     $result = $apiInstance->getExpenseClaims($xero_tenant_id, $if_modified_since, $where, $order);
@@ -6528,9 +6528,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = Status=="' + Invoice.StatusEnum.ACTIVE + '"; // string | Filter by an any element
-$order = ASC; // string | Order by an any element
+$if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records created or modified since this timestamp will be returned
+$where = Status=="' + Invoice.StatusEnum.DRAFT + '"; // string | Filter by an any element
+$order = InvoiceNumber ASC; // string | Order by an any element
 $i_ds = 00000000-0000-0000-000-000000000000,00000000-0000-0000-000-000000000000; // string[] | Filter by a comma-separated list of InvoicesIDs.
 $invoice_numbers = null; // string[] | Filter by a comma-separated list of InvoiceNumbers.
 $contact_i_ds = 00000000-0000-0000-000-000000000000,00000000-0000-0000-000-000000000000; // string[] | Filter by a comma-separated list of ContactIDs.
@@ -6707,9 +6707,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = Status=="' + Item.StatusEnum.ACTIVE + '"; // string | Filter by an any element
-$order = ASC; // string | Order by an any element
+$if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records created or modified since this timestamp will be returned
+$where = IsSold==true; // string | Filter by an any element
+$order = Code ASC; // string | Order by an any element
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -6819,7 +6819,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
+$if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records created or modified since this timestamp will be returned
 $offset = 10; // int | Offset by a specified journal number. e.g. journals with a JournalNumber greater than the offset will be returned
 $payments_only = True; // bool | Filter to retrieve journals on a cash basis. Journals are returned on an accrual basis by default.
 
@@ -7212,9 +7212,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = Status=="' + ManualJournal.StatusEnum.ACTIVE + '"; // string | Filter by an any element
-$order = ASC; // string | Order by an any element
+$if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records created or modified since this timestamp will be returned
+$where = Status=="' + ManualJournal.StatusEnum.DRAFT + '"; // string | Filter by an any element
+$order = Date ASC; // string | Order by an any element
 $page = 1; // int | e.g. page=1 – Up to 100 manual journals will be returned in a single API call with line items shown for each overpayment
 
 try {
@@ -7534,9 +7534,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = Status=="' + Overpayment.StatusEnum.ACTIVE + '"; // string | Filter by an any element
-$order = ASC; // string | Order by an any element
+$if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records created or modified since this timestamp will be returned
+$where = Status=="' + Overpayment.StatusEnum.AUTHORISED + '"; // string | Filter by an any element
+$order = RemainingCredit ASC; // string | Order by an any element
 $page = 1; // int | e.g. page=1 – Up to 100 overpayments will be returned in a single API call with line items shown for each overpayment
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
@@ -7752,9 +7752,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = Status=="' + Payment.StatusEnum.ACTIVE + '"; // string | Filter by an any element
-$order = ASC; // string | Order by an any element
+$if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records created or modified since this timestamp will be returned
+$where = Status=="' + Payment.StatusEnum.AUTHORISED + '"; // string | Filter by an any element
+$order = Amount ASC; // string | Order by an any element
 
 try {
     $result = $apiInstance->getPayments($xero_tenant_id, $if_modified_since, $where, $order);
@@ -7915,9 +7915,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = Status=="' + Prepayment.StatusEnum.ACTIVE + '"; // string | Filter by an any element
-$order = ASC; // string | Order by an any element
+$if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records created or modified since this timestamp will be returned
+$where = Status=="' + Prepayment.StatusEnum.AUTHORISED + '"; // string | Filter by an any element
+$order = Reference ASC; // string | Order by an any element
 $page = 1; // int | e.g. page=1 – Up to 100 prepayments will be returned in a single API call with line items shown for each overpayment
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
@@ -8082,11 +8082,11 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
+$if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records created or modified since this timestamp will be returned
 $status = SUBMITTED; // string | Filter by purchase order status
 $date_from = 2019-12-01; // string | Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom=2015-12-01&DateTo=2015-12-31
 $date_to = 2019-12-31; // string | Filter by purchase order date (e.g. GET https://.../PurchaseOrders?DateFrom=2015-12-01&DateTo=2015-12-31
-$order = ASC; // string | Order by an any element
+$order = PurchaseOrderNumber ASC; // string | Order by an any element
 $page = 1; // int | To specify a page, append the page parameter to the URL e.g. ?page=1. If there are 100 records in the response you will need to check if there is any more data by fetching the next page e.g ?page=2 and continuing this process until no more results are returned.
 
 try {
@@ -8251,7 +8251,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
+$if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records created or modified since this timestamp will be returned
 $date_from = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter for quotes after a particular date
 $date_to = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter for quotes before a particular date
 $expiry_date_from = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter for quotes expiring after a particular date
@@ -8593,9 +8593,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = Status=="' + Receipt.StatusEnum.ACTIVE + '"; // string | Filter by an any element
-$order = ASC; // string | Order by an any element
+$if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records created or modified since this timestamp will be returned
+$where = Status=="' + Receipt.StatusEnum.DRAFT + '"; // string | Filter by an any element
+$order = ReceiptNumber ASC; // string | Order by an any element
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -8925,8 +8925,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$where = Status=="' + RepeatingInvoice.StatusEnum.ACTIVE + '"; // string | Filter by an any element
-$order = ASC; // string | Order by an any element
+$where = Status=="' + RepeatingInvoice.StatusEnum.DRAFT + '"; // string | Filter by an any element
+$order = Total ASC; // string | Order by an any element
 
 try {
     $result = $apiInstance->getRepeatingInvoices($xero_tenant_id, $where, $order);
@@ -9612,7 +9612,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $where = Status=="' + TaxRate.StatusEnum.ACTIVE + '"; // string | Filter by an any element
-$order = ASC; // string | Order by an any element
+$order = Name ASC; // string | Order by an any element
 $tax_type = INPUT; // string | Filter by tax type
 
 try {
@@ -9669,7 +9669,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $where = Status=="' + TrackingCategory.StatusEnum.ACTIVE + '"; // string | Filter by an any element
-$order = ASC; // string | Order by an any element
+$order = Name ASC; // string | Order by an any element
 $include_archived = True; // bool | e.g. includeArchived=true - Categories and options with a status of ARCHIVED will be included in the response
 
 try {
@@ -9831,9 +9831,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$if_modified_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-$where = Status=="' + User.StatusEnum.ACTIVE + '"; // string | Filter by an any element
-$order = ASC; // string | Order by an any element
+$if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records created or modified since this timestamp will be returned
+$where = IsSubscriber==true; // string | Filter by an any element
+$order = LastName ASC; // string | Order by an any element
 
 try {
     $result = $apiInstance->getUsers($xero_tenant_id, $if_modified_since, $where, $order);
@@ -10671,7 +10671,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $item_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Item
-$items = { items:[ { code:"abc123", description:"Hello Xero",inventoryAssetAccountCode:"000" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | 
+$items = { items:[ { code:"abc123", description:"Hello Xero" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | 
 
 try {
     $result = $apiInstance->updateItem($xero_tenant_id, $item_id, $items);
@@ -10892,7 +10892,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, contact: { contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity: 1.0, unitAmount:20.0, accountCode:"400" } ], bankAccount:{ code:"088" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
+$bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, contact: { contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity: 1.0, unitAmount:20.0, accountCode:"000" } ], bankAccount:{ code:"000" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
@@ -11112,7 +11112,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$items = { items:[ { code:"abcXYZ", name:"HelloWorld", description:"Foobar", inventoryAssetAccountCode:"140" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | 
+$items = { items:[ { code:"abcXYZ", name:"HelloWorld", description:"Foobar" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | 
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {

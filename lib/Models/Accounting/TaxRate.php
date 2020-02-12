@@ -359,9 +359,6 @@ class TaxRate implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['report_tax_type'] === null) {
-            $invalidProperties[] = "'report_tax_type' can't be null";
-        }
         $allowedValues = $this->getReportTaxTypeAllowableValues();
         if (!is_null($this->container['report_tax_type']) && !in_array($this->container['report_tax_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -493,7 +490,7 @@ class TaxRate implements ModelInterface, ArrayAccess
     /**
      * Gets report_tax_type
      *
-     * @return string
+     * @return string|null
      */
     public function getReportTaxType()
     {
@@ -503,14 +500,14 @@ class TaxRate implements ModelInterface, ArrayAccess
     /**
      * Sets report_tax_type
      *
-     * @param string $report_tax_type See ReportTaxTypes
+     * @param string|null $report_tax_type See ReportTaxTypes
      *
      * @return $this
      */
     public function setReportTaxType($report_tax_type)
     {
         $allowedValues = $this->getReportTaxTypeAllowableValues();
-        if (!in_array($report_tax_type, $allowedValues, true)) {
+        if (!is_null($report_tax_type) && !in_array($report_tax_type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'report_tax_type', must be one of '%s'",

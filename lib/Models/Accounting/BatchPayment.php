@@ -235,6 +235,8 @@ class BatchPayment implements ModelInterface, ArrayAccess
 
     const TYPE_PAYBATCH = 'PAYBATCH';
     const TYPE_RECBATCH = 'RECBATCH';
+    const STATUS_AUTHORISED = 'AUTHORISED';
+    const STATUS_DELETED = 'DELETED';
     
 
     
@@ -248,6 +250,19 @@ class BatchPayment implements ModelInterface, ArrayAccess
         return [
             self::TYPE_PAYBATCH,
             self::TYPE_RECBATCH,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_AUTHORISED,
+            self::STATUS_DELETED,
         ];
     }
     
@@ -318,6 +333,14 @@ class BatchPayment implements ModelInterface, ArrayAccess
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -673,6 +696,15 @@ class BatchPayment implements ModelInterface, ArrayAccess
      */
     public function setStatus($status)
     {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['status'] = $status;
 
         return $this;
