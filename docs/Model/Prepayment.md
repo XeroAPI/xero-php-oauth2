@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **sub_total** | **double** | The subtotal of the prepayment excluding taxes | [optional] 
 **total_tax** | **double** | The total tax on the prepayment | [optional] 
 **total** | **double** | The total of the prepayment(subtotal + total tax) | [optional] 
+**reference** | **string** | Returns Invoice number field. Reference field isn&#39;t available. | [optional] 
 **updated_date_utc** | [**\DateTime**](\DateTime.md) | UTC timestamp of last update to the prepayment | [optional] 
 **currency_code** | [**\XeroAPI\XeroPHP\Models\Accounting\CurrencyCode**](CurrencyCode.md) |  | [optional] 
 **prepayment_id** | **string** | Xero generated unique identifier | [optional] 

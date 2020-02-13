@@ -57,7 +57,7 @@ class Purchase implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'unit_price' => 'double',
+        'unit_price' => 'float',
         'account_code' => 'string',
         'cogs_account_code' => 'string',
         'tax_type' => 'string'
@@ -69,7 +69,7 @@ class Purchase implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'unit_price' => 'double',
+        'unit_price' => 'float',
         'account_code' => null,
         'cogs_account_code' => null,
         'tax_type' => null
@@ -225,7 +225,7 @@ class Purchase implements ModelInterface, ArrayAccess
     /**
      * Gets unit_price
      *
-     * @return double|null
+     * @return float|null
      */
     public function getUnitPrice()
     {
@@ -235,7 +235,7 @@ class Purchase implements ModelInterface, ArrayAccess
     /**
      * Sets unit_price
      *
-     * @param double|null $unit_price Unit Price of the item. By default UnitPrice is rounded to two decimal places. You can use 4 decimal places by adding the unitdp=4 querystring parameter to your request.
+     * @param float|null $unit_price Unit Price of the item. By default UnitPrice is rounded to two decimal places. You can use 4 decimal places by adding the unitdp=4 querystring parameter to your request.
      *
      * @return $this
      */

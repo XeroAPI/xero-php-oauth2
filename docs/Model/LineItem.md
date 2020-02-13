@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **line_item_id** | **string** | LineItem unique ID | [optional] 
 **description** | **string** | Description needs to be at least 1 char long. A line item with just a description (i.e no unit amount or quantity) can be created by specifying just a &lt;Description&gt; element that contains at least 1 character | [optional] 
-**quantity** | **double** | LineItem Quantity | [optional] 
-**unit_amount** | **double** | LineItem Unit Amount | [optional] 
+**quantity** | **float** | LineItem Quantity | [optional] 
+**unit_amount** | **float** | LineItem Unit Amount | [optional] 
 **item_code** | **string** | See Items | [optional] 
 **account_code** | **string** | See Accounts | [optional] 
 **tax_type** | **string** | The tax type from TaxRates | [optional] 

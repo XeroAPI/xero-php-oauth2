@@ -68,7 +68,7 @@ class Item implements ModelInterface, ArrayAccess
         'sales_details' => '\XeroAPI\XeroPHP\Models\Accounting\Purchase',
         'is_tracked_as_inventory' => 'bool',
         'total_cost_pool' => 'double',
-        'quantity_on_hand' => 'double',
+        'quantity_on_hand' => 'float',
         'updated_date_utc' => '\DateTime',
         'item_id' => 'string',
         'status_attribute_string' => 'string',
@@ -92,7 +92,7 @@ class Item implements ModelInterface, ArrayAccess
         'sales_details' => null,
         'is_tracked_as_inventory' => null,
         'total_cost_pool' => 'double',
-        'quantity_on_hand' => 'double',
+        'quantity_on_hand' => 'float',
         'updated_date_utc' => 'date-time',
         'item_id' => 'uuid',
         'status_attribute_string' => null,
@@ -596,7 +596,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Gets quantity_on_hand
      *
-     * @return double|null
+     * @return float|null
      */
     public function getQuantityOnHand()
     {
@@ -606,7 +606,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets quantity_on_hand
      *
-     * @param double|null $quantity_on_hand The quantity of the item on hand
+     * @param float|null $quantity_on_hand The quantity of the item on hand
      *
      * @return $this
      */
