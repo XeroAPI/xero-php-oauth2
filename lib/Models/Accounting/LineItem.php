@@ -59,8 +59,8 @@ class LineItem implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'line_item_id' => 'string',
         'description' => 'string',
-        'quantity' => 'double',
-        'unit_amount' => 'double',
+        'quantity' => 'float',
+        'unit_amount' => 'float',
         'item_code' => 'string',
         'account_code' => 'string',
         'tax_type' => 'string',
@@ -80,8 +80,8 @@ class LineItem implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'line_item_id' => 'uuid',
         'description' => null,
-        'quantity' => 'double',
-        'unit_amount' => 'double',
+        'quantity' => 'float',
+        'unit_amount' => 'float',
         'item_code' => null,
         'account_code' => null,
         'tax_type' => null,
@@ -327,7 +327,7 @@ class LineItem implements ModelInterface, ArrayAccess
     /**
      * Gets quantity
      *
-     * @return double|null
+     * @return float|null
      */
     public function getQuantity()
     {
@@ -337,7 +337,7 @@ class LineItem implements ModelInterface, ArrayAccess
     /**
      * Sets quantity
      *
-     * @param double|null $quantity LineItem Quantity
+     * @param float|null $quantity LineItem Quantity
      *
      * @return $this
      */
@@ -351,7 +351,7 @@ class LineItem implements ModelInterface, ArrayAccess
     /**
      * Gets unit_amount
      *
-     * @return double|null
+     * @return float|null
      */
     public function getUnitAmount()
     {
@@ -361,7 +361,7 @@ class LineItem implements ModelInterface, ArrayAccess
     /**
      * Sets unit_amount
      *
-     * @param double|null $unit_amount LineItem Unit Amount
+     * @param float|null $unit_amount LineItem Unit Amount
      *
      * @return $this
      */

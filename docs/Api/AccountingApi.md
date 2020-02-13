@@ -437,7 +437,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createBankTransactions**
-> \XeroAPI\XeroPHP\Models\Accounting\BankTransactions createBankTransactions($xero_tenant_id, $bank_transactions, $summarize_errors)
+> \XeroAPI\XeroPHP\Models\Accounting\BankTransactions createBankTransactions($xero_tenant_id, $bank_transactions, $summarize_errors, $unitdp)
 
 Allows you to create one or more spend or receive money transaction
 
@@ -458,9 +458,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, contact: { contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity: 1.0, unitAmount:20.0, accountCode:"000" } ], bankAccount:{ code:"000" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | BankTransactions with an array of BankTransaction objects in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
-    $result = $apiInstance->createBankTransactions($xero_tenant_id, $bank_transactions, $summarize_errors);
+    $result = $apiInstance->createBankTransactions($xero_tenant_id, $bank_transactions, $summarize_errors, $unitdp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createBankTransactions: ', $e->getMessage(), PHP_EOL;
@@ -475,6 +476,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **bank_transactions** | [**\XeroAPI\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)| BankTransactions with an array of BankTransaction objects in body of request |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -1266,7 +1268,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createCreditNotes**
-> \XeroAPI\XeroPHP\Models\Accounting\CreditNotes createCreditNotes($xero_tenant_id, $credit_notes, $summarize_errors)
+> \XeroAPI\XeroPHP\Models\Accounting\CreditNotes createCreditNotes($xero_tenant_id, $credit_notes, $summarize_errors, $unitdp)
 
 Allows you to create a credit note
 
@@ -1287,9 +1289,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $credit_notes = { creditNotes:[ { type: CreditNote.TypeEnum.ACCPAYCREDIT, contact:{ contactID:"430fa14a-f945-44d3-9f97-5df5e28441b8" }, date:"2019-01-05", lineItems:[ { description:"Foobar", quantity:2.0, unitAmount:20.0, accountCode:"400" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\CreditNotes | Credit Notes with array of CreditNote object in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
-    $result = $apiInstance->createCreditNotes($xero_tenant_id, $credit_notes, $summarize_errors);
+    $result = $apiInstance->createCreditNotes($xero_tenant_id, $credit_notes, $summarize_errors, $unitdp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createCreditNotes: ', $e->getMessage(), PHP_EOL;
@@ -1304,6 +1307,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **credit_notes** | [**\XeroAPI\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)| Credit Notes with array of CreditNote object in body of request |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -1702,7 +1706,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createInvoices**
-> \XeroAPI\XeroPHP\Models\Accounting\Invoices createInvoices($xero_tenant_id, $invoices, $summarize_errors)
+> \XeroAPI\XeroPHP\Models\Accounting\Invoices createInvoices($xero_tenant_id, $invoices, $summarize_errors, $unitdp)
 
 Allows you to create one or more sales invoices or purchase bills
 
@@ -1723,9 +1727,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $invoices = { invoices:[ { type: Invoice.TypeEnum.ACCREC, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Acme Tires", quantity:2.0, unitAmount:20.0, accountCode:"000", taxType:"NONE", lineAmount:40.0 } ], date:"2019-03-11", dueDate:"2018-12-10", reference:"Website Design", status: Invoice.StatusEnum.DRAFT } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | Invoices with an array of invoice objects in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
-    $result = $apiInstance->createInvoices($xero_tenant_id, $invoices, $summarize_errors);
+    $result = $apiInstance->createInvoices($xero_tenant_id, $invoices, $summarize_errors, $unitdp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createInvoices: ', $e->getMessage(), PHP_EOL;
@@ -1740,6 +1745,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **invoices** | [**\XeroAPI\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)| Invoices with an array of invoice objects in body of request |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -1812,7 +1818,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createItems**
-> \XeroAPI\XeroPHP\Models\Accounting\Items createItems($xero_tenant_id, $items, $summarize_errors)
+> \XeroAPI\XeroPHP\Models\Accounting\Items createItems($xero_tenant_id, $items, $summarize_errors, $unitdp)
 
 Allows you to create one or more items
 
@@ -1833,9 +1839,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $items = { items:[ { code:"abcXYZ123", name:"HelloWorld11", description:"Foobar", inventoryAssetAccountCode:"140", purchaseDetails: {cOGSAccountCode:"500"} } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | Items with an array of Item objects in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
-    $result = $apiInstance->createItems($xero_tenant_id, $items, $summarize_errors);
+    $result = $apiInstance->createItems($xero_tenant_id, $items, $summarize_errors, $unitdp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createItems: ', $e->getMessage(), PHP_EOL;
@@ -1850,6 +1857,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **items** | [**\XeroAPI\XeroPHP\Models\Accounting\Items**](../Model/Items.md)| Items with an array of Item objects in body of request |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -2792,7 +2800,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createReceipt**
-> \XeroAPI\XeroPHP\Models\Accounting\Receipts createReceipt($xero_tenant_id, $receipts)
+> \XeroAPI\XeroPHP\Models\Accounting\Receipts createReceipt($xero_tenant_id, $receipts, $unitdp)
 
 Allows you to create draft expense claim receipts for any user
 
@@ -2812,9 +2820,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $receipts = { receipts:[ { contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity:2.0, unitAmount:20.0, accountCode:"400", taxType:"NONE", lineAmount:40.0 } ], user:{ userID:"00000000-0000-0000-000-000000000000" }, lineAmountTypes: LineAmountTypes.Inclusive, status: Receipt.StatusEnum.DRAFT , date: null} ] }; // \XeroAPI\XeroPHP\Models\Accounting\Receipts | Receipts with an array of Receipt object in body of request
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
-    $result = $apiInstance->createReceipt($xero_tenant_id, $receipts);
+    $result = $apiInstance->createReceipt($xero_tenant_id, $receipts, $unitdp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createReceipt: ', $e->getMessage(), PHP_EOL;
@@ -2828,6 +2837,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **receipts** | [**\XeroAPI\XeroPHP\Models\Accounting\Receipts**](../Model/Receipts.md)| Receipts with an array of Receipt object in body of request |
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -3987,7 +3997,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBankTransaction**
-> \XeroAPI\XeroPHP\Models\Accounting\BankTransactions getBankTransaction($xero_tenant_id, $bank_transaction_id)
+> \XeroAPI\XeroPHP\Models\Accounting\BankTransactions getBankTransaction($xero_tenant_id, $bank_transaction_id, $unitdp)
 
 Allows you to retrieve a single spend or receive money transaction
 
@@ -4007,9 +4017,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
-    $result = $apiInstance->getBankTransaction($xero_tenant_id, $bank_transaction_id);
+    $result = $apiInstance->getBankTransaction($xero_tenant_id, $bank_transaction_id, $unitdp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->getBankTransaction: ', $e->getMessage(), PHP_EOL;
@@ -4023,6 +4034,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **bank_transaction_id** | [**string**](../Model/.md)| Xero generated unique identifier for a bank transaction |
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -5415,7 +5427,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCreditNote**
-> \XeroAPI\XeroPHP\Models\Accounting\CreditNotes getCreditNote($xero_tenant_id, $credit_note_id)
+> \XeroAPI\XeroPHP\Models\Accounting\CreditNotes getCreditNote($xero_tenant_id, $credit_note_id, $unitdp)
 
 Allows you to retrieve a specific credit note
 
@@ -5435,9 +5447,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
-    $result = $apiInstance->getCreditNote($xero_tenant_id, $credit_note_id);
+    $result = $apiInstance->getCreditNote($xero_tenant_id, $credit_note_id, $unitdp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->getCreditNote: ', $e->getMessage(), PHP_EOL;
@@ -5451,6 +5464,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **credit_note_id** | [**string**](../Model/.md)| Unique identifier for a Credit Note |
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -5743,7 +5757,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCreditNotes**
-> \XeroAPI\XeroPHP\Models\Accounting\CreditNotes getCreditNotes($xero_tenant_id, $if_modified_since, $where, $order, $page)
+> \XeroAPI\XeroPHP\Models\Accounting\CreditNotes getCreditNotes($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp)
 
 Allows you to retrieve any credit notes
 
@@ -5766,9 +5780,10 @@ $if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records 
 $where = Status=="' + CreditNote.StatusEnum.DRAFT + '"; // string | Filter by an any element
 $order = CreditNoteNumber ASC; // string | Order by an any element
 $page = 1; // int | e.g. page=1 – Up to 100 credit notes will be returned in a single API call with line items shown for each credit note
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
-    $result = $apiInstance->getCreditNotes($xero_tenant_id, $if_modified_since, $where, $order, $page);
+    $result = $apiInstance->getCreditNotes($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->getCreditNotes: ', $e->getMessage(), PHP_EOL;
@@ -5785,6 +5800,7 @@ Name | Type | Description  | Notes
  **where** | **string**| Filter by an any element | [optional]
  **order** | **string**| Order by an any element | [optional]
  **page** | **int**| e.g. page&#x3D;1 – Up to 100 credit notes will be returned in a single API call with line items shown for each credit note | [optional]
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -6130,7 +6146,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getInvoice**
-> \XeroAPI\XeroPHP\Models\Accounting\Invoices getInvoice($xero_tenant_id, $invoice_id)
+> \XeroAPI\XeroPHP\Models\Accounting\Invoices getInvoice($xero_tenant_id, $invoice_id, $unitdp)
 
 Allows you to retrieve a specified sales invoice or purchase bill
 
@@ -6150,9 +6166,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
-    $result = $apiInstance->getInvoice($xero_tenant_id, $invoice_id);
+    $result = $apiInstance->getInvoice($xero_tenant_id, $invoice_id, $unitdp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->getInvoice: ', $e->getMessage(), PHP_EOL;
@@ -6166,6 +6183,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **invoice_id** | [**string**](../Model/.md)| Unique identifier for an Invoice |
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -6582,7 +6600,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getItem**
-> \XeroAPI\XeroPHP\Models\Accounting\Items getItem($xero_tenant_id, $item_id)
+> \XeroAPI\XeroPHP\Models\Accounting\Items getItem($xero_tenant_id, $item_id, $unitdp)
 
 Allows you to retrieve a specified item
 
@@ -6602,9 +6620,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $item_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Item
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
-    $result = $apiInstance->getItem($xero_tenant_id, $item_id);
+    $result = $apiInstance->getItem($xero_tenant_id, $item_id, $unitdp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->getItem: ', $e->getMessage(), PHP_EOL;
@@ -6618,6 +6637,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **item_id** | [**string**](../Model/.md)| Unique identifier for an Item |
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -8301,7 +8321,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReceipt**
-> \XeroAPI\XeroPHP\Models\Accounting\Receipts getReceipt($xero_tenant_id, $receipt_id)
+> \XeroAPI\XeroPHP\Models\Accounting\Receipts getReceipt($xero_tenant_id, $receipt_id, $unitdp)
 
 Allows you to retrieve a specified draft expense claim receipts
 
@@ -8321,9 +8341,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
-    $result = $apiInstance->getReceipt($xero_tenant_id, $receipt_id);
+    $result = $apiInstance->getReceipt($xero_tenant_id, $receipt_id, $unitdp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->getReceipt: ', $e->getMessage(), PHP_EOL;
@@ -8337,6 +8358,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **receipt_id** | [**string**](../Model/.md)| Unique identifier for a Receipt |
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -9981,7 +10003,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateBankTransaction**
-> \XeroAPI\XeroPHP\Models\Accounting\BankTransactions updateBankTransaction($xero_tenant_id, $bank_transaction_id, $bank_transactions)
+> \XeroAPI\XeroPHP\Models\Accounting\BankTransactions updateBankTransaction($xero_tenant_id, $bank_transaction_id, $bank_transactions, $unitdp)
 
 Allows you to update a single spend or receive money transaction
 
@@ -10002,9 +10024,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
 $bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, date:"2019-02-25", reference:"You just updated", status:BankTransaction.StatusEnum.AUTHORISED, bankTransactionID:"00000000-0000-0000-000-000000000000", lineItems: [],contact: {}, bankAccount: {accountID: "00000000-0000-0000-000-000000000000"} } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
-    $result = $apiInstance->updateBankTransaction($xero_tenant_id, $bank_transaction_id, $bank_transactions);
+    $result = $apiInstance->updateBankTransaction($xero_tenant_id, $bank_transaction_id, $bank_transactions, $unitdp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->updateBankTransaction: ', $e->getMessage(), PHP_EOL;
@@ -10019,6 +10042,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **bank_transaction_id** | [**string**](../Model/.md)| Xero generated unique identifier for a bank transaction |
  **bank_transactions** | [**\XeroAPI\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)|  |
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -10317,7 +10341,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCreditNote**
-> \XeroAPI\XeroPHP\Models\Accounting\CreditNotes updateCreditNote($xero_tenant_id, $credit_note_id, $credit_notes)
+> \XeroAPI\XeroPHP\Models\Accounting\CreditNotes updateCreditNote($xero_tenant_id, $credit_note_id, $credit_notes, $unitdp)
 
 Allows you to update a specific credit note
 
@@ -10338,9 +10362,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
 $credit_notes = { creditNotes:[ { type:CreditNote.TypeEnum.ACCPAYCREDIT, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, date:"2019-01-05", status: CreditNote.StatusEnum.AUTHORISED, reference: "Mind stone", lineItems:[ { description:"Infinity Stones", quantity:1.0, unitAmount:100.0, accountCode:"400" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\CreditNotes | an array of Credit Notes containing credit note details to update
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
-    $result = $apiInstance->updateCreditNote($xero_tenant_id, $credit_note_id, $credit_notes);
+    $result = $apiInstance->updateCreditNote($xero_tenant_id, $credit_note_id, $credit_notes, $unitdp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->updateCreditNote: ', $e->getMessage(), PHP_EOL;
@@ -10355,6 +10380,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **credit_note_id** | [**string**](../Model/.md)| Unique identifier for a Credit Note |
  **credit_notes** | [**\XeroAPI\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)| an array of Credit Notes containing credit note details to update |
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -10539,7 +10565,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateInvoice**
-> \XeroAPI\XeroPHP\Models\Accounting\Invoices updateInvoice($xero_tenant_id, $invoice_id, $invoices)
+> \XeroAPI\XeroPHP\Models\Accounting\Invoices updateInvoice($xero_tenant_id, $invoice_id, $invoices, $unitdp)
 
 Allows you to update a specified sales invoices or purchase bills
 
@@ -10560,9 +10586,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
 $invoices = { invoices:[ { reference:"I am Iron Man", invoiceID:"00000000-0000-0000-000-000000000000", lineItems: [],contact: {},type: Invoice.TypeEnum.ACCPAY } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | 
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
-    $result = $apiInstance->updateInvoice($xero_tenant_id, $invoice_id, $invoices);
+    $result = $apiInstance->updateInvoice($xero_tenant_id, $invoice_id, $invoices, $unitdp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->updateInvoice: ', $e->getMessage(), PHP_EOL;
@@ -10577,6 +10604,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **invoice_id** | [**string**](../Model/.md)| Unique identifier for an Invoice |
  **invoices** | [**\XeroAPI\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)|  |
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -10651,7 +10679,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateItem**
-> \XeroAPI\XeroPHP\Models\Accounting\Items updateItem($xero_tenant_id, $item_id, $items)
+> \XeroAPI\XeroPHP\Models\Accounting\Items updateItem($xero_tenant_id, $item_id, $items, $unitdp)
 
 Allows you to update a specified item
 
@@ -10672,9 +10700,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $item_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Item
 $items = { items:[ { code:"abc123", description:"Hello Xero" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | 
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
-    $result = $apiInstance->updateItem($xero_tenant_id, $item_id, $items);
+    $result = $apiInstance->updateItem($xero_tenant_id, $item_id, $items, $unitdp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->updateItem: ', $e->getMessage(), PHP_EOL;
@@ -10689,6 +10718,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **item_id** | [**string**](../Model/.md)| Unique identifier for an Item |
  **items** | [**\XeroAPI\XeroPHP\Models\Accounting\Items**](../Model/Items.md)|  |
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -10873,7 +10903,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateOrCreateBankTransactions**
-> \XeroAPI\XeroPHP\Models\Accounting\BankTransactions updateOrCreateBankTransactions($xero_tenant_id, $bank_transactions, $summarize_errors)
+> \XeroAPI\XeroPHP\Models\Accounting\BankTransactions updateOrCreateBankTransactions($xero_tenant_id, $bank_transactions, $summarize_errors, $unitdp)
 
 Allows you to update or create one or more spend or receive money transaction
 
@@ -10894,9 +10924,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $bank_transactions = { bankTransactions:[ { type: BankTransaction.TypeEnum.SPEND, contact: { contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Foobar", quantity: 1.0, unitAmount:20.0, accountCode:"000" } ], bankAccount:{ code:"000" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
-    $result = $apiInstance->updateOrCreateBankTransactions($xero_tenant_id, $bank_transactions, $summarize_errors);
+    $result = $apiInstance->updateOrCreateBankTransactions($xero_tenant_id, $bank_transactions, $summarize_errors, $unitdp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->updateOrCreateBankTransactions: ', $e->getMessage(), PHP_EOL;
@@ -10911,6 +10942,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **bank_transactions** | [**\XeroAPI\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)|  |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -10983,7 +11015,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateOrCreateCreditNotes**
-> \XeroAPI\XeroPHP\Models\Accounting\CreditNotes updateOrCreateCreditNotes($xero_tenant_id, $credit_notes, $summarize_errors)
+> \XeroAPI\XeroPHP\Models\Accounting\CreditNotes updateOrCreateCreditNotes($xero_tenant_id, $credit_notes, $summarize_errors, $unitdp)
 
 Allows you to update OR create one or more credit notes
 
@@ -11004,9 +11036,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $credit_notes = { creditNotes:[ { type: CreditNote.TypeEnum.ACCPAYCREDIT, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, date:"2019-01-05", lineItems:[ { description:"Foobar", quantity:2.0, unitAmount:20.0, accountCode:"400" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\CreditNotes | an array of Credit Notes with a single CreditNote object.
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
-    $result = $apiInstance->updateOrCreateCreditNotes($xero_tenant_id, $credit_notes, $summarize_errors);
+    $result = $apiInstance->updateOrCreateCreditNotes($xero_tenant_id, $credit_notes, $summarize_errors, $unitdp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->updateOrCreateCreditNotes: ', $e->getMessage(), PHP_EOL;
@@ -11021,6 +11054,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **credit_notes** | [**\XeroAPI\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)| an array of Credit Notes with a single CreditNote object. |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -11038,7 +11072,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateOrCreateInvoices**
-> \XeroAPI\XeroPHP\Models\Accounting\Invoices updateOrCreateInvoices($xero_tenant_id, $invoices, $summarize_errors)
+> \XeroAPI\XeroPHP\Models\Accounting\Invoices updateOrCreateInvoices($xero_tenant_id, $invoices, $summarize_errors, $unitdp)
 
 Allows you to update OR create one or more sales invoices or purchase bills
 
@@ -11059,9 +11093,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $invoices = { invoices:[ { type: Invoice.TypeEnum.ACCREC, contact:{ contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Acme Tires", quantity:2.0, unitAmount:20.0, accountCode:"200", taxType:"NONE", lineAmount:40.0 } ], date:"2019-03-11", dueDate:"2018-12-10", reference:"Website Design", status: Invoice.StatusEnum.AUTHORISED } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | 
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
-    $result = $apiInstance->updateOrCreateInvoices($xero_tenant_id, $invoices, $summarize_errors);
+    $result = $apiInstance->updateOrCreateInvoices($xero_tenant_id, $invoices, $summarize_errors, $unitdp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->updateOrCreateInvoices: ', $e->getMessage(), PHP_EOL;
@@ -11076,6 +11111,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **invoices** | [**\XeroAPI\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)|  |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -11093,7 +11129,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateOrCreateItems**
-> \XeroAPI\XeroPHP\Models\Accounting\Items updateOrCreateItems($xero_tenant_id, $items, $summarize_errors)
+> \XeroAPI\XeroPHP\Models\Accounting\Items updateOrCreateItems($xero_tenant_id, $items, $summarize_errors, $unitdp)
 
 Allows you to update or create one or more items
 
@@ -11114,9 +11150,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $items = { items:[ { code:"abcXYZ", name:"HelloWorld", description:"Foobar" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | 
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
-    $result = $apiInstance->updateOrCreateItems($xero_tenant_id, $items, $summarize_errors);
+    $result = $apiInstance->updateOrCreateItems($xero_tenant_id, $items, $summarize_errors, $unitdp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->updateOrCreateItems: ', $e->getMessage(), PHP_EOL;
@@ -11131,6 +11168,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **items** | [**\XeroAPI\XeroPHP\Models\Accounting\Items**](../Model/Items.md)|  |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 
@@ -11368,7 +11406,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateReceipt**
-> \XeroAPI\XeroPHP\Models\Accounting\Receipts updateReceipt($xero_tenant_id, $receipt_id, $receipts)
+> \XeroAPI\XeroPHP\Models\Accounting\Receipts updateReceipt($xero_tenant_id, $receipt_id, $receipts, $unitdp)
 
 Allows you to retrieve a specified draft expense claim receipts
 
@@ -11389,9 +11427,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
 $receipts = { receipts:[ { user:{ userID:"00000000-0000-0000-000-000000000000" }, reference:"Foobar", date: "2020-01-01",contact: {},lineItems: []} ] }; // \XeroAPI\XeroPHP\Models\Accounting\Receipts | 
+$unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
-    $result = $apiInstance->updateReceipt($xero_tenant_id, $receipt_id, $receipts);
+    $result = $apiInstance->updateReceipt($xero_tenant_id, $receipt_id, $receipts, $unitdp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->updateReceipt: ', $e->getMessage(), PHP_EOL;
@@ -11406,6 +11445,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **receipt_id** | [**string**](../Model/.md)| Unique identifier for a Receipt |
  **receipts** | [**\XeroAPI\XeroPHP\Models\Accounting\Receipts**](../Model/Receipts.md)|  |
+ **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
 

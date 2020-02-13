@@ -237,6 +237,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     const TYPE_ACCREC = 'ACCREC';
     const STATUS_DRAFT = 'DRAFT';
     const STATUS_AUTHORISED = 'AUTHORISED';
+    const STATUS_DELETED = 'DELETED';
     
 
     
@@ -263,6 +264,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
         return [
             self::STATUS_DRAFT,
             self::STATUS_AUTHORISED,
+            self::STATUS_DELETED,
         ];
     }
     

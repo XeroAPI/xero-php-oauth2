@@ -1419,14 +1419,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions BankTransactions with an array of BankTransaction objects in body of request (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\BankTransactions|\XeroAPI\XeroPHP\Models\Accounting\Error
      */
-    public function createBankTransactions($xero_tenant_id, $bank_transactions, $summarize_errors = false)
+    public function createBankTransactions($xero_tenant_id, $bank_transactions, $summarize_errors = false, $unitdp = null)
     {
-        list($response) = $this->createBankTransactionsWithHttpInfo($xero_tenant_id, $bank_transactions, $summarize_errors);
+        list($response) = $this->createBankTransactionsWithHttpInfo($xero_tenant_id, $bank_transactions, $summarize_errors, $unitdp);
         return $response;
     }
 
@@ -1438,14 +1439,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions BankTransactions with an array of BankTransaction objects in body of request (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\BankTransactions|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createBankTransactionsWithHttpInfo($xero_tenant_id, $bank_transactions, $summarize_errors = false)
+    public function createBankTransactionsWithHttpInfo($xero_tenant_id, $bank_transactions, $summarize_errors = false, $unitdp = null)
     {
-        $request = $this->createBankTransactionsRequest($xero_tenant_id, $bank_transactions, $summarize_errors);
+        $request = $this->createBankTransactionsRequest($xero_tenant_id, $bank_transactions, $summarize_errors, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1548,13 +1550,14 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions BankTransactions with an array of BankTransaction objects in body of request (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createBankTransactionsAsync($xero_tenant_id, $bank_transactions, $summarize_errors = false)
+    public function createBankTransactionsAsync($xero_tenant_id, $bank_transactions, $summarize_errors = false, $unitdp = null)
     {
-        return $this->createBankTransactionsAsyncWithHttpInfo($xero_tenant_id, $bank_transactions, $summarize_errors)
+        return $this->createBankTransactionsAsyncWithHttpInfo($xero_tenant_id, $bank_transactions, $summarize_errors, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1570,14 +1573,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions BankTransactions with an array of BankTransaction objects in body of request (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createBankTransactionsAsyncWithHttpInfo($xero_tenant_id, $bank_transactions, $summarize_errors = false)
+    public function createBankTransactionsAsyncWithHttpInfo($xero_tenant_id, $bank_transactions, $summarize_errors = false, $unitdp = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\BankTransactions';
-        $request = $this->createBankTransactionsRequest($xero_tenant_id, $bank_transactions, $summarize_errors);
+        $request = $this->createBankTransactionsRequest($xero_tenant_id, $bank_transactions, $summarize_errors, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1619,11 +1623,12 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions BankTransactions with an array of BankTransaction objects in body of request (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createBankTransactionsRequest($xero_tenant_id, $bank_transactions, $summarize_errors = false)
+    protected function createBankTransactionsRequest($xero_tenant_id, $bank_transactions, $summarize_errors = false, $unitdp = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -1648,6 +1653,10 @@ class AccountingApi
         // query params
         if ($summarize_errors !== null) {
             $queryParams['summarizeErrors'] = $summarize_errors ? 'true' : 'false';
+        }
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -6305,14 +6314,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes Credit Notes with array of CreditNote object in body of request (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\CreditNotes|\XeroAPI\XeroPHP\Models\Accounting\Error
      */
-    public function createCreditNotes($xero_tenant_id, $credit_notes, $summarize_errors = false)
+    public function createCreditNotes($xero_tenant_id, $credit_notes, $summarize_errors = false, $unitdp = null)
     {
-        list($response) = $this->createCreditNotesWithHttpInfo($xero_tenant_id, $credit_notes, $summarize_errors);
+        list($response) = $this->createCreditNotesWithHttpInfo($xero_tenant_id, $credit_notes, $summarize_errors, $unitdp);
         return $response;
     }
 
@@ -6324,14 +6334,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes Credit Notes with array of CreditNote object in body of request (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\CreditNotes|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createCreditNotesWithHttpInfo($xero_tenant_id, $credit_notes, $summarize_errors = false)
+    public function createCreditNotesWithHttpInfo($xero_tenant_id, $credit_notes, $summarize_errors = false, $unitdp = null)
     {
-        $request = $this->createCreditNotesRequest($xero_tenant_id, $credit_notes, $summarize_errors);
+        $request = $this->createCreditNotesRequest($xero_tenant_id, $credit_notes, $summarize_errors, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6434,13 +6445,14 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes Credit Notes with array of CreditNote object in body of request (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCreditNotesAsync($xero_tenant_id, $credit_notes, $summarize_errors = false)
+    public function createCreditNotesAsync($xero_tenant_id, $credit_notes, $summarize_errors = false, $unitdp = null)
     {
-        return $this->createCreditNotesAsyncWithHttpInfo($xero_tenant_id, $credit_notes, $summarize_errors)
+        return $this->createCreditNotesAsyncWithHttpInfo($xero_tenant_id, $credit_notes, $summarize_errors, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6456,14 +6468,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes Credit Notes with array of CreditNote object in body of request (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createCreditNotesAsyncWithHttpInfo($xero_tenant_id, $credit_notes, $summarize_errors = false)
+    public function createCreditNotesAsyncWithHttpInfo($xero_tenant_id, $credit_notes, $summarize_errors = false, $unitdp = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\CreditNotes';
-        $request = $this->createCreditNotesRequest($xero_tenant_id, $credit_notes, $summarize_errors);
+        $request = $this->createCreditNotesRequest($xero_tenant_id, $credit_notes, $summarize_errors, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6505,11 +6518,12 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes Credit Notes with array of CreditNote object in body of request (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createCreditNotesRequest($xero_tenant_id, $credit_notes, $summarize_errors = false)
+    protected function createCreditNotesRequest($xero_tenant_id, $credit_notes, $summarize_errors = false, $unitdp = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -6534,6 +6548,10 @@ class AccountingApi
         // query params
         if ($summarize_errors !== null) {
             $queryParams['summarizeErrors'] = $summarize_errors ? 'true' : 'false';
+        }
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -8821,14 +8839,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices Invoices with an array of invoice objects in body of request (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\Invoices|\XeroAPI\XeroPHP\Models\Accounting\Error
      */
-    public function createInvoices($xero_tenant_id, $invoices, $summarize_errors = false)
+    public function createInvoices($xero_tenant_id, $invoices, $summarize_errors = false, $unitdp = null)
     {
-        list($response) = $this->createInvoicesWithHttpInfo($xero_tenant_id, $invoices, $summarize_errors);
+        list($response) = $this->createInvoicesWithHttpInfo($xero_tenant_id, $invoices, $summarize_errors, $unitdp);
         return $response;
     }
 
@@ -8840,14 +8859,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices Invoices with an array of invoice objects in body of request (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\Invoices|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createInvoicesWithHttpInfo($xero_tenant_id, $invoices, $summarize_errors = false)
+    public function createInvoicesWithHttpInfo($xero_tenant_id, $invoices, $summarize_errors = false, $unitdp = null)
     {
-        $request = $this->createInvoicesRequest($xero_tenant_id, $invoices, $summarize_errors);
+        $request = $this->createInvoicesRequest($xero_tenant_id, $invoices, $summarize_errors, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -8950,13 +8970,14 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices Invoices with an array of invoice objects in body of request (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createInvoicesAsync($xero_tenant_id, $invoices, $summarize_errors = false)
+    public function createInvoicesAsync($xero_tenant_id, $invoices, $summarize_errors = false, $unitdp = null)
     {
-        return $this->createInvoicesAsyncWithHttpInfo($xero_tenant_id, $invoices, $summarize_errors)
+        return $this->createInvoicesAsyncWithHttpInfo($xero_tenant_id, $invoices, $summarize_errors, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -8972,14 +8993,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices Invoices with an array of invoice objects in body of request (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createInvoicesAsyncWithHttpInfo($xero_tenant_id, $invoices, $summarize_errors = false)
+    public function createInvoicesAsyncWithHttpInfo($xero_tenant_id, $invoices, $summarize_errors = false, $unitdp = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Invoices';
-        $request = $this->createInvoicesRequest($xero_tenant_id, $invoices, $summarize_errors);
+        $request = $this->createInvoicesRequest($xero_tenant_id, $invoices, $summarize_errors, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9021,11 +9043,12 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices Invoices with an array of invoice objects in body of request (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createInvoicesRequest($xero_tenant_id, $invoices, $summarize_errors = false)
+    protected function createInvoicesRequest($xero_tenant_id, $invoices, $summarize_errors = false, $unitdp = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -9050,6 +9073,10 @@ class AccountingApi
         // query params
         if ($summarize_errors !== null) {
             $queryParams['summarizeErrors'] = $summarize_errors ? 'true' : 'false';
+        }
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -9443,14 +9470,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items Items with an array of Item objects in body of request (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\Items|\XeroAPI\XeroPHP\Models\Accounting\Error
      */
-    public function createItems($xero_tenant_id, $items, $summarize_errors = false)
+    public function createItems($xero_tenant_id, $items, $summarize_errors = false, $unitdp = null)
     {
-        list($response) = $this->createItemsWithHttpInfo($xero_tenant_id, $items, $summarize_errors);
+        list($response) = $this->createItemsWithHttpInfo($xero_tenant_id, $items, $summarize_errors, $unitdp);
         return $response;
     }
 
@@ -9462,14 +9490,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items Items with an array of Item objects in body of request (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\Items|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createItemsWithHttpInfo($xero_tenant_id, $items, $summarize_errors = false)
+    public function createItemsWithHttpInfo($xero_tenant_id, $items, $summarize_errors = false, $unitdp = null)
     {
-        $request = $this->createItemsRequest($xero_tenant_id, $items, $summarize_errors);
+        $request = $this->createItemsRequest($xero_tenant_id, $items, $summarize_errors, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -9572,13 +9601,14 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items Items with an array of Item objects in body of request (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createItemsAsync($xero_tenant_id, $items, $summarize_errors = false)
+    public function createItemsAsync($xero_tenant_id, $items, $summarize_errors = false, $unitdp = null)
     {
-        return $this->createItemsAsyncWithHttpInfo($xero_tenant_id, $items, $summarize_errors)
+        return $this->createItemsAsyncWithHttpInfo($xero_tenant_id, $items, $summarize_errors, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -9594,14 +9624,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items Items with an array of Item objects in body of request (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createItemsAsyncWithHttpInfo($xero_tenant_id, $items, $summarize_errors = false)
+    public function createItemsAsyncWithHttpInfo($xero_tenant_id, $items, $summarize_errors = false, $unitdp = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Items';
-        $request = $this->createItemsRequest($xero_tenant_id, $items, $summarize_errors);
+        $request = $this->createItemsRequest($xero_tenant_id, $items, $summarize_errors, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -9643,11 +9674,12 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items Items with an array of Item objects in body of request (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createItemsRequest($xero_tenant_id, $items, $summarize_errors = false)
+    protected function createItemsRequest($xero_tenant_id, $items, $summarize_errors = false, $unitdp = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -9672,6 +9704,10 @@ class AccountingApi
         // query params
         if ($summarize_errors !== null) {
             $queryParams['summarizeErrors'] = $summarize_errors ? 'true' : 'false';
+        }
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -15185,14 +15221,15 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Receipts $receipts Receipts with an array of Receipt object in body of request (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\Receipts|\XeroAPI\XeroPHP\Models\Accounting\Error
      */
-    public function createReceipt($xero_tenant_id, $receipts)
+    public function createReceipt($xero_tenant_id, $receipts, $unitdp = null)
     {
-        list($response) = $this->createReceiptWithHttpInfo($xero_tenant_id, $receipts);
+        list($response) = $this->createReceiptWithHttpInfo($xero_tenant_id, $receipts, $unitdp);
         return $response;
     }
 
@@ -15203,14 +15240,15 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Receipts $receipts Receipts with an array of Receipt object in body of request (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\Receipts|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createReceiptWithHttpInfo($xero_tenant_id, $receipts)
+    public function createReceiptWithHttpInfo($xero_tenant_id, $receipts, $unitdp = null)
     {
-        $request = $this->createReceiptRequest($xero_tenant_id, $receipts);
+        $request = $this->createReceiptRequest($xero_tenant_id, $receipts, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -15312,13 +15350,14 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Receipts $receipts Receipts with an array of Receipt object in body of request (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createReceiptAsync($xero_tenant_id, $receipts)
+    public function createReceiptAsync($xero_tenant_id, $receipts, $unitdp = null)
     {
-        return $this->createReceiptAsyncWithHttpInfo($xero_tenant_id, $receipts)
+        return $this->createReceiptAsyncWithHttpInfo($xero_tenant_id, $receipts, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -15333,14 +15372,15 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Receipts $receipts Receipts with an array of Receipt object in body of request (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createReceiptAsyncWithHttpInfo($xero_tenant_id, $receipts)
+    public function createReceiptAsyncWithHttpInfo($xero_tenant_id, $receipts, $unitdp = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Receipts';
-        $request = $this->createReceiptRequest($xero_tenant_id, $receipts);
+        $request = $this->createReceiptRequest($xero_tenant_id, $receipts, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -15381,11 +15421,12 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Receipts $receipts Receipts with an array of Receipt object in body of request (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createReceiptRequest($xero_tenant_id, $receipts)
+    protected function createReceiptRequest($xero_tenant_id, $receipts, $unitdp = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -15407,6 +15448,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
+        }
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['xero-tenant-id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
@@ -21876,14 +21921,15 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\BankTransactions
      */
-    public function getBankTransaction($xero_tenant_id, $bank_transaction_id)
+    public function getBankTransaction($xero_tenant_id, $bank_transaction_id, $unitdp = null)
     {
-        list($response) = $this->getBankTransactionWithHttpInfo($xero_tenant_id, $bank_transaction_id);
+        list($response) = $this->getBankTransactionWithHttpInfo($xero_tenant_id, $bank_transaction_id, $unitdp);
         return $response;
     }
 
@@ -21894,14 +21940,15 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\BankTransactions, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBankTransactionWithHttpInfo($xero_tenant_id, $bank_transaction_id)
+    public function getBankTransactionWithHttpInfo($xero_tenant_id, $bank_transaction_id, $unitdp = null)
     {
-        $request = $this->getBankTransactionRequest($xero_tenant_id, $bank_transaction_id);
+        $request = $this->getBankTransactionRequest($xero_tenant_id, $bank_transaction_id, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -21983,13 +22030,14 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBankTransactionAsync($xero_tenant_id, $bank_transaction_id)
+    public function getBankTransactionAsync($xero_tenant_id, $bank_transaction_id, $unitdp = null)
     {
-        return $this->getBankTransactionAsyncWithHttpInfo($xero_tenant_id, $bank_transaction_id)
+        return $this->getBankTransactionAsyncWithHttpInfo($xero_tenant_id, $bank_transaction_id, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -22004,14 +22052,15 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBankTransactionAsyncWithHttpInfo($xero_tenant_id, $bank_transaction_id)
+    public function getBankTransactionAsyncWithHttpInfo($xero_tenant_id, $bank_transaction_id, $unitdp = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\BankTransactions';
-        $request = $this->getBankTransactionRequest($xero_tenant_id, $bank_transaction_id);
+        $request = $this->getBankTransactionRequest($xero_tenant_id, $bank_transaction_id, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -22052,11 +22101,12 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getBankTransactionRequest($xero_tenant_id, $bank_transaction_id)
+    protected function getBankTransactionRequest($xero_tenant_id, $bank_transaction_id, $unitdp = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -22078,6 +22128,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
+        }
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['xero-tenant-id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
@@ -29732,14 +29786,15 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\CreditNotes
      */
-    public function getCreditNote($xero_tenant_id, $credit_note_id)
+    public function getCreditNote($xero_tenant_id, $credit_note_id, $unitdp = null)
     {
-        list($response) = $this->getCreditNoteWithHttpInfo($xero_tenant_id, $credit_note_id);
+        list($response) = $this->getCreditNoteWithHttpInfo($xero_tenant_id, $credit_note_id, $unitdp);
         return $response;
     }
 
@@ -29750,14 +29805,15 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\CreditNotes, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCreditNoteWithHttpInfo($xero_tenant_id, $credit_note_id)
+    public function getCreditNoteWithHttpInfo($xero_tenant_id, $credit_note_id, $unitdp = null)
     {
-        $request = $this->getCreditNoteRequest($xero_tenant_id, $credit_note_id);
+        $request = $this->getCreditNoteRequest($xero_tenant_id, $credit_note_id, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -29839,13 +29895,14 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditNoteAsync($xero_tenant_id, $credit_note_id)
+    public function getCreditNoteAsync($xero_tenant_id, $credit_note_id, $unitdp = null)
     {
-        return $this->getCreditNoteAsyncWithHttpInfo($xero_tenant_id, $credit_note_id)
+        return $this->getCreditNoteAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -29860,14 +29917,15 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditNoteAsyncWithHttpInfo($xero_tenant_id, $credit_note_id)
+    public function getCreditNoteAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $unitdp = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\CreditNotes';
-        $request = $this->getCreditNoteRequest($xero_tenant_id, $credit_note_id);
+        $request = $this->getCreditNoteRequest($xero_tenant_id, $credit_note_id, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -29908,11 +29966,12 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCreditNoteRequest($xero_tenant_id, $credit_note_id)
+    protected function getCreditNoteRequest($xero_tenant_id, $credit_note_id, $unitdp = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -29934,6 +29993,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
+        }
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['xero-tenant-id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
@@ -31570,14 +31633,15 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 credit notes will be returned in a single API call with line items shown for each credit note (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\CreditNotes
      */
-    public function getCreditNotes($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getCreditNotes($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
-        list($response) = $this->getCreditNotesWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order, $page);
+        list($response) = $this->getCreditNotesWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp);
         return $response;
     }
 
@@ -31591,14 +31655,15 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 credit notes will be returned in a single API call with line items shown for each credit note (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\CreditNotes, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCreditNotesWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getCreditNotesWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
-        $request = $this->getCreditNotesRequest($xero_tenant_id, $if_modified_since, $where, $order, $page);
+        $request = $this->getCreditNotesRequest($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -31683,13 +31748,14 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 credit notes will be returned in a single API call with line items shown for each credit note (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditNotesAsync($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getCreditNotesAsync($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
-        return $this->getCreditNotesAsyncWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order, $page)
+        return $this->getCreditNotesAsyncWithHttpInfo($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -31707,14 +31773,15 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 credit notes will be returned in a single API call with line items shown for each credit note (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditNotesAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
+    public function getCreditNotesAsyncWithHttpInfo($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\CreditNotes';
-        $request = $this->getCreditNotesRequest($xero_tenant_id, $if_modified_since, $where, $order, $page);
+        $request = $this->getCreditNotesRequest($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -31758,11 +31825,12 @@ class AccountingApi
      * @param  string $where Filter by an any element (optional)
      * @param  string $order Order by an any element (optional)
      * @param  int $page e.g. page&#x3D;1 – Up to 100 credit notes will be returned in a single API call with line items shown for each credit note (optional)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCreditNotesRequest($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null)
+    protected function getCreditNotesRequest($xero_tenant_id, $if_modified_since = null, $where = null, $order = null, $page = null, $unitdp = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -31789,6 +31857,10 @@ class AccountingApi
         // query params
         if ($page !== null) {
             $queryParams['page'] = AccountingObjectSerializer::toQueryValue($page);
+        }
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -33643,14 +33715,15 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\Invoices
      */
-    public function getInvoice($xero_tenant_id, $invoice_id)
+    public function getInvoice($xero_tenant_id, $invoice_id, $unitdp = null)
     {
-        list($response) = $this->getInvoiceWithHttpInfo($xero_tenant_id, $invoice_id);
+        list($response) = $this->getInvoiceWithHttpInfo($xero_tenant_id, $invoice_id, $unitdp);
         return $response;
     }
 
@@ -33661,14 +33734,15 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\Invoices, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getInvoiceWithHttpInfo($xero_tenant_id, $invoice_id)
+    public function getInvoiceWithHttpInfo($xero_tenant_id, $invoice_id, $unitdp = null)
     {
-        $request = $this->getInvoiceRequest($xero_tenant_id, $invoice_id);
+        $request = $this->getInvoiceRequest($xero_tenant_id, $invoice_id, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -33750,13 +33824,14 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceAsync($xero_tenant_id, $invoice_id)
+    public function getInvoiceAsync($xero_tenant_id, $invoice_id, $unitdp = null)
     {
-        return $this->getInvoiceAsyncWithHttpInfo($xero_tenant_id, $invoice_id)
+        return $this->getInvoiceAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -33771,14 +33846,15 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getInvoiceAsyncWithHttpInfo($xero_tenant_id, $invoice_id)
+    public function getInvoiceAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $unitdp = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Invoices';
-        $request = $this->getInvoiceRequest($xero_tenant_id, $invoice_id);
+        $request = $this->getInvoiceRequest($xero_tenant_id, $invoice_id, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -33819,11 +33895,12 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getInvoiceRequest($xero_tenant_id, $invoice_id)
+    protected function getInvoiceRequest($xero_tenant_id, $invoice_id, $unitdp = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -33845,6 +33922,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
+        }
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['xero-tenant-id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
@@ -36135,14 +36216,15 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\Items
      */
-    public function getItem($xero_tenant_id, $item_id)
+    public function getItem($xero_tenant_id, $item_id, $unitdp = null)
     {
-        list($response) = $this->getItemWithHttpInfo($xero_tenant_id, $item_id);
+        list($response) = $this->getItemWithHttpInfo($xero_tenant_id, $item_id, $unitdp);
         return $response;
     }
 
@@ -36153,14 +36235,15 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\Items, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getItemWithHttpInfo($xero_tenant_id, $item_id)
+    public function getItemWithHttpInfo($xero_tenant_id, $item_id, $unitdp = null)
     {
-        $request = $this->getItemRequest($xero_tenant_id, $item_id);
+        $request = $this->getItemRequest($xero_tenant_id, $item_id, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -36242,13 +36325,14 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemAsync($xero_tenant_id, $item_id)
+    public function getItemAsync($xero_tenant_id, $item_id, $unitdp = null)
     {
-        return $this->getItemAsyncWithHttpInfo($xero_tenant_id, $item_id)
+        return $this->getItemAsyncWithHttpInfo($xero_tenant_id, $item_id, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -36263,14 +36347,15 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getItemAsyncWithHttpInfo($xero_tenant_id, $item_id)
+    public function getItemAsyncWithHttpInfo($xero_tenant_id, $item_id, $unitdp = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Items';
-        $request = $this->getItemRequest($xero_tenant_id, $item_id);
+        $request = $this->getItemRequest($xero_tenant_id, $item_id, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -36311,11 +36396,12 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getItemRequest($xero_tenant_id, $item_id)
+    protected function getItemRequest($xero_tenant_id, $item_id, $unitdp = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -36337,6 +36423,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
+        }
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['xero-tenant-id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
@@ -45451,14 +45541,15 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\Receipts
      */
-    public function getReceipt($xero_tenant_id, $receipt_id)
+    public function getReceipt($xero_tenant_id, $receipt_id, $unitdp = null)
     {
-        list($response) = $this->getReceiptWithHttpInfo($xero_tenant_id, $receipt_id);
+        list($response) = $this->getReceiptWithHttpInfo($xero_tenant_id, $receipt_id, $unitdp);
         return $response;
     }
 
@@ -45469,14 +45560,15 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\Receipts, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getReceiptWithHttpInfo($xero_tenant_id, $receipt_id)
+    public function getReceiptWithHttpInfo($xero_tenant_id, $receipt_id, $unitdp = null)
     {
-        $request = $this->getReceiptRequest($xero_tenant_id, $receipt_id);
+        $request = $this->getReceiptRequest($xero_tenant_id, $receipt_id, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -45558,13 +45650,14 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReceiptAsync($xero_tenant_id, $receipt_id)
+    public function getReceiptAsync($xero_tenant_id, $receipt_id, $unitdp = null)
     {
-        return $this->getReceiptAsyncWithHttpInfo($xero_tenant_id, $receipt_id)
+        return $this->getReceiptAsyncWithHttpInfo($xero_tenant_id, $receipt_id, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -45579,14 +45672,15 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getReceiptAsyncWithHttpInfo($xero_tenant_id, $receipt_id)
+    public function getReceiptAsyncWithHttpInfo($xero_tenant_id, $receipt_id, $unitdp = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Receipts';
-        $request = $this->getReceiptRequest($xero_tenant_id, $receipt_id);
+        $request = $this->getReceiptRequest($xero_tenant_id, $receipt_id, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -45627,11 +45721,12 @@ class AccountingApi
      *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getReceiptRequest($xero_tenant_id, $receipt_id)
+    protected function getReceiptRequest($xero_tenant_id, $receipt_id, $unitdp = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -45653,6 +45748,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
+        }
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['xero-tenant-id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
@@ -54603,14 +54702,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions bank_transactions (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\BankTransactions|\XeroAPI\XeroPHP\Models\Accounting\Error
      */
-    public function updateBankTransaction($xero_tenant_id, $bank_transaction_id, $bank_transactions)
+    public function updateBankTransaction($xero_tenant_id, $bank_transaction_id, $bank_transactions, $unitdp = null)
     {
-        list($response) = $this->updateBankTransactionWithHttpInfo($xero_tenant_id, $bank_transaction_id, $bank_transactions);
+        list($response) = $this->updateBankTransactionWithHttpInfo($xero_tenant_id, $bank_transaction_id, $bank_transactions, $unitdp);
         return $response;
     }
 
@@ -54622,14 +54722,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\BankTransactions|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateBankTransactionWithHttpInfo($xero_tenant_id, $bank_transaction_id, $bank_transactions)
+    public function updateBankTransactionWithHttpInfo($xero_tenant_id, $bank_transaction_id, $bank_transactions, $unitdp = null)
     {
-        $request = $this->updateBankTransactionRequest($xero_tenant_id, $bank_transaction_id, $bank_transactions);
+        $request = $this->updateBankTransactionRequest($xero_tenant_id, $bank_transaction_id, $bank_transactions, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -54732,13 +54833,14 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateBankTransactionAsync($xero_tenant_id, $bank_transaction_id, $bank_transactions)
+    public function updateBankTransactionAsync($xero_tenant_id, $bank_transaction_id, $bank_transactions, $unitdp = null)
     {
-        return $this->updateBankTransactionAsyncWithHttpInfo($xero_tenant_id, $bank_transaction_id, $bank_transactions)
+        return $this->updateBankTransactionAsyncWithHttpInfo($xero_tenant_id, $bank_transaction_id, $bank_transactions, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -54754,14 +54856,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateBankTransactionAsyncWithHttpInfo($xero_tenant_id, $bank_transaction_id, $bank_transactions)
+    public function updateBankTransactionAsyncWithHttpInfo($xero_tenant_id, $bank_transaction_id, $bank_transactions, $unitdp = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\BankTransactions';
-        $request = $this->updateBankTransactionRequest($xero_tenant_id, $bank_transaction_id, $bank_transactions);
+        $request = $this->updateBankTransactionRequest($xero_tenant_id, $bank_transaction_id, $bank_transactions, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -54803,11 +54906,12 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateBankTransactionRequest($xero_tenant_id, $bank_transaction_id, $bank_transactions)
+    protected function updateBankTransactionRequest($xero_tenant_id, $bank_transaction_id, $bank_transactions, $unitdp = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -54835,6 +54939,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
+        }
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['xero-tenant-id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
@@ -56604,14 +56712,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes an array of Credit Notes containing credit note details to update (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\CreditNotes|\XeroAPI\XeroPHP\Models\Accounting\Error
      */
-    public function updateCreditNote($xero_tenant_id, $credit_note_id, $credit_notes)
+    public function updateCreditNote($xero_tenant_id, $credit_note_id, $credit_notes, $unitdp = null)
     {
-        list($response) = $this->updateCreditNoteWithHttpInfo($xero_tenant_id, $credit_note_id, $credit_notes);
+        list($response) = $this->updateCreditNoteWithHttpInfo($xero_tenant_id, $credit_note_id, $credit_notes, $unitdp);
         return $response;
     }
 
@@ -56623,14 +56732,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes an array of Credit Notes containing credit note details to update (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\CreditNotes|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateCreditNoteWithHttpInfo($xero_tenant_id, $credit_note_id, $credit_notes)
+    public function updateCreditNoteWithHttpInfo($xero_tenant_id, $credit_note_id, $credit_notes, $unitdp = null)
     {
-        $request = $this->updateCreditNoteRequest($xero_tenant_id, $credit_note_id, $credit_notes);
+        $request = $this->updateCreditNoteRequest($xero_tenant_id, $credit_note_id, $credit_notes, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -56733,13 +56843,14 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes an array of Credit Notes containing credit note details to update (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCreditNoteAsync($xero_tenant_id, $credit_note_id, $credit_notes)
+    public function updateCreditNoteAsync($xero_tenant_id, $credit_note_id, $credit_notes, $unitdp = null)
     {
-        return $this->updateCreditNoteAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $credit_notes)
+        return $this->updateCreditNoteAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $credit_notes, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -56755,14 +56866,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes an array of Credit Notes containing credit note details to update (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateCreditNoteAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $credit_notes)
+    public function updateCreditNoteAsyncWithHttpInfo($xero_tenant_id, $credit_note_id, $credit_notes, $unitdp = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\CreditNotes';
-        $request = $this->updateCreditNoteRequest($xero_tenant_id, $credit_note_id, $credit_notes);
+        $request = $this->updateCreditNoteRequest($xero_tenant_id, $credit_note_id, $credit_notes, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -56804,11 +56916,12 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes an array of Credit Notes containing credit note details to update (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateCreditNoteRequest($xero_tenant_id, $credit_note_id, $credit_notes)
+    protected function updateCreditNoteRequest($xero_tenant_id, $credit_note_id, $credit_notes, $unitdp = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -56836,6 +56949,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
+        }
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['xero-tenant-id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
@@ -57927,14 +58044,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices invoices (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\Invoices|\XeroAPI\XeroPHP\Models\Accounting\Error
      */
-    public function updateInvoice($xero_tenant_id, $invoice_id, $invoices)
+    public function updateInvoice($xero_tenant_id, $invoice_id, $invoices, $unitdp = null)
     {
-        list($response) = $this->updateInvoiceWithHttpInfo($xero_tenant_id, $invoice_id, $invoices);
+        list($response) = $this->updateInvoiceWithHttpInfo($xero_tenant_id, $invoice_id, $invoices, $unitdp);
         return $response;
     }
 
@@ -57946,14 +58064,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\Invoices|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateInvoiceWithHttpInfo($xero_tenant_id, $invoice_id, $invoices)
+    public function updateInvoiceWithHttpInfo($xero_tenant_id, $invoice_id, $invoices, $unitdp = null)
     {
-        $request = $this->updateInvoiceRequest($xero_tenant_id, $invoice_id, $invoices);
+        $request = $this->updateInvoiceRequest($xero_tenant_id, $invoice_id, $invoices, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -58056,13 +58175,14 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateInvoiceAsync($xero_tenant_id, $invoice_id, $invoices)
+    public function updateInvoiceAsync($xero_tenant_id, $invoice_id, $invoices, $unitdp = null)
     {
-        return $this->updateInvoiceAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $invoices)
+        return $this->updateInvoiceAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $invoices, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -58078,14 +58198,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateInvoiceAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $invoices)
+    public function updateInvoiceAsyncWithHttpInfo($xero_tenant_id, $invoice_id, $invoices, $unitdp = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Invoices';
-        $request = $this->updateInvoiceRequest($xero_tenant_id, $invoice_id, $invoices);
+        $request = $this->updateInvoiceRequest($xero_tenant_id, $invoice_id, $invoices, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -58127,11 +58248,12 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateInvoiceRequest($xero_tenant_id, $invoice_id, $invoices)
+    protected function updateInvoiceRequest($xero_tenant_id, $invoice_id, $invoices, $unitdp = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -58159,6 +58281,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
+        }
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['xero-tenant-id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
@@ -58598,14 +58724,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items items (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\Items|\XeroAPI\XeroPHP\Models\Accounting\Error
      */
-    public function updateItem($xero_tenant_id, $item_id, $items)
+    public function updateItem($xero_tenant_id, $item_id, $items, $unitdp = null)
     {
-        list($response) = $this->updateItemWithHttpInfo($xero_tenant_id, $item_id, $items);
+        list($response) = $this->updateItemWithHttpInfo($xero_tenant_id, $item_id, $items, $unitdp);
         return $response;
     }
 
@@ -58617,14 +58744,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\Items|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateItemWithHttpInfo($xero_tenant_id, $item_id, $items)
+    public function updateItemWithHttpInfo($xero_tenant_id, $item_id, $items, $unitdp = null)
     {
-        $request = $this->updateItemRequest($xero_tenant_id, $item_id, $items);
+        $request = $this->updateItemRequest($xero_tenant_id, $item_id, $items, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -58727,13 +58855,14 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateItemAsync($xero_tenant_id, $item_id, $items)
+    public function updateItemAsync($xero_tenant_id, $item_id, $items, $unitdp = null)
     {
-        return $this->updateItemAsyncWithHttpInfo($xero_tenant_id, $item_id, $items)
+        return $this->updateItemAsyncWithHttpInfo($xero_tenant_id, $item_id, $items, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -58749,14 +58878,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateItemAsyncWithHttpInfo($xero_tenant_id, $item_id, $items)
+    public function updateItemAsyncWithHttpInfo($xero_tenant_id, $item_id, $items, $unitdp = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Items';
-        $request = $this->updateItemRequest($xero_tenant_id, $item_id, $items);
+        $request = $this->updateItemRequest($xero_tenant_id, $item_id, $items, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -58798,11 +58928,12 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $item_id Unique identifier for an Item (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateItemRequest($xero_tenant_id, $item_id, $items)
+    protected function updateItemRequest($xero_tenant_id, $item_id, $items, $unitdp = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -58830,6 +58961,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
+        }
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['xero-tenant-id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);
@@ -59921,14 +60056,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions bank_transactions (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\BankTransactions|\XeroAPI\XeroPHP\Models\Accounting\Error
      */
-    public function updateOrCreateBankTransactions($xero_tenant_id, $bank_transactions, $summarize_errors = false)
+    public function updateOrCreateBankTransactions($xero_tenant_id, $bank_transactions, $summarize_errors = false, $unitdp = null)
     {
-        list($response) = $this->updateOrCreateBankTransactionsWithHttpInfo($xero_tenant_id, $bank_transactions, $summarize_errors);
+        list($response) = $this->updateOrCreateBankTransactionsWithHttpInfo($xero_tenant_id, $bank_transactions, $summarize_errors, $unitdp);
         return $response;
     }
 
@@ -59940,14 +60076,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\BankTransactions|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateOrCreateBankTransactionsWithHttpInfo($xero_tenant_id, $bank_transactions, $summarize_errors = false)
+    public function updateOrCreateBankTransactionsWithHttpInfo($xero_tenant_id, $bank_transactions, $summarize_errors = false, $unitdp = null)
     {
-        $request = $this->updateOrCreateBankTransactionsRequest($xero_tenant_id, $bank_transactions, $summarize_errors);
+        $request = $this->updateOrCreateBankTransactionsRequest($xero_tenant_id, $bank_transactions, $summarize_errors, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -60050,13 +60187,14 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateOrCreateBankTransactionsAsync($xero_tenant_id, $bank_transactions, $summarize_errors = false)
+    public function updateOrCreateBankTransactionsAsync($xero_tenant_id, $bank_transactions, $summarize_errors = false, $unitdp = null)
     {
-        return $this->updateOrCreateBankTransactionsAsyncWithHttpInfo($xero_tenant_id, $bank_transactions, $summarize_errors)
+        return $this->updateOrCreateBankTransactionsAsyncWithHttpInfo($xero_tenant_id, $bank_transactions, $summarize_errors, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -60072,14 +60210,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateOrCreateBankTransactionsAsyncWithHttpInfo($xero_tenant_id, $bank_transactions, $summarize_errors = false)
+    public function updateOrCreateBankTransactionsAsyncWithHttpInfo($xero_tenant_id, $bank_transactions, $summarize_errors = false, $unitdp = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\BankTransactions';
-        $request = $this->updateOrCreateBankTransactionsRequest($xero_tenant_id, $bank_transactions, $summarize_errors);
+        $request = $this->updateOrCreateBankTransactionsRequest($xero_tenant_id, $bank_transactions, $summarize_errors, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -60121,11 +60260,12 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\BankTransactions $bank_transactions (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateOrCreateBankTransactionsRequest($xero_tenant_id, $bank_transactions, $summarize_errors = false)
+    protected function updateOrCreateBankTransactionsRequest($xero_tenant_id, $bank_transactions, $summarize_errors = false, $unitdp = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -60150,6 +60290,10 @@ class AccountingApi
         // query params
         if ($summarize_errors !== null) {
             $queryParams['summarizeErrors'] = $summarize_errors ? 'true' : 'false';
+        }
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -60553,14 +60697,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes an array of Credit Notes with a single CreditNote object. (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\CreditNotes|\XeroAPI\XeroPHP\Models\Accounting\Error
      */
-    public function updateOrCreateCreditNotes($xero_tenant_id, $credit_notes, $summarize_errors = false)
+    public function updateOrCreateCreditNotes($xero_tenant_id, $credit_notes, $summarize_errors = false, $unitdp = null)
     {
-        list($response) = $this->updateOrCreateCreditNotesWithHttpInfo($xero_tenant_id, $credit_notes, $summarize_errors);
+        list($response) = $this->updateOrCreateCreditNotesWithHttpInfo($xero_tenant_id, $credit_notes, $summarize_errors, $unitdp);
         return $response;
     }
 
@@ -60572,14 +60717,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes an array of Credit Notes with a single CreditNote object. (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\CreditNotes|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateOrCreateCreditNotesWithHttpInfo($xero_tenant_id, $credit_notes, $summarize_errors = false)
+    public function updateOrCreateCreditNotesWithHttpInfo($xero_tenant_id, $credit_notes, $summarize_errors = false, $unitdp = null)
     {
-        $request = $this->updateOrCreateCreditNotesRequest($xero_tenant_id, $credit_notes, $summarize_errors);
+        $request = $this->updateOrCreateCreditNotesRequest($xero_tenant_id, $credit_notes, $summarize_errors, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -60682,13 +60828,14 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes an array of Credit Notes with a single CreditNote object. (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateOrCreateCreditNotesAsync($xero_tenant_id, $credit_notes, $summarize_errors = false)
+    public function updateOrCreateCreditNotesAsync($xero_tenant_id, $credit_notes, $summarize_errors = false, $unitdp = null)
     {
-        return $this->updateOrCreateCreditNotesAsyncWithHttpInfo($xero_tenant_id, $credit_notes, $summarize_errors)
+        return $this->updateOrCreateCreditNotesAsyncWithHttpInfo($xero_tenant_id, $credit_notes, $summarize_errors, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -60704,14 +60851,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes an array of Credit Notes with a single CreditNote object. (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateOrCreateCreditNotesAsyncWithHttpInfo($xero_tenant_id, $credit_notes, $summarize_errors = false)
+    public function updateOrCreateCreditNotesAsyncWithHttpInfo($xero_tenant_id, $credit_notes, $summarize_errors = false, $unitdp = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\CreditNotes';
-        $request = $this->updateOrCreateCreditNotesRequest($xero_tenant_id, $credit_notes, $summarize_errors);
+        $request = $this->updateOrCreateCreditNotesRequest($xero_tenant_id, $credit_notes, $summarize_errors, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -60753,11 +60901,12 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\CreditNotes $credit_notes an array of Credit Notes with a single CreditNote object. (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateOrCreateCreditNotesRequest($xero_tenant_id, $credit_notes, $summarize_errors = false)
+    protected function updateOrCreateCreditNotesRequest($xero_tenant_id, $credit_notes, $summarize_errors = false, $unitdp = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -60782,6 +60931,10 @@ class AccountingApi
         // query params
         if ($summarize_errors !== null) {
             $queryParams['summarizeErrors'] = $summarize_errors ? 'true' : 'false';
+        }
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -60869,14 +61022,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices invoices (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\Invoices|\XeroAPI\XeroPHP\Models\Accounting\Error
      */
-    public function updateOrCreateInvoices($xero_tenant_id, $invoices, $summarize_errors = false)
+    public function updateOrCreateInvoices($xero_tenant_id, $invoices, $summarize_errors = false, $unitdp = null)
     {
-        list($response) = $this->updateOrCreateInvoicesWithHttpInfo($xero_tenant_id, $invoices, $summarize_errors);
+        list($response) = $this->updateOrCreateInvoicesWithHttpInfo($xero_tenant_id, $invoices, $summarize_errors, $unitdp);
         return $response;
     }
 
@@ -60888,14 +61042,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\Invoices|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateOrCreateInvoicesWithHttpInfo($xero_tenant_id, $invoices, $summarize_errors = false)
+    public function updateOrCreateInvoicesWithHttpInfo($xero_tenant_id, $invoices, $summarize_errors = false, $unitdp = null)
     {
-        $request = $this->updateOrCreateInvoicesRequest($xero_tenant_id, $invoices, $summarize_errors);
+        $request = $this->updateOrCreateInvoicesRequest($xero_tenant_id, $invoices, $summarize_errors, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -60998,13 +61153,14 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateOrCreateInvoicesAsync($xero_tenant_id, $invoices, $summarize_errors = false)
+    public function updateOrCreateInvoicesAsync($xero_tenant_id, $invoices, $summarize_errors = false, $unitdp = null)
     {
-        return $this->updateOrCreateInvoicesAsyncWithHttpInfo($xero_tenant_id, $invoices, $summarize_errors)
+        return $this->updateOrCreateInvoicesAsyncWithHttpInfo($xero_tenant_id, $invoices, $summarize_errors, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -61020,14 +61176,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateOrCreateInvoicesAsyncWithHttpInfo($xero_tenant_id, $invoices, $summarize_errors = false)
+    public function updateOrCreateInvoicesAsyncWithHttpInfo($xero_tenant_id, $invoices, $summarize_errors = false, $unitdp = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Invoices';
-        $request = $this->updateOrCreateInvoicesRequest($xero_tenant_id, $invoices, $summarize_errors);
+        $request = $this->updateOrCreateInvoicesRequest($xero_tenant_id, $invoices, $summarize_errors, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -61069,11 +61226,12 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Invoices $invoices (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateOrCreateInvoicesRequest($xero_tenant_id, $invoices, $summarize_errors = false)
+    protected function updateOrCreateInvoicesRequest($xero_tenant_id, $invoices, $summarize_errors = false, $unitdp = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -61098,6 +61256,10 @@ class AccountingApi
         // query params
         if ($summarize_errors !== null) {
             $queryParams['summarizeErrors'] = $summarize_errors ? 'true' : 'false';
+        }
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -61185,14 +61347,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items items (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\Items|\XeroAPI\XeroPHP\Models\Accounting\Error
      */
-    public function updateOrCreateItems($xero_tenant_id, $items, $summarize_errors = false)
+    public function updateOrCreateItems($xero_tenant_id, $items, $summarize_errors = false, $unitdp = null)
     {
-        list($response) = $this->updateOrCreateItemsWithHttpInfo($xero_tenant_id, $items, $summarize_errors);
+        list($response) = $this->updateOrCreateItemsWithHttpInfo($xero_tenant_id, $items, $summarize_errors, $unitdp);
         return $response;
     }
 
@@ -61204,14 +61367,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\Items|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateOrCreateItemsWithHttpInfo($xero_tenant_id, $items, $summarize_errors = false)
+    public function updateOrCreateItemsWithHttpInfo($xero_tenant_id, $items, $summarize_errors = false, $unitdp = null)
     {
-        $request = $this->updateOrCreateItemsRequest($xero_tenant_id, $items, $summarize_errors);
+        $request = $this->updateOrCreateItemsRequest($xero_tenant_id, $items, $summarize_errors, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -61314,13 +61478,14 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateOrCreateItemsAsync($xero_tenant_id, $items, $summarize_errors = false)
+    public function updateOrCreateItemsAsync($xero_tenant_id, $items, $summarize_errors = false, $unitdp = null)
     {
-        return $this->updateOrCreateItemsAsyncWithHttpInfo($xero_tenant_id, $items, $summarize_errors)
+        return $this->updateOrCreateItemsAsyncWithHttpInfo($xero_tenant_id, $items, $summarize_errors, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -61336,14 +61501,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateOrCreateItemsAsyncWithHttpInfo($xero_tenant_id, $items, $summarize_errors = false)
+    public function updateOrCreateItemsAsyncWithHttpInfo($xero_tenant_id, $items, $summarize_errors = false, $unitdp = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Items';
-        $request = $this->updateOrCreateItemsRequest($xero_tenant_id, $items, $summarize_errors);
+        $request = $this->updateOrCreateItemsRequest($xero_tenant_id, $items, $summarize_errors, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -61385,11 +61551,12 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Items $items (required)
      * @param  bool $summarize_errors If false return 200 OK and mix of successfully created obejcts and any with validation errors (optional, default to false)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateOrCreateItemsRequest($xero_tenant_id, $items, $summarize_errors = false)
+    protected function updateOrCreateItemsRequest($xero_tenant_id, $items, $summarize_errors = false, $unitdp = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -61414,6 +61581,10 @@ class AccountingApi
         // query params
         if ($summarize_errors !== null) {
             $queryParams['summarizeErrors'] = $summarize_errors ? 'true' : 'false';
+        }
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
         }
         // header params
         if ($xero_tenant_id !== null) {
@@ -62785,14 +62956,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Receipts $receipts receipts (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Accounting\Receipts|\XeroAPI\XeroPHP\Models\Accounting\Error
      */
-    public function updateReceipt($xero_tenant_id, $receipt_id, $receipts)
+    public function updateReceipt($xero_tenant_id, $receipt_id, $receipts, $unitdp = null)
     {
-        list($response) = $this->updateReceiptWithHttpInfo($xero_tenant_id, $receipt_id, $receipts);
+        list($response) = $this->updateReceiptWithHttpInfo($xero_tenant_id, $receipt_id, $receipts, $unitdp);
         return $response;
     }
 
@@ -62804,14 +62976,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Receipts $receipts (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Accounting\Receipts|\XeroAPI\XeroPHP\Models\Accounting\Error, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateReceiptWithHttpInfo($xero_tenant_id, $receipt_id, $receipts)
+    public function updateReceiptWithHttpInfo($xero_tenant_id, $receipt_id, $receipts, $unitdp = null)
     {
-        $request = $this->updateReceiptRequest($xero_tenant_id, $receipt_id, $receipts);
+        $request = $this->updateReceiptRequest($xero_tenant_id, $receipt_id, $receipts, $unitdp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -62914,13 +63087,14 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Receipts $receipts (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateReceiptAsync($xero_tenant_id, $receipt_id, $receipts)
+    public function updateReceiptAsync($xero_tenant_id, $receipt_id, $receipts, $unitdp = null)
     {
-        return $this->updateReceiptAsyncWithHttpInfo($xero_tenant_id, $receipt_id, $receipts)
+        return $this->updateReceiptAsyncWithHttpInfo($xero_tenant_id, $receipt_id, $receipts, $unitdp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -62936,14 +63110,15 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Receipts $receipts (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateReceiptAsyncWithHttpInfo($xero_tenant_id, $receipt_id, $receipts)
+    public function updateReceiptAsyncWithHttpInfo($xero_tenant_id, $receipt_id, $receipts, $unitdp = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Accounting\Receipts';
-        $request = $this->updateReceiptRequest($xero_tenant_id, $receipt_id, $receipts);
+        $request = $this->updateReceiptRequest($xero_tenant_id, $receipt_id, $receipts, $unitdp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -62985,11 +63160,12 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  \XeroAPI\XeroPHP\Models\Accounting\Receipts $receipts (required)
+     * @param  int $unitdp e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateReceiptRequest($xero_tenant_id, $receipt_id, $receipts)
+    protected function updateReceiptRequest($xero_tenant_id, $receipt_id, $receipts, $unitdp = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
         if ($xero_tenant_id === null || (is_array($xero_tenant_id) && count($xero_tenant_id) === 0)) {
@@ -63017,6 +63193,10 @@ class AccountingApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($unitdp !== null) {
+            $queryParams['unitdp'] = AccountingObjectSerializer::toQueryValue($unitdp);
+        }
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['xero-tenant-id'] = AccountingObjectSerializer::toHeaderValue($xero_tenant_id);

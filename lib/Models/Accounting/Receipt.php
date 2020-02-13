@@ -242,6 +242,7 @@ class Receipt implements ModelInterface, ArrayAccess
     const STATUS_SUBMITTED = 'SUBMITTED';
     const STATUS_AUTHORISED = 'AUTHORISED';
     const STATUS_DECLINED = 'DECLINED';
+    const STATUS_VOIDED = 'VOIDED';
     
 
     
@@ -257,6 +258,7 @@ class Receipt implements ModelInterface, ArrayAccess
             self::STATUS_SUBMITTED,
             self::STATUS_AUTHORISED,
             self::STATUS_DECLINED,
+            self::STATUS_VOIDED,
         ];
     }
     

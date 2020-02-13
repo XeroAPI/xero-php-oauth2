@@ -66,6 +66,7 @@ class Prepayment implements ModelInterface, ArrayAccess
         'sub_total' => 'double',
         'total_tax' => 'double',
         'total' => 'double',
+        'reference' => 'string',
         'updated_date_utc' => '\DateTime',
         'currency_code' => '\XeroAPI\XeroPHP\Models\Accounting\CurrencyCode',
         'prepayment_id' => 'string',
@@ -91,6 +92,7 @@ class Prepayment implements ModelInterface, ArrayAccess
         'sub_total' => 'double',
         'total_tax' => 'double',
         'total' => 'double',
+        'reference' => null,
         'updated_date_utc' => 'date-time',
         'currency_code' => null,
         'prepayment_id' => 'uuid',
@@ -137,6 +139,7 @@ class Prepayment implements ModelInterface, ArrayAccess
         'sub_total' => 'SubTotal',
         'total_tax' => 'TotalTax',
         'total' => 'Total',
+        'reference' => 'Reference',
         'updated_date_utc' => 'UpdatedDateUTC',
         'currency_code' => 'CurrencyCode',
         'prepayment_id' => 'PrepaymentID',
@@ -162,6 +165,7 @@ class Prepayment implements ModelInterface, ArrayAccess
         'sub_total' => 'setSubTotal',
         'total_tax' => 'setTotalTax',
         'total' => 'setTotal',
+        'reference' => 'setReference',
         'updated_date_utc' => 'setUpdatedDateUtc',
         'currency_code' => 'setCurrencyCode',
         'prepayment_id' => 'setPrepaymentId',
@@ -187,6 +191,7 @@ class Prepayment implements ModelInterface, ArrayAccess
         'sub_total' => 'getSubTotal',
         'total_tax' => 'getTotalTax',
         'total' => 'getTotal',
+        'reference' => 'getReference',
         'updated_date_utc' => 'getUpdatedDateUtc',
         'currency_code' => 'getCurrencyCode',
         'prepayment_id' => 'getPrepaymentId',
@@ -302,6 +307,7 @@ class Prepayment implements ModelInterface, ArrayAccess
         $this->container['sub_total'] = isset($data['sub_total']) ? $data['sub_total'] : null;
         $this->container['total_tax'] = isset($data['total_tax']) ? $data['total_tax'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['reference'] = isset($data['reference']) ? $data['reference'] : null;
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
         $this->container['currency_code'] = isset($data['currency_code']) ? $data['currency_code'] : null;
         $this->container['prepayment_id'] = isset($data['prepayment_id']) ? $data['prepayment_id'] : null;
@@ -582,6 +588,30 @@ class Prepayment implements ModelInterface, ArrayAccess
     public function setTotal($total)
     {
         $this->container['total'] = $total;
+
+        return $this;
+    }
+
+    /**
+     * Gets reference
+     *
+     * @return string|null
+     */
+    public function getReference()
+    {
+        return $this->container['reference'];
+    }
+
+    /**
+     * Sets reference
+     *
+     * @param string|null $reference Returns Invoice number field. Reference field isn't available.
+     *
+     * @return $this
+     */
+    public function setReference($reference)
+    {
+        $this->container['reference'] = $reference;
 
         return $this;
     }
