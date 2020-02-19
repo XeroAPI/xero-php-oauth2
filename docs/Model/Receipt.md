@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **has_attachments** | **bool** | boolean to indicate if a receipt has an attachment | [optional] 
 **url** | **string** | URL link to a source document – shown as “Go to [appName]” in the Xero app | [optional] 
 **validation_errors** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
+**warnings** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays array of warning messages from the API | [optional] 
 **attachments** | [**\XeroAPI\XeroPHP\Models\Accounting\Attachment[]**](Attachment.md) | Displays array of attachments from the API | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
