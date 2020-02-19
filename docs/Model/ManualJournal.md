@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **has_attachments** | **bool** | Boolean to indicate if a manual journal has an attachment | [optional] 
 **updated_date_utc** | [**\DateTime**](\DateTime.md) | Last modified date UTC format | [optional] 
 **manual_journal_id** | **string** | The Xero identifier for a Manual Journal | [optional] 
+**status_attribute_string** | **string** | A string to indicate if a invoice status | [optional] 
 **warnings** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays array of warning messages from the API | [optional] 
 **validation_errors** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 **attachments** | [**\XeroAPI\XeroPHP\Models\Accounting\Attachment[]**](Attachment.md) | Displays array of attachments from the API | [optional] 

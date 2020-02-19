@@ -40,6 +40,7 @@ Name | Type | Description | Notes
 **has_errors** | **bool** | A boolean to indicate if a invoice has an validation errors | [optional] 
 **status_attribute_string** | **string** | A string to indicate if a invoice status | [optional] 
 **validation_errors** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
+**warnings** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays array of warning messages from the API | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

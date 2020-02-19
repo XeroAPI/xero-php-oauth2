@@ -25,7 +25,6 @@ Method | HTTP request | Description
 [**createCreditNoteHistory**](AccountingApi.md#createCreditNoteHistory) | **PUT** /CreditNotes/{CreditNoteID}/History | Allows you to retrieve a history records of an CreditNote
 [**createCreditNotes**](AccountingApi.md#createCreditNotes) | **PUT** /CreditNotes | Allows you to create a credit note
 [**createCurrency**](AccountingApi.md#createCurrency) | **PUT** /Currencies | 
-[**createEmployee**](AccountingApi.md#createEmployee) | **POST** /Employees | Allows you to create a single new employees used in Xero payrun
 [**createEmployees**](AccountingApi.md#createEmployees) | **PUT** /Employees | Allows you to create new employees used in Xero payrun
 [**createExpenseClaimHistory**](AccountingApi.md#createExpenseClaimHistory) | **PUT** /ExpenseClaims/{ExpenseClaimID}/History | Allows you to create a history records of an ExpenseClaim
 [**createExpenseClaims**](AccountingApi.md#createExpenseClaims) | **PUT** /ExpenseClaims | Allows you to retrieve expense claims
@@ -35,17 +34,15 @@ Method | HTTP request | Description
 [**createItemHistory**](AccountingApi.md#createItemHistory) | **PUT** /Items/{ItemID}/History | Allows you to create a history record for items
 [**createItems**](AccountingApi.md#createItems) | **PUT** /Items | Allows you to create one or more items
 [**createLinkedTransaction**](AccountingApi.md#createLinkedTransaction) | **PUT** /LinkedTransactions | Allows you to create linked transactions (billable expenses)
-[**createManualJournal**](AccountingApi.md#createManualJournal) | **POST** /ManualJournals | Allows you to create a single manual journal
 [**createManualJournalAttachmentByFileName**](AccountingApi.md#createManualJournalAttachmentByFileName) | **PUT** /ManualJournals/{ManualJournalID}/Attachments/{FileName} | Allows you to create a specified Attachment on ManualJournal by file name
 [**createManualJournals**](AccountingApi.md#createManualJournals) | **PUT** /ManualJournals | Allows you to create one or more manual journals
-[**createOverpaymentAllocation**](AccountingApi.md#createOverpaymentAllocation) | **POST** /Overpayments/{OverpaymentID}/Allocations | Allows you to create a single allocations for overpayments
 [**createOverpaymentAllocations**](AccountingApi.md#createOverpaymentAllocations) | **PUT** /Overpayments/{OverpaymentID}/Allocations | Allows you to create a single allocation for an overpayment
 [**createOverpaymentHistory**](AccountingApi.md#createOverpaymentHistory) | **PUT** /Overpayments/{OverpaymentID}/History | Allows you to create history records of an Overpayment
 [**createPayment**](AccountingApi.md#createPayment) | **POST** /Payments | Allows you to create a single payment for invoices or credit notes
 [**createPaymentHistory**](AccountingApi.md#createPaymentHistory) | **PUT** /Payments/{PaymentID}/History | Allows you to create a history record for a payment
 [**createPaymentService**](AccountingApi.md#createPaymentService) | **PUT** /PaymentServices | Allows you to create payment services
 [**createPayments**](AccountingApi.md#createPayments) | **PUT** /Payments | Allows you to create multiple payments for invoices or credit notes
-[**createPrepaymentAllocation**](AccountingApi.md#createPrepaymentAllocation) | **PUT** /Prepayments/{PrepaymentID}/Allocations | Allows you to create an Allocation for prepayments
+[**createPrepaymentAllocations**](AccountingApi.md#createPrepaymentAllocations) | **PUT** /Prepayments/{PrepaymentID}/Allocations | Allows you to create an Allocation for prepayments
 [**createPrepaymentHistory**](AccountingApi.md#createPrepaymentHistory) | **PUT** /Prepayments/{PrepaymentID}/History | Allows you to create a history record for an Prepayment
 [**createPurchaseOrderHistory**](AccountingApi.md#createPurchaseOrderHistory) | **PUT** /PurchaseOrders/{PurchaseOrderID}/History | Allows you to create HistoryRecord for purchase orders
 [**createPurchaseOrders**](AccountingApi.md#createPurchaseOrders) | **PUT** /PurchaseOrders | Allows you to create one or more purchase orders
@@ -200,8 +197,10 @@ Method | HTTP request | Description
 [**updateOrCreateBankTransactions**](AccountingApi.md#updateOrCreateBankTransactions) | **POST** /BankTransactions | Allows you to update or create one or more spend or receive money transaction
 [**updateOrCreateContacts**](AccountingApi.md#updateOrCreateContacts) | **POST** /Contacts | Allows you to update OR create one or more contacts in a Xero organisation
 [**updateOrCreateCreditNotes**](AccountingApi.md#updateOrCreateCreditNotes) | **POST** /CreditNotes | Allows you to update OR create one or more credit notes
+[**updateOrCreateEmployees**](AccountingApi.md#updateOrCreateEmployees) | **POST** /Employees | Allows you to create a single new employees used in Xero payrun
 [**updateOrCreateInvoices**](AccountingApi.md#updateOrCreateInvoices) | **POST** /Invoices | Allows you to update OR create one or more sales invoices or purchase bills
 [**updateOrCreateItems**](AccountingApi.md#updateOrCreateItems) | **POST** /Items | Allows you to update or create one or more items
+[**updateOrCreateManualJournals**](AccountingApi.md#updateOrCreateManualJournals) | **POST** /ManualJournals | Allows you to create a single manual journal
 [**updateOrCreatePurchaseOrders**](AccountingApi.md#updateOrCreatePurchaseOrders) | **POST** /PurchaseOrders | Allows you to update or create one or more purchase orders
 [**updateOrCreateQuotes**](AccountingApi.md#updateOrCreateQuotes) | **POST** /Quotes | Allows you to update OR create one or more quotes
 [**updatePurchaseOrder**](AccountingApi.md#updatePurchaseOrder) | **POST** /PurchaseOrders/{PurchaseOrderID} | Allows you to update a specified purchase order
@@ -1377,61 +1376,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **createEmployee**
-> \XeroAPI\XeroPHP\Models\Accounting\Employees createEmployee($xero_tenant_id, $employee)
-
-Allows you to create a single new employees used in Xero payrun
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$employee = { firstName:"Nick", lastName:"Fury", externalLink:{ url:"http://twitter.com/#!/search/Nick+Fury" } }; // \XeroAPI\XeroPHP\Models\Accounting\Employee | Employee object in body of request
-
-try {
-    $result = $apiInstance->createEmployee($xero_tenant_id, $employee);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AccountingApi->createEmployee: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **employee** | [**\XeroAPI\XeroPHP\Models\Accounting\Employee**](../Model/Employee.md)| Employee object in body of request |
-
-### Return type
-
-[**\XeroAPI\XeroPHP\Models\Accounting\Employees**](../Model/Employees.md)
-
-### Authorization
-
-[OAuth2](../../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
 # **createEmployees**
-> \XeroAPI\XeroPHP\Models\Accounting\Employees createEmployees($xero_tenant_id, $employees)
+> \XeroAPI\XeroPHP\Models\Accounting\Employees createEmployees($xero_tenant_id, $employees, $summarize_errors)
 
 Allows you to create new employees used in Xero payrun
 
@@ -1451,9 +1397,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $employees = { employees:[ { firstName:"Nick", lastName:"Fury", externalLink:{ url:"http://twitter.com/#!/search/Nick+Fury" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Employees | Employees with array of Employee object in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
-    $result = $apiInstance->createEmployees($xero_tenant_id, $employees);
+    $result = $apiInstance->createEmployees($xero_tenant_id, $employees, $summarize_errors);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createEmployees: ', $e->getMessage(), PHP_EOL;
@@ -1467,6 +1414,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **employees** | [**\XeroAPI\XeroPHP\Models\Accounting\Employees**](../Model/Employees.md)| Employees with array of Employee object in body of request |
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -1927,59 +1875,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **createManualJournal**
-> \XeroAPI\XeroPHP\Models\Accounting\ManualJournals createManualJournal($xero_tenant_id, $manual_journal)
-
-Allows you to create a single manual journal
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$manual_journal = { narration:"Foo bar", journalLines:[ { lineAmount:100.0, accountCode:"400", description:"Hello there" }, { lineAmount:-100.0, accountCode:"400", description:"Goodbye", tracking:[ { name:"Simpsons", option:"Bart" } ] } ], date:"2019-03-14" }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournal | ManualJournal object in body of request
-
-try {
-    $result = $apiInstance->createManualJournal($xero_tenant_id, $manual_journal);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AccountingApi->createManualJournal: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **manual_journal** | [**\XeroAPI\XeroPHP\Models\Accounting\ManualJournal**](../Model/ManualJournal.md)| ManualJournal object in body of request |
-
-### Return type
-
-[**\XeroAPI\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)
-
-### Authorization
-
-[OAuth2](../../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
 # **createManualJournalAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments createManualJournalAttachmentByFileName($xero_tenant_id, $manual_journal_id, $file_name, $body)
 
@@ -2038,7 +1933,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createManualJournals**
-> \XeroAPI\XeroPHP\Models\Accounting\ManualJournals createManualJournals($xero_tenant_id, $manual_journals)
+> \XeroAPI\XeroPHP\Models\Accounting\ManualJournals createManualJournals($xero_tenant_id, $manual_journals, $summarize_errors)
 
 Allows you to create one or more manual journals
 
@@ -2058,9 +1953,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $manual_journals = { manualJournals:[ { narration:"Foo bar", journalLines:[ { lineAmount:100.0, accountCode:"400", description:"Hello there" }, { lineAmount:-100.0, accountCode:"400", description:"Goodbye", tracking:[ { name:"Simpsons", option:"Bart" } ] } ], date:"2019-03-14" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournals | ManualJournals array with ManualJournal object in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
-    $result = $apiInstance->createManualJournals($xero_tenant_id, $manual_journals);
+    $result = $apiInstance->createManualJournals($xero_tenant_id, $manual_journals, $summarize_errors);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createManualJournals: ', $e->getMessage(), PHP_EOL;
@@ -2074,6 +1970,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **manual_journals** | [**\XeroAPI\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)| ManualJournals array with ManualJournal object in body of request |
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -2090,63 +1987,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **createOverpaymentAllocation**
-> \XeroAPI\XeroPHP\Models\Accounting\Allocations createOverpaymentAllocation($xero_tenant_id, $overpayment_id, $allocation)
-
-Allows you to create a single allocations for overpayments
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$overpayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Overpayment
-$allocation = { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: Invoice.TypeEnum.ACCPAY }, amount:1.0, date:"2019-03-12" }; // \XeroAPI\XeroPHP\Models\Accounting\Allocation | Allocation object in body of request
-
-try {
-    $result = $apiInstance->createOverpaymentAllocation($xero_tenant_id, $overpayment_id, $allocation);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AccountingApi->createOverpaymentAllocation: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **overpayment_id** | [**string**](../Model/.md)| Unique identifier for a Overpayment |
- **allocation** | [**\XeroAPI\XeroPHP\Models\Accounting\Allocation**](../Model/Allocation.md)| Allocation object in body of request |
-
-### Return type
-
-[**\XeroAPI\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)
-
-### Authorization
-
-[OAuth2](../../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
 # **createOverpaymentAllocations**
-> \XeroAPI\XeroPHP\Models\Accounting\Allocations createOverpaymentAllocations($xero_tenant_id, $overpayment_id, $allocations)
+> \XeroAPI\XeroPHP\Models\Accounting\Allocations createOverpaymentAllocations($xero_tenant_id, $overpayment_id, $allocations, $summarize_errors)
 
 Allows you to create a single allocation for an overpayment
 
@@ -2167,9 +2009,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $overpayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Overpayment
 $allocations = { allocations:[ { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: Invoice.TypeEnum.ACCPAY }, amount:1.0, date:"2019-03-12" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | Allocations array with Allocation object in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
-    $result = $apiInstance->createOverpaymentAllocations($xero_tenant_id, $overpayment_id, $allocations);
+    $result = $apiInstance->createOverpaymentAllocations($xero_tenant_id, $overpayment_id, $allocations, $summarize_errors);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createOverpaymentAllocations: ', $e->getMessage(), PHP_EOL;
@@ -2184,6 +2027,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **overpayment_id** | [**string**](../Model/.md)| Unique identifier for a Overpayment |
  **allocations** | [**\XeroAPI\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)| Allocations array with Allocation object in body of request |
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -2469,8 +2313,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **createPrepaymentAllocation**
-> \XeroAPI\XeroPHP\Models\Accounting\Allocations createPrepaymentAllocation($xero_tenant_id, $prepayment_id, $allocations)
+# **createPrepaymentAllocations**
+> \XeroAPI\XeroPHP\Models\Accounting\Allocations createPrepaymentAllocations($xero_tenant_id, $prepayment_id, $allocations, $summarize_errors)
 
 Allows you to create an Allocation for prepayments
 
@@ -2491,12 +2335,13 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $prepayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Prepayment
 $allocations = { allocations:[ { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: null }, amount:1.0, date:"2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | Allocations with an array of Allocation object in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
-    $result = $apiInstance->createPrepaymentAllocation($xero_tenant_id, $prepayment_id, $allocations);
+    $result = $apiInstance->createPrepaymentAllocations($xero_tenant_id, $prepayment_id, $allocations, $summarize_errors);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AccountingApi->createPrepaymentAllocation: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AccountingApi->createPrepaymentAllocations: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -2508,6 +2353,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **prepayment_id** | [**string**](../Model/.md)| Unique identifier for Prepayment |
  **allocations** | [**\XeroAPI\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)| Allocations with an array of Allocation object in body of request |
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -5482,7 +5328,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCreditNoteAsPdf**
-> \SplFileObject getCreditNoteAsPdf($xero_tenant_id, $credit_note_id, $content_type)
+> \SplFileObject getCreditNoteAsPdf($xero_tenant_id, $credit_note_id)
 
 Allows you to retrieve Credit Note as PDF files
 
@@ -5502,10 +5348,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
-$content_type = application/pdf; // string | The mime type of the attachment file you are retrieving i.e application/pdf
 
 try {
-    $result = $apiInstance->getCreditNoteAsPdf($xero_tenant_id, $credit_note_id, $content_type);
+    $result = $apiInstance->getCreditNoteAsPdf($xero_tenant_id, $credit_note_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->getCreditNoteAsPdf: ', $e->getMessage(), PHP_EOL;
@@ -5519,7 +5364,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **credit_note_id** | [**string**](../Model/.md)| Unique identifier for a Credit Note |
- **content_type** | **string**| The mime type of the attachment file you are retrieving i.e application/pdf |
 
 ### Return type
 
@@ -5532,7 +5376,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/octet-stream
+ - **Accept**: application/pdf
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -6201,7 +6045,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getInvoiceAsPdf**
-> \SplFileObject getInvoiceAsPdf($xero_tenant_id, $invoice_id, $content_type)
+> \SplFileObject getInvoiceAsPdf($xero_tenant_id, $invoice_id)
 
 Allows you to retrieve invoices or purchase bills as PDF files
 
@@ -6221,10 +6065,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
-$content_type = application/pdf; // string | The mime type of the attachment file you are retrieving
 
 try {
-    $result = $apiInstance->getInvoiceAsPdf($xero_tenant_id, $invoice_id, $content_type);
+    $result = $apiInstance->getInvoiceAsPdf($xero_tenant_id, $invoice_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->getInvoiceAsPdf: ', $e->getMessage(), PHP_EOL;
@@ -6238,7 +6081,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **invoice_id** | [**string**](../Model/.md)| Unique identifier for an Invoice |
- **content_type** | **string**| The mime type of the attachment file you are retrieving |
 
 ### Return type
 
@@ -6251,7 +6093,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/octet-stream
+ - **Accept**: application/pdf
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -11071,6 +10913,61 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **updateOrCreateEmployees**
+> \XeroAPI\XeroPHP\Models\Accounting\Employees updateOrCreateEmployees($xero_tenant_id, $employees, $summarize_errors)
+
+Allows you to create a single new employees used in Xero payrun
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$employees = { employees:[ { firstName:"Nick", lastName:"Fury", externalLink:{ url:"http://twitter.com/#!/search/Nick+Fury" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Employees | Employees with array of Employee object in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+
+try {
+    $result = $apiInstance->updateOrCreateEmployees($xero_tenant_id, $employees, $summarize_errors);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->updateOrCreateEmployees: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **employees** | [**\XeroAPI\XeroPHP\Models\Accounting\Employees**](../Model/Employees.md)| Employees with array of Employee object in body of request |
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\Employees**](../Model/Employees.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **updateOrCreateInvoices**
 > \XeroAPI\XeroPHP\Models\Accounting\Invoices updateOrCreateInvoices($xero_tenant_id, $invoices, $summarize_errors, $unitdp)
 
@@ -11173,6 +11070,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\XeroAPI\XeroPHP\Models\Accounting\Items**](../Model/Items.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updateOrCreateManualJournals**
+> \XeroAPI\XeroPHP\Models\Accounting\ManualJournals updateOrCreateManualJournals($xero_tenant_id, $manual_journals, $summarize_errors)
+
+Allows you to create a single manual journal
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$manual_journals = { manualJournals:[ { narration:"Foo bar", journalLines:[ { lineAmount:100.0, accountCode:"400", description:"Hello there" }, { lineAmount:-100.0, accountCode:"400", description:"Goodbye", tracking:[ { name:"Simpsons", option:"Bart" } ] } ], date:"2019-03-14" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournals | ManualJournals array with ManualJournal object in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+
+try {
+    $result = $apiInstance->updateOrCreateManualJournals($xero_tenant_id, $manual_journals, $summarize_errors);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->updateOrCreateManualJournals: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **manual_journals** | [**\XeroAPI\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)| ManualJournals array with ManualJournal object in body of request |
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)
 
 ### Authorization
 
