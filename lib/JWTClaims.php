@@ -5,7 +5,7 @@ use \Firebase\JWT\JWT;
 
 class JWTClaims
 {
-	private $idToken;
+    private $idToken;
     private $jwtDecoded;
     private $email;
     private $family_name;
@@ -22,6 +22,10 @@ class JWTClaims
 
     private $aud;
     private $iat​;
+	
+    public function __construct($param = null) {
+        $this->idToken = $param;
+    }
 
     public function decode() {
         
