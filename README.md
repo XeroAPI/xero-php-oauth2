@@ -434,7 +434,8 @@ Looking to implement [Signup with Xero](https://developer.xero.com/documentation
 
 ```php
   // Decode JWT
-  $jwt = new XeroAPI\XeroPHP\JWTClaims($accessToken->getValues()["id_token"]);
+  $jwt = new XeroAPI\XeroPHP\JWTClaims();
+  $jwt->setTokenId($accessToken->getValues()["id_token"]);
   $jwt->decode();
 
   $sub​ = $jwt->getSub();
