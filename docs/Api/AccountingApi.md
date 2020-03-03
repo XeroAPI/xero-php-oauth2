@@ -17,7 +17,7 @@ Method | HTTP request | Description
 [**createBrandingThemePaymentServices**](AccountingApi.md#createBrandingThemePaymentServices) | **POST** /BrandingThemes/{BrandingThemeID}/PaymentServices | Allow for the creation of new custom payment service for specified Branding Theme
 [**createContactAttachmentByFileName**](AccountingApi.md#createContactAttachmentByFileName) | **PUT** /Contacts/{ContactID}/Attachments/{FileName} | 
 [**createContactGroup**](AccountingApi.md#createContactGroup) | **PUT** /ContactGroups | Allows you to create a contact group
-[**createContactGroupContacts**](AccountingApi.md#createContactGroupContacts) | **PUT** /ContactGroups/{ContactGroupID}/Contacts | Allows you to add Contacts to a Contract Group
+[**createContactGroupContacts**](AccountingApi.md#createContactGroupContacts) | **PUT** /ContactGroups/{ContactGroupID}/Contacts | Allows you to add Contacts to a Contact Group
 [**createContactHistory**](AccountingApi.md#createContactHistory) | **PUT** /Contacts/{ContactID}/History | Allows you to retrieve a history records of an Contact
 [**createContacts**](AccountingApi.md#createContacts) | **PUT** /Contacts | Allows you to create a multiple contacts (bulk) in a Xero organisation
 [**createCreditNoteAllocation**](AccountingApi.md#createCreditNoteAllocation) | **PUT** /CreditNotes/{CreditNoteID}/Allocations | Allows you to create Allocation on CreditNote
@@ -46,6 +46,7 @@ Method | HTTP request | Description
 [**createPrepaymentHistory**](AccountingApi.md#createPrepaymentHistory) | **PUT** /Prepayments/{PrepaymentID}/History | Allows you to create a history record for an Prepayment
 [**createPurchaseOrderHistory**](AccountingApi.md#createPurchaseOrderHistory) | **PUT** /PurchaseOrders/{PurchaseOrderID}/History | Allows you to create HistoryRecord for purchase orders
 [**createPurchaseOrders**](AccountingApi.md#createPurchaseOrders) | **PUT** /PurchaseOrders | Allows you to create one or more purchase orders
+[**createQuoteAttachmentByFileName**](AccountingApi.md#createQuoteAttachmentByFileName) | **PUT** /Quotes/{QuoteID}/Attachments/{FileName} | Allows you to create Attachment on Quote
 [**createQuoteHistory**](AccountingApi.md#createQuoteHistory) | **PUT** /Quotes/{QuoteID}/History | Allows you to retrieve a history records of an quote
 [**createQuotes**](AccountingApi.md#createQuotes) | **PUT** /Quotes | Allows you to create one or more quotes
 [**createReceipt**](AccountingApi.md#createReceipt) | **PUT** /Receipts | Allows you to create draft expense claim receipts for any user
@@ -57,8 +58,8 @@ Method | HTTP request | Description
 [**createTrackingCategory**](AccountingApi.md#createTrackingCategory) | **PUT** /TrackingCategories | Allows you to create tracking categories
 [**createTrackingOptions**](AccountingApi.md#createTrackingOptions) | **PUT** /TrackingCategories/{TrackingCategoryID}/Options | Allows you to create options for a specified tracking category
 [**deleteAccount**](AccountingApi.md#deleteAccount) | **DELETE** /Accounts/{AccountID} | Allows you to delete a chart of accounts
-[**deleteContactGroupContact**](AccountingApi.md#deleteContactGroupContact) | **DELETE** /ContactGroups/{ContactGroupID}/Contacts/{ContactID} | Allows you to delete a specific Contact from a Contract Group
-[**deleteContactGroupContacts**](AccountingApi.md#deleteContactGroupContacts) | **DELETE** /ContactGroups/{ContactGroupID}/Contacts | Allows you to delete  all Contacts from a Contract Group
+[**deleteContactGroupContact**](AccountingApi.md#deleteContactGroupContact) | **DELETE** /ContactGroups/{ContactGroupID}/Contacts/{ContactID} | Allows you to delete a specific Contact from a Contact Group
+[**deleteContactGroupContacts**](AccountingApi.md#deleteContactGroupContacts) | **DELETE** /ContactGroups/{ContactGroupID}/Contacts | Allows you to delete  all Contacts from a Contact Group
 [**deleteItem**](AccountingApi.md#deleteItem) | **DELETE** /Items/{ItemID} | Allows you to delete a specified item
 [**deleteLinkedTransaction**](AccountingApi.md#deleteLinkedTransaction) | **DELETE** /LinkedTransactions/{LinkedTransactionID} | Allows you to delete a specified linked transactions (billable expenses)
 [**deletePayment**](AccountingApi.md#deletePayment) | **POST** /Payments/{PaymentID} | Allows you to update a specified payment for invoices and credit notes
@@ -92,7 +93,7 @@ Method | HTTP request | Description
 [**getContactAttachmentById**](AccountingApi.md#getContactAttachmentById) | **GET** /Contacts/{ContactID}/Attachments/{AttachmentID} | Allows you to retrieve Attachments on Contacts
 [**getContactAttachments**](AccountingApi.md#getContactAttachments) | **GET** /Contacts/{ContactID}/Attachments | Allows you to retrieve, add and update contacts in a Xero organisation
 [**getContactCISSettings**](AccountingApi.md#getContactCISSettings) | **GET** /Contacts/{ContactID}/CISSettings | Allows you to retrieve CISSettings for a contact in a Xero organisation
-[**getContactGroup**](AccountingApi.md#getContactGroup) | **GET** /ContactGroups/{ContactGroupID} | Allows you to retrieve a unique Contract Group by ID
+[**getContactGroup**](AccountingApi.md#getContactGroup) | **GET** /ContactGroups/{ContactGroupID} | Allows you to retrieve a unique Contact Group by ID
 [**getContactGroups**](AccountingApi.md#getContactGroups) | **GET** /ContactGroups | Allows you to retrieve the ContactID and Name of all the contacts in a contact group
 [**getContactHistory**](AccountingApi.md#getContactHistory) | **GET** /Contacts/{ContactID}/History | Allows you to retrieve a history records of an Contact
 [**getContacts**](AccountingApi.md#getContacts) | **GET** /Contacts | Allows you to retrieve, add and update contacts in a Xero organisation
@@ -146,6 +147,9 @@ Method | HTTP request | Description
 [**getPurchaseOrderHistory**](AccountingApi.md#getPurchaseOrderHistory) | **GET** /PurchaseOrders/{PurchaseOrderID}/History | Allows you to retrieve history for PurchaseOrder
 [**getPurchaseOrders**](AccountingApi.md#getPurchaseOrders) | **GET** /PurchaseOrders | Allows you to retrieve purchase orders
 [**getQuote**](AccountingApi.md#getQuote) | **GET** /Quotes/{QuoteID} | Allows you to retrieve a specified quote
+[**getQuoteAttachmentByFileName**](AccountingApi.md#getQuoteAttachmentByFileName) | **GET** /Quotes/{QuoteID}/Attachments/{FileName} | Allows you to retrieve Attachment on Quote by Filename
+[**getQuoteAttachmentById**](AccountingApi.md#getQuoteAttachmentById) | **GET** /Quotes/{QuoteID}/Attachments/{AttachmentID} | Allows you to retrieve specific Attachment on Quote
+[**getQuoteAttachments**](AccountingApi.md#getQuoteAttachments) | **GET** /Quotes/{QuoteID}/Attachments | Allows you to retrieve Attachments for Quotes
 [**getQuoteHistory**](AccountingApi.md#getQuoteHistory) | **GET** /Quotes/{QuoteID}/History | Allows you to retrieve a history records of an quote
 [**getQuotes**](AccountingApi.md#getQuotes) | **GET** /Quotes | Allows you to retrieve any sales quotes
 [**getReceipt**](AccountingApi.md#getReceipt) | **GET** /Receipts/{ReceiptID} | Allows you to retrieve a specified draft expense claim receipts
@@ -183,7 +187,7 @@ Method | HTTP request | Description
 [**updateBankTransferAttachmentByFileName**](AccountingApi.md#updateBankTransferAttachmentByFileName) | **POST** /BankTransfers/{BankTransferID}/Attachments/{FileName} | 
 [**updateContact**](AccountingApi.md#updateContact) | **POST** /Contacts/{ContactID} | 
 [**updateContactAttachmentByFileName**](AccountingApi.md#updateContactAttachmentByFileName) | **POST** /Contacts/{ContactID}/Attachments/{FileName} | 
-[**updateContactGroup**](AccountingApi.md#updateContactGroup) | **POST** /ContactGroups/{ContactGroupID} | Allows you to update a Contract Group
+[**updateContactGroup**](AccountingApi.md#updateContactGroup) | **POST** /ContactGroups/{ContactGroupID} | Allows you to update a Contact Group
 [**updateCreditNote**](AccountingApi.md#updateCreditNote) | **POST** /CreditNotes/{CreditNoteID} | Allows you to update a specific credit note
 [**updateCreditNoteAttachmentByFileName**](AccountingApi.md#updateCreditNoteAttachmentByFileName) | **POST** /CreditNotes/{CreditNoteID}/Attachments/{FileName} | Allows you to update Attachments on CreditNote by file name
 [**updateEmployee**](AccountingApi.md#updateEmployee) | **POST** /Employees/{EmployeeID} | Allows you to update a specific employee used in Xero payrun
@@ -205,6 +209,7 @@ Method | HTTP request | Description
 [**updateOrCreateQuotes**](AccountingApi.md#updateOrCreateQuotes) | **POST** /Quotes | Allows you to update OR create one or more quotes
 [**updatePurchaseOrder**](AccountingApi.md#updatePurchaseOrder) | **POST** /PurchaseOrders/{PurchaseOrderID} | Allows you to update a specified purchase order
 [**updateQuote**](AccountingApi.md#updateQuote) | **POST** /Quotes/{QuoteID} | Allows you to update a specified quote
+[**updateQuoteAttachmentByFileName**](AccountingApi.md#updateQuoteAttachmentByFileName) | **POST** /Quotes/{QuoteID}/Attachments/{FileName} | Allows you to update Attachment on Quote by Filename
 [**updateReceipt**](AccountingApi.md#updateReceipt) | **POST** /Receipts/{ReceiptID} | Allows you to retrieve a specified draft expense claim receipts
 [**updateReceiptAttachmentByFileName**](AccountingApi.md#updateReceiptAttachmentByFileName) | **POST** /Receipts/{ReceiptID}/Attachments/{FileName} | Allows you to update Attachment on expense claim receipts by file name
 [**updateRepeatingInvoiceAttachmentByFileName**](AccountingApi.md#updateRepeatingInvoiceAttachmentByFileName) | **POST** /RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{FileName} | Allows you to update specified attachment on repeating invoices by file name
@@ -935,7 +940,7 @@ Name | Type | Description  | Notes
 # **createContactGroupContacts**
 > \XeroAPI\XeroPHP\Models\Accounting\Contacts createContactGroupContacts($xero_tenant_id, $contact_group_id, $contacts)
 
-Allows you to add Contacts to a Contract Group
+Allows you to add Contacts to a Contact Group
 
 ### Example
 ```php
@@ -2535,6 +2540,63 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **createQuoteAttachmentByFileName**
+> \XeroAPI\XeroPHP\Models\Accounting\Attachments createQuoteAttachmentByFileName($xero_tenant_id, $quote_id, $file_name, $body)
+
+Allows you to create Attachment on Quote
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Quote object
+$file_name = xero-dev.jpg; // string | Name of the attachment
+$body = 'body_example'; // string | Byte array of file in body of request
+
+try {
+    $result = $apiInstance->createQuoteAttachmentByFileName($xero_tenant_id, $quote_id, $file_name, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->createQuoteAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **quote_id** | [**string**](../Model/.md)| Unique identifier for Quote object |
+ **file_name** | **string**| Name of the attachment |
+ **body** | **string**| Byte array of file in body of request |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/octet-stream
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **createQuoteHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createQuoteHistory($xero_tenant_id, $quote_id, $history_records)
 
@@ -3141,7 +3203,7 @@ Name | Type | Description  | Notes
 # **deleteContactGroupContact**
 > deleteContactGroupContact($xero_tenant_id, $contact_group_id, $contact_id)
 
-Allows you to delete a specific Contact from a Contract Group
+Allows you to delete a specific Contact from a Contact Group
 
 ### Example
 ```php
@@ -3195,7 +3257,7 @@ void (empty response body)
 # **deleteContactGroupContacts**
 > deleteContactGroupContacts($xero_tenant_id, $contact_group_id)
 
-Allows you to delete  all Contacts from a Contract Group
+Allows you to delete  all Contacts from a Contact Group
 
 ### Example
 ```php
@@ -5051,7 +5113,7 @@ Name | Type | Description  | Notes
 # **getContactGroup**
 > \XeroAPI\XeroPHP\Models\Accounting\ContactGroups getContactGroup($xero_tenant_id, $contact_group_id)
 
-Allows you to retrieve a unique Contract Group by ID
+Allows you to retrieve a unique Contact Group by ID
 
 ### Example
 ```php
@@ -8040,6 +8102,173 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **getQuoteAttachmentByFileName**
+> \SplFileObject getQuoteAttachmentByFileName($xero_tenant_id, $quote_id, $file_name, $content_type)
+
+Allows you to retrieve Attachment on Quote by Filename
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Quote object
+$file_name = xero-dev.jpg; // string | Name of the attachment
+$content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+
+try {
+    $result = $apiInstance->getQuoteAttachmentByFileName($xero_tenant_id, $quote_id, $file_name, $content_type);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->getQuoteAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **quote_id** | [**string**](../Model/.md)| Unique identifier for Quote object |
+ **file_name** | **string**| Name of the attachment |
+ **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
+
+### Return type
+
+[**\SplFileObject**](../Model/\SplFileObject.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getQuoteAttachmentById**
+> \SplFileObject getQuoteAttachmentById($xero_tenant_id, $quote_id, $attachment_id, $content_type)
+
+Allows you to retrieve specific Attachment on Quote
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Quote object
+$attachment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Attachment object
+$content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+
+try {
+    $result = $apiInstance->getQuoteAttachmentById($xero_tenant_id, $quote_id, $attachment_id, $content_type);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->getQuoteAttachmentById: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **quote_id** | [**string**](../Model/.md)| Unique identifier for Quote object |
+ **attachment_id** | [**string**](../Model/.md)| Unique identifier for Attachment object |
+ **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
+
+### Return type
+
+[**\SplFileObject**](../Model/\SplFileObject.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getQuoteAttachments**
+> \XeroAPI\XeroPHP\Models\Accounting\Attachments getQuoteAttachments($xero_tenant_id, $quote_id)
+
+Allows you to retrieve Attachments for Quotes
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Quote object
+
+try {
+    $result = $apiInstance->getQuoteAttachments($xero_tenant_id, $quote_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->getQuoteAttachments: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **quote_id** | [**string**](../Model/.md)| Unique identifier for Quote object |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **getQuoteHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getQuoteHistory($xero_tenant_id, $quote_id)
 
@@ -10130,7 +10359,7 @@ Name | Type | Description  | Notes
 # **updateContactGroup**
 > \XeroAPI\XeroPHP\Models\Accounting\ContactGroups updateContactGroup($xero_tenant_id, $contact_group_id, $contact_groups)
 
-Allows you to update a Contract Group
+Allows you to update a Contact Group
 
 ### Example
 ```php
@@ -11353,6 +11582,63 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **updateQuoteAttachmentByFileName**
+> \XeroAPI\XeroPHP\Models\Accounting\Attachments updateQuoteAttachmentByFileName($xero_tenant_id, $quote_id, $file_name, $body)
+
+Allows you to update Attachment on Quote by Filename
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Quote object
+$file_name = xero-dev.jpg; // string | Name of the attachment
+$body = 'body_example'; // string | Byte array of file in body of request
+
+try {
+    $result = $apiInstance->updateQuoteAttachmentByFileName($xero_tenant_id, $quote_id, $file_name, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->updateQuoteAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **quote_id** | [**string**](../Model/.md)| Unique identifier for Quote object |
+ **file_name** | **string**| Name of the attachment |
+ **body** | **string**| Byte array of file in body of request |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/octet-stream
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
