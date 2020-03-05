@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **currency_rate** | **double** | The currency rate for a multicurrency invoice. If no rate is specified, the XE.com day rate is used | [optional] 
 **remaining_credit** | **double** | The remaining credit balance on the Credit Note | [optional] 
 **allocations** | [**\XeroAPI\XeroPHP\Models\Accounting\Allocation[]**](Allocation.md) | See Allocations | [optional] 
+**applied_amount** | **double** | The amount of applied to an invoice | [optional] 
 **payments** | [**\XeroAPI\XeroPHP\Models\Accounting\Payment[]**](Payment.md) | See Payments | [optional] 
 **branding_theme_id** | **string** | See BrandingThemes | [optional] 
 **has_attachments** | **bool** | boolean to indicate if a credit note has an attachment | [optional] 
