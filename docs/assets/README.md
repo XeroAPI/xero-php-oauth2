@@ -56,23 +56,23 @@ All URIs are relative to *https://api.xero.com/assets.xro/1.0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AssetApi* | [**createAsset**](docs/assets/Api/AssetApi.md#createasset) | **POST** /Assets | adds a fixed asset
-*AssetApi* | [**createAssetType**](docs/assets/Api/AssetApi.md#createassettype) | **POST** /AssetTypes | adds a fixed asset type
-*AssetApi* | [**getAssetById**](docs/assets/Api/AssetApi.md#getassetbyid) | **GET** /Assets/{id} | retrieves fixed asset by id
-*AssetApi* | [**getAssetSettings**](docs/assets/Api/AssetApi.md#getassetsettings) | **GET** /Settings | searches fixed asset settings
-*AssetApi* | [**getAssetTypes**](docs/assets/Api/AssetApi.md#getassettypes) | **GET** /AssetTypes | searches fixed asset types
-*AssetApi* | [**getAssets**](docs/assets/Api/AssetApi.md#getassets) | **GET** /Assets | searches fixed asset
+*AssetApi* | [**createAsset**](Api/AssetApi.md#createasset) | **POST** /Assets | adds a fixed asset
+*AssetApi* | [**createAssetType**](Api/AssetApi.md#createassettype) | **POST** /AssetTypes | adds a fixed asset type
+*AssetApi* | [**getAssetById**](Api/AssetApi.md#getassetbyid) | **GET** /Assets/{id} | retrieves fixed asset by id
+*AssetApi* | [**getAssetSettings**](Api/AssetApi.md#getassetsettings) | **GET** /Settings | searches fixed asset settings
+*AssetApi* | [**getAssetTypes**](Api/AssetApi.md#getassettypes) | **GET** /AssetTypes | searches fixed asset types
+*AssetApi* | [**getAssets**](Api/AssetApi.md#getassets) | **GET** /Assets | searches fixed asset
 
 
 ## Documentation For Models
 
- - [Asset](docs/assets/Model/Asset.md)
- - [AssetType](docs/assets/Model/AssetType.md)
- - [Assets](docs/assets/Model/Assets.md)
- - [BookDepreciationDetail](docs/assets/Model/BookDepreciationDetail.md)
- - [BookDepreciationSetting](docs/assets/Model/BookDepreciationSetting.md)
- - [Pagination](docs/assets/Model/Pagination.md)
- - [Setting](docs/assets/Model/Setting.md)
+ - [Asset](Model/Asset.md)
+ - [AssetType](Model/AssetType.md)
+ - [Assets](Model/Assets.md)
+ - [BookDepreciationDetail](Model/BookDepreciationDetail.md)
+ - [BookDepreciationSetting](Model/BookDepreciationSetting.md)
+ - [Pagination](Model/Pagination.md)
+ - [Setting](Model/Setting.md)
 
 
 ## Documentation For Authorization

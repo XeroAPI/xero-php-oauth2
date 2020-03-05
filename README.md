@@ -17,6 +17,8 @@ All third party libraries dependencies managed with Composer.
 
 [SDK reference for Accounting](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/accounting) for all methods and models.
 
+[SDK reference for Fixed Assets](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/assets) for all methods and models.
+
 ## Requirements
 
 PHP 7.2.1 and later
