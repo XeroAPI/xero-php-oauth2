@@ -27,10 +27,10 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Assets;
+namespace XeroAPI\XeroPHP\Models\Asset;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AssetsObjectSerializer;
+use \XeroAPI\XeroPHP\AssetObjectSerializer;
 
 /**
  * Asset Class Doc Comment
@@ -66,8 +66,8 @@ class Asset implements ModelInterface, ArrayAccess
         'asset_status' => 'string',
         'warranty_expiry_date' => 'string',
         'serial_number' => 'string',
-        'book_depreciation_setting' => '\XeroAPI\XeroPHP\Models\Assets\BookDepreciationSetting',
-        'book_depreciation_detail' => '\XeroAPI\XeroPHP\Models\Assets\BookDepreciationDetail',
+        'book_depreciation_setting' => '\XeroAPI\XeroPHP\Models\Asset\BookDepreciationSetting',
+        'book_depreciation_detail' => '\XeroAPI\XeroPHP\Models\Asset\BookDepreciationDetail',
         'can_rollback' => 'bool',
         'accounting_book_value' => 'float',
         'is_delete_enabled_for_date' => 'bool'
@@ -544,7 +544,7 @@ class Asset implements ModelInterface, ArrayAccess
     /**
      * Gets book_depreciation_setting
      *
-     * @return \XeroAPI\XeroPHP\Models\Assets\BookDepreciationSetting
+     * @return \XeroAPI\XeroPHP\Models\Asset\BookDepreciationSetting
      */
     public function getBookDepreciationSetting()
     {
@@ -554,7 +554,7 @@ class Asset implements ModelInterface, ArrayAccess
     /**
      * Sets book_depreciation_setting
      *
-     * @param \XeroAPI\XeroPHP\Models\Assets\BookDepreciationSetting $book_depreciation_setting book_depreciation_setting
+     * @param \XeroAPI\XeroPHP\Models\Asset\BookDepreciationSetting $book_depreciation_setting book_depreciation_setting
      *
      * @return $this
      */
@@ -568,7 +568,7 @@ class Asset implements ModelInterface, ArrayAccess
     /**
      * Gets book_depreciation_detail
      *
-     * @return \XeroAPI\XeroPHP\Models\Assets\BookDepreciationDetail|null
+     * @return \XeroAPI\XeroPHP\Models\Asset\BookDepreciationDetail|null
      */
     public function getBookDepreciationDetail()
     {
@@ -578,7 +578,7 @@ class Asset implements ModelInterface, ArrayAccess
     /**
      * Sets book_depreciation_detail
      *
-     * @param \XeroAPI\XeroPHP\Models\Assets\BookDepreciationDetail|null $book_depreciation_detail book_depreciation_detail
+     * @param \XeroAPI\XeroPHP\Models\Asset\BookDepreciationDetail|null $book_depreciation_detail book_depreciation_detail
      *
      * @return $this
      */
@@ -721,7 +721,7 @@ class Asset implements ModelInterface, ArrayAccess
     public function __toString()
     {
         return json_encode(
-            AssetsObjectSerializer::sanitizeForSerialization($this),
+            AssetObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
     }

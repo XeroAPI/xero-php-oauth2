@@ -27,10 +27,10 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Assets;
+namespace XeroAPI\XeroPHP\Models\Asset;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AssetsObjectSerializer;
+use \XeroAPI\XeroPHP\AssetObjectSerializer;
 
 /**
  * Setting Class Doc Comment
@@ -498,7 +498,7 @@ class Setting implements ModelInterface, ArrayAccess
     public function __toString()
     {
         return json_encode(
-            AssetsObjectSerializer::sanitizeForSerialization($this),
+            AssetObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
     }

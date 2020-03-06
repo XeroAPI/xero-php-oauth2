@@ -1,6 +1,6 @@
 <?php
 /**
- * Pagination
+ * Assets
  *
  * PHP version 5
  *
@@ -27,20 +27,20 @@
  * Do not edit the class manually.
  */
 
-namespace XeroAPI\XeroPHP\Models\Assets;
+namespace XeroAPI\XeroPHP\Models\Asset;
 
 use \ArrayAccess;
-use \XeroAPI\XeroPHP\AssetsObjectSerializer;
+use \XeroAPI\XeroPHP\AssetObjectSerializer;
 
 /**
- * Pagination Class Doc Comment
+ * Assets Class Doc Comment
  *
  * @category Class
  * @package  XeroAPI\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Pagination implements ModelInterface, ArrayAccess
+class Assets implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Pagination implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Pagination';
+    protected static $openAPIModelName = 'Assets';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,8 @@ class Pagination implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'page' => 'int',
-        'page_size' => 'int',
-        'page_count' => 'int',
-        'item_count' => 'int'
+        'pagination' => '\XeroAPI\XeroPHP\Models\Asset\Pagination',
+        'items' => '\XeroAPI\XeroPHP\Models\Asset\Asset[]'
     ];
 
     /**
@@ -69,10 +67,8 @@ class Pagination implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'page' => null,
-        'page_size' => null,
-        'page_count' => null,
-        'item_count' => null
+        'pagination' => null,
+        'items' => null
     ];
 
     /**
@@ -102,10 +98,8 @@ class Pagination implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'page' => 'page',
-        'page_size' => 'pageSize',
-        'page_count' => 'pageCount',
-        'item_count' => 'itemCount'
+        'pagination' => 'pagination',
+        'items' => 'items'
     ];
 
     /**
@@ -114,10 +108,8 @@ class Pagination implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'page' => 'setPage',
-        'page_size' => 'setPageSize',
-        'page_count' => 'setPageCount',
-        'item_count' => 'setItemCount'
+        'pagination' => 'setPagination',
+        'items' => 'setItems'
     ];
 
     /**
@@ -126,10 +118,8 @@ class Pagination implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'page' => 'getPage',
-        'page_size' => 'getPageSize',
-        'page_count' => 'getPageCount',
-        'item_count' => 'getItemCount'
+        'pagination' => 'getPagination',
+        'items' => 'getItems'
     ];
 
     /**
@@ -192,10 +182,8 @@ class Pagination implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['page'] = isset($data['page']) ? $data['page'] : null;
-        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
-        $this->container['page_count'] = isset($data['page_count']) ? $data['page_count'] : null;
-        $this->container['item_count'] = isset($data['item_count']) ? $data['item_count'] : null;
+        $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;
+        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
     }
 
     /**
@@ -223,97 +211,49 @@ class Pagination implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets page
+     * Gets pagination
      *
-     * @return int|null
+     * @return \XeroAPI\XeroPHP\Models\Asset\Pagination|null
      */
-    public function getPage()
+    public function getPagination()
     {
-        return $this->container['page'];
+        return $this->container['pagination'];
     }
 
     /**
-     * Sets page
+     * Sets pagination
      *
-     * @param int|null $page page
+     * @param \XeroAPI\XeroPHP\Models\Asset\Pagination|null $pagination pagination
      *
      * @return $this
      */
-    public function setPage($page)
+    public function setPagination($pagination)
     {
-        $this->container['page'] = $page;
+        $this->container['pagination'] = $pagination;
 
         return $this;
     }
 
     /**
-     * Gets page_size
+     * Gets items
      *
-     * @return int|null
+     * @return \XeroAPI\XeroPHP\Models\Asset\Asset[]|null
      */
-    public function getPageSize()
+    public function getItems()
     {
-        return $this->container['page_size'];
+        return $this->container['items'];
     }
 
     /**
-     * Sets page_size
+     * Sets items
      *
-     * @param int|null $page_size page_size
+     * @param \XeroAPI\XeroPHP\Models\Asset\Asset[]|null $items items
      *
      * @return $this
      */
-    public function setPageSize($page_size)
+    public function setItems($items)
     {
-        $this->container['page_size'] = $page_size;
-
-        return $this;
-    }
-
-    /**
-     * Gets page_count
-     *
-     * @return int|null
-     */
-    public function getPageCount()
-    {
-        return $this->container['page_count'];
-    }
-
-    /**
-     * Sets page_count
-     *
-     * @param int|null $page_count page_count
-     *
-     * @return $this
-     */
-    public function setPageCount($page_count)
-    {
-        $this->container['page_count'] = $page_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets item_count
-     *
-     * @return int|null
-     */
-    public function getItemCount()
-    {
-        return $this->container['item_count'];
-    }
-
-    /**
-     * Sets item_count
-     *
-     * @param int|null $item_count item_count
-     *
-     * @return $this
-     */
-    public function setItemCount($item_count)
-    {
-        $this->container['item_count'] = $item_count;
+        $this->container['items'] = $items;
 
         return $this;
     }
@@ -378,7 +318,7 @@ class Pagination implements ModelInterface, ArrayAccess
     public function __toString()
     {
         return json_encode(
-            AssetsObjectSerializer::sanitizeForSerialization($this),
+            AssetObjectSerializer::sanitizeForSerialization($this),
             JSON_PRETTY_PRINT
         );
     }

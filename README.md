@@ -4,10 +4,10 @@
 
 This release only supports oAuth2 authentication and the following API sets.
 * accounting
+* fixed asset 
 
 Coming soon
 * bank feeds 
-* fixed asset 
 * files 
 * payroll
 * projects
@@ -17,7 +17,7 @@ All third party libraries dependencies managed with Composer.
 
 [SDK reference for Accounting](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/accounting) for all methods and models.
 
-[SDK reference for Fixed Assets](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/assets) for all methods and models.
+[SDK reference for Fixed Asset](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/asset) for all methods and models.
 
 ## Requirements
 
