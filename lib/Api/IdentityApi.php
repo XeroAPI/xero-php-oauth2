@@ -35,7 +35,7 @@ use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use XeroAPI\XeroPHP\ApiException;
-use XeroAPI\XeroPHP\Configuration;
+use XeroAPI\XeroPHP\IdentityConfiguration;
 use XeroAPI\XeroPHP\HeaderSelector;
 use XeroAPI\XeroPHP\IdentityObjectSerializer;
 
@@ -55,7 +55,7 @@ class IdentityApi
     protected $client;
 
     /**
-     * @var Configuration
+     * @var IdentityConfiguration
      */
     protected $config;
 
@@ -66,21 +66,21 @@ class IdentityApi
 
     /**
      * @param ClientInterface $client
-     * @param Configuration   $config
+     * @param IdentityConfiguration   $config
      * @param HeaderSelector  $selector
      */
     public function __construct(
         ClientInterface $client = null,
-        Configuration $config = null,
+        IdentityConfiguration $config = null,
         HeaderSelector $selector = null
     ) {
         $this->client = $client ?: new Client();
-        $this->config = $config ?: new Configuration();
+        $this->config = $config ?: new IdentityConfiguration();
         $this->headerSelector = $selector ?: new HeaderSelector();
     }
 
     /**
-     * @return Configuration
+     * @return IdentityConfiguration
      */
     public function getConfig()
     {

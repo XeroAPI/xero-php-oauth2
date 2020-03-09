@@ -35,7 +35,7 @@ use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use XeroAPI\XeroPHP\ApiException;
-use XeroAPI\XeroPHP\Configuration;
+use XeroAPI\XeroPHP\AssetConfiguration;
 use XeroAPI\XeroPHP\HeaderSelector;
 use XeroAPI\XeroPHP\AssetObjectSerializer;
 
@@ -55,7 +55,7 @@ class AssetApi
     protected $client;
 
     /**
-     * @var Configuration
+     * @var AssetConfiguration
      */
     protected $config;
 
@@ -66,21 +66,21 @@ class AssetApi
 
     /**
      * @param ClientInterface $client
-     * @param Configuration   $config
+     * @param AssetConfiguration   $config
      * @param HeaderSelector  $selector
      */
     public function __construct(
         ClientInterface $client = null,
-        Configuration $config = null,
+        AssetConfiguration $config = null,
         HeaderSelector $selector = null
     ) {
         $this->client = $client ?: new Client();
-        $this->config = $config ?: new Configuration();
+        $this->config = $config ?: new AssetConfiguration();
         $this->headerSelector = $selector ?: new HeaderSelector();
     }
 
     /**
-     * @return Configuration
+     * @return AssetConfiguration
      */
     public function getConfig()
     {

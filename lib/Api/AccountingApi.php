@@ -35,7 +35,7 @@ use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use XeroAPI\XeroPHP\ApiException;
-use XeroAPI\XeroPHP\Configuration;
+use XeroAPI\XeroPHP\AccountingConfiguration;
 use XeroAPI\XeroPHP\HeaderSelector;
 use XeroAPI\XeroPHP\AccountingObjectSerializer;
 
@@ -55,7 +55,7 @@ class AccountingApi
     protected $client;
 
     /**
-     * @var Configuration
+     * @var AccountingConfiguration
      */
     protected $config;
 
@@ -66,21 +66,21 @@ class AccountingApi
 
     /**
      * @param ClientInterface $client
-     * @param Configuration   $config
+     * @param AccountingConfiguration   $config
      * @param HeaderSelector  $selector
      */
     public function __construct(
         ClientInterface $client = null,
-        Configuration $config = null,
+        AccountingConfiguration $config = null,
         HeaderSelector $selector = null
     ) {
         $this->client = $client ?: new Client();
-        $this->config = $config ?: new Configuration();
+        $this->config = $config ?: new AccountingConfiguration();
         $this->headerSelector = $selector ?: new HeaderSelector();
     }
 
     /**
-     * @return Configuration
+     * @return AccountingConfiguration
      */
     public function getConfig()
     {
