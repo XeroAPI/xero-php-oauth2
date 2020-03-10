@@ -146,15 +146,13 @@ The RedirectURI (something like http://localhost:8888/pathToApp/callback.php) in
         'code' => $_GET['code']
       ]);
            
-      $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( (string)$accessToken->getToken() );
-    
-      $config->setHost("https://api.xero.com"); 
-      $identityInstance = new XeroAPI\XeroPHP\Api\IdentityApi(
+      $configIdentity = XeroAPI\XeroPHP\IdentityConfiguration::getDefaultConfiguration()->setAccessToken( (string)$storage->getSession()['token'] );	
+      $identityApi = new XeroAPI\XeroPHP\Api\IdentityApi(
         new GuzzleHttp\Client(),
-        $config
+        $configIdentity
       );
        
-      $result = $identityInstance->getConnections();
+      $result = $identityApi->getConnections();
 
       // Save my tokens, expiration tenant_id
       $storage->setToken(
@@ -305,18 +303,33 @@ class StorageClass
         $newAccessToken->getValues()["id_token"] );
   }
 
-  $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( (string)$storage->getSession()['token'] );
-  $config->setHost("https://api.xero.com/api.xro/2.0");
-
-  $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
-      new GuzzleHttp\Client(),
-      $config
+  $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( (string)$storage->getSession()['token'] );	
+  
+  $accountingApi = new XeroAPI\XeroPHP\Api\AccountingApi(
+    new GuzzleHttp\Client(),
+    $config
   );
+
+  $assetApi = new XeroAPI\XeroPHP\Api\AssetApi(
+    new GuzzleHttp\Client(),
+    $config
+  );  
+
+  $identityApi = new XeroAPI\XeroPHP\Api\IdentityApi(
+    new GuzzleHttp\Client(),
+    $config
+  );  
+
+  $projectApi = new XeroAPI\XeroPHP\Api\ProjectApi(
+    new GuzzleHttp\Client(),
+    $config
+  );  
+
   $message = "no API calls";
   if (isset($_GET['action'])) {
     if ($_GET["action"] == 1) {
         // Get Organisation details
-        $apiResponse = $apiInstance->getOrganisations($xeroTenantId);
+        $apiResponse = $accountingApi->getOrganisations($xeroTenantId);
         $message = 'Organisation Name: ' . $apiResponse->getOrganisations()[0]->getName();
     } else if ($_GET["action"] == 2) {
         // Create Contact
@@ -342,7 +355,7 @@ class StorageClass
             $contacts = new XeroAPI\XeroPHP\Models\Accounting\Contacts;
             $contacts->setContacts($arr_contacts);
 
-            $apiResponse = $apiInstance->createContacts($xeroTenantId,$contacts);
+            $apiResponse = $accountingApi->createContacts($xeroTenantId,$contacts);
             $message = 'New Contact Name: ' . $apiResponse->getContacts()[0]->getName();
         } catch (\XeroAPI\XeroPHP\ApiException $e) {
             $error = AccountingObjectSerializer::deserialize(
@@ -369,7 +382,7 @@ class StorageClass
         $unitdp = null; // int | e.g. unitdp=4 – You can opt in to use four decimal places for unit amounts
 
         try {
-            $apiResponse = $apiInstance->getInvoices($xeroTenantId, $if_modified_since, $where, $order, $ids, $invoice_numbers, $contact_ids, $statuses, $page, $include_archived, $created_by_my_app, $unitdp);
+            $apiResponse = $accountingApi->getInvoices($xeroTenantId, $if_modified_since, $where, $order, $ids, $invoice_numbers, $contact_ids, $statuses, $page, $include_archived, $created_by_my_app, $unitdp);
             if (  count($apiResponse->getInvoices()) > 0 ) {
                 $message = 'Total invoices found: ' . count($apiResponse->getInvoices());
             } else {
@@ -395,7 +408,7 @@ class StorageClass
             $contacts = new XeroAPI\XeroPHP\Models\Accounting\Contacts;
             $contacts->setContacts($arr_contacts);
 
-            $apiResponse = $apiInstance->createContacts($xeroTenantId,$contacts,false);
+            $apiResponse = $accountingApi->createContacts($xeroTenantId,$contacts,false);
             $message = 'First contacts created: ' . $apiResponse->getContacts()[0]->getName();
 
             if ($apiResponse->getContacts()[1]->getHasValidationErrors()) {
@@ -410,6 +423,13 @@ class StorageClass
             );
             $message = "ApiException - " . $error->getElements()[0]["validation_errors"][0]["message"];
         }
+    } else if () {
+
+        // DELETE the org FIRST Connection returned
+        $connections = $identityApi->getConnections();
+        $id = $connections[0]->getId();
+        $result = $identityApi->deleteConnection($id);
+
     }
   }
 ?>
@@ -420,6 +440,7 @@ class StorageClass
             <li><a href="authorizedResource.php?action=2">Create one Contact</a></li>
             <li><a href="authorizedResource.php?action=3">Get Invoice with Filters</a></li>
             <li><a href="authorizedResource.php?action=4">Create multiple contacts and summarizeErrors</a></li>
+            <li><a href="authorizedResource.php?action=5">Delete an organisation connection</a></li>
         </ul>
         <div>
         <?php

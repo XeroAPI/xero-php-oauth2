@@ -1,6 +1,6 @@
 # xero-php-oauth2
 
-## Documentations
+## Asset API Documentation
 
 Please follow the [README instructions](https://github.com/XeroAPI/xero-php-oauth2/blob/master/README.md) and then run the following:
 
@@ -19,32 +19,31 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
   // Configure OAuth2 access token for authorization: OAuth2
-  $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-  
-  $config->setHost("https://api.xero.com/assets.xro/1.0");        
+  $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');     
 
-  $apiInstance = new XeroAPI\XeroPHP\Api\AssetsApi(
+  $assetApi = new XeroAPI\XeroPHP\Api\AssetApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
   );
 
-
   $xeroTenantId = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 
-  // \XeroAPI\XeroPHP\Models\Accounting\Account | Request of type Account
-  $account = new XeroAPI\XeroPHP\Models\Accounting\Account;
-  $account->setCode($this->getRandNum());
-  $account->setName("Foo" . $this->getRandNum());
-  $account->setType("EXPENSE");
-  $account->setDescription("Hello World");  
+  // XeroAPI\XeroPHP\Models\Asset\Asset | Request of type Asset
+  $asset = new XeroAPI\XeroPHP\Models\Asset\Asset;
+  $asset->setAssetName('Computer -' . $this->getRandNum())
+    ->setAssetNumber($this->getRandNum())
+    ->setPurchaseDate((new DateTime('2019-01-02')))
+    ->setPurchasePrice(100.0)
+    ->setDisposalPrice(23.23)
+    ->setAssetStatus("Draft");
 
   try {
-      $result = $apiInstance->createAccount($xero_tenant_id, $account);
+      $result = $assetsApi->createAsset($xeroTenantId, $asset);
       print_r($result);
   } catch (Exception $e) {
-      echo 'Exception when calling AccountingApi->createAccount: ', $e->getMessage(), PHP_EOL;
+      echo 'Exception when calling AssetApi->createAsset: ', $e->getMessage(), PHP_EOL;
   }
 
 ?>

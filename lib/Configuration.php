@@ -84,11 +84,39 @@ class Configuration
     protected $host = 'https://api.xero.com/api.xro/2.0';
 
     /**
+     * The hostAccounting
+     *
+     * @var string
+     */
+    protected $hostAccounting = 'https://api.xero.com/api.xro/2.0';
+
+    /**
+     * The hostAsset
+     *
+     * @var string
+     */
+    protected $hostAsset = 'https://api.xero.com/assets.xro/1.0';
+
+    /**
+     * The hostIdentity
+     *
+     * @var string
+     */
+    protected $hostIdentity = 'https://api.xero.com';
+
+    /**
+     * The hostProject
+     *
+     * @var string
+     */
+    protected $hostProject = 'https://api.xero.com/projects.xro/2.0';
+
+    /**
      * User agent of the HTTP request, set to "OpenAPI-Generator/{version}/PHP" by default
      *
      * @var string
      */
-    protected $userAgent = '[xero-php-oauth2 (1.3.1)]';
+    protected $userAgent = '[xero-php-oauth2 (1.4.0)]';
 
     /**
      * Debug switch (default set to false)
@@ -261,6 +289,98 @@ class Configuration
     public function getHost()
     {
         return $this->host;
+    }
+
+    /**
+     * Sets the hostAccounting
+     *
+     * @param string $hostAccounting
+     *
+     * @return $this
+     */
+    public function setHostAccounting($hostAccounting)
+    {
+        $this->hostAccounting = $hostAccounting;
+        return $this;
+    }
+
+    /**
+     * Gets the hostAccounting
+     *
+     * @return string hostAccounting
+     */
+    public function getHostAccounting()
+    {
+        return $this->hostAccounting;
+    }
+
+    /**
+     * Sets the hostAsset
+     *
+     * @param string $hostAsset
+     *
+     * @return $this
+     */
+    public function setHostAsset($hostAsset)
+    {
+        $this->hostAsset = $hostAsset;
+        return $this;
+    }
+
+    /**
+     * Gets the hostAsset
+     *
+     * @return string hostAsset
+     */
+    public function getHostAsset()
+    {
+        return $this->hostAsset;
+    }
+
+    /**
+     * Sets the hostIdentity
+     *
+     * @param string $hostIdentity
+     *
+     * @return $this
+     */
+    public function setHostIdentity($hostIdentity)
+    {
+        $this->hostIdentity = $hostIdentity;
+        return $this;
+    }
+
+    /**
+     * Gets the hostIdentity
+     *
+     * @return string hostIdentity
+     */
+    public function getHostIdentity()
+    {
+        return $this->hostIdentity;
+    }
+
+    /**
+     * Sets the hostProject
+     *
+     * @param string $hostProject
+     *
+     * @return $this
+     */
+    public function setHostProject($hostProject)
+    {
+        $this->hostProject = $hostProject;
+        return $this;
+    }
+
+    /**
+     * Gets the hostProject
+     *
+     * @return string hostProject
+     */
+    public function getHostProject()
+    {
+        return $this->hostProject;
     }
 
     /**

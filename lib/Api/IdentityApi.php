@@ -310,7 +310,7 @@ class IdentityApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'DELETE',
-            "https://api.xero.com" . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHostIdentity() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -568,7 +568,7 @@ class IdentityApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
-            "https://api.xero.com" . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHostIdentity() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );

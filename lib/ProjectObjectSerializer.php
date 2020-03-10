@@ -11,9 +11,9 @@
  */
 
 /**
- * Xero Assets API
+ * Xero Projects API
  *
- * This is the Xero Assets API
+ * This is the Xero Projects API
  *
  * OpenAPI spec version: 2.0.3
  * Contact: api@xero.com
@@ -29,7 +29,7 @@
 
 namespace XeroAPI\XeroPHP;
 
-use XeroAPI\XeroPHP\Models\Assets\ModelInterface;
+use XeroAPI\XeroPHP\Models\Project\ModelInterface;
 
 /**
  * ObjectSerializer Class Doc Comment
@@ -39,7 +39,7 @@ use XeroAPI\XeroPHP\Models\Assets\ModelInterface;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class AssetsObjectSerializer
+class ProjectObjectSerializer
 {
     /**
      * Validate if date
