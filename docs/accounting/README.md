@@ -1,6 +1,6 @@
 # xero-php-oauth2
 
-## Documentations
+## Accounting API Documentation
 
 Please follow the [README instructions](https://github.com/XeroAPI/xero-php-oauth2/blob/master/README.md) and then run the following:
 
@@ -19,17 +19,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
   // Configure OAuth2 access token for authorization: OAuth2
-  $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-  
-  $config->setHost("https://api.xero.com/api.xro/2.0");        
+  $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');     
 
-  $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+  $accountingApi = new XeroAPI\XeroPHP\Api\AccountingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
   );
-
 
   $xeroTenantId = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 
@@ -41,10 +38,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
   $account->setDescription("Hello World");  
 
   try {
-      $result = $apiInstance->createAccount($xero_tenant_id, $account);
+      $result = $accountingApi->createAccount($xero_tenant_id, $account);
       print_r($result);
   } catch (Exception $e) {
-      echo 'Exception when calling AccountingApi->createAccount: ', $e->getMessage(), PHP_EOL;
+      echo 'Exception when calling accountingApi->createAccount: ', $e->getMessage(), PHP_EOL;
   }
 
 ?>

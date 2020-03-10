@@ -303,16 +303,26 @@ class StorageClass
         $newAccessToken->getValues()["id_token"] );
   }
 
-  $config = XeroAPI\XeroPHP\AccountingConfiguration::getDefaultConfiguration()->setAccessToken( (string)$storage->getSession()['token'] );	
+  $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( (string)$storage->getSession()['token'] );	
+  
   $accountingApi = new XeroAPI\XeroPHP\Api\AccountingApi(
     new GuzzleHttp\Client(),
     $config
   );
 
-  $configAsset = XeroAPI\XeroPHP\AssetConfiguration::getDefaultConfiguration()->setAccessToken( (string)$storage->getSession()['token'] );	
   $assetApi = new XeroAPI\XeroPHP\Api\AssetApi(
     new GuzzleHttp\Client(),
-    $configAsset
+    $config
+  );  
+
+  $identityApi = new XeroAPI\XeroPHP\Api\IdentityApi(
+    new GuzzleHttp\Client(),
+    $config
+  );  
+
+  $projectApi = new XeroAPI\XeroPHP\Api\ProjectApi(
+    new GuzzleHttp\Client(),
+    $config
   );  
 
   $message = "no API calls";
@@ -413,6 +423,13 @@ class StorageClass
             );
             $message = "ApiException - " . $error->getElements()[0]["validation_errors"][0]["message"];
         }
+    } else if () {
+
+        // DELETE the org FIRST Connection returned
+        $connections = $identityApi->getConnections();
+        $id = $connections[0]->getId();
+        $result = $identityApi->deleteConnection($id);
+
     }
   }
 ?>
@@ -423,6 +440,7 @@ class StorageClass
             <li><a href="authorizedResource.php?action=2">Create one Contact</a></li>
             <li><a href="authorizedResource.php?action=3">Get Invoice with Filters</a></li>
             <li><a href="authorizedResource.php?action=4">Create multiple contacts and summarizeErrors</a></li>
+            <li><a href="authorizedResource.php?action=5">Delete an organisation connection</a></li>
         </ul>
         <div>
         <?php

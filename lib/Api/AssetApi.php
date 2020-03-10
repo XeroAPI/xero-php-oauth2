@@ -35,7 +35,7 @@ use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use XeroAPI\XeroPHP\ApiException;
-use XeroAPI\XeroPHP\AssetConfiguration;
+use XeroAPI\XeroPHP\Configuration;
 use XeroAPI\XeroPHP\HeaderSelector;
 use XeroAPI\XeroPHP\AssetObjectSerializer;
 
@@ -55,7 +55,7 @@ class AssetApi
     protected $client;
 
     /**
-     * @var AssetConfiguration
+     * @var Configuration
      */
     protected $config;
 
@@ -66,21 +66,21 @@ class AssetApi
 
     /**
      * @param ClientInterface $client
-     * @param AssetConfiguration   $config
+     * @param Configuration   $config
      * @param HeaderSelector  $selector
      */
     public function __construct(
         ClientInterface $client = null,
-        AssetConfiguration $config = null,
+        Configuration $config = null,
         HeaderSelector $selector = null
     ) {
         $this->client = $client ?: new Client();
-        $this->config = $config ?: new AssetConfiguration();
+        $this->config = $config ?: new Configuration();
         $this->headerSelector = $selector ?: new HeaderSelector();
     }
 
     /**
-     * @return AssetConfiguration
+     * @return Configuration
      */
     public function getConfig()
     {
@@ -368,7 +368,7 @@ class AssetApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHostAsset() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -649,7 +649,7 @@ class AssetApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHostAsset() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -941,7 +941,7 @@ class AssetApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHostAsset() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1214,7 +1214,7 @@ class AssetApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHostAsset() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1487,7 +1487,7 @@ class AssetApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHostAsset() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -1820,7 +1820,7 @@ class AssetApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHostAsset() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );

@@ -35,7 +35,7 @@ use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use XeroAPI\XeroPHP\ApiException;
-use XeroAPI\XeroPHP\IdentityConfiguration;
+use XeroAPI\XeroPHP\Configuration;
 use XeroAPI\XeroPHP\HeaderSelector;
 use XeroAPI\XeroPHP\IdentityObjectSerializer;
 
@@ -55,7 +55,7 @@ class IdentityApi
     protected $client;
 
     /**
-     * @var IdentityConfiguration
+     * @var Configuration
      */
     protected $config;
 
@@ -66,21 +66,21 @@ class IdentityApi
 
     /**
      * @param ClientInterface $client
-     * @param IdentityConfiguration   $config
+     * @param Configuration   $config
      * @param HeaderSelector  $selector
      */
     public function __construct(
         ClientInterface $client = null,
-        IdentityConfiguration $config = null,
+        Configuration $config = null,
         HeaderSelector $selector = null
     ) {
         $this->client = $client ?: new Client();
-        $this->config = $config ?: new IdentityConfiguration();
+        $this->config = $config ?: new Configuration();
         $this->headerSelector = $selector ?: new HeaderSelector();
     }
 
     /**
-     * @return IdentityConfiguration
+     * @return Configuration
      */
     public function getConfig()
     {
@@ -310,7 +310,7 @@ class IdentityApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'DELETE',
-            "https://api.xero.com" . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHostIdentity() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
@@ -568,7 +568,7 @@ class IdentityApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
-            "https://api.xero.com" . $resourcePath . ($query ? "?{$query}" : ''),
+            $this->config->getHostIdentity() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
         );
