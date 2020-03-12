@@ -146,10 +146,10 @@ The RedirectURI (something like http://localhost:8888/pathToApp/callback.php) in
         'code' => $_GET['code']
       ]);
            
-      $configIdentity = XeroAPI\XeroPHP\IdentityConfiguration::getDefaultConfiguration()->setAccessToken( (string)$storage->getSession()['token'] );	
+      $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( (string)$accessToken->getToken() );
       $identityApi = new XeroAPI\XeroPHP\Api\IdentityApi(
         new GuzzleHttp\Client(),
-        $configIdentity
+        $config
       );
        
       $result = $identityApi->getConnections();
