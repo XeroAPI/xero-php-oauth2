@@ -54,6 +54,12 @@ If no `composer.json` file exists, create one by running the following command. 
 composer init
 ```
 
+### Laravel
+ Xero doesn't offer support on how to use of our SDKs in different frameworks, etc.  We had a recommendation by Matt @hailwood in our developer community. His company integrates xero-php-oauth2 and Laravel using the following package.
+* https://github.com/webfox/laravel-xero-oauth2
+* https://packagist.org/packages/webfox/laravel-xero-oauth2
+
+
 ## How to use xero-php-oauth2
 Below is starter code with the oAuth 2 flow.  You can copy/paste the code below into 4 separate PHP files and substitute your **ClientId, ClientSecret and RedirectURI**
 
