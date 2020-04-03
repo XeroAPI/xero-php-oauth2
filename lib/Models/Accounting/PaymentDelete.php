@@ -1,6 +1,6 @@
 <?php
 /**
- * BankTransfers
+ * PaymentDelete
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \XeroAPI\XeroPHP\AccountingObjectSerializer;
 
 /**
- * BankTransfers Class Doc Comment
+ * PaymentDelete Class Doc Comment
  *
  * @category Class
  * @package  XeroAPI\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class BankTransfers implements ModelInterface, ArrayAccess
+class PaymentDelete implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class BankTransfers implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BankTransfers';
+    protected static $openAPIModelName = 'PaymentDelete';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class BankTransfers implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'bank_transfers' => '\XeroAPI\XeroPHP\Models\Accounting\BankTransfer[]'
+        'status' => 'string'
     ];
 
     /**
@@ -66,7 +66,7 @@ class BankTransfers implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'bank_transfers' => null
+        'status' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class BankTransfers implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'bank_transfers' => 'BankTransfers'
+        'status' => 'Status'
     ];
 
     /**
@@ -105,7 +105,7 @@ class BankTransfers implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'bank_transfers' => 'setBankTransfers'
+        'status' => 'setStatus'
     ];
 
     /**
@@ -114,7 +114,7 @@ class BankTransfers implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'bank_transfers' => 'getBankTransfers'
+        'status' => 'getStatus'
     ];
 
     /**
@@ -177,7 +177,7 @@ class BankTransfers implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['bank_transfers'] = isset($data['bank_transfers']) ? $data['bank_transfers'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : 'DELETED';
     }
 
     /**
@@ -189,6 +189,9 @@ class BankTransfers implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -205,25 +208,25 @@ class BankTransfers implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets bank_transfers
+     * Gets status
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\BankTransfer[]|null
+     * @return string
      */
-    public function getBankTransfers()
+    public function getStatus()
     {
-        return $this->container['bank_transfers'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets bank_transfers
+     * Sets status
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\BankTransfer[]|null $bank_transfers bank_transfers
+     * @param string $status The status of the payment.
      *
      * @return $this
      */
-    public function setBankTransfers($bank_transfers)
+    public function setStatus($status)
     {
-        $this->container['bank_transfers'] = $bank_transfers;
+        $this->container['status'] = $status;
 
         return $this;
     }

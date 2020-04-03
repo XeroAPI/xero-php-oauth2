@@ -148,6 +148,7 @@ Method | HTTP request | Description
 [**getPurchaseOrderHistory**](AccountingApi.md#getPurchaseOrderHistory) | **GET** /PurchaseOrders/{PurchaseOrderID}/History | Allows you to retrieve history for PurchaseOrder
 [**getPurchaseOrders**](AccountingApi.md#getPurchaseOrders) | **GET** /PurchaseOrders | Allows you to retrieve purchase orders
 [**getQuote**](AccountingApi.md#getQuote) | **GET** /Quotes/{QuoteID} | Allows you to retrieve a specified quote
+[**getQuoteAsPdf**](AccountingApi.md#getQuoteAsPdf) | **GET** /Quotes/{QuotesID}/pdf | Allows you to retrieve quotes as PDF files
 [**getQuoteAttachmentByFileName**](AccountingApi.md#getQuoteAttachmentByFileName) | **GET** /Quotes/{QuoteID}/Attachments/{FileName} | Allows you to retrieve Attachment on Quote by Filename
 [**getQuoteAttachmentById**](AccountingApi.md#getQuoteAttachmentById) | **GET** /Quotes/{QuoteID}/Attachments/{AttachmentID} | Allows you to retrieve specific Attachment on Quote
 [**getQuoteAttachments**](AccountingApi.md#getQuoteAttachments) | **GET** /Quotes/{QuoteID}/Attachments | Allows you to retrieve Attachments for Quotes
@@ -191,7 +192,6 @@ Method | HTTP request | Description
 [**updateContactGroup**](AccountingApi.md#updateContactGroup) | **POST** /ContactGroups/{ContactGroupID} | Allows you to update a Contact Group
 [**updateCreditNote**](AccountingApi.md#updateCreditNote) | **POST** /CreditNotes/{CreditNoteID} | Allows you to update a specific credit note
 [**updateCreditNoteAttachmentByFileName**](AccountingApi.md#updateCreditNoteAttachmentByFileName) | **POST** /CreditNotes/{CreditNoteID}/Attachments/{FileName} | Allows you to update Attachments on CreditNote by file name
-[**updateEmployee**](AccountingApi.md#updateEmployee) | **POST** /Employees/{EmployeeID} | Allows you to update a specific employee used in Xero payrun
 [**updateExpenseClaim**](AccountingApi.md#updateExpenseClaim) | **POST** /ExpenseClaims/{ExpenseClaimID} | Allows you to update specified expense claims
 [**updateInvoice**](AccountingApi.md#updateInvoice) | **POST** /Invoices/{InvoiceID} | Allows you to update a specified sales invoices or purchase bills
 [**updateInvoiceAttachmentByFileName**](AccountingApi.md#updateInvoiceAttachmentByFileName) | **POST** /Invoices/{InvoiceID}/Attachments/{FileName} | Allows you to update Attachment on invoices or purchase bills by it&#39;s filename
@@ -3412,7 +3412,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deletePayment**
-> \XeroAPI\XeroPHP\Models\Accounting\Payments deletePayment($xero_tenant_id, $payment_id, $payments)
+> \XeroAPI\XeroPHP\Models\Accounting\Payments deletePayment($xero_tenant_id, $payment_id, $payment_delete)
 
 Allows you to update a specified payment for invoices and credit notes
 
@@ -3432,10 +3432,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $payment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Payment
-$payments = { payments:[ { status:"DELETED" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Payments | 
+$payment_delete = { status:"DELETED" }; // \XeroAPI\XeroPHP\Models\Accounting\PaymentDelete | 
 
 try {
-    $result = $apiInstance->deletePayment($xero_tenant_id, $payment_id, $payments);
+    $result = $apiInstance->deletePayment($xero_tenant_id, $payment_id, $payment_delete);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->deletePayment: ', $e->getMessage(), PHP_EOL;
@@ -3449,7 +3449,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **payment_id** | [**string**](../Model/.md)| Unique identifier for a Payment |
- **payments** | [**\XeroAPI\XeroPHP\Models\Accounting\Payments**](../Model/Payments.md)|  |
+ **payment_delete** | [**\XeroAPI\XeroPHP\Models\Accounting\PaymentDelete**](../Model/PaymentDelete.md)|  |
 
 ### Return type
 
@@ -8156,6 +8156,59 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **getQuoteAsPdf**
+> \SplFileObject getQuoteAsPdf($xero_tenant_id, $quote_id)
+
+Allows you to retrieve quotes as PDF files
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Quote
+
+try {
+    $result = $apiInstance->getQuoteAsPdf($xero_tenant_id, $quote_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->getQuoteAsPdf: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **quote_id** | [**string**](../Model/.md)| Unique identifier for an Quote |
+
+### Return type
+
+[**\SplFileObject**](../Model/\SplFileObject.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/pdf
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **getQuoteAttachmentByFileName**
 > \SplFileObject getQuoteAttachmentByFileName($xero_tenant_id, $quote_id, $file_name, $content_type)
 
@@ -10575,61 +10628,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/octet-stream
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **updateEmployee**
-> \XeroAPI\XeroPHP\Models\Accounting\Employees updateEmployee($xero_tenant_id, $employee_id, $employees)
-
-Allows you to update a specific employee used in Xero payrun
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$employee_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Employee
-$employees = { employees:[ { employeeID:"00000000-0000-0000-000-000000000000", firstName:"Natasha", lastName:"Romanoff" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Employees | 
-
-try {
-    $result = $apiInstance->updateEmployee($xero_tenant_id, $employee_id, $employees);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AccountingApi->updateEmployee: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **employee_id** | [**string**](../Model/.md)| Unique identifier for a Employee |
- **employees** | [**\XeroAPI\XeroPHP\Models\Accounting\Employees**](../Model/Employees.md)|  |
-
-### Return type
-
-[**\XeroAPI\XeroPHP\Models\Accounting\Employees**](../Model/Employees.md)
-
-### Authorization
-
-[OAuth2](../../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

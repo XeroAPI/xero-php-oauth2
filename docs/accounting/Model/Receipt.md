@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **status** | **string** | Current status of receipt – see status types | [optional] 
 **receipt_number** | **string** | Xero generated sequence number for receipt in current claim for a given user | [optional] 
 **updated_date_utc** | [**\DateTime**](\DateTime.md) | Last modified date UTC format | [optional] 
-**has_attachments** | **bool** | boolean to indicate if a receipt has an attachment | [optional] 
+**has_attachments** | **bool** | boolean to indicate if a receipt has an attachment | [optional] [default to false]
 **url** | **string** | URL link to a source document – shown as “Go to [appName]” in the Xero app | [optional] 
 **validation_errors** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 **warnings** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays array of warning messages from the API | [optional] 

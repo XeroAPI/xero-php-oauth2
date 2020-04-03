@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **currency_rate** | **double** | The currency rate | [optional] 
 **from_bank_transaction_id** | **string** | The Bank Transaction ID for the source account | [optional] 
 **to_bank_transaction_id** | **string** | The Bank Transaction ID for the destination account | [optional] 
-**has_attachments** | **bool** | Boolean to indicate if a Bank Transfer has an attachment | [optional] 
+**has_attachments** | **bool** | Boolean to indicate if a Bank Transfer has an attachment | [optional] [default to false]
 **created_date_utc** | [**\DateTime**](\DateTime.md) | UTC timestamp of creation date of bank transfer | [optional] 
 **validation_errors** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 

@@ -442,7 +442,7 @@ $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tena
 $project_id = 'project_id_example'; // string | You can specify an individual project by appending the projectId to the endpoint
 $page = 1; // int | Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0.
 $page_size = 10; // int | Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
-$task_ids = 'task_ids_example'; // string | taskIds Search for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds={taskId},{taskId}
+$task_ids = 'task_ids_example'; // string | taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds={taskId},{taskId}
 
 try {
     $result = $apiInstance->getTasks($xero_tenant_id, $project_id, $page, $page_size, $task_ids);
@@ -461,7 +461,7 @@ Name | Type | Description  | Notes
  **project_id** | [**string**](../Model/.md)| You can specify an individual project by appending the projectId to the endpoint |
  **page** | **int**| Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. | [optional]
  **page_size** | **int**| Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. | [optional]
- **task_ids** | **string**| taskIds Search for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskId},{taskId} | [optional]
+ **task_ids** | **string**| taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskId},{taskId} | [optional]
 
 ### Return type
 

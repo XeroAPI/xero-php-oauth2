@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 **discount** | **double** | The default discount rate for the contact (read only) | [optional] 
 **balances** | [**\XeroAPI\XeroPHP\Models\Accounting\Balances**](Balances.md) |  | [optional] 
 **attachments** | [**\XeroAPI\XeroPHP\Models\Accounting\Attachment[]**](Attachment.md) | Displays array of attachments from the API | [optional] 
-**has_attachments** | **bool** | A boolean to indicate if a contact has an attachment | [optional] 
+**has_attachments** | **bool** | A boolean to indicate if a contact has an attachment | [optional] [default to false]
 **validation_errors** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays validation errors returned from the API | [optional] 
 **has_validation_errors** | **bool** | A boolean to indicate if a contact has an validation errors | [optional] 
 **status_attribute_string** | **string** | Status of object | [optional] 

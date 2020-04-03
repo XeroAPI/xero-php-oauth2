@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **remaining_credit** | **double** | The remaining credit balance on the prepayment | [optional] 
 **allocations** | [**\XeroAPI\XeroPHP\Models\Accounting\Allocation[]**](Allocation.md) | See Allocations | [optional] 
 **applied_amount** | **double** | The amount of applied to an invoice | [optional] 
-**has_attachments** | **bool** | boolean to indicate if a prepayment has an attachment | [optional] 
+**has_attachments** | **bool** | boolean to indicate if a prepayment has an attachment | [optional] [default to false]
 **attachments** | [**\XeroAPI\XeroPHP\Models\Accounting\Attachment[]**](Attachment.md) | See Attachments | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

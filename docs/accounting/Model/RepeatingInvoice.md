@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **total** | **double** | Total of Invoice tax inclusive (i.e. SubTotal + TotalTax) | [optional] 
 **repeating_invoice_id** | **string** | Xero generated unique identifier for repeating invoice template | [optional] 
 **id** | **string** | Xero generated unique identifier for repeating invoice template | [optional] 
-**has_attachments** | **bool** | boolean to indicate if an invoice has an attachment | [optional] 
+**has_attachments** | **bool** | boolean to indicate if an invoice has an attachment | [optional] [default to false]
 **attachments** | [**\XeroAPI\XeroPHP\Models\Accounting\Attachment[]**](Attachment.md) | Displays array of attachments from the API | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
