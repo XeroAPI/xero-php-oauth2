@@ -34,7 +34,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AssetApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$asset = { "assetName":"Computer74863", "assetNumber":"123477544", "purchaseDate":"2020-01-01", "purchasePrice":100.0, "disposalPrice":23.23, "assetStatus":"Draft", "bookDepreciationSetting":{ "depreciationMethod":"StraightLine", "averagingMethod":"ActualDays", "depreciationRate":0.5, "depreciationCalculationMethod":"None" }, "bookDepreciationDetail":{ "currentCapitalGain":5.32, "currentGainLoss":3.88, "depreciationStartDate":"2020-01-02", "costLimit":100.0, "currentAccumDepreciationAmount":2.25 }, "AccountingBookValue":99.5 }; // \XeroAPI\XeroPHP\Models\Asset\Asset | Fixed asset you are creating
+$asset = { "assetName":"Computer74863", "assetNumber":"123477544", "purchaseDate":"2020-01-01", "purchasePrice":100.0, "disposalPrice":23.23, "assetStatus":"DRAFT", "bookDepreciationSetting":{ "depreciationMethod":"StraightLine", "averagingMethod":"ActualDays", "depreciationRate":0.5, "depreciationCalculationMethod":"None" }, "bookDepreciationDetail":{ "currentCapitalGain":5.32, "currentGainLoss":3.88, "depreciationStartDate":"2020-01-02", "costLimit":100.0, "currentAccumDepreciationAmount":2.25 }, "AccountingBookValue":99.5 }; // \XeroAPI\XeroPHP\Models\Asset\Asset | Fixed asset you are creating
 
 try {
     $result = $apiInstance->createAsset($xero_tenant_id, $asset);
@@ -305,7 +305,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AssetApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$status = Draft; // string | Required when retrieving a collection of assets. See Asset Status Codes
+$status = new \XeroAPI\XeroPHP\Models\Asset\\XeroAPI\XeroPHP\Models\Asset\AssetStatus(); // \XeroAPI\XeroPHP\Models\Asset\AssetStatus | Required when retrieving a collection of assets. See Asset Status Codes
 $page = 1; // int | Results are paged. This specifies which page of the results to return. The default page is 1.
 $page_size = 5; // int | The number of records returned per page. By default the number of records returned is 10.
 $order_by = AssetName; // string | Requests can be ordered by AssetType, AssetName, AssetNumber, PurchaseDate and PurchasePrice. If the asset status is DISPOSED it also allows DisposalDate and DisposalPrice.
@@ -326,7 +326,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **status** | **string**| Required when retrieving a collection of assets. See Asset Status Codes |
+ **status** | [**\XeroAPI\XeroPHP\Models\Asset\AssetStatus**](../Model/.md)| Required when retrieving a collection of assets. See Asset Status Codes |
  **page** | **int**| Results are paged. This specifies which page of the results to return. The default page is 1. | [optional]
  **page_size** | **int**| The number of records returned per page. By default the number of records returned is 10. | [optional]
  **order_by** | **string**| Requests can be ordered by AssetType, AssetName, AssetNumber, PurchaseDate and PurchasePrice. If the asset status is DISPOSED it also allows DisposalDate and DisposalPrice. | [optional]

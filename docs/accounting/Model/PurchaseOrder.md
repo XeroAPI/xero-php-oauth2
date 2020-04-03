@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **total_tax** | **double** | Total tax on purchase order | [optional] 
 **total** | **double** | Total of Purchase Order tax inclusive (i.e. SubTotal + TotalTax) | [optional] 
 **total_discount** | **double** | Total of discounts applied on the purchase order line items | [optional] 
-**has_attachments** | **bool** | boolean to indicate if a purchase order has an attachment | [optional] 
+**has_attachments** | **bool** | boolean to indicate if a purchase order has an attachment | [optional] [default to false]
 **updated_date_utc** | [**\DateTime**](\DateTime.md) | Last modified date UTC format | [optional] 
 **status_attribute_string** | **string** | A string to indicate if a invoice status | [optional] 
 **validation_errors** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 

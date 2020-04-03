@@ -25,7 +25,8 @@ Name | Type | Description | Notes
 **applied_amount** | **double** | The amount of applied to an invoice | [optional] 
 **payments** | [**\XeroAPI\XeroPHP\Models\Accounting\Payment[]**](Payment.md) | See Payments | [optional] 
 **branding_theme_id** | **string** | See BrandingThemes | [optional] 
-**has_attachments** | **bool** | boolean to indicate if a credit note has an attachment | [optional] 
+**status_attribute_string** | **string** | A string to indicate if a invoice status | [optional] 
+**has_attachments** | **bool** | boolean to indicate if a credit note has an attachment | [optional] [default to false]
 **has_errors** | **bool** | A boolean to indicate if a credit note has an validation errors | [optional] 
 **validation_errors** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
