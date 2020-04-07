@@ -112,6 +112,13 @@ class Configuration
     protected $hostProject = 'https://api.xero.com/projects.xro/2.0';
 
     /**
+     * The hostPayrollAu
+     *
+     * @var string
+     */
+    protected $hostPayrollAu = 'https://api.xero.com/payroll.xro/1.0';
+
+    /**
      * User agent of the HTTP request, set to "OpenAPI-Generator/{version}/PHP" by default
      *
      * @var string
@@ -381,6 +388,29 @@ class Configuration
     public function getHostProject()
     {
         return $this->hostProject;
+    }
+
+    /**
+     * Sets the hostPayrollAu
+     *
+     * @param string $hostPayrollAu
+     *
+     * @return $this
+     */
+    public function setHostPayrollAu($hostPayrollAu)
+    {
+        $this->hostPayrollAu = $hostPayrollAu;
+        return $this;
+    }
+
+    /**
+     * Gets the hostPayrollAu
+     *
+     * @return string hostPayrollAu
+     */
+    public function getHostPayrollAu()
+    {
+        return $this->hostPayrollAu;
     }
 
     /**
