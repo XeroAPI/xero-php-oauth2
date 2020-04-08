@@ -65,113 +65,113 @@ All URIs are relative to *https://api.xero.com/payroll.xro/1.0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*PayrollAUApi* | [**createEmployee**](docs/Api/PayrollAUApi.md#createemployee) | **POST** /Employees | Use this method to create a payroll employee
-*PayrollAUApi* | [**createLeaveApplication**](docs/Api/PayrollAUApi.md#createleaveapplication) | **POST** /LeaveApplications | Use this method to create a Leave Application
-*PayrollAUApi* | [**createPayItem**](docs/Api/PayrollAUApi.md#createpayitem) | **POST** /PayItems | Use this method to create a Pay Item
-*PayrollAUApi* | [**createPayRun**](docs/Api/PayrollAUApi.md#createpayrun) | **POST** /PayRuns | Use this method to create a PayRun
-*PayrollAUApi* | [**createPayrollCalendar**](docs/Api/PayrollAUApi.md#createpayrollcalendar) | **POST** /PayrollCalendars | Use this method to create a Payroll Calendars
-*PayrollAUApi* | [**createSuperfund**](docs/Api/PayrollAUApi.md#createsuperfund) | **POST** /Superfunds | Use this method to create a super fund
-*PayrollAUApi* | [**createTimesheet**](docs/Api/PayrollAUApi.md#createtimesheet) | **POST** /Timesheets | Use this method to create a timesheet
-*PayrollAUApi* | [**getEmployee**](docs/Api/PayrollAUApi.md#getemployee) | **GET** /Employees/{EmployeeId} | searches for an employee by unique id
-*PayrollAUApi* | [**getEmployees**](docs/Api/PayrollAUApi.md#getemployees) | **GET** /Employees | searches employees
-*PayrollAUApi* | [**getLeaveApplication**](docs/Api/PayrollAUApi.md#getleaveapplication) | **GET** /LeaveApplications/{LeaveApplicationId} | searches for an Leave Application by unique id
-*PayrollAUApi* | [**getLeaveApplications**](docs/Api/PayrollAUApi.md#getleaveapplications) | **GET** /LeaveApplications | searches Leave Applications
-*PayrollAUApi* | [**getPayItems**](docs/Api/PayrollAUApi.md#getpayitems) | **GET** /PayItems | searches Pay Items
-*PayrollAUApi* | [**getPayRun**](docs/Api/PayrollAUApi.md#getpayrun) | **GET** /PayRuns/{PayRunID} | searches for an payrun by unique id
-*PayrollAUApi* | [**getPayRuns**](docs/Api/PayrollAUApi.md#getpayruns) | **GET** /PayRuns | searches PayRuns
-*PayrollAUApi* | [**getPayrollCalendar**](docs/Api/PayrollAUApi.md#getpayrollcalendar) | **GET** /PayrollCalendars/{PayrollCalendarID} | searches Payroll Calendars
-*PayrollAUApi* | [**getPayrollCalendars**](docs/Api/PayrollAUApi.md#getpayrollcalendars) | **GET** /PayrollCalendars | searches Payroll Calendars
-*PayrollAUApi* | [**getPayslip**](docs/Api/PayrollAUApi.md#getpayslip) | **GET** /Payslip/{PayslipID} | searches for an payslip by unique id
-*PayrollAUApi* | [**getSettings**](docs/Api/PayrollAUApi.md#getsettings) | **GET** /Settings | retrieve settings
-*PayrollAUApi* | [**getSuperfund**](docs/Api/PayrollAUApi.md#getsuperfund) | **GET** /Superfunds/{SuperFundID} | searches for an Superfund by unique id
-*PayrollAUApi* | [**getSuperfundProducts**](docs/Api/PayrollAUApi.md#getsuperfundproducts) | **GET** /SuperfundProducts | searches SuperfundProducts
-*PayrollAUApi* | [**getSuperfunds**](docs/Api/PayrollAUApi.md#getsuperfunds) | **GET** /Superfunds | searches SuperFunds
-*PayrollAUApi* | [**getTimesheet**](docs/Api/PayrollAUApi.md#gettimesheet) | **GET** /Timesheets/{TimesheetID} | searches for an timesheet by unique id
-*PayrollAUApi* | [**getTimesheets**](docs/Api/PayrollAUApi.md#gettimesheets) | **GET** /Timesheets | searches timesheets
-*PayrollAUApi* | [**updateEmployee**](docs/Api/PayrollAUApi.md#updateemployee) | **POST** /Employees/{EmployeeId} | Update an Employee
-*PayrollAUApi* | [**updateLeaveApplication**](docs/Api/PayrollAUApi.md#updateleaveapplication) | **POST** /LeaveApplications/{LeaveApplicationId} | Use this method to update a Leave Application
-*PayrollAUApi* | [**updatePayRun**](docs/Api/PayrollAUApi.md#updatepayrun) | **POST** /PayRuns/{PayRunID} | Update a PayRun
-*PayrollAUApi* | [**updatePayslipByID**](docs/Api/PayrollAUApi.md#updatepayslipbyid) | **POST** /Payslip/{PayslipID} | Update a Payslip
-*PayrollAUApi* | [**updateSuperfund**](docs/Api/PayrollAUApi.md#updatesuperfund) | **POST** /Superfunds/{SuperFundID} | Update a Superfund
-*PayrollAUApi* | [**updateTimesheet**](docs/Api/PayrollAUApi.md#updatetimesheet) | **POST** /Timesheets/{TimesheetID} | Update a Timesheet
+*PayrollAUApi* | [**createEmployee**](Api/PayrollAUApi.md#createemployee) | **POST** /Employees | Use this method to create a payroll employee
+*PayrollAUApi* | [**createLeaveApplication**](Api/PayrollAUApi.md#createleaveapplication) | **POST** /LeaveApplications | Use this method to create a Leave Application
+*PayrollAUApi* | [**createPayItem**](Api/PayrollAUApi.md#createpayitem) | **POST** /PayItems | Use this method to create a Pay Item
+*PayrollAUApi* | [**createPayRun**](Api/PayrollAUApi.md#createpayrun) | **POST** /PayRuns | Use this method to create a PayRun
+*PayrollAUApi* | [**createPayrollCalendar**](Api/PayrollAUApi.md#createpayrollcalendar) | **POST** /PayrollCalendars | Use this method to create a Payroll Calendars
+*PayrollAUApi* | [**createSuperfund**](Api/PayrollAUApi.md#createsuperfund) | **POST** /Superfunds | Use this method to create a super fund
+*PayrollAUApi* | [**createTimesheet**](Api/PayrollAUApi.md#createtimesheet) | **POST** /Timesheets | Use this method to create a timesheet
+*PayrollAUApi* | [**getEmployee**](Api/PayrollAUApi.md#getemployee) | **GET** /Employees/{EmployeeId} | searches for an employee by unique id
+*PayrollAUApi* | [**getEmployees**](Api/PayrollAUApi.md#getemployees) | **GET** /Employees | searches employees
+*PayrollAUApi* | [**getLeaveApplication**](Api/PayrollAUApi.md#getleaveapplication) | **GET** /LeaveApplications/{LeaveApplicationId} | searches for an Leave Application by unique id
+*PayrollAUApi* | [**getLeaveApplications**](Api/PayrollAUApi.md#getleaveapplications) | **GET** /LeaveApplications | searches Leave Applications
+*PayrollAUApi* | [**getPayItems**](Api/PayrollAUApi.md#getpayitems) | **GET** /PayItems | searches Pay Items
+*PayrollAUApi* | [**getPayRun**](Api/PayrollAUApi.md#getpayrun) | **GET** /PayRuns/{PayRunID} | searches for an payrun by unique id
+*PayrollAUApi* | [**getPayRuns**](Api/PayrollAUApi.md#getpayruns) | **GET** /PayRuns | searches PayRuns
+*PayrollAUApi* | [**getPayrollCalendar**](Api/PayrollAUApi.md#getpayrollcalendar) | **GET** /PayrollCalendars/{PayrollCalendarID} | searches Payroll Calendars
+*PayrollAUApi* | [**getPayrollCalendars**](Api/PayrollAUApi.md#getpayrollcalendars) | **GET** /PayrollCalendars | searches Payroll Calendars
+*PayrollAUApi* | [**getPayslip**](Api/PayrollAUApi.md#getpayslip) | **GET** /Payslip/{PayslipID} | searches for an payslip by unique id
+*PayrollAUApi* | [**getSettings**](Api/PayrollAUApi.md#getsettings) | **GET** /Settings | retrieve settings
+*PayrollAUApi* | [**getSuperfund**](Api/PayrollAUApi.md#getsuperfund) | **GET** /Superfunds/{SuperFundID} | searches for an Superfund by unique id
+*PayrollAUApi* | [**getSuperfundProducts**](Api/PayrollAUApi.md#getsuperfundproducts) | **GET** /SuperfundProducts | searches SuperfundProducts
+*PayrollAUApi* | [**getSuperfunds**](Api/PayrollAUApi.md#getsuperfunds) | **GET** /Superfunds | searches SuperFunds
+*PayrollAUApi* | [**getTimesheet**](Api/PayrollAUApi.md#gettimesheet) | **GET** /Timesheets/{TimesheetID} | searches for an timesheet by unique id
+*PayrollAUApi* | [**getTimesheets**](Api/PayrollAUApi.md#gettimesheets) | **GET** /Timesheets | searches timesheets
+*PayrollAUApi* | [**updateEmployee**](Api/PayrollAUApi.md#updateemployee) | **POST** /Employees/{EmployeeId} | Update an Employee
+*PayrollAUApi* | [**updateLeaveApplication**](Api/PayrollAUApi.md#updateleaveapplication) | **POST** /LeaveApplications/{LeaveApplicationId} | Use this method to update a Leave Application
+*PayrollAUApi* | [**updatePayRun**](Api/PayrollAUApi.md#updatepayrun) | **POST** /PayRuns/{PayRunID} | Update a PayRun
+*PayrollAUApi* | [**updatePayslipByID**](Api/PayrollAUApi.md#updatepayslipbyid) | **POST** /Payslip/{PayslipID} | Update a Payslip
+*PayrollAUApi* | [**updateSuperfund**](Api/PayrollAUApi.md#updatesuperfund) | **POST** /Superfunds/{SuperFundID} | Update a Superfund
+*PayrollAUApi* | [**updateTimesheet**](Api/PayrollAUApi.md#updatetimesheet) | **POST** /Timesheets/{TimesheetID} | Update a Timesheet
 
 
 ## Documentation For Models
 
- - [APIException](docs/Model/APIException.md)
- - [Account](docs/Model/Account.md)
- - [AccountType](docs/Model/AccountType.md)
- - [BankAccount](docs/Model/BankAccount.md)
- - [CalendarType](docs/Model/CalendarType.md)
- - [DeductionLine](docs/Model/DeductionLine.md)
- - [DeductionType](docs/Model/DeductionType.md)
- - [DeductionTypeCalculationType](docs/Model/DeductionTypeCalculationType.md)
- - [EarningsLine](docs/Model/EarningsLine.md)
- - [EarningsRate](docs/Model/EarningsRate.md)
- - [EarningsRateCalculationType](docs/Model/EarningsRateCalculationType.md)
- - [EarningsType](docs/Model/EarningsType.md)
- - [Employee](docs/Model/Employee.md)
- - [EmployeeStatus](docs/Model/EmployeeStatus.md)
- - [Employees](docs/Model/Employees.md)
- - [EmploymentBasis](docs/Model/EmploymentBasis.md)
- - [EmploymentTerminationPaymentType](docs/Model/EmploymentTerminationPaymentType.md)
- - [EntitlementFinalPayPayoutType](docs/Model/EntitlementFinalPayPayoutType.md)
- - [HomeAddress](docs/Model/HomeAddress.md)
- - [LeaveAccrualLine](docs/Model/LeaveAccrualLine.md)
- - [LeaveApplication](docs/Model/LeaveApplication.md)
- - [LeaveApplications](docs/Model/LeaveApplications.md)
- - [LeaveBalance](docs/Model/LeaveBalance.md)
- - [LeaveEarningsLine](docs/Model/LeaveEarningsLine.md)
- - [LeaveLine](docs/Model/LeaveLine.md)
- - [LeaveLineCalculationType](docs/Model/LeaveLineCalculationType.md)
- - [LeaveLines](docs/Model/LeaveLines.md)
- - [LeavePeriod](docs/Model/LeavePeriod.md)
- - [LeavePeriodStatus](docs/Model/LeavePeriodStatus.md)
- - [LeaveType](docs/Model/LeaveType.md)
- - [LeaveTypeContributionType](docs/Model/LeaveTypeContributionType.md)
- - [ManualTaxType](docs/Model/ManualTaxType.md)
- - [OpeningBalances](docs/Model/OpeningBalances.md)
- - [PayItem](docs/Model/PayItem.md)
- - [PayItems](docs/Model/PayItems.md)
- - [PayRun](docs/Model/PayRun.md)
- - [PayRunStatus](docs/Model/PayRunStatus.md)
- - [PayRuns](docs/Model/PayRuns.md)
- - [PayTemplate](docs/Model/PayTemplate.md)
- - [PaymentFrequencyType](docs/Model/PaymentFrequencyType.md)
- - [PayrollCalendar](docs/Model/PayrollCalendar.md)
- - [PayrollCalendars](docs/Model/PayrollCalendars.md)
- - [Payslip](docs/Model/Payslip.md)
- - [PayslipObject](docs/Model/PayslipObject.md)
- - [PayslipSummary](docs/Model/PayslipSummary.md)
- - [RateType](docs/Model/RateType.md)
- - [ReimbursementLine](docs/Model/ReimbursementLine.md)
- - [ReimbursementLines](docs/Model/ReimbursementLines.md)
- - [ReimbursementType](docs/Model/ReimbursementType.md)
- - [ResidencyStatus](docs/Model/ResidencyStatus.md)
- - [Settings](docs/Model/Settings.md)
- - [SettingsObject](docs/Model/SettingsObject.md)
- - [SettingsTrackingCategories](docs/Model/SettingsTrackingCategories.md)
- - [SettingsTrackingCategoriesEmployeeGroups](docs/Model/SettingsTrackingCategoriesEmployeeGroups.md)
- - [SettingsTrackingCategoriesTimesheetCategories](docs/Model/SettingsTrackingCategoriesTimesheetCategories.md)
- - [State](docs/Model/State.md)
- - [SuperFund](docs/Model/SuperFund.md)
- - [SuperFundProduct](docs/Model/SuperFundProduct.md)
- - [SuperFundProducts](docs/Model/SuperFundProducts.md)
- - [SuperFundType](docs/Model/SuperFundType.md)
- - [SuperFunds](docs/Model/SuperFunds.md)
- - [SuperLine](docs/Model/SuperLine.md)
- - [SuperMembership](docs/Model/SuperMembership.md)
- - [SuperannuationCalculationType](docs/Model/SuperannuationCalculationType.md)
- - [SuperannuationContributionType](docs/Model/SuperannuationContributionType.md)
- - [SuperannuationLine](docs/Model/SuperannuationLine.md)
- - [TFNExemptionType](docs/Model/TFNExemptionType.md)
- - [TaxDeclaration](docs/Model/TaxDeclaration.md)
- - [TaxLine](docs/Model/TaxLine.md)
- - [Timesheet](docs/Model/Timesheet.md)
- - [TimesheetLine](docs/Model/TimesheetLine.md)
- - [TimesheetObject](docs/Model/TimesheetObject.md)
- - [TimesheetStatus](docs/Model/TimesheetStatus.md)
- - [Timesheets](docs/Model/Timesheets.md)
+ - [APIException](Model/APIException.md)
+ - [Account](Model/Account.md)
+ - [AccountType](Model/AccountType.md)
+ - [BankAccount](Model/BankAccount.md)
+ - [CalendarType](Model/CalendarType.md)
+ - [DeductionLine](Model/DeductionLine.md)
+ - [DeductionType](Model/DeductionType.md)
+ - [DeductionTypeCalculationType](Model/DeductionTypeCalculationType.md)
+ - [EarningsLine](Model/EarningsLine.md)
+ - [EarningsRate](Model/EarningsRate.md)
+ - [EarningsRateCalculationType](Model/EarningsRateCalculationType.md)
+ - [EarningsType](Model/EarningsType.md)
+ - [Employee](Model/Employee.md)
+ - [EmployeeStatus](Model/EmployeeStatus.md)
+ - [Employees](Model/Employees.md)
+ - [EmploymentBasis](Model/EmploymentBasis.md)
+ - [EmploymentTerminationPaymentType](Model/EmploymentTerminationPaymentType.md)
+ - [EntitlementFinalPayPayoutType](Model/EntitlementFinalPayPayoutType.md)
+ - [HomeAddress](Model/HomeAddress.md)
+ - [LeaveAccrualLine](Model/LeaveAccrualLine.md)
+ - [LeaveApplication](Model/LeaveApplication.md)
+ - [LeaveApplications](Model/LeaveApplications.md)
+ - [LeaveBalance](Model/LeaveBalance.md)
+ - [LeaveEarningsLine](Model/LeaveEarningsLine.md)
+ - [LeaveLine](Model/LeaveLine.md)
+ - [LeaveLineCalculationType](Model/LeaveLineCalculationType.md)
+ - [LeaveLines](Model/LeaveLines.md)
+ - [LeavePeriod](Model/LeavePeriod.md)
+ - [LeavePeriodStatus](Model/LeavePeriodStatus.md)
+ - [LeaveType](Model/LeaveType.md)
+ - [LeaveTypeContributionType](Model/LeaveTypeContributionType.md)
+ - [ManualTaxType](Model/ManualTaxType.md)
+ - [OpeningBalances](Model/OpeningBalances.md)
+ - [PayItem](Model/PayItem.md)
+ - [PayItems](Model/PayItems.md)
+ - [PayRun](Model/PayRun.md)
+ - [PayRunStatus](Model/PayRunStatus.md)
+ - [PayRuns](Model/PayRuns.md)
+ - [PayTemplate](Model/PayTemplate.md)
+ - [PaymentFrequencyType](Model/PaymentFrequencyType.md)
+ - [PayrollCalendar](Model/PayrollCalendar.md)
+ - [PayrollCalendars](Model/PayrollCalendars.md)
+ - [Payslip](Model/Payslip.md)
+ - [PayslipObject](Model/PayslipObject.md)
+ - [PayslipSummary](Model/PayslipSummary.md)
+ - [RateType](Model/RateType.md)
+ - [ReimbursementLine](Model/ReimbursementLine.md)
+ - [ReimbursementLines](Model/ReimbursementLines.md)
+ - [ReimbursementType](Model/ReimbursementType.md)
+ - [ResidencyStatus](Model/ResidencyStatus.md)
+ - [Settings](Model/Settings.md)
+ - [SettingsObject](Model/SettingsObject.md)
+ - [SettingsTrackingCategories](Model/SettingsTrackingCategories.md)
+ - [SettingsTrackingCategoriesEmployeeGroups](Model/SettingsTrackingCategoriesEmployeeGroups.md)
+ - [SettingsTrackingCategoriesTimesheetCategories](Model/SettingsTrackingCategoriesTimesheetCategories.md)
+ - [State](Model/State.md)
+ - [SuperFund](Model/SuperFund.md)
+ - [SuperFundProduct](Model/SuperFundProduct.md)
+ - [SuperFundProducts](Model/SuperFundProducts.md)
+ - [SuperFundType](Model/SuperFundType.md)
+ - [SuperFunds](Model/SuperFunds.md)
+ - [SuperLine](Model/SuperLine.md)
+ - [SuperMembership](Model/SuperMembership.md)
+ - [SuperannuationCalculationType](Model/SuperannuationCalculationType.md)
+ - [SuperannuationContributionType](Model/SuperannuationContributionType.md)
+ - [SuperannuationLine](Model/SuperannuationLine.md)
+ - [TFNExemptionType](Model/TFNExemptionType.md)
+ - [TaxDeclaration](Model/TaxDeclaration.md)
+ - [TaxLine](Model/TaxLine.md)
+ - [Timesheet](Model/Timesheet.md)
+ - [TimesheetLine](Model/TimesheetLine.md)
+ - [TimesheetObject](Model/TimesheetObject.md)
+ - [TimesheetStatus](Model/TimesheetStatus.md)
+ - [Timesheets](Model/Timesheets.md)
 
 
 ## Documentation For Authorization

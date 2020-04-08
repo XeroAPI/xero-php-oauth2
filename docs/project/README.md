@@ -53,41 +53,41 @@ All URIs are relative to *https://api.xero.com/projects.xro/2.0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ProjectApi* | [**createProject**](docs/Api/ProjectApi.md#createproject) | **POST** /projects | create one or more new projects
-*ProjectApi* | [**createTimeEntry**](docs/Api/ProjectApi.md#createtimeentry) | **POST** /projects/{projectId}/time | Allows you to create a task
-*ProjectApi* | [**deleteTimeEntry**](docs/Api/ProjectApi.md#deletetimeentry) | **DELETE** /projects/{projectId}/time/{timeEntryId} | Allows you to delete a time entry
-*ProjectApi* | [**getProject**](docs/Api/ProjectApi.md#getproject) | **GET** /projects/{projectId} | Allows you to retrieve a single project
-*ProjectApi* | [**getProjectUsers**](docs/Api/ProjectApi.md#getprojectusers) | **GET** /projectsusers | list all project users
-*ProjectApi* | [**getProjects**](docs/Api/ProjectApi.md#getprojects) | **GET** /projects | list all projects
-*ProjectApi* | [**getTask**](docs/Api/ProjectApi.md#gettask) | **GET** /projects/{projectId}/tasks/{taskId} | Allows you to retrieve a single project
-*ProjectApi* | [**getTasks**](docs/Api/ProjectApi.md#gettasks) | **GET** /projects/{projectId}/tasks | Allows you to retrieve a single project
-*ProjectApi* | [**getTimeEntries**](docs/Api/ProjectApi.md#gettimeentries) | **GET** /projects/{projectId}/time | Allows you to retrieve the time entries associated with a specific project
-*ProjectApi* | [**getTimeEntry**](docs/Api/ProjectApi.md#gettimeentry) | **GET** /projects/{projectId}/time/{timeEntryId} | Allows you to get a single time entry in a project
-*ProjectApi* | [**patchProject**](docs/Api/ProjectApi.md#patchproject) | **PATCH** /projects/{projectId} | creates a project for the specified contact
-*ProjectApi* | [**updateProject**](docs/Api/ProjectApi.md#updateproject) | **PUT** /projects/{projectId} | update a specific project
-*ProjectApi* | [**updateTimeEntry**](docs/Api/ProjectApi.md#updatetimeentry) | **PUT** /projects/{projectId}/time/{timeEntryId} | Allows you to update time entry in a project
+*ProjectApi* | [**createProject**](Api/ProjectApi.md#createproject) | **POST** /projects | create one or more new projects
+*ProjectApi* | [**createTimeEntry**](Api/ProjectApi.md#createtimeentry) | **POST** /projects/{projectId}/time | Allows you to create a task
+*ProjectApi* | [**deleteTimeEntry**](Api/ProjectApi.md#deletetimeentry) | **DELETE** /projects/{projectId}/time/{timeEntryId} | Allows you to delete a time entry
+*ProjectApi* | [**getProject**](Api/ProjectApi.md#getproject) | **GET** /projects/{projectId} | Allows you to retrieve a single project
+*ProjectApi* | [**getProjectUsers**](Api/ProjectApi.md#getprojectusers) | **GET** /projectsusers | list all project users
+*ProjectApi* | [**getProjects**](Api/ProjectApi.md#getprojects) | **GET** /projects | list all projects
+*ProjectApi* | [**getTask**](Api/ProjectApi.md#gettask) | **GET** /projects/{projectId}/tasks/{taskId} | Allows you to retrieve a single project
+*ProjectApi* | [**getTasks**](Api/ProjectApi.md#gettasks) | **GET** /projects/{projectId}/tasks | Allows you to retrieve a single project
+*ProjectApi* | [**getTimeEntries**](Api/ProjectApi.md#gettimeentries) | **GET** /projects/{projectId}/time | Allows you to retrieve the time entries associated with a specific project
+*ProjectApi* | [**getTimeEntry**](Api/ProjectApi.md#gettimeentry) | **GET** /projects/{projectId}/time/{timeEntryId} | Allows you to get a single time entry in a project
+*ProjectApi* | [**patchProject**](Api/ProjectApi.md#patchproject) | **PATCH** /projects/{projectId} | creates a project for the specified contact
+*ProjectApi* | [**updateProject**](Api/ProjectApi.md#updateproject) | **PUT** /projects/{projectId} | update a specific project
+*ProjectApi* | [**updateTimeEntry**](Api/ProjectApi.md#updatetimeentry) | **PUT** /projects/{projectId}/time/{timeEntryId} | Allows you to update time entry in a project
 
 
 ## Documentation For Models
 
- - [Amount](docs/Model/Amount.md)
- - [ChargeType](docs/Model/ChargeType.md)
- - [CurrencyCode](docs/Model/CurrencyCode.md)
- - [Error](docs/Model/Error.md)
- - [Pagination](docs/Model/Pagination.md)
- - [Project](docs/Model/Project.md)
- - [ProjectCreateOrUpdate](docs/Model/ProjectCreateOrUpdate.md)
- - [ProjectPatch](docs/Model/ProjectPatch.md)
- - [ProjectStatus](docs/Model/ProjectStatus.md)
- - [ProjectUser](docs/Model/ProjectUser.md)
- - [ProjectUsers](docs/Model/ProjectUsers.md)
- - [Projects](docs/Model/Projects.md)
- - [Task](docs/Model/Task.md)
- - [TaskCreateOrUpdate](docs/Model/TaskCreateOrUpdate.md)
- - [Tasks](docs/Model/Tasks.md)
- - [TimeEntries](docs/Model/TimeEntries.md)
- - [TimeEntry](docs/Model/TimeEntry.md)
- - [TimeEntryCreateOrUpdate](docs/Model/TimeEntryCreateOrUpdate.md)
+ - [Amount](Model/Amount.md)
+ - [ChargeType](Model/ChargeType.md)
+ - [CurrencyCode](Model/CurrencyCode.md)
+ - [Error](Model/Error.md)
+ - [Pagination](Model/Pagination.md)
+ - [Project](Model/Project.md)
+ - [ProjectCreateOrUpdate](Model/ProjectCreateOrUpdate.md)
+ - [ProjectPatch](Model/ProjectPatch.md)
+ - [ProjectStatus](Model/ProjectStatus.md)
+ - [ProjectUser](Model/ProjectUser.md)
+ - [ProjectUsers](Model/ProjectUsers.md)
+ - [Projects](Model/Projects.md)
+ - [Task](Model/Task.md)
+ - [TaskCreateOrUpdate](Model/TaskCreateOrUpdate.md)
+ - [Tasks](Model/Tasks.md)
+ - [TimeEntries](Model/TimeEntries.md)
+ - [TimeEntry](Model/TimeEntry.md)
+ - [TimeEntryCreateOrUpdate](Model/TimeEntryCreateOrUpdate.md)
 
 
 ## Documentation For Authorization
