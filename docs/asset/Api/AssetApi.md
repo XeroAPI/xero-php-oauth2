@@ -305,7 +305,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AssetApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$status = new \XeroAPI\XeroPHP\Models\Asset\\XeroAPI\XeroPHP\Models\Asset\AssetStatus(); // \XeroAPI\XeroPHP\Models\Asset\AssetStatus | Required when retrieving a collection of assets. See Asset Status Codes
+$status = new \XeroAPI\XeroPHP\Models\Asset\\XeroAPI\XeroPHP\Models\Asset\AssetStatusQueryParam(); // \XeroAPI\XeroPHP\Models\Asset\AssetStatusQueryParam | Required when retrieving a collection of assets. See Asset Status Codes
 $page = 1; // int | Results are paged. This specifies which page of the results to return. The default page is 1.
 $page_size = 5; // int | The number of records returned per page. By default the number of records returned is 10.
 $order_by = AssetName; // string | Requests can be ordered by AssetType, AssetName, AssetNumber, PurchaseDate and PurchasePrice. If the asset status is DISPOSED it also allows DisposalDate and DisposalPrice.
@@ -326,7 +326,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **status** | [**\XeroAPI\XeroPHP\Models\Asset\AssetStatus**](../Model/.md)| Required when retrieving a collection of assets. See Asset Status Codes |
+ **status** | [**\XeroAPI\XeroPHP\Models\Asset\AssetStatusQueryParam**](../Model/.md)| Required when retrieving a collection of assets. See Asset Status Codes |
  **page** | **int**| Results are paged. This specifies which page of the results to return. The default page is 1. | [optional]
  **page_size** | **int**| The number of records returned per page. By default the number of records returned is 10. | [optional]
  **order_by** | **string**| Requests can be ordered by AssetType, AssetName, AssetNumber, PurchaseDate and PurchasePrice. If the asset status is DISPOSED it also allows DisposalDate and DisposalPrice. | [optional]
