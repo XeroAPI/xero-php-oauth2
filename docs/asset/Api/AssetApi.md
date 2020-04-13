@@ -34,7 +34,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AssetApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$asset = { "assetName":"Computer74863", "assetNumber":"123477544", "purchaseDate":"2020-01-01", "purchasePrice":100.0, "disposalPrice":23.23, "assetStatus":"DRAFT", "bookDepreciationSetting":{ "depreciationMethod":"StraightLine", "averagingMethod":"ActualDays", "depreciationRate":0.5, "depreciationCalculationMethod":"None" }, "bookDepreciationDetail":{ "currentCapitalGain":5.32, "currentGainLoss":3.88, "depreciationStartDate":"2020-01-02", "costLimit":100.0, "currentAccumDepreciationAmount":2.25 }, "AccountingBookValue":99.5 }; // \XeroAPI\XeroPHP\Models\Asset\Asset | Fixed asset you are creating
+$asset = { "assetName":"Computer74863", "assetNumber":"123477544", "purchaseDate":"2020-01-01", "purchasePrice":100.0, "disposalPrice":23.23, "assetStatus":"Draft", "bookDepreciationSetting":{ "depreciationMethod":"StraightLine", "averagingMethod":"ActualDays", "depreciationRate":0.5, "depreciationCalculationMethod":"None" }, "bookDepreciationDetail":{ "currentCapitalGain":5.32, "currentGainLoss":3.88, "depreciationStartDate":"2020-01-02", "costLimit":100.0, "currentAccumDepreciationAmount":2.25 }, "AccountingBookValue":99.5 }; // \XeroAPI\XeroPHP\Models\Asset\Asset | Fixed asset you are creating
 
 try {
     $result = $apiInstance->createAsset($xero_tenant_id, $asset);

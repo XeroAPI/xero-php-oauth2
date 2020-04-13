@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **id** | **string** | Xero identifier | [optional] 
 **tenant_id** | **string** | Xero identifier of organisation | [optional] 
 **tenant_type** | **string** | Xero tenant type (i.e. ORGANISATION, PRACTICE) | [optional] 
+**tenant_name** | **string** | Xero tenant name | [optional] 
 **created_date_utc** | **string** | The date when the user connected this tenant to your app | [optional] 
 **updated_date_utc** | **string** | The date when the user most recently connected this tenant to your app. May differ to the created date if the user has disconnected and subsequently reconnected this tenant to your app. | [optional] 
 
