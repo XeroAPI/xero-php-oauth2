@@ -141,6 +141,7 @@ Method | HTTP request | Description
 [**getPaymentServices**](AccountingApi.md#getPaymentServices) | **GET** /PaymentServices | Allows you to retrieve payment services
 [**getPayments**](AccountingApi.md#getPayments) | **GET** /Payments | Allows you to retrieve payments for invoices and credit notes
 [**getPrepayment**](AccountingApi.md#getPrepayment) | **GET** /Prepayments/{PrepaymentID} | Allows you to retrieve a specified prepayments
+[**getPrepaymentAsPdf**](AccountingApi.md#getPrepaymentAsPdf) | **GET** /Prepayments/{PrepaymentID}/pdf | Allows you to retrieve prepayments as PDF files
 [**getPrepaymentHistory**](AccountingApi.md#getPrepaymentHistory) | **GET** /Prepayments/{PrepaymentID}/History | Allows you to retrieve a history records of an Prepayment
 [**getPrepayments**](AccountingApi.md#getPrepayments) | **GET** /Prepayments | Allows you to retrieve prepayments
 [**getPurchaseOrder**](AccountingApi.md#getPurchaseOrder) | **GET** /PurchaseOrders/{PurchaseOrderID} | Allows you to retrieve a specified purchase orders
@@ -1160,7 +1161,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createCreditNoteAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments createCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $include_online, $body)
+> \XeroAPI\XeroPHP\Models\Accounting\Attachments createCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $body, $include_online)
 
 Allows you to create Attachments on CreditNote by file name
 
@@ -1181,11 +1182,11 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
 $file_name = xero-dev.jpg; // string | Name of the file you are attaching to Credit Note
-$include_online = True; // bool | Set an attachment to be included with the invoice when viewed online (through Xero)
 $body = 'body_example'; // string | Byte array of file in body of request
+$include_online = true; // bool | Allows an attachment to be seen by the end customer within their online invoice
 
 try {
-    $result = $apiInstance->createCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $include_online, $body);
+    $result = $apiInstance->createCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $body, $include_online);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createCreditNoteAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
@@ -1200,8 +1201,8 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **credit_note_id** | [**string**](../Model/.md)| Unique identifier for a Credit Note |
  **file_name** | **string**| Name of the file you are attaching to Credit Note |
- **include_online** | **bool**| Set an attachment to be included with the invoice when viewed online (through Xero) |
  **body** | **string**| Byte array of file in body of request |
+ **include_online** | **bool**| Allows an attachment to be seen by the end customer within their online invoice | [optional] [default to false]
 
 ### Return type
 
@@ -1547,7 +1548,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createInvoiceAttachmentByFileName**
-> \XeroAPI\XeroPHP\Models\Accounting\Attachments createInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $include_online, $body)
+> \XeroAPI\XeroPHP\Models\Accounting\Attachments createInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $body, $include_online)
 
 Allows you to create an Attachment on invoices or purchase bills by it's filename
 
@@ -1568,11 +1569,11 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
 $file_name = xero-dev.jpg; // string | Name of the file you are attaching
-$include_online = True; // bool | Set an attachment to be included with the invoice when viewed online (through Xero)
 $body = 'body_example'; // string | Byte array of file in body of request
+$include_online = true; // bool | Allows an attachment to be seen by the end customer within their online invoice
 
 try {
-    $result = $apiInstance->createInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $include_online, $body);
+    $result = $apiInstance->createInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $body, $include_online);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createInvoiceAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
@@ -1587,8 +1588,8 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **invoice_id** | [**string**](../Model/.md)| Unique identifier for an Invoice |
  **file_name** | **string**| Name of the file you are attaching |
- **include_online** | **bool**| Set an attachment to be included with the invoice when viewed online (through Xero) |
  **body** | **string**| Byte array of file in body of request |
+ **include_online** | **bool**| Allows an attachment to be seen by the end customer within their online invoice | [optional] [default to false]
 
 ### Return type
 
@@ -7765,6 +7766,59 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getPrepaymentAsPdf**
+> \SplFileObject getPrepaymentAsPdf($xero_tenant_id, $prepayment_id)
+
+Allows you to retrieve prepayments as PDF files
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$prepayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a PrePayment
+
+try {
+    $result = $apiInstance->getPrepaymentAsPdf($xero_tenant_id, $prepayment_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->getPrepaymentAsPdf: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **prepayment_id** | [**string**](../Model/.md)| Unique identifier for a PrePayment |
+
+### Return type
+
+[**\SplFileObject**](../Model/\SplFileObject.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/pdf
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

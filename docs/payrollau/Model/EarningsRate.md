@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **employment_termination_payment_type** | [**\XeroAPI\XeroPHP\Models\PayrollAu\EmploymentTerminationPaymentType**](EmploymentTerminationPaymentType.md) |  | [optional] 
 **updated_date_utc** | **string** | Last modified timestamp | [optional] 
 **current_record** | **bool** | Is the current record | [optional] 
+**allowance_type** | [**\XeroAPI\XeroPHP\Models\PayrollAu\AllowanceType**](AllowanceType.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
