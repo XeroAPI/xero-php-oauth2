@@ -27,7 +27,7 @@ All third party libraries dependencies managed with Composer.
 
 ## Requirements
 
-PHP 7.2.1 and later
+PHP 5.6 and later
 
 ## Getting Started
 
