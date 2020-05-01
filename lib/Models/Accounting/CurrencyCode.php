@@ -183,7 +183,7 @@ class CurrencyCode
     const TMT = 'TMT';
     const TND = 'TND';
     const TOP = 'TOP';
-    const _TRY = 'TRY';
+    const TRY = 'TRY';
     const TTD = 'TTD';
     const TVD = 'TVD';
     const TWD = 'TWD';
@@ -207,7 +207,7 @@ class CurrencyCode
     const ZMW = 'ZMW';
     const ZMK = 'ZMK';
     const ZWD = 'ZWD';
-    const EMPTY = '';
+    const EMPTY_STRING = '';
     
     /**
      * Gets allowable values of the enum
@@ -355,7 +355,7 @@ class CurrencyCode
             self::TMT,
             self::TND,
             self::TOP,
-            self::_TRY,
+            self::TRY,
             self::TTD,
             self::TVD,
             self::TWD,
@@ -379,7 +379,7 @@ class CurrencyCode
             self::ZMW,
             self::ZMK,
             self::ZWD,
-            self::EMPTY,
+            self::EMPTY_STRING,
         ];
     }
 }
