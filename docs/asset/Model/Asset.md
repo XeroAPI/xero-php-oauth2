@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **asset_id** | **string** | The Xero-generated Id for the asset | [optional] 
 **asset_name** | **string** | The name of the asset | 
+**asset_type_id** | **string** | The Xero-generated Id for the asset type | [optional] 
 **asset_number** | **string** | Must be unique. | [optional] 
 **purchase_date** | [**\DateTime**](\DateTime.md) | The date the asset was purchased YYYY-MM-DD | [optional] 
 **purchase_price** | **float** | The purchase price of the asset | [optional] 
