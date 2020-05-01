@@ -137,7 +137,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = '[xero-php-oauth2 (1.6.1)]';
+    protected $userAgent = '[xero-php-oauth2 (1.6.2)]';
 
     /**
      * Debug switch (default set to false)
