@@ -290,7 +290,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['bank_transactions']);
+        return new \ArrayIterator($this->container['bank_transactions']);
     }
 
     public function jsonSerialize()

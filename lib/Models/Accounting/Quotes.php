@@ -290,7 +290,7 @@ class Quotes implements ModelInterface, ArrayAccess, \Countable, \IteratorAggreg
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['quotes']);
+        return new \ArrayIterator($this->container['quotes']);
     }
 
     public function jsonSerialize()

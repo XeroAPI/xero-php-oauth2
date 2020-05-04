@@ -290,7 +290,7 @@ class HistoryRecords implements ModelInterface, ArrayAccess, \Countable, \Iterat
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['history_records']);
+        return new \ArrayIterator($this->container['history_records']);
     }
 
     public function jsonSerialize()

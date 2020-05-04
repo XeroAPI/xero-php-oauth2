@@ -290,7 +290,7 @@ class ExpenseClaims implements ModelInterface, ArrayAccess, \Countable, \Iterato
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['expense_claims']);
+        return new \ArrayIterator($this->container['expense_claims']);
     }
 
     public function jsonSerialize()

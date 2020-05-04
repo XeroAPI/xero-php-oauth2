@@ -290,7 +290,7 @@ class Attachments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['attachments']);
+        return new \ArrayIterator($this->container['attachments']);
     }
 
     public function jsonSerialize()

@@ -290,7 +290,7 @@ class OnlineInvoices implements ModelInterface, ArrayAccess, \Countable, \Iterat
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['online_invoices']);
+        return new \ArrayIterator($this->container['online_invoices']);
     }
 
     public function jsonSerialize()

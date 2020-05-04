@@ -290,7 +290,7 @@ class LinkedTransactions implements ModelInterface, ArrayAccess, \Countable, \It
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['linked_transactions']);
+        return new \ArrayIterator($this->container['linked_transactions']);
     }
 
     public function jsonSerialize()

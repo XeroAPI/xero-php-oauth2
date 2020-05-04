@@ -290,7 +290,7 @@ class Currencies implements ModelInterface, ArrayAccess, \Countable, \IteratorAg
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['currencies']);
+        return new \ArrayIterator($this->container['currencies']);
     }
 
     public function jsonSerialize()

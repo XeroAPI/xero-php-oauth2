@@ -290,7 +290,7 @@ class Journals implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['journals']);
+        return new \ArrayIterator($this->container['journals']);
     }
 
     public function jsonSerialize()

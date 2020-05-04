@@ -290,7 +290,7 @@ class CISSettings implements ModelInterface, ArrayAccess, \Countable, \IteratorA
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['cis_settings']);
+        return new \ArrayIterator($this->container['cis_settings']);
     }
 
     public function jsonSerialize()

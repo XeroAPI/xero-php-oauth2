@@ -290,7 +290,7 @@ class Users implements ModelInterface, ArrayAccess, \Countable, \IteratorAggrega
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['users']);
+        return new \ArrayIterator($this->container['users']);
     }
 
     public function jsonSerialize()

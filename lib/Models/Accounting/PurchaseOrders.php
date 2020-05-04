@@ -290,7 +290,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['purchase_orders']);
+        return new \ArrayIterator($this->container['purchase_orders']);
     }
 
     public function jsonSerialize()

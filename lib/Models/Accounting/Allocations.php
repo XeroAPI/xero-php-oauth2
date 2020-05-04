@@ -290,7 +290,7 @@ class Allocations implements ModelInterface, ArrayAccess, \Countable, \IteratorA
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['allocations']);
+        return new \ArrayIterator($this->container['allocations']);
     }
 
     public function jsonSerialize()

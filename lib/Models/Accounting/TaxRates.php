@@ -290,7 +290,7 @@ class TaxRates implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['tax_rates']);
+        return new \ArrayIterator($this->container['tax_rates']);
     }
 
     public function jsonSerialize()

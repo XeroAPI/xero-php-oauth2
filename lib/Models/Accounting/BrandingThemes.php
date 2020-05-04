@@ -290,7 +290,7 @@ class BrandingThemes implements ModelInterface, ArrayAccess, \Countable, \Iterat
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['branding_themes']);
+        return new \ArrayIterator($this->container['branding_themes']);
     }
 
     public function jsonSerialize()

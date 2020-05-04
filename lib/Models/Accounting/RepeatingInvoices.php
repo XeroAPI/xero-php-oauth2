@@ -290,7 +290,7 @@ class RepeatingInvoices implements ModelInterface, ArrayAccess, \Countable, \Ite
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['repeating_invoices']);
+        return new \ArrayIterator($this->container['repeating_invoices']);
     }
 
     public function jsonSerialize()

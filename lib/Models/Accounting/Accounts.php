@@ -290,7 +290,7 @@ class Accounts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['accounts']);
+        return new \ArrayIterator($this->container['accounts']);
     }
 
     public function jsonSerialize()

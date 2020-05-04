@@ -290,7 +290,7 @@ class InvoiceReminders implements ModelInterface, ArrayAccess, \Countable, \Iter
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['invoice_reminders']);
+        return new \ArrayIterator($this->container['invoice_reminders']);
     }
 
     public function jsonSerialize()
