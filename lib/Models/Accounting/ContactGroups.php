@@ -290,7 +290,7 @@ class ContactGroups implements ModelInterface, ArrayAccess, \Countable, \Iterato
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['contact_groups']);
+        return new \ArrayIterator($this->container['contact_groups']);
     }
 
     public function jsonSerialize()

@@ -290,7 +290,7 @@ class Employees implements ModelInterface, ArrayAccess, \Countable, \IteratorAgg
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['employees']);
+        return new \ArrayIterator($this->container['employees']);
     }
 
     public function jsonSerialize()

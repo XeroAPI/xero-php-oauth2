@@ -290,7 +290,7 @@ class BankTransfers implements ModelInterface, ArrayAccess, \Countable, \Iterato
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['bank_transfers']);
+        return new \ArrayIterator($this->container['bank_transfers']);
     }
 
     public function jsonSerialize()

@@ -290,7 +290,7 @@ class BatchPayments implements ModelInterface, ArrayAccess, \Countable, \Iterato
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['batch_payments']);
+        return new \ArrayIterator($this->container['batch_payments']);
     }
 
     public function jsonSerialize()

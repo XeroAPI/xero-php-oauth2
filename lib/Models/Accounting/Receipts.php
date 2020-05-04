@@ -290,7 +290,7 @@ class Receipts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['receipts']);
+        return new \ArrayIterator($this->container['receipts']);
     }
 
     public function jsonSerialize()

@@ -290,7 +290,7 @@ class TrackingCategories implements ModelInterface, ArrayAccess, \Countable, \It
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['tracking_categories']);
+        return new \ArrayIterator($this->container['tracking_categories']);
     }
 
     public function jsonSerialize()

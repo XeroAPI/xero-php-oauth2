@@ -290,7 +290,7 @@ class TrackingOptions implements ModelInterface, ArrayAccess, \Countable, \Itera
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['options']);
+        return new \ArrayIterator($this->container['options']);
     }
 
     public function jsonSerialize()

@@ -290,7 +290,7 @@ class Overpayments implements ModelInterface, ArrayAccess, \Countable, \Iterator
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['overpayments']);
+        return new \ArrayIterator($this->container['overpayments']);
     }
 
     public function jsonSerialize()

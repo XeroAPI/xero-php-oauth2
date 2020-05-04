@@ -290,7 +290,7 @@ class Prepayments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['prepayments']);
+        return new \ArrayIterator($this->container['prepayments']);
     }
 
     public function jsonSerialize()

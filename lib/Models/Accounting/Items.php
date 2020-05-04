@@ -290,7 +290,7 @@ class Items implements ModelInterface, ArrayAccess, \Countable, \IteratorAggrega
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['items']);
+        return new \ArrayIterator($this->container['items']);
     }
 
     public function jsonSerialize()

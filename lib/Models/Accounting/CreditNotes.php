@@ -290,7 +290,7 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['credit_notes']);
+        return new \ArrayIterator($this->container['credit_notes']);
     }
 
     public function jsonSerialize()

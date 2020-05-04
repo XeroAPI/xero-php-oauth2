@@ -290,7 +290,7 @@ class Organisations implements ModelInterface, ArrayAccess, \Countable, \Iterato
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['organisations']);
+        return new \ArrayIterator($this->container['organisations']);
     }
 
     public function jsonSerialize()

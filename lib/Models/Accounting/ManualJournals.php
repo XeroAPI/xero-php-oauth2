@@ -290,7 +290,7 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['manual_journals']);
+        return new \ArrayIterator($this->container['manual_journals']);
     }
 
     public function jsonSerialize()

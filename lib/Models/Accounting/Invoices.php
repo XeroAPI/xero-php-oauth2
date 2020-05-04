@@ -290,7 +290,7 @@ class Invoices implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['invoices']);
+        return new \ArrayIterator($this->container['invoices']);
     }
 
     public function jsonSerialize()

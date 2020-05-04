@@ -290,7 +290,7 @@ class Reports implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['reports']);
+        return new \ArrayIterator($this->container['reports']);
     }
 
     public function jsonSerialize()

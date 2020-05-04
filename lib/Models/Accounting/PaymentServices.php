@@ -290,7 +290,7 @@ class PaymentServices implements ModelInterface, ArrayAccess, \Countable, \Itera
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['payment_services']);
+        return new \ArrayIterator($this->container['payment_services']);
     }
 
     public function jsonSerialize()

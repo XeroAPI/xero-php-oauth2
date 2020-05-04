@@ -290,7 +290,7 @@ class Contacts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
 
     public function getIterator() 
     {
-        return new ArrayIterator($this->container['contacts']);
+        return new \ArrayIterator($this->container['contacts']);
     }
 
     public function jsonSerialize()
