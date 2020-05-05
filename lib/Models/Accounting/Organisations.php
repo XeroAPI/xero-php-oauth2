@@ -295,7 +295,7 @@ class Organisations implements ModelInterface, ArrayAccess, \Countable, \Iterato
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->Organisations;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->Organisations;
     }
 
     /**

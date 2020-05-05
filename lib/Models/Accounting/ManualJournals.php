@@ -295,7 +295,7 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->ManualJournals;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->ManualJournals;
     }
 
     /**

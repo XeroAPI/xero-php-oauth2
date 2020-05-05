@@ -295,7 +295,7 @@ class LinkedTransactions implements ModelInterface, ArrayAccess, \Countable, \It
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->LinkedTransactions;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->LinkedTransactions;
     }
 
     /**

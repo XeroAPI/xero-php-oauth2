@@ -295,7 +295,7 @@ class ContactGroups implements ModelInterface, ArrayAccess, \Countable, \Iterato
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->ContactGroups;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->ContactGroups;
     }
 
     /**

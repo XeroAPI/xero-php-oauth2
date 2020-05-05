@@ -295,7 +295,7 @@ class Items implements ModelInterface, ArrayAccess, \Countable, \IteratorAggrega
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->Items;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->Items;
     }
 
     /**

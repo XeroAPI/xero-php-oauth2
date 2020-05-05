@@ -295,7 +295,7 @@ class CISSettings implements ModelInterface, ArrayAccess, \Countable, \IteratorA
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->CISSettings;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->CISSettings;
     }
 
     /**

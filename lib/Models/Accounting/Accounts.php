@@ -295,7 +295,7 @@ class Accounts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->Accounts;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->Accounts;
     }
 
     /**

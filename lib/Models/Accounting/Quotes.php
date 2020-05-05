@@ -295,7 +295,7 @@ class Quotes implements ModelInterface, ArrayAccess, \Countable, \IteratorAggreg
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->Quotes;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->Quotes;
     }
 
     /**
