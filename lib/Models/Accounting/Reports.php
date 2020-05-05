@@ -295,7 +295,7 @@ class Reports implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->Reports;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->Reports;
     }
 
     /**

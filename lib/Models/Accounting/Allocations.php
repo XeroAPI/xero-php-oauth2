@@ -295,7 +295,7 @@ class Allocations implements ModelInterface, ArrayAccess, \Countable, \IteratorA
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->Allocations;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->Allocations;
     }
 
     /**

@@ -295,7 +295,7 @@ class Invoices implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->Invoices;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->Invoices;
     }
 
     /**

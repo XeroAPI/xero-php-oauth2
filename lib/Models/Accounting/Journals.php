@@ -295,7 +295,7 @@ class Journals implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->Journals;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->Journals;
     }
 
     /**

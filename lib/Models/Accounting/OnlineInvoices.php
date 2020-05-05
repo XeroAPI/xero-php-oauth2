@@ -295,7 +295,7 @@ class OnlineInvoices implements ModelInterface, ArrayAccess, \Countable, \Iterat
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->OnlineInvoices;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->OnlineInvoices;
     }
 
     /**

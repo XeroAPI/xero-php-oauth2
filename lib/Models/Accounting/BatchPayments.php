@@ -295,7 +295,7 @@ class BatchPayments implements ModelInterface, ArrayAccess, \Countable, \Iterato
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->BatchPayments;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->BatchPayments;
     }
 
     /**

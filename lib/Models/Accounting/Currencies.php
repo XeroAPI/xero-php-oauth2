@@ -295,7 +295,7 @@ class Currencies implements ModelInterface, ArrayAccess, \Countable, \IteratorAg
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->Currencies;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->Currencies;
     }
 
     /**

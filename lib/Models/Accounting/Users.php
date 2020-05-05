@@ -295,7 +295,7 @@ class Users implements ModelInterface, ArrayAccess, \Countable, \IteratorAggrega
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->Users;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->Users;
     }
 
     /**

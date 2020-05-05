@@ -295,7 +295,7 @@ class Prepayments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->Prepayments;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->Prepayments;
     }
 
     /**

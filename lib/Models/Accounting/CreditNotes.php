@@ -295,7 +295,7 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->CreditNotes;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->CreditNotes;
     }
 
     /**

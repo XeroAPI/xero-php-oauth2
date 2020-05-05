@@ -295,7 +295,7 @@ class BankTransfers implements ModelInterface, ArrayAccess, \Countable, \Iterato
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->BankTransfers;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->BankTransfers;
     }
 
     /**

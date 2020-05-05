@@ -295,7 +295,7 @@ class BrandingThemes implements ModelInterface, ArrayAccess, \Countable, \Iterat
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->BrandingThemes;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->BrandingThemes;
     }
 
     /**

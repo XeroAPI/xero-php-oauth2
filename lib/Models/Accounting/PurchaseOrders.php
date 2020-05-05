@@ -295,7 +295,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->PurchaseOrders;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->PurchaseOrders;
     }
 
     /**

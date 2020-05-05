@@ -295,7 +295,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->BankTransactions;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->BankTransactions;
     }
 
     /**

@@ -207,7 +207,7 @@ class CurrencyCode
     const ZMW = 'ZMW';
     const ZMK = 'ZMK';
     const ZWD = 'ZWD';
-    const _EMPTY = '';
+    const EMPTY = '';
     
     /**
      * Gets allowable values of the enum
@@ -379,7 +379,7 @@ class CurrencyCode
             self::ZMW,
             self::ZMK,
             self::ZWD,
-            self::_EMPTY,
+            self::EMPTY,
         ];
     }
 }

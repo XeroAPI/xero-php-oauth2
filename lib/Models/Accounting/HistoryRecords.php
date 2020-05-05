@@ -295,7 +295,7 @@ class HistoryRecords implements ModelInterface, ArrayAccess, \Countable, \Iterat
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->HistoryRecords;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->HistoryRecords;
     }
 
     /**

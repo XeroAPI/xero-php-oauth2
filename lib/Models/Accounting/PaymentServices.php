@@ -295,7 +295,7 @@ class PaymentServices implements ModelInterface, ArrayAccess, \Countable, \Itera
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->PaymentServices;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->PaymentServices;
     }
 
     /**

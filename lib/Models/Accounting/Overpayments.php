@@ -295,7 +295,7 @@ class Overpayments implements ModelInterface, ArrayAccess, \Countable, \Iterator
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->Overpayments;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->Overpayments;
     }
 
     /**

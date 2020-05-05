@@ -295,7 +295,7 @@ class TrackingCategories implements ModelInterface, ArrayAccess, \Countable, \It
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->TrackingCategories;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->TrackingCategories;
     }
 
     /**

@@ -295,7 +295,7 @@ class TaxRates implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->TaxRates;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->TaxRates;
     }
 
     /**

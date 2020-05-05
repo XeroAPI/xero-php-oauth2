@@ -295,7 +295,7 @@ class Employees implements ModelInterface, ArrayAccess, \Countable, \IteratorAgg
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->Employees;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->Employees;
     }
 
     /**

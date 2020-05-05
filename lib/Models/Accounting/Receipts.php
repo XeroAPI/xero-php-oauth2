@@ -295,7 +295,7 @@ class Receipts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
 
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($list)->Receipts;
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->Receipts;
     }
 
     /**
