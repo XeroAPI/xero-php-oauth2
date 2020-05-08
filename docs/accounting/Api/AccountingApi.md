@@ -88,7 +88,7 @@ Method | HTTP request | Description
 [**getBrandingTheme**](AccountingApi.md#getBrandingTheme) | **GET** /BrandingThemes/{BrandingThemeID} | Allows you to retrieve a specific BrandingThemes
 [**getBrandingThemePaymentServices**](AccountingApi.md#getBrandingThemePaymentServices) | **GET** /BrandingThemes/{BrandingThemeID}/PaymentServices | Allows you to retrieve the Payment services for a Branding Theme
 [**getBrandingThemes**](AccountingApi.md#getBrandingThemes) | **GET** /BrandingThemes | Allows you to retrieve all the BrandingThemes
-[**getContact**](AccountingApi.md#getContact) | **GET** /Contacts/{ContactID} | Allows you to retrieve, add and update contacts in a Xero organisation
+[**getContact**](AccountingApi.md#getContact) | **GET** /Contacts/{ContactID} | Allows you to retrieve a single contacts in a Xero organisation
 [**getContactAttachmentByFileName**](AccountingApi.md#getContactAttachmentByFileName) | **GET** /Contacts/{ContactID}/Attachments/{FileName} | Allows you to retrieve Attachments on Contacts by file name
 [**getContactAttachmentById**](AccountingApi.md#getContactAttachmentById) | **GET** /Contacts/{ContactID}/Attachments/{AttachmentID} | Allows you to retrieve Attachments on Contacts
 [**getContactAttachments**](AccountingApi.md#getContactAttachments) | **GET** /Contacts/{ContactID}/Attachments | Allows you to retrieve, add and update contacts in a Xero organisation
@@ -96,7 +96,7 @@ Method | HTTP request | Description
 [**getContactGroup**](AccountingApi.md#getContactGroup) | **GET** /ContactGroups/{ContactGroupID} | Allows you to retrieve a unique Contact Group by ID
 [**getContactGroups**](AccountingApi.md#getContactGroups) | **GET** /ContactGroups | Allows you to retrieve the ContactID and Name of all the contacts in a contact group
 [**getContactHistory**](AccountingApi.md#getContactHistory) | **GET** /Contacts/{ContactID}/History | Allows you to retrieve a history records of an Contact
-[**getContacts**](AccountingApi.md#getContacts) | **GET** /Contacts | Allows you to retrieve, add and update contacts in a Xero organisation
+[**getContacts**](AccountingApi.md#getContacts) | **GET** /Contacts | Allows you to retrieve all contacts in a Xero organisation
 [**getCreditNote**](AccountingApi.md#getCreditNote) | **GET** /CreditNotes/{CreditNoteID} | Allows you to retrieve a specific credit note
 [**getCreditNoteAsPdf**](AccountingApi.md#getCreditNoteAsPdf) | **GET** /CreditNotes/{CreditNoteID}/pdf | Allows you to retrieve Credit Note as PDF files
 [**getCreditNoteAttachmentByFileName**](AccountingApi.md#getCreditNoteAttachmentByFileName) | **GET** /CreditNotes/{CreditNoteID}/Attachments/{FileName} | Allows you to retrieve Attachments on CreditNote by file name
@@ -2269,7 +2269,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createPayments**
-> \XeroAPI\XeroPHP\Models\Accounting\Payments createPayments($xero_tenant_id, $payments)
+> \XeroAPI\XeroPHP\Models\Accounting\Payments createPayments($xero_tenant_id, $payments, $summarize_errors)
 
 Allows you to create multiple payments for invoices or credit notes
 
@@ -2289,9 +2289,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $payments = { payments:[ { invoice:{ invoiceID:"00000000-0000-0000-000-000000000000", lineItems:[], contact: {}, type: Invoice.TypeEnum.ACCPAY }, account:{ code:"970" }, date:"2019-03-12", amount:1.0 } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Payments | Payments array with Payment object in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
-    $result = $apiInstance->createPayments($xero_tenant_id, $payments);
+    $result = $apiInstance->createPayments($xero_tenant_id, $payments, $summarize_errors);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createPayments: ', $e->getMessage(), PHP_EOL;
@@ -2305,6 +2306,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **payments** | [**\XeroAPI\XeroPHP\Models\Accounting\Payments**](../Model/Payments.md)| Payments array with Payment object in body of request |
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -4843,7 +4845,7 @@ Name | Type | Description  | Notes
 # **getContact**
 > \XeroAPI\XeroPHP\Models\Accounting\Contacts getContact($xero_tenant_id, $contact_id)
 
-Allows you to retrieve, add and update contacts in a Xero organisation
+Allows you to retrieve a single contacts in a Xero organisation
 
 ### Example
 ```php
@@ -5277,7 +5279,7 @@ Name | Type | Description  | Notes
 # **getContacts**
 > \XeroAPI\XeroPHP\Models\Accounting\Contacts getContacts($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $page, $include_archived)
 
-Allows you to retrieve, add and update contacts in a Xero organisation
+Allows you to retrieve all contacts in a Xero organisation
 
 ### Example
 ```php
