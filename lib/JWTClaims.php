@@ -13,7 +13,7 @@ class JWTClaims
     private $username;
     private $session_id;
     private $user_id;
-    private $sub;
+    private $subvalue;
     private $expiration;
     private $auth_time;
     private $iss;
