@@ -29,6 +29,31 @@ All third party libraries dependencies managed with Composer.
 
 PHP 5.6 and later
 
+## Changes in version 2.x
+
+### Methods to access Dates in Accounting have changed 
+Both our Accounting and AU Payroll APIs use [Microsoft .NET JSON format](https://developer.xero.com/documentation/api/requests-and-responses#JSON) i.e. "\/Date(1439434356790)\/". Our other APIs use standard date formatting i.e. "2020-03-24T18:43:43.860852". Building our SDKs from OpenAPI specs with such different date formats has been challenging.
+
+For this reason, we've decided dates in MS .NET JSON format will be  strings with NO date or date-time format in our OpenAPI specs. This means developers wanting to use our OpenAPI specs with code generators won't run into deserialization issues trying to handle MS .NET JSON format dates.
+
+The side effect is accounting and AU payroll models now have two getter methods. For example, getDateOfBirth() returns the string "\/Date(1439434356790)\/" while getDateOfBirthAsDate() return a standard date "2020-05-14". Since you can override methods in Java setDateOfBirth() can accept a String or a LocalDate. 
+
+```php
+//Get account by id
+$result = $apiInstance->getAccount($xeroTenantId,$accountId); 	
+
+// display formatted date
+echo($result->getAccounts()[0]->getUpdatedDateUtcAsDate()->format('Y-m-d H:i:s') ):
+
+// display string in MS .NET JSON format \/Date(1439434356790)\/
+echo($result->getAccounts()[0]->getUpdatedDateUtc() ):
+```
+
+**This is a breaking change between version 1.x and 2.x.**
+
+## Looking for version 1.x of the SDK?
+Codebase, samples and setup instructions located in [php-1.x branch](https://github.com/XeroAPI/xero-php-oauth2/tree/php-1.x).
+
 ## Getting Started
 
 ### Create a Xero App
