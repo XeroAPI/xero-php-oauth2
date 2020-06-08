@@ -7715,7 +7715,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPayments**
-> \XeroAPI\XeroPHP\Models\Accounting\Payments getPayments($xero_tenant_id, $if_modified_since, $where, $order)
+> \XeroAPI\XeroPHP\Models\Accounting\Payments getPayments($xero_tenant_id, $if_modified_since, $where, $order, $page)
 
 Allows you to retrieve payments for invoices and credit notes
 
@@ -7737,9 +7737,10 @@ $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records created or modified since this timestamp will be returned
 $where = Status=="' + Payment.StatusEnum.AUTHORISED + '"; // string | Filter by an any element
 $order = Amount ASC; // string | Order by an any element
+$page = 1; // int | Up to 100 payments will be returned in a single API call
 
 try {
-    $result = $apiInstance->getPayments($xero_tenant_id, $if_modified_since, $where, $order);
+    $result = $apiInstance->getPayments($xero_tenant_id, $if_modified_since, $where, $order, $page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->getPayments: ', $e->getMessage(), PHP_EOL;
@@ -7755,6 +7756,7 @@ Name | Type | Description  | Notes
  **if_modified_since** | **\DateTime**| Only records created or modified since this timestamp will be returned | [optional]
  **where** | **string**| Filter by an any element | [optional]
  **order** | **string**| Order by an any element | [optional]
+ **page** | **int**| Up to 100 payments will be returned in a single API call | [optional]
 
 ### Return type
 
