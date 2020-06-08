@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **reimbursement_type_id** | **string** | Xero reimbursement type identifier | [optional] 
-**amount** | **float** | Reimbursement type amount | [optional] 
+**amount** | **double** | Reimbursement type amount | [optional] 
 **description** | **string** | Reimbursement lines description (max length 50) | [optional] 
 **expense_account** | **string** | Reimbursement expense account. For posted pay run you should be able to see expense account code. | [optional] 
 

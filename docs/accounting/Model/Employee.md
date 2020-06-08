@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **first_name** | **string** | First name of an employee (max length &#x3D; 255) | [optional] 
 **last_name** | **string** | Last name of an employee (max length &#x3D; 255) | [optional] 
 **external_link** | [**\XeroAPI\XeroPHP\Models\Accounting\ExternalLink**](ExternalLink.md) |  | [optional] 
-**updated_date_utc** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**updated_date_utc** | **string** |  | [optional] 
 **status_attribute_string** | **string** | A string to indicate if a invoice status | [optional] 
 **validation_errors** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 

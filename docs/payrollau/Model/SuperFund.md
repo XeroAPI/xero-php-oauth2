@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **spin** | **string** | The SPIN of the Regulated SuperFund. This field has been deprecated. It will only be present for legacy superfunds. New superfunds will not have a SPIN value. The USI field should be used instead of SPIN. | [optional] 
 **usi** | **string** | The USI of the Regulated SuperFund | [optional] 
 **updated_date_utc** | **string** | Last modified timestamp | [optional] 
+**validation_errors** | [**\XeroAPI\XeroPHP\Models\PayrollAu\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

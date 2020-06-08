@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **payslip_tax_line_id** | **string** | Xero identifier for payslip tax line ID. | [optional] 
-**amount** | **float** | The tax line amount | [optional] 
+**amount** | **double** | The tax line amount | [optional] 
 **tax_type_name** | **string** | Name of the tax type. | [optional] 
 **description** | **string** | Description of the tax line. | [optional] 
 **manual_tax_type** | [**\XeroAPI\XeroPHP\Models\PayrollAu\ManualTaxType**](ManualTaxType.md) |  | [optional] 

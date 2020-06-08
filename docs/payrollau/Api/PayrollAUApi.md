@@ -1,38 +1,38 @@
-# XeroAPI\XeroPHP\PayrollAUApi
+# XeroAPI\XeroPHP\PayrollAuApi
 
 All URIs are relative to *https://api.xero.com/payroll.xro/1.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createEmployee**](PayrollAUApi.md#createEmployee) | **POST** /Employees | Use this method to create a payroll employee
-[**createLeaveApplication**](PayrollAUApi.md#createLeaveApplication) | **POST** /LeaveApplications | Use this method to create a Leave Application
-[**createPayItem**](PayrollAUApi.md#createPayItem) | **POST** /PayItems | Use this method to create a Pay Item
-[**createPayRun**](PayrollAUApi.md#createPayRun) | **POST** /PayRuns | Use this method to create a PayRun
-[**createPayrollCalendar**](PayrollAUApi.md#createPayrollCalendar) | **POST** /PayrollCalendars | Use this method to create a Payroll Calendars
-[**createSuperfund**](PayrollAUApi.md#createSuperfund) | **POST** /Superfunds | Use this method to create a super fund
-[**createTimesheet**](PayrollAUApi.md#createTimesheet) | **POST** /Timesheets | Use this method to create a timesheet
-[**getEmployee**](PayrollAUApi.md#getEmployee) | **GET** /Employees/{EmployeeId} | searches for an employee by unique id
-[**getEmployees**](PayrollAUApi.md#getEmployees) | **GET** /Employees | searches employees
-[**getLeaveApplication**](PayrollAUApi.md#getLeaveApplication) | **GET** /LeaveApplications/{LeaveApplicationId} | searches for an Leave Application by unique id
-[**getLeaveApplications**](PayrollAUApi.md#getLeaveApplications) | **GET** /LeaveApplications | searches Leave Applications
-[**getPayItems**](PayrollAUApi.md#getPayItems) | **GET** /PayItems | searches Pay Items
-[**getPayRun**](PayrollAUApi.md#getPayRun) | **GET** /PayRuns/{PayRunID} | searches for an payrun by unique id
-[**getPayRuns**](PayrollAUApi.md#getPayRuns) | **GET** /PayRuns | searches PayRuns
-[**getPayrollCalendar**](PayrollAUApi.md#getPayrollCalendar) | **GET** /PayrollCalendars/{PayrollCalendarID} | searches Payroll Calendars
-[**getPayrollCalendars**](PayrollAUApi.md#getPayrollCalendars) | **GET** /PayrollCalendars | searches Payroll Calendars
-[**getPayslip**](PayrollAUApi.md#getPayslip) | **GET** /Payslip/{PayslipID} | searches for an payslip by unique id
-[**getSettings**](PayrollAUApi.md#getSettings) | **GET** /Settings | retrieve settings
-[**getSuperfund**](PayrollAUApi.md#getSuperfund) | **GET** /Superfunds/{SuperFundID} | searches for an Superfund by unique id
-[**getSuperfundProducts**](PayrollAUApi.md#getSuperfundProducts) | **GET** /SuperfundProducts | searches SuperfundProducts
-[**getSuperfunds**](PayrollAUApi.md#getSuperfunds) | **GET** /Superfunds | searches SuperFunds
-[**getTimesheet**](PayrollAUApi.md#getTimesheet) | **GET** /Timesheets/{TimesheetID} | searches for an timesheet by unique id
-[**getTimesheets**](PayrollAUApi.md#getTimesheets) | **GET** /Timesheets | searches timesheets
-[**updateEmployee**](PayrollAUApi.md#updateEmployee) | **POST** /Employees/{EmployeeId} | Update an Employee
-[**updateLeaveApplication**](PayrollAUApi.md#updateLeaveApplication) | **POST** /LeaveApplications/{LeaveApplicationId} | Use this method to update a Leave Application
-[**updatePayRun**](PayrollAUApi.md#updatePayRun) | **POST** /PayRuns/{PayRunID} | Update a PayRun
-[**updatePayslipByID**](PayrollAUApi.md#updatePayslipByID) | **POST** /Payslip/{PayslipID} | Update a Payslip
-[**updateSuperfund**](PayrollAUApi.md#updateSuperfund) | **POST** /Superfunds/{SuperFundID} | Update a Superfund
-[**updateTimesheet**](PayrollAUApi.md#updateTimesheet) | **POST** /Timesheets/{TimesheetID} | Update a Timesheet
+[**createEmployee**](PayrollAuApi.md#createEmployee) | **POST** /Employees | Use this method to create a payroll employee
+[**createLeaveApplication**](PayrollAuApi.md#createLeaveApplication) | **POST** /LeaveApplications | Use this method to create a Leave Application
+[**createPayItem**](PayrollAuApi.md#createPayItem) | **POST** /PayItems | Use this method to create a Pay Item
+[**createPayRun**](PayrollAuApi.md#createPayRun) | **POST** /PayRuns | Use this method to create a PayRun
+[**createPayrollCalendar**](PayrollAuApi.md#createPayrollCalendar) | **POST** /PayrollCalendars | Use this method to create a Payroll Calendars
+[**createSuperfund**](PayrollAuApi.md#createSuperfund) | **POST** /Superfunds | Use this method to create a super fund
+[**createTimesheet**](PayrollAuApi.md#createTimesheet) | **POST** /Timesheets | Use this method to create a timesheet
+[**getEmployee**](PayrollAuApi.md#getEmployee) | **GET** /Employees/{EmployeeId} | searches for an employee by unique id
+[**getEmployees**](PayrollAuApi.md#getEmployees) | **GET** /Employees | searches employees
+[**getLeaveApplication**](PayrollAuApi.md#getLeaveApplication) | **GET** /LeaveApplications/{LeaveApplicationId} | searches for an Leave Application by unique id
+[**getLeaveApplications**](PayrollAuApi.md#getLeaveApplications) | **GET** /LeaveApplications | searches Leave Applications
+[**getPayItems**](PayrollAuApi.md#getPayItems) | **GET** /PayItems | searches Pay Items
+[**getPayRun**](PayrollAuApi.md#getPayRun) | **GET** /PayRuns/{PayRunID} | searches for an payrun by unique id
+[**getPayRuns**](PayrollAuApi.md#getPayRuns) | **GET** /PayRuns | searches PayRuns
+[**getPayrollCalendar**](PayrollAuApi.md#getPayrollCalendar) | **GET** /PayrollCalendars/{PayrollCalendarID} | searches Payroll Calendars
+[**getPayrollCalendars**](PayrollAuApi.md#getPayrollCalendars) | **GET** /PayrollCalendars | searches Payroll Calendars
+[**getPayslip**](PayrollAuApi.md#getPayslip) | **GET** /Payslip/{PayslipID} | searches for an payslip by unique id
+[**getSettings**](PayrollAuApi.md#getSettings) | **GET** /Settings | retrieve settings
+[**getSuperfund**](PayrollAuApi.md#getSuperfund) | **GET** /Superfunds/{SuperFundID} | searches for an Superfund by unique id
+[**getSuperfundProducts**](PayrollAuApi.md#getSuperfundProducts) | **GET** /SuperfundProducts | searches SuperfundProducts
+[**getSuperfunds**](PayrollAuApi.md#getSuperfunds) | **GET** /Superfunds | searches SuperFunds
+[**getTimesheet**](PayrollAuApi.md#getTimesheet) | **GET** /Timesheets/{TimesheetID} | searches for an timesheet by unique id
+[**getTimesheets**](PayrollAuApi.md#getTimesheets) | **GET** /Timesheets | searches timesheets
+[**updateEmployee**](PayrollAuApi.md#updateEmployee) | **POST** /Employees/{EmployeeId} | Update an Employee
+[**updateLeaveApplication**](PayrollAuApi.md#updateLeaveApplication) | **POST** /LeaveApplications/{LeaveApplicationId} | Use this method to update a Leave Application
+[**updatePayRun**](PayrollAuApi.md#updatePayRun) | **POST** /PayRuns/{PayRunID} | Update a PayRun
+[**updatePayslip**](PayrollAuApi.md#updatePayslip) | **POST** /Payslip/{PayslipID} | Update a Payslip
+[**updateSuperfund**](PayrollAuApi.md#updateSuperfund) | **POST** /Superfunds/{SuperFundID} | Update a Superfund
+[**updateTimesheet**](PayrollAuApi.md#updateTimesheet) | **POST** /Timesheets/{TimesheetID} | Update a Timesheet
 
 
 # **createEmployee**
@@ -48,7 +48,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -61,7 +61,7 @@ try {
     $result = $apiInstance->createEmployee($xero_tenant_id, $employee);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->createEmployee: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->createEmployee: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -71,7 +71,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **employee** | [**\XeroAPI\XeroPHP\Models\PayrollAu\Employee[]**](../Model/array.md)|  |
+ **employee** | [**\XeroAPI\XeroPHP\Models\PayrollAu\Employee[]**](../Model/Employee.md)|  |
 
 ### Return type
 
@@ -101,7 +101,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -114,7 +114,7 @@ try {
     $result = $apiInstance->createLeaveApplication($xero_tenant_id, $leave_application);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->createLeaveApplication: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->createLeaveApplication: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -124,7 +124,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **leave_application** | [**\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplication[]**](../Model/array.md)|  |
+ **leave_application** | [**\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplication[]**](../Model/LeaveApplication.md)|  |
 
 ### Return type
 
@@ -154,20 +154,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$pay_item = [ { "EarningsRates": [ { "Name": "MyRate", "AccountCode": "400", "TypeOfUnits": "4.00", "IsExemptFromTax": true, "IsExemptFromSuper": true, "IsReportableAsW1": false, "EarningsType": "FIXED", "EarningsRateID": "ab874dfb-ab09-4c91-954e-43acf6fc23b4", "RateType": "FIXEDAMOUNT", "RatePerUnit": "10.0", "Multiplier": 1.5, "AccrueLeave": 1, "Amount": 5, "EmploymentTerminationPaymentType": "O" } ], "DeductionTypes": [ { "Name": "My Deduction", "AccountCode": "400" } ] } ]; // \XeroAPI\XeroPHP\Models\PayrollAu\PayItem[] | 
+$pay_item =  { "EarningsRates": [ { "Name": "MyRate", "AccountCode": "400", "TypeOfUnits": "4.00", "IsExemptFromTax": true, "IsExemptFromSuper": true, "IsReportableAsW1": false, "EarningsType": "FIXED", "EarningsRateID": "ab874dfb-ab09-4c91-954e-43acf6fc23b4", "RateType": "FIXEDAMOUNT", "RatePerUnit": "10.0", "Multiplier": 1.5, "AccrueLeave": 1, "Amount": 5, "EmploymentTerminationPaymentType": "O" } ], "DeductionTypes": [ { "Name": "My Deduction", "AccountCode": "400" } ] } ; // \XeroAPI\XeroPHP\Models\PayrollAu\PayItem | 
 
 try {
     $result = $apiInstance->createPayItem($xero_tenant_id, $pay_item);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->createPayItem: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->createPayItem: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -177,7 +177,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **pay_item** | [**\XeroAPI\XeroPHP\Models\PayrollAu\PayItem[]**](../Model/array.md)|  |
+ **pay_item** | [**\XeroAPI\XeroPHP\Models\PayrollAu\PayItem**](../Model/PayItem.md)|  |
 
 ### Return type
 
@@ -207,7 +207,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -220,7 +220,7 @@ try {
     $result = $apiInstance->createPayRun($xero_tenant_id, $pay_run);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->createPayRun: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->createPayRun: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -230,7 +230,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **pay_run** | [**\XeroAPI\XeroPHP\Models\PayrollAu\PayRun[]**](../Model/array.md)|  |
+ **pay_run** | [**\XeroAPI\XeroPHP\Models\PayrollAu\PayRun[]**](../Model/PayRun.md)|  |
 
 ### Return type
 
@@ -260,7 +260,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -273,7 +273,7 @@ try {
     $result = $apiInstance->createPayrollCalendar($xero_tenant_id, $payroll_calendar);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->createPayrollCalendar: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->createPayrollCalendar: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -283,7 +283,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **payroll_calendar** | [**\XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendar[]**](../Model/array.md)|  |
+ **payroll_calendar** | [**\XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendar[]**](../Model/PayrollCalendar.md)|  |
 
 ### Return type
 
@@ -313,7 +313,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -326,7 +326,7 @@ try {
     $result = $apiInstance->createSuperfund($xero_tenant_id, $super_fund);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->createSuperfund: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->createSuperfund: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -336,7 +336,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **super_fund** | [**\XeroAPI\XeroPHP\Models\PayrollAu\SuperFund[]**](../Model/array.md)|  |
+ **super_fund** | [**\XeroAPI\XeroPHP\Models\PayrollAu\SuperFund[]**](../Model/SuperFund.md)|  |
 
 ### Return type
 
@@ -366,7 +366,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -379,7 +379,7 @@ try {
     $result = $apiInstance->createTimesheet($xero_tenant_id, $timesheet);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->createTimesheet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->createTimesheet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -389,7 +389,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **timesheet** | [**\XeroAPI\XeroPHP\Models\PayrollAu\Timesheet[]**](../Model/array.md)|  |
+ **timesheet** | [**\XeroAPI\XeroPHP\Models\PayrollAu\Timesheet[]**](../Model/Timesheet.md)|  |
 
 ### Return type
 
@@ -419,7 +419,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -432,7 +432,7 @@ try {
     $result = $apiInstance->getEmployee($xero_tenant_id, $employee_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->getEmployee: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->getEmployee: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -472,7 +472,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -488,7 +488,7 @@ try {
     $result = $apiInstance->getEmployees($xero_tenant_id, $if_modified_since, $where, $order, $page);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->getEmployees: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->getEmployees: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -531,7 +531,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -544,7 +544,7 @@ try {
     $result = $apiInstance->getLeaveApplication($xero_tenant_id, $leave_application_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->getLeaveApplication: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->getLeaveApplication: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -584,7 +584,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -600,7 +600,7 @@ try {
     $result = $apiInstance->getLeaveApplications($xero_tenant_id, $if_modified_since, $where, $order, $page);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->getLeaveApplications: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->getLeaveApplications: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -643,7 +643,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -659,7 +659,7 @@ try {
     $result = $apiInstance->getPayItems($xero_tenant_id, $if_modified_since, $where, $order, $page);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->getPayItems: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->getPayItems: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -702,7 +702,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -715,7 +715,7 @@ try {
     $result = $apiInstance->getPayRun($xero_tenant_id, $pay_run_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->getPayRun: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->getPayRun: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -755,7 +755,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -771,7 +771,7 @@ try {
     $result = $apiInstance->getPayRuns($xero_tenant_id, $if_modified_since, $where, $order, $page);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->getPayRuns: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->getPayRuns: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -814,7 +814,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -827,7 +827,7 @@ try {
     $result = $apiInstance->getPayrollCalendar($xero_tenant_id, $payroll_calendar_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->getPayrollCalendar: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->getPayrollCalendar: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -867,7 +867,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -883,7 +883,7 @@ try {
     $result = $apiInstance->getPayrollCalendars($xero_tenant_id, $if_modified_since, $where, $order, $page);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->getPayrollCalendars: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->getPayrollCalendars: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -926,7 +926,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -939,7 +939,7 @@ try {
     $result = $apiInstance->getPayslip($xero_tenant_id, $payslip_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->getPayslip: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->getPayslip: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -979,7 +979,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -991,7 +991,7 @@ try {
     $result = $apiInstance->getSettings($xero_tenant_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->getSettings: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->getSettings: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1030,7 +1030,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1043,7 +1043,7 @@ try {
     $result = $apiInstance->getSuperfund($xero_tenant_id, $super_fund_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->getSuperfund: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->getSuperfund: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1083,7 +1083,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1097,7 +1097,7 @@ try {
     $result = $apiInstance->getSuperfundProducts($xero_tenant_id, $abn, $usi);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->getSuperfundProducts: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->getSuperfundProducts: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1138,7 +1138,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1154,7 +1154,7 @@ try {
     $result = $apiInstance->getSuperfunds($xero_tenant_id, $if_modified_since, $where, $order, $page);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->getSuperfunds: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->getSuperfunds: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1197,7 +1197,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1210,7 +1210,7 @@ try {
     $result = $apiInstance->getTimesheet($xero_tenant_id, $timesheet_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->getTimesheet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->getTimesheet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1250,7 +1250,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1266,7 +1266,7 @@ try {
     $result = $apiInstance->getTimesheets($xero_tenant_id, $if_modified_since, $where, $order, $page);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->getTimesheets: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->getTimesheets: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1311,7 +1311,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1325,7 +1325,7 @@ try {
     $result = $apiInstance->updateEmployee($xero_tenant_id, $employee_id, $employee);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->updateEmployee: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->updateEmployee: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1336,7 +1336,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **employee_id** | [**string**](../Model/.md)| Employee id for single object |
- **employee** | [**\XeroAPI\XeroPHP\Models\PayrollAu\Employee[]**](../Model/array.md)|  | [optional]
+ **employee** | [**\XeroAPI\XeroPHP\Models\PayrollAu\Employee[]**](../Model/Employee.md)|  | [optional]
 
 ### Return type
 
@@ -1366,7 +1366,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1380,7 +1380,7 @@ try {
     $result = $apiInstance->updateLeaveApplication($xero_tenant_id, $leave_application_id, $leave_application);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->updateLeaveApplication: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->updateLeaveApplication: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1391,7 +1391,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **leave_application_id** | [**string**](../Model/.md)| Leave Application id for single object |
- **leave_application** | [**\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplication[]**](../Model/array.md)|  |
+ **leave_application** | [**\XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplication[]**](../Model/LeaveApplication.md)|  |
 
 ### Return type
 
@@ -1423,7 +1423,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1431,13 +1431,13 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $pay_run_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c; // string | PayRun id for single object
-$pay_run = array(new \XeroAPI\XeroPHP\Models\PayrollAu\array()); // \XeroAPI\XeroPHP\Models\PayrollAu\PayRun[] | 
+$pay_run = array(new \XeroAPI\XeroPHP\Models\PayrollAu\PayRun()); // \XeroAPI\XeroPHP\Models\PayrollAu\PayRun[] | 
 
 try {
     $result = $apiInstance->updatePayRun($xero_tenant_id, $pay_run_id, $pay_run);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->updatePayRun: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->updatePayRun: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1448,7 +1448,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **pay_run_id** | [**string**](../Model/.md)| PayRun id for single object |
- **pay_run** | [**\XeroAPI\XeroPHP\Models\PayrollAu\PayRun[]**](../Model/array.md)|  | [optional]
+ **pay_run** | [**\XeroAPI\XeroPHP\Models\PayrollAu\PayRun[]**](../Model/PayRun.md)|  | [optional]
 
 ### Return type
 
@@ -1465,8 +1465,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **updatePayslipByID**
-> \XeroAPI\XeroPHP\Models\PayrollAu\PayslipObject updatePayslipByID($xero_tenant_id, $payslip_id, $payslip_object)
+# **updatePayslip**
+> \XeroAPI\XeroPHP\Models\PayrollAu\Payslips updatePayslip($xero_tenant_id, $payslip_id, $payslip_lines)
 
 Update a Payslip
 
@@ -1480,7 +1480,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1488,13 +1488,13 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $payslip_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c; // string | Payslip id for single object
-$payslip_object = { "Payslip": { "EmployeeID": "cdfb8371-0b21-4b8a-8903-1024df6c391e", "DeductionLines": [ { "DeductionTypeID": "727af5e8-b347-4ae7-85fc-9b82266d0aec", "CalculationType": "FIXEDAMOUNT", "NumberOfUnits": 10 } ] } }; // \XeroAPI\XeroPHP\Models\PayrollAu\PayslipObject | 
+$payslip_lines = { "Payslip": { "EmployeeID": "cdfb8371-0b21-4b8a-8903-1024df6c391e", "DeductionLines": [ { "DeductionTypeID": "727af5e8-b347-4ae7-85fc-9b82266d0aec", "CalculationType": "FIXEDAMOUNT", "NumberOfUnits": 10 } ] } }; // \XeroAPI\XeroPHP\Models\PayrollAu\PayslipLines[] | 
 
 try {
-    $result = $apiInstance->updatePayslipByID($xero_tenant_id, $payslip_id, $payslip_object);
+    $result = $apiInstance->updatePayslip($xero_tenant_id, $payslip_id, $payslip_lines);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->updatePayslipByID: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->updatePayslip: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1505,11 +1505,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **payslip_id** | [**string**](../Model/.md)| Payslip id for single object |
- **payslip_object** | [**\XeroAPI\XeroPHP\Models\PayrollAu\PayslipObject**](../Model/PayslipObject.md)|  | [optional]
+ **payslip_lines** | [**\XeroAPI\XeroPHP\Models\PayrollAu\PayslipLines[]**](../Model/PayslipLines.md)|  | [optional]
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\PayrollAu\PayslipObject**](../Model/PayslipObject.md)
+[**\XeroAPI\XeroPHP\Models\PayrollAu\Payslips**](../Model/Payslips.md)
 
 ### Authorization
 
@@ -1537,7 +1537,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1551,7 +1551,7 @@ try {
     $result = $apiInstance->updateSuperfund($xero_tenant_id, $super_fund_id, $super_fund);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->updateSuperfund: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->updateSuperfund: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1562,7 +1562,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **super_fund_id** | [**string**](../Model/.md)| Superfund id for single object |
- **super_fund** | [**\XeroAPI\XeroPHP\Models\PayrollAu\SuperFund[]**](../Model/array.md)|  | [optional]
+ **super_fund** | [**\XeroAPI\XeroPHP\Models\PayrollAu\SuperFund[]**](../Model/SuperFund.md)|  | [optional]
 
 ### Return type
 
@@ -1594,7 +1594,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure OAuth2 access token for authorization: OAuth2
 $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAUApi(
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1608,7 +1608,7 @@ try {
     $result = $apiInstance->updateTimesheet($xero_tenant_id, $timesheet_id, $timesheet);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollAUApi->updateTimesheet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollAuApi->updateTimesheet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1619,7 +1619,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **timesheet_id** | [**string**](../Model/.md)| Timesheet id for single object |
- **timesheet** | [**\XeroAPI\XeroPHP\Models\PayrollAu\Timesheet[]**](../Model/array.md)|  | [optional]
+ **timesheet** | [**\XeroAPI\XeroPHP\Models\PayrollAu\Timesheet[]**](../Model/Timesheet.md)|  | [optional]
 
 ### Return type
 

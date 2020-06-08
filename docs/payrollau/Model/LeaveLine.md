@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **entitlement_final_pay_payout_type** | [**\XeroAPI\XeroPHP\Models\PayrollAu\EntitlementFinalPayPayoutType**](EntitlementFinalPayPayoutType.md) |  | [optional] 
 **employment_termination_payment_type** | [**\XeroAPI\XeroPHP\Models\PayrollAu\EmploymentTerminationPaymentType**](EmploymentTerminationPaymentType.md) |  | [optional] 
 **include_superannuation_guarantee_contribution** | **bool** | amount of leave line | [optional] 
-**number_of_units** | **float** | Leave number of units | [optional] 
+**number_of_units** | **double** | Leave number of units | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

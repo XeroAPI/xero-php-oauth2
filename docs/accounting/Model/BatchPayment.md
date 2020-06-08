@@ -11,13 +11,13 @@ Name | Type | Description | Notes
 **narrative** | **string** | (UK Only) Only shows on the statement line in Xero. Max length &#x3D;18 | [optional] 
 **batch_payment_id** | **string** | The Xero generated unique identifier for the bank transaction (read-only) | [optional] 
 **date_string** | **string** | Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06 | [optional] 
-**date** | [**\DateTime**](\DateTime.md) | Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06 | [optional] 
+**date** | **string** | Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06 | [optional] 
 **amount** | **double** | The amount of the payment. Must be less than or equal to the outstanding amount owing on the invoice e.g. 200.00 | [optional] 
 **payments** | [**\XeroAPI\XeroPHP\Models\Accounting\Payment[]**](Payment.md) |  | [optional] 
 **type** | **string** | PAYBATCH for bill payments or RECBATCH for sales invoice payments (read-only) | [optional] 
 **status** | **string** | AUTHORISED or DELETED (read-only). New batch payments will have a status of AUTHORISED. It is not possible to delete batch payments via the API. | [optional] 
 **total_amount** | **string** | The total of the payments that make up the batch (read-only) | [optional] 
-**updated_date_utc** | [**\DateTime**](\DateTime.md) | UTC timestamp of last update to the payment | [optional] 
+**updated_date_utc** | **string** | UTC timestamp of last update to the payment | [optional] 
 **is_reconciled** | **string** | Booelan that tells you if the batch payment has been reconciled (read-only) | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

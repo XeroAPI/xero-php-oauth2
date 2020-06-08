@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **reporting_code** | **string** | Shown if set | [optional] 
 **reporting_code_name** | **string** | Shown if set | [optional] 
 **has_attachments** | **bool** | boolean to indicate if an account has an attachment (read only) | [optional] [default to false]
-**updated_date_utc** | [**\DateTime**](\DateTime.md) | Last modified date UTC format | [optional] 
+**updated_date_utc** | **string** | Last modified date UTC format | [optional] 
 **add_to_watchlist** | **bool** | Boolean – describes whether the account is shown in the watchlist widget on the dashboard | [optional] 
 **validation_errors** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
