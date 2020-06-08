@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **payment_date** | **string** | The date on which employees will be paid for the upcoming pay period (YYYY-MM-DD) | [optional] 
 **payroll_calendar_id** | **string** | Xero identifier | [optional] 
 **updated_date_utc** | **string** | Last modified timestamp | [optional] 
+**validation_errors** | [**\XeroAPI\XeroPHP\Models\PayrollAu\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

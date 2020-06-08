@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **string** | See Prepayment Types | [optional] 
 **contact** | [**\XeroAPI\XeroPHP\Models\Accounting\Contact**](Contact.md) |  | [optional] 
-**date** | [**\DateTime**](\DateTime.md) | The date the prepayment is created YYYY-MM-DD | [optional] 
+**date** | **string** | The date the prepayment is created YYYY-MM-DD | [optional] 
 **status** | **string** | See Prepayment Status Codes | [optional] 
 **line_amount_types** | [**\XeroAPI\XeroPHP\Models\Accounting\LineAmountTypes**](LineAmountTypes.md) |  | [optional] 
 **line_items** | [**\XeroAPI\XeroPHP\Models\Accounting\LineItem[]**](LineItem.md) | See Prepayment Line Items | [optional] 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **total_tax** | **double** | The total tax on the prepayment | [optional] 
 **total** | **double** | The total of the prepayment(subtotal + total tax) | [optional] 
 **reference** | **string** | Returns Invoice number field. Reference field isn&#39;t available. | [optional] 
-**updated_date_utc** | [**\DateTime**](\DateTime.md) | UTC timestamp of last update to the prepayment | [optional] 
+**updated_date_utc** | **string** | UTC timestamp of last update to the prepayment | [optional] 
 **currency_code** | [**\XeroAPI\XeroPHP\Models\Accounting\CurrencyCode**](CurrencyCode.md) |  | [optional] 
 **prepayment_id** | **string** | Xero generated unique identifier | [optional] 
 **currency_rate** | **double** | The currency rate for a multicurrency prepayment. If no rate is specified, the XE.com day rate is used | [optional] 

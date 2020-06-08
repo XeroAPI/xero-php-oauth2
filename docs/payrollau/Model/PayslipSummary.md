@@ -8,12 +8,12 @@ Name | Type | Description | Notes
 **first_name** | **string** | First name of employee | [optional] 
 **last_name** | **string** | Last name of employee | [optional] 
 **employee_group** | **string** | Employee group name | [optional] 
-**wages** | **float** | The Wages for the Payslip | [optional] 
-**deductions** | **float** | The Deductions for the Payslip | [optional] 
-**tax** | **float** | The Tax for the Payslip | [optional] 
-**super** | **float** | The Super for the Payslip | [optional] 
-**reimbursements** | **float** | The Reimbursements for the Payslip | [optional] 
-**net_pay** | **float** | The NetPay for the Payslip | [optional] 
+**wages** | **double** | The Wages for the Payslip | [optional] 
+**deductions** | **double** | The Deductions for the Payslip | [optional] 
+**tax** | **double** | The Tax for the Payslip | [optional] 
+**super** | **double** | The Super for the Payslip | [optional] 
+**reimbursements** | **double** | The Reimbursements for the Payslip | [optional] 
+**net_pay** | **double** | The NetPay for the Payslip | [optional] 
 **updated_date_utc** | **string** | Last modified timestamp | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

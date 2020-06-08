@@ -61,7 +61,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getConnections**
-> \XeroAPI\XeroPHP\Models\Identity\Connection[] getConnections()
+> \XeroAPI\XeroPHP\Models\Identity\Connection[] getConnections($auth_event_id)
 
 Allows you to retrieve the connections for this user
 
@@ -81,9 +81,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\IdentityApi(
     new GuzzleHttp\Client(),
     $config
 );
+$auth_event_id = 00000000-0000-0000-000-000000000000; // string | Filter by authEventId
 
 try {
-    $result = $apiInstance->getConnections();
+    $result = $apiInstance->getConnections($auth_event_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling IdentityApi->getConnections: ', $e->getMessage(), PHP_EOL;
@@ -92,7 +93,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **auth_event_id** | [**string**](../Model/.md)| Filter by authEventId | [optional]
 
 ### Return type
 

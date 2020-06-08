@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**number_of_units** | **float** | The Number of Units for the leave | [optional] 
+**number_of_units** | **double** | The Number of Units for the leave | [optional] 
 **pay_period_end_date** | **string** | The Pay Period End Date (YYYY-MM-DD) | [optional] 
 **pay_period_start_date** | **string** | The Pay Period Start Date (YYYY-MM-DD) | [optional] 
 **leave_period_status** | [**\XeroAPI\XeroPHP\Models\PayrollAu\LeavePeriodStatus**](LeavePeriodStatus.md) |  | [optional] 

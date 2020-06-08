@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **description** | **string** | The Description of the Leave | [optional] 
 **leave_periods** | [**\XeroAPI\XeroPHP\Models\PayrollAu\LeavePeriod[]**](LeavePeriod.md) |  | [optional] 
 **updated_date_utc** | **string** | Last modified timestamp | [optional] 
+**validation_errors** | [**\XeroAPI\XeroPHP\Models\PayrollAu\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

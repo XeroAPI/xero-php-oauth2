@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **tracking_category_name** | **string** | The name of the Tracking Category assigned to the contact under SalesTrackingCategories and PurchasesTrackingCategories | [optional] 
 **tracking_category_option** | **string** | The name of the Tracking Option assigned to the contact under SalesTrackingCategories and PurchasesTrackingCategories | [optional] 
 **payment_terms** | [**\XeroAPI\XeroPHP\Models\Accounting\PaymentTerm**](PaymentTerm.md) |  | [optional] 
-**updated_date_utc** | [**\DateTime**](\DateTime.md) | UTC timestamp of last update to contact | [optional] 
+**updated_date_utc** | **string** | UTC timestamp of last update to contact | [optional] 
 **contact_groups** | [**\XeroAPI\XeroPHP\Models\Accounting\ContactGroup[]**](ContactGroup.md) | Displays which contact groups a contact is included in | [optional] 
 **website** | **string** | Website address for contact (read only) | [optional] 
 **branding_theme** | [**\XeroAPI\XeroPHP\Models\Accounting\BrandingTheme**](BrandingTheme.md) |  | [optional] 
@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 **attachments** | [**\XeroAPI\XeroPHP\Models\Accounting\Attachment[]**](Attachment.md) | Displays array of attachments from the API | [optional] 
 **has_attachments** | **bool** | A boolean to indicate if a contact has an attachment | [optional] [default to false]
 **validation_errors** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays validation errors returned from the API | [optional] 
-**has_validation_errors** | **bool** | A boolean to indicate if a contact has an validation errors | [optional] 
+**has_validation_errors** | **bool** | A boolean to indicate if a contact has an validation errors | [optional] [default to false]
 **status_attribute_string** | **string** | Status of object | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

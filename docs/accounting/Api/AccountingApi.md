@@ -92,6 +92,7 @@ Method | HTTP request | Description
 [**getContactAttachmentByFileName**](AccountingApi.md#getContactAttachmentByFileName) | **GET** /Contacts/{ContactID}/Attachments/{FileName} | Allows you to retrieve Attachments on Contacts by file name
 [**getContactAttachmentById**](AccountingApi.md#getContactAttachmentById) | **GET** /Contacts/{ContactID}/Attachments/{AttachmentID} | Allows you to retrieve Attachments on Contacts
 [**getContactAttachments**](AccountingApi.md#getContactAttachments) | **GET** /Contacts/{ContactID}/Attachments | Allows you to retrieve, add and update contacts in a Xero organisation
+[**getContactByContactNumber**](AccountingApi.md#getContactByContactNumber) | **GET** /Contacts/{ContactNumber} | Allows you to retrieve a single contact by Contact Number in a Xero organisation
 [**getContactCISSettings**](AccountingApi.md#getContactCISSettings) | **GET** /Contacts/{ContactID}/CISSettings | Allows you to retrieve CISSettings for a contact in a Xero organisation
 [**getContactGroup**](AccountingApi.md#getContactGroup) | **GET** /ContactGroups/{ContactGroupID} | Allows you to retrieve a unique Contact Group by ID
 [**getContactGroups**](AccountingApi.md#getContactGroups) | **GET** /ContactGroups | Allows you to retrieve the ContactID and Name of all the contacts in a contact group
@@ -141,7 +142,6 @@ Method | HTTP request | Description
 [**getPaymentServices**](AccountingApi.md#getPaymentServices) | **GET** /PaymentServices | Allows you to retrieve payment services
 [**getPayments**](AccountingApi.md#getPayments) | **GET** /Payments | Allows you to retrieve payments for invoices and credit notes
 [**getPrepayment**](AccountingApi.md#getPrepayment) | **GET** /Prepayments/{PrepaymentID} | Allows you to retrieve a specified prepayments
-[**getPrepaymentAsPdf**](AccountingApi.md#getPrepaymentAsPdf) | **GET** /Prepayments/{PrepaymentID}/pdf | Allows you to retrieve prepayments as PDF files
 [**getPrepaymentHistory**](AccountingApi.md#getPrepaymentHistory) | **GET** /Prepayments/{PrepaymentID}/History | Allows you to retrieve a history records of an Prepayment
 [**getPrepayments**](AccountingApi.md#getPrepayments) | **GET** /Prepayments | Allows you to retrieve prepayments
 [**getPurchaseOrder**](AccountingApi.md#getPurchaseOrder) | **GET** /PurchaseOrders/{PurchaseOrderID} | Allows you to retrieve a specified purchase orders
@@ -5062,6 +5062,59 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **getContactByContactNumber**
+> \XeroAPI\XeroPHP\Models\Accounting\Contacts getContactByContactNumber($xero_tenant_id, $contact_number)
+
+Allows you to retrieve a single contact by Contact Number in a Xero organisation
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$contact_number = SB2; // string | This field is read only on the Xero contact screen, used to identify contacts in external systems (max length = 50).
+
+try {
+    $result = $apiInstance->getContactByContactNumber($xero_tenant_id, $contact_number);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->getContactByContactNumber: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **contact_number** | **string**| This field is read only on the Xero contact screen, used to identify contacts in external systems (max length &#x3D; 50). |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **getContactCISSettings**
 > \XeroAPI\XeroPHP\Models\Accounting\CISSettings getContactCISSettings($xero_tenant_id, $contact_id)
 
@@ -7662,7 +7715,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPayments**
-> \XeroAPI\XeroPHP\Models\Accounting\Payments getPayments($xero_tenant_id, $if_modified_since, $where, $order)
+> \XeroAPI\XeroPHP\Models\Accounting\Payments getPayments($xero_tenant_id, $if_modified_since, $where, $order, $page)
 
 Allows you to retrieve payments for invoices and credit notes
 
@@ -7684,9 +7737,10 @@ $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records created or modified since this timestamp will be returned
 $where = Status=="' + Payment.StatusEnum.AUTHORISED + '"; // string | Filter by an any element
 $order = Amount ASC; // string | Order by an any element
+$page = 1; // int | Up to 100 payments will be returned in a single API call
 
 try {
-    $result = $apiInstance->getPayments($xero_tenant_id, $if_modified_since, $where, $order);
+    $result = $apiInstance->getPayments($xero_tenant_id, $if_modified_since, $where, $order, $page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->getPayments: ', $e->getMessage(), PHP_EOL;
@@ -7702,6 +7756,7 @@ Name | Type | Description  | Notes
  **if_modified_since** | **\DateTime**| Only records created or modified since this timestamp will be returned | [optional]
  **where** | **string**| Filter by an any element | [optional]
  **order** | **string**| Order by an any element | [optional]
+ **page** | **int**| Up to 100 payments will be returned in a single API call | [optional]
 
 ### Return type
 
@@ -7768,59 +7823,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **getPrepaymentAsPdf**
-> \SplFileObject getPrepaymentAsPdf($xero_tenant_id, $prepayment_id)
-
-Allows you to retrieve prepayments as PDF files
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$prepayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a PrePayment
-
-try {
-    $result = $apiInstance->getPrepaymentAsPdf($xero_tenant_id, $prepayment_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling AccountingApi->getPrepaymentAsPdf: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **prepayment_id** | [**string**](../Model/.md)| Unique identifier for a PrePayment |
-
-### Return type
-
-[**\SplFileObject**](../Model/\SplFileObject.md)
-
-### Authorization
-
-[OAuth2](../../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/pdf
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
