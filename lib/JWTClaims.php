@@ -5,7 +5,7 @@ use \Firebase\JWT\JWT;
 
 class JWTClaims
 {
-	private $idToken;
+    private $idToken;
     private $jwtDecoded;
     private $email;
     private $family_name;
@@ -13,44 +13,60 @@ class JWTClaims
     private $username;
     private $session_id;
     private $user_id;
-    private $sub​value;
+    private $subvalue;
     private $expiration;
     private $auth_time;
     private $iss;
     private $at_hash;
     private $sid;
+    private $authentication_event_id;
 
     private $aud;
-    private $iat​;
+    private $iat;
 
     public function decode() {
         
-        $tks = explode('.', $this->idToken);
-        list($headb64, $bodyb64, $cryptob64) = $tks;
-        $this->jwtDecoded = JWT::jsonDecode(JWT::urlsafeB64Decode($bodyb64),true);
+        if (isset($this->idToken)) {
+            $tks = explode('.', $this->idToken);
+            list($headb64, $bodyb64, $cryptob64) = $tks;
+            $this->jwtDecoded = JWT::jsonDecode(JWT::urlsafeB64Decode($bodyb64),true);
         
-        $this->sub​value = $this->jwtDecoded->{'sub'};
-        $this->expiration = $this->jwtDecoded->{'exp'};
-        $this->email = $this->jwtDecoded->{'email'};
-        $this->family_name = $this->jwtDecoded->{'family_name'};
-        $this->given_name = $this->jwtDecoded->{'given_name'};
-        $this->username = $this->jwtDecoded->{'preferred_username'};
-        $this->session_id = $this->jwtDecoded->{'global_session_id'};
-        $this->user_id = $this->jwtDecoded->{'xero_userid'};
-        $this->auth_time = $this->jwtDecoded->{'auth_time'};
-        $this->iss = $this->jwtDecoded->{'iss'};
-        $this->at_hash = $this->jwtDecoded->{'at_hash'};
-        $this->sid = $this->jwtDecoded->{'sid'};
+            $this->subvalue = $this->jwtDecoded->{'sub'};
+            $this->expiration = $this->jwtDecoded->{'exp'};
+            $this->email = $this->jwtDecoded->{'email'};
+            $this->family_name = $this->jwtDecoded->{'family_name'};
+            $this->given_name = $this->jwtDecoded->{'given_name'};
+            $this->username = $this->jwtDecoded->{'preferred_username'};
+            $this->session_id = $this->jwtDecoded->{'global_session_id'};
+            $this->user_id = $this->jwtDecoded->{'xero_userid'};
+            $this->auth_time = $this->jwtDecoded->{'auth_time'};
+            $this->iss = $this->jwtDecoded->{'iss'};
+            $this->at_hash = $this->jwtDecoded->{'at_hash'};
+            $this->sid = $this->jwtDecoded->{'sid'};
         
-        // No idea why these values can't be read
-        //but appear when dumping jwtDecoded?!?!
-        //$this->aud = $this->jwtDecoded->{'aud​'};
-        //$this->iat = $this->jwtDecoded->{'iat​'};
+            // No idea why these values can't be read
+            //but appear when dumping jwtDecoded?!?!
+            //$this->aud = $this->jwtDecoded->{'aud'};
+            //$this->iat = $this->jwtDecoded->{'iat'};
+        }
+
+        if (isset($this->accessToken)) {
+            $tks = explode('.', $this->accessToken);
+            list($headb64, $bodyb64, $cryptob64) = $tks;
+            $this->jwtAccessDecoded = JWT::jsonDecode(JWT::urlsafeB64Decode($bodyb64),true);
+
+            $this->authentication_event_id = $this->jwtAccessDecoded->{'authentication_event_id'};
+        }
+
         return $this;
     }
 
     public function setTokenId($param = null) {
         $this->idToken = $param;
+    }
+
+    public function setTokenAccess($param = null) {
+        $this->accessToken = $param;
     }
 
     // Entire JWT decoded into Object
@@ -95,7 +111,7 @@ class JWTClaims
 
     //The unique identifier for the end user
     public function getSub() {
-        return $this->sub​value;
+        return $this->subvalue;
     }
 
     public function getAudValue() {
@@ -109,7 +125,7 @@ class JWTClaims
 
     //The issue time
     public function getIat() {
-        return $this->iat​;
+        return $this->iat;
     }
 
     //The issuer of the token (i.e. https://identity.xero.com)
@@ -125,6 +141,11 @@ class JWTClaims
     //The session id
     public function getSid() {
         return $this->sid;
+    }
+
+    //The authentication event id
+    public function getAuthenticationEventId() {
+        return $this->authentication_event_id;
     }
 }
 ?>
