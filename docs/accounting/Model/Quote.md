@@ -25,6 +25,8 @@ Name | Type | Description | Notes
 **branding_theme_id** | **string** | See BrandingThemes | [optional] 
 **updated_date_utc** | **string** | Last modified date UTC format | [optional] 
 **line_amount_types** | [**\XeroAPI\XeroPHP\Models\Accounting\QuoteLineAmountTypes**](QuoteLineAmountTypes.md) |  | [optional] 
+**status_attribute_string** | **string** | A string to indicate if a invoice status | [optional] 
+**validation_errors** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
