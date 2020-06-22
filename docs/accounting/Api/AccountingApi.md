@@ -1106,7 +1106,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createCreditNoteAllocation**
-> \XeroAPI\XeroPHP\Models\Accounting\Allocations createCreditNoteAllocation($xero_tenant_id, $credit_note_id, $allocations)
+> \XeroAPI\XeroPHP\Models\Accounting\Allocations createCreditNoteAllocation($xero_tenant_id, $credit_note_id, $allocations, $summarize_errors)
 
 Allows you to create Allocation on CreditNote
 
@@ -1127,9 +1127,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
 $allocations = { allocations:[ { amount:1.0, date:"2019-03-05", invoice:{ invoiceID:"c45720a1-ade3-4a38-a064-d15489be6841", lineItems:[], type: Invoice.TypeEnum.ACCPAY, contact:{} } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | Allocations with array of Allocation object in body of request.
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
 
 try {
-    $result = $apiInstance->createCreditNoteAllocation($xero_tenant_id, $credit_note_id, $allocations);
+    $result = $apiInstance->createCreditNoteAllocation($xero_tenant_id, $credit_note_id, $allocations, $summarize_errors);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->createCreditNoteAllocation: ', $e->getMessage(), PHP_EOL;
@@ -1144,6 +1145,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **credit_note_id** | [**string**](../Model/.md)| Unique identifier for a Credit Note |
  **allocations** | [**\XeroAPI\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)| Allocations with array of Allocation object in body of request. |
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
 
 ### Return type
 

@@ -47,6 +47,16 @@ echo($result->getAccounts()[0]->getUpdatedDateUtcAsDate()->format('Y-m-d H:i:s')
 
 // display string in MS .NET JSON format \/Date(1439434356790)\/
 echo($result->getAccounts()[0]->getUpdatedDateUtc() ):
+
+//When setting a date for accounting or AU Payroll, remember to use the correct method
+// For example setStartDate has a 2nd  method with "AsDate" if you wish to pass a native date
+// This converts the date object to MS DateFormat
+$leaveapplication->setStartDateAsDate(new DateTime('2020-05-02'));
+
+// You'll get an error from the AU Payroll API if you try setStartDate("2020-05-02")
+// But if you want to pass in MS Dateformat, this string will work.
+$leaveapplication->setStartDate("/Date(1547164800000+0000)/");
+
 ```
 
 **This is a breaking change between version 1.x and 2.x.**
