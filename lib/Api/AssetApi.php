@@ -87,15 +87,11 @@ class AssetApi
         return $this->config;
     }
 
-
     /**
      * Operation createAsset
-     *
      * adds a fixed asset
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Asset\Asset $asset Fixed asset you are creating (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Asset\Asset
@@ -105,15 +101,11 @@ class AssetApi
         list($response) = $this->createAssetWithHttpInfo($xero_tenant_id, $asset);
         return $response;
     }
-
     /**
      * Operation createAssetWithHttpInfo
-     *
      * adds a fixed asset
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Asset\Asset $asset Fixed asset you are creating (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Asset\Asset, HTTP status code, HTTP response headers (array of strings)
@@ -121,7 +113,6 @@ class AssetApi
     public function createAssetWithHttpInfo($xero_tenant_id, $asset)
     {
         $request = $this->createAssetRequest($xero_tenant_id, $asset);
-
         try {
             $options = $this->createHttpClientOption();
             try {
@@ -134,9 +125,7 @@ class AssetApi
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                 );
             }
-
             $statusCode = $response->getStatusCode();
-
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
                     sprintf(
@@ -149,7 +138,6 @@ class AssetApi
                     $response->getBody()
                 );
             }
-
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
@@ -158,14 +146,12 @@ class AssetApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         AssetObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Asset\Asset', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
-
             $returnType = '\XeroAPI\XeroPHP\Models\Asset\Asset';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
@@ -173,13 +159,11 @@ class AssetApi
             } else {
                 $content = $responseBody->getContents();
             }
-
             return [
                 AssetObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -194,15 +178,11 @@ class AssetApi
             throw $e;
         }
     }
-
     /**
      * Operation createAssetAsync
-     *
      * adds a fixed asset
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Asset\Asset $asset Fixed asset you are creating (required)
-     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -215,23 +195,17 @@ class AssetApi
                 }
             );
     }
-
     /**
      * Operation createAssetAsyncWithHttpInfo
-     *
      * adds a fixed asset
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Asset\Asset $asset Fixed asset you are creating (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
+     * @return \GuzzleHttp\Promise\PromiseInterface */
     public function createAssetAsyncWithHttpInfo($xero_tenant_id, $asset)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Asset\Asset';
         $request = $this->createAssetRequest($xero_tenant_id, $asset);
-
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
@@ -242,7 +216,6 @@ class AssetApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         AssetObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
@@ -268,13 +241,10 @@ class AssetApi
 
     /**
      * Create request for operation 'createAsset'
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Asset\Asset $asset Fixed asset you are creating (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
+     * @return \GuzzleHttp\Psr7\Request  */
     protected function createAssetRequest($xero_tenant_id, $asset)
     {
         // verify the required parameter 'xero_tenant_id' is set
@@ -289,26 +259,21 @@ class AssetApi
                 'Missing the required parameter $asset when calling createAsset'
             );
         }
-
         $resourcePath = '/Assets';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AssetObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
-
         // body params
         $_tempBody = null;
         if (isset($asset)) {
             $_tempBody = $asset;
         }
-
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -319,7 +284,6 @@ class AssetApi
                 ['application/json']
             );
         }
-
         // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -342,29 +306,24 @@ class AssetApi
 
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
-
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
             $headers
         );
-
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
@@ -374,15 +333,11 @@ class AssetApi
         );
     }
 
-
     /**
      * Operation createAssetType
-     *
      * adds a fixed asset type
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Asset\AssetType $asset_type Asset type to add (optional)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Asset\AssetType
@@ -392,15 +347,11 @@ class AssetApi
         list($response) = $this->createAssetTypeWithHttpInfo($xero_tenant_id, $asset_type);
         return $response;
     }
-
     /**
      * Operation createAssetTypeWithHttpInfo
-     *
      * adds a fixed asset type
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Asset\AssetType $asset_type Asset type to add (optional)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Asset\AssetType, HTTP status code, HTTP response headers (array of strings)
@@ -408,7 +359,6 @@ class AssetApi
     public function createAssetTypeWithHttpInfo($xero_tenant_id, $asset_type = null)
     {
         $request = $this->createAssetTypeRequest($xero_tenant_id, $asset_type);
-
         try {
             $options = $this->createHttpClientOption();
             try {
@@ -421,9 +371,7 @@ class AssetApi
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                 );
             }
-
             $statusCode = $response->getStatusCode();
-
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
                     sprintf(
@@ -436,7 +384,6 @@ class AssetApi
                     $response->getBody()
                 );
             }
-
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
@@ -445,14 +392,12 @@ class AssetApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         AssetObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Asset\AssetType', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
-
             $returnType = '\XeroAPI\XeroPHP\Models\Asset\AssetType';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
@@ -460,13 +405,11 @@ class AssetApi
             } else {
                 $content = $responseBody->getContents();
             }
-
             return [
                 AssetObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -481,15 +424,11 @@ class AssetApi
             throw $e;
         }
     }
-
     /**
      * Operation createAssetTypeAsync
-     *
      * adds a fixed asset type
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Asset\AssetType $asset_type Asset type to add (optional)
-     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -502,23 +441,17 @@ class AssetApi
                 }
             );
     }
-
     /**
      * Operation createAssetTypeAsyncWithHttpInfo
-     *
      * adds a fixed asset type
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Asset\AssetType $asset_type Asset type to add (optional)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
+     * @return \GuzzleHttp\Promise\PromiseInterface */
     public function createAssetTypeAsyncWithHttpInfo($xero_tenant_id, $asset_type = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Asset\AssetType';
         $request = $this->createAssetTypeRequest($xero_tenant_id, $asset_type);
-
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
@@ -529,7 +462,6 @@ class AssetApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         AssetObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
@@ -555,13 +487,10 @@ class AssetApi
 
     /**
      * Create request for operation 'createAssetType'
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Asset\AssetType $asset_type Asset type to add (optional)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
+     * @return \GuzzleHttp\Psr7\Request  */
     protected function createAssetTypeRequest($xero_tenant_id, $asset_type = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
@@ -570,26 +499,21 @@ class AssetApi
                 'Missing the required parameter $xero_tenant_id when calling createAssetType'
             );
         }
-
         $resourcePath = '/AssetTypes';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AssetObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
-
         // body params
         $_tempBody = null;
         if (isset($asset_type)) {
             $_tempBody = $asset_type;
         }
-
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -600,7 +524,6 @@ class AssetApi
                 ['application/json']
             );
         }
-
         // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -623,29 +546,24 @@ class AssetApi
 
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
-
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
             $headers
         );
-
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
@@ -655,15 +573,11 @@ class AssetApi
         );
     }
 
-
     /**
      * Operation getAssetById
-     *
      * retrieves fixed asset by id
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $id fixed asset id for single object (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Asset\Asset
@@ -673,15 +587,11 @@ class AssetApi
         list($response) = $this->getAssetByIdWithHttpInfo($xero_tenant_id, $id);
         return $response;
     }
-
     /**
      * Operation getAssetByIdWithHttpInfo
-     *
      * retrieves fixed asset by id
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $id fixed asset id for single object (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Asset\Asset, HTTP status code, HTTP response headers (array of strings)
@@ -689,7 +599,6 @@ class AssetApi
     public function getAssetByIdWithHttpInfo($xero_tenant_id, $id)
     {
         $request = $this->getAssetByIdRequest($xero_tenant_id, $id);
-
         try {
             $options = $this->createHttpClientOption();
             try {
@@ -702,9 +611,7 @@ class AssetApi
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                 );
             }
-
             $statusCode = $response->getStatusCode();
-
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
                     sprintf(
@@ -717,7 +624,6 @@ class AssetApi
                     $response->getBody()
                 );
             }
-
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
@@ -726,14 +632,12 @@ class AssetApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         AssetObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Asset\Asset', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
-
             $returnType = '\XeroAPI\XeroPHP\Models\Asset\Asset';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
@@ -741,13 +645,11 @@ class AssetApi
             } else {
                 $content = $responseBody->getContents();
             }
-
             return [
                 AssetObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -762,15 +664,11 @@ class AssetApi
             throw $e;
         }
     }
-
     /**
      * Operation getAssetByIdAsync
-     *
      * retrieves fixed asset by id
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $id fixed asset id for single object (required)
-     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -783,23 +681,17 @@ class AssetApi
                 }
             );
     }
-
     /**
      * Operation getAssetByIdAsyncWithHttpInfo
-     *
      * retrieves fixed asset by id
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $id fixed asset id for single object (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
+     * @return \GuzzleHttp\Promise\PromiseInterface */
     public function getAssetByIdAsyncWithHttpInfo($xero_tenant_id, $id)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Asset\Asset';
         $request = $this->getAssetByIdRequest($xero_tenant_id, $id);
-
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
@@ -810,7 +702,6 @@ class AssetApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         AssetObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
@@ -836,13 +727,10 @@ class AssetApi
 
     /**
      * Create request for operation 'getAssetById'
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $id fixed asset id for single object (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
+     * @return \GuzzleHttp\Psr7\Request  */
     protected function getAssetByIdRequest($xero_tenant_id, $id)
     {
         // verify the required parameter 'xero_tenant_id' is set
@@ -857,19 +745,16 @@ class AssetApi
                 'Missing the required parameter $id when calling getAssetById'
             );
         }
-
         $resourcePath = '/Assets/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AssetObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -878,10 +763,8 @@ class AssetApi
                 $resourcePath
             );
         }
-
         // body params
         $_tempBody = null;
-
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -892,7 +775,6 @@ class AssetApi
                 []
             );
         }
-
         // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -915,29 +797,24 @@ class AssetApi
 
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
-
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
             $headers
         );
-
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
@@ -947,14 +824,10 @@ class AssetApi
         );
     }
 
-
     /**
      * Operation getAssetSettings
-     *
      * searches fixed asset settings
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Asset\Setting
@@ -964,14 +837,10 @@ class AssetApi
         list($response) = $this->getAssetSettingsWithHttpInfo($xero_tenant_id);
         return $response;
     }
-
     /**
      * Operation getAssetSettingsWithHttpInfo
-     *
      * searches fixed asset settings
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Asset\Setting, HTTP status code, HTTP response headers (array of strings)
@@ -979,7 +848,6 @@ class AssetApi
     public function getAssetSettingsWithHttpInfo($xero_tenant_id)
     {
         $request = $this->getAssetSettingsRequest($xero_tenant_id);
-
         try {
             $options = $this->createHttpClientOption();
             try {
@@ -992,9 +860,7 @@ class AssetApi
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                 );
             }
-
             $statusCode = $response->getStatusCode();
-
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
                     sprintf(
@@ -1007,7 +873,6 @@ class AssetApi
                     $response->getBody()
                 );
             }
-
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
@@ -1016,14 +881,12 @@ class AssetApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         AssetObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Asset\Setting', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
-
             $returnType = '\XeroAPI\XeroPHP\Models\Asset\Setting';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
@@ -1031,13 +894,11 @@ class AssetApi
             } else {
                 $content = $responseBody->getContents();
             }
-
             return [
                 AssetObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -1052,14 +913,10 @@ class AssetApi
             throw $e;
         }
     }
-
     /**
      * Operation getAssetSettingsAsync
-     *
      * searches fixed asset settings
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -1072,22 +929,16 @@ class AssetApi
                 }
             );
     }
-
     /**
      * Operation getAssetSettingsAsyncWithHttpInfo
-     *
      * searches fixed asset settings
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
+     * @return \GuzzleHttp\Promise\PromiseInterface */
     public function getAssetSettingsAsyncWithHttpInfo($xero_tenant_id)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Asset\Setting';
         $request = $this->getAssetSettingsRequest($xero_tenant_id);
-
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
@@ -1098,7 +949,6 @@ class AssetApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         AssetObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
@@ -1124,12 +974,9 @@ class AssetApi
 
     /**
      * Create request for operation 'getAssetSettings'
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
+     * @return \GuzzleHttp\Psr7\Request  */
     protected function getAssetSettingsRequest($xero_tenant_id)
     {
         // verify the required parameter 'xero_tenant_id' is set
@@ -1138,23 +985,18 @@ class AssetApi
                 'Missing the required parameter $xero_tenant_id when calling getAssetSettings'
             );
         }
-
         $resourcePath = '/Settings';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AssetObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
-
         // body params
         $_tempBody = null;
-
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -1165,7 +1007,6 @@ class AssetApi
                 []
             );
         }
-
         // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -1188,29 +1029,24 @@ class AssetApi
 
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
-
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
             $headers
         );
-
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
@@ -1220,14 +1056,10 @@ class AssetApi
         );
     }
 
-
     /**
      * Operation getAssetTypes
-     *
      * searches fixed asset types
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Asset\AssetType[]
@@ -1237,14 +1069,10 @@ class AssetApi
         list($response) = $this->getAssetTypesWithHttpInfo($xero_tenant_id);
         return $response;
     }
-
     /**
      * Operation getAssetTypesWithHttpInfo
-     *
      * searches fixed asset types
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Asset\AssetType[], HTTP status code, HTTP response headers (array of strings)
@@ -1252,7 +1080,6 @@ class AssetApi
     public function getAssetTypesWithHttpInfo($xero_tenant_id)
     {
         $request = $this->getAssetTypesRequest($xero_tenant_id);
-
         try {
             $options = $this->createHttpClientOption();
             try {
@@ -1265,9 +1092,7 @@ class AssetApi
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                 );
             }
-
             $statusCode = $response->getStatusCode();
-
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
                     sprintf(
@@ -1280,7 +1105,6 @@ class AssetApi
                     $response->getBody()
                 );
             }
-
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
@@ -1289,14 +1113,12 @@ class AssetApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         AssetObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Asset\AssetType[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
-
             $returnType = '\XeroAPI\XeroPHP\Models\Asset\AssetType[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
@@ -1304,13 +1126,11 @@ class AssetApi
             } else {
                 $content = $responseBody->getContents();
             }
-
             return [
                 AssetObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -1325,14 +1145,10 @@ class AssetApi
             throw $e;
         }
     }
-
     /**
      * Operation getAssetTypesAsync
-     *
      * searches fixed asset types
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -1345,22 +1161,16 @@ class AssetApi
                 }
             );
     }
-
     /**
      * Operation getAssetTypesAsyncWithHttpInfo
-     *
      * searches fixed asset types
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
+     * @return \GuzzleHttp\Promise\PromiseInterface */
     public function getAssetTypesAsyncWithHttpInfo($xero_tenant_id)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Asset\AssetType[]';
         $request = $this->getAssetTypesRequest($xero_tenant_id);
-
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
@@ -1371,7 +1181,6 @@ class AssetApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         AssetObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
@@ -1397,12 +1206,9 @@ class AssetApi
 
     /**
      * Create request for operation 'getAssetTypes'
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
+     * @return \GuzzleHttp\Psr7\Request  */
     protected function getAssetTypesRequest($xero_tenant_id)
     {
         // verify the required parameter 'xero_tenant_id' is set
@@ -1411,23 +1217,18 @@ class AssetApi
                 'Missing the required parameter $xero_tenant_id when calling getAssetTypes'
             );
         }
-
         $resourcePath = '/AssetTypes';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AssetObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
-
         // body params
         $_tempBody = null;
-
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -1438,7 +1239,6 @@ class AssetApi
                 []
             );
         }
-
         // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -1461,29 +1261,24 @@ class AssetApi
 
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
-
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
             $headers
         );
-
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
@@ -1493,12 +1288,9 @@ class AssetApi
         );
     }
 
-
     /**
      * Operation getAssets
-     *
      * searches fixed asset
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Asset\AssetStatusQueryParam $status Required when retrieving a collection of assets. See Asset Status Codes (required)
      * @param  int $page Results are paged. This specifies which page of the results to return. The default page is 1. (optional)
@@ -1506,7 +1298,6 @@ class AssetApi
      * @param  string $order_by Requests can be ordered by AssetType, AssetName, AssetNumber, PurchaseDate and PurchasePrice. If the asset status is DISPOSED it also allows DisposalDate and DisposalPrice. (optional)
      * @param  string $sort_direction ASC or DESC (optional)
      * @param  string $filter_by A string that can be used to filter the list to only return assets containing the text. Checks it against the AssetName, AssetNumber, Description and AssetTypeName fields. (optional)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Asset\Assets
@@ -1516,12 +1307,9 @@ class AssetApi
         list($response) = $this->getAssetsWithHttpInfo($xero_tenant_id, $status, $page, $page_size, $order_by, $sort_direction, $filter_by);
         return $response;
     }
-
     /**
      * Operation getAssetsWithHttpInfo
-     *
      * searches fixed asset
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Asset\AssetStatusQueryParam $status Required when retrieving a collection of assets. See Asset Status Codes (required)
      * @param  int $page Results are paged. This specifies which page of the results to return. The default page is 1. (optional)
@@ -1529,7 +1317,6 @@ class AssetApi
      * @param  string $order_by Requests can be ordered by AssetType, AssetName, AssetNumber, PurchaseDate and PurchasePrice. If the asset status is DISPOSED it also allows DisposalDate and DisposalPrice. (optional)
      * @param  string $sort_direction ASC or DESC (optional)
      * @param  string $filter_by A string that can be used to filter the list to only return assets containing the text. Checks it against the AssetName, AssetNumber, Description and AssetTypeName fields. (optional)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Asset\Assets, HTTP status code, HTTP response headers (array of strings)
@@ -1537,7 +1324,6 @@ class AssetApi
     public function getAssetsWithHttpInfo($xero_tenant_id, $status, $page = null, $page_size = null, $order_by = null, $sort_direction = null, $filter_by = null)
     {
         $request = $this->getAssetsRequest($xero_tenant_id, $status, $page, $page_size, $order_by, $sort_direction, $filter_by);
-
         try {
             $options = $this->createHttpClientOption();
             try {
@@ -1550,9 +1336,7 @@ class AssetApi
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                 );
             }
-
             $statusCode = $response->getStatusCode();
-
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
                     sprintf(
@@ -1565,7 +1349,6 @@ class AssetApi
                     $response->getBody()
                 );
             }
-
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
@@ -1574,14 +1357,12 @@ class AssetApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         AssetObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Asset\Assets', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
-
             $returnType = '\XeroAPI\XeroPHP\Models\Asset\Assets';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
@@ -1589,13 +1370,11 @@ class AssetApi
             } else {
                 $content = $responseBody->getContents();
             }
-
             return [
                 AssetObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -1610,12 +1389,9 @@ class AssetApi
             throw $e;
         }
     }
-
     /**
      * Operation getAssetsAsync
-     *
      * searches fixed asset
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Asset\AssetStatusQueryParam $status Required when retrieving a collection of assets. See Asset Status Codes (required)
      * @param  int $page Results are paged. This specifies which page of the results to return. The default page is 1. (optional)
@@ -1623,7 +1399,6 @@ class AssetApi
      * @param  string $order_by Requests can be ordered by AssetType, AssetName, AssetNumber, PurchaseDate and PurchasePrice. If the asset status is DISPOSED it also allows DisposalDate and DisposalPrice. (optional)
      * @param  string $sort_direction ASC or DESC (optional)
      * @param  string $filter_by A string that can be used to filter the list to only return assets containing the text. Checks it against the AssetName, AssetNumber, Description and AssetTypeName fields. (optional)
-     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -1636,12 +1411,9 @@ class AssetApi
                 }
             );
     }
-
     /**
      * Operation getAssetsAsyncWithHttpInfo
-     *
      * searches fixed asset
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Asset\AssetStatusQueryParam $status Required when retrieving a collection of assets. See Asset Status Codes (required)
      * @param  int $page Results are paged. This specifies which page of the results to return. The default page is 1. (optional)
@@ -1649,15 +1421,12 @@ class AssetApi
      * @param  string $order_by Requests can be ordered by AssetType, AssetName, AssetNumber, PurchaseDate and PurchasePrice. If the asset status is DISPOSED it also allows DisposalDate and DisposalPrice. (optional)
      * @param  string $sort_direction ASC or DESC (optional)
      * @param  string $filter_by A string that can be used to filter the list to only return assets containing the text. Checks it against the AssetName, AssetNumber, Description and AssetTypeName fields. (optional)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
+     * @return \GuzzleHttp\Promise\PromiseInterface */
     public function getAssetsAsyncWithHttpInfo($xero_tenant_id, $status, $page = null, $page_size = null, $order_by = null, $sort_direction = null, $filter_by = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Asset\Assets';
         $request = $this->getAssetsRequest($xero_tenant_id, $status, $page, $page_size, $order_by, $sort_direction, $filter_by);
-
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
@@ -1668,7 +1437,6 @@ class AssetApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         AssetObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
@@ -1694,7 +1462,6 @@ class AssetApi
 
     /**
      * Create request for operation 'getAssets'
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Asset\AssetStatusQueryParam $status Required when retrieving a collection of assets. See Asset Status Codes (required)
      * @param  int $page Results are paged. This specifies which page of the results to return. The default page is 1. (optional)
@@ -1702,10 +1469,8 @@ class AssetApi
      * @param  string $order_by Requests can be ordered by AssetType, AssetName, AssetNumber, PurchaseDate and PurchasePrice. If the asset status is DISPOSED it also allows DisposalDate and DisposalPrice. (optional)
      * @param  string $sort_direction ASC or DESC (optional)
      * @param  string $filter_by A string that can be used to filter the list to only return assets containing the text. Checks it against the AssetName, AssetNumber, Description and AssetTypeName fields. (optional)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
+     * @return \GuzzleHttp\Psr7\Request  */
     protected function getAssetsRequest($xero_tenant_id, $status, $page = null, $page_size = null, $order_by = null, $sort_direction = null, $filter_by = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
@@ -1720,14 +1485,12 @@ class AssetApi
                 'Missing the required parameter $status when calling getAssets'
             );
         }
-
         $resourcePath = '/Assets';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
         // query params
         if ($status !== null) {
             $queryParams['status'] = AssetObjectSerializer::toQueryValue($status);
@@ -1756,11 +1519,8 @@ class AssetApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = AssetObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
-
         // body params
         $_tempBody = null;
-
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -1771,7 +1531,6 @@ class AssetApi
                 []
             );
         }
-
         // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -1794,29 +1553,24 @@ class AssetApi
 
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
-
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
             $headers
         );
-
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',

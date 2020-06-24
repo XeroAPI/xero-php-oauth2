@@ -87,14 +87,10 @@ class IdentityApi
         return $this->config;
     }
 
-
     /**
      * Operation deleteConnection
-     *
      * Allows you to delete a connection for this user (i.e. disconnect a tenant)
-     *
      * @param  string $id Unique identifier for retrieving single object (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
@@ -103,14 +99,10 @@ class IdentityApi
     {
         $this->deleteConnectionWithHttpInfo($id);
     }
-
     /**
      * Operation deleteConnectionWithHttpInfo
-     *
      * Allows you to delete a connection for this user (i.e. disconnect a tenant)
-     *
      * @param  string $id Unique identifier for retrieving single object (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
@@ -118,7 +110,6 @@ class IdentityApi
     public function deleteConnectionWithHttpInfo($id)
     {
         $request = $this->deleteConnectionRequest($id);
-
         try {
             $options = $this->createHttpClientOption();
             try {
@@ -131,9 +122,7 @@ class IdentityApi
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                 );
             }
-
             $statusCode = $response->getStatusCode();
-
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
                     sprintf(
@@ -146,23 +135,17 @@ class IdentityApi
                     $response->getBody()
                 );
             }
-
             return [null, $statusCode, $response->getHeaders()];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
             }
             throw $e;
         }
     }
-
     /**
      * Operation deleteConnectionAsync
-     *
      * Allows you to delete a connection for this user (i.e. disconnect a tenant)
-     *
      * @param  string $id Unique identifier for retrieving single object (required)
-     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -175,22 +158,16 @@ class IdentityApi
                 }
             );
     }
-
     /**
      * Operation deleteConnectionAsyncWithHttpInfo
-     *
      * Allows you to delete a connection for this user (i.e. disconnect a tenant)
-     *
      * @param  string $id Unique identifier for retrieving single object (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
+     * @return \GuzzleHttp\Promise\PromiseInterface */
     public function deleteConnectionAsyncWithHttpInfo($id)
     {
         $returnType = '';
         $request = $this->deleteConnectionRequest($id);
-
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
@@ -216,12 +193,9 @@ class IdentityApi
 
     /**
      * Create request for operation 'deleteConnection'
-     *
      * @param  string $id Unique identifier for retrieving single object (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
+     * @return \GuzzleHttp\Psr7\Request  */
     protected function deleteConnectionRequest($id)
     {
         // verify the required parameter 'id' is set
@@ -230,15 +204,12 @@ class IdentityApi
                 'Missing the required parameter $id when calling deleteConnection'
             );
         }
-
         $resourcePath = '/connections/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
-        
         // path params
         if ($id !== null) {
             $resourcePath = str_replace(
@@ -247,10 +218,8 @@ class IdentityApi
                 $resourcePath
             );
         }
-
         // body params
         $_tempBody = null;
-
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 []
@@ -261,7 +230,6 @@ class IdentityApi
                 []
             );
         }
-
         // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -284,29 +252,24 @@ class IdentityApi
 
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
-
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
             $headers
         );
-
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'DELETE',
@@ -316,14 +279,10 @@ class IdentityApi
         );
     }
 
-
     /**
      * Operation getConnections
-     *
      * Allows you to retrieve the connections for this user
-     *
      * @param  string $auth_event_id Filter by authEventId (optional)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Identity\Connection[]
@@ -333,14 +292,10 @@ class IdentityApi
         list($response) = $this->getConnectionsWithHttpInfo($auth_event_id);
         return $response;
     }
-
     /**
      * Operation getConnectionsWithHttpInfo
-     *
      * Allows you to retrieve the connections for this user
-     *
      * @param  string $auth_event_id Filter by authEventId (optional)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Identity\Connection[], HTTP status code, HTTP response headers (array of strings)
@@ -348,7 +303,6 @@ class IdentityApi
     public function getConnectionsWithHttpInfo($auth_event_id = null)
     {
         $request = $this->getConnectionsRequest($auth_event_id);
-
         try {
             $options = $this->createHttpClientOption();
             try {
@@ -361,9 +315,7 @@ class IdentityApi
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                 );
             }
-
             $statusCode = $response->getStatusCode();
-
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
                     sprintf(
@@ -376,7 +328,6 @@ class IdentityApi
                     $response->getBody()
                 );
             }
-
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
@@ -385,14 +336,12 @@ class IdentityApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         IdentityObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Identity\Connection[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
-
             $returnType = '\XeroAPI\XeroPHP\Models\Identity\Connection[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
@@ -400,13 +349,11 @@ class IdentityApi
             } else {
                 $content = $responseBody->getContents();
             }
-
             return [
                 IdentityObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -421,14 +368,10 @@ class IdentityApi
             throw $e;
         }
     }
-
     /**
      * Operation getConnectionsAsync
-     *
      * Allows you to retrieve the connections for this user
-     *
      * @param  string $auth_event_id Filter by authEventId (optional)
-     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -441,22 +384,16 @@ class IdentityApi
                 }
             );
     }
-
     /**
      * Operation getConnectionsAsyncWithHttpInfo
-     *
      * Allows you to retrieve the connections for this user
-     *
      * @param  string $auth_event_id Filter by authEventId (optional)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
+     * @return \GuzzleHttp\Promise\PromiseInterface */
     public function getConnectionsAsyncWithHttpInfo($auth_event_id = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Identity\Connection[]';
         $request = $this->getConnectionsRequest($auth_event_id);
-
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
@@ -467,7 +404,6 @@ class IdentityApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         IdentityObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
@@ -493,31 +429,23 @@ class IdentityApi
 
     /**
      * Create request for operation 'getConnections'
-     *
      * @param  string $auth_event_id Filter by authEventId (optional)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
+     * @return \GuzzleHttp\Psr7\Request  */
     protected function getConnectionsRequest($auth_event_id = null)
     {
-
         $resourcePath = '/connections';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
         // query params
         if ($auth_event_id !== null) {
             $queryParams['authEventId'] = IdentityObjectSerializer::toQueryValue($auth_event_id);
         }
-        
-
         // body params
         $_tempBody = null;
-
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -528,7 +456,6 @@ class IdentityApi
                 []
             );
         }
-
         // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -551,29 +478,24 @@ class IdentityApi
 
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
-
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
             $headers
         );
-
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',

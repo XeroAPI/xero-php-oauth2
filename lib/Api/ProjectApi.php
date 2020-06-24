@@ -87,15 +87,11 @@ class ProjectApi
         return $this->config;
     }
 
-
     /**
      * Operation createProject
-     *
      * create one or more new projects
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Create a new project with ProjectCreateOrUpdate object (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Project\Project|\XeroAPI\XeroPHP\Models\Project\Error
@@ -105,15 +101,11 @@ class ProjectApi
         list($response) = $this->createProjectWithHttpInfo($xero_tenant_id, $project_create_or_update);
         return $response;
     }
-
     /**
      * Operation createProjectWithHttpInfo
-     *
      * create one or more new projects
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Create a new project with ProjectCreateOrUpdate object (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Project\Project|\XeroAPI\XeroPHP\Models\Project\Error, HTTP status code, HTTP response headers (array of strings)
@@ -121,7 +113,6 @@ class ProjectApi
     public function createProjectWithHttpInfo($xero_tenant_id, $project_create_or_update)
     {
         $request = $this->createProjectRequest($xero_tenant_id, $project_create_or_update);
-
         try {
             $options = $this->createHttpClientOption();
             try {
@@ -134,9 +125,7 @@ class ProjectApi
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                 );
             }
-
             $statusCode = $response->getStatusCode();
-
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
                     sprintf(
@@ -149,7 +138,6 @@ class ProjectApi
                     $response->getBody()
                 );
             }
-
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 201:
@@ -158,7 +146,6 @@ class ProjectApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\Project', []),
                         $response->getStatusCode(),
@@ -170,14 +157,12 @@ class ProjectApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
-
             $returnType = '\XeroAPI\XeroPHP\Models\Project\Project';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
@@ -185,13 +170,11 @@ class ProjectApi
             } else {
                 $content = $responseBody->getContents();
             }
-
             return [
                 ProjectObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 201:
@@ -214,15 +197,11 @@ class ProjectApi
             throw $e;
         }
     }
-
     /**
      * Operation createProjectAsync
-     *
      * create one or more new projects
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Create a new project with ProjectCreateOrUpdate object (required)
-     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -235,23 +214,17 @@ class ProjectApi
                 }
             );
     }
-
     /**
      * Operation createProjectAsyncWithHttpInfo
-     *
      * create one or more new projects
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Create a new project with ProjectCreateOrUpdate object (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
+     * @return \GuzzleHttp\Promise\PromiseInterface */
     public function createProjectAsyncWithHttpInfo($xero_tenant_id, $project_create_or_update)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Project\Project';
         $request = $this->createProjectRequest($xero_tenant_id, $project_create_or_update);
-
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
@@ -262,7 +235,6 @@ class ProjectApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         ProjectObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
@@ -288,13 +260,10 @@ class ProjectApi
 
     /**
      * Create request for operation 'createProject'
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Create a new project with ProjectCreateOrUpdate object (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
+     * @return \GuzzleHttp\Psr7\Request  */
     protected function createProjectRequest($xero_tenant_id, $project_create_or_update)
     {
         // verify the required parameter 'xero_tenant_id' is set
@@ -309,26 +278,21 @@ class ProjectApi
                 'Missing the required parameter $project_create_or_update when calling createProject'
             );
         }
-
         $resourcePath = '/projects';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = ProjectObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
-
         // body params
         $_tempBody = null;
         if (isset($project_create_or_update)) {
             $_tempBody = $project_create_or_update;
         }
-
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -339,7 +303,6 @@ class ProjectApi
                 ['application/json']
             );
         }
-
         // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -362,29 +325,24 @@ class ProjectApi
 
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
-
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
             $headers
         );
-
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
@@ -394,16 +352,12 @@ class ProjectApi
         );
     }
 
-
     /**
      * Operation createTimeEntry
-     *
      * Allows you to create a task
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are creating (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Project\TimeEntry
@@ -413,16 +367,12 @@ class ProjectApi
         list($response) = $this->createTimeEntryWithHttpInfo($xero_tenant_id, $project_id, $time_entry_create_or_update);
         return $response;
     }
-
     /**
      * Operation createTimeEntryWithHttpInfo
-     *
      * Allows you to create a task
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are creating (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Project\TimeEntry, HTTP status code, HTTP response headers (array of strings)
@@ -430,7 +380,6 @@ class ProjectApi
     public function createTimeEntryWithHttpInfo($xero_tenant_id, $project_id, $time_entry_create_or_update)
     {
         $request = $this->createTimeEntryRequest($xero_tenant_id, $project_id, $time_entry_create_or_update);
-
         try {
             $options = $this->createHttpClientOption();
             try {
@@ -443,9 +392,7 @@ class ProjectApi
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                 );
             }
-
             $statusCode = $response->getStatusCode();
-
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
                     sprintf(
@@ -458,7 +405,6 @@ class ProjectApi
                     $response->getBody()
                 );
             }
-
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
@@ -467,14 +413,12 @@ class ProjectApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\TimeEntry', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
-
             $returnType = '\XeroAPI\XeroPHP\Models\Project\TimeEntry';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
@@ -482,13 +426,11 @@ class ProjectApi
             } else {
                 $content = $responseBody->getContents();
             }
-
             return [
                 ProjectObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -503,16 +445,12 @@ class ProjectApi
             throw $e;
         }
     }
-
     /**
      * Operation createTimeEntryAsync
-     *
      * Allows you to create a task
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are creating (required)
-     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -525,24 +463,18 @@ class ProjectApi
                 }
             );
     }
-
     /**
      * Operation createTimeEntryAsyncWithHttpInfo
-     *
      * Allows you to create a task
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are creating (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
+     * @return \GuzzleHttp\Promise\PromiseInterface */
     public function createTimeEntryAsyncWithHttpInfo($xero_tenant_id, $project_id, $time_entry_create_or_update)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Project\TimeEntry';
         $request = $this->createTimeEntryRequest($xero_tenant_id, $project_id, $time_entry_create_or_update);
-
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
@@ -553,7 +485,6 @@ class ProjectApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         ProjectObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
@@ -579,14 +510,11 @@ class ProjectApi
 
     /**
      * Create request for operation 'createTimeEntry'
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are creating (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
+     * @return \GuzzleHttp\Psr7\Request  */
     protected function createTimeEntryRequest($xero_tenant_id, $project_id, $time_entry_create_or_update)
     {
         // verify the required parameter 'xero_tenant_id' is set
@@ -607,19 +535,16 @@ class ProjectApi
                 'Missing the required parameter $time_entry_create_or_update when calling createTimeEntry'
             );
         }
-
         $resourcePath = '/projects/{projectId}/time';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = ProjectObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
         // path params
         if ($project_id !== null) {
             $resourcePath = str_replace(
@@ -628,13 +553,11 @@ class ProjectApi
                 $resourcePath
             );
         }
-
         // body params
         $_tempBody = null;
         if (isset($time_entry_create_or_update)) {
             $_tempBody = $time_entry_create_or_update;
         }
-
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -645,7 +568,6 @@ class ProjectApi
                 ['application/json']
             );
         }
-
         // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -668,29 +590,24 @@ class ProjectApi
 
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
-
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
             $headers
         );
-
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
@@ -700,16 +617,12 @@ class ProjectApi
         );
     }
 
-
     /**
      * Operation deleteTimeEntry
-     *
      * Allows you to delete a time entry
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual task by appending the id to the endpoint (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
@@ -718,16 +631,12 @@ class ProjectApi
     {
         $this->deleteTimeEntryWithHttpInfo($xero_tenant_id, $project_id, $time_entry_id);
     }
-
     /**
      * Operation deleteTimeEntryWithHttpInfo
-     *
      * Allows you to delete a time entry
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual task by appending the id to the endpoint (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
@@ -735,7 +644,6 @@ class ProjectApi
     public function deleteTimeEntryWithHttpInfo($xero_tenant_id, $project_id, $time_entry_id)
     {
         $request = $this->deleteTimeEntryRequest($xero_tenant_id, $project_id, $time_entry_id);
-
         try {
             $options = $this->createHttpClientOption();
             try {
@@ -748,9 +656,7 @@ class ProjectApi
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                 );
             }
-
             $statusCode = $response->getStatusCode();
-
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
                     sprintf(
@@ -763,25 +669,19 @@ class ProjectApi
                     $response->getBody()
                 );
             }
-
             return [null, $statusCode, $response->getHeaders()];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
             }
             throw $e;
         }
     }
-
     /**
      * Operation deleteTimeEntryAsync
-     *
      * Allows you to delete a time entry
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual task by appending the id to the endpoint (required)
-     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -794,24 +694,18 @@ class ProjectApi
                 }
             );
     }
-
     /**
      * Operation deleteTimeEntryAsyncWithHttpInfo
-     *
      * Allows you to delete a time entry
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual task by appending the id to the endpoint (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
+     * @return \GuzzleHttp\Promise\PromiseInterface */
     public function deleteTimeEntryAsyncWithHttpInfo($xero_tenant_id, $project_id, $time_entry_id)
     {
         $returnType = '';
         $request = $this->deleteTimeEntryRequest($xero_tenant_id, $project_id, $time_entry_id);
-
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
@@ -837,14 +731,11 @@ class ProjectApi
 
     /**
      * Create request for operation 'deleteTimeEntry'
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual task by appending the id to the endpoint (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
+     * @return \GuzzleHttp\Psr7\Request  */
     protected function deleteTimeEntryRequest($xero_tenant_id, $project_id, $time_entry_id)
     {
         // verify the required parameter 'xero_tenant_id' is set
@@ -865,19 +756,16 @@ class ProjectApi
                 'Missing the required parameter $time_entry_id when calling deleteTimeEntry'
             );
         }
-
         $resourcePath = '/projects/{projectId}/time/{timeEntryId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = ProjectObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
         // path params
         if ($project_id !== null) {
             $resourcePath = str_replace(
@@ -894,10 +782,8 @@ class ProjectApi
                 $resourcePath
             );
         }
-
         // body params
         $_tempBody = null;
-
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 []
@@ -908,7 +794,6 @@ class ProjectApi
                 []
             );
         }
-
         // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -931,29 +816,24 @@ class ProjectApi
 
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
-
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
             $headers
         );
-
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'DELETE',
@@ -963,15 +843,11 @@ class ProjectApi
         );
     }
 
-
     /**
      * Operation getProject
-     *
      * Allows you to retrieve a single project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Project\Project|\XeroAPI\XeroPHP\Models\Project\Error
@@ -981,15 +857,11 @@ class ProjectApi
         list($response) = $this->getProjectWithHttpInfo($xero_tenant_id, $project_id);
         return $response;
     }
-
     /**
      * Operation getProjectWithHttpInfo
-     *
      * Allows you to retrieve a single project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Project\Project|\XeroAPI\XeroPHP\Models\Project\Error, HTTP status code, HTTP response headers (array of strings)
@@ -997,7 +869,6 @@ class ProjectApi
     public function getProjectWithHttpInfo($xero_tenant_id, $project_id)
     {
         $request = $this->getProjectRequest($xero_tenant_id, $project_id);
-
         try {
             $options = $this->createHttpClientOption();
             try {
@@ -1010,9 +881,7 @@ class ProjectApi
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                 );
             }
-
             $statusCode = $response->getStatusCode();
-
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
                     sprintf(
@@ -1025,7 +894,6 @@ class ProjectApi
                     $response->getBody()
                 );
             }
-
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
@@ -1034,7 +902,6 @@ class ProjectApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\Project', []),
                         $response->getStatusCode(),
@@ -1046,14 +913,12 @@ class ProjectApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
-
             $returnType = '\XeroAPI\XeroPHP\Models\Project\Project';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
@@ -1061,13 +926,11 @@ class ProjectApi
             } else {
                 $content = $responseBody->getContents();
             }
-
             return [
                 ProjectObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -1090,15 +953,11 @@ class ProjectApi
             throw $e;
         }
     }
-
     /**
      * Operation getProjectAsync
-     *
      * Allows you to retrieve a single project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
-     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -1111,23 +970,17 @@ class ProjectApi
                 }
             );
     }
-
     /**
      * Operation getProjectAsyncWithHttpInfo
-     *
      * Allows you to retrieve a single project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
+     * @return \GuzzleHttp\Promise\PromiseInterface */
     public function getProjectAsyncWithHttpInfo($xero_tenant_id, $project_id)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Project\Project';
         $request = $this->getProjectRequest($xero_tenant_id, $project_id);
-
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
@@ -1138,7 +991,6 @@ class ProjectApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         ProjectObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
@@ -1164,13 +1016,10 @@ class ProjectApi
 
     /**
      * Create request for operation 'getProject'
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
+     * @return \GuzzleHttp\Psr7\Request  */
     protected function getProjectRequest($xero_tenant_id, $project_id)
     {
         // verify the required parameter 'xero_tenant_id' is set
@@ -1185,19 +1034,16 @@ class ProjectApi
                 'Missing the required parameter $project_id when calling getProject'
             );
         }
-
         $resourcePath = '/projects/{projectId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = ProjectObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
         // path params
         if ($project_id !== null) {
             $resourcePath = str_replace(
@@ -1206,10 +1052,8 @@ class ProjectApi
                 $resourcePath
             );
         }
-
         // body params
         $_tempBody = null;
-
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -1220,7 +1064,6 @@ class ProjectApi
                 []
             );
         }
-
         // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -1243,29 +1086,24 @@ class ProjectApi
 
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
-
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
             $headers
         );
-
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
@@ -1275,16 +1113,12 @@ class ProjectApi
         );
     }
 
-
     /**
      * Operation getProjectUsers
-     *
      * list all project users
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  int $page set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. (optional, default to 1)
      * @param  int $page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. (optional, default to 50)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Project\ProjectUsers|\XeroAPI\XeroPHP\Models\Project\Error
@@ -1294,16 +1128,12 @@ class ProjectApi
         list($response) = $this->getProjectUsersWithHttpInfo($xero_tenant_id, $page, $page_size);
         return $response;
     }
-
     /**
      * Operation getProjectUsersWithHttpInfo
-     *
      * list all project users
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  int $page set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. (optional, default to 1)
      * @param  int $page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. (optional, default to 50)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Project\ProjectUsers|\XeroAPI\XeroPHP\Models\Project\Error, HTTP status code, HTTP response headers (array of strings)
@@ -1311,7 +1141,6 @@ class ProjectApi
     public function getProjectUsersWithHttpInfo($xero_tenant_id, $page = 1, $page_size = 50)
     {
         $request = $this->getProjectUsersRequest($xero_tenant_id, $page, $page_size);
-
         try {
             $options = $this->createHttpClientOption();
             try {
@@ -1324,9 +1153,7 @@ class ProjectApi
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                 );
             }
-
             $statusCode = $response->getStatusCode();
-
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
                     sprintf(
@@ -1339,7 +1166,6 @@ class ProjectApi
                     $response->getBody()
                 );
             }
-
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
@@ -1348,7 +1174,6 @@ class ProjectApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\ProjectUsers', []),
                         $response->getStatusCode(),
@@ -1360,14 +1185,12 @@ class ProjectApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
-
             $returnType = '\XeroAPI\XeroPHP\Models\Project\ProjectUsers';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
@@ -1375,13 +1198,11 @@ class ProjectApi
             } else {
                 $content = $responseBody->getContents();
             }
-
             return [
                 ProjectObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -1404,16 +1225,12 @@ class ProjectApi
             throw $e;
         }
     }
-
     /**
      * Operation getProjectUsersAsync
-     *
      * list all project users
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  int $page set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. (optional, default to 1)
      * @param  int $page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. (optional, default to 50)
-     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -1426,24 +1243,18 @@ class ProjectApi
                 }
             );
     }
-
     /**
      * Operation getProjectUsersAsyncWithHttpInfo
-     *
      * list all project users
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  int $page set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. (optional, default to 1)
      * @param  int $page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. (optional, default to 50)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
+     * @return \GuzzleHttp\Promise\PromiseInterface */
     public function getProjectUsersAsyncWithHttpInfo($xero_tenant_id, $page = 1, $page_size = 50)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Project\ProjectUsers';
         $request = $this->getProjectUsersRequest($xero_tenant_id, $page, $page_size);
-
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
@@ -1454,7 +1265,6 @@ class ProjectApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         ProjectObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
@@ -1480,14 +1290,11 @@ class ProjectApi
 
     /**
      * Create request for operation 'getProjectUsers'
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  int $page set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. (optional, default to 1)
      * @param  int $page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. (optional, default to 50)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
+     * @return \GuzzleHttp\Psr7\Request  */
     protected function getProjectUsersRequest($xero_tenant_id, $page = 1, $page_size = 50)
     {
         // verify the required parameter 'xero_tenant_id' is set
@@ -1503,14 +1310,12 @@ class ProjectApi
             throw new \InvalidArgumentException('invalid value for "$page_size" when calling ProjectApi.getProjectUsers, must be bigger than or equal to 1.');
         }
 
-
         $resourcePath = '/projectsusers';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
         // query params
         if ($page !== null) {
             $queryParams['page'] = ProjectObjectSerializer::toQueryValue($page);
@@ -1523,11 +1328,8 @@ class ProjectApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = ProjectObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
-
         // body params
         $_tempBody = null;
-
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -1538,7 +1340,6 @@ class ProjectApi
                 []
             );
         }
-
         // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -1561,29 +1362,24 @@ class ProjectApi
 
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
-
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
             $headers
         );
-
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
@@ -1593,19 +1389,15 @@ class ProjectApi
         );
     }
 
-
     /**
      * Operation getProjects
-     *
      * list all projects
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string[] $project_ids Search for all projects that match a comma separated list of projectIds (optional)
      * @param  string $contact_id Filter for projects for a specific contact (optional)
      * @param  string $states Filter for projects in a particular state (INPROGRESS or CLOSED) (optional)
      * @param  int $page set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. (optional, default to 1)
      * @param  int $page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. (optional, default to 50)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Project\Projects|\XeroAPI\XeroPHP\Models\Project\Error
@@ -1615,19 +1407,15 @@ class ProjectApi
         list($response) = $this->getProjectsWithHttpInfo($xero_tenant_id, $project_ids, $contact_id, $states, $page, $page_size);
         return $response;
     }
-
     /**
      * Operation getProjectsWithHttpInfo
-     *
      * list all projects
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string[] $project_ids Search for all projects that match a comma separated list of projectIds (optional)
      * @param  string $contact_id Filter for projects for a specific contact (optional)
      * @param  string $states Filter for projects in a particular state (INPROGRESS or CLOSED) (optional)
      * @param  int $page set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. (optional, default to 1)
      * @param  int $page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. (optional, default to 50)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Project\Projects|\XeroAPI\XeroPHP\Models\Project\Error, HTTP status code, HTTP response headers (array of strings)
@@ -1635,7 +1423,6 @@ class ProjectApi
     public function getProjectsWithHttpInfo($xero_tenant_id, $project_ids = null, $contact_id = null, $states = null, $page = 1, $page_size = 50)
     {
         $request = $this->getProjectsRequest($xero_tenant_id, $project_ids, $contact_id, $states, $page, $page_size);
-
         try {
             $options = $this->createHttpClientOption();
             try {
@@ -1648,9 +1435,7 @@ class ProjectApi
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                 );
             }
-
             $statusCode = $response->getStatusCode();
-
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
                     sprintf(
@@ -1663,7 +1448,6 @@ class ProjectApi
                     $response->getBody()
                 );
             }
-
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
@@ -1672,7 +1456,6 @@ class ProjectApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\Projects', []),
                         $response->getStatusCode(),
@@ -1684,14 +1467,12 @@ class ProjectApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\Error', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
-
             $returnType = '\XeroAPI\XeroPHP\Models\Project\Projects';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
@@ -1699,13 +1480,11 @@ class ProjectApi
             } else {
                 $content = $responseBody->getContents();
             }
-
             return [
                 ProjectObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -1728,19 +1507,15 @@ class ProjectApi
             throw $e;
         }
     }
-
     /**
      * Operation getProjectsAsync
-     *
      * list all projects
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string[] $project_ids Search for all projects that match a comma separated list of projectIds (optional)
      * @param  string $contact_id Filter for projects for a specific contact (optional)
      * @param  string $states Filter for projects in a particular state (INPROGRESS or CLOSED) (optional)
      * @param  int $page set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. (optional, default to 1)
      * @param  int $page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. (optional, default to 50)
-     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -1753,27 +1528,21 @@ class ProjectApi
                 }
             );
     }
-
     /**
      * Operation getProjectsAsyncWithHttpInfo
-     *
      * list all projects
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string[] $project_ids Search for all projects that match a comma separated list of projectIds (optional)
      * @param  string $contact_id Filter for projects for a specific contact (optional)
      * @param  string $states Filter for projects in a particular state (INPROGRESS or CLOSED) (optional)
      * @param  int $page set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. (optional, default to 1)
      * @param  int $page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. (optional, default to 50)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
+     * @return \GuzzleHttp\Promise\PromiseInterface */
     public function getProjectsAsyncWithHttpInfo($xero_tenant_id, $project_ids = null, $contact_id = null, $states = null, $page = 1, $page_size = 50)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Project\Projects';
         $request = $this->getProjectsRequest($xero_tenant_id, $project_ids, $contact_id, $states, $page, $page_size);
-
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
@@ -1784,7 +1553,6 @@ class ProjectApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         ProjectObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
@@ -1810,17 +1578,14 @@ class ProjectApi
 
     /**
      * Create request for operation 'getProjects'
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string[] $project_ids Search for all projects that match a comma separated list of projectIds (optional)
      * @param  string $contact_id Filter for projects for a specific contact (optional)
      * @param  string $states Filter for projects in a particular state (INPROGRESS or CLOSED) (optional)
      * @param  int $page set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. (optional, default to 1)
      * @param  int $page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. (optional, default to 50)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
+     * @return \GuzzleHttp\Psr7\Request  */
     protected function getProjectsRequest($xero_tenant_id, $project_ids = null, $contact_id = null, $states = null, $page = 1, $page_size = 50)
     {
         // verify the required parameter 'xero_tenant_id' is set
@@ -1836,14 +1601,12 @@ class ProjectApi
             throw new \InvalidArgumentException('invalid value for "$page_size" when calling ProjectApi.getProjects, must be bigger than or equal to 1.');
         }
 
-
         $resourcePath = '/projects';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
         // query params
         if (is_array($project_ids)) {
             $project_ids = ProjectObjectSerializer::serializeCollection($project_ids, 'multi', true);
@@ -1871,11 +1634,8 @@ class ProjectApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = ProjectObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
-
         // body params
         $_tempBody = null;
-
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -1886,7 +1646,6 @@ class ProjectApi
                 []
             );
         }
-
         // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -1909,29 +1668,24 @@ class ProjectApi
 
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
-
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
             $headers
         );
-
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
@@ -1941,16 +1695,12 @@ class ProjectApi
         );
     }
 
-
     /**
      * Operation getTask
-     *
      * Allows you to retrieve a single project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $task_id You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskId} (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Project\Task
@@ -1960,16 +1710,12 @@ class ProjectApi
         list($response) = $this->getTaskWithHttpInfo($xero_tenant_id, $project_id, $task_id);
         return $response;
     }
-
     /**
      * Operation getTaskWithHttpInfo
-     *
      * Allows you to retrieve a single project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $task_id You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskId} (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Project\Task, HTTP status code, HTTP response headers (array of strings)
@@ -1977,7 +1723,6 @@ class ProjectApi
     public function getTaskWithHttpInfo($xero_tenant_id, $project_id, $task_id)
     {
         $request = $this->getTaskRequest($xero_tenant_id, $project_id, $task_id);
-
         try {
             $options = $this->createHttpClientOption();
             try {
@@ -1990,9 +1735,7 @@ class ProjectApi
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                 );
             }
-
             $statusCode = $response->getStatusCode();
-
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
                     sprintf(
@@ -2005,7 +1748,6 @@ class ProjectApi
                     $response->getBody()
                 );
             }
-
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
@@ -2014,14 +1756,12 @@ class ProjectApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\Task', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
-
             $returnType = '\XeroAPI\XeroPHP\Models\Project\Task';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
@@ -2029,13 +1769,11 @@ class ProjectApi
             } else {
                 $content = $responseBody->getContents();
             }
-
             return [
                 ProjectObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -2050,16 +1788,12 @@ class ProjectApi
             throw $e;
         }
     }
-
     /**
      * Operation getTaskAsync
-     *
      * Allows you to retrieve a single project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $task_id You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskId} (required)
-     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -2072,24 +1806,18 @@ class ProjectApi
                 }
             );
     }
-
     /**
      * Operation getTaskAsyncWithHttpInfo
-     *
      * Allows you to retrieve a single project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $task_id You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskId} (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
+     * @return \GuzzleHttp\Promise\PromiseInterface */
     public function getTaskAsyncWithHttpInfo($xero_tenant_id, $project_id, $task_id)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Project\Task';
         $request = $this->getTaskRequest($xero_tenant_id, $project_id, $task_id);
-
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
@@ -2100,7 +1828,6 @@ class ProjectApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         ProjectObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
@@ -2126,14 +1853,11 @@ class ProjectApi
 
     /**
      * Create request for operation 'getTask'
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $task_id You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskId} (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
+     * @return \GuzzleHttp\Psr7\Request  */
     protected function getTaskRequest($xero_tenant_id, $project_id, $task_id)
     {
         // verify the required parameter 'xero_tenant_id' is set
@@ -2154,19 +1878,16 @@ class ProjectApi
                 'Missing the required parameter $task_id when calling getTask'
             );
         }
-
         $resourcePath = '/projects/{projectId}/tasks/{taskId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = ProjectObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
         // path params
         if ($project_id !== null) {
             $resourcePath = str_replace(
@@ -2183,10 +1904,8 @@ class ProjectApi
                 $resourcePath
             );
         }
-
         // body params
         $_tempBody = null;
-
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -2197,7 +1916,6 @@ class ProjectApi
                 []
             );
         }
-
         // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -2220,29 +1938,24 @@ class ProjectApi
 
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
-
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
             $headers
         );
-
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
@@ -2252,18 +1965,14 @@ class ProjectApi
         );
     }
 
-
     /**
      * Operation getTasks
-     *
      * Allows you to retrieve a single project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  int $page Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. (optional)
      * @param  int $page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. (optional)
      * @param  string $task_ids taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskId},{taskId} (optional)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Project\Tasks
@@ -2273,18 +1982,14 @@ class ProjectApi
         list($response) = $this->getTasksWithHttpInfo($xero_tenant_id, $project_id, $page, $page_size, $task_ids);
         return $response;
     }
-
     /**
      * Operation getTasksWithHttpInfo
-     *
      * Allows you to retrieve a single project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  int $page Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. (optional)
      * @param  int $page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. (optional)
      * @param  string $task_ids taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskId},{taskId} (optional)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Project\Tasks, HTTP status code, HTTP response headers (array of strings)
@@ -2292,7 +1997,6 @@ class ProjectApi
     public function getTasksWithHttpInfo($xero_tenant_id, $project_id, $page = null, $page_size = null, $task_ids = null)
     {
         $request = $this->getTasksRequest($xero_tenant_id, $project_id, $page, $page_size, $task_ids);
-
         try {
             $options = $this->createHttpClientOption();
             try {
@@ -2305,9 +2009,7 @@ class ProjectApi
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                 );
             }
-
             $statusCode = $response->getStatusCode();
-
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
                     sprintf(
@@ -2320,7 +2022,6 @@ class ProjectApi
                     $response->getBody()
                 );
             }
-
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
@@ -2329,14 +2030,12 @@ class ProjectApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\Tasks', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
-
             $returnType = '\XeroAPI\XeroPHP\Models\Project\Tasks';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
@@ -2344,13 +2043,11 @@ class ProjectApi
             } else {
                 $content = $responseBody->getContents();
             }
-
             return [
                 ProjectObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -2365,18 +2062,14 @@ class ProjectApi
             throw $e;
         }
     }
-
     /**
      * Operation getTasksAsync
-     *
      * Allows you to retrieve a single project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  int $page Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. (optional)
      * @param  int $page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. (optional)
      * @param  string $task_ids taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskId},{taskId} (optional)
-     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -2389,26 +2082,20 @@ class ProjectApi
                 }
             );
     }
-
     /**
      * Operation getTasksAsyncWithHttpInfo
-     *
      * Allows you to retrieve a single project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  int $page Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. (optional)
      * @param  int $page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. (optional)
      * @param  string $task_ids taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskId},{taskId} (optional)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
+     * @return \GuzzleHttp\Promise\PromiseInterface */
     public function getTasksAsyncWithHttpInfo($xero_tenant_id, $project_id, $page = null, $page_size = null, $task_ids = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Project\Tasks';
         $request = $this->getTasksRequest($xero_tenant_id, $project_id, $page, $page_size, $task_ids);
-
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
@@ -2419,7 +2106,6 @@ class ProjectApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         ProjectObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
@@ -2445,16 +2131,13 @@ class ProjectApi
 
     /**
      * Create request for operation 'getTasks'
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  int $page Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. (optional)
      * @param  int $page_size Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. (optional)
      * @param  string $task_ids taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskId},{taskId} (optional)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
+     * @return \GuzzleHttp\Psr7\Request  */
     protected function getTasksRequest($xero_tenant_id, $project_id, $page = null, $page_size = null, $task_ids = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
@@ -2469,14 +2152,12 @@ class ProjectApi
                 'Missing the required parameter $project_id when calling getTasks'
             );
         }
-
         $resourcePath = '/projects/{projectId}/tasks';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
         // query params
         if ($page !== null) {
             $queryParams['page'] = ProjectObjectSerializer::toQueryValue($page);
@@ -2493,7 +2174,6 @@ class ProjectApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = ProjectObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
         // path params
         if ($project_id !== null) {
             $resourcePath = str_replace(
@@ -2502,10 +2182,8 @@ class ProjectApi
                 $resourcePath
             );
         }
-
         // body params
         $_tempBody = null;
-
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -2516,7 +2194,6 @@ class ProjectApi
                 []
             );
         }
-
         // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -2539,29 +2216,24 @@ class ProjectApi
 
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
-
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
             $headers
         );
-
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
@@ -2571,12 +2243,9 @@ class ProjectApi
         );
     }
 
-
     /**
      * Operation getTimeEntries
-     *
      * Allows you to retrieve the time entries associated with a specific project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id Identifier of the project, that the task (which the time entry is logged against) belongs to. (required)
      * @param  string $user_id The xero user identifier of the person who logged time. (optional)
@@ -2589,7 +2258,6 @@ class ProjectApi
      * @param  bool $is_chargeable Finds all time entries which relate to tasks with the charge type &#x60;TIME&#x60; or &#x60;FIXED&#x60;. (optional)
      * @param  \DateTime $date_after_utc ISO 8601 UTC date. Finds all time entries on or after this date filtered on the &#x60;dateUtc&#x60; field. (optional)
      * @param  \DateTime $date_before_utc ISO 8601 UTC date. Finds all time entries on or before this date filtered on the &#x60;dateUtc&#x60; field. (optional)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Project\TimeEntries
@@ -2599,12 +2267,9 @@ class ProjectApi
         list($response) = $this->getTimeEntriesWithHttpInfo($xero_tenant_id, $project_id, $user_id, $task_id, $invoice_id, $contact_id, $page, $page_size, $states, $is_chargeable, $date_after_utc, $date_before_utc);
         return $response;
     }
-
     /**
      * Operation getTimeEntriesWithHttpInfo
-     *
      * Allows you to retrieve the time entries associated with a specific project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id Identifier of the project, that the task (which the time entry is logged against) belongs to. (required)
      * @param  string $user_id The xero user identifier of the person who logged time. (optional)
@@ -2617,7 +2282,6 @@ class ProjectApi
      * @param  bool $is_chargeable Finds all time entries which relate to tasks with the charge type &#x60;TIME&#x60; or &#x60;FIXED&#x60;. (optional)
      * @param  \DateTime $date_after_utc ISO 8601 UTC date. Finds all time entries on or after this date filtered on the &#x60;dateUtc&#x60; field. (optional)
      * @param  \DateTime $date_before_utc ISO 8601 UTC date. Finds all time entries on or before this date filtered on the &#x60;dateUtc&#x60; field. (optional)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Project\TimeEntries, HTTP status code, HTTP response headers (array of strings)
@@ -2625,7 +2289,6 @@ class ProjectApi
     public function getTimeEntriesWithHttpInfo($xero_tenant_id, $project_id, $user_id = null, $task_id = null, $invoice_id = null, $contact_id = null, $page = null, $page_size = null, $states = null, $is_chargeable = null, $date_after_utc = null, $date_before_utc = null)
     {
         $request = $this->getTimeEntriesRequest($xero_tenant_id, $project_id, $user_id, $task_id, $invoice_id, $contact_id, $page, $page_size, $states, $is_chargeable, $date_after_utc, $date_before_utc);
-
         try {
             $options = $this->createHttpClientOption();
             try {
@@ -2638,9 +2301,7 @@ class ProjectApi
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                 );
             }
-
             $statusCode = $response->getStatusCode();
-
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
                     sprintf(
@@ -2653,7 +2314,6 @@ class ProjectApi
                     $response->getBody()
                 );
             }
-
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
@@ -2662,14 +2322,12 @@ class ProjectApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\TimeEntries', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
-
             $returnType = '\XeroAPI\XeroPHP\Models\Project\TimeEntries';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
@@ -2677,13 +2335,11 @@ class ProjectApi
             } else {
                 $content = $responseBody->getContents();
             }
-
             return [
                 ProjectObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -2698,12 +2354,9 @@ class ProjectApi
             throw $e;
         }
     }
-
     /**
      * Operation getTimeEntriesAsync
-     *
      * Allows you to retrieve the time entries associated with a specific project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id Identifier of the project, that the task (which the time entry is logged against) belongs to. (required)
      * @param  string $user_id The xero user identifier of the person who logged time. (optional)
@@ -2716,7 +2369,6 @@ class ProjectApi
      * @param  bool $is_chargeable Finds all time entries which relate to tasks with the charge type &#x60;TIME&#x60; or &#x60;FIXED&#x60;. (optional)
      * @param  \DateTime $date_after_utc ISO 8601 UTC date. Finds all time entries on or after this date filtered on the &#x60;dateUtc&#x60; field. (optional)
      * @param  \DateTime $date_before_utc ISO 8601 UTC date. Finds all time entries on or before this date filtered on the &#x60;dateUtc&#x60; field. (optional)
-     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -2729,12 +2381,9 @@ class ProjectApi
                 }
             );
     }
-
     /**
      * Operation getTimeEntriesAsyncWithHttpInfo
-     *
      * Allows you to retrieve the time entries associated with a specific project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id Identifier of the project, that the task (which the time entry is logged against) belongs to. (required)
      * @param  string $user_id The xero user identifier of the person who logged time. (optional)
@@ -2747,15 +2396,12 @@ class ProjectApi
      * @param  bool $is_chargeable Finds all time entries which relate to tasks with the charge type &#x60;TIME&#x60; or &#x60;FIXED&#x60;. (optional)
      * @param  \DateTime $date_after_utc ISO 8601 UTC date. Finds all time entries on or after this date filtered on the &#x60;dateUtc&#x60; field. (optional)
      * @param  \DateTime $date_before_utc ISO 8601 UTC date. Finds all time entries on or before this date filtered on the &#x60;dateUtc&#x60; field. (optional)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
+     * @return \GuzzleHttp\Promise\PromiseInterface */
     public function getTimeEntriesAsyncWithHttpInfo($xero_tenant_id, $project_id, $user_id = null, $task_id = null, $invoice_id = null, $contact_id = null, $page = null, $page_size = null, $states = null, $is_chargeable = null, $date_after_utc = null, $date_before_utc = null)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Project\TimeEntries';
         $request = $this->getTimeEntriesRequest($xero_tenant_id, $project_id, $user_id, $task_id, $invoice_id, $contact_id, $page, $page_size, $states, $is_chargeable, $date_after_utc, $date_before_utc);
-
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
@@ -2766,7 +2412,6 @@ class ProjectApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         ProjectObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
@@ -2792,7 +2437,6 @@ class ProjectApi
 
     /**
      * Create request for operation 'getTimeEntries'
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id Identifier of the project, that the task (which the time entry is logged against) belongs to. (required)
      * @param  string $user_id The xero user identifier of the person who logged time. (optional)
@@ -2805,10 +2449,8 @@ class ProjectApi
      * @param  bool $is_chargeable Finds all time entries which relate to tasks with the charge type &#x60;TIME&#x60; or &#x60;FIXED&#x60;. (optional)
      * @param  \DateTime $date_after_utc ISO 8601 UTC date. Finds all time entries on or after this date filtered on the &#x60;dateUtc&#x60; field. (optional)
      * @param  \DateTime $date_before_utc ISO 8601 UTC date. Finds all time entries on or before this date filtered on the &#x60;dateUtc&#x60; field. (optional)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
+     * @return \GuzzleHttp\Psr7\Request  */
     protected function getTimeEntriesRequest($xero_tenant_id, $project_id, $user_id = null, $task_id = null, $invoice_id = null, $contact_id = null, $page = null, $page_size = null, $states = null, $is_chargeable = null, $date_after_utc = null, $date_before_utc = null)
     {
         // verify the required parameter 'xero_tenant_id' is set
@@ -2823,14 +2465,12 @@ class ProjectApi
                 'Missing the required parameter $project_id when calling getTimeEntries'
             );
         }
-
         $resourcePath = '/projects/{projectId}/time';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
         // query params
         if ($user_id !== null) {
             $queryParams['userId'] = ProjectObjectSerializer::toQueryValue($user_id);
@@ -2878,7 +2518,6 @@ class ProjectApi
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = ProjectObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
         // path params
         if ($project_id !== null) {
             $resourcePath = str_replace(
@@ -2887,10 +2526,8 @@ class ProjectApi
                 $resourcePath
             );
         }
-
         // body params
         $_tempBody = null;
-
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -2901,7 +2538,6 @@ class ProjectApi
                 []
             );
         }
-
         // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -2924,29 +2560,24 @@ class ProjectApi
 
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
-
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
             $headers
         );
-
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
@@ -2956,16 +2587,12 @@ class ProjectApi
         );
     }
 
-
     /**
      * Operation getTimeEntry
-     *
      * Allows you to get a single time entry in a project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual time entry by appending the id to the endpoint (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \XeroAPI\XeroPHP\Models\Project\TimeEntry
@@ -2975,16 +2602,12 @@ class ProjectApi
         list($response) = $this->getTimeEntryWithHttpInfo($xero_tenant_id, $project_id, $time_entry_id);
         return $response;
     }
-
     /**
      * Operation getTimeEntryWithHttpInfo
-     *
      * Allows you to get a single time entry in a project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual time entry by appending the id to the endpoint (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \XeroAPI\XeroPHP\Models\Project\TimeEntry, HTTP status code, HTTP response headers (array of strings)
@@ -2992,7 +2615,6 @@ class ProjectApi
     public function getTimeEntryWithHttpInfo($xero_tenant_id, $project_id, $time_entry_id)
     {
         $request = $this->getTimeEntryRequest($xero_tenant_id, $project_id, $time_entry_id);
-
         try {
             $options = $this->createHttpClientOption();
             try {
@@ -3005,9 +2627,7 @@ class ProjectApi
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                 );
             }
-
             $statusCode = $response->getStatusCode();
-
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
                     sprintf(
@@ -3020,7 +2640,6 @@ class ProjectApi
                     $response->getBody()
                 );
             }
-
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
@@ -3029,14 +2648,12 @@ class ProjectApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         ProjectObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Project\TimeEntry', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
-
             $returnType = '\XeroAPI\XeroPHP\Models\Project\TimeEntry';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
@@ -3044,13 +2661,11 @@ class ProjectApi
             } else {
                 $content = $responseBody->getContents();
             }
-
             return [
                 ProjectObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -3065,16 +2680,12 @@ class ProjectApi
             throw $e;
         }
     }
-
     /**
      * Operation getTimeEntryAsync
-     *
      * Allows you to get a single time entry in a project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual time entry by appending the id to the endpoint (required)
-     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -3087,24 +2698,18 @@ class ProjectApi
                 }
             );
     }
-
     /**
      * Operation getTimeEntryAsyncWithHttpInfo
-     *
      * Allows you to get a single time entry in a project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual time entry by appending the id to the endpoint (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
+     * @return \GuzzleHttp\Promise\PromiseInterface */
     public function getTimeEntryAsyncWithHttpInfo($xero_tenant_id, $project_id, $time_entry_id)
     {
         $returnType = '\XeroAPI\XeroPHP\Models\Project\TimeEntry';
         $request = $this->getTimeEntryRequest($xero_tenant_id, $project_id, $time_entry_id);
-
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
@@ -3115,7 +2720,6 @@ class ProjectApi
                     } else {
                         $content = $responseBody->getContents();
                     }
-
                     return [
                         ProjectObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
@@ -3141,14 +2745,11 @@ class ProjectApi
 
     /**
      * Create request for operation 'getTimeEntry'
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual time entry by appending the id to the endpoint (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
+     * @return \GuzzleHttp\Psr7\Request  */
     protected function getTimeEntryRequest($xero_tenant_id, $project_id, $time_entry_id)
     {
         // verify the required parameter 'xero_tenant_id' is set
@@ -3169,19 +2770,16 @@ class ProjectApi
                 'Missing the required parameter $time_entry_id when calling getTimeEntry'
             );
         }
-
         $resourcePath = '/projects/{projectId}/time/{timeEntryId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = ProjectObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
         // path params
         if ($project_id !== null) {
             $resourcePath = str_replace(
@@ -3198,10 +2796,8 @@ class ProjectApi
                 $resourcePath
             );
         }
-
         // body params
         $_tempBody = null;
-
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -3212,7 +2808,6 @@ class ProjectApi
                 []
             );
         }
-
         // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -3235,29 +2830,24 @@ class ProjectApi
 
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
-
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
             $headers
         );
-
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
@@ -3267,16 +2857,12 @@ class ProjectApi
         );
     }
 
-
     /**
      * Operation patchProject
-     *
      * creates a project for the specified contact
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\ProjectPatch $project_patch Update the status of an existing Project (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
@@ -3285,16 +2871,12 @@ class ProjectApi
     {
         $this->patchProjectWithHttpInfo($xero_tenant_id, $project_id, $project_patch);
     }
-
     /**
      * Operation patchProjectWithHttpInfo
-     *
      * creates a project for the specified contact
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\ProjectPatch $project_patch Update the status of an existing Project (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
@@ -3302,7 +2884,6 @@ class ProjectApi
     public function patchProjectWithHttpInfo($xero_tenant_id, $project_id, $project_patch)
     {
         $request = $this->patchProjectRequest($xero_tenant_id, $project_id, $project_patch);
-
         try {
             $options = $this->createHttpClientOption();
             try {
@@ -3315,9 +2896,7 @@ class ProjectApi
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                 );
             }
-
             $statusCode = $response->getStatusCode();
-
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
                     sprintf(
@@ -3330,9 +2909,7 @@ class ProjectApi
                     $response->getBody()
                 );
             }
-
             return [null, $statusCode, $response->getHeaders()];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 400:
@@ -3347,16 +2924,12 @@ class ProjectApi
             throw $e;
         }
     }
-
     /**
      * Operation patchProjectAsync
-     *
      * creates a project for the specified contact
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\ProjectPatch $project_patch Update the status of an existing Project (required)
-     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -3369,24 +2942,18 @@ class ProjectApi
                 }
             );
     }
-
     /**
      * Operation patchProjectAsyncWithHttpInfo
-     *
      * creates a project for the specified contact
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\ProjectPatch $project_patch Update the status of an existing Project (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
+     * @return \GuzzleHttp\Promise\PromiseInterface */
     public function patchProjectAsyncWithHttpInfo($xero_tenant_id, $project_id, $project_patch)
     {
         $returnType = '';
         $request = $this->patchProjectRequest($xero_tenant_id, $project_id, $project_patch);
-
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
@@ -3412,14 +2979,11 @@ class ProjectApi
 
     /**
      * Create request for operation 'patchProject'
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\ProjectPatch $project_patch Update the status of an existing Project (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
+     * @return \GuzzleHttp\Psr7\Request  */
     protected function patchProjectRequest($xero_tenant_id, $project_id, $project_patch)
     {
         // verify the required parameter 'xero_tenant_id' is set
@@ -3440,19 +3004,16 @@ class ProjectApi
                 'Missing the required parameter $project_patch when calling patchProject'
             );
         }
-
         $resourcePath = '/projects/{projectId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = ProjectObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
         // path params
         if ($project_id !== null) {
             $resourcePath = str_replace(
@@ -3461,13 +3022,11 @@ class ProjectApi
                 $resourcePath
             );
         }
-
         // body params
         $_tempBody = null;
         if (isset($project_patch)) {
             $_tempBody = $project_patch;
         }
-
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -3478,7 +3037,6 @@ class ProjectApi
                 ['application/json']
             );
         }
-
         // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -3501,29 +3059,24 @@ class ProjectApi
 
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
-
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
             $headers
         );
-
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'PATCH',
@@ -3533,16 +3086,12 @@ class ProjectApi
         );
     }
 
-
     /**
      * Operation updateProject
-     *
      * update a specific project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Request of type ProjectCreateOrUpdate (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
@@ -3551,16 +3100,12 @@ class ProjectApi
     {
         $this->updateProjectWithHttpInfo($xero_tenant_id, $project_id, $project_create_or_update);
     }
-
     /**
      * Operation updateProjectWithHttpInfo
-     *
      * update a specific project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Request of type ProjectCreateOrUpdate (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
@@ -3568,7 +3113,6 @@ class ProjectApi
     public function updateProjectWithHttpInfo($xero_tenant_id, $project_id, $project_create_or_update)
     {
         $request = $this->updateProjectRequest($xero_tenant_id, $project_id, $project_create_or_update);
-
         try {
             $options = $this->createHttpClientOption();
             try {
@@ -3581,9 +3125,7 @@ class ProjectApi
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                 );
             }
-
             $statusCode = $response->getStatusCode();
-
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
                     sprintf(
@@ -3596,9 +3138,7 @@ class ProjectApi
                     $response->getBody()
                 );
             }
-
             return [null, $statusCode, $response->getHeaders()];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 400:
@@ -3613,16 +3153,12 @@ class ProjectApi
             throw $e;
         }
     }
-
     /**
      * Operation updateProjectAsync
-     *
      * update a specific project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Request of type ProjectCreateOrUpdate (required)
-     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -3635,24 +3171,18 @@ class ProjectApi
                 }
             );
     }
-
     /**
      * Operation updateProjectAsyncWithHttpInfo
-     *
      * update a specific project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Request of type ProjectCreateOrUpdate (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
+     * @return \GuzzleHttp\Promise\PromiseInterface */
     public function updateProjectAsyncWithHttpInfo($xero_tenant_id, $project_id, $project_create_or_update)
     {
         $returnType = '';
         $request = $this->updateProjectRequest($xero_tenant_id, $project_id, $project_create_or_update);
-
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
@@ -3678,14 +3208,11 @@ class ProjectApi
 
     /**
      * Create request for operation 'updateProject'
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate $project_create_or_update Request of type ProjectCreateOrUpdate (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
+     * @return \GuzzleHttp\Psr7\Request  */
     protected function updateProjectRequest($xero_tenant_id, $project_id, $project_create_or_update)
     {
         // verify the required parameter 'xero_tenant_id' is set
@@ -3706,19 +3233,16 @@ class ProjectApi
                 'Missing the required parameter $project_create_or_update when calling updateProject'
             );
         }
-
         $resourcePath = '/projects/{projectId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = ProjectObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
         // path params
         if ($project_id !== null) {
             $resourcePath = str_replace(
@@ -3727,13 +3251,11 @@ class ProjectApi
                 $resourcePath
             );
         }
-
         // body params
         $_tempBody = null;
         if (isset($project_create_or_update)) {
             $_tempBody = $project_create_or_update;
         }
-
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -3744,7 +3266,6 @@ class ProjectApi
                 ['application/json']
             );
         }
-
         // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -3767,29 +3288,24 @@ class ProjectApi
 
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
-
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
             $headers
         );
-
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'PUT',
@@ -3799,17 +3315,13 @@ class ProjectApi
         );
     }
 
-
     /**
      * Operation updateTimeEntry
-     *
      * Allows you to update time entry in a project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual time entry by appending the id to the endpoint (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are updating (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
@@ -3818,17 +3330,13 @@ class ProjectApi
     {
         $this->updateTimeEntryWithHttpInfo($xero_tenant_id, $project_id, $time_entry_id, $time_entry_create_or_update);
     }
-
     /**
      * Operation updateTimeEntryWithHttpInfo
-     *
      * Allows you to update time entry in a project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual time entry by appending the id to the endpoint (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are updating (required)
-     *
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
@@ -3836,7 +3344,6 @@ class ProjectApi
     public function updateTimeEntryWithHttpInfo($xero_tenant_id, $project_id, $time_entry_id, $time_entry_create_or_update)
     {
         $request = $this->updateTimeEntryRequest($xero_tenant_id, $project_id, $time_entry_id, $time_entry_create_or_update);
-
         try {
             $options = $this->createHttpClientOption();
             try {
@@ -3849,9 +3356,7 @@ class ProjectApi
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                 );
             }
-
             $statusCode = $response->getStatusCode();
-
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
                     sprintf(
@@ -3864,26 +3369,20 @@ class ProjectApi
                     $response->getBody()
                 );
             }
-
             return [null, $statusCode, $response->getHeaders()];
-
         } catch (ApiException $e) {
             switch ($e->getCode()) {
             }
             throw $e;
         }
     }
-
     /**
      * Operation updateTimeEntryAsync
-     *
      * Allows you to update time entry in a project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual time entry by appending the id to the endpoint (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are updating (required)
-     *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
@@ -3896,25 +3395,19 @@ class ProjectApi
                 }
             );
     }
-
     /**
      * Operation updateTimeEntryAsyncWithHttpInfo
-     *
      * Allows you to update time entry in a project
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual time entry by appending the id to the endpoint (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are updating (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
+     * @return \GuzzleHttp\Promise\PromiseInterface */
     public function updateTimeEntryAsyncWithHttpInfo($xero_tenant_id, $project_id, $time_entry_id, $time_entry_create_or_update)
     {
         $returnType = '';
         $request = $this->updateTimeEntryRequest($xero_tenant_id, $project_id, $time_entry_id, $time_entry_create_or_update);
-
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
@@ -3940,15 +3433,12 @@ class ProjectApi
 
     /**
      * Create request for operation 'updateTimeEntry'
-     *
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $project_id You can specify an individual project by appending the projectId to the endpoint (required)
      * @param  string $time_entry_id You can specify an individual time entry by appending the id to the endpoint (required)
      * @param  \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate $time_entry_create_or_update The time entry object you are updating (required)
-     *
      * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
+     * @return \GuzzleHttp\Psr7\Request  */
     protected function updateTimeEntryRequest($xero_tenant_id, $project_id, $time_entry_id, $time_entry_create_or_update)
     {
         // verify the required parameter 'xero_tenant_id' is set
@@ -3975,19 +3465,16 @@ class ProjectApi
                 'Missing the required parameter $time_entry_create_or_update when calling updateTimeEntry'
             );
         }
-
         $resourcePath = '/projects/{projectId}/time/{timeEntryId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-
         // header params
         if ($xero_tenant_id !== null) {
             $headerParams['Xero-Tenant-Id'] = ProjectObjectSerializer::toHeaderValue($xero_tenant_id);
         }
-        
         // path params
         if ($project_id !== null) {
             $resourcePath = str_replace(
@@ -4004,13 +3491,11 @@ class ProjectApi
                 $resourcePath
             );
         }
-
         // body params
         $_tempBody = null;
         if (isset($time_entry_create_or_update)) {
             $_tempBody = $time_entry_create_or_update;
         }
-
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 []
@@ -4021,7 +3506,6 @@ class ProjectApi
                 ['application/json']
             );
         }
-
         // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -4044,29 +3528,24 @@ class ProjectApi
 
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-
             } else {
                 // for HTTP post (form)
                 $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
             }
         }
-
         // this endpoint requires OAuth (access token)
         if ($this->config->getAccessToken() !== null) {
             $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
-
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
             $headers
         );
-
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'PUT',
