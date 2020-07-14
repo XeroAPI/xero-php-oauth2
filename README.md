@@ -260,7 +260,7 @@ class StorageClass
 	public function getToken()
 	{
 	    //If it doesn't exist or is expired, return null
-	    if (!empty($this->getSession())
+	    if (empty($this->getSession())
 	        || ($_SESSION['oauth2']['expires'] !== null
 	        && $_SESSION['oauth2']['expires'] <= time())
 	    ) {
