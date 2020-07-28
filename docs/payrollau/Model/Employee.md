@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **first_name** | **string** | First name of employee | 
 **last_name** | **string** | Last name of employee | 
 **date_of_birth** | **string** | Date of birth of the employee (YYYY-MM-DD) | 
-**home_address** | [**\XeroAPI\XeroPHP\Models\PayrollAu\HomeAddress**](HomeAddress.md) |  | 
+**home_address** | [**\XeroAPI\XeroPHP\Models\PayrollAu\HomeAddress**](HomeAddress.md) |  | [optional] 
 **start_date** | **string** | Start date for an employee (YYYY-MM-DD) | [optional] 
 **title** | **string** | Title of the employee | [optional] 
 **middle_names** | **string** | Middle name(s) of the employee | [optional] 
