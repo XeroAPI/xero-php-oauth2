@@ -161,7 +161,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$pay_item =  { "EarningsRates": [ { "Name": "MyRate", "AccountCode": "400", "TypeOfUnits": "4.00", "IsExemptFromTax": true, "IsExemptFromSuper": true, "IsReportableAsW1": false, "EarningsType": "FIXED", "EarningsRateID": "ab874dfb-ab09-4c91-954e-43acf6fc23b4", "RateType": "FIXEDAMOUNT", "RatePerUnit": "10.0", "Multiplier": 1.5, "AccrueLeave": 1, "Amount": 5, "EmploymentTerminationPaymentType": "O" } ], "DeductionTypes": [ { "Name": "My Deduction", "AccountCode": "400" } ] } ; // \XeroAPI\XeroPHP\Models\PayrollAu\PayItem | 
+$pay_item = { "EarningsRates": [ { "Name": "MyRate", "AccountCode": "400", "TypeOfUnits": "4.00", "IsExemptFromTax": true, "IsExemptFromSuper": true, "IsReportableAsW1": false, "EarningsType": "ORDINARYTIMEEARNINGS", "EarningsRateID": "1fa4e226-b711-46ba-a8a7-4344c9c5fb87", "RateType": "MULTIPLE", "RatePerUnit": "10.0", "Multiplier": 1.5, "Amount": 5, "EmploymentTerminationPaymentType": "O" } ] }; // \XeroAPI\XeroPHP\Models\PayrollAu\PayItem | 
 
 try {
     $result = $apiInstance->createPayItem($xero_tenant_id, $pay_item);
