@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **category** | **string** | Category type of the employer pension | 
 **liability_account_id** | **string** | Xero identifier for Liability Account | 
 **expense_account_id** | **string** | Xero identifier for Expense Account | 
-**standard_amount** | **double** | Standard amount of the employer pension | 
+**standard_amount** | **double** | Standard amount of the employer pension | [optional] 
 **percentage** | **double** | Percentage of gross of the employer pension | 
 **calculation_type** | **string** | Calculation Type of the employer pension (FixedAmount or PercentageOfGross). | 
 **current_record** | **bool** | Identifier of a record is active or not. | [optional] 

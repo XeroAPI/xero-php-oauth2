@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **line_amount** | **double** | total for line. Debits are positive, credits are negative value | [optional] 
 **account_code** | **string** | See Accounts | [optional] 
+**account_id** | **string** | See Accounts | [optional] 
 **description** | **string** | Description for journal line | [optional] 
 **tax_type** | **string** | The tax type from TaxRates | [optional] 
 **tracking** | [**\XeroAPI\XeroPHP\Models\Accounting\TrackingCategory[]**](TrackingCategory.md) | Optional Tracking Category – see Tracking. Any JournalLine can have a maximum of 2 &lt;TrackingCategory&gt; elements. | [optional] 

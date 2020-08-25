@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **end_of_year_lock_date** | **string** | Shown if set. See lock dates | [optional] 
 **created_date_utc** | **string** | Timestamp when the organisation was created in Xero | [optional] 
 **timezone** | [**\XeroAPI\XeroPHP\Models\Accounting\TimeZone**](TimeZone.md) |  | [optional] 
-**organisation_entity_type** | **string** | Organisation Type | [optional] 
+**organisation_entity_type** | **string** | Organisation Entity Type | [optional] 
 **short_code** | **string** | A unique identifier for the organisation. Potential uses. | [optional] 
 **class** | **string** | Organisation Classes describe which plan the Xero organisation is on (e.g. DEMO, TRIAL, PREMIUM) | [optional] 
 **edition** | **string** | BUSINESS or PARTNER. Partner edition organisations are sold exclusively through accounting partners and have restricted functionality (e.g. no access to invoicing) | [optional] 
