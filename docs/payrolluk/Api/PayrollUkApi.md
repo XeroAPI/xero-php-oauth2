@@ -58,7 +58,7 @@ Method | HTTP request | Description
 [**getPayRunCalendars**](PayrollUkApi.md#getPayRunCalendars) | **GET** /PayRunCalendars | searches payrun calendars
 [**getPayRuns**](PayrollUkApi.md#getPayRuns) | **GET** /PayRuns | searches pay runs
 [**getPaySlip**](PayrollUkApi.md#getPaySlip) | **GET** /Payslips/{PayslipID} | retrieve a single payslip by id
-[**getPayslips**](PayrollUkApi.md#getPayslips) | **GET** /Payslips | searches payslips
+[**getPaySlips**](PayrollUkApi.md#getPaySlips) | **GET** /Payslips | searches payslips
 [**getReimbursement**](PayrollUkApi.md#getReimbursement) | **GET** /Reimbursements/{ReimbursementID} | retrieve a single reimbursement by id
 [**getReimbursements**](PayrollUkApi.md#getReimbursements) | **GET** /Reimbursements | searches reimbursements
 [**getSettings**](PayrollUkApi.md#getSettings) | **GET** /Settings | searches settings
@@ -2984,8 +2984,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getPayslips**
-> \XeroAPI\XeroPHP\Models\PayrollUk\Payslips getPayslips($xero_tenant_id, $pay_run_id, $page)
+# **getPaySlips**
+> \XeroAPI\XeroPHP\Models\PayrollUk\Payslips getPaySlips($xero_tenant_id, $pay_run_id, $page)
 
 searches payslips
 
@@ -3008,10 +3008,10 @@ $pay_run_id = 'pay_run_id_example'; // string | PayrunID which specifies the con
 $page = 56; // int | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 
 try {
-    $result = $apiInstance->getPayslips($xero_tenant_id, $pay_run_id, $page);
+    $result = $apiInstance->getPaySlips($xero_tenant_id, $pay_run_id, $page);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayrollUkApi->getPayslips: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayrollUkApi->getPaySlips: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

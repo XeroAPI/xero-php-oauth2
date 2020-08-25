@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **string** | See Bank Transaction Types | 
-**contact** | [**\XeroAPI\XeroPHP\Models\Accounting\Contact**](Contact.md) |  | 
+**contact** | [**\XeroAPI\XeroPHP\Models\Accounting\Contact**](Contact.md) |  | [optional] 
 **line_items** | [**\XeroAPI\XeroPHP\Models\Accounting\LineItem[]**](LineItem.md) | See LineItems | 
 **bank_account** | [**\XeroAPI\XeroPHP\Models\Accounting\Account**](Account.md) |  | 
 **is_reconciled** | **bool** | Boolean to show if transaction is reconciled | [optional] 
