@@ -95,6 +95,18 @@ If no `composer.json` file exists, create one by running the following command. 
 composer init
 ```
 
+### Configure PHPStorm
+We've received feedback that PHPStorm IDE default file size is too small to load the AccountingApi class.
+
+"PHPStorm seems unable to resolve the XeroAPI\XeroPHP\Api\AccountingApi class. It just shows Undefined class 'AccountingApi' and therefore can't autocomplete any of the methods etc."
+
+To fix this, add the following to the idea.properties file to increase this limit to 5000 kilobytes
+
+idea.max.intellisense.filesize=5000
+
+Instructions here for [configuring PHPStorm](https://www.jetbrains.com/help/phpstorm/tuning-the-ide.html#configure-platform-properties) platform properties on Mac/Windows/Linux
+
+
 ### Laravel
  Xero doesn't offer support on how to use of our SDKs in different frameworks, etc.  We had a recommendation by Matt @hailwood in our developer community. His company integrates xero-php-oauth2 and Laravel using the following package.
 * https://github.com/webfox/laravel-xero-oauth2
