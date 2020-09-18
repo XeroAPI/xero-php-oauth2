@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **employee_id** | **string** | Address line 1 for employee home address | 
-**employment_basis** | [**\XeroAPI\XeroPHP\Models\PayrollAu\EmploymentBasis**](EmploymentBasis.md) |  | 
+**employment_basis** | [**\XeroAPI\XeroPHP\Models\PayrollAu\EmploymentBasis**](EmploymentBasis.md) |  | [optional] 
 **tfn_exemption_type** | [**\XeroAPI\XeroPHP\Models\PayrollAu\TFNExemptionType**](TFNExemptionType.md) |  | [optional] 
 **tax_file_number** | **string** | The tax file number e.g 123123123. | [optional] 
 **australian_resident_for_tax_purposes** | **bool** | If the employee is Australian resident for tax purposes. e.g true or false | [optional] 
