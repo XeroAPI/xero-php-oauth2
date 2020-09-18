@@ -22,7 +22,7 @@
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "guzzlehttp/guzzle": "^6.2",
+        "guzzlehttp/guzzle": "^6.2 | ^7.0",
         "league/oauth2-client": "^2.5.0",
         "firebase/php-jwt": "^5.0"
     },
