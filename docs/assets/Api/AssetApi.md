@@ -33,7 +33,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AssetApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $asset = { "assetName":"Computer74863", "assetNumber":"123477544", "purchaseDate":"2020-01-01", "purchasePrice":100.0, "disposalPrice":23.23, "assetStatus":"Draft", "bookDepreciationSetting":{ "depreciationMethod":"StraightLine", "averagingMethod":"ActualDays", "depreciationRate":0.5, "depreciationCalculationMethod":"None" }, "bookDepreciationDetail":{ "currentCapitalGain":5.32, "currentGainLoss":3.88, "depreciationStartDate":"2020-01-02", "costLimit":100.0, "currentAccumDepreciationAmount":2.25 }, "AccountingBookValue":99.5 }; // \XeroAPI\XeroPHP\Models\Asset\Asset | Fixed asset you are creating
 
 try {
@@ -88,7 +88,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AssetApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $asset_type = { "assetTypeName":"Machinery11004", "fixedAssetAccountId":"3d8d063a-c148-4bb8-8b3c-a5e2ad3b1e82", "depreciationExpenseAccountId":"d1602f69-f900-4616-8d34-90af393fa368", "accumulatedDepreciationAccountId":"9195cadd-8645-41e6-9f67-7bcd421defe8", "bookDepreciationSetting":{ "depreciationMethod":"DiminishingValue100", "averagingMethod":"ActualDays", "depreciationRate":0.05, "depreciationCalculationMethod":"None" } }; // \XeroAPI\XeroPHP\Models\Asset\AssetType | Asset type to add
 
 try {
@@ -143,7 +143,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AssetApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $id = 4f7bcdcb-5ec1-4258-9558-19f662fccdfe; // string | fixed asset id for single object
 
 try {
@@ -198,7 +198,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AssetApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 
 try {
     $result = $apiInstance->getAssetSettings($xero_tenant_id);
@@ -251,7 +251,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AssetApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 
 try {
     $result = $apiInstance->getAssetTypes($xero_tenant_id);
@@ -304,7 +304,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AssetApi(
     new GuzzleHttp\Client(),
     $config
 );
-$xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $status = new \XeroAPI\XeroPHP\Models\Asset\\XeroAPI\XeroPHP\Models\Asset\AssetStatusQueryParam(); // \XeroAPI\XeroPHP\Models\Asset\AssetStatusQueryParam | Required when retrieving a collection of assets. See Asset Status Codes
 $page = 1; // int | Results are paged. This specifies which page of the results to return. The default page is 1.
 $page_size = 5; // int | The number of records returned per page. By default the number of records returned is 10.
