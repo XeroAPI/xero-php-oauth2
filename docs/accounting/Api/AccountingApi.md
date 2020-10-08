@@ -8544,7 +8544,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getQuotes**
-> \XeroAPI\XeroPHP\Models\Accounting\Quotes getQuotes($xero_tenant_id, $if_modified_since, $date_from, $date_to, $expiry_date_from, $expiry_date_to, $contact_id, $status, $page, $order)
+> \XeroAPI\XeroPHP\Models\Accounting\Quotes getQuotes($xero_tenant_id, $if_modified_since, $date_from, $date_to, $expiry_date_from, $expiry_date_to, $contact_id, $status, $page, $order, $quote_number)
 
 Allows you to retrieve any sales quotes
 
@@ -8572,9 +8572,10 @@ $contact_id = 00000000-0000-0000-000-000000000000; // string | Filter for quotes
 $status = 'status_example'; // string | Filter for quotes of a particular Status
 $page = 1; // int | e.g. page=1 – Up to 100 Quotes will be returned in a single API call with line items shown for each quote
 $order = ASC; // string | Order by an any element
+$quote_number = 'quote_number_example'; // string | Filter by quote number (e.g. GET https://.../Quotes?QuoteNumber=QU-0001)
 
 try {
-    $result = $apiInstance->getQuotes($xero_tenant_id, $if_modified_since, $date_from, $date_to, $expiry_date_from, $expiry_date_to, $contact_id, $status, $page, $order);
+    $result = $apiInstance->getQuotes($xero_tenant_id, $if_modified_since, $date_from, $date_to, $expiry_date_from, $expiry_date_to, $contact_id, $status, $page, $order, $quote_number);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->getQuotes: ', $e->getMessage(), PHP_EOL;
@@ -8596,6 +8597,7 @@ Name | Type | Description  | Notes
  **status** | **string**| Filter for quotes of a particular Status | [optional]
  **page** | **int**| e.g. page&#x3D;1 – Up to 100 Quotes will be returned in a single API call with line items shown for each quote | [optional]
  **order** | **string**| Order by an any element | [optional]
+ **quote_number** | **string**| Filter by quote number (e.g. GET https://.../Quotes?QuoteNumber&#x3D;QU-0001) | [optional]
 
 ### Return type
 
