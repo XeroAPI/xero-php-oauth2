@@ -35,6 +35,7 @@ Method | HTTP request | Description
 [**createItems**](AccountingApi.md#createItems) | **PUT** /Items | Allows you to create one or more items
 [**createLinkedTransaction**](AccountingApi.md#createLinkedTransaction) | **PUT** /LinkedTransactions | Allows you to create linked transactions (billable expenses)
 [**createManualJournalAttachmentByFileName**](AccountingApi.md#createManualJournalAttachmentByFileName) | **PUT** /ManualJournals/{ManualJournalID}/Attachments/{FileName} | Allows you to create a specified Attachment on ManualJournal by file name
+[**createManualJournalHistoryRecord**](AccountingApi.md#createManualJournalHistoryRecord) | **PUT** /ManualJournals/{ManualJournalID}/History | Allows you to create history record for a manual journal
 [**createManualJournals**](AccountingApi.md#createManualJournals) | **PUT** /ManualJournals | Allows you to create one or more manual journals
 [**createOverpaymentAllocations**](AccountingApi.md#createOverpaymentAllocations) | **PUT** /Overpayments/{OverpaymentID}/Allocations | Allows you to create a single allocation for an overpayment
 [**createOverpaymentHistory**](AccountingApi.md#createOverpaymentHistory) | **PUT** /Overpayments/{OverpaymentID}/History | Allows you to create history records of an Overpayment
@@ -44,6 +45,7 @@ Method | HTTP request | Description
 [**createPayments**](AccountingApi.md#createPayments) | **PUT** /Payments | Allows you to create multiple payments for invoices or credit notes
 [**createPrepaymentAllocations**](AccountingApi.md#createPrepaymentAllocations) | **PUT** /Prepayments/{PrepaymentID}/Allocations | Allows you to create an Allocation for prepayments
 [**createPrepaymentHistory**](AccountingApi.md#createPrepaymentHistory) | **PUT** /Prepayments/{PrepaymentID}/History | Allows you to create a history record for an Prepayment
+[**createPurchaseOrderAttachmentByFileName**](AccountingApi.md#createPurchaseOrderAttachmentByFileName) | **PUT** /PurchaseOrders/{PurchaseOrderID}/Attachments/{FileName} | Allows you to create Attachment on Purchase Order
 [**createPurchaseOrderHistory**](AccountingApi.md#createPurchaseOrderHistory) | **PUT** /PurchaseOrders/{PurchaseOrderID}/History | Allows you to create HistoryRecord for purchase orders
 [**createPurchaseOrders**](AccountingApi.md#createPurchaseOrders) | **PUT** /PurchaseOrders | Allows you to create one or more purchase orders
 [**createQuoteAttachmentByFileName**](AccountingApi.md#createQuoteAttachmentByFileName) | **PUT** /Quotes/{QuoteID}/Attachments/{FileName} | Allows you to create Attachment on Quote
@@ -131,7 +133,9 @@ Method | HTTP request | Description
 [**getManualJournalAttachmentById**](AccountingApi.md#getManualJournalAttachmentById) | **GET** /ManualJournals/{ManualJournalID}/Attachments/{AttachmentID} | Allows you to retrieve specified Attachment on ManualJournals
 [**getManualJournalAttachments**](AccountingApi.md#getManualJournalAttachments) | **GET** /ManualJournals/{ManualJournalID}/Attachments | Allows you to retrieve Attachment for manual journals
 [**getManualJournals**](AccountingApi.md#getManualJournals) | **GET** /ManualJournals | Allows you to retrieve any manual journals
+[**getManualJournalsHistory**](AccountingApi.md#getManualJournalsHistory) | **GET** /ManualJournals/{ManualJournalID}/History | Allows you to retrieve history from a manual journal
 [**getOnlineInvoice**](AccountingApi.md#getOnlineInvoice) | **GET** /Invoices/{InvoiceID}/OnlineInvoice | Allows you to retrieve a URL to an online invoice
+[**getOrganisationActions**](AccountingApi.md#getOrganisationActions) | **GET** /Organisation/Actions | Retrieve a list of the key actions your app has permission to perform in the connected organisation.
 [**getOrganisationCISSettings**](AccountingApi.md#getOrganisationCISSettings) | **GET** /Organisation/{OrganisationID}/CISSettings | Allows you To verify if an organisation is using contruction industry scheme, you can retrieve the CIS settings for the organistaion.
 [**getOrganisations**](AccountingApi.md#getOrganisations) | **GET** /Organisation | Allows you to retrieve Organisation details
 [**getOverpayment**](AccountingApi.md#getOverpayment) | **GET** /Overpayments/{OverpaymentID} | Allows you to retrieve a specified overpayments
@@ -146,6 +150,9 @@ Method | HTTP request | Description
 [**getPrepayments**](AccountingApi.md#getPrepayments) | **GET** /Prepayments | Allows you to retrieve prepayments
 [**getPurchaseOrder**](AccountingApi.md#getPurchaseOrder) | **GET** /PurchaseOrders/{PurchaseOrderID} | Allows you to retrieve a specified purchase orders
 [**getPurchaseOrderAsPdf**](AccountingApi.md#getPurchaseOrderAsPdf) | **GET** /PurchaseOrders/{PurchaseOrderID}/pdf | Allows you to retrieve purchase orders as PDF files
+[**getPurchaseOrderAttachmentByFileName**](AccountingApi.md#getPurchaseOrderAttachmentByFileName) | **GET** /PurchaseOrders/{PurchaseOrderID}/Attachments/{FileName} | Allows you to retrieve Attachment on a Purchase Order by Filename
+[**getPurchaseOrderAttachmentById**](AccountingApi.md#getPurchaseOrderAttachmentById) | **GET** /PurchaseOrders/{PurchaseOrderID}/Attachments/{AttachmentID} | Allows you to retrieve specific Attachment on purchase order
+[**getPurchaseOrderAttachments**](AccountingApi.md#getPurchaseOrderAttachments) | **GET** /PurchaseOrders/{PurchaseOrderID}/Attachments | Allows you to retrieve attachments for purchase orders
 [**getPurchaseOrderByNumber**](AccountingApi.md#getPurchaseOrderByNumber) | **GET** /PurchaseOrders/{PurchaseOrderNumber} | Allows you to retrieve a specified purchase orders
 [**getPurchaseOrderHistory**](AccountingApi.md#getPurchaseOrderHistory) | **GET** /PurchaseOrders/{PurchaseOrderID}/History | Allows you to retrieve history for PurchaseOrder
 [**getPurchaseOrders**](AccountingApi.md#getPurchaseOrders) | **GET** /PurchaseOrders | Allows you to retrieve purchase orders
@@ -211,6 +218,7 @@ Method | HTTP request | Description
 [**updateOrCreatePurchaseOrders**](AccountingApi.md#updateOrCreatePurchaseOrders) | **POST** /PurchaseOrders | Allows you to update or create one or more purchase orders
 [**updateOrCreateQuotes**](AccountingApi.md#updateOrCreateQuotes) | **POST** /Quotes | Allows you to update OR create one or more quotes
 [**updatePurchaseOrder**](AccountingApi.md#updatePurchaseOrder) | **POST** /PurchaseOrders/{PurchaseOrderID} | Allows you to update a specified purchase order
+[**updatePurchaseOrderAttachmentByFileName**](AccountingApi.md#updatePurchaseOrderAttachmentByFileName) | **POST** /PurchaseOrders/{PurchaseOrderID}/Attachments/{FileName} | Allows you to update Attachment on Purchase Order by Filename
 [**updateQuote**](AccountingApi.md#updateQuote) | **POST** /Quotes/{QuoteID} | Allows you to update a specified quote
 [**updateQuoteAttachmentByFileName**](AccountingApi.md#updateQuoteAttachmentByFileName) | **POST** /Quotes/{QuoteID}/Attachments/{FileName} | Allows you to update Attachment on Quote by Filename
 [**updateReceipt**](AccountingApi.md#updateReceipt) | **POST** /Receipts/{ReceiptID} | Allows you to retrieve a specified draft expense claim receipts
@@ -241,7 +249,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$account = { code: "123456", name: "Foobar", type: AccountType.EXPENSE, description: "Hello World" }; // \XeroAPI\XeroPHP\Models\Accounting\Account | Account object in body of request
+$account = { "Code":"123456", "Name":"Foobar", "Type":"EXPENSE", "Description":"Hello World" }; // \XeroAPI\XeroPHP\Models\Accounting\Account | Account object in body of request
 
 try {
     $result = $apiInstance->createAccount($xero_tenant_id, $account);
@@ -409,7 +417,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createBankTransactionHistoryRecord($xero_tenant_id, $bank_transaction_id, $history_records);
@@ -464,7 +472,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $bank_transactions = { bankTransactions: [{ type: BankTransaction.TypeEnum.SPEND, contact: { contactID: "00000000-0000-0000-000-000000000000" }, lineItems: [{ description: "Foobar", quantity: 1.0, unitAmount: 20.0, accountCode: "000" } ], bankAccount: { code: "000" }}]}; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | BankTransactions with an array of BankTransaction objects in body of request
-$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -482,7 +490,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **bank_transactions** | [**\XeroAPI\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)| BankTransactions with an array of BankTransaction objects in body of request |
- **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
  **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
@@ -520,7 +528,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transfers = { bankTransfers: [{ fromBankAccount: { code: "000", accountID: "00000000-0000-0000-000-000000000000" }, toBankAccount: { code: "001", accountID: "00000000-0000-0000-000-000000000000" }, amount: "50.00" }]}; // \XeroAPI\XeroPHP\Models\Accounting\BankTransfers | BankTransfers with array of BankTransfer objects in request body
+$bank_transfers = { "BankTransfers": [ { "FromBankAccount": { "Code": "090", "Name": "My Savings", "AccountID": "00000000-0000-0000-000-000000000000", "Type": "BANK", "BankAccountNumber": "123455", "Status": "ACTIVE", "BankAccountType": "BANK", "CurrencyCode": "USD", "TaxType": "NONE", "EnablePaymentsToAccount": false, "ShowInExpenseClaims": false, "Class": "ASSET", "ReportingCode": "ASS", "ReportingCodeName": "Assets", "HasAttachments": false, "UpdatedDateUTC": "2016-10-17T13:45:33.993-07:00" }, "ToBankAccount": { "Code": "088", "Name": "Business Wells Fargo", "AccountID": "00000000-0000-0000-000-000000000000", "Type": "BANK", "BankAccountNumber": "123455", "Status": "ACTIVE", "BankAccountType": "BANK", "CurrencyCode": "USD", "TaxType": "NONE", "EnablePaymentsToAccount": false, "ShowInExpenseClaims": false, "Class": "ASSET", "ReportingCode": "ASS", "ReportingCodeName": "Assets", "HasAttachments": false, "UpdatedDateUTC": "2016-06-03T08:31:14.517-07:00" }, "Amount": "50.00" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransfers | BankTransfers with array of BankTransfer objects in request body
 
 try {
     $result = $apiInstance->createBankTransfer($xero_tenant_id, $bank_transfers);
@@ -631,7 +639,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $bank_transfer_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transfer
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createBankTransferHistoryRecord($xero_tenant_id, $bank_transfer_id, $history_records);
@@ -685,8 +693,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$batch_payments = { batchPayments: [ { account: { accountID: "00000000-0000-0000-000-000000000000" }, reference: "ref", date: "2018-08-01", payments: [ { account: { code: "001" }, date: "2019-12-31", amount: 500, invoice: { invoiceID: "00000000-0000-0000-000-000000000000", lineItems: [], contact: {}, type: Invoice.TypeEnum.ACCPAY } } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BatchPayments | BatchPayments with an array of Payments in body of request
-$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$batch_payments = { "BatchPayments": [ { "Account": { "AccountID": "00000000-0000-0000-000-000000000000" }, "Reference": "ref", "Date": "2018-08-01", "Payments": [ { "Account": { "Code": "001" }, "Date": "2019-12-31", "Amount": 500, "Invoice": { "InvoiceID": "00000000-0000-0000-000-000000000000", "LineItems": [], "Contact": {}, "Type": "ACCPAY" } } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BatchPayments | BatchPayments with an array of Payments in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
 try {
     $result = $apiInstance->createBatchPayment($xero_tenant_id, $batch_payments, $summarize_errors);
@@ -703,7 +711,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **batch_payments** | [**\XeroAPI\XeroPHP\Models\Accounting\BatchPayments**](../Model/BatchPayments.md)| BatchPayments with an array of Payments in body of request |
- **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -741,7 +749,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $batch_payment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for BatchPayment
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createBatchPaymentHistoryRecord($xero_tenant_id, $batch_payment_id, $history_records);
@@ -796,7 +804,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $branding_theme_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Branding Theme
-$payment_service = {  paymentServiceID: "dede7858-14e3-4a46-bf95-4d4cc491e645", paymentServiceName: "ACME Payments", paymentServiceUrl: "https://www.payupnow.com/", payNowText: "Pay Now" }; // \XeroAPI\XeroPHP\Models\Accounting\PaymentService | PaymentService object in body of request
+$payment_service = { "PaymentServiceID": "00000000-0000-0000-0000-000000000000", "PaymentServiceName": "ACME Payments", "PaymentServiceUrl": "https://www.payupnow.com/", "PayNowText": "Pay Now" }; // \XeroAPI\XeroPHP\Models\Accounting\PaymentService | PaymentService object in body of request
 
 try {
     $result = $apiInstance->createBrandingThemePaymentServices($xero_tenant_id, $branding_theme_id, $payment_service);
@@ -907,7 +915,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contact_groups = { contactGroups: [{ name: "VIPs" }]}; // \XeroAPI\XeroPHP\Models\Accounting\ContactGroups | ContactGroups with an array of names in request body
+$contact_groups = { "ContactGroups": [{ "Name": "VIPs" }]}; // \XeroAPI\XeroPHP\Models\Accounting\ContactGroups | ContactGroups with an array of names in request body
 
 try {
     $result = $apiInstance->createContactGroup($xero_tenant_id, $contact_groups);
@@ -961,7 +969,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $contact_group_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact Group
-$contacts = { contacts: [{ contactID: "a3675fc4-f8dd-4f03-ba5b-f1870566bcd7" }, { contactID: "4e1753b9-018a-4775-b6aa-1bc7871cfee3" }]}; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | Contacts with array of contacts specifiying the ContactID to be added to ContactGroup in body of request
+$contacts = { "Contacts": [ { "ContactID": "a3675fc4-f8dd-4f03-ba5b-f1870566bcd7" }, { "ContactID": "4e1753b9-018a-4775-b6aa-1bc7871cfee3" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | Contacts with array of contacts specifiying the ContactID to be added to ContactGroup in body of request
 
 try {
     $result = $apiInstance->createContactGroupContacts($xero_tenant_id, $contact_group_id, $contacts);
@@ -1016,7 +1024,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createContactHistory($xero_tenant_id, $contact_id, $history_records);
@@ -1070,8 +1078,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contacts = { contacts: [{ name: "Bruce Banner", emailAddress: "hulk@avengers.com", phones: [{ phoneType: Phone.PhoneTypeEnum.MOBILE, phoneNumber: "555-1212", phoneAreaCode: "415" }], paymentTerms: { bills: { day: 15, type: PaymentTermType.OFCURRENTMONTH }, sales: { day: 10, type: PaymentTermType.DAYSAFTERBILLMONTH }}}]}; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | Contacts with an array of Contact objects to create in body of request
-$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$contacts = { "Id": "e997d6d7-6dad-4458-beb8-d9c1bf7f2edf", "Status": "OK", "ProviderName": "Xero API Partner", "DateTimeUTC": "/Date(1551399321121)/", "Contacts": [ { "ContactID": "3ff6d40c-af9a-40a3-89ce-3c1556a25591", "ContactStatus": "ACTIVE", "Name": "Foo9987", "EmailAddress": "sid32476@blah.com", "BankAccountDetails": "", "Addresses": [ { "AddressType": "STREET", "City": "", "Region": "", "PostalCode": "", "Country": "" }, { "AddressType": "POBOX", "City": "", "Region": "", "PostalCode": "", "Country": "" } ], "Phones": [ { "PhoneType": "DEFAULT", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" }, { "PhoneType": "DDI", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" }, { "PhoneType": "FAX", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" }, { "PhoneType": "MOBILE", "PhoneNumber": "555-1212", "PhoneAreaCode": "415", "PhoneCountryCode": "" } ], "UpdatedDateUTC": "/Date(1551399321043+0000)/", "ContactGroups": [], "IsSupplier": false, "IsCustomer": false, "SalesTrackingCategories": [], "PurchasesTrackingCategories": [], "PaymentTerms": { "Bills": { "Day": 15, "Type": "OFCURRENTMONTH" }, "Sales": { "Day": 10, "Type": "DAYSAFTERBILLMONTH" } }, "ContactPersons": [], "HasValidationErrors": false } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | Contacts with an array of Contact objects to create in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
 try {
     $result = $apiInstance->createContacts($xero_tenant_id, $contacts, $summarize_errors);
@@ -1088,7 +1096,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **contacts** | [**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)| Contacts with an array of Contact objects to create in body of request |
- **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -1126,8 +1134,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
-$allocations = { allocations: [{ amount: 1.0, date: "2019-03-05", invoice: { invoiceID: "c45720a1-ade3-4a38-a064-d15489be6841", lineItems:[], type: Invoice.TypeEnum.ACCPAY, contact: {}}}]}; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | Allocations with array of Allocation object in body of request.
-$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$allocations = { "Allocations": [ { "Invoice": { "LineItems": [], "InvoiceID": "c45720a1-ade3-4a38-a064-d15489be6841" }, "Amount": 1, "Date": "2019-03-05" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | Allocations with array of Allocation object in body of request.
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
 try {
     $result = $apiInstance->createCreditNoteAllocation($xero_tenant_id, $credit_note_id, $allocations, $summarize_errors);
@@ -1145,7 +1153,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **credit_note_id** | [**string**](../Model/.md)| Unique identifier for a Credit Note |
  **allocations** | [**\XeroAPI\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)| Allocations with array of Allocation object in body of request. |
- **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -1242,7 +1250,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createCreditNoteHistory($xero_tenant_id, $credit_note_id, $history_records);
@@ -1296,8 +1304,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$credit_notes = { creditNotes: [{ type: CreditNote.TypeEnum.ACCPAYCREDIT, contact: { contactID: "430fa14a-f945-44d3-9f97-5df5e28441b8" }, date: "2019-01-05", lineItems: [{ description: "Foobar", quantity: 2.0, unitAmount: 20.0, accountCode: "400" }]}]}; // \XeroAPI\XeroPHP\Models\Accounting\CreditNotes | Credit Notes with array of CreditNote object in body of request
-$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$credit_notes = { "CreditNotes":[ { "Type":"ACCPAYCREDIT", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "Date":"2019-01-05", "LineItems":[ { "Description":"Foobar", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"400" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\CreditNotes | Credit Notes with array of CreditNote object in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -1315,7 +1323,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **credit_notes** | [**\XeroAPI\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)| Credit Notes with array of CreditNote object in body of request |
- **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
  **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
@@ -1353,7 +1361,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$currency = { code: CurrencyCode.USD, description: "United States Dollar" }; // \XeroAPI\XeroPHP\Models\Accounting\Currency | Currency obejct in the body of request
+$currency = { "Code": "USD", "Description": "United States Dollar" }; // \XeroAPI\XeroPHP\Models\Accounting\Currency | Currency obejct in the body of request
 
 try {
     $result = $apiInstance->createCurrency($xero_tenant_id, $currency);
@@ -1406,8 +1414,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$employees = { employees: [{ firstName: "Nick", lastName: "Fury", externalLink: { url: "http://twitter.com/#!/search/Nick+Fury" }}]}; // \XeroAPI\XeroPHP\Models\Accounting\Employees | Employees with array of Employee object in body of request
-$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$employees = { "Employees": [ { "FirstName": "Nick", "LastName": "Fury", "ExternalLink": { "Url": "http://twitter.com/#!/search/Nick+Fury" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Employees | Employees with array of Employee object in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
 try {
     $result = $apiInstance->createEmployees($xero_tenant_id, $employees, $summarize_errors);
@@ -1424,7 +1432,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **employees** | [**\XeroAPI\XeroPHP\Models\Accounting\Employees**](../Model/Employees.md)| Employees with array of Employee object in body of request |
- **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -1462,7 +1470,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $expense_claim_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ExpenseClaim
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createExpenseClaimHistory($xero_tenant_id, $expense_claim_id, $history_records);
@@ -1516,7 +1524,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$expense_claims = { expenseClaims: [{ status: ExpenseClaim.StatusEnum.SUBMITTED, user: { userID: "d1164823-0ac1-41ad-987b-b4e30fe0b273" }, receipts: [{ receiptID: "dc1c7f6d-0a4c-402f-acac-551d62ce5816", lineItems: [], contact: {}, user: {}, date: "2018-01-01" }]}]}; // \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims | ExpenseClaims with array of ExpenseClaim object in body of request
+$expense_claims = { "ExpenseClaims": [ { "Status": "SUBMITTED", "User": { "UserID": "d1164823-0ac1-41ad-987b-b4e30fe0b273" }, "Receipts": [ { "Lineitems": [], "ReceiptID": "dc1c7f6d-0a4c-402f-acac-551d62ce5816" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims | ExpenseClaims with array of ExpenseClaim object in body of request
 
 try {
     $result = $apiInstance->createExpenseClaims($xero_tenant_id, $expense_claims);
@@ -1629,7 +1637,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createInvoiceHistory($xero_tenant_id, $invoice_id, $history_records);
@@ -1683,8 +1691,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$invoices = { invoices: [{ type: Invoice.TypeEnum.ACCREC, contact: { contactID: "00000000-0000-0000-000-000000000000" }, lineItems: [{ description: "Acme Tires", quantity: 2.0, unitAmount: 20.0, accountCode: "000", taxType: TaxType.NONE, lineAmount: 40.0 }], date: "2019-03-11", dueDate: "2018-12-10", reference: "Website Design", status: Invoice.StatusEnum.DRAFT }]}; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | Invoices with an array of invoice objects in body of request
-$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$invoices = { "Invoices": [ { "Type": "ACCREC", "Contact": { "ContactID": "430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems": [ { "Description": "Acme Tires", "Quantity": 2, "UnitAmount": 20, "AccountCode": "200", "TaxType": "NONE", "LineAmount": 40 } ], "Date": "2019-03-11", "DueDate": "2018-12-10", "Reference": "Website Design", "Status": "AUTHORISED" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | Invoices with an array of invoice objects in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -1702,7 +1710,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **invoices** | [**\XeroAPI\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)| Invoices with an array of invoice objects in body of request |
- **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
  **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
@@ -1741,7 +1749,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $item_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Item
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createItemHistory($xero_tenant_id, $item_id, $history_records);
@@ -1795,8 +1803,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$items = { items: [{ code: "abcXYZ123", name: "HelloWorld11", description: "Foobar", inventoryAssetAccountCode: "140", purchaseDetails: { cOGSAccountCode: "500" }}]}; // \XeroAPI\XeroPHP\Models\Accounting\Items | Items with an array of Item objects in body of request
-$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$items = { "Items": [ { "Code": "code123", "Name": "Item Name XYZ", "Description": "Foobar", "InventoryAssetAccountCode": "140", "PurchaseDetails": { "COGSAccountCode": "500" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | Items with an array of Item objects in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -1814,7 +1822,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **items** | [**\XeroAPI\XeroPHP\Models\Accounting\Items**](../Model/Items.md)| Items with an array of Item objects in body of request |
- **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
  **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
@@ -1852,7 +1860,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$linked_transaction = { sourceTransactionID: "00000000-0000-0000-000-000000000000", sourceLineItemID: "00000000-0000-0000-000-000000000000" }; // \XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction | LinkedTransaction object in body of request
+$linked_transaction = { "LinkedTransactions": [ { "SourceTransactionID": "a848644a-f20f-4630-98c3-386bd7505631", "SourceLineItemID": "b0df260d-3cc8-4ced-9bd6-41924f624ed3" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction | LinkedTransaction object in body of request
 
 try {
     $result = $apiInstance->createLinkedTransaction($xero_tenant_id, $linked_transaction);
@@ -1942,6 +1950,61 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **createManualJournalHistoryRecord**
+> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createManualJournalHistoryRecord($xero_tenant_id, $manual_journal_id, $history_records)
+
+Allows you to create history record for a manual journal
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$manual_journal_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a manual journal
+$history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+
+try {
+    $result = $apiInstance->createManualJournalHistoryRecord($xero_tenant_id, $manual_journal_id, $history_records);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->createManualJournalHistoryRecord: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **manual_journal_id** | [**string**](../Model/.md)| Xero generated unique identifier for a manual journal |
+ **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **createManualJournals**
 > \XeroAPI\XeroPHP\Models\Accounting\ManualJournals createManualJournals($xero_tenant_id, $manual_journals, $summarize_errors)
 
@@ -1962,8 +2025,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$manual_journals = { manualJournals: [{ narration: "Foo bar", date: "2019-03-14", journalLines: [{ lineAmount: 100.0, accountCode: "400", description: "Hello there" }, { lineAmount: -100.0, accountCode: "400", description: "Goodbye", tracking: [{ name: "Simpson", option: "Bart" }] }]}]}; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournals | ManualJournals array with ManualJournal object in body of request
-$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$manual_journals = { "ManualJournals": [ { "Narration": "Journal Desc", "JournalLines": [ { "LineAmount": 100, "AccountCode": "400", "Description": "Money Movement" }, { "LineAmount": -100, "AccountCode": "400", "Description": "Prepayment of things", "Tracking": [ { "Name": "North", "Option": "Region" } ] } ], "Date": "2019-03-14" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournals | ManualJournals array with ManualJournal object in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
 try {
     $result = $apiInstance->createManualJournals($xero_tenant_id, $manual_journals, $summarize_errors);
@@ -1980,7 +2043,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **manual_journals** | [**\XeroAPI\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)| ManualJournals array with ManualJournal object in body of request |
- **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -2018,8 +2081,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $overpayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Overpayment
-$allocations = { allocations: [{ invoice: { invoiceID: "00000000-0000-0000-000-000000000000", lineItems: [], contact: {}, type: Invoice.TypeEnum.ACCPAY }, amount: 1.0, date: "2019-03-12" }]}; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | Allocations array with Allocation object in body of request
-$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$allocations = { "Allocations": [ { "Invoice": { "InvoiceID": "00000000-0000-0000-000-000000000000", "LineItems": [], "Contact": {}, "Type": "ACCPAY" }, "Amount": 10.00, "Date": "2019-03-12" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | Allocations array with Allocation object in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
 try {
     $result = $apiInstance->createOverpaymentAllocations($xero_tenant_id, $overpayment_id, $allocations, $summarize_errors);
@@ -2037,7 +2100,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **overpayment_id** | [**string**](../Model/.md)| Unique identifier for a Overpayment |
  **allocations** | [**\XeroAPI\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)| Allocations array with Allocation object in body of request |
- **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -2075,7 +2138,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $overpayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Overpayment
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createOverpaymentHistory($xero_tenant_id, $overpayment_id, $history_records);
@@ -2129,7 +2192,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$payment = { invoice: { invoiceID: "00000000-0000-0000-000-000000000000", lineItems: [], contact: {}, type: Invoice.TypeEnum.ACCPAY }, account: { code: "970" }, date: "2019-03-12", amount: 1.0 }; // \XeroAPI\XeroPHP\Models\Accounting\Payment | Request body with a single Payment object
+$payment = { "Payments": [ { "Invoice": { "LineItems": [], "InvoiceID": "00000000-0000-0000-000-000000000000" }, "Account": { "Code": "970" }, "Date": "2019-03-12", "Amount": 1 } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Payment | Request body with a single Payment object
 
 try {
     $result = $apiInstance->createPayment($xero_tenant_id, $payment);
@@ -2183,7 +2246,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $payment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Payment
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createPaymentHistory($xero_tenant_id, $payment_id, $history_records);
@@ -2237,7 +2300,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$payment_services = { paymentServices: [{ paymentServiceName: "PayUpNow", paymentServiceUrl: "https://www.payupnow.com/", payNowText: "Time To Pay" }]}; // \XeroAPI\XeroPHP\Models\Accounting\PaymentServices | PaymentServices array with PaymentService object in body of request
+$payment_services = { "PaymentServices": [ { "PaymentServiceName": "PayUpNow", "PaymentServiceUrl": "https://www.payupnow.com/", "PayNowText": "Time To Pay" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PaymentServices | PaymentServices array with PaymentService object in body of request
 
 try {
     $result = $apiInstance->createPaymentService($xero_tenant_id, $payment_services);
@@ -2290,8 +2353,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$payments = { payments: [{ invoice: { invoiceID: "00000000-0000-0000-000-000000000000", lineItems: [], contact: {}, type: Invoice.TypeEnum.ACCPAY }, account: { code: "970" }, date: "2019-03-12", amount: 1.0 }]}; // \XeroAPI\XeroPHP\Models\Accounting\Payments | Payments array with Payment object in body of request
-$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$payments = { "Payments": [ { "Invoice": { "LineItems": [], "InvoiceID": "00000000-0000-0000-000-000000000000" }, "Account": { "Code": "970" }, "Date": "2019-03-12", "Amount": 1 } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Payments | Payments array with Payment object in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
 try {
     $result = $apiInstance->createPayments($xero_tenant_id, $payments, $summarize_errors);
@@ -2308,7 +2371,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **payments** | [**\XeroAPI\XeroPHP\Models\Accounting\Payments**](../Model/Payments.md)| Payments array with Payment object in body of request |
- **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -2346,8 +2409,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $prepayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Prepayment
-$allocations = { allocations: [{ invoice: { invoiceID: "00000000-0000-0000-000-000000000000", lineItems: [], contact: {}, type: null }, amount: 1.0, date: "2019-03-13" }]}; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | Allocations with an array of Allocation object in body of request
-$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$allocations = { "Allocations": [ { "Invoice": { "LineItems": [], "InvoiceID": "00000000-0000-0000-000-000000000000" }, "Amount": 1, "Date": "2019-01-10" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | Allocations with an array of Allocation object in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
 try {
     $result = $apiInstance->createPrepaymentAllocations($xero_tenant_id, $prepayment_id, $allocations, $summarize_errors);
@@ -2365,7 +2428,7 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **prepayment_id** | [**string**](../Model/.md)| Unique identifier for Prepayment |
  **allocations** | [**\XeroAPI\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)| Allocations with an array of Allocation object in body of request |
- **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -2403,7 +2466,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $prepayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a PrePayment
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createPrepaymentHistory($xero_tenant_id, $prepayment_id, $history_records);
@@ -2437,6 +2500,63 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **createPurchaseOrderAttachmentByFileName**
+> \XeroAPI\XeroPHP\Models\Accounting\Attachments createPurchaseOrderAttachmentByFileName($xero_tenant_id, $purchase_order_id, $file_name, $body)
+
+Allows you to create Attachment on Purchase Order
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$purchase_order_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Purchase Order object
+$file_name = xero-dev.png; // string | Name of the attachment
+$body = 'body_example'; // string | Byte array of file in body of request
+
+try {
+    $result = $apiInstance->createPurchaseOrderAttachmentByFileName($xero_tenant_id, $purchase_order_id, $file_name, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->createPurchaseOrderAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for Purchase Order object |
+ **file_name** | **string**| Name of the attachment |
+ **body** | **string**| Byte array of file in body of request |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/octet-stream
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **createPurchaseOrderHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createPurchaseOrderHistory($xero_tenant_id, $purchase_order_id, $history_records)
 
@@ -2458,7 +2578,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $purchase_order_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a PurchaseOrder
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createPurchaseOrderHistory($xero_tenant_id, $purchase_order_id, $history_records);
@@ -2512,8 +2632,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_orders = { purchaseOrders: [{ contact: { contactID: "00000000-0000-0000-000-000000000000" }, lineItems: [{ description: "Foobar", quantity: 1.0, unitAmount: 20.0, accountCode: "710" }], date: "2019-03-13" }]}; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | PurchaseOrders with an array of PurchaseOrder object in body of request
-$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$purchase_orders = { "PurchaseOrders": [ { "Contact": { "ContactID": "00000000-0000-0000-000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "710" } ], "Date": "2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | PurchaseOrders with an array of PurchaseOrder object in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
 try {
     $result = $apiInstance->createPurchaseOrders($xero_tenant_id, $purchase_orders, $summarize_errors);
@@ -2530,7 +2650,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **purchase_orders** | [**\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)| PurchaseOrders with an array of PurchaseOrder object in body of request |
- **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -2625,7 +2745,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Quote
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createQuoteHistory($xero_tenant_id, $quote_id, $history_records);
@@ -2679,8 +2799,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$quotes = { quotes: [{ contact: { contactID: "00000000-0000-0000-000-000000000000" }, lineItems: [{ description: "Foobar", quantity: 1.0, unitAmount: 20.0, accountCode: "12775" }], date:"2020-02-01" }]}; // \XeroAPI\XeroPHP\Models\Accounting\Quotes | Quotes with an array of Quote object in body of request
-$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$quotes = { "Quotes": [ { "Contact": { "ContactID": "00000000-0000-0000-000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "12775" } ], "Date": "2020-02-01" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Quotes | Quotes with an array of Quote object in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
 try {
     $result = $apiInstance->createQuotes($xero_tenant_id, $quotes, $summarize_errors);
@@ -2697,7 +2817,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **quotes** | [**\XeroAPI\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)| Quotes with an array of Quote object in body of request |
- **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -2734,7 +2854,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$receipts = { receipts: [{ contact: { contactID: "00000000-0000-0000-000-000000000000" }, lineItems: [{ description: "Foobar", quantity: 2.0, unitAmount: 20.0, accountCode: "400", taxType: TaxType.NONE, lineAmount: 40.0 }], user: { userID: "00000000-0000-0000-000-000000000000" }, lineAmountTypes: LineAmountTypes.Inclusive, status: Receipt.StatusEnum.DRAFT, date: null} ] }; // \XeroAPI\XeroPHP\Models\Accounting\Receipts | Receipts with an array of Receipt object in body of request
+$receipts = { "Receipts": [ { "Contact": { "ContactID": "00000000-0000-0000-000-000000000000" }, "Lineitems": [ { "Description": "Foobar", "Quantity": 2, "UnitAmount": 20, "AccountCode": "400", "TaxType": "NONE", "LineAmount": 40 } ], "User": { "UserID": "00000000-0000-0000-000-000000000000" }, "LineAmountTypes": "NoTax", "Status": "DRAFT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Receipts | Receipts with an array of Receipt object in body of request
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -2847,7 +2967,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createReceiptHistory($xero_tenant_id, $receipt_id, $history_records);
@@ -2959,7 +3079,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $repeating_invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Repeating Invoice
-$history_records = { historyRecords:[ { details :"Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
+$history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
     $result = $apiInstance->createRepeatingInvoiceHistory($xero_tenant_id, $repeating_invoice_id, $history_records);
@@ -3013,7 +3133,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$tax_rates = { taxRates: [{ name: "CA State Tax", taxComponents: [{ name: "State Tax", rate: 2.25 }]}]}; // \XeroAPI\XeroPHP\Models\Accounting\TaxRates | TaxRates array with TaxRate object in body of request
+$tax_rates = { "TaxRates": [ { "Name": "CA State Tax", "TaxComponents": [ { "Name": "State Tax", "Rate": 2.25 } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\TaxRates | TaxRates array with TaxRate object in body of request
 
 try {
     $result = $apiInstance->createTaxRates($xero_tenant_id, $tax_rates);
@@ -3438,7 +3558,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $payment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Payment
-$payment_delete = { status: "DELETED" }; // \XeroAPI\XeroPHP\Models\Accounting\PaymentDelete | 
+$payment_delete = { "Payments":[ { "Status":"DELETED" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PaymentDelete | 
 
 try {
     $result = $apiInstance->deletePayment($xero_tenant_id, $payment_id, $payment_delete);
@@ -7235,6 +7355,59 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **getManualJournalsHistory**
+> \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getManualJournalsHistory($xero_tenant_id, $manual_journal_id)
+
+Allows you to retrieve history from a manual journal
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$manual_journal_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a manual journal
+
+try {
+    $result = $apiInstance->getManualJournalsHistory($xero_tenant_id, $manual_journal_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->getManualJournalsHistory: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **manual_journal_id** | [**string**](../Model/.md)| Xero generated unique identifier for a manual journal |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **getOnlineInvoice**
 > \XeroAPI\XeroPHP\Models\Accounting\OnlineInvoices getOnlineInvoice($xero_tenant_id, $invoice_id)
 
@@ -7276,6 +7449,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\XeroAPI\XeroPHP\Models\Accounting\OnlineInvoices**](../Model/OnlineInvoices.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getOrganisationActions**
+> \XeroAPI\XeroPHP\Models\Accounting\Actions getOrganisationActions($xero_tenant_id)
+
+Retrieve a list of the key actions your app has permission to perform in the connected organisation.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+
+try {
+    $result = $apiInstance->getOrganisationActions($xero_tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->getOrganisationActions: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\Actions**](../Model/Actions.md)
 
 ### Authorization
 
@@ -8045,6 +8269,173 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/pdf
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getPurchaseOrderAttachmentByFileName**
+> \SplFileObject getPurchaseOrderAttachmentByFileName($xero_tenant_id, $purchase_order_id, $file_name, $content_type)
+
+Allows you to retrieve Attachment on a Purchase Order by Filename
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$purchase_order_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Purchase Order object
+$file_name = xero-dev.jpg; // string | Name of the attachment
+$content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+
+try {
+    $result = $apiInstance->getPurchaseOrderAttachmentByFileName($xero_tenant_id, $purchase_order_id, $file_name, $content_type);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->getPurchaseOrderAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for Purchase Order object |
+ **file_name** | **string**| Name of the attachment |
+ **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
+
+### Return type
+
+[**\SplFileObject**](../Model/\SplFileObject.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getPurchaseOrderAttachmentById**
+> \SplFileObject getPurchaseOrderAttachmentById($xero_tenant_id, $purchase_order_id, $attachment_id, $content_type)
+
+Allows you to retrieve specific Attachment on purchase order
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$purchase_order_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Purchase Order object
+$attachment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Attachment object
+$content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+
+try {
+    $result = $apiInstance->getPurchaseOrderAttachmentById($xero_tenant_id, $purchase_order_id, $attachment_id, $content_type);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->getPurchaseOrderAttachmentById: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for Purchase Order object |
+ **attachment_id** | [**string**](../Model/.md)| Unique identifier for Attachment object |
+ **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
+
+### Return type
+
+[**\SplFileObject**](../Model/\SplFileObject.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getPurchaseOrderAttachments**
+> \XeroAPI\XeroPHP\Models\Accounting\Attachments getPurchaseOrderAttachments($xero_tenant_id, $purchase_order_id)
+
+Allows you to retrieve attachments for purchase orders
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$purchase_order_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Purchase Orders object
+
+try {
+    $result = $apiInstance->getPurchaseOrderAttachments($xero_tenant_id, $purchase_order_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->getPurchaseOrderAttachments: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for Purchase Orders object |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -10205,7 +10596,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $account_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for retrieving single object
-$accounts = { accounts: [{ code: "123456", name: "BarFoo", accountID: "00000000-0000-0000-000-000000000000", type: AccountType.EXPENSE, description: "GoodBye World", taxType: TaxType.INPUT }]}; // \XeroAPI\XeroPHP\Models\Accounting\Accounts | Request of type Accounts array with one Account
+$accounts = { "Accounts":[ { "Code":"123456", "Name":"BarFoo", "AccountID":"99ce6032-0678-4aa0-8148-240c75fee33a", "Type":"EXPENSE", "Description":"GoodBye World", "TaxType":"INPUT", "EnablePaymentsToAccount":false, "ShowInExpenseClaims":false, "Class":"EXPENSE", "ReportingCode":"EXP", "ReportingCodeName":"Expense", "UpdatedDateUTC":"2019-02-21T16:29:47.96-08:00" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Accounts | Request of type Accounts array with one Account
 
 try {
     $result = $apiInstance->updateAccount($xero_tenant_id, $account_id, $accounts);
@@ -10317,7 +10708,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
-$bank_transactions = { bankTransactions: [{ type: BankTransaction.TypeEnum.SPEND, date: "2019-02-25", reference: "You just updated", status: BankTransaction.StatusEnum.AUTHORISED, bankTransactionID: "00000000-0000-0000-000-000000000000", lineItems: [], contact: {}, bankAccount: { accountID: "00000000-0000-0000-000-000000000000" }}]}; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
+$bank_transactions = { "BankTransactions": [ { "Type": "SPEND", "Contact": { "ContactID": "00000000-0000-0000-000-000000000000", "ContactStatus": "ACTIVE", "Name": "Buzz Lightyear", "FirstName": "Buzz", "LastName": "Lightyear", "EmailAddress": "buzz.Lightyear@email.com", "ContactPersons": [], "BankAccountDetails": "", "Addresses": [ { "AddressType": "STREET", "City": "", "Region": "", "PostalCode": "", "Country": "" }, { "AddressType": "POBOX", "AddressLine1": "", "AddressLine2": "", "AddressLine3": "", "AddressLine4": "", "City": "Palo Alto", "Region": "CA", "PostalCode": "94020", "Country": "United States" } ], "Phones": [ { "PhoneType": "DEFAULT", "PhoneNumber": "847-1294", "PhoneAreaCode": "(626)", "PhoneCountryCode": "" }, { "PhoneType": "DDI", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" }, { "PhoneType": "FAX", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" }, { "PhoneType": "MOBILE", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" } ], "UpdatedDateUTC": "2017-08-21T13:49:04.227-07:00", "ContactGroups": [] }, "Lineitems": [], "BankAccount": { "Code": "088", "Name": "Business Wells Fargo", "AccountID": "00000000-0000-0000-000-000000000000" }, "IsReconciled": false, "Date": "2019-02-25", "Reference": "You just updated", "CurrencyCode": "USD", "CurrencyRate": 1, "Status": "AUTHORISED", "LineAmountTypes": "Inclusive", "TotalTax": 1.74, "BankTransactionID": "00000000-0000-0000-000-000000000000", "UpdatedDateUTC": "2019-02-26T12:39:27.813-08:00" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -10488,7 +10879,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
-$contacts = { contacts: [{ contactID: "00000000-0000-0000-000-000000000000", name: "Thanos" }]}; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | an array of Contacts containing single Contact object with properties to update
+$contacts = { "Contacts": [{ "ContactID": "00000000-0000-0000-000-000000000000", "Name": "Thanos" }]}; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | an array of Contacts containing single Contact object with properties to update
 
 try {
     $result = $apiInstance->updateContact($xero_tenant_id, $contact_id, $contacts);
@@ -10600,7 +10991,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $contact_group_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact Group
-$contact_groups = { contactGroups: [{ name: "Vendor" }]}; // \XeroAPI\XeroPHP\Models\Accounting\ContactGroups | an array of Contact groups with Name of specific group to update
+$contact_groups = { "ContactGroups":[ { "Name":"Suppliers" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ContactGroups | an array of Contact groups with Name of specific group to update
 
 try {
     $result = $apiInstance->updateContactGroup($xero_tenant_id, $contact_group_id, $contact_groups);
@@ -10655,7 +11046,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
-$credit_notes = { creditNotes: [{ type: CreditNote.TypeEnum.ACCPAYCREDIT, contact: { contactID: "00000000-0000-0000-000-000000000000" }, date: "2019-01-05", status: CreditNote.StatusEnum.AUTHORISED, reference: "Mind stone", lineItems: [{ description: "Infinity Stones", quantity: 1.0, unitAmount: 100.0, accountCode: "400" } ]}]}; // \XeroAPI\XeroPHP\Models\Accounting\CreditNotes | an array of Credit Notes containing credit note details to update
+$credit_notes = { "CreditNotes": [ { "Type": "ACCPAYCREDIT", "Contact": { "ContactID": "430fa14a-f945-44d3-9f97-5df5e28441b8" }, "Date": "2019-01-05", "Status": "AUTHORISED", "Reference": "HelloWorld", "LineItems": [ { "Description": "Foobar", "Quantity": 2, "UnitAmount": 20, "AccountCode": "400" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\CreditNotes | an array of Credit Notes containing credit note details to update
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -10769,7 +11160,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $expense_claim_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ExpenseClaim
-$expense_claims = { expenseClaims: [{ status: ExpenseClaim.StatusEnum.AUTHORISED, user: { userID: "00000000-0000-0000-000-000000000000" }, receipts: [{ receiptID: "00000000-0000-0000-000-000000000000", lineItems: [], contact: {}, date:"2020-01-01", user: {} }]}]}; // \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims | 
+$expense_claims = { "ExpenseClaims": [ { "Status": "SUBMITTED", "User": { "UserID": "d1164823-0ac1-41ad-987b-b4e30fe0b273" }, "Receipts": [ { "Lineitems": [], "ReceiptID": "dc1c7f6d-0a4c-402f-acac-551d62ce5816" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims | 
 
 try {
     $result = $apiInstance->updateExpenseClaim($xero_tenant_id, $expense_claim_id, $expense_claims);
@@ -10824,7 +11215,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
-$invoices = { invoices: [{ reference: "I am Iron Man", invoiceID: "00000000-0000-0000-000-000000000000", lineItems: [], contact: {}, type: Invoice.TypeEnum.ACCPAY }]}; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | 
+$invoices = { "Invoices": [{ Reference: "May the force be with you", "InvoiceID": "00000000-0000-0000-000-000000000000", "LineItems": [], "Contact": {}, "Type": "ACCPAY" }]}; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | 
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -10938,7 +11329,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $item_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Item
-$items = { items:[ { code:"abc123", description:"Hello Xero" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | 
+$items = { "Items": [ { "Code": "ItemCode123", "Description": "Description 123" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | 
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -10995,7 +11386,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $linked_transaction_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a LinkedTransaction
-$linked_transactions = { linkedTransactions: [{ sourceLineItemID: "00000000-0000-0000-000-000000000000", contactID: "00000000-0000-0000-000-000000000000" }]}; // \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions | 
+$linked_transactions = { "LinkedTransactions": [ { "SourceTransactionID": "00000000-0000-0000-000-000000000000", "SourceLineItemID": "00000000-0000-0000-000-000000000000" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions | 
 
 try {
     $result = $apiInstance->updateLinkedTransaction($xero_tenant_id, $linked_transaction_id, $linked_transactions);
@@ -11050,7 +11441,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $manual_journal_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ManualJournal
-$manual_journals = { manualJournals: [{ narration: "Hello Xero", manualJournalID: "00000000-0000-0000-000-000000000000", journalLines: [] }]}; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournals | 
+$manual_journals = { "ManualJournals": [ { "Narration": "Hello Xero", "ManualJournalID": "00000000-0000-0000-000-000000000000", "JournalLines": [] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournals | 
 
 try {
     $result = $apiInstance->updateManualJournal($xero_tenant_id, $manual_journal_id, $manual_journals);
@@ -11161,8 +11552,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transactions = { bankTransactions: [{ type: BankTransaction.TypeEnum.SPEND, contact: { contactID: "00000000-0000-0000-000-000000000000" }, lineItems: [{ description: "Foobar", quantity: 1.0, unitAmount: 20.0, accountCode: "000" } ], bankAccount: { code: "000" }}]}; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
-$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$bank_transactions = { "BankTransactions": [ { "Type": "SPEND", "Contact": { "ContactID": "00000000-0000-0000-000-000000000000" }, "Lineitems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "400" } ], "BankAccount": { "Code": "088" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -11180,7 +11571,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **bank_transactions** | [**\XeroAPI\XeroPHP\Models\Accounting\BankTransactions**](../Model/BankTransactions.md)|  |
- **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
  **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
@@ -11218,8 +11609,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contacts = { contacts: [{ name: "Bruce Banner", emailAddress: "hulk@avengers.com", phones: [{ phoneType: Phone.PhoneTypeEnum.MOBILE, phoneNumber: "555-1212", phoneAreaCode: "415" }], paymentTerms: { bills: { day: 15, type: PaymentTermType.OFCURRENTMONTH }, sales: { day: 10, type: PaymentTermType.DAYSAFTERBILLMONTH }}}]}; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | 
-$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$contacts = { "Contacts": [ { "Name": "Bruce Banner", "EmailAddress": "hulk@avengers.com", "Phones": [ { "PhoneType": "MOBILE", "PhoneNumber": "555-1212", "PhoneAreaCode": "415" } ], "PaymentTerms": { "Bills": { "Day": 15, "Type": "OFCURRENTMONTH" }, "Sales": { "Day": 10, "Type": "DAYSAFTERBILLMONTH" } } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | 
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
 try {
     $result = $apiInstance->updateOrCreateContacts($xero_tenant_id, $contacts, $summarize_errors);
@@ -11236,7 +11627,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **contacts** | [**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)|  |
- **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -11273,8 +11664,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$credit_notes = { creditNotes: [{ type: CreditNote.TypeEnum.ACCPAYCREDIT, contact: { contactID: "00000000-0000-0000-000-000000000000" }, date: "2019-01-05", lineItems: [{ description: "Foobar", quantity: 2.0, unitAmount: 20.0, accountCode: "400" }]}]}; // \XeroAPI\XeroPHP\Models\Accounting\CreditNotes | an array of Credit Notes with a single CreditNote object.
-$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$credit_notes = { "CreditNotes":[ { "Type":"ACCPAYCREDIT", "Contact":{ "ContactID":"430fa14a-f945-44d3-9f97-5df5e28441b8" }, "Date":"2019-01-05", "Status":"AUTHORISED", "Reference": "HelloWorld", "LineItems":[ { "Description":"Foobar", "Quantity":2.0, "UnitAmount":20.0, "AccountCode":"400" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\CreditNotes | an array of Credit Notes with a single CreditNote object.
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -11292,7 +11683,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **credit_notes** | [**\XeroAPI\XeroPHP\Models\Accounting\CreditNotes**](../Model/CreditNotes.md)| an array of Credit Notes with a single CreditNote object. |
- **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
  **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
@@ -11330,8 +11721,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$employees = { employees: [{ firstName: "Nick", lastName: "Fury", externalLink: { url: "http://twitter.com/#!/search/Nick+Fury" }}]}; // \XeroAPI\XeroPHP\Models\Accounting\Employees | Employees with array of Employee object in body of request
-$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$employees = { "Employees": [ { "FirstName": "Nick", "LastName": "Fury", "ExternalLink": { "Url": "http://twitter.com/#!/search/Nick+Fury" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Employees | Employees with array of Employee object in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
 try {
     $result = $apiInstance->updateOrCreateEmployees($xero_tenant_id, $employees, $summarize_errors);
@@ -11348,7 +11739,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **employees** | [**\XeroAPI\XeroPHP\Models\Accounting\Employees**](../Model/Employees.md)| Employees with array of Employee object in body of request |
- **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -11385,8 +11776,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$invoices = { invoices: [{ type: Invoice.TypeEnum.ACCREC, contact: { contactID:"00000000-0000-0000-000-000000000000" }, lineItems:[ { description:"Acme Tires", quantity:2.0, unitAmount:20.0, accountCode:"200", taxType:"NONE", lineAmount:40.0 } ], date:"2019-03-11", dueDate:"2018-12-10", reference:"Website Design", status: Invoice.StatusEnum.AUTHORISED } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | 
-$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$invoices = { "Invoices": [ { "Type": "ACCREC", "Contact": { "ContactID": "430fa14a-f945-44d3-9f97-5df5e28441b8" }, "LineItems": [ { "Description": "Acme Tires", "Quantity": 2, "UnitAmount": 20, "AccountCode": "200", "TaxType": "NONE", "LineAmount": 40 } ], "Date": "2019-03-11", "DueDate": "2018-12-10", "Reference": "Website Design", "Status": "AUTHORISED" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | 
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -11404,7 +11795,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **invoices** | [**\XeroAPI\XeroPHP\Models\Accounting\Invoices**](../Model/Invoices.md)|  |
- **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
  **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
@@ -11442,8 +11833,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$items = { items: [{ code: "abcXYZ", name: "HelloWorld", description: "Foobar" }]}; // \XeroAPI\XeroPHP\Models\Accounting\Items | 
-$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$items = { "Items": [ { "Code": "ItemCode123", "Name": "ItemName XYZ", "Description": "Item Description ABC" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | 
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -11461,7 +11852,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **items** | [**\XeroAPI\XeroPHP\Models\Accounting\Items**](../Model/Items.md)|  |
- **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
  **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
 ### Return type
@@ -11499,8 +11890,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$manual_journals = { manualJournals: [{ narration: "Foo bar", journalLines: [{ lineAmount: 100.0, accountCode: "400", description: "Hello there" },{ lineAmount: -100.0, accountCode: "400", description: "Goodbye", tracking: [{ name: "Simpsons", option: "Bart" }]}], date: "2019-03-14" }]}; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournals | ManualJournals array with ManualJournal object in body of request
-$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$manual_journals = { "ManualJournals": [ { "Narration": "Journal Desc", "JournalLines": [ { "LineAmount": 100, "AccountCode": "400", "Description": "Money Movement" }, { "LineAmount": -100, "AccountCode": "400", "Description": "Prepayment of things", "Tracking": [ { "Name": "North", "Option": "Region" } ] } ], "Date": "2019-03-14" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournals | ManualJournals array with ManualJournal object in body of request
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
 try {
     $result = $apiInstance->updateOrCreateManualJournals($xero_tenant_id, $manual_journals, $summarize_errors);
@@ -11517,7 +11908,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **manual_journals** | [**\XeroAPI\XeroPHP\Models\Accounting\ManualJournals**](../Model/ManualJournals.md)| ManualJournals array with ManualJournal object in body of request |
- **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -11554,8 +11945,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_orders = { purchaseOrders: [ { contact: { contactID: "00000000-0000-0000-000-000000000000" }, lineItems: [{ description: "Foobar", quantity: 1.0, unitAmount: 20.0, accountCode: "710" }], date: "2019-03-13" }]}; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | 
-$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$purchase_orders = { "PurchaseOrders": [ { "Contact": { "ContactID": "00000000-0000-0000-000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "710" } ], "Date": "2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | 
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
 try {
     $result = $apiInstance->updateOrCreatePurchaseOrders($xero_tenant_id, $purchase_orders, $summarize_errors);
@@ -11572,7 +11963,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **purchase_orders** | [**\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)|  |
- **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -11609,8 +12000,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$quotes = { quotes: [{ contact: { contactID: "00000000-0000-0000-000-000000000000" }, lineItems: [{ description: "Foobar", quantity: 1.0, unitAmount: 20.0, accountCode: "12775" }], date: "2020-02-01" }]}; // \XeroAPI\XeroPHP\Models\Accounting\Quotes | 
-$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created obejcts and any with validation errors
+$quotes = { "Quotes": [ { "Contact": { "ContactID": "00000000-0000-0000-000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "12775" } ], "Date": "2020-02-01" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Quotes | 
+$summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
 try {
     $result = $apiInstance->updateOrCreateQuotes($xero_tenant_id, $quotes, $summarize_errors);
@@ -11627,7 +12018,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **quotes** | [**\XeroAPI\XeroPHP\Models\Accounting\Quotes**](../Model/Quotes.md)|  |
- **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created obejcts and any with validation errors | [optional] [default to false]
+ **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
 ### Return type
 
@@ -11665,7 +12056,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $purchase_order_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a PurchaseOrder
-$purchase_orders = { purchaseOrders:[ { attentionTo: "Peter Parker", lineItems: [], contact: {} }]}; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | 
+$purchase_orders = { "PurchaseOrders": [ { "AttentionTo": "Peter Parker", "LineItems": [], "Contact": {} } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | 
 
 try {
     $result = $apiInstance->updatePurchaseOrder($xero_tenant_id, $purchase_order_id, $purchase_orders);
@@ -11699,6 +12090,63 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **updatePurchaseOrderAttachmentByFileName**
+> \XeroAPI\XeroPHP\Models\Accounting\Attachments updatePurchaseOrderAttachmentByFileName($xero_tenant_id, $purchase_order_id, $file_name, $body)
+
+Allows you to update Attachment on Purchase Order by Filename
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$purchase_order_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Purchase Order object
+$file_name = xero-dev.png; // string | Name of the attachment
+$body = 'body_example'; // string | Byte array of file in body of request
+
+try {
+    $result = $apiInstance->updatePurchaseOrderAttachmentByFileName($xero_tenant_id, $purchase_order_id, $file_name, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->updatePurchaseOrderAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for Purchase Order object |
+ **file_name** | **string**| Name of the attachment |
+ **body** | **string**| Byte array of file in body of request |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\Attachments**](../Model/Attachments.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/octet-stream
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **updateQuote**
 > \XeroAPI\XeroPHP\Models\Accounting\Quotes updateQuote($xero_tenant_id, $quote_id, $quotes)
 
@@ -11720,7 +12168,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Quote
-$quotes = { quotes: [{ reference: "I am an update", contact: { contactID: "00000000-0000-0000-000-000000000000" }, date: "2020-02-01" }]}; // \XeroAPI\XeroPHP\Models\Accounting\Quotes | 
+$quotes = { "Quotes": [ { "Reference": "I am an update", "Contact": { "ContactID": "00000000-0000-0000-000-000000000000" }, "Date": "2020-02-01" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Quotes | 
 
 try {
     $result = $apiInstance->updateQuote($xero_tenant_id, $quote_id, $quotes);
@@ -11832,7 +12280,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
-$receipts = { receipts: [{ user: { userID: "00000000-0000-0000-000-000000000000" }, reference: "Foobar", date: "2020-01-01", contact: {}, lineItems: [] }]}; // \XeroAPI\XeroPHP\Models\Accounting\Receipts | 
+$receipts = { "Receipts": [ { "Lineitems": [], "User": { "UserID": "00000000-0000-0000-000-000000000000" }, "Reference": "Foobar" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Receipts | 
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -12002,7 +12450,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$tax_rates = { taxRates: [{ name: "State Tax NY", taxComponents: [{ name: "State Tax", rate: 2.25 }], status: TaxRate.StatusEnum.Deleted, reportTaxType: TaxRate.ReportTaxTypeEnum.INPUT }]}; // \XeroAPI\XeroPHP\Models\Accounting\TaxRates | 
+$tax_rates = { "TaxRates": [ { "Name": "State Tax NY", "TaxComponents": [ { "Name": "State Tax", "Rate": 2.25 } ], "Status": "DELETED", "ReportTaxType": "INPUT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\TaxRates | 
 
 try {
     $result = $apiInstance->updateTaxRate($xero_tenant_id, $tax_rates);
@@ -12056,7 +12504,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $tracking_category_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a TrackingCategory
-$tracking_category = { name: "Avengers" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory | 
+$tracking_category = { "Name": "Avengers" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory | 
 
 try {
     $result = $apiInstance->updateTrackingCategory($xero_tenant_id, $tracking_category_id, $tracking_category);
