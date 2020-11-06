@@ -42,7 +42,9 @@ class JWTClaims
             $this->auth_time = $this->jwtDecoded->{'auth_time'};
             $this->iss = $this->jwtDecoded->{'iss'};
             $this->at_hash = $this->jwtDecoded->{'at_hash'};
-            $this->sid = $this->jwtDecoded->{'sid'};
+
+            // not every jwt token seems to contain this key!
+            $this->sid = isset($this->jwtDecoded->{'sid'}) ? $this->jwtDecoded->{'sid'} : null;
         
             // No idea why these values can't be read
             //but appear when dumping jwtDecoded?!?!
