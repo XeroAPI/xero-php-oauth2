@@ -191,6 +191,7 @@ Method | HTTP request | Description
 [**getTrackingCategory**](AccountingApi.md#getTrackingCategory) | **GET** /TrackingCategories/{TrackingCategoryID} | Allows you to retrieve tracking categories and options for specified category
 [**getUser**](AccountingApi.md#getUser) | **GET** /Users/{UserID} | Allows you to retrieve a specified user
 [**getUsers**](AccountingApi.md#getUsers) | **GET** /Users | Allows you to retrieve users
+[**postSetup**](AccountingApi.md#postSetup) | **POST** /Setup | Allows you to set the chart of accounts, the conversion date and conversion balances
 [**updateAccount**](AccountingApi.md#updateAccount) | **POST** /Accounts/{AccountID} | Allows you to update a chart of accounts
 [**updateAccountAttachmentByFileName**](AccountingApi.md#updateAccountAttachmentByFileName) | **POST** /Accounts/{AccountID}/Attachments/{FileName} | Allows you to update Attachment on Account by Filename
 [**updateBankTransaction**](AccountingApi.md#updateBankTransaction) | **POST** /BankTransactions/{BankTransactionID} | Allows you to update a single spend or receive money transaction
@@ -10571,6 +10572,59 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **postSetup**
+> \XeroAPI\XeroPHP\Models\Accounting\ImportSummary postSetup($xero_tenant_id, $setup)
+
+Allows you to set the chart of accounts, the conversion date and conversion balances
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$setup = { "ConversionDate": {}, "ConversionBalances": [], "Accounts": [ { "Code": "200", "Name": "Sales", "Type": "SALES", "ReportingCode": "REV.TRA.GOO" }, { "Code": "400", "Name": "Advertising", "Type": "OVERHEADS", "ReportingCode": "EXP" }, { "Code": "610", "Name": "Accounts Receivable", "Type": "CURRENT", "SystemAccount": "DEBTORS", "ReportingCode": "ASS.CUR.REC.TRA" }, { "Code": "800", "Name": "Accounts Payable", "Type": "CURRLIAB", "SystemAccount": "CREDITORS", "ReportingCode": "LIA.CUR.PAY" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Setup | Object including an accounts array, a conversion balances array and a conversion date object in body of request
+
+try {
+    $result = $apiInstance->postSetup($xero_tenant_id, $setup);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountingApi->postSetup: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **setup** | [**\XeroAPI\XeroPHP\Models\Accounting\Setup**](../Model/Setup.md)| Object including an accounts array, a conversion balances array and a conversion date object in body of request |
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\Accounting\ImportSummary**](../Model/ImportSummary.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
