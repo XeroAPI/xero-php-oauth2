@@ -13,17 +13,21 @@ Coming soon
 * payroll NZ
 * bank feeds 
 * files 
-* xero HQ
 
 All third party libraries dependencies managed with Composer.
 
 [SDK reference for Accounting](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/accounting) for all methods and models.
+
+[SDK reference for Identity](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/identity) for all methods and models.
 
 [SDK reference for Fixed Asset](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/assets) for all methods and models.
 
 [SDK reference for Projects](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/project) for all methods and models.
 
 [SDK reference for Australian Payroll](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/payrollau) for all methods and models.
+
+[SDK reference for UK Payroll](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/payrolluk) for all methods and models.
+
 
 ## Requirements
 

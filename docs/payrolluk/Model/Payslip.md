@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **benefit_lines** | [**\XeroAPI\XeroPHP\Models\PayrollUk\BenefitLine[]**](BenefitLine.md) |  | [optional] 
 **payment_lines** | [**\XeroAPI\XeroPHP\Models\PayrollUk\PaymentLine[]**](PaymentLine.md) |  | [optional] 
 **employee_tax_lines** | [**\XeroAPI\XeroPHP\Models\PayrollUk\TaxLine[]**](TaxLine.md) |  | [optional] 
+**employer_tax_lines** | [**\XeroAPI\XeroPHP\Models\PayrollUk\TaxLine[]**](TaxLine.md) |  | [optional] 
 **court_order_lines** | [**\XeroAPI\XeroPHP\Models\PayrollUk\CourtOrderLine[]**](CourtOrderLine.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

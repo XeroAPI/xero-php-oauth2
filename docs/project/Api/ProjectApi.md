@@ -418,7 +418,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTasks**
-> \XeroAPI\XeroPHP\Models\Project\Tasks getTasks($xero_tenant_id, $project_id, $page, $page_size, $task_ids)
+> \XeroAPI\XeroPHP\Models\Project\Tasks getTasks($xero_tenant_id, $project_id, $page, $page_size, $task_ids, $charge_type)
 
 Allows you to retrieve a single project
 
@@ -443,9 +443,10 @@ $project_id = 'project_id_example'; // string | You can specify an individual pr
 $page = 1; // int | Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0.
 $page_size = 10; // int | Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
 $task_ids = 'task_ids_example'; // string | taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds={taskId},{taskId}
+$charge_type = new \XeroAPI\XeroPHP\Models\Project\\XeroAPI\XeroPHP\Models\Project\ChargeType(); // \XeroAPI\XeroPHP\Models\Project\ChargeType | 
 
 try {
-    $result = $apiInstance->getTasks($xero_tenant_id, $project_id, $page, $page_size, $task_ids);
+    $result = $apiInstance->getTasks($xero_tenant_id, $project_id, $page, $page_size, $task_ids, $charge_type);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectApi->getTasks: ', $e->getMessage(), PHP_EOL;
@@ -462,6 +463,7 @@ Name | Type | Description  | Notes
  **page** | **int**| Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. | [optional]
  **page_size** | **int**| Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. | [optional]
  **task_ids** | **string**| taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskId},{taskId} | [optional]
+ **charge_type** | [**\XeroAPI\XeroPHP\Models\Project\ChargeType**](../Model/.md)|  | [optional]
 
 ### Return type
 
