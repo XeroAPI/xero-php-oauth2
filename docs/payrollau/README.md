@@ -59,41 +59,42 @@ require_once(__DIR__ . '/vendor/autoload.php');
 ?>
 ```
 
+
 ## Documentation for API Endpoints
 
 All URIs are relative to *https://api.xero.com/payroll.xro/1.0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*PayrollAUApi* | [**createEmployee**](Api/PayrollAUApi.md#createemployee) | **POST** /Employees | Use this method to create a payroll employee
-*PayrollAUApi* | [**createLeaveApplication**](Api/PayrollAUApi.md#createleaveapplication) | **POST** /LeaveApplications | Use this method to create a Leave Application
-*PayrollAUApi* | [**createPayItem**](Api/PayrollAUApi.md#createpayitem) | **POST** /PayItems | Use this method to create a Pay Item
-*PayrollAUApi* | [**createPayRun**](Api/PayrollAUApi.md#createpayrun) | **POST** /PayRuns | Use this method to create a PayRun
-*PayrollAUApi* | [**createPayrollCalendar**](Api/PayrollAUApi.md#createpayrollcalendar) | **POST** /PayrollCalendars | Use this method to create a Payroll Calendars
-*PayrollAUApi* | [**createSuperfund**](Api/PayrollAUApi.md#createsuperfund) | **POST** /Superfunds | Use this method to create a super fund
-*PayrollAUApi* | [**createTimesheet**](Api/PayrollAUApi.md#createtimesheet) | **POST** /Timesheets | Use this method to create a timesheet
-*PayrollAUApi* | [**getEmployee**](Api/PayrollAUApi.md#getemployee) | **GET** /Employees/{EmployeeId} | searches for an employee by unique id
-*PayrollAUApi* | [**getEmployees**](Api/PayrollAUApi.md#getemployees) | **GET** /Employees | searches employees
-*PayrollAUApi* | [**getLeaveApplication**](Api/PayrollAUApi.md#getleaveapplication) | **GET** /LeaveApplications/{LeaveApplicationId} | searches for an Leave Application by unique id
-*PayrollAUApi* | [**getLeaveApplications**](Api/PayrollAUApi.md#getleaveapplications) | **GET** /LeaveApplications | searches Leave Applications
-*PayrollAUApi* | [**getPayItems**](Api/PayrollAUApi.md#getpayitems) | **GET** /PayItems | searches Pay Items
-*PayrollAUApi* | [**getPayRun**](Api/PayrollAUApi.md#getpayrun) | **GET** /PayRuns/{PayRunID} | searches for an payrun by unique id
-*PayrollAUApi* | [**getPayRuns**](Api/PayrollAUApi.md#getpayruns) | **GET** /PayRuns | searches PayRuns
-*PayrollAUApi* | [**getPayrollCalendar**](Api/PayrollAUApi.md#getpayrollcalendar) | **GET** /PayrollCalendars/{PayrollCalendarID} | searches Payroll Calendars
-*PayrollAUApi* | [**getPayrollCalendars**](Api/PayrollAUApi.md#getpayrollcalendars) | **GET** /PayrollCalendars | searches Payroll Calendars
-*PayrollAUApi* | [**getPayslip**](Api/PayrollAUApi.md#getpayslip) | **GET** /Payslip/{PayslipID} | searches for an payslip by unique id
-*PayrollAUApi* | [**getSettings**](Api/PayrollAUApi.md#getsettings) | **GET** /Settings | retrieve settings
-*PayrollAUApi* | [**getSuperfund**](Api/PayrollAUApi.md#getsuperfund) | **GET** /Superfunds/{SuperFundID} | searches for an Superfund by unique id
-*PayrollAUApi* | [**getSuperfundProducts**](Api/PayrollAUApi.md#getsuperfundproducts) | **GET** /SuperfundProducts | searches SuperfundProducts
-*PayrollAUApi* | [**getSuperfunds**](Api/PayrollAUApi.md#getsuperfunds) | **GET** /Superfunds | searches SuperFunds
-*PayrollAUApi* | [**getTimesheet**](Api/PayrollAUApi.md#gettimesheet) | **GET** /Timesheets/{TimesheetID} | searches for an timesheet by unique id
-*PayrollAUApi* | [**getTimesheets**](Api/PayrollAUApi.md#gettimesheets) | **GET** /Timesheets | searches timesheets
-*PayrollAUApi* | [**updateEmployee**](Api/PayrollAUApi.md#updateemployee) | **POST** /Employees/{EmployeeId} | Update an Employee
-*PayrollAUApi* | [**updateLeaveApplication**](Api/PayrollAUApi.md#updateleaveapplication) | **POST** /LeaveApplications/{LeaveApplicationId} | Use this method to update a Leave Application
-*PayrollAUApi* | [**updatePayRun**](Api/PayrollAUApi.md#updatepayrun) | **POST** /PayRuns/{PayRunID} | Update a PayRun
-*PayrollAUApi* | [**updatePayslipByID**](Api/PayrollAUApi.md#updatepayslipbyid) | **POST** /Payslip/{PayslipID} | Update a Payslip
-*PayrollAUApi* | [**updateSuperfund**](Api/PayrollAUApi.md#updatesuperfund) | **POST** /Superfunds/{SuperFundID} | Update a Superfund
-*PayrollAUApi* | [**updateTimesheet**](Api/PayrollAUApi.md#updatetimesheet) | **POST** /Timesheets/{TimesheetID} | Update a Timesheet
+*PayrollAuApi* | [**createEmployee**](Api/PayrollAuApi.md#createemployee) | **POST** /Employees | Use this method to create a payroll employee
+*PayrollAuApi* | [**createLeaveApplication**](Api/PayrollAuApi.md#createleaveapplication) | **POST** /LeaveApplications | Use this method to create a Leave Application
+*PayrollAuApi* | [**createPayItem**](Api/PayrollAuApi.md#createpayitem) | **POST** /PayItems | Use this method to create a Pay Item
+*PayrollAuApi* | [**createPayRun**](Api/PayrollAuApi.md#createpayrun) | **POST** /PayRuns | Use this method to create a PayRun
+*PayrollAuApi* | [**createPayrollCalendar**](Api/PayrollAuApi.md#createpayrollcalendar) | **POST** /PayrollCalendars | Use this method to create a Payroll Calendars
+*PayrollAuApi* | [**createSuperfund**](Api/PayrollAuApi.md#createsuperfund) | **POST** /Superfunds | Use this method to create a super fund
+*PayrollAuApi* | [**createTimesheet**](Api/PayrollAuApi.md#createtimesheet) | **POST** /Timesheets | Use this method to create a timesheet
+*PayrollAuApi* | [**getEmployee**](Api/PayrollAuApi.md#getemployee) | **GET** /Employees/{EmployeeId} | searches for an employee by unique id
+*PayrollAuApi* | [**getEmployees**](Api/PayrollAuApi.md#getemployees) | **GET** /Employees | searches employees
+*PayrollAuApi* | [**getLeaveApplication**](Api/PayrollAuApi.md#getleaveapplication) | **GET** /LeaveApplications/{LeaveApplicationId} | searches for an Leave Application by unique id
+*PayrollAuApi* | [**getLeaveApplications**](Api/PayrollAuApi.md#getleaveapplications) | **GET** /LeaveApplications | searches Leave Applications
+*PayrollAuApi* | [**getPayItems**](Api/PayrollAuApi.md#getpayitems) | **GET** /PayItems | searches Pay Items
+*PayrollAuApi* | [**getPayRun**](Api/PayrollAuApi.md#getpayrun) | **GET** /PayRuns/{PayRunID} | searches for an payrun by unique id
+*PayrollAuApi* | [**getPayRuns**](Api/PayrollAuApi.md#getpayruns) | **GET** /PayRuns | searches PayRuns
+*PayrollAuApi* | [**getPayrollCalendar**](Api/PayrollAuApi.md#getpayrollcalendar) | **GET** /PayrollCalendars/{PayrollCalendarID} | searches Payroll Calendars
+*PayrollAuApi* | [**getPayrollCalendars**](Api/PayrollAuApi.md#getpayrollcalendars) | **GET** /PayrollCalendars | searches Payroll Calendars
+*PayrollAuApi* | [**getPayslip**](Api/PayrollAuApi.md#getpayslip) | **GET** /Payslip/{PayslipID} | searches for an payslip by unique id
+*PayrollAuApi* | [**getSettings**](Api/PayrollAuApi.md#getsettings) | **GET** /Settings | retrieve settings
+*PayrollAuApi* | [**getSuperfund**](Api/PayrollAuApi.md#getsuperfund) | **GET** /Superfunds/{SuperFundID} | searches for an Superfund by unique id
+*PayrollAuApi* | [**getSuperfundProducts**](Api/PayrollAuApi.md#getsuperfundproducts) | **GET** /SuperfundProducts | searches SuperfundProducts
+*PayrollAuApi* | [**getSuperfunds**](Api/PayrollAuApi.md#getsuperfunds) | **GET** /Superfunds | searches SuperFunds
+*PayrollAuApi* | [**getTimesheet**](Api/PayrollAuApi.md#gettimesheet) | **GET** /Timesheets/{TimesheetID} | searches for an timesheet by unique id
+*PayrollAuApi* | [**getTimesheets**](Api/PayrollAuApi.md#gettimesheets) | **GET** /Timesheets | searches timesheets
+*PayrollAuApi* | [**updateEmployee**](Api/PayrollAuApi.md#updateemployee) | **POST** /Employees/{EmployeeId} | Update an Employee
+*PayrollAuApi* | [**updateLeaveApplication**](Api/PayrollAuApi.md#updateleaveapplication) | **POST** /LeaveApplications/{LeaveApplicationId} | Use this method to update a Leave Application
+*PayrollAuApi* | [**updatePayRun**](Api/PayrollAuApi.md#updatepayrun) | **POST** /PayRuns/{PayRunID} | Update a PayRun
+*PayrollAuApi* | [**updatePayslip**](Api/PayrollAuApi.md#updatepayslip) | **POST** /Payslip/{PayslipID} | Update a Payslip
+*PayrollAuApi* | [**updateSuperfund**](Api/PayrollAuApi.md#updatesuperfund) | **POST** /Superfunds/{SuperFundID} | Update a Superfund
+*PayrollAuApi* | [**updateTimesheet**](Api/PayrollAuApi.md#updatetimesheet) | **POST** /Timesheets/{TimesheetID} | Update a Timesheet
 
 
 ## Documentation For Models
@@ -101,6 +102,7 @@ Class | Method | HTTP request | Description
  - [APIException](Model/APIException.md)
  - [Account](Model/Account.md)
  - [AccountType](Model/AccountType.md)
+ - [AllowanceType](Model/AllowanceType.md)
  - [BankAccount](Model/BankAccount.md)
  - [CalendarType](Model/CalendarType.md)
  - [DeductionLine](Model/DeductionLine.md)
@@ -141,8 +143,10 @@ Class | Method | HTTP request | Description
  - [PayrollCalendar](Model/PayrollCalendar.md)
  - [PayrollCalendars](Model/PayrollCalendars.md)
  - [Payslip](Model/Payslip.md)
+ - [PayslipLines](Model/PayslipLines.md)
  - [PayslipObject](Model/PayslipObject.md)
  - [PayslipSummary](Model/PayslipSummary.md)
+ - [Payslips](Model/Payslips.md)
  - [RateType](Model/RateType.md)
  - [ReimbursementLine](Model/ReimbursementLine.md)
  - [ReimbursementLines](Model/ReimbursementLines.md)
@@ -172,6 +176,7 @@ Class | Method | HTTP request | Description
  - [TimesheetObject](Model/TimesheetObject.md)
  - [TimesheetStatus](Model/TimesheetStatus.md)
  - [Timesheets](Model/Timesheets.md)
+ - [ValidationError](Model/ValidationError.md)
 
 
 ## Documentation For Authorization

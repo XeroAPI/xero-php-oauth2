@@ -1,550 +1,258 @@
-# Xero PHP oAuth2
-## Current release of SDK with oAuth 2 support
-[![Latest Stable Version](https://poser.pugx.org/xeroapi/xero-php-oauth2/v/stable)](https://packagist.org/packages/xeroapi/xero-php-oauth2)
+# xero-php-oauth2
 
-This release only supports oAuth2 authentication and the following API sets.
-* accounting
-* fixed asset 
-* projects
-* payroll AU
-* payroll UK
+## Payroll (UK) API Documentation
 
-Coming soon
-* payroll NZ
-* bank feeds 
-* files 
-* xero HQ
-
-All third party libraries dependencies managed with Composer.
-
-[SDK reference for Accounting](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/accounting) for all methods and models.
-
-[SDK reference for Fixed Asset](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/assets) for all methods and models.
-
-[SDK reference for Projects](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/project) for all methods and models.
-
-[SDK reference for Australian Payroll](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/payrollau) for all methods and models.
-
-## Requirements
-
-PHP 5.6 and later
-
-## Changes in version 2.x
-
-### Methods to access Dates in Accounting have changed 
-Both our Accounting and AU Payroll APIs use [Microsoft .NET JSON format](https://developer.xero.com/documentation/api/requests-and-responses#JSON) i.e. "\/Date(1439434356790)\/". Our other APIs use standard date formatting i.e. "2020-03-24T18:43:43.860852". Building our SDKs from OpenAPI specs with such different date formats has been challenging.
-
-For this reason, we've decided dates in MS .NET JSON format will be  strings with NO date or date-time format in our OpenAPI specs. This means developers wanting to use our OpenAPI specs with code generators won't run into deserialization issues trying to handle MS .NET JSON format dates.
-
-The side effect is accounting and AU payroll models now have two getter methods. For example, getDateOfBirth() returns the string "\/Date(1439434356790)\/" while getDateOfBirthAsDate() return a standard date "2020-05-14". Since you can override methods in Java setDateOfBirth() can accept a String or a LocalDate. 
-
-```php
-//Get account by id
-$result = $apiInstance->getAccount($xeroTenantId,$accountId); 	
-
-// display formatted date
-echo($result->getAccounts()[0]->getUpdatedDateUtcAsDate()->format('Y-m-d H:i:s') ):
-
-// display string in MS .NET JSON format \/Date(1439434356790)\/
-echo($result->getAccounts()[0]->getUpdatedDateUtc() ):
-
-//When setting a date for accounting or AU Payroll, remember to use the correct method
-// For example setStartDate has a 2nd  method with "AsDate" if you wish to pass a native date
-// This converts the date object to MS DateFormat
-$leaveapplication->setStartDateAsDate(new DateTime('2020-05-02'));
-
-// You'll get an error from the AU Payroll API if you try setStartDate("2020-05-02")
-// But if you want to pass in MS Dateformat, this string will work.
-$leaveapplication->setStartDate("/Date(1547164800000+0000)/");
-
-```
-
-**This is a breaking change between version 1.x and 2.x.**
-
-## Looking for version 1.x of the SDK?
-Codebase, samples and setup instructions located in [php-1.x branch](https://github.com/XeroAPI/xero-php-oauth2/tree/php-1.x).
-
-## Getting Started
-
-### Create a Xero App
-Follow these steps to create your Xero app
-
-* Create a [free Xero user account](https://www.xero.com/us/signup/api/) (if you don't have one)
-* Login to [Xero developer center](https://developer.xero.com/myapps)
-* Click "New App" link
-* Enter your App name, company url, privacy policy url.
-* Enter the redirect URI (something like http://localhost:8888/pathToApp/callback.php)
-* Agree to terms and condition and click "Create App".
-* Click "Generate a secret" button.
-* Copy your client id and client secret and **save for use later**.
-* Click the "Save" button. Your secret is now hidden.
-
-
-## Installation & Usage
-### Composer
-
-To install the bindings via [Composer](http://getcomposer.org/), and add the xero-php-oauth2 sdk to your `composer.json`:
-
-Navigate to where your composer.json file is and run the command
-```
-composer require xeroapi/xero-php-oauth2
-```
-
-If no `composer.json` file exists, create one by running the following command. You'll need [Composer](http://getcomposer.org/) installed.
-```
-composer init
-```
-
-### Laravel
- Xero doesn't offer support on how to use of our SDKs in different frameworks, etc.  We had a recommendation by Matt @hailwood in our developer community. His company integrates xero-php-oauth2 and Laravel using the following package.
-* https://github.com/webfox/laravel-xero-oauth2
-* https://packagist.org/packages/webfox/laravel-xero-oauth2
-
-
-## How to use xero-php-oauth2
-Below is starter code with the oAuth 2 flow.  You can copy/paste the code below into 4 separate PHP files and substitute your **ClientId, ClientSecret and RedirectURI**
-
-### [Download starter code](https://github.com/XeroAPI/xero-php-oauth2-starter)
-
-#### Important 
-The RedirectURI (something like http://localhost:8888/pathToApp/callback.php) in your code needs to point to the callback.php file and match the RedirectURI you set when creating your Xero app. 
-
-1. Point your browser to authorization.php, you'll be redirected to Xero where you'll login and select a Xero org to authorize.  We  recommend the **Demo Company** org, since this code will modify data in the org you connect to. 
-2. Once complete, you'll be returned to your app to the redirect URI which should point to the callback.php. 
-3. In callback.php, you'll obtain an access token which we'll use in authorizedResource.php to create, read, update and delete information in the connected Xero org.
-
-### authorization.php
+Please follow the [README instructions](https://github.com/XeroAPI/xero-php-oauth2/blob/master/README.md) and then run the following:
 
 ```php
 <?php
-  ini_set('display_errors', 'On');
-  require __DIR__ . '/vendor/autoload.php';
-  require_once('storage.php');
+require_once(__DIR__ . '/vendor/autoload.php');
 
-  // Storage Class uses sessions for storing access token (demo only)
-  // you'll need to extend to your Database for a scalable solution
-  $storage = new StorageClass();
-
-  session_start();
-
+  // Init your oAuth2 provider
   $provider = new \League\OAuth2\Client\Provider\GenericProvider([
     'clientId'                => '__YOUR_CLIENT_ID__',   
     'clientSecret'            => '__YOUR_CLIENT_SECRET__',
-    'redirectUri'             => 'http://localhost:8888/pathToApp/callback.php',
+    'redirectUri'             => '__YOUR_REDIRECT_URI__',  //same as at developer.xero.com/myapps
     'urlAuthorize'            => 'https://login.xero.com/identity/connect/authorize',
-    'urlAccessToken'          => 'https://identity.xero.com/connect/token',
-    'urlResourceOwnerDetails' => 'https://api.xero.com/api.xro/2.0/Organisation'
+    'urlAccessToken'          => 'https://identity.xero.com/connect/token'
   ]);
 
-  // Scope defines the data your app has permission to access.
-  // Learn more about scopes at https://developer.xero.com/documentation/oauth2/scopes
-  $options = [
-      'scope' => ['openid email profile offline_access accounting.settings accounting.transactions accounting.contacts accounting.journals.read accounting.reports.read accounting.attachments']
-  ];
 
-  // This returns the authorizeUrl with necessary parameters applied (e.g. state).
-  $authorizationUrl = $provider->getAuthorizationUrl($options);
+  // Configure OAuth2 access token for authorization: OAuth2
+  $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');     
 
-  // Save the state generated for you and store it to the session.
-  // For security, on callback we compare the saved state with the one returned to ensure they match.
-  $_SESSION['oauth2state'] = $provider->getState();
-
-  // Redirect the user to the authorization URL.
-  header('Location: ' . $authorizationUrl);
-  exit();
-?>
-```
-
-### callback.php
-
-```php
-<?php
-  ini_set('display_errors', 'On');
-  require __DIR__ . '/vendor/autoload.php';
-  require_once('storage.php');
-
-  // Storage Classe uses sessions for storing token > extend to your DB of choice
-  $storage = new StorageClass();  
-
-  $provider = new \League\OAuth2\Client\Provider\GenericProvider([
-    'clientId'                => '__YOUR_CLIENT_ID__',   
-    'clientSecret'            => '__YOUR_CLIENT_SECRET__',
-    'redirectUri'             => 'http://localhost:8888/pathToApp/callback.php', 
-    'urlAuthorize'            => 'https://login.xero.com/identity/connect/authorize',
-    'urlAccessToken'          => 'https://identity.xero.com/connect/token',
-    'urlResourceOwnerDetails' => 'https://api.xero.com/api.xro/2.0/Organisation'
-  ]);
-   
-  // If we don't have an authorization code then get one
-  if (!isset($_GET['code'])) {
-    echo "Something went wrong, no authorization code found";
-    exit("Something went wrong, no authorization code found");
-
-  // Check given state against previously stored one to mitigate CSRF attack
-  } elseif (empty($_GET['state']) || ($_GET['state'] !== $_SESSION['oauth2state'])) {
-    echo "Invalid State";
-    unset($_SESSION['oauth2state']);
-    exit('Invalid state');
-  } else {
-  
-    try {
-      // Try to get an access token using the authorization code grant.
-      $accessToken = $provider->getAccessToken('authorization_code', [
-        'code' => $_GET['code']
-      ]);
-           
-      $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( (string)$accessToken->getToken() );
-      $identityApi = new XeroAPI\XeroPHP\Api\IdentityApi(
-        new GuzzleHttp\Client(),
-        $config
-      );
-       
-      $result = $identityApi->getConnections();
-
-      // Save my tokens, expiration tenant_id
-      $storage->setToken(
-          $accessToken->getToken(),
-          $accessToken->getExpires(),
-          $result[0]->getTenantId(),  
-          $accessToken->getRefreshToken(),
-          $accessToken->getValues()["id_token"]
-      );
-   
-      header('Location: ' . './authorizedResource.php');
-      exit();
-     
-    } catch (\League\OAuth2\Client\Provider\Exception\IdentityProviderException $e) {
-      echo "Callback failed";
-      exit();
-    }
-  }
-?>
-```
-
-### storage.php
-
-```php
-<?php
-class StorageClass
-{
-	function __construct() {
-		if( !isset($_SESSION) ){
-        	$this->init_session();
-    	}
-   	}
-
-   	public function init_session(){
-    	session_start();
-	}
-
-    public function getSession() {
-    	return $_SESSION['oauth2'];
-    }
-
- 	public function startSession($token, $secret, $expires = null)
-	{
-       	session_start();
-	}
-
-	public function setToken($token, $expires = null, $tenantId, $refreshToken, $idToken)
-	{    
-	    $_SESSION['oauth2'] = [
-	        'token' => $token,
-	        'expires' => $expires,
-	        'tenant_id' => $tenantId,
-	        'refresh_token' => $refreshToken,
-	        'id_token' => $idToken
-	    ];
-	}
-
-	public function getToken()
-	{
-	    //If it doesn't exist or is expired, return null
-	    if (!empty($this->getSession())
-	        || ($_SESSION['oauth2']['expires'] !== null
-	        && $_SESSION['oauth2']['expires'] <= time())
-	    ) {
-	        return null;
-	    }
-	    return $this->getSession();
-	}
-
-	public function getAccessToken()
-	{
-	    return $_SESSION['oauth2']['token'];
-	}
-
-	public function getRefreshToken()
-	{
-	    return $_SESSION['oauth2']['refresh_token'];
-	}
-
-	public function getExpires()
-	{
-	    return $_SESSION['oauth2']['expires'];
-	}
-
-	public function getXeroTenantId()
-	{
-	    return $_SESSION['oauth2']['tenant_id'];
-	}
-
-	public function getIdToken()
-	{
-	    return $_SESSION['oauth2']['id_token'];
-	}
-
-	public function getHasExpired()
-	{
-		if (!empty($this->getSession())) 
-		{
-			if(time() > $this->getExpires())
-			{
-				return true;
-			} else {
-				return false;
-			}
-		} else {
-			return true;
-		}
-	}
-}
-?>
-```
-
-### authorizedResource.php
-
-```php
-<?php
-  ini_set('display_errors', 'On');
-  require __DIR__ . '/vendor/autoload.php';
-  require_once('storage.php');
-
-  // Use this class to deserialize error caught
-  use XeroAPI\XeroPHP\AccountingObjectSerializer;
-
-  // Storage Classe uses sessions for storing token > extend to your DB of choice
-  $storage = new StorageClass();
-  $xeroTenantId = (string)$storage->getSession()['tenant_id'];
-
-  if ($storage->getHasExpired()) {
-    $provider = new \League\OAuth2\Client\Provider\GenericProvider([
-      'clientId'                => '__YOUR_CLIENT_ID__',
-      'clientSecret'            => '__YOUR_CLIENT_SECRET__',
-      'redirectUri'             => 'http://localhost:8888/xero-php-oauth2-starter/callback.php',
-      'urlAuthorize'            => 'https://login.xero.com/identity/connect/authorize',
-      'urlAccessToken'          => 'https://identity.xero.com/connect/token',
-      'urlResourceOwnerDetails' => 'https://api.xero.com/api.xro/2.0/Organisation'
-    ]);
-
-    $newAccessToken = $provider->getAccessToken('refresh_token', [
-      'refresh_token' => $storage->getRefreshToken()
-    ]);
-
-    // Save my token, expiration and refresh token
-    $storage->setToken(
-        $newAccessToken->getToken(),
-        $newAccessToken->getExpires(),
-        $xeroTenantId,
-        $newAccessToken->getRefreshToken(),
-        $newAccessToken->getValues()["id_token"] );
-  }
-
-  $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( (string)$storage->getSession()['token'] );	
-  
-  $accountingApi = new XeroAPI\XeroPHP\Api\AccountingApi(
+  $payrollUkApi = new XeroAPI\XeroPHP\Api\PayrollUkApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
   );
 
-  $assetApi = new XeroAPI\XeroPHP\Api\AssetApi(
-    new GuzzleHttp\Client(),
-    $config
-  );  
+  $xeroTenantId = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 
-  $identityApi = new XeroAPI\XeroPHP\Api\IdentityApi(
-    new GuzzleHttp\Client(),
-    $config
-  );  
+  // \XeroAPI\XeroPHP\Models\Accounting\Employee | Request of type Employee
+  $employee = new XeroAPI\XeroPHP\Models\PayrollUk\Employee;
+  $employee->setFirstName("Fred");
+  $employee->setLastName("Potter");
+  $employee->setEmail("albus@hogwarts.edu");
+  $dateOfBirth = DateTime::createFromFormat('m/d/Y', '05/29/2000');
+  $employee->setDateOfBirthAsDate($dateOfBirth);
 
-  $projectApi = new XeroAPI\XeroPHP\Api\ProjectApi(
-    new GuzzleHttp\Client(),
-    $config
-  );  
+  $address = new XeroAPI\XeroPHP\Models\PayrollUk\HomeAddress;
+  $address->setAddressLine1("101 Green St");
+  $address->setCity("London");
+  $address->setCountry("United Kingdom");
+  $address->setPostalCode("6023");
+  $employee->setHomeAddress($address);
 
-  $message = "no API calls";
-  if (isset($_GET['action'])) {
-    if ($_GET["action"] == 1) {
-        // Get Organisation details
-        $apiResponse = $accountingApi->getOrganisations($xeroTenantId);
-        $message = 'Organisation Name: ' . $apiResponse->getOrganisations()[0]->getName();
-    } else if ($_GET["action"] == 2) {
-        // Create Contact
-        try {
-            $person = new XeroAPI\XeroPHP\Models\Accounting\ContactPerson;
-            $person->setFirstName("John")
-                ->setLastName("Smith")
-                ->setEmailAddress("john.smith@24locks.com")
-                ->setIncludeInEmails(true);
+  $newEmployees = [];		
+  array_push($newEmployees, $employee);  
 
-            $arr_persons = [];
-            array_push($arr_persons, $person);
-
-            $contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
-            $contact->setName('FooBar')
-                ->setFirstName("Foo")
-                ->setLastName("Bar")
-                ->setEmailAddress("ben.bowden@24locks.com")
-                ->setContactPersons($arr_persons);
-            
-            $arr_contacts = [];
-            array_push($arr_contacts, $contact);
-            $contacts = new XeroAPI\XeroPHP\Models\Accounting\Contacts;
-            $contacts->setContacts($arr_contacts);
-
-            $apiResponse = $accountingApi->createContacts($xeroTenantId,$contacts);
-            $message = 'New Contact Name: ' . $apiResponse->getContacts()[0]->getName();
-        } catch (\XeroAPI\XeroPHP\ApiException $e) {
-            $error = AccountingObjectSerializer::deserialize(
-                $e->getResponseBody(),
-                '\XeroAPI\XeroPHP\Models\Accounting\Error',
-                []
-            );
-            $message = "ApiException - " . $error->getElements()[0]["validation_errors"][0]["message"];
-        }
-
-    } else if ($_GET["action"] == 3) {
-        $if_modified_since = new \DateTime("2019-01-02T19:20:30+01:00"); // \DateTime | Only records created or modified since this timestamp will be returned
-        $if_modified_since = null;
-        $where = 'Type=="ACCREC"'; // string
-        $where = null;
-        $order = null; // string
-        $ids = null; // string[] | Filter by a comma-separated list of Invoice Ids.
-        $invoice_numbers = null; // string[] |  Filter by a comma-separated list of Invoice Numbers.
-        $contact_ids = null; // string[] | Filter by a comma-separated list of ContactIDs.
-        $statuses = array("DRAFT", "SUBMITTED");;
-        $page = 1; // int | e.g. page=1 – Up to 100 invoices will be returned in a single API call with line items
-        $include_archived = null; // bool | e.g. includeArchived=true - Contacts with a status of ARCHIVED will be included
-        $created_by_my_app = null; // bool | When set to true you'll only retrieve Invoices created by your app
-        $unitdp = null; // int | e.g. unitdp=4 – You can opt in to use four decimal places for unit amounts
-
-        try {
-            $apiResponse = $accountingApi->getInvoices($xeroTenantId, $if_modified_since, $where, $order, $ids, $invoice_numbers, $contact_ids, $statuses, $page, $include_archived, $created_by_my_app, $unitdp);
-            if (  count($apiResponse->getInvoices()) > 0 ) {
-                $message = 'Total invoices found: ' . count($apiResponse->getInvoices());
-            } else {
-                $message = "No invoices found matching filter criteria";
-            }
-        } catch (Exception $e) {
-            echo 'Exception when calling AccountingApi->getInvoices: ', $e->getMessage(), PHP_EOL;
-        }
-    } else if ($_GET["action"] == 4) {
-        // Create Multiple Contacts
-        try {
-            $contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
-            $contact->setName('George Jetson')
-                ->setFirstName("George")
-                ->setLastName("Jetson")
-                ->setEmailAddress("george.jetson@aol.com");
-
-            // Add the same contact twice - the first one will succeed, but the
-            // second contact will throw a validation error which we'll catch.
-            $arr_contacts = [];
-            array_push($arr_contacts, $contact);
-            array_push($arr_contacts, $contact);
-            $contacts = new XeroAPI\XeroPHP\Models\Accounting\Contacts;
-            $contacts->setContacts($arr_contacts);
-
-            $apiResponse = $accountingApi->createContacts($xeroTenantId,$contacts,false);
-            $message = 'First contacts created: ' . $apiResponse->getContacts()[0]->getName();
-
-            if ($apiResponse->getContacts()[1]->getHasValidationErrors()) {
-                $message = $message . '<br> Second contact validation error : ' . $apiResponse->getContacts()[1]->getValidationErrors()[0]["message"];
-            }
-
-        } catch (\XeroAPI\XeroPHP\ApiException $e) {
-            $error = AccountingObjectSerializer::deserialize(
-                $e->getResponseBody(),
-                '\XeroAPI\XeroPHP\Models\Accounting\Error',
-                []
-            );
-            $message = "ApiException - " . $error->getElements()[0]["validation_errors"][0]["message"];
-        }
-    } else if () {
-
-        // DELETE the org FIRST Connection returned
-        $connections = $identityApi->getConnections();
-        $id = $connections[0]->getId();
-        $result = $identityApi->deleteConnection($id);
-
-    }
+  try {
+      $result = $payrollUkApi->createEmployee($xero_tenant_id, $newEmployees);
+      print_r($result);
+  } catch (Exception $e) {
+      echo 'Exception when calling payrollUkApi->createEmployee: ', $e->getMessage(), PHP_EOL;
   }
+
 ?>
-<html>
-    <body>
-        <ul>
-            <li><a href="authorizedResource.php?action=1">Get Organisation Name</a></li>
-            <li><a href="authorizedResource.php?action=2">Create one Contact</a></li>
-            <li><a href="authorizedResource.php?action=3">Get Invoice with Filters</a></li>
-            <li><a href="authorizedResource.php?action=4">Create multiple contacts and summarizeErrors</a></li>
-            <li><a href="authorizedResource.php?action=5">Delete an organisation connection</a></li>
-        </ul>
-        <div>
-        <?php
-            echo($message );
-        ?>
-        </div>
-    </body>
-</html>
 ```
 
-## JWT decoding and Signup with Xero
+## Documentation for API Endpoints
 
-Looking to implement [Signup with Xero](https://developer.xero.com/documentation/oauth2/sign-in)? We've added built in decoding of the ID token to xero-php-oauth2.
+All URIs are relative to *https://api.xero.com/payroll.xro/2.0*
 
-```php
-  // Decode JWT
-  $jwt = new XeroAPI\XeroPHP\JWTClaims();
-  $jwt->setTokenId($accessToken->getValues()["id_token"]);
-  $jwt->decode();
+Class | Method | HTTP request | Description
+------------ | ------------- | ------------- | -------------
+*PayrollUkApi* | [**approveTimesheet**](Api/PayrollUkApi.md#approvetimesheet) | **POST** /Timesheets/{TimesheetID}/Approve | approve a timesheet
+*PayrollUkApi* | [**createBenefit**](Api/PayrollUkApi.md#createbenefit) | **POST** /Benefits | create a new benefit
+*PayrollUkApi* | [**createDeduction**](Api/PayrollUkApi.md#creatededuction) | **POST** /Deductions | create a new deduction
+*PayrollUkApi* | [**createEarningsRate**](Api/PayrollUkApi.md#createearningsrate) | **POST** /EarningsRates | create a new earnings rate
+*PayrollUkApi* | [**createEmployee**](Api/PayrollUkApi.md#createemployee) | **POST** /Employees | creates employees
+*PayrollUkApi* | [**createEmployeeEarningsTemplate**](Api/PayrollUkApi.md#createemployeeearningstemplate) | **POST** /Employees/{EmployeeId}/PayTemplates/earnings | creates employee earnings template records
+*PayrollUkApi* | [**createEmployeeLeave**](Api/PayrollUkApi.md#createemployeeleave) | **POST** /Employees/{EmployeeId}/Leave | creates employee leave records
+*PayrollUkApi* | [**createEmployeeLeaveType**](Api/PayrollUkApi.md#createemployeeleavetype) | **POST** /Employees/{EmployeeId}/LeaveTypes | creates employee leave type records
+*PayrollUkApi* | [**createEmployeeOpeningBalances**](Api/PayrollUkApi.md#createemployeeopeningbalances) | **POST** /Employees/{EmployeeId}/ukopeningbalances | creates employee opening balances
+*PayrollUkApi* | [**createEmployeePaymentMethod**](Api/PayrollUkApi.md#createemployeepaymentmethod) | **POST** /Employees/{EmployeeId}/PaymentMethods | creates employee payment method
+*PayrollUkApi* | [**createEmployeeSalaryAndWage**](Api/PayrollUkApi.md#createemployeesalaryandwage) | **POST** /Employees/{EmployeeId}/SalaryAndWages | creates employee salary and wage record
+*PayrollUkApi* | [**createEmployeeStatutorySickLeave**](Api/PayrollUkApi.md#createemployeestatutorysickleave) | **POST** /StatutoryLeaves/Sick | creates employee statutory sick leave records
+*PayrollUkApi* | [**createEmployment**](Api/PayrollUkApi.md#createemployment) | **POST** /Employees/{EmployeeId}/Employment | creates employment
+*PayrollUkApi* | [**createLeaveType**](Api/PayrollUkApi.md#createleavetype) | **POST** /LeaveTypes | create a new leave type
+*PayrollUkApi* | [**createMultipleEmployeeEarningsTemplate**](Api/PayrollUkApi.md#createmultipleemployeeearningstemplate) | **POST** /Employees/{EmployeeId}/paytemplateearnings | creates multiple employee earnings template records
+*PayrollUkApi* | [**createPayRunCalendar**](Api/PayrollUkApi.md#createpayruncalendar) | **POST** /PayRunCalendars | create a new payrun calendar
+*PayrollUkApi* | [**createReimbursement**](Api/PayrollUkApi.md#createreimbursement) | **POST** /Reimbursements | create a new reimbursement
+*PayrollUkApi* | [**createTimesheet**](Api/PayrollUkApi.md#createtimesheet) | **POST** /Timesheets | create a new timesheet
+*PayrollUkApi* | [**createTimesheetLine**](Api/PayrollUkApi.md#createtimesheetline) | **POST** /Timesheets/{TimesheetID}/Lines | create a new timesheet line
+*PayrollUkApi* | [**deleteEmployeeEarningsTemplate**](Api/PayrollUkApi.md#deleteemployeeearningstemplate) | **DELETE** /Employees/{EmployeeId}/PayTemplates/earnings/{PayTemplateEarningID} | deletes an employee earnings template record
+*PayrollUkApi* | [**deleteEmployeeLeave**](Api/PayrollUkApi.md#deleteemployeeleave) | **DELETE** /Employees/{EmployeeId}/Leave/{LeaveID} | deletes an employee leave record
+*PayrollUkApi* | [**deleteEmployeeSalaryAndWage**](Api/PayrollUkApi.md#deleteemployeesalaryandwage) | **DELETE** /Employees/{EmployeeId}/SalaryAndWages/{SalaryAndWagesID} | deletes an employee salary and wages record
+*PayrollUkApi* | [**deleteTimesheet**](Api/PayrollUkApi.md#deletetimesheet) | **DELETE** /Timesheets/{TimesheetID} | delete a timesheet
+*PayrollUkApi* | [**deleteTimesheetLine**](Api/PayrollUkApi.md#deletetimesheetline) | **DELETE** /Timesheets/{TimesheetID}/Lines/{TimesheetLineID} | delete a timesheet line
+*PayrollUkApi* | [**getBenefit**](Api/PayrollUkApi.md#getbenefit) | **GET** /Benefits/{id} | retrieve a single benefit by id
+*PayrollUkApi* | [**getBenefits**](Api/PayrollUkApi.md#getbenefits) | **GET** /Benefits | searches benefits
+*PayrollUkApi* | [**getDeduction**](Api/PayrollUkApi.md#getdeduction) | **GET** /Deductions/{deductionId} | retrieve a single deduction by id
+*PayrollUkApi* | [**getDeductions**](Api/PayrollUkApi.md#getdeductions) | **GET** /Deductions | searches deductions
+*PayrollUkApi* | [**getEarningsOrder**](Api/PayrollUkApi.md#getearningsorder) | **GET** /EarningsOrders/{id} | retrieve a single deduction by id
+*PayrollUkApi* | [**getEarningsOrders**](Api/PayrollUkApi.md#getearningsorders) | **GET** /EarningsOrders | searches earnings orders
+*PayrollUkApi* | [**getEarningsRate**](Api/PayrollUkApi.md#getearningsrate) | **GET** /EarningsRates/{EarningsRateID} | retrieve a single earnings rates by id
+*PayrollUkApi* | [**getEarningsRates**](Api/PayrollUkApi.md#getearningsrates) | **GET** /EarningsRates | searches earnings rates
+*PayrollUkApi* | [**getEmployee**](Api/PayrollUkApi.md#getemployee) | **GET** /Employees/{EmployeeId} | searches employees
+*PayrollUkApi* | [**getEmployeeLeave**](Api/PayrollUkApi.md#getemployeeleave) | **GET** /Employees/{EmployeeId}/Leave/{LeaveID} | retrieve a single employee leave record
+*PayrollUkApi* | [**getEmployeeLeaveBalances**](Api/PayrollUkApi.md#getemployeeleavebalances) | **GET** /Employees/{EmployeeId}/LeaveBalances | search employee leave balances
+*PayrollUkApi* | [**getEmployeeLeavePeriods**](Api/PayrollUkApi.md#getemployeeleaveperiods) | **GET** /Employees/{EmployeeId}/LeavePeriods | searches employee leave periods
+*PayrollUkApi* | [**getEmployeeLeaveTypes**](Api/PayrollUkApi.md#getemployeeleavetypes) | **GET** /Employees/{EmployeeId}/LeaveTypes | searches employee leave types
+*PayrollUkApi* | [**getEmployeeLeaves**](Api/PayrollUkApi.md#getemployeeleaves) | **GET** /Employees/{EmployeeId}/Leave | search employee leave records
+*PayrollUkApi* | [**getEmployeeOpeningBalances**](Api/PayrollUkApi.md#getemployeeopeningbalances) | **GET** /Employees/{EmployeeId}/ukopeningbalances | retrieve employee openingbalances
+*PayrollUkApi* | [**getEmployeePayTemplate**](Api/PayrollUkApi.md#getemployeepaytemplate) | **GET** /Employees/{EmployeeId}/PayTemplates | searches employee pay templates
+*PayrollUkApi* | [**getEmployeePaymentMethod**](Api/PayrollUkApi.md#getemployeepaymentmethod) | **GET** /Employees/{EmployeeId}/PaymentMethods | retrieves an employee&#39;s payment method
+*PayrollUkApi* | [**getEmployeeSalaryAndWage**](Api/PayrollUkApi.md#getemployeesalaryandwage) | **GET** /Employees/{EmployeeId}/SalaryAndWages/{SalaryAndWagesID} | get employee salary and wages record by id
+*PayrollUkApi* | [**getEmployeeSalaryAndWages**](Api/PayrollUkApi.md#getemployeesalaryandwages) | **GET** /Employees/{EmployeeId}/SalaryAndWages | retrieves an employee&#39;s salary and wages
+*PayrollUkApi* | [**getEmployeeStatutoryLeaveBalances**](Api/PayrollUkApi.md#getemployeestatutoryleavebalances) | **GET** /Employees/{EmployeeId}/StatutoryLeaveBalance | search employee leave balances
+*PayrollUkApi* | [**getEmployeeStatutorySickLeave**](Api/PayrollUkApi.md#getemployeestatutorysickleave) | **GET** /StatutoryLeaves/Sick/{StatutorySickLeaveID} | retrieve a statutory sick leave for an employee
+*PayrollUkApi* | [**getEmployeeTax**](Api/PayrollUkApi.md#getemployeetax) | **GET** /Employees/{EmployeeId}/Tax | searches tax records for an employee
+*PayrollUkApi* | [**getEmployees**](Api/PayrollUkApi.md#getemployees) | **GET** /Employees | searches employees
+*PayrollUkApi* | [**getLeaveType**](Api/PayrollUkApi.md#getleavetype) | **GET** /LeaveTypes/{LeaveTypeID} | retrieve a single leave type by id
+*PayrollUkApi* | [**getLeaveTypes**](Api/PayrollUkApi.md#getleavetypes) | **GET** /LeaveTypes | searches leave types
+*PayrollUkApi* | [**getPayRun**](Api/PayrollUkApi.md#getpayrun) | **GET** /PayRuns/{PayRunID} | retrieve a single pay run by id
+*PayrollUkApi* | [**getPayRunCalendar**](Api/PayrollUkApi.md#getpayruncalendar) | **GET** /PayRunCalendars/{PayRunCalendarID} | retrieve a single payrun calendar by id
+*PayrollUkApi* | [**getPayRunCalendars**](Api/PayrollUkApi.md#getpayruncalendars) | **GET** /PayRunCalendars | searches payrun calendars
+*PayrollUkApi* | [**getPayRuns**](Api/PayrollUkApi.md#getpayruns) | **GET** /PayRuns | searches pay runs
+*PayrollUkApi* | [**getPaySlip**](Api/PayrollUkApi.md#getpayslip) | **GET** /Payslips/{PayslipID} | retrieve a single payslip by id
+*PayrollUkApi* | [**getPaySlips**](Api/PayrollUkApi.md#getpayslips) | **GET** /Payslips | searches payslips
+*PayrollUkApi* | [**getReimbursement**](Api/PayrollUkApi.md#getreimbursement) | **GET** /Reimbursements/{ReimbursementID} | retrieve a single reimbursement by id
+*PayrollUkApi* | [**getReimbursements**](Api/PayrollUkApi.md#getreimbursements) | **GET** /Reimbursements | searches reimbursements
+*PayrollUkApi* | [**getSettings**](Api/PayrollUkApi.md#getsettings) | **GET** /Settings | searches settings
+*PayrollUkApi* | [**getStatutoryLeaveSummary**](Api/PayrollUkApi.md#getstatutoryleavesummary) | **GET** /statutoryleaves/summary/{EmployeeId} | retrieve a summary of statutory leaves for an employee
+*PayrollUkApi* | [**getTimesheet**](Api/PayrollUkApi.md#gettimesheet) | **GET** /Timesheets/{TimesheetID} | retrieve a single timesheet by id
+*PayrollUkApi* | [**getTimesheets**](Api/PayrollUkApi.md#gettimesheets) | **GET** /Timesheets | searches timesheets
+*PayrollUkApi* | [**getTrackingCategories**](Api/PayrollUkApi.md#gettrackingcategories) | **GET** /settings/trackingCategories | searches tracking categories
+*PayrollUkApi* | [**revertTimesheet**](Api/PayrollUkApi.md#reverttimesheet) | **POST** /Timesheets/{TimesheetID}/RevertToDraft | revert a timesheet to draft
+*PayrollUkApi* | [**updateEmployee**](Api/PayrollUkApi.md#updateemployee) | **PUT** /Employees/{EmployeeId} | updates employee
+*PayrollUkApi* | [**updateEmployeeEarningsTemplate**](Api/PayrollUkApi.md#updateemployeeearningstemplate) | **PUT** /Employees/{EmployeeId}/PayTemplates/earnings/{PayTemplateEarningID} | updates employee earnings template records
+*PayrollUkApi* | [**updateEmployeeLeave**](Api/PayrollUkApi.md#updateemployeeleave) | **PUT** /Employees/{EmployeeId}/Leave/{LeaveID} | updates employee leave records
+*PayrollUkApi* | [**updateEmployeeOpeningBalances**](Api/PayrollUkApi.md#updateemployeeopeningbalances) | **PUT** /Employees/{EmployeeId}/ukopeningbalances | updates employee opening balances
+*PayrollUkApi* | [**updateEmployeeSalaryAndWage**](Api/PayrollUkApi.md#updateemployeesalaryandwage) | **PUT** /Employees/{EmployeeId}/SalaryAndWages/{SalaryAndWagesID} | updates employee salary and wages record
+*PayrollUkApi* | [**updatePayRun**](Api/PayrollUkApi.md#updatepayrun) | **PUT** /PayRuns/{PayRunID} | update a pay run
+*PayrollUkApi* | [**updateTimesheetLine**](Api/PayrollUkApi.md#updatetimesheetline) | **PUT** /Timesheets/{TimesheetID}/Lines/{TimesheetLineID} | update a timesheet line
 
-  $sub​ = $jwt->getSub();
-  $iss = $jwt->getIss();
-  $exp = $jwt->getExp();
-  $given_name = $jwt->getGivenName();
-  $family_name =  $jwt->getFamilyName();
-  $email = $jwt->getEmail();
-  $user_id = $jwt->getXeroUserId();
-  $username = $jwt->getPreferredUsername();
-  $session_id = $jwt->getGlobalSessionId();
-```
+
+## Documentation For Models
+
+ - [Account](Model/Account.md)
+ - [Accounts](Model/Accounts.md)
+ - [Address](Model/Address.md)
+ - [BankAccount](Model/BankAccount.md)
+ - [Benefit](Model/Benefit.md)
+ - [BenefitLine](Model/BenefitLine.md)
+ - [BenefitObject](Model/BenefitObject.md)
+ - [Benefits](Model/Benefits.md)
+ - [CourtOrderLine](Model/CourtOrderLine.md)
+ - [Deduction](Model/Deduction.md)
+ - [DeductionLine](Model/DeductionLine.md)
+ - [DeductionObject](Model/DeductionObject.md)
+ - [Deductions](Model/Deductions.md)
+ - [EarningsLine](Model/EarningsLine.md)
+ - [EarningsOrder](Model/EarningsOrder.md)
+ - [EarningsOrderObject](Model/EarningsOrderObject.md)
+ - [EarningsOrders](Model/EarningsOrders.md)
+ - [EarningsRate](Model/EarningsRate.md)
+ - [EarningsRateObject](Model/EarningsRateObject.md)
+ - [EarningsRates](Model/EarningsRates.md)
+ - [EarningsTemplate](Model/EarningsTemplate.md)
+ - [EarningsTemplateObject](Model/EarningsTemplateObject.md)
+ - [Employee](Model/Employee.md)
+ - [EmployeeLeave](Model/EmployeeLeave.md)
+ - [EmployeeLeaveBalance](Model/EmployeeLeaveBalance.md)
+ - [EmployeeLeaveBalances](Model/EmployeeLeaveBalances.md)
+ - [EmployeeLeaveObject](Model/EmployeeLeaveObject.md)
+ - [EmployeeLeaveType](Model/EmployeeLeaveType.md)
+ - [EmployeeLeaveTypeObject](Model/EmployeeLeaveTypeObject.md)
+ - [EmployeeLeaveTypes](Model/EmployeeLeaveTypes.md)
+ - [EmployeeLeaves](Model/EmployeeLeaves.md)
+ - [EmployeeObject](Model/EmployeeObject.md)
+ - [EmployeeOpeningBalances](Model/EmployeeOpeningBalances.md)
+ - [EmployeeOpeningBalancesObject](Model/EmployeeOpeningBalancesObject.md)
+ - [EmployeePayTemplate](Model/EmployeePayTemplate.md)
+ - [EmployeePayTemplateObject](Model/EmployeePayTemplateObject.md)
+ - [EmployeePayTemplates](Model/EmployeePayTemplates.md)
+ - [EmployeeStatutoryLeaveBalance](Model/EmployeeStatutoryLeaveBalance.md)
+ - [EmployeeStatutoryLeaveBalanceObject](Model/EmployeeStatutoryLeaveBalanceObject.md)
+ - [EmployeeStatutoryLeaveSummary](Model/EmployeeStatutoryLeaveSummary.md)
+ - [EmployeeStatutoryLeavesSummaries](Model/EmployeeStatutoryLeavesSummaries.md)
+ - [EmployeeStatutorySickLeave](Model/EmployeeStatutorySickLeave.md)
+ - [EmployeeStatutorySickLeaveObject](Model/EmployeeStatutorySickLeaveObject.md)
+ - [EmployeeStatutorySickLeaves](Model/EmployeeStatutorySickLeaves.md)
+ - [EmployeeTax](Model/EmployeeTax.md)
+ - [EmployeeTaxObject](Model/EmployeeTaxObject.md)
+ - [Employees](Model/Employees.md)
+ - [Employment](Model/Employment.md)
+ - [EmploymentObject](Model/EmploymentObject.md)
+ - [InvalidField](Model/InvalidField.md)
+ - [LeaveAccrualLine](Model/LeaveAccrualLine.md)
+ - [LeaveEarningsLine](Model/LeaveEarningsLine.md)
+ - [LeavePeriod](Model/LeavePeriod.md)
+ - [LeavePeriods](Model/LeavePeriods.md)
+ - [LeaveType](Model/LeaveType.md)
+ - [LeaveTypeObject](Model/LeaveTypeObject.md)
+ - [LeaveTypes](Model/LeaveTypes.md)
+ - [Pagination](Model/Pagination.md)
+ - [PayRun](Model/PayRun.md)
+ - [PayRunCalendar](Model/PayRunCalendar.md)
+ - [PayRunCalendarObject](Model/PayRunCalendarObject.md)
+ - [PayRunCalendars](Model/PayRunCalendars.md)
+ - [PayRunObject](Model/PayRunObject.md)
+ - [PayRuns](Model/PayRuns.md)
+ - [PaymentLine](Model/PaymentLine.md)
+ - [PaymentMethod](Model/PaymentMethod.md)
+ - [PaymentMethodObject](Model/PaymentMethodObject.md)
+ - [Payslip](Model/Payslip.md)
+ - [PayslipObject](Model/PayslipObject.md)
+ - [Payslips](Model/Payslips.md)
+ - [Problem](Model/Problem.md)
+ - [Reimbursement](Model/Reimbursement.md)
+ - [ReimbursementLine](Model/ReimbursementLine.md)
+ - [ReimbursementObject](Model/ReimbursementObject.md)
+ - [Reimbursements](Model/Reimbursements.md)
+ - [SalaryAndWage](Model/SalaryAndWage.md)
+ - [SalaryAndWageObject](Model/SalaryAndWageObject.md)
+ - [SalaryAndWages](Model/SalaryAndWages.md)
+ - [Settings](Model/Settings.md)
+ - [StatutoryDeduction](Model/StatutoryDeduction.md)
+ - [StatutoryDeductionCategory](Model/StatutoryDeductionCategory.md)
+ - [TaxLine](Model/TaxLine.md)
+ - [Timesheet](Model/Timesheet.md)
+ - [TimesheetEarningsLine](Model/TimesheetEarningsLine.md)
+ - [TimesheetLine](Model/TimesheetLine.md)
+ - [TimesheetLineObject](Model/TimesheetLineObject.md)
+ - [TimesheetObject](Model/TimesheetObject.md)
+ - [Timesheets](Model/Timesheets.md)
+ - [TrackingCategories](Model/TrackingCategories.md)
+ - [TrackingCategory](Model/TrackingCategory.md)
 
 
-## License
+## Documentation For Authorization
 
-This software is published under the [MIT License](http://en.wikipedia.org/wiki/MIT_License).
 
-  Copyright (c) 2019 Xero Limited
+## OAuth2
 
-  Permission is hereby granted, free of charge, to any person
-  obtaining a copy of this software and associated documentation
-  files (the "Software"), to deal in the Software without
-  restriction, including without limitation the rights to use,
-  copy, modify, merge, publish, distribute, sublicense, and/or sell
-  copies of the Software, and to permit persons to whom the
-  Software is furnished to do so, subject to the following
-  conditions:
+- **Type**: OAuth
+- **Flow**: accessCode
+- **Authorization URL**: https://login.xero.com/identity/connect/authorize
+- **Scopes**: 
+ - **payroll.employees**: Grant read-write access to payroll employees
+ - **payroll.employees.read**: Grant read-only access to payroll employees
+ - **payroll.payruns**: Grant read-write access to payroll payruns
+ - **payroll.payruns.read**: Grant read-only access to payroll payruns
+ - **payroll.payslip**: Grant read-write access to payroll payslips
+ - **payroll.payslip.read**: Grant read-only access to payroll payslips
+ - **payroll.settings**: Grant read-write access to payroll settings
+ - **payroll.settings.read**: Grant read-only access to payroll settings
+ - **payroll.timesheets**: Grant read-write access to payroll timesheets
+ - **payroll.timesheets.read**: Grant read-only access to payroll timesheets
 
-  The above copyright notice and this permission notice shall be
-  included in all copies or substantial portions of the Software.
 
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-  OTHER DEALINGS IN THE SOFTWARE.
+## Author
+
+api@xero.com
 
 
