@@ -10577,7 +10577,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postSetup**
-> \XeroAPI\XeroPHP\Models\Accounting\ImportSummary postSetup($xero_tenant_id, $setup)
+> \XeroAPI\XeroPHP\Models\Accounting\ImportSummaryObject postSetup($xero_tenant_id, $setup)
 
 Allows you to set the chart of accounts, the conversion date and conversion balances
 
@@ -10616,7 +10616,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\ImportSummary**](../Model/ImportSummary.md)
+[**\XeroAPI\XeroPHP\Models\Accounting\ImportSummaryObject**](../Model/ImportSummaryObject.md)
 
 ### Authorization
 
