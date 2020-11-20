@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **type** | **string** | See Credit Note Types | [optional] 
 **contact** | [**\XeroAPI\XeroPHP\Models\Accounting\Contact**](Contact.md) |  | [optional] 
 **date** | **string** | The date the credit note is issued YYYY-MM-DD. If the Date element is not specified then it will default to the current date based on the timezone setting of the organisation | [optional] 
+**due_date** | **string** | Date invoice is due – YYYY-MM-DD | [optional] 
 **status** | **string** | See Credit Note Status Codes | [optional] 
 **line_amount_types** | [**\XeroAPI\XeroPHP\Models\Accounting\LineAmountTypes**](LineAmountTypes.md) |  | [optional] 
 **line_items** | [**\XeroAPI\XeroPHP\Models\Accounting\LineItem[]**](LineItem.md) | See Invoice Line Items | [optional] 
