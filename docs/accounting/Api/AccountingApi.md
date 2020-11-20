@@ -9910,7 +9910,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$date = 2019-11-01; // string | The date of the Balance Sheet report
+$date = 2019-11-01; // \DateTime | The date of the Balance Sheet report
 $periods = 3; // int | The number of periods for the Balance Sheet report
 $timeframe = MONTH; // string | The period size to compare to (MONTH, QUARTER, YEAR)
 $tracking_option_id1 = 00000000-0000-0000-000-000000000000; // string | The tracking option 1 for the Balance Sheet report
@@ -9932,7 +9932,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **date** | **string**| The date of the Balance Sheet report | [optional]
+ **date** | **\DateTime**| The date of the Balance Sheet report | [optional]
  **periods** | **int**| The number of periods for the Balance Sheet report | [optional]
  **timeframe** | **string**| The period size to compare to (MONTH, QUARTER, YEAR) | [optional]
  **tracking_option_id1** | **string**| The tracking option 1 for the Balance Sheet report | [optional]

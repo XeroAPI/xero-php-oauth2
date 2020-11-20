@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **asset_number** | **string** | Must be unique. | [optional] 
 **purchase_date** | [**\DateTime**](\DateTime.md) | The date the asset was purchased YYYY-MM-DD | [optional] 
 **purchase_price** | **double** | The purchase price of the asset | [optional] 
+**disposal_date** | [**\DateTime**](\DateTime.md) | The date the asset was disposed | [optional] 
 **disposal_price** | **double** | The price the asset was disposed at | [optional] 
 **asset_status** | [**\XeroAPI\XeroPHP\Models\Asset\AssetStatus**](AssetStatus.md) |  | [optional] 
 **warranty_expiry_date** | **string** | The date the asset’s warranty expires (if needed) YYYY-MM-DD | [optional] 
