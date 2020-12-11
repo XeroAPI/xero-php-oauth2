@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **total_pay** | **double** | Total pay of the pay run | [optional] 
 **pay_run_status** | **string** | Pay run status | [optional] 
 **pay_run_type** | **string** | Pay run type | [optional] 
-**calendar_type** | **string** | Calendar type of the pay run | [optional] 
+**calendar_type** | [**\XeroAPI\XeroPHP\Models\PayrollNz\CalendarType**](CalendarType.md) |  | [optional] 
 **posted_date_time** | [**\DateTime**](\DateTime.md) | Posted date time of the pay run | [optional] 
 **pay_slips** | [**\XeroAPI\XeroPHP\Models\PayrollNz\PaySlip[]**](PaySlip.md) |  | [optional] 
 

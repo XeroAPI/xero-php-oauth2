@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**period_units** | **int** | The number of units for the period type | [optional] 
+**period_units** | **double** | The number of units for the period type | [optional] 
 **period_type** | **string** | The type of period (\&quot;weeks\&quot; or \&quot;months\&quot;) | [optional] 
 **tax_code** | [**\XeroAPI\XeroPHP\Models\PayrollNz\TaxCode**](TaxCode.md) |  | [optional] 
 **special_tax_rate** | **string** | Tax rate for STC and WT | [optional] 
