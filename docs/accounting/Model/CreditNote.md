@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **sub_total** | **double** | The subtotal of the credit note excluding taxes | [optional] 
 **total_tax** | **double** | The total tax on the credit note | [optional] 
 **total** | **double** | The total of the Credit Note(subtotal + total tax) | [optional] 
+**cis_deduction** | **double** | CIS deduction for UK contractors | [optional] 
+**cis_rate** | **double** | CIS Deduction rate for the organisation | [optional] 
 **updated_date_utc** | **string** | UTC timestamp of last update to the credit note | [optional] 
 **currency_code** | [**\XeroAPI\XeroPHP\Models\Accounting\CurrencyCode**](CurrencyCode.md) |  | [optional] 
 **fully_paid_on_date** | **string** | Date when credit note was fully paid(UTC format) | [optional] 

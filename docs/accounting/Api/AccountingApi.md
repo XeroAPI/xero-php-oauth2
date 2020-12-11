@@ -7056,11 +7056,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **page** | **int**| Up to 100 linked transactions will be returned in a single API call. Use the page parameter to specify the page to be returned e.g. page&#x3D;1. | [optional]
- **linked_transaction_id** | **string**| The Xero identifier for an Linked Transaction | [optional]
- **source_transaction_id** | **string**| Filter by the SourceTransactionID. Get the linked transactions created from a particular ACCPAY invoice | [optional]
- **contact_id** | **string**| Filter by the ContactID. Get all the linked transactions that have been assigned to a particular customer. | [optional]
+ **linked_transaction_id** | [**string**](../Model/.md)| The Xero identifier for an Linked Transaction | [optional]
+ **source_transaction_id** | [**string**](../Model/.md)| Filter by the SourceTransactionID. Get the linked transactions created from a particular ACCPAY invoice | [optional]
+ **contact_id** | [**string**](../Model/.md)| Filter by the ContactID. Get all the linked transactions that have been assigned to a particular customer. | [optional]
  **status** | **string**| Filter by the combination of ContactID and Status. Get  the linked transactions associaed to a  customer and with a status | [optional]
- **target_transaction_id** | **string**| Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice | [optional]
+ **target_transaction_id** | [**string**](../Model/.md)| Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice | [optional]
 
 ### Return type
 
