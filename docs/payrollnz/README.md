@@ -21,7 +21,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
   // Configure OAuth2 access token for authorization: OAuth2
   $config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');     
 
-  $payrollUkApi = new XeroAPI\XeroPHP\Api\PayrollUkApi(
+  $payrollNzApi = new XeroAPI\XeroPHP\Api\PayrollNzApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -31,14 +31,14 @@ require_once(__DIR__ . '/vendor/autoload.php');
   $xeroTenantId = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 
   // \XeroAPI\XeroPHP\Models\Accounting\Employee | Request of type Employee
-  $employee = new XeroAPI\XeroPHP\Models\PayrollUk\Employee;
+  $employee = new XeroAPI\XeroPHP\Models\PayrollNz\Employee;
   $employee->setFirstName("Fred");
   $employee->setLastName("Potter");
   $employee->setEmail("albus@hogwarts.edu");
   $dateOfBirth = DateTime::createFromFormat('m/d/Y', '05/29/2000');
   $employee->setDateOfBirthAsDate($dateOfBirth);
 
-  $address = new XeroAPI\XeroPHP\Models\PayrollUk\HomeAddress;
+  $address = new XeroAPI\XeroPHP\Models\PayrollNz\HomeAddress;
   $address->setAddressLine1("101 Green St");
   $address->setCity("London");
   $address->setCountry("United Kingdom");
@@ -49,10 +49,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
   array_push($newEmployees, $employee);  
 
   try {
-      $result = $payrollUkApi->createEmployee($xero_tenant_id, $newEmployees);
+      $result = $payrollNzApi->createEmployee($xero_tenant_id, $newEmployees);
       print_r($result);
   } catch (Exception $e) {
-      echo 'Exception when calling payrollUkApi->createEmployee: ', $e->getMessage(), PHP_EOL;
+      echo 'Exception when calling payrollNzApi->createEmployee: ', $e->getMessage(), PHP_EOL;
   }
 
 ?>
