@@ -10,9 +10,9 @@
  */
 
 /**
- * Xero Payroll AU
+ * Xero Payroll NZ
  *
- * This is the Xero Payroll API for orgs in Australia region.
+ * This is the Xero Payroll API for orgs in the NZ region.
  *
  * OpenAPI spec version: 2.5.0
  * Contact: api@xero.com
@@ -81,7 +81,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'https://api.xero.com/payroll.xro/1.0';
+    protected $host = 'https://api.xero.com/payroll.xro/2.0';
 
     /**
      * The hostAccounting
