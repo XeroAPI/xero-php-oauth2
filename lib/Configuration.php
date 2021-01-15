@@ -144,7 +144,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = '[xero-php-oauth2 (2.2.0)]';
+    protected $userAgent = '[xero-php-oauth2 (2.4.0)]';
 
     /**
      * Debug switch (default set to false)
