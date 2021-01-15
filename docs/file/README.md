@@ -60,36 +60,36 @@ All URIs are relative to *https://api.xero.com/files.xro/1.0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*FilesApi* | [**createFileAssociation**](docs/Api/FilesApi.md#createfileassociation) | **POST** /Files/{FileId}/Associations | create a new association
-*FilesApi* | [**createFolder**](docs/Api/FilesApi.md#createfolder) | **POST** /Folders | create a new folder
-*FilesApi* | [**deleteFile**](docs/Api/FilesApi.md#deletefile) | **DELETE** /Files/{FileId} | delete a file
-*FilesApi* | [**deleteFileAssociation**](docs/Api/FilesApi.md#deletefileassociation) | **DELETE** /Files/{FileId}/Associations/{ObjectId} | create a new association
-*FilesApi* | [**deleteFolder**](docs/Api/FilesApi.md#deletefolder) | **DELETE** /Folders/{FolderId} | delete a folder
-*FilesApi* | [**getAssociationsByObject**](docs/Api/FilesApi.md#getassociationsbyobject) | **GET** /Associations/{ObjectId} | searches files
-*FilesApi* | [**getFile**](docs/Api/FilesApi.md#getfile) | **GET** /Files/{FileId} | searches for file by unique id
-*FilesApi* | [**getFileAssociations**](docs/Api/FilesApi.md#getfileassociations) | **GET** /Files/{FileId}/Associations | searches files
-*FilesApi* | [**getFileContent**](docs/Api/FilesApi.md#getfilecontent) | **GET** /Files/{FileId}/Content | searches files to retrieve the data
-*FilesApi* | [**getFiles**](docs/Api/FilesApi.md#getfiles) | **GET** /Files | searches files
-*FilesApi* | [**getFolder**](docs/Api/FilesApi.md#getfolder) | **GET** /Folders/{FolderId} | searches specific folder by id
-*FilesApi* | [**getFolders**](docs/Api/FilesApi.md#getfolders) | **GET** /Folders | searches folder
-*FilesApi* | [**getInbox**](docs/Api/FilesApi.md#getinbox) | **GET** /Inbox | searches inbox folder
-*FilesApi* | [**updateFile**](docs/Api/FilesApi.md#updatefile) | **PUT** /Files/{FileId} | Update a file
-*FilesApi* | [**updateFolder**](docs/Api/FilesApi.md#updatefolder) | **PUT** /Folders/{FolderId} | update folder
-*FilesApi* | [**uploadFile**](docs/Api/FilesApi.md#uploadfile) | **POST** /Files | upload an File
+*FilesApi* | [**createFileAssociation**](Api/FilesApi.md#createfileassociation) | **POST** /Files/{FileId}/Associations | create a new association
+*FilesApi* | [**createFolder**](Api/FilesApi.md#createfolder) | **POST** /Folders | create a new folder
+*FilesApi* | [**deleteFile**](Api/FilesApi.md#deletefile) | **DELETE** /Files/{FileId} | delete a file
+*FilesApi* | [**deleteFileAssociation**](Api/FilesApi.md#deletefileassociation) | **DELETE** /Files/{FileId}/Associations/{ObjectId} | create a new association
+*FilesApi* | [**deleteFolder**](Api/FilesApi.md#deletefolder) | **DELETE** /Folders/{FolderId} | delete a folder
+*FilesApi* | [**getAssociationsByObject**](Api/FilesApi.md#getassociationsbyobject) | **GET** /Associations/{ObjectId} | searches files
+*FilesApi* | [**getFile**](Api/FilesApi.md#getfile) | **GET** /Files/{FileId} | searches for file by unique id
+*FilesApi* | [**getFileAssociations**](Api/FilesApi.md#getfileassociations) | **GET** /Files/{FileId}/Associations | searches files
+*FilesApi* | [**getFileContent**](Api/FilesApi.md#getfilecontent) | **GET** /Files/{FileId}/Content | searches files to retrieve the data
+*FilesApi* | [**getFiles**](Api/FilesApi.md#getfiles) | **GET** /Files | searches files
+*FilesApi* | [**getFolder**](Api/FilesApi.md#getfolder) | **GET** /Folders/{FolderId} | searches specific folder by id
+*FilesApi* | [**getFolders**](Api/FilesApi.md#getfolders) | **GET** /Folders | searches folder
+*FilesApi* | [**getInbox**](Api/FilesApi.md#getinbox) | **GET** /Inbox | searches inbox folder
+*FilesApi* | [**updateFile**](Api/FilesApi.md#updatefile) | **PUT** /Files/{FileId} | Update a file
+*FilesApi* | [**updateFolder**](Api/FilesApi.md#updatefolder) | **PUT** /Folders/{FolderId} | update folder
+*FilesApi* | [**uploadFile**](Api/FilesApi.md#uploadfile) | **POST** /Files | upload an File
 
 
 ## Documentation For Models
 
- - [Association](docs/Model/Association.md)
- - [FileObject](docs/Model/FileObject.md)
- - [FileResponse204](docs/Model/FileResponse204.md)
- - [Files](docs/Model/Files.md)
- - [Folder](docs/Model/Folder.md)
- - [Folders](docs/Model/Folders.md)
- - [InlineObject](docs/Model/InlineObject.md)
- - [ObjectGroup](docs/Model/ObjectGroup.md)
- - [ObjectType](docs/Model/ObjectType.md)
- - [User](docs/Model/User.md)
+ - [Association](Model/Association.md)
+ - [FileObject](Model/FileObject.md)
+ - [FileResponse204](Model/FileResponse204.md)
+ - [Files](Model/Files.md)
+ - [Folder](Model/Folder.md)
+ - [Folders](Model/Folders.md)
+ - [InlineObject](Model/InlineObject.md)
+ - [ObjectGroup](Model/ObjectGroup.md)
+ - [ObjectType](Model/ObjectType.md)
+ - [User](Model/User.md)
 
 
 ## Documentation For Authorization
