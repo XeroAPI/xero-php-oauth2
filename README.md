@@ -9,8 +9,6 @@ This release only supports oAuth2 authentication and the following API sets.
 * payroll AU
 * payroll UK
 * payroll NZ
-
-Coming soon
 * files 
 
 All third party libraries dependencies managed with Composer.
@@ -29,6 +27,7 @@ All third party libraries dependencies managed with Composer.
 
 [SDK reference for NZ Payroll](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/payrollnz) for all methods and models.
 
+[SDK reference for Files](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/file) for all methods and models.
 
 ## Requirements
 
