@@ -131,6 +131,13 @@ class Configuration
      * @var string
      */
     protected $hostPayrollNz = 'https://api.xero.com/payroll.xro/2.0';
+
+    /**
+     * The hostFile
+     *
+     * @var string
+     */
+    protected $hostFile = 'https://api.xero.com/file.xro/1.0';
     
     /**
      * User agent of the HTTP request, set to "OpenAPI-Generator/{version}/PHP" by default
@@ -471,6 +478,30 @@ class Configuration
     public function getHostPayrollNz()
     {
         return $this->hostPayrollNz;
+    }
+
+
+    /**
+     * Sets the hostFile
+     *
+     * @param string $hostFile
+     *
+     * @return $this
+     */
+    public function setHostFile($hostFile)
+    {
+        $this->hostFile = $hostFile;
+        return $this;
+    }
+
+    /**
+     * Gets the hostFile
+     *
+     * @return string hostFile
+     */
+    public function getHostFile()
+    {
+        return $this->hostFile;
     }
 
     /**
