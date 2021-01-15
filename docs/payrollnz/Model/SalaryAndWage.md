@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **number_of_units_per_week** | **double** | The Number of Units per week for the corresponding salary and wages | 
 **rate_per_unit** | **double** | The rate of each unit for the corresponding salary and wages | [optional] 
 **number_of_units_per_day** | **double** | The Number of Units per day for the corresponding salary and wages | 
-**days_per_week** | **int** | The days per week for the salary. | [optional] 
+**days_per_week** | **double** | The days per week for the salary. | [optional] 
 **effective_from** | [**\DateTime**](\DateTime.md) | The effective date of the corresponding salary and wages | 
 **annual_salary** | **double** | The annual salary | 
 **status** | **string** | The current status of the corresponding salary and wages | 
