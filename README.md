@@ -11,6 +11,20 @@ This release only supports oAuth2 authentication and the following API sets.
 * payroll NZ
 * files 
 
+## SDK Documentation
+Version 2.x
+* [accounting](https://xeroapi.github.io/xero-php-oauth2/docs/v2/accounting/index.html)
+
+Coming soon 
+* identity
+* bank feeds
+* fixed asset 
+* projects
+* payroll au
+* payroll uk
+* payroll nz
+* files 
+
 All third party libraries dependencies managed with Composer.
 
 [SDK reference for Accounting](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/accounting) for all methods and models.
