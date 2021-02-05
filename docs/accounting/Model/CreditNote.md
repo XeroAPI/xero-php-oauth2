@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **has_attachments** | **bool** | boolean to indicate if a credit note has an attachment | [optional] [default to false]
 **has_errors** | **bool** | A boolean to indicate if a credit note has an validation errors | [optional] [default to false]
 **validation_errors** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays array of validation error messages from the API | [optional] 
+**warnings** | [**\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]**](ValidationError.md) | Displays array of warning messages from the API | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

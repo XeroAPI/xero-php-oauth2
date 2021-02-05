@@ -593,7 +593,7 @@ class EmployeeStatutorySickLeave implements ModelInterface, ArrayAccess
     /**
      * Sets sufficient_notice
      *
-     * @param bool $sufficient_notice Whether the employee provided sufficent notice and documentation as required by the employer supporting the sick leave request
+     * @param bool $sufficient_notice Whether the employee provided sufficient notice and documentation as required by the employer supporting the sick leave request
      *
      * @return $this
      */

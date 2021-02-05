@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **resource_name** | **string** | The field name of the erroneous field | [optional] 
-**localised_message** | **string** | Explaination of the resource validation error | [optional] 
+**localised_message** | **string** | Explanation of the resource validation error | [optional] 
 **type** | **string** | Internal type of the resource error message | [optional] 
 **title** | **string** | Title of the resource validation error | [optional] 
 **detail** | **string** | Detail of the resource validation error | [optional] 

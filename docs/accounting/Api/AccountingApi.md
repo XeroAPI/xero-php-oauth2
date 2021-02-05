@@ -4,236 +4,236 @@ All URIs are relative to *https://api.xero.com/api.xro/2.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createAccount**](AccountingApi.md#createAccount) | **PUT** /Accounts | Allows you to create a new chart of accounts
-[**createAccountAttachmentByFileName**](AccountingApi.md#createAccountAttachmentByFileName) | **PUT** /Accounts/{AccountID}/Attachments/{FileName} | Allows you to create Attachment on Account
-[**createBankTransactionAttachmentByFileName**](AccountingApi.md#createBankTransactionAttachmentByFileName) | **PUT** /BankTransactions/{BankTransactionID}/Attachments/{FileName} | Allows you to create an Attachment on BankTransaction by Filename
-[**createBankTransactionHistoryRecord**](AccountingApi.md#createBankTransactionHistoryRecord) | **PUT** /BankTransactions/{BankTransactionID}/History | Allows you to create history record for a bank transactions
-[**createBankTransactions**](AccountingApi.md#createBankTransactions) | **PUT** /BankTransactions | Allows you to create one or more spend or receive money transaction
-[**createBankTransfer**](AccountingApi.md#createBankTransfer) | **PUT** /BankTransfers | Allows you to create a bank transfers
+[**createAccount**](AccountingApi.md#createAccount) | **PUT** /Accounts | Creates a new chart of accounts
+[**createAccountAttachmentByFileName**](AccountingApi.md#createAccountAttachmentByFileName) | **PUT** /Accounts/{AccountID}/Attachments/{FileName} | Creates an attachment on a specific account
+[**createBankTransactionAttachmentByFileName**](AccountingApi.md#createBankTransactionAttachmentByFileName) | **PUT** /BankTransactions/{BankTransactionID}/Attachments/{FileName} | Creates an attachment for a specific bank transaction by filename
+[**createBankTransactionHistoryRecord**](AccountingApi.md#createBankTransactionHistoryRecord) | **PUT** /BankTransactions/{BankTransactionID}/History | Creates a history record for a specific bank transactions
+[**createBankTransactions**](AccountingApi.md#createBankTransactions) | **PUT** /BankTransactions | Creates one or more spent or received money transaction
+[**createBankTransfer**](AccountingApi.md#createBankTransfer) | **PUT** /BankTransfers | Creates a bank transfer
 [**createBankTransferAttachmentByFileName**](AccountingApi.md#createBankTransferAttachmentByFileName) | **PUT** /BankTransfers/{BankTransferID}/Attachments/{FileName} | 
-[**createBankTransferHistoryRecord**](AccountingApi.md#createBankTransferHistoryRecord) | **PUT** /BankTransfers/{BankTransferID}/History | Allows you to create history record for a bank transfers
-[**createBatchPayment**](AccountingApi.md#createBatchPayment) | **PUT** /BatchPayments | Create one or many BatchPayments for invoices
-[**createBatchPaymentHistoryRecord**](AccountingApi.md#createBatchPaymentHistoryRecord) | **PUT** /BatchPayments/{BatchPaymentID}/History | Allows you to create a history record for a Batch Payment
-[**createBrandingThemePaymentServices**](AccountingApi.md#createBrandingThemePaymentServices) | **POST** /BrandingThemes/{BrandingThemeID}/PaymentServices | Allow for the creation of new custom payment service for specified Branding Theme
+[**createBankTransferHistoryRecord**](AccountingApi.md#createBankTransferHistoryRecord) | **PUT** /BankTransfers/{BankTransferID}/History | Creates a history record for a specific bank transfer
+[**createBatchPayment**](AccountingApi.md#createBatchPayment) | **PUT** /BatchPayments | Creates one or many batch payments for invoices
+[**createBatchPaymentHistoryRecord**](AccountingApi.md#createBatchPaymentHistoryRecord) | **PUT** /BatchPayments/{BatchPaymentID}/History | Creates a history record for a specific batch payment
+[**createBrandingThemePaymentServices**](AccountingApi.md#createBrandingThemePaymentServices) | **POST** /BrandingThemes/{BrandingThemeID}/PaymentServices | Creates a new custom payment service for a specific branding theme
 [**createContactAttachmentByFileName**](AccountingApi.md#createContactAttachmentByFileName) | **PUT** /Contacts/{ContactID}/Attachments/{FileName} | 
-[**createContactGroup**](AccountingApi.md#createContactGroup) | **PUT** /ContactGroups | Allows you to create a contact group
-[**createContactGroupContacts**](AccountingApi.md#createContactGroupContacts) | **PUT** /ContactGroups/{ContactGroupID}/Contacts | Allows you to add Contacts to a Contact Group
-[**createContactHistory**](AccountingApi.md#createContactHistory) | **PUT** /Contacts/{ContactID}/History | Allows you to retrieve a history records of an Contact
-[**createContacts**](AccountingApi.md#createContacts) | **PUT** /Contacts | Allows you to create a multiple contacts (bulk) in a Xero organisation
-[**createCreditNoteAllocation**](AccountingApi.md#createCreditNoteAllocation) | **PUT** /CreditNotes/{CreditNoteID}/Allocations | Allows you to create Allocation on CreditNote
-[**createCreditNoteAttachmentByFileName**](AccountingApi.md#createCreditNoteAttachmentByFileName) | **PUT** /CreditNotes/{CreditNoteID}/Attachments/{FileName} | Allows you to create Attachments on CreditNote by file name
-[**createCreditNoteHistory**](AccountingApi.md#createCreditNoteHistory) | **PUT** /CreditNotes/{CreditNoteID}/History | Allows you to retrieve a history records of an CreditNote
-[**createCreditNotes**](AccountingApi.md#createCreditNotes) | **PUT** /CreditNotes | Allows you to create a credit note
-[**createCurrency**](AccountingApi.md#createCurrency) | **PUT** /Currencies | Allows you to create a new currency for an org
-[**createEmployees**](AccountingApi.md#createEmployees) | **PUT** /Employees | Allows you to create new employees used in Xero payrun
-[**createExpenseClaimHistory**](AccountingApi.md#createExpenseClaimHistory) | **PUT** /ExpenseClaims/{ExpenseClaimID}/History | Allows you to create a history records of an ExpenseClaim
-[**createExpenseClaims**](AccountingApi.md#createExpenseClaims) | **PUT** /ExpenseClaims | Allows you to retrieve expense claims
-[**createInvoiceAttachmentByFileName**](AccountingApi.md#createInvoiceAttachmentByFileName) | **PUT** /Invoices/{InvoiceID}/Attachments/{FileName} | Allows you to create an Attachment on invoices or purchase bills by it&#39;s filename
-[**createInvoiceHistory**](AccountingApi.md#createInvoiceHistory) | **PUT** /Invoices/{InvoiceID}/History | Allows you to retrieve a history records of an invoice
-[**createInvoices**](AccountingApi.md#createInvoices) | **PUT** /Invoices | Allows you to create one or more sales invoices or purchase bills
-[**createItemHistory**](AccountingApi.md#createItemHistory) | **PUT** /Items/{ItemID}/History | Allows you to create a history record for items
-[**createItems**](AccountingApi.md#createItems) | **PUT** /Items | Allows you to create one or more items
-[**createLinkedTransaction**](AccountingApi.md#createLinkedTransaction) | **PUT** /LinkedTransactions | Allows you to create linked transactions (billable expenses)
-[**createManualJournalAttachmentByFileName**](AccountingApi.md#createManualJournalAttachmentByFileName) | **PUT** /ManualJournals/{ManualJournalID}/Attachments/{FileName} | Allows you to create a specified Attachment on ManualJournal by file name
-[**createManualJournalHistoryRecord**](AccountingApi.md#createManualJournalHistoryRecord) | **PUT** /ManualJournals/{ManualJournalID}/History | Allows you to create history record for a manual journal
-[**createManualJournals**](AccountingApi.md#createManualJournals) | **PUT** /ManualJournals | Allows you to create one or more manual journals
-[**createOverpaymentAllocations**](AccountingApi.md#createOverpaymentAllocations) | **PUT** /Overpayments/{OverpaymentID}/Allocations | Allows you to create a single allocation for an overpayment
-[**createOverpaymentHistory**](AccountingApi.md#createOverpaymentHistory) | **PUT** /Overpayments/{OverpaymentID}/History | Allows you to create history records of an Overpayment
-[**createPayment**](AccountingApi.md#createPayment) | **POST** /Payments | Allows you to create a single payment for invoices or credit notes
-[**createPaymentHistory**](AccountingApi.md#createPaymentHistory) | **PUT** /Payments/{PaymentID}/History | Allows you to create a history record for a payment
-[**createPaymentService**](AccountingApi.md#createPaymentService) | **PUT** /PaymentServices | Allows you to create payment services
-[**createPayments**](AccountingApi.md#createPayments) | **PUT** /Payments | Allows you to create multiple payments for invoices or credit notes
+[**createContactGroup**](AccountingApi.md#createContactGroup) | **PUT** /ContactGroups | Creates a contact group
+[**createContactGroupContacts**](AccountingApi.md#createContactGroupContacts) | **PUT** /ContactGroups/{ContactGroupID}/Contacts | Creates contacts to a specific contact group
+[**createContactHistory**](AccountingApi.md#createContactHistory) | **PUT** /Contacts/{ContactID}/History | Creates a new history record for a specific contact
+[**createContacts**](AccountingApi.md#createContacts) | **PUT** /Contacts | Creates multiple contacts (bulk) in a Xero organisation
+[**createCreditNoteAllocation**](AccountingApi.md#createCreditNoteAllocation) | **PUT** /CreditNotes/{CreditNoteID}/Allocations | Creates allocation for a specific credit note
+[**createCreditNoteAttachmentByFileName**](AccountingApi.md#createCreditNoteAttachmentByFileName) | **PUT** /CreditNotes/{CreditNoteID}/Attachments/{FileName} | Creates an attachment for a specific credit note
+[**createCreditNoteHistory**](AccountingApi.md#createCreditNoteHistory) | **PUT** /CreditNotes/{CreditNoteID}/History | Retrieves history records of a specific credit note
+[**createCreditNotes**](AccountingApi.md#createCreditNotes) | **PUT** /CreditNotes | Creates a new credit note
+[**createCurrency**](AccountingApi.md#createCurrency) | **PUT** /Currencies | Create a new currency for a Xero organisation
+[**createEmployees**](AccountingApi.md#createEmployees) | **PUT** /Employees | Creates new employees used in Xero payrun
+[**createExpenseClaimHistory**](AccountingApi.md#createExpenseClaimHistory) | **PUT** /ExpenseClaims/{ExpenseClaimID}/History | Creates a history record for a specific expense claim
+[**createExpenseClaims**](AccountingApi.md#createExpenseClaims) | **PUT** /ExpenseClaims | Creates expense claims
+[**createInvoiceAttachmentByFileName**](AccountingApi.md#createInvoiceAttachmentByFileName) | **PUT** /Invoices/{InvoiceID}/Attachments/{FileName} | Creates an attachment for a specific invoice or purchase bill by filename
+[**createInvoiceHistory**](AccountingApi.md#createInvoiceHistory) | **PUT** /Invoices/{InvoiceID}/History | Creates a history record for a specific invoice
+[**createInvoices**](AccountingApi.md#createInvoices) | **PUT** /Invoices | Creates one or more sales invoices or purchase bills
+[**createItemHistory**](AccountingApi.md#createItemHistory) | **PUT** /Items/{ItemID}/History | Creates a history record for a specific item
+[**createItems**](AccountingApi.md#createItems) | **PUT** /Items | Creates one or more items
+[**createLinkedTransaction**](AccountingApi.md#createLinkedTransaction) | **PUT** /LinkedTransactions | Creates linked transactions (billable expenses)
+[**createManualJournalAttachmentByFileName**](AccountingApi.md#createManualJournalAttachmentByFileName) | **PUT** /ManualJournals/{ManualJournalID}/Attachments/{FileName} | Creates a specific attachment for a specific manual journal by file name
+[**createManualJournalHistoryRecord**](AccountingApi.md#createManualJournalHistoryRecord) | **PUT** /ManualJournals/{ManualJournalID}/History | Creates a history record for a specific manual journal
+[**createManualJournals**](AccountingApi.md#createManualJournals) | **PUT** /ManualJournals | Creates one or more manual journals
+[**createOverpaymentAllocations**](AccountingApi.md#createOverpaymentAllocations) | **PUT** /Overpayments/{OverpaymentID}/Allocations | Creates a single allocation for a specific overpayment
+[**createOverpaymentHistory**](AccountingApi.md#createOverpaymentHistory) | **PUT** /Overpayments/{OverpaymentID}/History | Creates a history record for a specific overpayment
+[**createPayment**](AccountingApi.md#createPayment) | **POST** /Payments | Creates a single payment for invoice or credit notes
+[**createPaymentHistory**](AccountingApi.md#createPaymentHistory) | **PUT** /Payments/{PaymentID}/History | Creates a history record for a specific payment
+[**createPaymentService**](AccountingApi.md#createPaymentService) | **PUT** /PaymentServices | Creates a payment service
+[**createPayments**](AccountingApi.md#createPayments) | **PUT** /Payments | Creates multiple payments for invoices or credit notes
 [**createPrepaymentAllocations**](AccountingApi.md#createPrepaymentAllocations) | **PUT** /Prepayments/{PrepaymentID}/Allocations | Allows you to create an Allocation for prepayments
-[**createPrepaymentHistory**](AccountingApi.md#createPrepaymentHistory) | **PUT** /Prepayments/{PrepaymentID}/History | Allows you to create a history record for an Prepayment
-[**createPurchaseOrderAttachmentByFileName**](AccountingApi.md#createPurchaseOrderAttachmentByFileName) | **PUT** /PurchaseOrders/{PurchaseOrderID}/Attachments/{FileName} | Allows you to create Attachment on Purchase Order
-[**createPurchaseOrderHistory**](AccountingApi.md#createPurchaseOrderHistory) | **PUT** /PurchaseOrders/{PurchaseOrderID}/History | Allows you to create HistoryRecord for purchase orders
-[**createPurchaseOrders**](AccountingApi.md#createPurchaseOrders) | **PUT** /PurchaseOrders | Allows you to create one or more purchase orders
-[**createQuoteAttachmentByFileName**](AccountingApi.md#createQuoteAttachmentByFileName) | **PUT** /Quotes/{QuoteID}/Attachments/{FileName} | Allows you to create Attachment on Quote
-[**createQuoteHistory**](AccountingApi.md#createQuoteHistory) | **PUT** /Quotes/{QuoteID}/History | Allows you to retrieve a history records of an quote
-[**createQuotes**](AccountingApi.md#createQuotes) | **PUT** /Quotes | Allows you to create one or more quotes
-[**createReceipt**](AccountingApi.md#createReceipt) | **PUT** /Receipts | Allows you to create draft expense claim receipts for any user
-[**createReceiptAttachmentByFileName**](AccountingApi.md#createReceiptAttachmentByFileName) | **PUT** /Receipts/{ReceiptID}/Attachments/{FileName} | Allows you to create Attachment on expense claim receipts by file name
-[**createReceiptHistory**](AccountingApi.md#createReceiptHistory) | **PUT** /Receipts/{ReceiptID}/History | Allows you to retrieve a history records of an Receipt
-[**createRepeatingInvoiceAttachmentByFileName**](AccountingApi.md#createRepeatingInvoiceAttachmentByFileName) | **PUT** /RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{FileName} | Allows you to create attachment on repeating invoices by file name
-[**createRepeatingInvoiceHistory**](AccountingApi.md#createRepeatingInvoiceHistory) | **PUT** /RepeatingInvoices/{RepeatingInvoiceID}/History | Allows you to create history for a repeating invoice
-[**createTaxRates**](AccountingApi.md#createTaxRates) | **PUT** /TaxRates | Allows you to create one or more Tax Rates
-[**createTrackingCategory**](AccountingApi.md#createTrackingCategory) | **PUT** /TrackingCategories | Allows you to create tracking categories
-[**createTrackingOptions**](AccountingApi.md#createTrackingOptions) | **PUT** /TrackingCategories/{TrackingCategoryID}/Options | Allows you to create options for a specified tracking category
-[**deleteAccount**](AccountingApi.md#deleteAccount) | **DELETE** /Accounts/{AccountID} | Allows you to delete a chart of accounts
-[**deleteContactGroupContact**](AccountingApi.md#deleteContactGroupContact) | **DELETE** /ContactGroups/{ContactGroupID}/Contacts/{ContactID} | Allows you to delete a specific Contact from a Contact Group
-[**deleteContactGroupContacts**](AccountingApi.md#deleteContactGroupContacts) | **DELETE** /ContactGroups/{ContactGroupID}/Contacts | Allows you to delete  all Contacts from a Contact Group
-[**deleteItem**](AccountingApi.md#deleteItem) | **DELETE** /Items/{ItemID} | Allows you to delete a specified item
-[**deleteLinkedTransaction**](AccountingApi.md#deleteLinkedTransaction) | **DELETE** /LinkedTransactions/{LinkedTransactionID} | Allows you to delete a specified linked transactions (billable expenses)
-[**deletePayment**](AccountingApi.md#deletePayment) | **POST** /Payments/{PaymentID} | Allows you to update a specified payment for invoices and credit notes
-[**deleteTrackingCategory**](AccountingApi.md#deleteTrackingCategory) | **DELETE** /TrackingCategories/{TrackingCategoryID} | Allows you to delete tracking categories
-[**deleteTrackingOptions**](AccountingApi.md#deleteTrackingOptions) | **DELETE** /TrackingCategories/{TrackingCategoryID}/Options/{TrackingOptionID} | Allows you to delete a specified option for a specified tracking category
-[**emailInvoice**](AccountingApi.md#emailInvoice) | **POST** /Invoices/{InvoiceID}/Email | Allows you to email a copy of invoice to related Contact
-[**getAccount**](AccountingApi.md#getAccount) | **GET** /Accounts/{AccountID} | Allows you to retrieve a single chart of accounts
-[**getAccountAttachmentByFileName**](AccountingApi.md#getAccountAttachmentByFileName) | **GET** /Accounts/{AccountID}/Attachments/{FileName} | Allows you to retrieve Attachment on Account by Filename
-[**getAccountAttachmentById**](AccountingApi.md#getAccountAttachmentById) | **GET** /Accounts/{AccountID}/Attachments/{AttachmentID} | Allows you to retrieve specific Attachment on Account
-[**getAccountAttachments**](AccountingApi.md#getAccountAttachments) | **GET** /Accounts/{AccountID}/Attachments | Allows you to retrieve Attachments for accounts
-[**getAccounts**](AccountingApi.md#getAccounts) | **GET** /Accounts | Allows you to retrieve the full chart of accounts
-[**getBankTransaction**](AccountingApi.md#getBankTransaction) | **GET** /BankTransactions/{BankTransactionID} | Allows you to retrieve a single spend or receive money transaction
-[**getBankTransactionAttachmentByFileName**](AccountingApi.md#getBankTransactionAttachmentByFileName) | **GET** /BankTransactions/{BankTransactionID}/Attachments/{FileName} | Allows you to retrieve Attachments on BankTransaction by Filename
-[**getBankTransactionAttachmentById**](AccountingApi.md#getBankTransactionAttachmentById) | **GET** /BankTransactions/{BankTransactionID}/Attachments/{AttachmentID} | Allows you to retrieve Attachments on a specific BankTransaction
-[**getBankTransactionAttachments**](AccountingApi.md#getBankTransactionAttachments) | **GET** /BankTransactions/{BankTransactionID}/Attachments | Allows you to retrieve any attachments to bank transactions
-[**getBankTransactions**](AccountingApi.md#getBankTransactions) | **GET** /BankTransactions | Allows you to retrieve any spend or receive money transactions
-[**getBankTransactionsHistory**](AccountingApi.md#getBankTransactionsHistory) | **GET** /BankTransactions/{BankTransactionID}/History | Allows you to retrieve history from a bank transactions
-[**getBankTransfer**](AccountingApi.md#getBankTransfer) | **GET** /BankTransfers/{BankTransferID} | Allows you to retrieve any bank transfers
-[**getBankTransferAttachmentByFileName**](AccountingApi.md#getBankTransferAttachmentByFileName) | **GET** /BankTransfers/{BankTransferID}/Attachments/{FileName} | Allows you to retrieve Attachments on BankTransfer by file name
-[**getBankTransferAttachmentById**](AccountingApi.md#getBankTransferAttachmentById) | **GET** /BankTransfers/{BankTransferID}/Attachments/{AttachmentID} | Allows you to retrieve Attachments on BankTransfer
-[**getBankTransferAttachments**](AccountingApi.md#getBankTransferAttachments) | **GET** /BankTransfers/{BankTransferID}/Attachments | Allows you to retrieve Attachments from  bank transfers
-[**getBankTransferHistory**](AccountingApi.md#getBankTransferHistory) | **GET** /BankTransfers/{BankTransferID}/History | Allows you to retrieve history from a bank transfers
-[**getBankTransfers**](AccountingApi.md#getBankTransfers) | **GET** /BankTransfers | Allows you to retrieve all bank transfers
-[**getBatchPaymentHistory**](AccountingApi.md#getBatchPaymentHistory) | **GET** /BatchPayments/{BatchPaymentID}/History | Allows you to retrieve history from a Batch Payment
-[**getBatchPayments**](AccountingApi.md#getBatchPayments) | **GET** /BatchPayments | Retrieve either one or many BatchPayments for invoices
-[**getBrandingTheme**](AccountingApi.md#getBrandingTheme) | **GET** /BrandingThemes/{BrandingThemeID} | Allows you to retrieve a specific BrandingThemes
-[**getBrandingThemePaymentServices**](AccountingApi.md#getBrandingThemePaymentServices) | **GET** /BrandingThemes/{BrandingThemeID}/PaymentServices | Allows you to retrieve the Payment services for a Branding Theme
-[**getBrandingThemes**](AccountingApi.md#getBrandingThemes) | **GET** /BrandingThemes | Allows you to retrieve all the BrandingThemes
-[**getContact**](AccountingApi.md#getContact) | **GET** /Contacts/{ContactID} | Allows you to retrieve a single contacts in a Xero organisation
-[**getContactAttachmentByFileName**](AccountingApi.md#getContactAttachmentByFileName) | **GET** /Contacts/{ContactID}/Attachments/{FileName} | Allows you to retrieve Attachments on Contacts by file name
-[**getContactAttachmentById**](AccountingApi.md#getContactAttachmentById) | **GET** /Contacts/{ContactID}/Attachments/{AttachmentID} | Allows you to retrieve Attachments on Contacts
-[**getContactAttachments**](AccountingApi.md#getContactAttachments) | **GET** /Contacts/{ContactID}/Attachments | Allows you to retrieve, add and update contacts in a Xero organisation
-[**getContactByContactNumber**](AccountingApi.md#getContactByContactNumber) | **GET** /Contacts/{ContactNumber} | Allows you to retrieve a single contact by Contact Number in a Xero organisation
-[**getContactCISSettings**](AccountingApi.md#getContactCISSettings) | **GET** /Contacts/{ContactID}/CISSettings | Allows you to retrieve CISSettings for a contact in a Xero organisation
-[**getContactGroup**](AccountingApi.md#getContactGroup) | **GET** /ContactGroups/{ContactGroupID} | Allows you to retrieve a unique Contact Group by ID
-[**getContactGroups**](AccountingApi.md#getContactGroups) | **GET** /ContactGroups | Allows you to retrieve the ContactID and Name of all the contacts in a contact group
-[**getContactHistory**](AccountingApi.md#getContactHistory) | **GET** /Contacts/{ContactID}/History | Allows you to retrieve a history records of an Contact
-[**getContacts**](AccountingApi.md#getContacts) | **GET** /Contacts | Allows you to retrieve all contacts in a Xero organisation
-[**getCreditNote**](AccountingApi.md#getCreditNote) | **GET** /CreditNotes/{CreditNoteID} | Allows you to retrieve a specific credit note
-[**getCreditNoteAsPdf**](AccountingApi.md#getCreditNoteAsPdf) | **GET** /CreditNotes/{CreditNoteID}/pdf | Allows you to retrieve Credit Note as PDF files
-[**getCreditNoteAttachmentByFileName**](AccountingApi.md#getCreditNoteAttachmentByFileName) | **GET** /CreditNotes/{CreditNoteID}/Attachments/{FileName} | Allows you to retrieve Attachments on CreditNote by file name
-[**getCreditNoteAttachmentById**](AccountingApi.md#getCreditNoteAttachmentById) | **GET** /CreditNotes/{CreditNoteID}/Attachments/{AttachmentID} | Allows you to retrieve Attachments on CreditNote
-[**getCreditNoteAttachments**](AccountingApi.md#getCreditNoteAttachments) | **GET** /CreditNotes/{CreditNoteID}/Attachments | Allows you to retrieve Attachments for credit notes
-[**getCreditNoteHistory**](AccountingApi.md#getCreditNoteHistory) | **GET** /CreditNotes/{CreditNoteID}/History | Allows you to retrieve a history records of an CreditNote
-[**getCreditNotes**](AccountingApi.md#getCreditNotes) | **GET** /CreditNotes | Allows you to retrieve any credit notes
-[**getCurrencies**](AccountingApi.md#getCurrencies) | **GET** /Currencies | Allows you to retrieve currencies for your organisation
-[**getEmployee**](AccountingApi.md#getEmployee) | **GET** /Employees/{EmployeeID} | Allows you to retrieve a specific employee used in Xero payrun
-[**getEmployees**](AccountingApi.md#getEmployees) | **GET** /Employees | Allows you to retrieve employees used in Xero payrun
-[**getExpenseClaim**](AccountingApi.md#getExpenseClaim) | **GET** /ExpenseClaims/{ExpenseClaimID} | Allows you to retrieve a specified expense claim
-[**getExpenseClaimHistory**](AccountingApi.md#getExpenseClaimHistory) | **GET** /ExpenseClaims/{ExpenseClaimID}/History | Allows you to retrieve a history records of an ExpenseClaim
-[**getExpenseClaims**](AccountingApi.md#getExpenseClaims) | **GET** /ExpenseClaims | Allows you to retrieve expense claims
-[**getInvoice**](AccountingApi.md#getInvoice) | **GET** /Invoices/{InvoiceID} | Allows you to retrieve a specified sales invoice or purchase bill
-[**getInvoiceAsPdf**](AccountingApi.md#getInvoiceAsPdf) | **GET** /Invoices/{InvoiceID}/pdf | Allows you to retrieve invoices or purchase bills as PDF files
-[**getInvoiceAttachmentByFileName**](AccountingApi.md#getInvoiceAttachmentByFileName) | **GET** /Invoices/{InvoiceID}/Attachments/{FileName} | Allows you to retrieve Attachment on invoices or purchase bills by it&#39;s filename
-[**getInvoiceAttachmentById**](AccountingApi.md#getInvoiceAttachmentById) | **GET** /Invoices/{InvoiceID}/Attachments/{AttachmentID} | Allows you to retrieve a specified Attachment on invoices or purchase bills by it&#39;s ID
-[**getInvoiceAttachments**](AccountingApi.md#getInvoiceAttachments) | **GET** /Invoices/{InvoiceID}/Attachments | Allows you to retrieve Attachments on invoices or purchase bills
-[**getInvoiceHistory**](AccountingApi.md#getInvoiceHistory) | **GET** /Invoices/{InvoiceID}/History | Allows you to retrieve a history records of an invoice
-[**getInvoiceReminders**](AccountingApi.md#getInvoiceReminders) | **GET** /InvoiceReminders/Settings | Allows you to retrieve invoice reminder settings
-[**getInvoices**](AccountingApi.md#getInvoices) | **GET** /Invoices | Allows you to retrieve any sales invoices or purchase bills
-[**getItem**](AccountingApi.md#getItem) | **GET** /Items/{ItemID} | Allows you to retrieve a specified item
-[**getItemHistory**](AccountingApi.md#getItemHistory) | **GET** /Items/{ItemID}/History | Allows you to retrieve history for items
-[**getItems**](AccountingApi.md#getItems) | **GET** /Items | Allows you to retrieve any items
-[**getJournal**](AccountingApi.md#getJournal) | **GET** /Journals/{JournalID} | Allows you to retrieve a specified journals.
-[**getJournals**](AccountingApi.md#getJournals) | **GET** /Journals | Allows you to retrieve any journals.
-[**getLinkedTransaction**](AccountingApi.md#getLinkedTransaction) | **GET** /LinkedTransactions/{LinkedTransactionID} | Allows you to retrieve a specified linked transactions (billable expenses)
-[**getLinkedTransactions**](AccountingApi.md#getLinkedTransactions) | **GET** /LinkedTransactions | Retrieve linked transactions (billable expenses)
-[**getManualJournal**](AccountingApi.md#getManualJournal) | **GET** /ManualJournals/{ManualJournalID} | Allows you to retrieve a specified manual journals
-[**getManualJournalAttachmentByFileName**](AccountingApi.md#getManualJournalAttachmentByFileName) | **GET** /ManualJournals/{ManualJournalID}/Attachments/{FileName} | Allows you to retrieve specified Attachment on ManualJournal by file name
-[**getManualJournalAttachmentById**](AccountingApi.md#getManualJournalAttachmentById) | **GET** /ManualJournals/{ManualJournalID}/Attachments/{AttachmentID} | Allows you to retrieve specified Attachment on ManualJournals
-[**getManualJournalAttachments**](AccountingApi.md#getManualJournalAttachments) | **GET** /ManualJournals/{ManualJournalID}/Attachments | Allows you to retrieve Attachment for manual journals
-[**getManualJournals**](AccountingApi.md#getManualJournals) | **GET** /ManualJournals | Allows you to retrieve any manual journals
-[**getManualJournalsHistory**](AccountingApi.md#getManualJournalsHistory) | **GET** /ManualJournals/{ManualJournalID}/History | Allows you to retrieve history from a manual journal
-[**getOnlineInvoice**](AccountingApi.md#getOnlineInvoice) | **GET** /Invoices/{InvoiceID}/OnlineInvoice | Allows you to retrieve a URL to an online invoice
-[**getOrganisationActions**](AccountingApi.md#getOrganisationActions) | **GET** /Organisation/Actions | Retrieve a list of the key actions your app has permission to perform in the connected organisation.
-[**getOrganisationCISSettings**](AccountingApi.md#getOrganisationCISSettings) | **GET** /Organisation/{OrganisationID}/CISSettings | Allows you To verify if an organisation is using contruction industry scheme, you can retrieve the CIS settings for the organistaion.
-[**getOrganisations**](AccountingApi.md#getOrganisations) | **GET** /Organisation | Allows you to retrieve Organisation details
-[**getOverpayment**](AccountingApi.md#getOverpayment) | **GET** /Overpayments/{OverpaymentID} | Allows you to retrieve a specified overpayments
-[**getOverpaymentHistory**](AccountingApi.md#getOverpaymentHistory) | **GET** /Overpayments/{OverpaymentID}/History | Allows you to retrieve a history records of an Overpayment
-[**getOverpayments**](AccountingApi.md#getOverpayments) | **GET** /Overpayments | Allows you to retrieve overpayments
-[**getPayment**](AccountingApi.md#getPayment) | **GET** /Payments/{PaymentID} | Allows you to retrieve a specified payment for invoices and credit notes
-[**getPaymentHistory**](AccountingApi.md#getPaymentHistory) | **GET** /Payments/{PaymentID}/History | Allows you to retrieve history records of a payment
-[**getPaymentServices**](AccountingApi.md#getPaymentServices) | **GET** /PaymentServices | Allows you to retrieve payment services
-[**getPayments**](AccountingApi.md#getPayments) | **GET** /Payments | Allows you to retrieve payments for invoices and credit notes
+[**createPrepaymentHistory**](AccountingApi.md#createPrepaymentHistory) | **PUT** /Prepayments/{PrepaymentID}/History | Creates a history record for a specific prepayment
+[**createPurchaseOrderAttachmentByFileName**](AccountingApi.md#createPurchaseOrderAttachmentByFileName) | **PUT** /PurchaseOrders/{PurchaseOrderID}/Attachments/{FileName} | Creates attachment for a specific purchase order
+[**createPurchaseOrderHistory**](AccountingApi.md#createPurchaseOrderHistory) | **PUT** /PurchaseOrders/{PurchaseOrderID}/History | Creates a history record for a specific purchase orders
+[**createPurchaseOrders**](AccountingApi.md#createPurchaseOrders) | **PUT** /PurchaseOrders | Creates one or more purchase orders
+[**createQuoteAttachmentByFileName**](AccountingApi.md#createQuoteAttachmentByFileName) | **PUT** /Quotes/{QuoteID}/Attachments/{FileName} | Creates attachment for a specific quote
+[**createQuoteHistory**](AccountingApi.md#createQuoteHistory) | **PUT** /Quotes/{QuoteID}/History | Creates a history record for a specific quote
+[**createQuotes**](AccountingApi.md#createQuotes) | **PUT** /Quotes | Create one or more quotes
+[**createReceipt**](AccountingApi.md#createReceipt) | **PUT** /Receipts | Creates draft expense claim receipts for any user
+[**createReceiptAttachmentByFileName**](AccountingApi.md#createReceiptAttachmentByFileName) | **PUT** /Receipts/{ReceiptID}/Attachments/{FileName} | Creates an attachment on a specific expense claim receipts by file name
+[**createReceiptHistory**](AccountingApi.md#createReceiptHistory) | **PUT** /Receipts/{ReceiptID}/History | Creates a history record for a specific receipt
+[**createRepeatingInvoiceAttachmentByFileName**](AccountingApi.md#createRepeatingInvoiceAttachmentByFileName) | **PUT** /RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{FileName} | Creates an attachment from a specific repeating invoices by file name
+[**createRepeatingInvoiceHistory**](AccountingApi.md#createRepeatingInvoiceHistory) | **PUT** /RepeatingInvoices/{RepeatingInvoiceID}/History | Creates a  history record for a specific repeating invoice
+[**createTaxRates**](AccountingApi.md#createTaxRates) | **PUT** /TaxRates | Creates one or more tax rates
+[**createTrackingCategory**](AccountingApi.md#createTrackingCategory) | **PUT** /TrackingCategories | Create tracking categories
+[**createTrackingOptions**](AccountingApi.md#createTrackingOptions) | **PUT** /TrackingCategories/{TrackingCategoryID}/Options | Creates options for a specific tracking category
+[**deleteAccount**](AccountingApi.md#deleteAccount) | **DELETE** /Accounts/{AccountID} | Deletes a chart of accounts
+[**deleteContactGroupContact**](AccountingApi.md#deleteContactGroupContact) | **DELETE** /ContactGroups/{ContactGroupID}/Contacts/{ContactID} | Deletes a specific contact from a contact group using a unique contact Id
+[**deleteContactGroupContacts**](AccountingApi.md#deleteContactGroupContacts) | **DELETE** /ContactGroups/{ContactGroupID}/Contacts | Deletes all contacts from a specific contact group
+[**deleteItem**](AccountingApi.md#deleteItem) | **DELETE** /Items/{ItemID} | Deletes a specific item
+[**deleteLinkedTransaction**](AccountingApi.md#deleteLinkedTransaction) | **DELETE** /LinkedTransactions/{LinkedTransactionID} | Deletes a specific linked transactions (billable expenses)
+[**deletePayment**](AccountingApi.md#deletePayment) | **POST** /Payments/{PaymentID} | Updates a specific payment for invoices and credit notes
+[**deleteTrackingCategory**](AccountingApi.md#deleteTrackingCategory) | **DELETE** /TrackingCategories/{TrackingCategoryID} | Deletes a specific tracking category
+[**deleteTrackingOptions**](AccountingApi.md#deleteTrackingOptions) | **DELETE** /TrackingCategories/{TrackingCategoryID}/Options/{TrackingOptionID} | Deletes a specific option for a specific tracking category
+[**emailInvoice**](AccountingApi.md#emailInvoice) | **POST** /Invoices/{InvoiceID}/Email | Sends a copy of a specific invoice to related contact via email
+[**getAccount**](AccountingApi.md#getAccount) | **GET** /Accounts/{AccountID} | Retrieves a single chart of accounts by using a unique account Id
+[**getAccountAttachmentByFileName**](AccountingApi.md#getAccountAttachmentByFileName) | **GET** /Accounts/{AccountID}/Attachments/{FileName} | Retrieves an attachment for a specific account by filename
+[**getAccountAttachmentById**](AccountingApi.md#getAccountAttachmentById) | **GET** /Accounts/{AccountID}/Attachments/{AttachmentID} | Retrieves a specific attachment from a specific account using a unique attachment Id
+[**getAccountAttachments**](AccountingApi.md#getAccountAttachments) | **GET** /Accounts/{AccountID}/Attachments | Retrieves attachments for a specific accounts by using a unique account Id
+[**getAccounts**](AccountingApi.md#getAccounts) | **GET** /Accounts | Retrieves the full chart of accounts
+[**getBankTransaction**](AccountingApi.md#getBankTransaction) | **GET** /BankTransactions/{BankTransactionID} | Retrieves a single spent or received money transaction by using a unique bank transaction Id
+[**getBankTransactionAttachmentByFileName**](AccountingApi.md#getBankTransactionAttachmentByFileName) | **GET** /BankTransactions/{BankTransactionID}/Attachments/{FileName} | Retrieves a specific attachment from a specific bank transaction by filename
+[**getBankTransactionAttachmentById**](AccountingApi.md#getBankTransactionAttachmentById) | **GET** /BankTransactions/{BankTransactionID}/Attachments/{AttachmentID} | Retrieves specific attachments from a specific BankTransaction using a unique attachment Id
+[**getBankTransactionAttachments**](AccountingApi.md#getBankTransactionAttachments) | **GET** /BankTransactions/{BankTransactionID}/Attachments | Retrieves any attachments from a specific bank transactions
+[**getBankTransactions**](AccountingApi.md#getBankTransactions) | **GET** /BankTransactions | Retrieves any spent or received money transactions
+[**getBankTransactionsHistory**](AccountingApi.md#getBankTransactionsHistory) | **GET** /BankTransactions/{BankTransactionID}/History | Retrieves history from a specific bank transaction using a unique bank transaction Id
+[**getBankTransfer**](AccountingApi.md#getBankTransfer) | **GET** /BankTransfers/{BankTransferID} | Retrieves specific bank transfers by using a unique bank transfer Id
+[**getBankTransferAttachmentByFileName**](AccountingApi.md#getBankTransferAttachmentByFileName) | **GET** /BankTransfers/{BankTransferID}/Attachments/{FileName} | Retrieves a specific attachment on a specific bank transfer by file name
+[**getBankTransferAttachmentById**](AccountingApi.md#getBankTransferAttachmentById) | **GET** /BankTransfers/{BankTransferID}/Attachments/{AttachmentID} | Retrieves a specific attachment from a specific bank transfer using a unique attachment ID
+[**getBankTransferAttachments**](AccountingApi.md#getBankTransferAttachments) | **GET** /BankTransfers/{BankTransferID}/Attachments | Retrieves attachments from a specific bank transfer
+[**getBankTransferHistory**](AccountingApi.md#getBankTransferHistory) | **GET** /BankTransfers/{BankTransferID}/History | Retrieves history from a specific bank transfer using a unique bank transfer Id
+[**getBankTransfers**](AccountingApi.md#getBankTransfers) | **GET** /BankTransfers | Retrieves all bank transfers
+[**getBatchPaymentHistory**](AccountingApi.md#getBatchPaymentHistory) | **GET** /BatchPayments/{BatchPaymentID}/History | Retrieves history from a specific batch payment
+[**getBatchPayments**](AccountingApi.md#getBatchPayments) | **GET** /BatchPayments | Retrieves either one or many batch payments for invoices
+[**getBrandingTheme**](AccountingApi.md#getBrandingTheme) | **GET** /BrandingThemes/{BrandingThemeID} | Retrieves a specific branding theme using a unique branding theme Id
+[**getBrandingThemePaymentServices**](AccountingApi.md#getBrandingThemePaymentServices) | **GET** /BrandingThemes/{BrandingThemeID}/PaymentServices | Retrieves the payment services for a specific branding theme
+[**getBrandingThemes**](AccountingApi.md#getBrandingThemes) | **GET** /BrandingThemes | Retrieves all the branding themes
+[**getContact**](AccountingApi.md#getContact) | **GET** /Contacts/{ContactID} | Retrieves a specific contacts in a Xero organisation using a unique contact Id
+[**getContactAttachmentByFileName**](AccountingApi.md#getContactAttachmentByFileName) | **GET** /Contacts/{ContactID}/Attachments/{FileName} | Retrieves a specific attachment from a specific contact by file name
+[**getContactAttachmentById**](AccountingApi.md#getContactAttachmentById) | **GET** /Contacts/{ContactID}/Attachments/{AttachmentID} | Retrieves a specific attachment from a specific contact using a unique attachment Id
+[**getContactAttachments**](AccountingApi.md#getContactAttachments) | **GET** /Contacts/{ContactID}/Attachments | Retrieves attachments for a specific contact in a Xero organisation
+[**getContactByContactNumber**](AccountingApi.md#getContactByContactNumber) | **GET** /Contacts/{ContactNumber} | Retrieves a specific contact by contact number in a Xero organisation
+[**getContactCISSettings**](AccountingApi.md#getContactCISSettings) | **GET** /Contacts/{ContactID}/CISSettings | Retrieves CIS settings for a specific contact in a Xero organisation
+[**getContactGroup**](AccountingApi.md#getContactGroup) | **GET** /ContactGroups/{ContactGroupID} | Retrieves a specific contact group by using a unique contact group Id
+[**getContactGroups**](AccountingApi.md#getContactGroups) | **GET** /ContactGroups | Retrieves the contact Id and name of all the contacts in a contact group
+[**getContactHistory**](AccountingApi.md#getContactHistory) | **GET** /Contacts/{ContactID}/History | Retrieves history records for a specific contact
+[**getContacts**](AccountingApi.md#getContacts) | **GET** /Contacts | Retrieves all contacts in a Xero organisation
+[**getCreditNote**](AccountingApi.md#getCreditNote) | **GET** /CreditNotes/{CreditNoteID} | Retrieves a specific credit note using a unique credit note Id
+[**getCreditNoteAsPdf**](AccountingApi.md#getCreditNoteAsPdf) | **GET** /CreditNotes/{CreditNoteID}/pdf | Retrieves credit notes as PDF files
+[**getCreditNoteAttachmentByFileName**](AccountingApi.md#getCreditNoteAttachmentByFileName) | **GET** /CreditNotes/{CreditNoteID}/Attachments/{FileName} | Retrieves a specific attachment on a specific credit note by file name
+[**getCreditNoteAttachmentById**](AccountingApi.md#getCreditNoteAttachmentById) | **GET** /CreditNotes/{CreditNoteID}/Attachments/{AttachmentID} | Retrieves a specific attachment from a specific credit note using a unique attachment Id
+[**getCreditNoteAttachments**](AccountingApi.md#getCreditNoteAttachments) | **GET** /CreditNotes/{CreditNoteID}/Attachments | Retrieves attachments for a specific credit notes
+[**getCreditNoteHistory**](AccountingApi.md#getCreditNoteHistory) | **GET** /CreditNotes/{CreditNoteID}/History | Retrieves history records of a specific credit note
+[**getCreditNotes**](AccountingApi.md#getCreditNotes) | **GET** /CreditNotes | Retrieves any credit notes
+[**getCurrencies**](AccountingApi.md#getCurrencies) | **GET** /Currencies | Retrieves currencies for your Xero organisation
+[**getEmployee**](AccountingApi.md#getEmployee) | **GET** /Employees/{EmployeeID} | Retrieves a specific employee used in Xero payrun using a unique employee Id
+[**getEmployees**](AccountingApi.md#getEmployees) | **GET** /Employees | Retrieves employees used in Xero payrun
+[**getExpenseClaim**](AccountingApi.md#getExpenseClaim) | **GET** /ExpenseClaims/{ExpenseClaimID} | Retrieves a specific expense claim using a unique expense claim Id
+[**getExpenseClaimHistory**](AccountingApi.md#getExpenseClaimHistory) | **GET** /ExpenseClaims/{ExpenseClaimID}/History | Retrieves history records of a specific expense claim
+[**getExpenseClaims**](AccountingApi.md#getExpenseClaims) | **GET** /ExpenseClaims | Retrieves expense claims
+[**getInvoice**](AccountingApi.md#getInvoice) | **GET** /Invoices/{InvoiceID} | Retrieves a specific sales invoice or purchase bill using a unique invoice Id
+[**getInvoiceAsPdf**](AccountingApi.md#getInvoiceAsPdf) | **GET** /Invoices/{InvoiceID}/pdf | Retrieves invoices or purchase bills as PDF files
+[**getInvoiceAttachmentByFileName**](AccountingApi.md#getInvoiceAttachmentByFileName) | **GET** /Invoices/{InvoiceID}/Attachments/{FileName} | Retrieves an attachment from a specific invoice or purchase bill by filename
+[**getInvoiceAttachmentById**](AccountingApi.md#getInvoiceAttachmentById) | **GET** /Invoices/{InvoiceID}/Attachments/{AttachmentID} | Retrieves a specific attachment from a specific invoices or purchase bills by using a unique attachment Id
+[**getInvoiceAttachments**](AccountingApi.md#getInvoiceAttachments) | **GET** /Invoices/{InvoiceID}/Attachments | Retrieves attachments for a specific invoice or purchase bill
+[**getInvoiceHistory**](AccountingApi.md#getInvoiceHistory) | **GET** /Invoices/{InvoiceID}/History | Retrieves history records for a specific invoice
+[**getInvoiceReminders**](AccountingApi.md#getInvoiceReminders) | **GET** /InvoiceReminders/Settings | Retrieves invoice reminder settings
+[**getInvoices**](AccountingApi.md#getInvoices) | **GET** /Invoices | Retrieves sales invoices or purchase bills
+[**getItem**](AccountingApi.md#getItem) | **GET** /Items/{ItemID} | Retrieves a specific item using a unique item Id
+[**getItemHistory**](AccountingApi.md#getItemHistory) | **GET** /Items/{ItemID}/History | Retrieves history for a specific item
+[**getItems**](AccountingApi.md#getItems) | **GET** /Items | Retrieves items
+[**getJournal**](AccountingApi.md#getJournal) | **GET** /Journals/{JournalID} | Retrieves a specific journal using a unique journal Id.
+[**getJournals**](AccountingApi.md#getJournals) | **GET** /Journals | Retrieves journals
+[**getLinkedTransaction**](AccountingApi.md#getLinkedTransaction) | **GET** /LinkedTransactions/{LinkedTransactionID} | Retrieves a specific linked transaction (billable expenses) using a unique linked transaction Id
+[**getLinkedTransactions**](AccountingApi.md#getLinkedTransactions) | **GET** /LinkedTransactions | Retrieves linked transactions (billable expenses)
+[**getManualJournal**](AccountingApi.md#getManualJournal) | **GET** /ManualJournals/{ManualJournalID} | Retrieves a specific manual journal
+[**getManualJournalAttachmentByFileName**](AccountingApi.md#getManualJournalAttachmentByFileName) | **GET** /ManualJournals/{ManualJournalID}/Attachments/{FileName} | Retrieves a specific attachment from a specific manual journal by file name
+[**getManualJournalAttachmentById**](AccountingApi.md#getManualJournalAttachmentById) | **GET** /ManualJournals/{ManualJournalID}/Attachments/{AttachmentID} | Allows you to retrieve a specific attachment from a specific manual journal using a unique attachment Id
+[**getManualJournalAttachments**](AccountingApi.md#getManualJournalAttachments) | **GET** /ManualJournals/{ManualJournalID}/Attachments | Retrieves attachment for a specific manual journal
+[**getManualJournals**](AccountingApi.md#getManualJournals) | **GET** /ManualJournals | Retrieves manual journals
+[**getManualJournalsHistory**](AccountingApi.md#getManualJournalsHistory) | **GET** /ManualJournals/{ManualJournalID}/History | Retrieves history for a specific manual journal
+[**getOnlineInvoice**](AccountingApi.md#getOnlineInvoice) | **GET** /Invoices/{InvoiceID}/OnlineInvoice | Retrieves a URL to an online invoice
+[**getOrganisationActions**](AccountingApi.md#getOrganisationActions) | **GET** /Organisation/Actions | Retrieves a list of the key actions your app has permission to perform in the connected Xero organisation.
+[**getOrganisationCISSettings**](AccountingApi.md#getOrganisationCISSettings) | **GET** /Organisation/{OrganisationID}/CISSettings | Retrieves the CIS settings for the Xero organistaion.
+[**getOrganisations**](AccountingApi.md#getOrganisations) | **GET** /Organisation | Retrieves Xero organisation details
+[**getOverpayment**](AccountingApi.md#getOverpayment) | **GET** /Overpayments/{OverpaymentID} | Retrieves a specific overpayment using a unique overpayment Id
+[**getOverpaymentHistory**](AccountingApi.md#getOverpaymentHistory) | **GET** /Overpayments/{OverpaymentID}/History | Retrieves history records of a specific overpayment
+[**getOverpayments**](AccountingApi.md#getOverpayments) | **GET** /Overpayments | Retrieves overpayments
+[**getPayment**](AccountingApi.md#getPayment) | **GET** /Payments/{PaymentID} | Retrieves a specific payment for invoices and credit notes using a unique payment Id
+[**getPaymentHistory**](AccountingApi.md#getPaymentHistory) | **GET** /Payments/{PaymentID}/History | Retrieves history records of a specific payment
+[**getPaymentServices**](AccountingApi.md#getPaymentServices) | **GET** /PaymentServices | Retrieves payment services
+[**getPayments**](AccountingApi.md#getPayments) | **GET** /Payments | Retrieves payments for invoices and credit notes
 [**getPrepayment**](AccountingApi.md#getPrepayment) | **GET** /Prepayments/{PrepaymentID} | Allows you to retrieve a specified prepayments
-[**getPrepaymentHistory**](AccountingApi.md#getPrepaymentHistory) | **GET** /Prepayments/{PrepaymentID}/History | Allows you to retrieve a history records of an Prepayment
-[**getPrepayments**](AccountingApi.md#getPrepayments) | **GET** /Prepayments | Allows you to retrieve prepayments
-[**getPurchaseOrder**](AccountingApi.md#getPurchaseOrder) | **GET** /PurchaseOrders/{PurchaseOrderID} | Allows you to retrieve a specified purchase orders
-[**getPurchaseOrderAsPdf**](AccountingApi.md#getPurchaseOrderAsPdf) | **GET** /PurchaseOrders/{PurchaseOrderID}/pdf | Allows you to retrieve purchase orders as PDF files
-[**getPurchaseOrderAttachmentByFileName**](AccountingApi.md#getPurchaseOrderAttachmentByFileName) | **GET** /PurchaseOrders/{PurchaseOrderID}/Attachments/{FileName} | Allows you to retrieve Attachment on a Purchase Order by Filename
-[**getPurchaseOrderAttachmentById**](AccountingApi.md#getPurchaseOrderAttachmentById) | **GET** /PurchaseOrders/{PurchaseOrderID}/Attachments/{AttachmentID} | Allows you to retrieve specific Attachment on purchase order
-[**getPurchaseOrderAttachments**](AccountingApi.md#getPurchaseOrderAttachments) | **GET** /PurchaseOrders/{PurchaseOrderID}/Attachments | Allows you to retrieve attachments for purchase orders
-[**getPurchaseOrderByNumber**](AccountingApi.md#getPurchaseOrderByNumber) | **GET** /PurchaseOrders/{PurchaseOrderNumber} | Allows you to retrieve a specified purchase orders
-[**getPurchaseOrderHistory**](AccountingApi.md#getPurchaseOrderHistory) | **GET** /PurchaseOrders/{PurchaseOrderID}/History | Allows you to retrieve history for PurchaseOrder
-[**getPurchaseOrders**](AccountingApi.md#getPurchaseOrders) | **GET** /PurchaseOrders | Allows you to retrieve purchase orders
-[**getQuote**](AccountingApi.md#getQuote) | **GET** /Quotes/{QuoteID} | Allows you to retrieve a specified quote
-[**getQuoteAsPdf**](AccountingApi.md#getQuoteAsPdf) | **GET** /Quotes/{QuoteID}/pdf | Allows you to retrieve quotes as PDF files
-[**getQuoteAttachmentByFileName**](AccountingApi.md#getQuoteAttachmentByFileName) | **GET** /Quotes/{QuoteID}/Attachments/{FileName} | Allows you to retrieve Attachment on Quote by Filename
-[**getQuoteAttachmentById**](AccountingApi.md#getQuoteAttachmentById) | **GET** /Quotes/{QuoteID}/Attachments/{AttachmentID} | Allows you to retrieve specific Attachment on Quote
-[**getQuoteAttachments**](AccountingApi.md#getQuoteAttachments) | **GET** /Quotes/{QuoteID}/Attachments | Allows you to retrieve Attachments for Quotes
-[**getQuoteHistory**](AccountingApi.md#getQuoteHistory) | **GET** /Quotes/{QuoteID}/History | Allows you to retrieve a history records of an quote
-[**getQuotes**](AccountingApi.md#getQuotes) | **GET** /Quotes | Allows you to retrieve any sales quotes
-[**getReceipt**](AccountingApi.md#getReceipt) | **GET** /Receipts/{ReceiptID} | Allows you to retrieve a specified draft expense claim receipts
-[**getReceiptAttachmentByFileName**](AccountingApi.md#getReceiptAttachmentByFileName) | **GET** /Receipts/{ReceiptID}/Attachments/{FileName} | Allows you to retrieve Attachments on expense claim receipts by file name
-[**getReceiptAttachmentById**](AccountingApi.md#getReceiptAttachmentById) | **GET** /Receipts/{ReceiptID}/Attachments/{AttachmentID} | Allows you to retrieve Attachments on expense claim receipts by ID
-[**getReceiptAttachments**](AccountingApi.md#getReceiptAttachments) | **GET** /Receipts/{ReceiptID}/Attachments | Allows you to retrieve Attachments for expense claim receipts
-[**getReceiptHistory**](AccountingApi.md#getReceiptHistory) | **GET** /Receipts/{ReceiptID}/History | Allows you to retrieve a history records of an Receipt
-[**getReceipts**](AccountingApi.md#getReceipts) | **GET** /Receipts | Allows you to retrieve draft expense claim receipts for any user
-[**getRepeatingInvoice**](AccountingApi.md#getRepeatingInvoice) | **GET** /RepeatingInvoices/{RepeatingInvoiceID} | Allows you to retrieve a specified repeating invoice
-[**getRepeatingInvoiceAttachmentByFileName**](AccountingApi.md#getRepeatingInvoiceAttachmentByFileName) | **GET** /RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{FileName} | Allows you to retrieve specified attachment on repeating invoices by file name
-[**getRepeatingInvoiceAttachmentById**](AccountingApi.md#getRepeatingInvoiceAttachmentById) | **GET** /RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{AttachmentID} | Allows you to retrieve a specified Attachments on repeating invoices
-[**getRepeatingInvoiceAttachments**](AccountingApi.md#getRepeatingInvoiceAttachments) | **GET** /RepeatingInvoices/{RepeatingInvoiceID}/Attachments | Allows you to retrieve Attachments on repeating invoice
-[**getRepeatingInvoiceHistory**](AccountingApi.md#getRepeatingInvoiceHistory) | **GET** /RepeatingInvoices/{RepeatingInvoiceID}/History | Allows you to retrieve history for a repeating invoice
-[**getRepeatingInvoices**](AccountingApi.md#getRepeatingInvoices) | **GET** /RepeatingInvoices | Allows you to retrieve any repeating invoices
-[**getReportAgedPayablesByContact**](AccountingApi.md#getReportAgedPayablesByContact) | **GET** /Reports/AgedPayablesByContact | Allows you to retrieve report for AgedPayablesByContact
-[**getReportAgedReceivablesByContact**](AccountingApi.md#getReportAgedReceivablesByContact) | **GET** /Reports/AgedReceivablesByContact | Allows you to retrieve report for AgedReceivablesByContact
-[**getReportBASorGST**](AccountingApi.md#getReportBASorGST) | **GET** /Reports/{ReportID} | Allows you to retrieve report for BAS only valid for AU orgs
-[**getReportBASorGSTList**](AccountingApi.md#getReportBASorGSTList) | **GET** /Reports | Allows you to retrieve report for BAS only valid for AU orgs
-[**getReportBalanceSheet**](AccountingApi.md#getReportBalanceSheet) | **GET** /Reports/BalanceSheet | Allows you to retrieve report for BalanceSheet
-[**getReportBankSummary**](AccountingApi.md#getReportBankSummary) | **GET** /Reports/BankSummary | Allows you to retrieve report for BankSummary
-[**getReportBudgetSummary**](AccountingApi.md#getReportBudgetSummary) | **GET** /Reports/BudgetSummary | Allows you to retrieve report for Budget Summary
-[**getReportExecutiveSummary**](AccountingApi.md#getReportExecutiveSummary) | **GET** /Reports/ExecutiveSummary | Allows you to retrieve report for ExecutiveSummary
-[**getReportProfitAndLoss**](AccountingApi.md#getReportProfitAndLoss) | **GET** /Reports/ProfitAndLoss | Allows you to retrieve report for ProfitAndLoss
-[**getReportTenNinetyNine**](AccountingApi.md#getReportTenNinetyNine) | **GET** /Reports/TenNinetyNine | Allows you to retrieve report for TenNinetyNine
-[**getReportTrialBalance**](AccountingApi.md#getReportTrialBalance) | **GET** /Reports/TrialBalance | Allows you to retrieve report for TrialBalance
-[**getTaxRates**](AccountingApi.md#getTaxRates) | **GET** /TaxRates | Allows you to retrieve Tax Rates
-[**getTrackingCategories**](AccountingApi.md#getTrackingCategories) | **GET** /TrackingCategories | Allows you to retrieve tracking categories and options
-[**getTrackingCategory**](AccountingApi.md#getTrackingCategory) | **GET** /TrackingCategories/{TrackingCategoryID} | Allows you to retrieve tracking categories and options for specified category
-[**getUser**](AccountingApi.md#getUser) | **GET** /Users/{UserID} | Allows you to retrieve a specified user
-[**getUsers**](AccountingApi.md#getUsers) | **GET** /Users | Allows you to retrieve users
-[**postSetup**](AccountingApi.md#postSetup) | **POST** /Setup | Allows you to set the chart of accounts, the conversion date and conversion balances
-[**updateAccount**](AccountingApi.md#updateAccount) | **POST** /Accounts/{AccountID} | Allows you to update a chart of accounts
-[**updateAccountAttachmentByFileName**](AccountingApi.md#updateAccountAttachmentByFileName) | **POST** /Accounts/{AccountID}/Attachments/{FileName} | Allows you to update Attachment on Account by Filename
-[**updateBankTransaction**](AccountingApi.md#updateBankTransaction) | **POST** /BankTransactions/{BankTransactionID} | Allows you to update a single spend or receive money transaction
-[**updateBankTransactionAttachmentByFileName**](AccountingApi.md#updateBankTransactionAttachmentByFileName) | **POST** /BankTransactions/{BankTransactionID}/Attachments/{FileName} | Allows you to update an Attachment on BankTransaction by Filename
+[**getPrepaymentHistory**](AccountingApi.md#getPrepaymentHistory) | **GET** /Prepayments/{PrepaymentID}/History | Retrieves history record for a specific prepayment
+[**getPrepayments**](AccountingApi.md#getPrepayments) | **GET** /Prepayments | Retrieves prepayments
+[**getPurchaseOrder**](AccountingApi.md#getPurchaseOrder) | **GET** /PurchaseOrders/{PurchaseOrderID} | Retrieves a specific purchase order using a unique purchase order Id
+[**getPurchaseOrderAsPdf**](AccountingApi.md#getPurchaseOrderAsPdf) | **GET** /PurchaseOrders/{PurchaseOrderID}/pdf | Retrieves specific purchase order as PDF files using a unique purchase order Id
+[**getPurchaseOrderAttachmentByFileName**](AccountingApi.md#getPurchaseOrderAttachmentByFileName) | **GET** /PurchaseOrders/{PurchaseOrderID}/Attachments/{FileName} | Retrieves a specific attachment for a specific purchase order by filename
+[**getPurchaseOrderAttachmentById**](AccountingApi.md#getPurchaseOrderAttachmentById) | **GET** /PurchaseOrders/{PurchaseOrderID}/Attachments/{AttachmentID} | Retrieves specific attachment for a specific purchase order using a unique attachment Id
+[**getPurchaseOrderAttachments**](AccountingApi.md#getPurchaseOrderAttachments) | **GET** /PurchaseOrders/{PurchaseOrderID}/Attachments | Retrieves attachments for a specific purchase order
+[**getPurchaseOrderByNumber**](AccountingApi.md#getPurchaseOrderByNumber) | **GET** /PurchaseOrders/{PurchaseOrderNumber} | Retrieves a specific purchase order using purchase order number
+[**getPurchaseOrderHistory**](AccountingApi.md#getPurchaseOrderHistory) | **GET** /PurchaseOrders/{PurchaseOrderID}/History | Retrieves history for a specific purchase order
+[**getPurchaseOrders**](AccountingApi.md#getPurchaseOrders) | **GET** /PurchaseOrders | Retrieves purchase orders
+[**getQuote**](AccountingApi.md#getQuote) | **GET** /Quotes/{QuoteID} | Retrieves a specific quote using a unique quote Id
+[**getQuoteAsPdf**](AccountingApi.md#getQuoteAsPdf) | **GET** /Quotes/{QuoteID}/pdf | Retrieves a specific quote as a PDF file using a unique quote Id
+[**getQuoteAttachmentByFileName**](AccountingApi.md#getQuoteAttachmentByFileName) | **GET** /Quotes/{QuoteID}/Attachments/{FileName} | Retrieves a specific attachment from a specific quote by filename
+[**getQuoteAttachmentById**](AccountingApi.md#getQuoteAttachmentById) | **GET** /Quotes/{QuoteID}/Attachments/{AttachmentID} | Retrieves a specific attachment from a specific quote using a unique attachment Id
+[**getQuoteAttachments**](AccountingApi.md#getQuoteAttachments) | **GET** /Quotes/{QuoteID}/Attachments | Retrieves attachments for a specific quote
+[**getQuoteHistory**](AccountingApi.md#getQuoteHistory) | **GET** /Quotes/{QuoteID}/History | Retrieves history records of a specific quote
+[**getQuotes**](AccountingApi.md#getQuotes) | **GET** /Quotes | Retrieves sales quotes
+[**getReceipt**](AccountingApi.md#getReceipt) | **GET** /Receipts/{ReceiptID} | Retrieves a specific draft expense claim receipt by using a unique receipt Id
+[**getReceiptAttachmentByFileName**](AccountingApi.md#getReceiptAttachmentByFileName) | **GET** /Receipts/{ReceiptID}/Attachments/{FileName} | Retrieves a specific attachment from a specific expense claim receipts by file name
+[**getReceiptAttachmentById**](AccountingApi.md#getReceiptAttachmentById) | **GET** /Receipts/{ReceiptID}/Attachments/{AttachmentID} | Retrieves a specific attachments from a specific expense claim receipts by using a unique attachment Id
+[**getReceiptAttachments**](AccountingApi.md#getReceiptAttachments) | **GET** /Receipts/{ReceiptID}/Attachments | Retrieves attachments for a specific expense claim receipt
+[**getReceiptHistory**](AccountingApi.md#getReceiptHistory) | **GET** /Receipts/{ReceiptID}/History | Retrieves a history record for a specific receipt
+[**getReceipts**](AccountingApi.md#getReceipts) | **GET** /Receipts | Retrieves draft expense claim receipts for any user
+[**getRepeatingInvoice**](AccountingApi.md#getRepeatingInvoice) | **GET** /RepeatingInvoices/{RepeatingInvoiceID} | Retrieves a specific repeating invoice by using a unique repeating invoice Id
+[**getRepeatingInvoiceAttachmentByFileName**](AccountingApi.md#getRepeatingInvoiceAttachmentByFileName) | **GET** /RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{FileName} | Retrieves a specific attachment from a specific repeating invoices by file name
+[**getRepeatingInvoiceAttachmentById**](AccountingApi.md#getRepeatingInvoiceAttachmentById) | **GET** /RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{AttachmentID} | Retrieves a specific attachment from a specific repeating invoice
+[**getRepeatingInvoiceAttachments**](AccountingApi.md#getRepeatingInvoiceAttachments) | **GET** /RepeatingInvoices/{RepeatingInvoiceID}/Attachments | Retrieves attachments from a specific repeating invoice
+[**getRepeatingInvoiceHistory**](AccountingApi.md#getRepeatingInvoiceHistory) | **GET** /RepeatingInvoices/{RepeatingInvoiceID}/History | Retrieves history record for a specific repeating invoice
+[**getRepeatingInvoices**](AccountingApi.md#getRepeatingInvoices) | **GET** /RepeatingInvoices | Retrieves repeating invoices
+[**getReportAgedPayablesByContact**](AccountingApi.md#getReportAgedPayablesByContact) | **GET** /Reports/AgedPayablesByContact | Retrieves report for aged payables by contact
+[**getReportAgedReceivablesByContact**](AccountingApi.md#getReportAgedReceivablesByContact) | **GET** /Reports/AgedReceivablesByContact | Retrieves report for aged receivables by contact
+[**getReportBASorGST**](AccountingApi.md#getReportBASorGST) | **GET** /Reports/{ReportID} | Retrieves a specific report for BAS using a unique report Id (only valid for AU orgs)
+[**getReportBASorGSTList**](AccountingApi.md#getReportBASorGSTList) | **GET** /Reports | Retrieves report for BAS (only valid for AU orgs)
+[**getReportBalanceSheet**](AccountingApi.md#getReportBalanceSheet) | **GET** /Reports/BalanceSheet | Retrieves report for balancesheet
+[**getReportBankSummary**](AccountingApi.md#getReportBankSummary) | **GET** /Reports/BankSummary | Retrieves report for bank summary
+[**getReportBudgetSummary**](AccountingApi.md#getReportBudgetSummary) | **GET** /Reports/BudgetSummary | Retrieves report for budget summary
+[**getReportExecutiveSummary**](AccountingApi.md#getReportExecutiveSummary) | **GET** /Reports/ExecutiveSummary | Retrieves report for executive summary
+[**getReportProfitAndLoss**](AccountingApi.md#getReportProfitAndLoss) | **GET** /Reports/ProfitAndLoss | Retrieves report for profit and loss
+[**getReportTenNinetyNine**](AccountingApi.md#getReportTenNinetyNine) | **GET** /Reports/TenNinetyNine | Retrieve reports for 1099
+[**getReportTrialBalance**](AccountingApi.md#getReportTrialBalance) | **GET** /Reports/TrialBalance | Retrieves report for trial balance
+[**getTaxRates**](AccountingApi.md#getTaxRates) | **GET** /TaxRates | Retrieves tax rates
+[**getTrackingCategories**](AccountingApi.md#getTrackingCategories) | **GET** /TrackingCategories | Retrieves tracking categories and options
+[**getTrackingCategory**](AccountingApi.md#getTrackingCategory) | **GET** /TrackingCategories/{TrackingCategoryID} | Retrieves specific tracking categories and options using a unique tracking category Id
+[**getUser**](AccountingApi.md#getUser) | **GET** /Users/{UserID} | Retrieves a specific user
+[**getUsers**](AccountingApi.md#getUsers) | **GET** /Users | Retrieves users
+[**postSetup**](AccountingApi.md#postSetup) | **POST** /Setup | Sets the chart of accounts, the conversion date and conversion balances
+[**updateAccount**](AccountingApi.md#updateAccount) | **POST** /Accounts/{AccountID} | Updates a chart of accounts
+[**updateAccountAttachmentByFileName**](AccountingApi.md#updateAccountAttachmentByFileName) | **POST** /Accounts/{AccountID}/Attachments/{FileName} | Updates attachment on a specific account by filename
+[**updateBankTransaction**](AccountingApi.md#updateBankTransaction) | **POST** /BankTransactions/{BankTransactionID} | Updates a single spent or received money transaction
+[**updateBankTransactionAttachmentByFileName**](AccountingApi.md#updateBankTransactionAttachmentByFileName) | **POST** /BankTransactions/{BankTransactionID}/Attachments/{FileName} | Updates a specific attachment from a specific bank transaction by filename
 [**updateBankTransferAttachmentByFileName**](AccountingApi.md#updateBankTransferAttachmentByFileName) | **POST** /BankTransfers/{BankTransferID}/Attachments/{FileName} | 
-[**updateContact**](AccountingApi.md#updateContact) | **POST** /Contacts/{ContactID} | Allows you to update one contact in a Xero organisation
+[**updateContact**](AccountingApi.md#updateContact) | **POST** /Contacts/{ContactID} | Updates a specific contact in a Xero organisation
 [**updateContactAttachmentByFileName**](AccountingApi.md#updateContactAttachmentByFileName) | **POST** /Contacts/{ContactID}/Attachments/{FileName} | 
-[**updateContactGroup**](AccountingApi.md#updateContactGroup) | **POST** /ContactGroups/{ContactGroupID} | Allows you to update a Contact Group
-[**updateCreditNote**](AccountingApi.md#updateCreditNote) | **POST** /CreditNotes/{CreditNoteID} | Allows you to update a specific credit note
-[**updateCreditNoteAttachmentByFileName**](AccountingApi.md#updateCreditNoteAttachmentByFileName) | **POST** /CreditNotes/{CreditNoteID}/Attachments/{FileName} | Allows you to update Attachments on CreditNote by file name
-[**updateExpenseClaim**](AccountingApi.md#updateExpenseClaim) | **POST** /ExpenseClaims/{ExpenseClaimID} | Allows you to update specified expense claims
-[**updateInvoice**](AccountingApi.md#updateInvoice) | **POST** /Invoices/{InvoiceID} | Allows you to update a specified sales invoices or purchase bills
-[**updateInvoiceAttachmentByFileName**](AccountingApi.md#updateInvoiceAttachmentByFileName) | **POST** /Invoices/{InvoiceID}/Attachments/{FileName} | Allows you to update Attachment on invoices or purchase bills by it&#39;s filename
-[**updateItem**](AccountingApi.md#updateItem) | **POST** /Items/{ItemID} | Allows you to update a specified item
-[**updateLinkedTransaction**](AccountingApi.md#updateLinkedTransaction) | **POST** /LinkedTransactions/{LinkedTransactionID} | Allows you to update a specified linked transactions (billable expenses)
-[**updateManualJournal**](AccountingApi.md#updateManualJournal) | **POST** /ManualJournals/{ManualJournalID} | Allows you to update a specified manual journal
-[**updateManualJournalAttachmentByFileName**](AccountingApi.md#updateManualJournalAttachmentByFileName) | **POST** /ManualJournals/{ManualJournalID}/Attachments/{FileName} | Allows you to update a specified Attachment on ManualJournal by file name
-[**updateOrCreateBankTransactions**](AccountingApi.md#updateOrCreateBankTransactions) | **POST** /BankTransactions | Allows you to update or create one or more spend or receive money transaction
-[**updateOrCreateContacts**](AccountingApi.md#updateOrCreateContacts) | **POST** /Contacts | Allows you to update OR create one or more contacts in a Xero organisation
-[**updateOrCreateCreditNotes**](AccountingApi.md#updateOrCreateCreditNotes) | **POST** /CreditNotes | Allows you to update OR create one or more credit notes
-[**updateOrCreateEmployees**](AccountingApi.md#updateOrCreateEmployees) | **POST** /Employees | Allows you to create a single new employees used in Xero payrun
-[**updateOrCreateInvoices**](AccountingApi.md#updateOrCreateInvoices) | **POST** /Invoices | Allows you to update OR create one or more sales invoices or purchase bills
-[**updateOrCreateItems**](AccountingApi.md#updateOrCreateItems) | **POST** /Items | Allows you to update or create one or more items
-[**updateOrCreateManualJournals**](AccountingApi.md#updateOrCreateManualJournals) | **POST** /ManualJournals | Allows you to create a single manual journal
-[**updateOrCreatePurchaseOrders**](AccountingApi.md#updateOrCreatePurchaseOrders) | **POST** /PurchaseOrders | Allows you to update or create one or more purchase orders
-[**updateOrCreateQuotes**](AccountingApi.md#updateOrCreateQuotes) | **POST** /Quotes | Allows you to update OR create one or more quotes
-[**updatePurchaseOrder**](AccountingApi.md#updatePurchaseOrder) | **POST** /PurchaseOrders/{PurchaseOrderID} | Allows you to update a specified purchase order
-[**updatePurchaseOrderAttachmentByFileName**](AccountingApi.md#updatePurchaseOrderAttachmentByFileName) | **POST** /PurchaseOrders/{PurchaseOrderID}/Attachments/{FileName} | Allows you to update Attachment on Purchase Order by Filename
-[**updateQuote**](AccountingApi.md#updateQuote) | **POST** /Quotes/{QuoteID} | Allows you to update a specified quote
-[**updateQuoteAttachmentByFileName**](AccountingApi.md#updateQuoteAttachmentByFileName) | **POST** /Quotes/{QuoteID}/Attachments/{FileName} | Allows you to update Attachment on Quote by Filename
-[**updateReceipt**](AccountingApi.md#updateReceipt) | **POST** /Receipts/{ReceiptID} | Allows you to retrieve a specified draft expense claim receipts
-[**updateReceiptAttachmentByFileName**](AccountingApi.md#updateReceiptAttachmentByFileName) | **POST** /Receipts/{ReceiptID}/Attachments/{FileName} | Allows you to update Attachment on expense claim receipts by file name
-[**updateRepeatingInvoiceAttachmentByFileName**](AccountingApi.md#updateRepeatingInvoiceAttachmentByFileName) | **POST** /RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{FileName} | Allows you to update specified attachment on repeating invoices by file name
-[**updateTaxRate**](AccountingApi.md#updateTaxRate) | **POST** /TaxRates | Allows you to update Tax Rates
-[**updateTrackingCategory**](AccountingApi.md#updateTrackingCategory) | **POST** /TrackingCategories/{TrackingCategoryID} | Allows you to update tracking categories
-[**updateTrackingOptions**](AccountingApi.md#updateTrackingOptions) | **POST** /TrackingCategories/{TrackingCategoryID}/Options/{TrackingOptionID} | Allows you to update options for a specified tracking category
+[**updateContactGroup**](AccountingApi.md#updateContactGroup) | **POST** /ContactGroups/{ContactGroupID} | Updates a specific contact group
+[**updateCreditNote**](AccountingApi.md#updateCreditNote) | **POST** /CreditNotes/{CreditNoteID} | Updates a specific credit note
+[**updateCreditNoteAttachmentByFileName**](AccountingApi.md#updateCreditNoteAttachmentByFileName) | **POST** /CreditNotes/{CreditNoteID}/Attachments/{FileName} | Updates attachments on a specific credit note by file name
+[**updateExpenseClaim**](AccountingApi.md#updateExpenseClaim) | **POST** /ExpenseClaims/{ExpenseClaimID} | Updates a specific expense claims
+[**updateInvoice**](AccountingApi.md#updateInvoice) | **POST** /Invoices/{InvoiceID} | Updates a specific sales invoices or purchase bills
+[**updateInvoiceAttachmentByFileName**](AccountingApi.md#updateInvoiceAttachmentByFileName) | **POST** /Invoices/{InvoiceID}/Attachments/{FileName} | Updates an attachment from a specific invoices or purchase bill by filename
+[**updateItem**](AccountingApi.md#updateItem) | **POST** /Items/{ItemID} | Updates a specific item
+[**updateLinkedTransaction**](AccountingApi.md#updateLinkedTransaction) | **POST** /LinkedTransactions/{LinkedTransactionID} | Updates a specific linked transactions (billable expenses)
+[**updateManualJournal**](AccountingApi.md#updateManualJournal) | **POST** /ManualJournals/{ManualJournalID} | Updates a specific manual journal
+[**updateManualJournalAttachmentByFileName**](AccountingApi.md#updateManualJournalAttachmentByFileName) | **POST** /ManualJournals/{ManualJournalID}/Attachments/{FileName} | Updates a specific attachment from a specific manual journal by file name
+[**updateOrCreateBankTransactions**](AccountingApi.md#updateOrCreateBankTransactions) | **POST** /BankTransactions | Updates or creates one or more spent or received money transaction
+[**updateOrCreateContacts**](AccountingApi.md#updateOrCreateContacts) | **POST** /Contacts | Updates or creates one or more contacts in a Xero organisation
+[**updateOrCreateCreditNotes**](AccountingApi.md#updateOrCreateCreditNotes) | **POST** /CreditNotes | Updates or creates one or more credit notes
+[**updateOrCreateEmployees**](AccountingApi.md#updateOrCreateEmployees) | **POST** /Employees | Creates a single new employees used in Xero payrun
+[**updateOrCreateInvoices**](AccountingApi.md#updateOrCreateInvoices) | **POST** /Invoices | Updates or creates one or more sales invoices or purchase bills
+[**updateOrCreateItems**](AccountingApi.md#updateOrCreateItems) | **POST** /Items | Updates or creates one or more items
+[**updateOrCreateManualJournals**](AccountingApi.md#updateOrCreateManualJournals) | **POST** /ManualJournals | Updates or creates a single manual journal
+[**updateOrCreatePurchaseOrders**](AccountingApi.md#updateOrCreatePurchaseOrders) | **POST** /PurchaseOrders | Updates or creates one or more purchase orders
+[**updateOrCreateQuotes**](AccountingApi.md#updateOrCreateQuotes) | **POST** /Quotes | Updates or creates one or more quotes
+[**updatePurchaseOrder**](AccountingApi.md#updatePurchaseOrder) | **POST** /PurchaseOrders/{PurchaseOrderID} | Updates a specific purchase order
+[**updatePurchaseOrderAttachmentByFileName**](AccountingApi.md#updatePurchaseOrderAttachmentByFileName) | **POST** /PurchaseOrders/{PurchaseOrderID}/Attachments/{FileName} | Updates a specific attachment for a specific purchase order by filename
+[**updateQuote**](AccountingApi.md#updateQuote) | **POST** /Quotes/{QuoteID} | Updates a specific quote
+[**updateQuoteAttachmentByFileName**](AccountingApi.md#updateQuoteAttachmentByFileName) | **POST** /Quotes/{QuoteID}/Attachments/{FileName} | Updates a specific attachment from a specific quote by filename
+[**updateReceipt**](AccountingApi.md#updateReceipt) | **POST** /Receipts/{ReceiptID} | Updates a specific draft expense claim receipts
+[**updateReceiptAttachmentByFileName**](AccountingApi.md#updateReceiptAttachmentByFileName) | **POST** /Receipts/{ReceiptID}/Attachments/{FileName} | Updates a specific attachment on a specific expense claim receipts by file name
+[**updateRepeatingInvoiceAttachmentByFileName**](AccountingApi.md#updateRepeatingInvoiceAttachmentByFileName) | **POST** /RepeatingInvoices/{RepeatingInvoiceID}/Attachments/{FileName} | Updates a specific attachment from a specific repeating invoices by file name
+[**updateTaxRate**](AccountingApi.md#updateTaxRate) | **POST** /TaxRates | Updates tax rates
+[**updateTrackingCategory**](AccountingApi.md#updateTrackingCategory) | **POST** /TrackingCategories/{TrackingCategoryID} | Updates a specific tracking category
+[**updateTrackingOptions**](AccountingApi.md#updateTrackingOptions) | **POST** /TrackingCategories/{TrackingCategoryID}/Options/{TrackingOptionID} | Updates a specific option for a specific tracking category
 
 
 # **createAccount**
 > \XeroAPI\XeroPHP\Models\Accounting\Accounts createAccount($xero_tenant_id, $account)
 
-Allows you to create a new chart of accounts
+Creates a new chart of accounts
 
 ### Example
 ```php
@@ -286,7 +286,7 @@ Name | Type | Description  | Notes
 # **createAccountAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments createAccountAttachmentByFileName($xero_tenant_id, $account_id, $file_name, $body)
 
-Allows you to create Attachment on Account
+Creates an attachment on a specific account
 
 ### Example
 ```php
@@ -303,7 +303,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$account_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Account object
+$account_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Account object
 $file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
@@ -343,7 +343,7 @@ Name | Type | Description  | Notes
 # **createBankTransactionAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments createBankTransactionAttachmentByFileName($xero_tenant_id, $bank_transaction_id, $file_name, $body)
 
-Allows you to create an Attachment on BankTransaction by Filename
+Creates an attachment for a specific bank transaction by filename
 
 ### Example
 ```php
@@ -360,7 +360,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
+$bank_transaction_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transaction
 $file_name = xero-dev.jpg; // string | The name of the file being attached
 $body = 'body_example'; // string | Byte array of file in body of request
 
@@ -400,7 +400,7 @@ Name | Type | Description  | Notes
 # **createBankTransactionHistoryRecord**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createBankTransactionHistoryRecord($xero_tenant_id, $bank_transaction_id, $history_records)
 
-Allows you to create history record for a bank transactions
+Creates a history record for a specific bank transactions
 
 ### Example
 ```php
@@ -417,7 +417,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
+$bank_transaction_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transaction
 $history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
@@ -455,7 +455,7 @@ Name | Type | Description  | Notes
 # **createBankTransactions**
 > \XeroAPI\XeroPHP\Models\Accounting\BankTransactions createBankTransactions($xero_tenant_id, $bank_transactions, $summarize_errors, $unitdp)
 
-Allows you to create one or more spend or receive money transaction
+Creates one or more spent or received money transaction
 
 ### Example
 ```php
@@ -472,7 +472,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transactions = { bankTransactions: [{ type: BankTransaction.TypeEnum.SPEND, contact: { contactID: "00000000-0000-0000-000-000000000000" }, lineItems: [{ description: "Foobar", quantity: 1.0, unitAmount: 20.0, accountCode: "000" } ], bankAccount: { code: "000" }}]}; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | BankTransactions with an array of BankTransaction objects in body of request
+$bank_transactions = { bankTransactions: [{ type: BankTransaction.TypeEnum.SPEND, contact: { contactID: "00000000-0000-0000-0000-000000000000" }, lineItems: [{ description: "Foobar", quantity: 1.0, unitAmount: 20.0, accountCode: "000" } ], bankAccount: { code: "000" }}]}; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | BankTransactions with an array of BankTransaction objects in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
@@ -512,7 +512,7 @@ Name | Type | Description  | Notes
 # **createBankTransfer**
 > \XeroAPI\XeroPHP\Models\Accounting\BankTransfers createBankTransfer($xero_tenant_id, $bank_transfers)
 
-Allows you to create a bank transfers
+Creates a bank transfer
 
 ### Example
 ```php
@@ -529,7 +529,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transfers = { "BankTransfers": [ { "FromBankAccount": { "Code": "090", "Name": "My Savings", "AccountID": "00000000-0000-0000-000-000000000000", "Type": "BANK", "BankAccountNumber": "123455", "Status": "ACTIVE", "BankAccountType": "BANK", "CurrencyCode": "USD", "TaxType": "NONE", "EnablePaymentsToAccount": false, "ShowInExpenseClaims": false, "Class": "ASSET", "ReportingCode": "ASS", "ReportingCodeName": "Assets", "HasAttachments": false, "UpdatedDateUTC": "2016-10-17T13:45:33.993-07:00" }, "ToBankAccount": { "Code": "088", "Name": "Business Wells Fargo", "AccountID": "00000000-0000-0000-000-000000000000", "Type": "BANK", "BankAccountNumber": "123455", "Status": "ACTIVE", "BankAccountType": "BANK", "CurrencyCode": "USD", "TaxType": "NONE", "EnablePaymentsToAccount": false, "ShowInExpenseClaims": false, "Class": "ASSET", "ReportingCode": "ASS", "ReportingCodeName": "Assets", "HasAttachments": false, "UpdatedDateUTC": "2016-06-03T08:31:14.517-07:00" }, "Amount": "50.00" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransfers | BankTransfers with array of BankTransfer objects in request body
+$bank_transfers = { "BankTransfers": [ { "FromBankAccount": { "Code": "090", "Name": "My Savings", "AccountID": "00000000-0000-0000-0000-000000000000", "Type": "BANK", "BankAccountNumber": "123455", "Status": "ACTIVE", "BankAccountType": "BANK", "CurrencyCode": "USD", "TaxType": "NONE", "EnablePaymentsToAccount": false, "ShowInExpenseClaims": false, "Class": "ASSET", "ReportingCode": "ASS", "ReportingCodeName": "Assets", "HasAttachments": false, "UpdatedDateUTC": "2016-10-17T13:45:33.993-07:00" }, "ToBankAccount": { "Code": "088", "Name": "Business Wells Fargo", "AccountID": "00000000-0000-0000-0000-000000000000", "Type": "BANK", "BankAccountNumber": "123455", "Status": "ACTIVE", "BankAccountType": "BANK", "CurrencyCode": "USD", "TaxType": "NONE", "EnablePaymentsToAccount": false, "ShowInExpenseClaims": false, "Class": "ASSET", "ReportingCode": "ASS", "ReportingCodeName": "Assets", "HasAttachments": false, "UpdatedDateUTC": "2016-06-03T08:31:14.517-07:00" }, "Amount": "50.00" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransfers | BankTransfers with array of BankTransfer objects in request body
 
 try {
     $result = $apiInstance->createBankTransfer($xero_tenant_id, $bank_transfers);
@@ -582,7 +582,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transfer_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transfer
+$bank_transfer_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transfer
 $file_name = xero-dev.jpg; // string | The name of the file being attached to a Bank Transfer
 $body = 'body_example'; // string | Byte array of file in body of request
 
@@ -622,7 +622,7 @@ Name | Type | Description  | Notes
 # **createBankTransferHistoryRecord**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createBankTransferHistoryRecord($xero_tenant_id, $bank_transfer_id, $history_records)
 
-Allows you to create history record for a bank transfers
+Creates a history record for a specific bank transfer
 
 ### Example
 ```php
@@ -639,7 +639,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transfer_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transfer
+$bank_transfer_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transfer
 $history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
@@ -677,7 +677,7 @@ Name | Type | Description  | Notes
 # **createBatchPayment**
 > \XeroAPI\XeroPHP\Models\Accounting\BatchPayments createBatchPayment($xero_tenant_id, $batch_payments, $summarize_errors)
 
-Create one or many BatchPayments for invoices
+Creates one or many batch payments for invoices
 
 ### Example
 ```php
@@ -694,7 +694,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$batch_payments = { "BatchPayments": [ { "Account": { "AccountID": "00000000-0000-0000-000-000000000000" }, "Reference": "ref", "Date": "2018-08-01", "Payments": [ { "Account": { "Code": "001" }, "Date": "2019-12-31", "Amount": 500, "Invoice": { "InvoiceID": "00000000-0000-0000-000-000000000000", "LineItems": [], "Contact": {}, "Type": "ACCPAY" } } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BatchPayments | BatchPayments with an array of Payments in body of request
+$batch_payments = { "BatchPayments": [ { "Account": { "AccountID": "00000000-0000-0000-0000-000000000000" }, "Reference": "ref", "Date": "2018-08-01", "Payments": [ { "Account": { "Code": "001" }, "Date": "2019-12-31", "Amount": 500, "Invoice": { "InvoiceID": "00000000-0000-0000-0000-000000000000", "LineItems": [], "Contact": {}, "Type": "ACCPAY" } } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BatchPayments | BatchPayments with an array of Payments in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
 try {
@@ -732,7 +732,7 @@ Name | Type | Description  | Notes
 # **createBatchPaymentHistoryRecord**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createBatchPaymentHistoryRecord($xero_tenant_id, $batch_payment_id, $history_records)
 
-Allows you to create a history record for a Batch Payment
+Creates a history record for a specific batch payment
 
 ### Example
 ```php
@@ -749,7 +749,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$batch_payment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for BatchPayment
+$batch_payment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for BatchPayment
 $history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
@@ -787,7 +787,7 @@ Name | Type | Description  | Notes
 # **createBrandingThemePaymentServices**
 > \XeroAPI\XeroPHP\Models\Accounting\PaymentServices createBrandingThemePaymentServices($xero_tenant_id, $branding_theme_id, $payment_service)
 
-Allow for the creation of new custom payment service for specified Branding Theme
+Creates a new custom payment service for a specific branding theme
 
 ### Example
 ```php
@@ -804,7 +804,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$branding_theme_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Branding Theme
+$branding_theme_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Branding Theme
 $payment_service = { "PaymentServiceID": "00000000-0000-0000-0000-000000000000", "PaymentServiceName": "ACME Payments", "PaymentServiceUrl": "https://www.payupnow.com/", "PayNowText": "Pay Now" }; // \XeroAPI\XeroPHP\Models\Accounting\PaymentService | PaymentService object in body of request
 
 try {
@@ -859,7 +859,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
+$contact_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact
 $file_name = xero-dev.jpg; // string | Name for the file you are attaching
 $body = 'body_example'; // string | Byte array of file in body of request
 
@@ -899,7 +899,7 @@ Name | Type | Description  | Notes
 # **createContactGroup**
 > \XeroAPI\XeroPHP\Models\Accounting\ContactGroups createContactGroup($xero_tenant_id, $contact_groups)
 
-Allows you to create a contact group
+Creates a contact group
 
 ### Example
 ```php
@@ -952,7 +952,7 @@ Name | Type | Description  | Notes
 # **createContactGroupContacts**
 > \XeroAPI\XeroPHP\Models\Accounting\Contacts createContactGroupContacts($xero_tenant_id, $contact_group_id, $contacts)
 
-Allows you to add Contacts to a Contact Group
+Creates contacts to a specific contact group
 
 ### Example
 ```php
@@ -969,8 +969,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contact_group_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact Group
-$contacts = { "Contacts": [ { "ContactID": "a3675fc4-f8dd-4f03-ba5b-f1870566bcd7" }, { "ContactID": "4e1753b9-018a-4775-b6aa-1bc7871cfee3" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | Contacts with array of contacts specifiying the ContactID to be added to ContactGroup in body of request
+$contact_group_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact Group
+$contacts = { "Contacts": [ { "ContactID": "a3675fc4-f8dd-4f03-ba5b-f1870566bcd7" }, { "ContactID": "4e1753b9-018a-4775-b6aa-1bc7871cfee3" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | Contacts with array of contacts specifying the ContactID to be added to ContactGroup in body of request
 
 try {
     $result = $apiInstance->createContactGroupContacts($xero_tenant_id, $contact_group_id, $contacts);
@@ -987,7 +987,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **contact_group_id** | [**string**](../Model/.md)| Unique identifier for a Contact Group |
- **contacts** | [**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)| Contacts with array of contacts specifiying the ContactID to be added to ContactGroup in body of request |
+ **contacts** | [**\XeroAPI\XeroPHP\Models\Accounting\Contacts**](../Model/Contacts.md)| Contacts with array of contacts specifying the ContactID to be added to ContactGroup in body of request |
 
 ### Return type
 
@@ -1007,7 +1007,7 @@ Name | Type | Description  | Notes
 # **createContactHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createContactHistory($xero_tenant_id, $contact_id, $history_records)
 
-Allows you to retrieve a history records of an Contact
+Creates a new history record for a specific contact
 
 ### Example
 ```php
@@ -1024,7 +1024,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
+$contact_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact
 $history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
@@ -1062,7 +1062,7 @@ Name | Type | Description  | Notes
 # **createContacts**
 > \XeroAPI\XeroPHP\Models\Accounting\Contacts createContacts($xero_tenant_id, $contacts, $summarize_errors)
 
-Allows you to create a multiple contacts (bulk) in a Xero organisation
+Creates multiple contacts (bulk) in a Xero organisation
 
 ### Example
 ```php
@@ -1117,7 +1117,7 @@ Name | Type | Description  | Notes
 # **createCreditNoteAllocation**
 > \XeroAPI\XeroPHP\Models\Accounting\Allocations createCreditNoteAllocation($xero_tenant_id, $credit_note_id, $allocations, $summarize_errors)
 
-Allows you to create Allocation on CreditNote
+Creates allocation for a specific credit note
 
 ### Example
 ```php
@@ -1134,7 +1134,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
+$credit_note_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Credit Note
 $allocations = { "Allocations": [ { "Invoice": { "LineItems": [], "InvoiceID": "c45720a1-ade3-4a38-a064-d15489be6841" }, "Amount": 1, "Date": "2019-03-05" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | Allocations with array of Allocation object in body of request.
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -1174,7 +1174,7 @@ Name | Type | Description  | Notes
 # **createCreditNoteAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments createCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $body, $include_online)
 
-Allows you to create Attachments on CreditNote by file name
+Creates an attachment for a specific credit note
 
 ### Example
 ```php
@@ -1191,7 +1191,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
+$credit_note_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Credit Note
 $file_name = xero-dev.jpg; // string | Name of the file you are attaching to Credit Note
 $body = 'body_example'; // string | Byte array of file in body of request
 $include_online = true; // bool | Allows an attachment to be seen by the end customer within their online invoice
@@ -1233,7 +1233,7 @@ Name | Type | Description  | Notes
 # **createCreditNoteHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createCreditNoteHistory($xero_tenant_id, $credit_note_id, $history_records)
 
-Allows you to retrieve a history records of an CreditNote
+Retrieves history records of a specific credit note
 
 ### Example
 ```php
@@ -1250,7 +1250,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
+$credit_note_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Credit Note
 $history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
@@ -1288,7 +1288,7 @@ Name | Type | Description  | Notes
 # **createCreditNotes**
 > \XeroAPI\XeroPHP\Models\Accounting\CreditNotes createCreditNotes($xero_tenant_id, $credit_notes, $summarize_errors, $unitdp)
 
-Allows you to create a credit note
+Creates a new credit note
 
 ### Example
 ```php
@@ -1345,7 +1345,7 @@ Name | Type | Description  | Notes
 # **createCurrency**
 > \XeroAPI\XeroPHP\Models\Accounting\Currencies createCurrency($xero_tenant_id, $currency)
 
-Allows you to create a new currency for an org
+Create a new currency for a Xero organisation
 
 ### Example
 ```php
@@ -1362,7 +1362,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$currency = { "Code": "USD", "Description": "United States Dollar" }; // \XeroAPI\XeroPHP\Models\Accounting\Currency | Currency obejct in the body of request
+$currency = { "Code": "USD", "Description": "United States Dollar" }; // \XeroAPI\XeroPHP\Models\Accounting\Currency | Currency object in the body of request
 
 try {
     $result = $apiInstance->createCurrency($xero_tenant_id, $currency);
@@ -1378,7 +1378,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **currency** | [**\XeroAPI\XeroPHP\Models\Accounting\Currency**](../Model/Currency.md)| Currency obejct in the body of request |
+ **currency** | [**\XeroAPI\XeroPHP\Models\Accounting\Currency**](../Model/Currency.md)| Currency object in the body of request |
 
 ### Return type
 
@@ -1398,7 +1398,7 @@ Name | Type | Description  | Notes
 # **createEmployees**
 > \XeroAPI\XeroPHP\Models\Accounting\Employees createEmployees($xero_tenant_id, $employees, $summarize_errors)
 
-Allows you to create new employees used in Xero payrun
+Creates new employees used in Xero payrun
 
 ### Example
 ```php
@@ -1453,7 +1453,7 @@ Name | Type | Description  | Notes
 # **createExpenseClaimHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createExpenseClaimHistory($xero_tenant_id, $expense_claim_id, $history_records)
 
-Allows you to create a history records of an ExpenseClaim
+Creates a history record for a specific expense claim
 
 ### Example
 ```php
@@ -1470,7 +1470,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$expense_claim_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ExpenseClaim
+$expense_claim_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a ExpenseClaim
 $history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
@@ -1508,7 +1508,7 @@ Name | Type | Description  | Notes
 # **createExpenseClaims**
 > \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims createExpenseClaims($xero_tenant_id, $expense_claims)
 
-Allows you to retrieve expense claims
+Creates expense claims
 
 ### Example
 ```php
@@ -1561,7 +1561,7 @@ Name | Type | Description  | Notes
 # **createInvoiceAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments createInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $body, $include_online)
 
-Allows you to create an Attachment on invoices or purchase bills by it's filename
+Creates an attachment for a specific invoice or purchase bill by filename
 
 ### Example
 ```php
@@ -1578,7 +1578,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
+$invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Invoice
 $file_name = xero-dev.jpg; // string | Name of the file you are attaching
 $body = 'body_example'; // string | Byte array of file in body of request
 $include_online = true; // bool | Allows an attachment to be seen by the end customer within their online invoice
@@ -1620,7 +1620,7 @@ Name | Type | Description  | Notes
 # **createInvoiceHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createInvoiceHistory($xero_tenant_id, $invoice_id, $history_records)
 
-Allows you to retrieve a history records of an invoice
+Creates a history record for a specific invoice
 
 ### Example
 ```php
@@ -1637,7 +1637,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
+$invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Invoice
 $history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
@@ -1675,7 +1675,7 @@ Name | Type | Description  | Notes
 # **createInvoices**
 > \XeroAPI\XeroPHP\Models\Accounting\Invoices createInvoices($xero_tenant_id, $invoices, $summarize_errors, $unitdp)
 
-Allows you to create one or more sales invoices or purchase bills
+Creates one or more sales invoices or purchase bills
 
 ### Example
 ```php
@@ -1732,7 +1732,7 @@ Name | Type | Description  | Notes
 # **createItemHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createItemHistory($xero_tenant_id, $item_id, $history_records)
 
-Allows you to create a history record for items
+Creates a history record for a specific item
 
 ### Example
 ```php
@@ -1749,7 +1749,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$item_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Item
+$item_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Item
 $history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
@@ -1787,7 +1787,7 @@ Name | Type | Description  | Notes
 # **createItems**
 > \XeroAPI\XeroPHP\Models\Accounting\Items createItems($xero_tenant_id, $items, $summarize_errors, $unitdp)
 
-Allows you to create one or more items
+Creates one or more items
 
 ### Example
 ```php
@@ -1844,7 +1844,7 @@ Name | Type | Description  | Notes
 # **createLinkedTransaction**
 > \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions createLinkedTransaction($xero_tenant_id, $linked_transaction)
 
-Allows you to create linked transactions (billable expenses)
+Creates linked transactions (billable expenses)
 
 ### Example
 ```php
@@ -1897,7 +1897,7 @@ Name | Type | Description  | Notes
 # **createManualJournalAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments createManualJournalAttachmentByFileName($xero_tenant_id, $manual_journal_id, $file_name, $body)
 
-Allows you to create a specified Attachment on ManualJournal by file name
+Creates a specific attachment for a specific manual journal by file name
 
 ### Example
 ```php
@@ -1914,7 +1914,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$manual_journal_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ManualJournal
+$manual_journal_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a ManualJournal
 $file_name = xero-dev.jpg; // string | The name of the file being attached to a ManualJournal
 $body = 'body_example'; // string | Byte array of file in body of request
 
@@ -1954,7 +1954,7 @@ Name | Type | Description  | Notes
 # **createManualJournalHistoryRecord**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createManualJournalHistoryRecord($xero_tenant_id, $manual_journal_id, $history_records)
 
-Allows you to create history record for a manual journal
+Creates a history record for a specific manual journal
 
 ### Example
 ```php
@@ -1971,7 +1971,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$manual_journal_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a manual journal
+$manual_journal_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a manual journal
 $history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
@@ -2009,7 +2009,7 @@ Name | Type | Description  | Notes
 # **createManualJournals**
 > \XeroAPI\XeroPHP\Models\Accounting\ManualJournals createManualJournals($xero_tenant_id, $manual_journals, $summarize_errors)
 
-Allows you to create one or more manual journals
+Creates one or more manual journals
 
 ### Example
 ```php
@@ -2064,7 +2064,7 @@ Name | Type | Description  | Notes
 # **createOverpaymentAllocations**
 > \XeroAPI\XeroPHP\Models\Accounting\Allocations createOverpaymentAllocations($xero_tenant_id, $overpayment_id, $allocations, $summarize_errors)
 
-Allows you to create a single allocation for an overpayment
+Creates a single allocation for a specific overpayment
 
 ### Example
 ```php
@@ -2081,8 +2081,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$overpayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Overpayment
-$allocations = { "Allocations": [ { "Invoice": { "InvoiceID": "00000000-0000-0000-000-000000000000", "LineItems": [], "Contact": {}, "Type": "ACCPAY" }, "Amount": 10.00, "Date": "2019-03-12" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | Allocations array with Allocation object in body of request
+$overpayment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Overpayment
+$allocations = { "Allocations": [ { "Invoice": { "InvoiceID": "00000000-0000-0000-0000-000000000000", "LineItems": [], "Contact": {}, "Type": "ACCPAY" }, "Amount": 10.00, "Date": "2019-03-12" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | Allocations array with Allocation object in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
 try {
@@ -2121,7 +2121,7 @@ Name | Type | Description  | Notes
 # **createOverpaymentHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createOverpaymentHistory($xero_tenant_id, $overpayment_id, $history_records)
 
-Allows you to create history records of an Overpayment
+Creates a history record for a specific overpayment
 
 ### Example
 ```php
@@ -2138,7 +2138,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$overpayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Overpayment
+$overpayment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Overpayment
 $history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
@@ -2176,7 +2176,7 @@ Name | Type | Description  | Notes
 # **createPayment**
 > \XeroAPI\XeroPHP\Models\Accounting\Payments createPayment($xero_tenant_id, $payment)
 
-Allows you to create a single payment for invoices or credit notes
+Creates a single payment for invoice or credit notes
 
 ### Example
 ```php
@@ -2193,7 +2193,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$payment = { "Payments": [ { "Invoice": { "LineItems": [], "InvoiceID": "00000000-0000-0000-000-000000000000" }, "Account": { "Code": "970" }, "Date": "2019-03-12", "Amount": 1 } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Payment | Request body with a single Payment object
+$payment = { "Payments": [ { "Invoice": { "LineItems": [], "InvoiceID": "00000000-0000-0000-0000-000000000000" }, "Account": { "Code": "970" }, "Date": "2019-03-12", "Amount": 1 } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Payment | Request body with a single Payment object
 
 try {
     $result = $apiInstance->createPayment($xero_tenant_id, $payment);
@@ -2229,7 +2229,7 @@ Name | Type | Description  | Notes
 # **createPaymentHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createPaymentHistory($xero_tenant_id, $payment_id, $history_records)
 
-Allows you to create a history record for a payment
+Creates a history record for a specific payment
 
 ### Example
 ```php
@@ -2246,7 +2246,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$payment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Payment
+$payment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Payment
 $history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
@@ -2284,7 +2284,7 @@ Name | Type | Description  | Notes
 # **createPaymentService**
 > \XeroAPI\XeroPHP\Models\Accounting\PaymentServices createPaymentService($xero_tenant_id, $payment_services)
 
-Allows you to create payment services
+Creates a payment service
 
 ### Example
 ```php
@@ -2337,7 +2337,7 @@ Name | Type | Description  | Notes
 # **createPayments**
 > \XeroAPI\XeroPHP\Models\Accounting\Payments createPayments($xero_tenant_id, $payments, $summarize_errors)
 
-Allows you to create multiple payments for invoices or credit notes
+Creates multiple payments for invoices or credit notes
 
 ### Example
 ```php
@@ -2354,7 +2354,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$payments = { "Payments": [ { "Invoice": { "LineItems": [], "InvoiceID": "00000000-0000-0000-000-000000000000" }, "Account": { "Code": "970" }, "Date": "2019-03-12", "Amount": 1 } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Payments | Payments array with Payment object in body of request
+$payments = { "Payments": [ { "Invoice": { "LineItems": [], "InvoiceID": "00000000-0000-0000-0000-000000000000" }, "Account": { "Code": "970" }, "Date": "2019-03-12", "Amount": 1 } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Payments | Payments array with Payment object in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
 try {
@@ -2409,8 +2409,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$prepayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Prepayment
-$allocations = { "Allocations": [ { "Invoice": { "LineItems": [], "InvoiceID": "00000000-0000-0000-000-000000000000" }, "Amount": 1, "Date": "2019-01-10" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | Allocations with an array of Allocation object in body of request
+$prepayment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Prepayment
+$allocations = { "Allocations": [ { "Invoice": { "LineItems": [], "InvoiceID": "00000000-0000-0000-0000-000000000000" }, "Amount": 1, "Date": "2019-01-10" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | Allocations with an array of Allocation object in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
 try {
@@ -2449,7 +2449,7 @@ Name | Type | Description  | Notes
 # **createPrepaymentHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createPrepaymentHistory($xero_tenant_id, $prepayment_id, $history_records)
 
-Allows you to create a history record for an Prepayment
+Creates a history record for a specific prepayment
 
 ### Example
 ```php
@@ -2466,7 +2466,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$prepayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a PrePayment
+$prepayment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a PrePayment
 $history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
@@ -2504,7 +2504,7 @@ Name | Type | Description  | Notes
 # **createPurchaseOrderAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments createPurchaseOrderAttachmentByFileName($xero_tenant_id, $purchase_order_id, $file_name, $body)
 
-Allows you to create Attachment on Purchase Order
+Creates attachment for a specific purchase order
 
 ### Example
 ```php
@@ -2521,7 +2521,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_order_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Purchase Order object
+$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Purchase Order object
 $file_name = xero-dev.png; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
@@ -2561,7 +2561,7 @@ Name | Type | Description  | Notes
 # **createPurchaseOrderHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createPurchaseOrderHistory($xero_tenant_id, $purchase_order_id, $history_records)
 
-Allows you to create HistoryRecord for purchase orders
+Creates a history record for a specific purchase orders
 
 ### Example
 ```php
@@ -2578,7 +2578,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_order_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a PurchaseOrder
+$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a PurchaseOrder
 $history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
@@ -2616,7 +2616,7 @@ Name | Type | Description  | Notes
 # **createPurchaseOrders**
 > \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders createPurchaseOrders($xero_tenant_id, $purchase_orders, $summarize_errors)
 
-Allows you to create one or more purchase orders
+Creates one or more purchase orders
 
 ### Example
 ```php
@@ -2633,7 +2633,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_orders = { "PurchaseOrders": [ { "Contact": { "ContactID": "00000000-0000-0000-000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "710" } ], "Date": "2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | PurchaseOrders with an array of PurchaseOrder object in body of request
+$purchase_orders = { "PurchaseOrders": [ { "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "710" } ], "Date": "2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | PurchaseOrders with an array of PurchaseOrder object in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
 try {
@@ -2671,7 +2671,7 @@ Name | Type | Description  | Notes
 # **createQuoteAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments createQuoteAttachmentByFileName($xero_tenant_id, $quote_id, $file_name, $body)
 
-Allows you to create Attachment on Quote
+Creates attachment for a specific quote
 
 ### Example
 ```php
@@ -2688,7 +2688,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Quote object
+$quote_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Quote object
 $file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
@@ -2728,7 +2728,7 @@ Name | Type | Description  | Notes
 # **createQuoteHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createQuoteHistory($xero_tenant_id, $quote_id, $history_records)
 
-Allows you to retrieve a history records of an quote
+Creates a history record for a specific quote
 
 ### Example
 ```php
@@ -2745,7 +2745,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Quote
+$quote_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Quote
 $history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
@@ -2783,7 +2783,7 @@ Name | Type | Description  | Notes
 # **createQuotes**
 > \XeroAPI\XeroPHP\Models\Accounting\Quotes createQuotes($xero_tenant_id, $quotes, $summarize_errors)
 
-Allows you to create one or more quotes
+Create one or more quotes
 
 ### Example
 ```php
@@ -2800,7 +2800,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$quotes = { "Quotes": [ { "Contact": { "ContactID": "00000000-0000-0000-000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "12775" } ], "Date": "2020-02-01" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Quotes | Quotes with an array of Quote object in body of request
+$quotes = { "Quotes": [ { "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "12775" } ], "Date": "2020-02-01" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Quotes | Quotes with an array of Quote object in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
 try {
@@ -2838,7 +2838,7 @@ Name | Type | Description  | Notes
 # **createReceipt**
 > \XeroAPI\XeroPHP\Models\Accounting\Receipts createReceipt($xero_tenant_id, $receipts, $unitdp)
 
-Allows you to create draft expense claim receipts for any user
+Creates draft expense claim receipts for any user
 
 ### Example
 ```php
@@ -2855,7 +2855,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$receipts = { "Receipts": [ { "Contact": { "ContactID": "00000000-0000-0000-000-000000000000" }, "Lineitems": [ { "Description": "Foobar", "Quantity": 2, "UnitAmount": 20, "AccountCode": "400", "TaxType": "NONE", "LineAmount": 40 } ], "User": { "UserID": "00000000-0000-0000-000-000000000000" }, "LineAmountTypes": "NoTax", "Status": "DRAFT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Receipts | Receipts with an array of Receipt object in body of request
+$receipts = { "Receipts": [ { "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "Lineitems": [ { "Description": "Foobar", "Quantity": 2, "UnitAmount": 20, "AccountCode": "400", "TaxType": "NONE", "LineAmount": 40 } ], "User": { "UserID": "00000000-0000-0000-0000-000000000000" }, "LineAmountTypes": "NoTax", "Status": "DRAFT" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Receipts | Receipts with an array of Receipt object in body of request
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -2893,7 +2893,7 @@ Name | Type | Description  | Notes
 # **createReceiptAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments createReceiptAttachmentByFileName($xero_tenant_id, $receipt_id, $file_name, $body)
 
-Allows you to create Attachment on expense claim receipts by file name
+Creates an attachment on a specific expense claim receipts by file name
 
 ### Example
 ```php
@@ -2910,7 +2910,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
+$receipt_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Receipt
 $file_name = xero-dev.jpg; // string | The name of the file being attached to the Receipt
 $body = 'body_example'; // string | Byte array of file in body of request
 
@@ -2950,7 +2950,7 @@ Name | Type | Description  | Notes
 # **createReceiptHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createReceiptHistory($xero_tenant_id, $receipt_id, $history_records)
 
-Allows you to retrieve a history records of an Receipt
+Creates a history record for a specific receipt
 
 ### Example
 ```php
@@ -2967,7 +2967,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
+$receipt_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Receipt
 $history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
@@ -3005,7 +3005,7 @@ Name | Type | Description  | Notes
 # **createRepeatingInvoiceAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments createRepeatingInvoiceAttachmentByFileName($xero_tenant_id, $repeating_invoice_id, $file_name, $body)
 
-Allows you to create attachment on repeating invoices by file name
+Creates an attachment from a specific repeating invoices by file name
 
 ### Example
 ```php
@@ -3022,7 +3022,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$repeating_invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Repeating Invoice
+$repeating_invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Repeating Invoice
 $file_name = xero-dev.jpg; // string | The name of the file being attached to a Repeating Invoice
 $body = 'body_example'; // string | Byte array of file in body of request
 
@@ -3062,7 +3062,7 @@ Name | Type | Description  | Notes
 # **createRepeatingInvoiceHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords createRepeatingInvoiceHistory($xero_tenant_id, $repeating_invoice_id, $history_records)
 
-Allows you to create history for a repeating invoice
+Creates a  history record for a specific repeating invoice
 
 ### Example
 ```php
@@ -3079,7 +3079,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$repeating_invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Repeating Invoice
+$repeating_invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Repeating Invoice
 $history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
@@ -3117,7 +3117,7 @@ Name | Type | Description  | Notes
 # **createTaxRates**
 > \XeroAPI\XeroPHP\Models\Accounting\TaxRates createTaxRates($xero_tenant_id, $tax_rates)
 
-Allows you to create one or more Tax Rates
+Creates one or more tax rates
 
 ### Example
 ```php
@@ -3170,7 +3170,7 @@ Name | Type | Description  | Notes
 # **createTrackingCategory**
 > \XeroAPI\XeroPHP\Models\Accounting\TrackingCategories createTrackingCategory($xero_tenant_id, $tracking_category)
 
-Allows you to create tracking categories
+Create tracking categories
 
 ### Example
 ```php
@@ -3223,7 +3223,7 @@ Name | Type | Description  | Notes
 # **createTrackingOptions**
 > \XeroAPI\XeroPHP\Models\Accounting\TrackingOptions createTrackingOptions($xero_tenant_id, $tracking_category_id, $tracking_option)
 
-Allows you to create options for a specified tracking category
+Creates options for a specific tracking category
 
 ### Example
 ```php
@@ -3240,7 +3240,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$tracking_category_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a TrackingCategory
+$tracking_category_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a TrackingCategory
 $tracking_option = { name: " Bar" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingOption | TrackingOption object in body of request
 
 try {
@@ -3278,7 +3278,7 @@ Name | Type | Description  | Notes
 # **deleteAccount**
 > \XeroAPI\XeroPHP\Models\Accounting\Accounts deleteAccount($xero_tenant_id, $account_id)
 
-Allows you to delete a chart of accounts
+Deletes a chart of accounts
 
 ### Example
 ```php
@@ -3295,7 +3295,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$account_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for retrieving single object
+$account_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for retrieving single object
 
 try {
     $result = $apiInstance->deleteAccount($xero_tenant_id, $account_id);
@@ -3331,7 +3331,7 @@ Name | Type | Description  | Notes
 # **deleteContactGroupContact**
 > deleteContactGroupContact($xero_tenant_id, $contact_group_id, $contact_id)
 
-Allows you to delete a specific Contact from a Contact Group
+Deletes a specific contact from a contact group using a unique contact Id
 
 ### Example
 ```php
@@ -3348,8 +3348,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contact_group_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact Group
-$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
+$contact_group_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact Group
+$contact_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact
 
 try {
     $apiInstance->deleteContactGroupContact($xero_tenant_id, $contact_group_id, $contact_id);
@@ -3385,7 +3385,7 @@ void (empty response body)
 # **deleteContactGroupContacts**
 > deleteContactGroupContacts($xero_tenant_id, $contact_group_id)
 
-Allows you to delete  all Contacts from a Contact Group
+Deletes all contacts from a specific contact group
 
 ### Example
 ```php
@@ -3402,7 +3402,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contact_group_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact Group
+$contact_group_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact Group
 
 try {
     $apiInstance->deleteContactGroupContacts($xero_tenant_id, $contact_group_id);
@@ -3437,7 +3437,7 @@ void (empty response body)
 # **deleteItem**
 > deleteItem($xero_tenant_id, $item_id)
 
-Allows you to delete a specified item
+Deletes a specific item
 
 ### Example
 ```php
@@ -3454,7 +3454,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$item_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Item
+$item_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Item
 
 try {
     $apiInstance->deleteItem($xero_tenant_id, $item_id);
@@ -3489,7 +3489,7 @@ void (empty response body)
 # **deleteLinkedTransaction**
 > deleteLinkedTransaction($xero_tenant_id, $linked_transaction_id)
 
-Allows you to delete a specified linked transactions (billable expenses)
+Deletes a specific linked transactions (billable expenses)
 
 ### Example
 ```php
@@ -3506,7 +3506,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$linked_transaction_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a LinkedTransaction
+$linked_transaction_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a LinkedTransaction
 
 try {
     $apiInstance->deleteLinkedTransaction($xero_tenant_id, $linked_transaction_id);
@@ -3541,7 +3541,7 @@ void (empty response body)
 # **deletePayment**
 > \XeroAPI\XeroPHP\Models\Accounting\Payments deletePayment($xero_tenant_id, $payment_id, $payment_delete)
 
-Allows you to update a specified payment for invoices and credit notes
+Updates a specific payment for invoices and credit notes
 
 ### Example
 ```php
@@ -3558,7 +3558,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$payment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Payment
+$payment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Payment
 $payment_delete = { "Payments":[ { "Status":"DELETED" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PaymentDelete | 
 
 try {
@@ -3596,7 +3596,7 @@ Name | Type | Description  | Notes
 # **deleteTrackingCategory**
 > \XeroAPI\XeroPHP\Models\Accounting\TrackingCategories deleteTrackingCategory($xero_tenant_id, $tracking_category_id)
 
-Allows you to delete tracking categories
+Deletes a specific tracking category
 
 ### Example
 ```php
@@ -3613,7 +3613,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$tracking_category_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a TrackingCategory
+$tracking_category_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a TrackingCategory
 
 try {
     $result = $apiInstance->deleteTrackingCategory($xero_tenant_id, $tracking_category_id);
@@ -3649,7 +3649,7 @@ Name | Type | Description  | Notes
 # **deleteTrackingOptions**
 > \XeroAPI\XeroPHP\Models\Accounting\TrackingOptions deleteTrackingOptions($xero_tenant_id, $tracking_category_id, $tracking_option_id)
 
-Allows you to delete a specified option for a specified tracking category
+Deletes a specific option for a specific tracking category
 
 ### Example
 ```php
@@ -3666,8 +3666,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$tracking_category_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a TrackingCategory
-$tracking_option_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Tracking Option
+$tracking_category_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a TrackingCategory
+$tracking_option_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Tracking Option
 
 try {
     $result = $apiInstance->deleteTrackingOptions($xero_tenant_id, $tracking_category_id, $tracking_option_id);
@@ -3704,7 +3704,7 @@ Name | Type | Description  | Notes
 # **emailInvoice**
 > emailInvoice($xero_tenant_id, $invoice_id, $request_empty)
 
-Allows you to email a copy of invoice to related Contact
+Sends a copy of a specific invoice to related contact via email
 
 ### Example
 ```php
@@ -3721,7 +3721,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
+$invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Invoice
 $request_empty = {}; // \XeroAPI\XeroPHP\Models\Accounting\RequestEmpty | 
 
 try {
@@ -3758,7 +3758,7 @@ void (empty response body)
 # **getAccount**
 > \XeroAPI\XeroPHP\Models\Accounting\Accounts getAccount($xero_tenant_id, $account_id)
 
-Allows you to retrieve a single chart of accounts
+Retrieves a single chart of accounts by using a unique account Id
 
 ### Example
 ```php
@@ -3775,7 +3775,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$account_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for retrieving single object
+$account_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for retrieving single object
 
 try {
     $result = $apiInstance->getAccount($xero_tenant_id, $account_id);
@@ -3811,7 +3811,7 @@ Name | Type | Description  | Notes
 # **getAccountAttachmentByFileName**
 > \SplFileObject getAccountAttachmentByFileName($xero_tenant_id, $account_id, $file_name, $content_type)
 
-Allows you to retrieve Attachment on Account by Filename
+Retrieves an attachment for a specific account by filename
 
 ### Example
 ```php
@@ -3828,7 +3828,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$account_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Account object
+$account_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Account object
 $file_name = xero-dev.jpg; // string | Name of the attachment
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
@@ -3868,7 +3868,7 @@ Name | Type | Description  | Notes
 # **getAccountAttachmentById**
 > \SplFileObject getAccountAttachmentById($xero_tenant_id, $account_id, $attachment_id, $content_type)
 
-Allows you to retrieve specific Attachment on Account
+Retrieves a specific attachment from a specific account using a unique attachment Id
 
 ### Example
 ```php
@@ -3885,8 +3885,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$account_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Account object
-$attachment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Attachment object
+$account_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Account object
+$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Attachment object
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -3925,7 +3925,7 @@ Name | Type | Description  | Notes
 # **getAccountAttachments**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments getAccountAttachments($xero_tenant_id, $account_id)
 
-Allows you to retrieve Attachments for accounts
+Retrieves attachments for a specific accounts by using a unique account Id
 
 ### Example
 ```php
@@ -3942,7 +3942,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$account_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Account object
+$account_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Account object
 
 try {
     $result = $apiInstance->getAccountAttachments($xero_tenant_id, $account_id);
@@ -3978,7 +3978,7 @@ Name | Type | Description  | Notes
 # **getAccounts**
 > \XeroAPI\XeroPHP\Models\Accounting\Accounts getAccounts($xero_tenant_id, $if_modified_since, $where, $order)
 
-Allows you to retrieve the full chart of accounts
+Retrieves the full chart of accounts
 
 ### Example
 ```php
@@ -4035,7 +4035,7 @@ Name | Type | Description  | Notes
 # **getBankTransaction**
 > \XeroAPI\XeroPHP\Models\Accounting\BankTransactions getBankTransaction($xero_tenant_id, $bank_transaction_id, $unitdp)
 
-Allows you to retrieve a single spend or receive money transaction
+Retrieves a single spent or received money transaction by using a unique bank transaction Id
 
 ### Example
 ```php
@@ -4052,7 +4052,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
+$bank_transaction_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transaction
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -4090,7 +4090,7 @@ Name | Type | Description  | Notes
 # **getBankTransactionAttachmentByFileName**
 > \SplFileObject getBankTransactionAttachmentByFileName($xero_tenant_id, $bank_transaction_id, $file_name, $content_type)
 
-Allows you to retrieve Attachments on BankTransaction by Filename
+Retrieves a specific attachment from a specific bank transaction by filename
 
 ### Example
 ```php
@@ -4107,7 +4107,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
+$bank_transaction_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transaction
 $file_name = xero-dev.jpg; // string | The name of the file being attached
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
@@ -4147,7 +4147,7 @@ Name | Type | Description  | Notes
 # **getBankTransactionAttachmentById**
 > \SplFileObject getBankTransactionAttachmentById($xero_tenant_id, $bank_transaction_id, $attachment_id, $content_type)
 
-Allows you to retrieve Attachments on a specific BankTransaction
+Retrieves specific attachments from a specific BankTransaction using a unique attachment Id
 
 ### Example
 ```php
@@ -4164,8 +4164,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
-$attachment_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for an attachment
+$bank_transaction_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transaction
+$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for an attachment
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -4204,7 +4204,7 @@ Name | Type | Description  | Notes
 # **getBankTransactionAttachments**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments getBankTransactionAttachments($xero_tenant_id, $bank_transaction_id)
 
-Allows you to retrieve any attachments to bank transactions
+Retrieves any attachments from a specific bank transactions
 
 ### Example
 ```php
@@ -4221,7 +4221,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
+$bank_transaction_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transaction
 
 try {
     $result = $apiInstance->getBankTransactionAttachments($xero_tenant_id, $bank_transaction_id);
@@ -4257,7 +4257,7 @@ Name | Type | Description  | Notes
 # **getBankTransactions**
 > \XeroAPI\XeroPHP\Models\Accounting\BankTransactions getBankTransactions($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp)
 
-Allows you to retrieve any spend or receive money transactions
+Retrieves any spent or received money transactions
 
 ### Example
 ```php
@@ -4318,7 +4318,7 @@ Name | Type | Description  | Notes
 # **getBankTransactionsHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getBankTransactionsHistory($xero_tenant_id, $bank_transaction_id)
 
-Allows you to retrieve history from a bank transactions
+Retrieves history from a specific bank transaction using a unique bank transaction Id
 
 ### Example
 ```php
@@ -4335,7 +4335,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
+$bank_transaction_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transaction
 
 try {
     $result = $apiInstance->getBankTransactionsHistory($xero_tenant_id, $bank_transaction_id);
@@ -4371,7 +4371,7 @@ Name | Type | Description  | Notes
 # **getBankTransfer**
 > \XeroAPI\XeroPHP\Models\Accounting\BankTransfers getBankTransfer($xero_tenant_id, $bank_transfer_id)
 
-Allows you to retrieve any bank transfers
+Retrieves specific bank transfers by using a unique bank transfer Id
 
 ### Example
 ```php
@@ -4388,7 +4388,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transfer_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transfer
+$bank_transfer_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transfer
 
 try {
     $result = $apiInstance->getBankTransfer($xero_tenant_id, $bank_transfer_id);
@@ -4424,7 +4424,7 @@ Name | Type | Description  | Notes
 # **getBankTransferAttachmentByFileName**
 > \SplFileObject getBankTransferAttachmentByFileName($xero_tenant_id, $bank_transfer_id, $file_name, $content_type)
 
-Allows you to retrieve Attachments on BankTransfer by file name
+Retrieves a specific attachment on a specific bank transfer by file name
 
 ### Example
 ```php
@@ -4441,7 +4441,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transfer_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transfer
+$bank_transfer_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transfer
 $file_name = xero-dev.jpg; // string | The name of the file being attached to a Bank Transfer
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
@@ -4481,7 +4481,7 @@ Name | Type | Description  | Notes
 # **getBankTransferAttachmentById**
 > \SplFileObject getBankTransferAttachmentById($xero_tenant_id, $bank_transfer_id, $attachment_id, $content_type)
 
-Allows you to retrieve Attachments on BankTransfer
+Retrieves a specific attachment from a specific bank transfer using a unique attachment ID
 
 ### Example
 ```php
@@ -4498,8 +4498,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transfer_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transfer
-$attachment_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for an Attachment to a bank transfer
+$bank_transfer_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transfer
+$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for an Attachment to a bank transfer
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -4538,7 +4538,7 @@ Name | Type | Description  | Notes
 # **getBankTransferAttachments**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments getBankTransferAttachments($xero_tenant_id, $bank_transfer_id)
 
-Allows you to retrieve Attachments from  bank transfers
+Retrieves attachments from a specific bank transfer
 
 ### Example
 ```php
@@ -4555,7 +4555,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transfer_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transfer
+$bank_transfer_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transfer
 
 try {
     $result = $apiInstance->getBankTransferAttachments($xero_tenant_id, $bank_transfer_id);
@@ -4591,7 +4591,7 @@ Name | Type | Description  | Notes
 # **getBankTransferHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getBankTransferHistory($xero_tenant_id, $bank_transfer_id)
 
-Allows you to retrieve history from a bank transfers
+Retrieves history from a specific bank transfer using a unique bank transfer Id
 
 ### Example
 ```php
@@ -4608,7 +4608,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transfer_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transfer
+$bank_transfer_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transfer
 
 try {
     $result = $apiInstance->getBankTransferHistory($xero_tenant_id, $bank_transfer_id);
@@ -4644,7 +4644,7 @@ Name | Type | Description  | Notes
 # **getBankTransfers**
 > \XeroAPI\XeroPHP\Models\Accounting\BankTransfers getBankTransfers($xero_tenant_id, $if_modified_since, $where, $order)
 
-Allows you to retrieve all bank transfers
+Retrieves all bank transfers
 
 ### Example
 ```php
@@ -4701,7 +4701,7 @@ Name | Type | Description  | Notes
 # **getBatchPaymentHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getBatchPaymentHistory($xero_tenant_id, $batch_payment_id)
 
-Allows you to retrieve history from a Batch Payment
+Retrieves history from a specific batch payment
 
 ### Example
 ```php
@@ -4718,7 +4718,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$batch_payment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for BatchPayment
+$batch_payment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for BatchPayment
 
 try {
     $result = $apiInstance->getBatchPaymentHistory($xero_tenant_id, $batch_payment_id);
@@ -4754,7 +4754,7 @@ Name | Type | Description  | Notes
 # **getBatchPayments**
 > \XeroAPI\XeroPHP\Models\Accounting\BatchPayments getBatchPayments($xero_tenant_id, $if_modified_since, $where, $order)
 
-Retrieve either one or many BatchPayments for invoices
+Retrieves either one or many batch payments for invoices
 
 ### Example
 ```php
@@ -4811,7 +4811,7 @@ Name | Type | Description  | Notes
 # **getBrandingTheme**
 > \XeroAPI\XeroPHP\Models\Accounting\BrandingThemes getBrandingTheme($xero_tenant_id, $branding_theme_id)
 
-Allows you to retrieve a specific BrandingThemes
+Retrieves a specific branding theme using a unique branding theme Id
 
 ### Example
 ```php
@@ -4828,7 +4828,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$branding_theme_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Branding Theme
+$branding_theme_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Branding Theme
 
 try {
     $result = $apiInstance->getBrandingTheme($xero_tenant_id, $branding_theme_id);
@@ -4864,7 +4864,7 @@ Name | Type | Description  | Notes
 # **getBrandingThemePaymentServices**
 > \XeroAPI\XeroPHP\Models\Accounting\PaymentServices getBrandingThemePaymentServices($xero_tenant_id, $branding_theme_id)
 
-Allows you to retrieve the Payment services for a Branding Theme
+Retrieves the payment services for a specific branding theme
 
 ### Example
 ```php
@@ -4881,7 +4881,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$branding_theme_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Branding Theme
+$branding_theme_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Branding Theme
 
 try {
     $result = $apiInstance->getBrandingThemePaymentServices($xero_tenant_id, $branding_theme_id);
@@ -4917,7 +4917,7 @@ Name | Type | Description  | Notes
 # **getBrandingThemes**
 > \XeroAPI\XeroPHP\Models\Accounting\BrandingThemes getBrandingThemes($xero_tenant_id)
 
-Allows you to retrieve all the BrandingThemes
+Retrieves all the branding themes
 
 ### Example
 ```php
@@ -4968,7 +4968,7 @@ Name | Type | Description  | Notes
 # **getContact**
 > \XeroAPI\XeroPHP\Models\Accounting\Contacts getContact($xero_tenant_id, $contact_id)
 
-Allows you to retrieve a single contacts in a Xero organisation
+Retrieves a specific contacts in a Xero organisation using a unique contact Id
 
 ### Example
 ```php
@@ -4985,7 +4985,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
+$contact_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact
 
 try {
     $result = $apiInstance->getContact($xero_tenant_id, $contact_id);
@@ -5021,7 +5021,7 @@ Name | Type | Description  | Notes
 # **getContactAttachmentByFileName**
 > \SplFileObject getContactAttachmentByFileName($xero_tenant_id, $contact_id, $file_name, $content_type)
 
-Allows you to retrieve Attachments on Contacts by file name
+Retrieves a specific attachment from a specific contact by file name
 
 ### Example
 ```php
@@ -5038,7 +5038,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
+$contact_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact
 $file_name = xero-dev.jpg; // string | Name for the file you are attaching
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
@@ -5078,7 +5078,7 @@ Name | Type | Description  | Notes
 # **getContactAttachmentById**
 > \SplFileObject getContactAttachmentById($xero_tenant_id, $contact_id, $attachment_id, $content_type)
 
-Allows you to retrieve Attachments on Contacts
+Retrieves a specific attachment from a specific contact using a unique attachment Id
 
 ### Example
 ```php
@@ -5095,8 +5095,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
-$attachment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Attachment
+$contact_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact
+$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Attachment
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -5135,7 +5135,7 @@ Name | Type | Description  | Notes
 # **getContactAttachments**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments getContactAttachments($xero_tenant_id, $contact_id)
 
-Allows you to retrieve, add and update contacts in a Xero organisation
+Retrieves attachments for a specific contact in a Xero organisation
 
 ### Example
 ```php
@@ -5152,7 +5152,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
+$contact_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact
 
 try {
     $result = $apiInstance->getContactAttachments($xero_tenant_id, $contact_id);
@@ -5188,7 +5188,7 @@ Name | Type | Description  | Notes
 # **getContactByContactNumber**
 > \XeroAPI\XeroPHP\Models\Accounting\Contacts getContactByContactNumber($xero_tenant_id, $contact_number)
 
-Allows you to retrieve a single contact by Contact Number in a Xero organisation
+Retrieves a specific contact by contact number in a Xero organisation
 
 ### Example
 ```php
@@ -5241,7 +5241,7 @@ Name | Type | Description  | Notes
 # **getContactCISSettings**
 > \XeroAPI\XeroPHP\Models\Accounting\CISSettings getContactCISSettings($xero_tenant_id, $contact_id)
 
-Allows you to retrieve CISSettings for a contact in a Xero organisation
+Retrieves CIS settings for a specific contact in a Xero organisation
 
 ### Example
 ```php
@@ -5258,7 +5258,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
+$contact_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact
 
 try {
     $result = $apiInstance->getContactCISSettings($xero_tenant_id, $contact_id);
@@ -5294,7 +5294,7 @@ Name | Type | Description  | Notes
 # **getContactGroup**
 > \XeroAPI\XeroPHP\Models\Accounting\ContactGroups getContactGroup($xero_tenant_id, $contact_group_id)
 
-Allows you to retrieve a unique Contact Group by ID
+Retrieves a specific contact group by using a unique contact group Id
 
 ### Example
 ```php
@@ -5311,7 +5311,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contact_group_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact Group
+$contact_group_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact Group
 
 try {
     $result = $apiInstance->getContactGroup($xero_tenant_id, $contact_group_id);
@@ -5347,7 +5347,7 @@ Name | Type | Description  | Notes
 # **getContactGroups**
 > \XeroAPI\XeroPHP\Models\Accounting\ContactGroups getContactGroups($xero_tenant_id, $where, $order)
 
-Allows you to retrieve the ContactID and Name of all the contacts in a contact group
+Retrieves the contact Id and name of all the contacts in a contact group
 
 ### Example
 ```php
@@ -5402,7 +5402,7 @@ Name | Type | Description  | Notes
 # **getContactHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getContactHistory($xero_tenant_id, $contact_id)
 
-Allows you to retrieve a history records of an Contact
+Retrieves history records for a specific contact
 
 ### Example
 ```php
@@ -5419,7 +5419,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
+$contact_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact
 
 try {
     $result = $apiInstance->getContactHistory($xero_tenant_id, $contact_id);
@@ -5455,7 +5455,7 @@ Name | Type | Description  | Notes
 # **getContacts**
 > \XeroAPI\XeroPHP\Models\Accounting\Contacts getContacts($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $page, $include_archived)
 
-Allows you to retrieve all contacts in a Xero organisation
+Retrieves all contacts in a Xero organisation
 
 ### Example
 ```php
@@ -5475,7 +5475,7 @@ $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records created or modified since this timestamp will be returned
 $where = ContactStatus==&quot;ACTIVE&quot;; // string | Filter by an any element
 $order = Name ASC; // string | Order by an any element
-$i_ds = &quot;00000000-0000-0000-000-000000000000&quot;; // string[] | Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call.
+$i_ds = &quot;00000000-0000-0000-0000-000000000000&quot;; // string[] | Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call.
 $page = 1; // int | e.g. page=1 - Up to 100 contacts will be returned in a single API call.
 $include_archived = True; // bool | e.g. includeArchived=true - Contacts with a status of ARCHIVED will be included in the response
 
@@ -5518,7 +5518,7 @@ Name | Type | Description  | Notes
 # **getCreditNote**
 > \XeroAPI\XeroPHP\Models\Accounting\CreditNotes getCreditNote($xero_tenant_id, $credit_note_id, $unitdp)
 
-Allows you to retrieve a specific credit note
+Retrieves a specific credit note using a unique credit note Id
 
 ### Example
 ```php
@@ -5535,7 +5535,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
+$credit_note_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Credit Note
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -5573,7 +5573,7 @@ Name | Type | Description  | Notes
 # **getCreditNoteAsPdf**
 > \SplFileObject getCreditNoteAsPdf($xero_tenant_id, $credit_note_id)
 
-Allows you to retrieve Credit Note as PDF files
+Retrieves credit notes as PDF files
 
 ### Example
 ```php
@@ -5590,7 +5590,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
+$credit_note_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Credit Note
 
 try {
     $result = $apiInstance->getCreditNoteAsPdf($xero_tenant_id, $credit_note_id);
@@ -5626,7 +5626,7 @@ Name | Type | Description  | Notes
 # **getCreditNoteAttachmentByFileName**
 > \SplFileObject getCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $content_type)
 
-Allows you to retrieve Attachments on CreditNote by file name
+Retrieves a specific attachment on a specific credit note by file name
 
 ### Example
 ```php
@@ -5643,7 +5643,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
+$credit_note_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Credit Note
 $file_name = xero-dev.jpg; // string | Name of the file you are attaching to Credit Note
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
@@ -5683,7 +5683,7 @@ Name | Type | Description  | Notes
 # **getCreditNoteAttachmentById**
 > \SplFileObject getCreditNoteAttachmentById($xero_tenant_id, $credit_note_id, $attachment_id, $content_type)
 
-Allows you to retrieve Attachments on CreditNote
+Retrieves a specific attachment from a specific credit note using a unique attachment Id
 
 ### Example
 ```php
@@ -5700,8 +5700,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
-$attachment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Attachment
+$credit_note_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Credit Note
+$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Attachment
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -5740,7 +5740,7 @@ Name | Type | Description  | Notes
 # **getCreditNoteAttachments**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments getCreditNoteAttachments($xero_tenant_id, $credit_note_id)
 
-Allows you to retrieve Attachments for credit notes
+Retrieves attachments for a specific credit notes
 
 ### Example
 ```php
@@ -5757,7 +5757,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
+$credit_note_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Credit Note
 
 try {
     $result = $apiInstance->getCreditNoteAttachments($xero_tenant_id, $credit_note_id);
@@ -5793,7 +5793,7 @@ Name | Type | Description  | Notes
 # **getCreditNoteHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getCreditNoteHistory($xero_tenant_id, $credit_note_id)
 
-Allows you to retrieve a history records of an CreditNote
+Retrieves history records of a specific credit note
 
 ### Example
 ```php
@@ -5810,7 +5810,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
+$credit_note_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Credit Note
 
 try {
     $result = $apiInstance->getCreditNoteHistory($xero_tenant_id, $credit_note_id);
@@ -5846,7 +5846,7 @@ Name | Type | Description  | Notes
 # **getCreditNotes**
 > \XeroAPI\XeroPHP\Models\Accounting\CreditNotes getCreditNotes($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp)
 
-Allows you to retrieve any credit notes
+Retrieves any credit notes
 
 ### Example
 ```php
@@ -5907,7 +5907,7 @@ Name | Type | Description  | Notes
 # **getCurrencies**
 > \XeroAPI\XeroPHP\Models\Accounting\Currencies getCurrencies($xero_tenant_id, $where, $order)
 
-Allows you to retrieve currencies for your organisation
+Retrieves currencies for your Xero organisation
 
 ### Example
 ```php
@@ -5962,7 +5962,7 @@ Name | Type | Description  | Notes
 # **getEmployee**
 > \XeroAPI\XeroPHP\Models\Accounting\Employees getEmployee($xero_tenant_id, $employee_id)
 
-Allows you to retrieve a specific employee used in Xero payrun
+Retrieves a specific employee used in Xero payrun using a unique employee Id
 
 ### Example
 ```php
@@ -5979,7 +5979,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$employee_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Employee
+$employee_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Employee
 
 try {
     $result = $apiInstance->getEmployee($xero_tenant_id, $employee_id);
@@ -6015,7 +6015,7 @@ Name | Type | Description  | Notes
 # **getEmployees**
 > \XeroAPI\XeroPHP\Models\Accounting\Employees getEmployees($xero_tenant_id, $if_modified_since, $where, $order)
 
-Allows you to retrieve employees used in Xero payrun
+Retrieves employees used in Xero payrun
 
 ### Example
 ```php
@@ -6072,7 +6072,7 @@ Name | Type | Description  | Notes
 # **getExpenseClaim**
 > \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims getExpenseClaim($xero_tenant_id, $expense_claim_id)
 
-Allows you to retrieve a specified expense claim
+Retrieves a specific expense claim using a unique expense claim Id
 
 ### Example
 ```php
@@ -6089,7 +6089,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$expense_claim_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ExpenseClaim
+$expense_claim_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a ExpenseClaim
 
 try {
     $result = $apiInstance->getExpenseClaim($xero_tenant_id, $expense_claim_id);
@@ -6125,7 +6125,7 @@ Name | Type | Description  | Notes
 # **getExpenseClaimHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getExpenseClaimHistory($xero_tenant_id, $expense_claim_id)
 
-Allows you to retrieve a history records of an ExpenseClaim
+Retrieves history records of a specific expense claim
 
 ### Example
 ```php
@@ -6142,7 +6142,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$expense_claim_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ExpenseClaim
+$expense_claim_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a ExpenseClaim
 
 try {
     $result = $apiInstance->getExpenseClaimHistory($xero_tenant_id, $expense_claim_id);
@@ -6178,7 +6178,7 @@ Name | Type | Description  | Notes
 # **getExpenseClaims**
 > \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims getExpenseClaims($xero_tenant_id, $if_modified_since, $where, $order)
 
-Allows you to retrieve expense claims
+Retrieves expense claims
 
 ### Example
 ```php
@@ -6235,7 +6235,7 @@ Name | Type | Description  | Notes
 # **getInvoice**
 > \XeroAPI\XeroPHP\Models\Accounting\Invoices getInvoice($xero_tenant_id, $invoice_id, $unitdp)
 
-Allows you to retrieve a specified sales invoice or purchase bill
+Retrieves a specific sales invoice or purchase bill using a unique invoice Id
 
 ### Example
 ```php
@@ -6252,7 +6252,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
+$invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Invoice
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -6290,7 +6290,7 @@ Name | Type | Description  | Notes
 # **getInvoiceAsPdf**
 > \SplFileObject getInvoiceAsPdf($xero_tenant_id, $invoice_id)
 
-Allows you to retrieve invoices or purchase bills as PDF files
+Retrieves invoices or purchase bills as PDF files
 
 ### Example
 ```php
@@ -6307,7 +6307,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
+$invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Invoice
 
 try {
     $result = $apiInstance->getInvoiceAsPdf($xero_tenant_id, $invoice_id);
@@ -6343,7 +6343,7 @@ Name | Type | Description  | Notes
 # **getInvoiceAttachmentByFileName**
 > \SplFileObject getInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $content_type)
 
-Allows you to retrieve Attachment on invoices or purchase bills by it's filename
+Retrieves an attachment from a specific invoice or purchase bill by filename
 
 ### Example
 ```php
@@ -6360,7 +6360,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
+$invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Invoice
 $file_name = xero-dev.jpg; // string | Name of the file you are attaching
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
@@ -6400,7 +6400,7 @@ Name | Type | Description  | Notes
 # **getInvoiceAttachmentById**
 > \SplFileObject getInvoiceAttachmentById($xero_tenant_id, $invoice_id, $attachment_id, $content_type)
 
-Allows you to retrieve a specified Attachment on invoices or purchase bills by it's ID
+Retrieves a specific attachment from a specific invoices or purchase bills by using a unique attachment Id
 
 ### Example
 ```php
@@ -6417,8 +6417,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
-$attachment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Attachment
+$invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Invoice
+$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Attachment
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -6457,7 +6457,7 @@ Name | Type | Description  | Notes
 # **getInvoiceAttachments**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments getInvoiceAttachments($xero_tenant_id, $invoice_id)
 
-Allows you to retrieve Attachments on invoices or purchase bills
+Retrieves attachments for a specific invoice or purchase bill
 
 ### Example
 ```php
@@ -6474,7 +6474,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
+$invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Invoice
 
 try {
     $result = $apiInstance->getInvoiceAttachments($xero_tenant_id, $invoice_id);
@@ -6510,7 +6510,7 @@ Name | Type | Description  | Notes
 # **getInvoiceHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getInvoiceHistory($xero_tenant_id, $invoice_id)
 
-Allows you to retrieve a history records of an invoice
+Retrieves history records for a specific invoice
 
 ### Example
 ```php
@@ -6527,7 +6527,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
+$invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Invoice
 
 try {
     $result = $apiInstance->getInvoiceHistory($xero_tenant_id, $invoice_id);
@@ -6563,7 +6563,7 @@ Name | Type | Description  | Notes
 # **getInvoiceReminders**
 > \XeroAPI\XeroPHP\Models\Accounting\InvoiceReminders getInvoiceReminders($xero_tenant_id)
 
-Allows you to retrieve invoice reminder settings
+Retrieves invoice reminder settings
 
 ### Example
 ```php
@@ -6614,7 +6614,7 @@ Name | Type | Description  | Notes
 # **getInvoices**
 > \XeroAPI\XeroPHP\Models\Accounting\Invoices getInvoices($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $invoice_numbers, $contact_i_ds, $statuses, $page, $include_archived, $created_by_my_app, $unitdp)
 
-Allows you to retrieve any sales invoices or purchase bills
+Retrieves sales invoices or purchase bills
 
 ### Example
 ```php
@@ -6634,9 +6634,9 @@ $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $if_modified_since = 2020-02-06T12:17:43.202-08:00; // \DateTime | Only records created or modified since this timestamp will be returned
 $where = Status=="DRAFT"; // string | Filter by an any element
 $order = InvoiceNumber ASC; // string | Order by an any element
-$i_ds = &quot;00000000-0000-0000-000-000000000000&quot;; // string[] | Filter by a comma-separated list of InvoicesIDs.
+$i_ds = &quot;00000000-0000-0000-0000-000000000000&quot;; // string[] | Filter by a comma-separated list of InvoicesIDs.
 $invoice_numbers = &quot;INV-001&quot;, &quot;INV-002&quot;; // string[] | Filter by a comma-separated list of InvoiceNumbers.
-$contact_i_ds = &quot;00000000-0000-0000-000-000000000000&quot;; // string[] | Filter by a comma-separated list of ContactIDs.
+$contact_i_ds = &quot;00000000-0000-0000-0000-000000000000&quot;; // string[] | Filter by a comma-separated list of ContactIDs.
 $statuses = &quot;DRAFT&quot;, &quot;SUBMITTED&quot;; // string[] | Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
 $page = 1; // int | e.g. page=1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice
 $include_archived = True; // bool | e.g. includeArchived=true - Contacts with a status of ARCHIVED will be included in the response
@@ -6687,7 +6687,7 @@ Name | Type | Description  | Notes
 # **getItem**
 > \XeroAPI\XeroPHP\Models\Accounting\Items getItem($xero_tenant_id, $item_id, $unitdp)
 
-Allows you to retrieve a specified item
+Retrieves a specific item using a unique item Id
 
 ### Example
 ```php
@@ -6704,7 +6704,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$item_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Item
+$item_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Item
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -6742,7 +6742,7 @@ Name | Type | Description  | Notes
 # **getItemHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getItemHistory($xero_tenant_id, $item_id)
 
-Allows you to retrieve history for items
+Retrieves history for a specific item
 
 ### Example
 ```php
@@ -6759,7 +6759,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$item_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Item
+$item_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Item
 
 try {
     $result = $apiInstance->getItemHistory($xero_tenant_id, $item_id);
@@ -6795,7 +6795,7 @@ Name | Type | Description  | Notes
 # **getItems**
 > \XeroAPI\XeroPHP\Models\Accounting\Items getItems($xero_tenant_id, $if_modified_since, $where, $order, $unitdp)
 
-Allows you to retrieve any items
+Retrieves items
 
 ### Example
 ```php
@@ -6854,7 +6854,7 @@ Name | Type | Description  | Notes
 # **getJournal**
 > \XeroAPI\XeroPHP\Models\Accounting\Journals getJournal($xero_tenant_id, $journal_id)
 
-Allows you to retrieve a specified journals.
+Retrieves a specific journal using a unique journal Id.
 
 ### Example
 ```php
@@ -6871,7 +6871,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$journal_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Journal
+$journal_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Journal
 
 try {
     $result = $apiInstance->getJournal($xero_tenant_id, $journal_id);
@@ -6907,7 +6907,7 @@ Name | Type | Description  | Notes
 # **getJournals**
 > \XeroAPI\XeroPHP\Models\Accounting\Journals getJournals($xero_tenant_id, $if_modified_since, $offset, $payments_only)
 
-Allows you to retrieve any journals.
+Retrieves journals
 
 ### Example
 ```php
@@ -6964,7 +6964,7 @@ Name | Type | Description  | Notes
 # **getLinkedTransaction**
 > \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions getLinkedTransaction($xero_tenant_id, $linked_transaction_id)
 
-Allows you to retrieve a specified linked transactions (billable expenses)
+Retrieves a specific linked transaction (billable expenses) using a unique linked transaction Id
 
 ### Example
 ```php
@@ -6981,7 +6981,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$linked_transaction_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a LinkedTransaction
+$linked_transaction_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a LinkedTransaction
 
 try {
     $result = $apiInstance->getLinkedTransaction($xero_tenant_id, $linked_transaction_id);
@@ -7017,7 +7017,7 @@ Name | Type | Description  | Notes
 # **getLinkedTransactions**
 > \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions getLinkedTransactions($xero_tenant_id, $page, $linked_transaction_id, $source_transaction_id, $contact_id, $status, $target_transaction_id)
 
-Retrieve linked transactions (billable expenses)
+Retrieves linked transactions (billable expenses)
 
 ### Example
 ```php
@@ -7035,11 +7035,11 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $page = 1; // int | Up to 100 linked transactions will be returned in a single API call. Use the page parameter to specify the page to be returned e.g. page=1.
-$linked_transaction_id = 00000000-0000-0000-000-000000000000; // string | The Xero identifier for an Linked Transaction
-$source_transaction_id = 00000000-0000-0000-000-000000000000; // string | Filter by the SourceTransactionID. Get the linked transactions created from a particular ACCPAY invoice
-$contact_id = 00000000-0000-0000-000-000000000000; // string | Filter by the ContactID. Get all the linked transactions that have been assigned to a particular customer.
-$status = APPROVED; // string | Filter by the combination of ContactID and Status. Get  the linked transactions associaed to a  customer and with a status
-$target_transaction_id = 00000000-0000-0000-000-000000000000; // string | Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice
+$linked_transaction_id = 00000000-0000-0000-0000-000000000000; // string | The Xero identifier for an Linked Transaction
+$source_transaction_id = 00000000-0000-0000-0000-000000000000; // string | Filter by the SourceTransactionID. Get the linked transactions created from a particular ACCPAY invoice
+$contact_id = 00000000-0000-0000-0000-000000000000; // string | Filter by the ContactID. Get all the linked transactions that have been assigned to a particular customer.
+$status = APPROVED; // string | Filter by the combination of ContactID and Status. Get  the linked transactions associated to a  customer and with a status
+$target_transaction_id = 00000000-0000-0000-0000-000000000000; // string | Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice
 
 try {
     $result = $apiInstance->getLinkedTransactions($xero_tenant_id, $page, $linked_transaction_id, $source_transaction_id, $contact_id, $status, $target_transaction_id);
@@ -7059,7 +7059,7 @@ Name | Type | Description  | Notes
  **linked_transaction_id** | [**string**](../Model/.md)| The Xero identifier for an Linked Transaction | [optional]
  **source_transaction_id** | [**string**](../Model/.md)| Filter by the SourceTransactionID. Get the linked transactions created from a particular ACCPAY invoice | [optional]
  **contact_id** | [**string**](../Model/.md)| Filter by the ContactID. Get all the linked transactions that have been assigned to a particular customer. | [optional]
- **status** | **string**| Filter by the combination of ContactID and Status. Get  the linked transactions associaed to a  customer and with a status | [optional]
+ **status** | **string**| Filter by the combination of ContactID and Status. Get  the linked transactions associated to a  customer and with a status | [optional]
  **target_transaction_id** | [**string**](../Model/.md)| Filter by the TargetTransactionID. Get all the linked transactions allocated to a particular ACCREC invoice | [optional]
 
 ### Return type
@@ -7080,7 +7080,7 @@ Name | Type | Description  | Notes
 # **getManualJournal**
 > \XeroAPI\XeroPHP\Models\Accounting\ManualJournals getManualJournal($xero_tenant_id, $manual_journal_id)
 
-Allows you to retrieve a specified manual journals
+Retrieves a specific manual journal
 
 ### Example
 ```php
@@ -7097,7 +7097,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$manual_journal_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ManualJournal
+$manual_journal_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a ManualJournal
 
 try {
     $result = $apiInstance->getManualJournal($xero_tenant_id, $manual_journal_id);
@@ -7133,7 +7133,7 @@ Name | Type | Description  | Notes
 # **getManualJournalAttachmentByFileName**
 > \SplFileObject getManualJournalAttachmentByFileName($xero_tenant_id, $manual_journal_id, $file_name, $content_type)
 
-Allows you to retrieve specified Attachment on ManualJournal by file name
+Retrieves a specific attachment from a specific manual journal by file name
 
 ### Example
 ```php
@@ -7150,7 +7150,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$manual_journal_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ManualJournal
+$manual_journal_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a ManualJournal
 $file_name = xero-dev.jpg; // string | The name of the file being attached to a ManualJournal
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
@@ -7190,7 +7190,7 @@ Name | Type | Description  | Notes
 # **getManualJournalAttachmentById**
 > \SplFileObject getManualJournalAttachmentById($xero_tenant_id, $manual_journal_id, $attachment_id, $content_type)
 
-Allows you to retrieve specified Attachment on ManualJournals
+Allows you to retrieve a specific attachment from a specific manual journal using a unique attachment Id
 
 ### Example
 ```php
@@ -7207,8 +7207,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$manual_journal_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ManualJournal
-$attachment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Attachment
+$manual_journal_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a ManualJournal
+$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Attachment
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -7247,7 +7247,7 @@ Name | Type | Description  | Notes
 # **getManualJournalAttachments**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments getManualJournalAttachments($xero_tenant_id, $manual_journal_id)
 
-Allows you to retrieve Attachment for manual journals
+Retrieves attachment for a specific manual journal
 
 ### Example
 ```php
@@ -7264,7 +7264,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$manual_journal_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ManualJournal
+$manual_journal_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a ManualJournal
 
 try {
     $result = $apiInstance->getManualJournalAttachments($xero_tenant_id, $manual_journal_id);
@@ -7300,7 +7300,7 @@ Name | Type | Description  | Notes
 # **getManualJournals**
 > \XeroAPI\XeroPHP\Models\Accounting\ManualJournals getManualJournals($xero_tenant_id, $if_modified_since, $where, $order, $page)
 
-Allows you to retrieve any manual journals
+Retrieves manual journals
 
 ### Example
 ```php
@@ -7359,7 +7359,7 @@ Name | Type | Description  | Notes
 # **getManualJournalsHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getManualJournalsHistory($xero_tenant_id, $manual_journal_id)
 
-Allows you to retrieve history from a manual journal
+Retrieves history for a specific manual journal
 
 ### Example
 ```php
@@ -7376,7 +7376,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$manual_journal_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a manual journal
+$manual_journal_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a manual journal
 
 try {
     $result = $apiInstance->getManualJournalsHistory($xero_tenant_id, $manual_journal_id);
@@ -7412,7 +7412,7 @@ Name | Type | Description  | Notes
 # **getOnlineInvoice**
 > \XeroAPI\XeroPHP\Models\Accounting\OnlineInvoices getOnlineInvoice($xero_tenant_id, $invoice_id)
 
-Allows you to retrieve a URL to an online invoice
+Retrieves a URL to an online invoice
 
 ### Example
 ```php
@@ -7429,7 +7429,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
+$invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Invoice
 
 try {
     $result = $apiInstance->getOnlineInvoice($xero_tenant_id, $invoice_id);
@@ -7465,7 +7465,7 @@ Name | Type | Description  | Notes
 # **getOrganisationActions**
 > \XeroAPI\XeroPHP\Models\Accounting\Actions getOrganisationActions($xero_tenant_id)
 
-Retrieve a list of the key actions your app has permission to perform in the connected organisation.
+Retrieves a list of the key actions your app has permission to perform in the connected Xero organisation.
 
 ### Example
 ```php
@@ -7514,9 +7514,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOrganisationCISSettings**
-> \XeroAPI\XeroPHP\Models\Accounting\CISOrgSetting getOrganisationCISSettings($xero_tenant_id, $organisation_id)
+> \XeroAPI\XeroPHP\Models\Accounting\CISOrgSettings getOrganisationCISSettings($xero_tenant_id, $organisation_id)
 
-Allows you To verify if an organisation is using contruction industry scheme, you can retrieve the CIS settings for the organistaion.
+Retrieves the CIS settings for the Xero organistaion.
 
 ### Example
 ```php
@@ -7533,7 +7533,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$organisation_id = 00000000-0000-0000-000-000000000000; // string | The unique Xero identifier for an organisation
+$organisation_id = 00000000-0000-0000-0000-000000000000; // string | The unique Xero identifier for an organisation
 
 try {
     $result = $apiInstance->getOrganisationCISSettings($xero_tenant_id, $organisation_id);
@@ -7553,7 +7553,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\Accounting\CISOrgSetting**](../Model/CISOrgSetting.md)
+[**\XeroAPI\XeroPHP\Models\Accounting\CISOrgSettings**](../Model/CISOrgSettings.md)
 
 ### Authorization
 
@@ -7569,7 +7569,7 @@ Name | Type | Description  | Notes
 # **getOrganisations**
 > \XeroAPI\XeroPHP\Models\Accounting\Organisations getOrganisations($xero_tenant_id)
 
-Allows you to retrieve Organisation details
+Retrieves Xero organisation details
 
 ### Example
 ```php
@@ -7620,7 +7620,7 @@ Name | Type | Description  | Notes
 # **getOverpayment**
 > \XeroAPI\XeroPHP\Models\Accounting\Overpayments getOverpayment($xero_tenant_id, $overpayment_id)
 
-Allows you to retrieve a specified overpayments
+Retrieves a specific overpayment using a unique overpayment Id
 
 ### Example
 ```php
@@ -7637,7 +7637,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$overpayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Overpayment
+$overpayment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Overpayment
 
 try {
     $result = $apiInstance->getOverpayment($xero_tenant_id, $overpayment_id);
@@ -7673,7 +7673,7 @@ Name | Type | Description  | Notes
 # **getOverpaymentHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getOverpaymentHistory($xero_tenant_id, $overpayment_id)
 
-Allows you to retrieve a history records of an Overpayment
+Retrieves history records of a specific overpayment
 
 ### Example
 ```php
@@ -7690,7 +7690,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$overpayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Overpayment
+$overpayment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Overpayment
 
 try {
     $result = $apiInstance->getOverpaymentHistory($xero_tenant_id, $overpayment_id);
@@ -7726,7 +7726,7 @@ Name | Type | Description  | Notes
 # **getOverpayments**
 > \XeroAPI\XeroPHP\Models\Accounting\Overpayments getOverpayments($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp)
 
-Allows you to retrieve overpayments
+Retrieves overpayments
 
 ### Example
 ```php
@@ -7787,7 +7787,7 @@ Name | Type | Description  | Notes
 # **getPayment**
 > \XeroAPI\XeroPHP\Models\Accounting\Payments getPayment($xero_tenant_id, $payment_id)
 
-Allows you to retrieve a specified payment for invoices and credit notes
+Retrieves a specific payment for invoices and credit notes using a unique payment Id
 
 ### Example
 ```php
@@ -7804,7 +7804,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$payment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Payment
+$payment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Payment
 
 try {
     $result = $apiInstance->getPayment($xero_tenant_id, $payment_id);
@@ -7840,7 +7840,7 @@ Name | Type | Description  | Notes
 # **getPaymentHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getPaymentHistory($xero_tenant_id, $payment_id)
 
-Allows you to retrieve history records of a payment
+Retrieves history records of a specific payment
 
 ### Example
 ```php
@@ -7857,7 +7857,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$payment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Payment
+$payment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Payment
 
 try {
     $result = $apiInstance->getPaymentHistory($xero_tenant_id, $payment_id);
@@ -7893,7 +7893,7 @@ Name | Type | Description  | Notes
 # **getPaymentServices**
 > \XeroAPI\XeroPHP\Models\Accounting\PaymentServices getPaymentServices($xero_tenant_id)
 
-Allows you to retrieve payment services
+Retrieves payment services
 
 ### Example
 ```php
@@ -7944,7 +7944,7 @@ Name | Type | Description  | Notes
 # **getPayments**
 > \XeroAPI\XeroPHP\Models\Accounting\Payments getPayments($xero_tenant_id, $if_modified_since, $where, $order, $page)
 
-Allows you to retrieve payments for invoices and credit notes
+Retrieves payments for invoices and credit notes
 
 ### Example
 ```php
@@ -8020,7 +8020,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$prepayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a PrePayment
+$prepayment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a PrePayment
 
 try {
     $result = $apiInstance->getPrepayment($xero_tenant_id, $prepayment_id);
@@ -8056,7 +8056,7 @@ Name | Type | Description  | Notes
 # **getPrepaymentHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getPrepaymentHistory($xero_tenant_id, $prepayment_id)
 
-Allows you to retrieve a history records of an Prepayment
+Retrieves history record for a specific prepayment
 
 ### Example
 ```php
@@ -8073,7 +8073,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$prepayment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a PrePayment
+$prepayment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a PrePayment
 
 try {
     $result = $apiInstance->getPrepaymentHistory($xero_tenant_id, $prepayment_id);
@@ -8109,7 +8109,7 @@ Name | Type | Description  | Notes
 # **getPrepayments**
 > \XeroAPI\XeroPHP\Models\Accounting\Prepayments getPrepayments($xero_tenant_id, $if_modified_since, $where, $order, $page, $unitdp)
 
-Allows you to retrieve prepayments
+Retrieves prepayments
 
 ### Example
 ```php
@@ -8170,7 +8170,7 @@ Name | Type | Description  | Notes
 # **getPurchaseOrder**
 > \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders getPurchaseOrder($xero_tenant_id, $purchase_order_id)
 
-Allows you to retrieve a specified purchase orders
+Retrieves a specific purchase order using a unique purchase order Id
 
 ### Example
 ```php
@@ -8187,7 +8187,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_order_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a PurchaseOrder
+$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a PurchaseOrder
 
 try {
     $result = $apiInstance->getPurchaseOrder($xero_tenant_id, $purchase_order_id);
@@ -8223,7 +8223,7 @@ Name | Type | Description  | Notes
 # **getPurchaseOrderAsPdf**
 > \SplFileObject getPurchaseOrderAsPdf($xero_tenant_id, $purchase_order_id)
 
-Allows you to retrieve purchase orders as PDF files
+Retrieves specific purchase order as PDF files using a unique purchase order Id
 
 ### Example
 ```php
@@ -8240,7 +8240,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_order_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Purchase Order
+$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Purchase Order
 
 try {
     $result = $apiInstance->getPurchaseOrderAsPdf($xero_tenant_id, $purchase_order_id);
@@ -8276,7 +8276,7 @@ Name | Type | Description  | Notes
 # **getPurchaseOrderAttachmentByFileName**
 > \SplFileObject getPurchaseOrderAttachmentByFileName($xero_tenant_id, $purchase_order_id, $file_name, $content_type)
 
-Allows you to retrieve Attachment on a Purchase Order by Filename
+Retrieves a specific attachment for a specific purchase order by filename
 
 ### Example
 ```php
@@ -8293,7 +8293,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_order_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Purchase Order object
+$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Purchase Order object
 $file_name = xero-dev.jpg; // string | Name of the attachment
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
@@ -8333,7 +8333,7 @@ Name | Type | Description  | Notes
 # **getPurchaseOrderAttachmentById**
 > \SplFileObject getPurchaseOrderAttachmentById($xero_tenant_id, $purchase_order_id, $attachment_id, $content_type)
 
-Allows you to retrieve specific Attachment on purchase order
+Retrieves specific attachment for a specific purchase order using a unique attachment Id
 
 ### Example
 ```php
@@ -8350,8 +8350,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_order_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Purchase Order object
-$attachment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Attachment object
+$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Purchase Order object
+$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Attachment object
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -8390,7 +8390,7 @@ Name | Type | Description  | Notes
 # **getPurchaseOrderAttachments**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments getPurchaseOrderAttachments($xero_tenant_id, $purchase_order_id)
 
-Allows you to retrieve attachments for purchase orders
+Retrieves attachments for a specific purchase order
 
 ### Example
 ```php
@@ -8407,7 +8407,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_order_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Purchase Orders object
+$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Purchase Orders object
 
 try {
     $result = $apiInstance->getPurchaseOrderAttachments($xero_tenant_id, $purchase_order_id);
@@ -8443,7 +8443,7 @@ Name | Type | Description  | Notes
 # **getPurchaseOrderByNumber**
 > \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders getPurchaseOrderByNumber($xero_tenant_id, $purchase_order_number)
 
-Allows you to retrieve a specified purchase orders
+Retrieves a specific purchase order using purchase order number
 
 ### Example
 ```php
@@ -8496,7 +8496,7 @@ Name | Type | Description  | Notes
 # **getPurchaseOrderHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getPurchaseOrderHistory($xero_tenant_id, $purchase_order_id)
 
-Allows you to retrieve history for PurchaseOrder
+Retrieves history for a specific purchase order
 
 ### Example
 ```php
@@ -8513,7 +8513,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_order_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a PurchaseOrder
+$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a PurchaseOrder
 
 try {
     $result = $apiInstance->getPurchaseOrderHistory($xero_tenant_id, $purchase_order_id);
@@ -8549,7 +8549,7 @@ Name | Type | Description  | Notes
 # **getPurchaseOrders**
 > \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders getPurchaseOrders($xero_tenant_id, $if_modified_since, $status, $date_from, $date_to, $order, $page)
 
-Allows you to retrieve purchase orders
+Retrieves purchase orders
 
 ### Example
 ```php
@@ -8612,7 +8612,7 @@ Name | Type | Description  | Notes
 # **getQuote**
 > \XeroAPI\XeroPHP\Models\Accounting\Quotes getQuote($xero_tenant_id, $quote_id)
 
-Allows you to retrieve a specified quote
+Retrieves a specific quote using a unique quote Id
 
 ### Example
 ```php
@@ -8629,7 +8629,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Quote
+$quote_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Quote
 
 try {
     $result = $apiInstance->getQuote($xero_tenant_id, $quote_id);
@@ -8665,7 +8665,7 @@ Name | Type | Description  | Notes
 # **getQuoteAsPdf**
 > \SplFileObject getQuoteAsPdf($xero_tenant_id, $quote_id)
 
-Allows you to retrieve quotes as PDF files
+Retrieves a specific quote as a PDF file using a unique quote Id
 
 ### Example
 ```php
@@ -8682,7 +8682,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Quote
+$quote_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Quote
 
 try {
     $result = $apiInstance->getQuoteAsPdf($xero_tenant_id, $quote_id);
@@ -8718,7 +8718,7 @@ Name | Type | Description  | Notes
 # **getQuoteAttachmentByFileName**
 > \SplFileObject getQuoteAttachmentByFileName($xero_tenant_id, $quote_id, $file_name, $content_type)
 
-Allows you to retrieve Attachment on Quote by Filename
+Retrieves a specific attachment from a specific quote by filename
 
 ### Example
 ```php
@@ -8735,7 +8735,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Quote object
+$quote_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Quote object
 $file_name = xero-dev.jpg; // string | Name of the attachment
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
@@ -8775,7 +8775,7 @@ Name | Type | Description  | Notes
 # **getQuoteAttachmentById**
 > \SplFileObject getQuoteAttachmentById($xero_tenant_id, $quote_id, $attachment_id, $content_type)
 
-Allows you to retrieve specific Attachment on Quote
+Retrieves a specific attachment from a specific quote using a unique attachment Id
 
 ### Example
 ```php
@@ -8792,8 +8792,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Quote object
-$attachment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Attachment object
+$quote_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Quote object
+$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Attachment object
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -8832,7 +8832,7 @@ Name | Type | Description  | Notes
 # **getQuoteAttachments**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments getQuoteAttachments($xero_tenant_id, $quote_id)
 
-Allows you to retrieve Attachments for Quotes
+Retrieves attachments for a specific quote
 
 ### Example
 ```php
@@ -8849,7 +8849,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Quote object
+$quote_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Quote object
 
 try {
     $result = $apiInstance->getQuoteAttachments($xero_tenant_id, $quote_id);
@@ -8885,7 +8885,7 @@ Name | Type | Description  | Notes
 # **getQuoteHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getQuoteHistory($xero_tenant_id, $quote_id)
 
-Allows you to retrieve a history records of an quote
+Retrieves history records of a specific quote
 
 ### Example
 ```php
@@ -8902,7 +8902,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Quote
+$quote_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Quote
 
 try {
     $result = $apiInstance->getQuoteHistory($xero_tenant_id, $quote_id);
@@ -8938,7 +8938,7 @@ Name | Type | Description  | Notes
 # **getQuotes**
 > \XeroAPI\XeroPHP\Models\Accounting\Quotes getQuotes($xero_tenant_id, $if_modified_since, $date_from, $date_to, $expiry_date_from, $expiry_date_to, $contact_id, $status, $page, $order, $quote_number)
 
-Allows you to retrieve any sales quotes
+Retrieves sales quotes
 
 ### Example
 ```php
@@ -8960,7 +8960,7 @@ $date_from = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter f
 $date_to = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter for quotes before a particular date
 $expiry_date_from = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter for quotes expiring after a particular date
 $expiry_date_to = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter for quotes before a particular date
-$contact_id = 00000000-0000-0000-000-000000000000; // string | Filter for quotes belonging to a particular contact
+$contact_id = 00000000-0000-0000-0000-000000000000; // string | Filter for quotes belonging to a particular contact
 $status = DRAFT; // string | Filter for quotes of a particular Status
 $page = 1; // int | e.g. page=1 – Up to 100 Quotes will be returned in a single API call with line items shown for each quote
 $order = Status ASC; // string | Order by an any element
@@ -9009,7 +9009,7 @@ Name | Type | Description  | Notes
 # **getReceipt**
 > \XeroAPI\XeroPHP\Models\Accounting\Receipts getReceipt($xero_tenant_id, $receipt_id, $unitdp)
 
-Allows you to retrieve a specified draft expense claim receipts
+Retrieves a specific draft expense claim receipt by using a unique receipt Id
 
 ### Example
 ```php
@@ -9026,7 +9026,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
+$receipt_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Receipt
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -9064,7 +9064,7 @@ Name | Type | Description  | Notes
 # **getReceiptAttachmentByFileName**
 > \SplFileObject getReceiptAttachmentByFileName($xero_tenant_id, $receipt_id, $file_name, $content_type)
 
-Allows you to retrieve Attachments on expense claim receipts by file name
+Retrieves a specific attachment from a specific expense claim receipts by file name
 
 ### Example
 ```php
@@ -9081,7 +9081,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
+$receipt_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Receipt
 $file_name = xero-dev.jpg; // string | The name of the file being attached to the Receipt
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
@@ -9121,7 +9121,7 @@ Name | Type | Description  | Notes
 # **getReceiptAttachmentById**
 > \SplFileObject getReceiptAttachmentById($xero_tenant_id, $receipt_id, $attachment_id, $content_type)
 
-Allows you to retrieve Attachments on expense claim receipts by ID
+Retrieves a specific attachments from a specific expense claim receipts by using a unique attachment Id
 
 ### Example
 ```php
@@ -9138,8 +9138,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
-$attachment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Attachment
+$receipt_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Receipt
+$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Attachment
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -9178,7 +9178,7 @@ Name | Type | Description  | Notes
 # **getReceiptAttachments**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments getReceiptAttachments($xero_tenant_id, $receipt_id)
 
-Allows you to retrieve Attachments for expense claim receipts
+Retrieves attachments for a specific expense claim receipt
 
 ### Example
 ```php
@@ -9195,7 +9195,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
+$receipt_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Receipt
 
 try {
     $result = $apiInstance->getReceiptAttachments($xero_tenant_id, $receipt_id);
@@ -9231,7 +9231,7 @@ Name | Type | Description  | Notes
 # **getReceiptHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getReceiptHistory($xero_tenant_id, $receipt_id)
 
-Allows you to retrieve a history records of an Receipt
+Retrieves a history record for a specific receipt
 
 ### Example
 ```php
@@ -9248,7 +9248,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
+$receipt_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Receipt
 
 try {
     $result = $apiInstance->getReceiptHistory($xero_tenant_id, $receipt_id);
@@ -9284,7 +9284,7 @@ Name | Type | Description  | Notes
 # **getReceipts**
 > \XeroAPI\XeroPHP\Models\Accounting\Receipts getReceipts($xero_tenant_id, $if_modified_since, $where, $order, $unitdp)
 
-Allows you to retrieve draft expense claim receipts for any user
+Retrieves draft expense claim receipts for any user
 
 ### Example
 ```php
@@ -9343,7 +9343,7 @@ Name | Type | Description  | Notes
 # **getRepeatingInvoice**
 > \XeroAPI\XeroPHP\Models\Accounting\RepeatingInvoices getRepeatingInvoice($xero_tenant_id, $repeating_invoice_id)
 
-Allows you to retrieve a specified repeating invoice
+Retrieves a specific repeating invoice by using a unique repeating invoice Id
 
 ### Example
 ```php
@@ -9360,7 +9360,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$repeating_invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Repeating Invoice
+$repeating_invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Repeating Invoice
 
 try {
     $result = $apiInstance->getRepeatingInvoice($xero_tenant_id, $repeating_invoice_id);
@@ -9396,7 +9396,7 @@ Name | Type | Description  | Notes
 # **getRepeatingInvoiceAttachmentByFileName**
 > \SplFileObject getRepeatingInvoiceAttachmentByFileName($xero_tenant_id, $repeating_invoice_id, $file_name, $content_type)
 
-Allows you to retrieve specified attachment on repeating invoices by file name
+Retrieves a specific attachment from a specific repeating invoices by file name
 
 ### Example
 ```php
@@ -9413,7 +9413,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$repeating_invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Repeating Invoice
+$repeating_invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Repeating Invoice
 $file_name = xero-dev.jpg; // string | The name of the file being attached to a Repeating Invoice
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
@@ -9453,7 +9453,7 @@ Name | Type | Description  | Notes
 # **getRepeatingInvoiceAttachmentById**
 > \SplFileObject getRepeatingInvoiceAttachmentById($xero_tenant_id, $repeating_invoice_id, $attachment_id, $content_type)
 
-Allows you to retrieve a specified Attachments on repeating invoices
+Retrieves a specific attachment from a specific repeating invoice
 
 ### Example
 ```php
@@ -9470,8 +9470,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$repeating_invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Repeating Invoice
-$attachment_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Attachment
+$repeating_invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Repeating Invoice
+$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Attachment
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -9510,7 +9510,7 @@ Name | Type | Description  | Notes
 # **getRepeatingInvoiceAttachments**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments getRepeatingInvoiceAttachments($xero_tenant_id, $repeating_invoice_id)
 
-Allows you to retrieve Attachments on repeating invoice
+Retrieves attachments from a specific repeating invoice
 
 ### Example
 ```php
@@ -9527,7 +9527,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$repeating_invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Repeating Invoice
+$repeating_invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Repeating Invoice
 
 try {
     $result = $apiInstance->getRepeatingInvoiceAttachments($xero_tenant_id, $repeating_invoice_id);
@@ -9563,7 +9563,7 @@ Name | Type | Description  | Notes
 # **getRepeatingInvoiceHistory**
 > \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords getRepeatingInvoiceHistory($xero_tenant_id, $repeating_invoice_id)
 
-Allows you to retrieve history for a repeating invoice
+Retrieves history record for a specific repeating invoice
 
 ### Example
 ```php
@@ -9580,7 +9580,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$repeating_invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Repeating Invoice
+$repeating_invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Repeating Invoice
 
 try {
     $result = $apiInstance->getRepeatingInvoiceHistory($xero_tenant_id, $repeating_invoice_id);
@@ -9616,7 +9616,7 @@ Name | Type | Description  | Notes
 # **getRepeatingInvoices**
 > \XeroAPI\XeroPHP\Models\Accounting\RepeatingInvoices getRepeatingInvoices($xero_tenant_id, $where, $order)
 
-Allows you to retrieve any repeating invoices
+Retrieves repeating invoices
 
 ### Example
 ```php
@@ -9671,7 +9671,7 @@ Name | Type | Description  | Notes
 # **getReportAgedPayablesByContact**
 > \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportAgedPayablesByContact($xero_tenant_id, $contact_id, $date, $from_date, $to_date)
 
-Allows you to retrieve report for AgedPayablesByContact
+Retrieves report for aged payables by contact
 
 ### Example
 ```php
@@ -9688,7 +9688,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
+$contact_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact
 $date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The date of the Aged Payables By Contact report
 $from_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The from date of the Aged Payables By Contact report
 $to_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The to date of the Aged Payables By Contact report
@@ -9730,7 +9730,7 @@ Name | Type | Description  | Notes
 # **getReportAgedReceivablesByContact**
 > \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportAgedReceivablesByContact($xero_tenant_id, $contact_id, $date, $from_date, $to_date)
 
-Allows you to retrieve report for AgedReceivablesByContact
+Retrieves report for aged receivables by contact
 
 ### Example
 ```php
@@ -9747,7 +9747,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
+$contact_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact
 $date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The date of the Aged Receivables By Contact report
 $from_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The from date of the Aged Receivables By Contact report
 $to_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The to date of the Aged Receivables By Contact report
@@ -9789,7 +9789,7 @@ Name | Type | Description  | Notes
 # **getReportBASorGST**
 > \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportBASorGST($xero_tenant_id, $report_id)
 
-Allows you to retrieve report for BAS only valid for AU orgs
+Retrieves a specific report for BAS using a unique report Id (only valid for AU orgs)
 
 ### Example
 ```php
@@ -9806,7 +9806,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$report_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Report
+$report_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Report
 
 try {
     $result = $apiInstance->getReportBASorGST($xero_tenant_id, $report_id);
@@ -9842,7 +9842,7 @@ Name | Type | Description  | Notes
 # **getReportBASorGSTList**
 > \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportBASorGSTList($xero_tenant_id)
 
-Allows you to retrieve report for BAS only valid for AU orgs
+Retrieves report for BAS (only valid for AU orgs)
 
 ### Example
 ```php
@@ -9893,7 +9893,7 @@ Name | Type | Description  | Notes
 # **getReportBalanceSheet**
 > \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportBalanceSheet($xero_tenant_id, $date, $periods, $timeframe, $tracking_option_id1, $tracking_option_id2, $standard_layout, $payments_only)
 
-Allows you to retrieve report for BalanceSheet
+Retrieves report for balancesheet
 
 ### Example
 ```php
@@ -9913,8 +9913,8 @@ $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $date = 2019-11-01; // \DateTime | The date of the Balance Sheet report
 $periods = 3; // int | The number of periods for the Balance Sheet report
 $timeframe = MONTH; // string | The period size to compare to (MONTH, QUARTER, YEAR)
-$tracking_option_id1 = 00000000-0000-0000-000-000000000000; // string | The tracking option 1 for the Balance Sheet report
-$tracking_option_id2 = 00000000-0000-0000-000-000000000000; // string | The tracking option 2 for the Balance Sheet report
+$tracking_option_id1 = 00000000-0000-0000-0000-000000000000; // string | The tracking option 1 for the Balance Sheet report
+$tracking_option_id2 = 00000000-0000-0000-0000-000000000000; // string | The tracking option 2 for the Balance Sheet report
 $standard_layout = true; // bool | The standard layout boolean for the Balance Sheet report
 $payments_only = false; // bool | return a cash basis for the Balance Sheet report
 
@@ -9958,7 +9958,7 @@ Name | Type | Description  | Notes
 # **getReportBankSummary**
 > \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportBankSummary($xero_tenant_id, $from_date, $to_date)
 
-Allows you to retrieve report for BankSummary
+Retrieves report for bank summary
 
 ### Example
 ```php
@@ -10013,7 +10013,7 @@ Name | Type | Description  | Notes
 # **getReportBudgetSummary**
 > \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportBudgetSummary($xero_tenant_id, $date, $period, $timeframe)
 
-Allows you to retrieve report for Budget Summary
+Retrieves report for budget summary
 
 ### Example
 ```php
@@ -10070,7 +10070,7 @@ Name | Type | Description  | Notes
 # **getReportExecutiveSummary**
 > \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportExecutiveSummary($xero_tenant_id, $date)
 
-Allows you to retrieve report for ExecutiveSummary
+Retrieves report for executive summary
 
 ### Example
 ```php
@@ -10123,7 +10123,7 @@ Name | Type | Description  | Notes
 # **getReportProfitAndLoss**
 > \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportProfitAndLoss($xero_tenant_id, $from_date, $to_date, $periods, $timeframe, $tracking_category_id, $tracking_category_id2, $tracking_option_id, $tracking_option_id2, $standard_layout, $payments_only)
 
-Allows you to retrieve report for ProfitAndLoss
+Retrieves report for profit and loss
 
 ### Example
 ```php
@@ -10144,10 +10144,10 @@ $from_date = 2019-03-01; // \DateTime | The from date for the ProfitAndLoss repo
 $to_date = 2019-03-31; // \DateTime | The to date for the ProfitAndLoss report e.g. 2018-03-31
 $periods = 3; // int | The number of periods to compare (integer between 1 and 12)
 $timeframe = MONTH; // string | The period size to compare to (MONTH, QUARTER, YEAR)
-$tracking_category_id = 00000000-0000-0000-000-000000000000; // string | The trackingCategory 1 for the ProfitAndLoss report
-$tracking_category_id2 = 00000000-0000-0000-000-000000000000; // string | The trackingCategory 2 for the ProfitAndLoss report
-$tracking_option_id = 00000000-0000-0000-000-000000000000; // string | The tracking option 1 for the ProfitAndLoss report
-$tracking_option_id2 = 00000000-0000-0000-000-000000000000; // string | The tracking option 2 for the ProfitAndLoss report
+$tracking_category_id = 00000000-0000-0000-0000-000000000000; // string | The trackingCategory 1 for the ProfitAndLoss report
+$tracking_category_id2 = 00000000-0000-0000-0000-000000000000; // string | The trackingCategory 2 for the ProfitAndLoss report
+$tracking_option_id = 00000000-0000-0000-0000-000000000000; // string | The tracking option 1 for the ProfitAndLoss report
+$tracking_option_id2 = 00000000-0000-0000-0000-000000000000; // string | The tracking option 2 for the ProfitAndLoss report
 $standard_layout = true; // bool | Return the standard layout for the ProfitAndLoss report
 $payments_only = false; // bool | Return cash only basis for the ProfitAndLoss report
 
@@ -10194,7 +10194,7 @@ Name | Type | Description  | Notes
 # **getReportTenNinetyNine**
 > \XeroAPI\XeroPHP\Models\Accounting\Reports getReportTenNinetyNine($xero_tenant_id, $report_year)
 
-Allows you to retrieve report for TenNinetyNine
+Retrieve reports for 1099
 
 ### Example
 ```php
@@ -10247,7 +10247,7 @@ Name | Type | Description  | Notes
 # **getReportTrialBalance**
 > \XeroAPI\XeroPHP\Models\Accounting\ReportWithRows getReportTrialBalance($xero_tenant_id, $date, $payments_only)
 
-Allows you to retrieve report for TrialBalance
+Retrieves report for trial balance
 
 ### Example
 ```php
@@ -10302,7 +10302,7 @@ Name | Type | Description  | Notes
 # **getTaxRates**
 > \XeroAPI\XeroPHP\Models\Accounting\TaxRates getTaxRates($xero_tenant_id, $where, $order, $tax_type)
 
-Allows you to retrieve Tax Rates
+Retrieves tax rates
 
 ### Example
 ```php
@@ -10359,7 +10359,7 @@ Name | Type | Description  | Notes
 # **getTrackingCategories**
 > \XeroAPI\XeroPHP\Models\Accounting\TrackingCategories getTrackingCategories($xero_tenant_id, $where, $order, $include_archived)
 
-Allows you to retrieve tracking categories and options
+Retrieves tracking categories and options
 
 ### Example
 ```php
@@ -10416,7 +10416,7 @@ Name | Type | Description  | Notes
 # **getTrackingCategory**
 > \XeroAPI\XeroPHP\Models\Accounting\TrackingCategories getTrackingCategory($xero_tenant_id, $tracking_category_id)
 
-Allows you to retrieve tracking categories and options for specified category
+Retrieves specific tracking categories and options using a unique tracking category Id
 
 ### Example
 ```php
@@ -10433,7 +10433,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$tracking_category_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a TrackingCategory
+$tracking_category_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a TrackingCategory
 
 try {
     $result = $apiInstance->getTrackingCategory($xero_tenant_id, $tracking_category_id);
@@ -10469,7 +10469,7 @@ Name | Type | Description  | Notes
 # **getUser**
 > \XeroAPI\XeroPHP\Models\Accounting\Users getUser($xero_tenant_id, $user_id)
 
-Allows you to retrieve a specified user
+Retrieves a specific user
 
 ### Example
 ```php
@@ -10486,7 +10486,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$user_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a User
+$user_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a User
 
 try {
     $result = $apiInstance->getUser($xero_tenant_id, $user_id);
@@ -10522,7 +10522,7 @@ Name | Type | Description  | Notes
 # **getUsers**
 > \XeroAPI\XeroPHP\Models\Accounting\Users getUsers($xero_tenant_id, $if_modified_since, $where, $order)
 
-Allows you to retrieve users
+Retrieves users
 
 ### Example
 ```php
@@ -10579,7 +10579,7 @@ Name | Type | Description  | Notes
 # **postSetup**
 > \XeroAPI\XeroPHP\Models\Accounting\ImportSummaryObject postSetup($xero_tenant_id, $setup)
 
-Allows you to set the chart of accounts, the conversion date and conversion balances
+Sets the chart of accounts, the conversion date and conversion balances
 
 ### Example
 ```php
@@ -10632,7 +10632,7 @@ Name | Type | Description  | Notes
 # **updateAccount**
 > \XeroAPI\XeroPHP\Models\Accounting\Accounts updateAccount($xero_tenant_id, $account_id, $accounts)
 
-Allows you to update a chart of accounts
+Updates a chart of accounts
 
 ### Example
 ```php
@@ -10649,7 +10649,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$account_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for retrieving single object
+$account_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for retrieving single object
 $accounts = { "Accounts":[ { "Code":"123456", "Name":"BarFoo", "AccountID":"99ce6032-0678-4aa0-8148-240c75fee33a", "Type":"EXPENSE", "Description":"GoodBye World", "TaxType":"INPUT", "EnablePaymentsToAccount":false, "ShowInExpenseClaims":false, "Class":"EXPENSE", "ReportingCode":"EXP", "ReportingCodeName":"Expense", "UpdatedDateUTC":"2019-02-21T16:29:47.96-08:00" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Accounts | Request of type Accounts array with one Account
 
 try {
@@ -10687,7 +10687,7 @@ Name | Type | Description  | Notes
 # **updateAccountAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments updateAccountAttachmentByFileName($xero_tenant_id, $account_id, $file_name, $body)
 
-Allows you to update Attachment on Account by Filename
+Updates attachment on a specific account by filename
 
 ### Example
 ```php
@@ -10704,7 +10704,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$account_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Account object
+$account_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Account object
 $file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
@@ -10744,7 +10744,7 @@ Name | Type | Description  | Notes
 # **updateBankTransaction**
 > \XeroAPI\XeroPHP\Models\Accounting\BankTransactions updateBankTransaction($xero_tenant_id, $bank_transaction_id, $bank_transactions, $unitdp)
 
-Allows you to update a single spend or receive money transaction
+Updates a single spent or received money transaction
 
 ### Example
 ```php
@@ -10761,8 +10761,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
-$bank_transactions = { "BankTransactions": [ { "Type": "SPEND", "Contact": { "ContactID": "00000000-0000-0000-000-000000000000", "ContactStatus": "ACTIVE", "Name": "Buzz Lightyear", "FirstName": "Buzz", "LastName": "Lightyear", "EmailAddress": "buzz.Lightyear@email.com", "ContactPersons": [], "BankAccountDetails": "", "Addresses": [ { "AddressType": "STREET", "City": "", "Region": "", "PostalCode": "", "Country": "" }, { "AddressType": "POBOX", "AddressLine1": "", "AddressLine2": "", "AddressLine3": "", "AddressLine4": "", "City": "Palo Alto", "Region": "CA", "PostalCode": "94020", "Country": "United States" } ], "Phones": [ { "PhoneType": "DEFAULT", "PhoneNumber": "847-1294", "PhoneAreaCode": "(626)", "PhoneCountryCode": "" }, { "PhoneType": "DDI", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" }, { "PhoneType": "FAX", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" }, { "PhoneType": "MOBILE", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" } ], "UpdatedDateUTC": "2017-08-21T13:49:04.227-07:00", "ContactGroups": [] }, "Lineitems": [], "BankAccount": { "Code": "088", "Name": "Business Wells Fargo", "AccountID": "00000000-0000-0000-000-000000000000" }, "IsReconciled": false, "Date": "2019-02-25", "Reference": "You just updated", "CurrencyCode": "USD", "CurrencyRate": 1, "Status": "AUTHORISED", "LineAmountTypes": "Inclusive", "TotalTax": 1.74, "BankTransactionID": "00000000-0000-0000-000-000000000000", "UpdatedDateUTC": "2019-02-26T12:39:27.813-08:00" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
+$bank_transaction_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transaction
+$bank_transactions = { "BankTransactions": [ { "Type": "SPEND", "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000", "ContactStatus": "ACTIVE", "Name": "Buzz Lightyear", "FirstName": "Buzz", "LastName": "Lightyear", "EmailAddress": "buzz.Lightyear@email.com", "ContactPersons": [], "BankAccountDetails": "", "Addresses": [ { "AddressType": "STREET", "City": "", "Region": "", "PostalCode": "", "Country": "" }, { "AddressType": "POBOX", "AddressLine1": "", "AddressLine2": "", "AddressLine3": "", "AddressLine4": "", "City": "Palo Alto", "Region": "CA", "PostalCode": "94020", "Country": "United States" } ], "Phones": [ { "PhoneType": "DEFAULT", "PhoneNumber": "847-1294", "PhoneAreaCode": "(626)", "PhoneCountryCode": "" }, { "PhoneType": "DDI", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" }, { "PhoneType": "FAX", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" }, { "PhoneType": "MOBILE", "PhoneNumber": "", "PhoneAreaCode": "", "PhoneCountryCode": "" } ], "UpdatedDateUTC": "2017-08-21T13:49:04.227-07:00", "ContactGroups": [] }, "Lineitems": [], "BankAccount": { "Code": "088", "Name": "Business Wells Fargo", "AccountID": "00000000-0000-0000-0000-000000000000" }, "IsReconciled": false, "Date": "2019-02-25", "Reference": "You just updated", "CurrencyCode": "USD", "CurrencyRate": 1, "Status": "AUTHORISED", "LineAmountTypes": "Inclusive", "TotalTax": 1.74, "BankTransactionID": "00000000-0000-0000-0000-000000000000", "UpdatedDateUTC": "2019-02-26T12:39:27.813-08:00" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -10801,7 +10801,7 @@ Name | Type | Description  | Notes
 # **updateBankTransactionAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments updateBankTransactionAttachmentByFileName($xero_tenant_id, $bank_transaction_id, $file_name, $body)
 
-Allows you to update an Attachment on BankTransaction by Filename
+Updates a specific attachment from a specific bank transaction by filename
 
 ### Example
 ```php
@@ -10818,7 +10818,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transaction_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transaction
+$bank_transaction_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transaction
 $file_name = xero-dev.jpg; // string | The name of the file being attached
 $body = 'body_example'; // string | Byte array of file in body of request
 
@@ -10875,7 +10875,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transfer_id = 00000000-0000-0000-000-000000000000; // string | Xero generated unique identifier for a bank transfer
+$bank_transfer_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transfer
 $file_name = xero-dev.jpg; // string | The name of the file being attached to a Bank Transfer
 $body = 'body_example'; // string | Byte array of file in body of request
 
@@ -10915,7 +10915,7 @@ Name | Type | Description  | Notes
 # **updateContact**
 > \XeroAPI\XeroPHP\Models\Accounting\Contacts updateContact($xero_tenant_id, $contact_id, $contacts)
 
-Allows you to update one contact in a Xero organisation
+Updates a specific contact in a Xero organisation
 
 ### Example
 ```php
@@ -10932,8 +10932,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
-$contacts = { "Contacts": [{ "ContactID": "00000000-0000-0000-000-000000000000", "Name": "Thanos" }]}; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | an array of Contacts containing single Contact object with properties to update
+$contact_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact
+$contacts = { "Contacts": [{ "ContactID": "00000000-0000-0000-0000-000000000000", "Name": "Thanos" }]}; // \XeroAPI\XeroPHP\Models\Accounting\Contacts | an array of Contacts containing single Contact object with properties to update
 
 try {
     $result = $apiInstance->updateContact($xero_tenant_id, $contact_id, $contacts);
@@ -10987,7 +10987,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contact_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact
+$contact_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact
 $file_name = xero-dev.jpg; // string | Name for the file you are attaching
 $body = 'body_example'; // string | Byte array of file in body of request
 
@@ -11027,7 +11027,7 @@ Name | Type | Description  | Notes
 # **updateContactGroup**
 > \XeroAPI\XeroPHP\Models\Accounting\ContactGroups updateContactGroup($xero_tenant_id, $contact_group_id, $contact_groups)
 
-Allows you to update a Contact Group
+Updates a specific contact group
 
 ### Example
 ```php
@@ -11044,7 +11044,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$contact_group_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Contact Group
+$contact_group_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact Group
 $contact_groups = { "ContactGroups":[ { "Name":"Suppliers" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ContactGroups | an array of Contact groups with Name of specific group to update
 
 try {
@@ -11082,7 +11082,7 @@ Name | Type | Description  | Notes
 # **updateCreditNote**
 > \XeroAPI\XeroPHP\Models\Accounting\CreditNotes updateCreditNote($xero_tenant_id, $credit_note_id, $credit_notes, $unitdp)
 
-Allows you to update a specific credit note
+Updates a specific credit note
 
 ### Example
 ```php
@@ -11099,7 +11099,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
+$credit_note_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Credit Note
 $credit_notes = { "CreditNotes": [ { "Type": "ACCPAYCREDIT", "Contact": { "ContactID": "430fa14a-f945-44d3-9f97-5df5e28441b8" }, "Date": "2019-01-05", "Status": "AUTHORISED", "Reference": "HelloWorld", "LineItems": [ { "Description": "Foobar", "Quantity": 2, "UnitAmount": 20, "AccountCode": "400" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\CreditNotes | an array of Credit Notes containing credit note details to update
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
@@ -11139,7 +11139,7 @@ Name | Type | Description  | Notes
 # **updateCreditNoteAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments updateCreditNoteAttachmentByFileName($xero_tenant_id, $credit_note_id, $file_name, $body)
 
-Allows you to update Attachments on CreditNote by file name
+Updates attachments on a specific credit note by file name
 
 ### Example
 ```php
@@ -11156,7 +11156,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$credit_note_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Credit Note
+$credit_note_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Credit Note
 $file_name = xero-dev.jpg; // string | Name of the file you are attaching to Credit Note
 $body = 'body_example'; // string | Byte array of file in body of request
 
@@ -11196,7 +11196,7 @@ Name | Type | Description  | Notes
 # **updateExpenseClaim**
 > \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims updateExpenseClaim($xero_tenant_id, $expense_claim_id, $expense_claims)
 
-Allows you to update specified expense claims
+Updates a specific expense claims
 
 ### Example
 ```php
@@ -11213,7 +11213,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$expense_claim_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ExpenseClaim
+$expense_claim_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a ExpenseClaim
 $expense_claims = { "ExpenseClaims": [ { "Status": "SUBMITTED", "User": { "UserID": "d1164823-0ac1-41ad-987b-b4e30fe0b273" }, "Receipts": [ { "Lineitems": [], "ReceiptID": "dc1c7f6d-0a4c-402f-acac-551d62ce5816" } ] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ExpenseClaims | 
 
 try {
@@ -11251,7 +11251,7 @@ Name | Type | Description  | Notes
 # **updateInvoice**
 > \XeroAPI\XeroPHP\Models\Accounting\Invoices updateInvoice($xero_tenant_id, $invoice_id, $invoices, $unitdp)
 
-Allows you to update a specified sales invoices or purchase bills
+Updates a specific sales invoices or purchase bills
 
 ### Example
 ```php
@@ -11268,8 +11268,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
-$invoices = { "Invoices": [{ Reference: "May the force be with you", "InvoiceID": "00000000-0000-0000-000-000000000000", "LineItems": [], "Contact": {}, "Type": "ACCPAY" }]}; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | 
+$invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Invoice
+$invoices = { "Invoices": [{ Reference: "May the force be with you", "InvoiceID": "00000000-0000-0000-0000-000000000000", "LineItems": [], "Contact": {}, "Type": "ACCPAY" }]}; // \XeroAPI\XeroPHP\Models\Accounting\Invoices | 
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -11308,7 +11308,7 @@ Name | Type | Description  | Notes
 # **updateInvoiceAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments updateInvoiceAttachmentByFileName($xero_tenant_id, $invoice_id, $file_name, $body)
 
-Allows you to update Attachment on invoices or purchase bills by it's filename
+Updates an attachment from a specific invoices or purchase bill by filename
 
 ### Example
 ```php
@@ -11325,7 +11325,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Invoice
+$invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Invoice
 $file_name = xero-dev.jpg; // string | Name of the file you are attaching
 $body = 'body_example'; // string | Byte array of file in body of request
 
@@ -11365,7 +11365,7 @@ Name | Type | Description  | Notes
 # **updateItem**
 > \XeroAPI\XeroPHP\Models\Accounting\Items updateItem($xero_tenant_id, $item_id, $items, $unitdp)
 
-Allows you to update a specified item
+Updates a specific item
 
 ### Example
 ```php
@@ -11382,7 +11382,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$item_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Item
+$item_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Item
 $items = { "Items": [ { "Code": "ItemCode123", "Description": "Description 123" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Items | 
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
@@ -11422,7 +11422,7 @@ Name | Type | Description  | Notes
 # **updateLinkedTransaction**
 > \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions updateLinkedTransaction($xero_tenant_id, $linked_transaction_id, $linked_transactions)
 
-Allows you to update a specified linked transactions (billable expenses)
+Updates a specific linked transactions (billable expenses)
 
 ### Example
 ```php
@@ -11439,8 +11439,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$linked_transaction_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a LinkedTransaction
-$linked_transactions = { "LinkedTransactions": [ { "SourceTransactionID": "00000000-0000-0000-000-000000000000", "SourceLineItemID": "00000000-0000-0000-000-000000000000" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions | 
+$linked_transaction_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a LinkedTransaction
+$linked_transactions = { "LinkedTransactions": [ { "SourceTransactionID": "00000000-0000-0000-0000-000000000000", "SourceLineItemID": "00000000-0000-0000-0000-000000000000" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\LinkedTransactions | 
 
 try {
     $result = $apiInstance->updateLinkedTransaction($xero_tenant_id, $linked_transaction_id, $linked_transactions);
@@ -11477,7 +11477,7 @@ Name | Type | Description  | Notes
 # **updateManualJournal**
 > \XeroAPI\XeroPHP\Models\Accounting\ManualJournals updateManualJournal($xero_tenant_id, $manual_journal_id, $manual_journals)
 
-Allows you to update a specified manual journal
+Updates a specific manual journal
 
 ### Example
 ```php
@@ -11494,8 +11494,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$manual_journal_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ManualJournal
-$manual_journals = { "ManualJournals": [ { "Narration": "Hello Xero", "ManualJournalID": "00000000-0000-0000-000-000000000000", "JournalLines": [] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournals | 
+$manual_journal_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a ManualJournal
+$manual_journals = { "ManualJournals": [ { "Narration": "Hello Xero", "ManualJournalID": "00000000-0000-0000-0000-000000000000", "JournalLines": [] } ] }; // \XeroAPI\XeroPHP\Models\Accounting\ManualJournals | 
 
 try {
     $result = $apiInstance->updateManualJournal($xero_tenant_id, $manual_journal_id, $manual_journals);
@@ -11532,7 +11532,7 @@ Name | Type | Description  | Notes
 # **updateManualJournalAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments updateManualJournalAttachmentByFileName($xero_tenant_id, $manual_journal_id, $file_name, $body)
 
-Allows you to update a specified Attachment on ManualJournal by file name
+Updates a specific attachment from a specific manual journal by file name
 
 ### Example
 ```php
@@ -11549,7 +11549,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$manual_journal_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a ManualJournal
+$manual_journal_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a ManualJournal
 $file_name = xero-dev.jpg; // string | The name of the file being attached to a ManualJournal
 $body = 'body_example'; // string | Byte array of file in body of request
 
@@ -11589,7 +11589,7 @@ Name | Type | Description  | Notes
 # **updateOrCreateBankTransactions**
 > \XeroAPI\XeroPHP\Models\Accounting\BankTransactions updateOrCreateBankTransactions($xero_tenant_id, $bank_transactions, $summarize_errors, $unitdp)
 
-Allows you to update or create one or more spend or receive money transaction
+Updates or creates one or more spent or received money transaction
 
 ### Example
 ```php
@@ -11606,7 +11606,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$bank_transactions = { "BankTransactions": [ { "Type": "SPEND", "Contact": { "ContactID": "00000000-0000-0000-000-000000000000" }, "Lineitems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "400" } ], "BankAccount": { "Code": "088" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
+$bank_transactions = { "BankTransactions": [ { "Type": "SPEND", "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "Lineitems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "400" } ], "BankAccount": { "Code": "088" } } ] }; // \XeroAPI\XeroPHP\Models\Accounting\BankTransactions | 
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
@@ -11646,7 +11646,7 @@ Name | Type | Description  | Notes
 # **updateOrCreateContacts**
 > \XeroAPI\XeroPHP\Models\Accounting\Contacts updateOrCreateContacts($xero_tenant_id, $contacts, $summarize_errors)
 
-Allows you to update OR create one or more contacts in a Xero organisation
+Updates or creates one or more contacts in a Xero organisation
 
 ### Example
 ```php
@@ -11701,7 +11701,7 @@ Name | Type | Description  | Notes
 # **updateOrCreateCreditNotes**
 > \XeroAPI\XeroPHP\Models\Accounting\CreditNotes updateOrCreateCreditNotes($xero_tenant_id, $credit_notes, $summarize_errors, $unitdp)
 
-Allows you to update OR create one or more credit notes
+Updates or creates one or more credit notes
 
 ### Example
 ```php
@@ -11758,7 +11758,7 @@ Name | Type | Description  | Notes
 # **updateOrCreateEmployees**
 > \XeroAPI\XeroPHP\Models\Accounting\Employees updateOrCreateEmployees($xero_tenant_id, $employees, $summarize_errors)
 
-Allows you to create a single new employees used in Xero payrun
+Creates a single new employees used in Xero payrun
 
 ### Example
 ```php
@@ -11813,7 +11813,7 @@ Name | Type | Description  | Notes
 # **updateOrCreateInvoices**
 > \XeroAPI\XeroPHP\Models\Accounting\Invoices updateOrCreateInvoices($xero_tenant_id, $invoices, $summarize_errors, $unitdp)
 
-Allows you to update OR create one or more sales invoices or purchase bills
+Updates or creates one or more sales invoices or purchase bills
 
 ### Example
 ```php
@@ -11870,7 +11870,7 @@ Name | Type | Description  | Notes
 # **updateOrCreateItems**
 > \XeroAPI\XeroPHP\Models\Accounting\Items updateOrCreateItems($xero_tenant_id, $items, $summarize_errors, $unitdp)
 
-Allows you to update or create one or more items
+Updates or creates one or more items
 
 ### Example
 ```php
@@ -11927,7 +11927,7 @@ Name | Type | Description  | Notes
 # **updateOrCreateManualJournals**
 > \XeroAPI\XeroPHP\Models\Accounting\ManualJournals updateOrCreateManualJournals($xero_tenant_id, $manual_journals, $summarize_errors)
 
-Allows you to create a single manual journal
+Updates or creates a single manual journal
 
 ### Example
 ```php
@@ -11982,7 +11982,7 @@ Name | Type | Description  | Notes
 # **updateOrCreatePurchaseOrders**
 > \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders updateOrCreatePurchaseOrders($xero_tenant_id, $purchase_orders, $summarize_errors)
 
-Allows you to update or create one or more purchase orders
+Updates or creates one or more purchase orders
 
 ### Example
 ```php
@@ -11999,7 +11999,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_orders = { "PurchaseOrders": [ { "Contact": { "ContactID": "00000000-0000-0000-000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "710" } ], "Date": "2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | 
+$purchase_orders = { "PurchaseOrders": [ { "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "710" } ], "Date": "2019-03-13" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | 
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
 try {
@@ -12037,7 +12037,7 @@ Name | Type | Description  | Notes
 # **updateOrCreateQuotes**
 > \XeroAPI\XeroPHP\Models\Accounting\Quotes updateOrCreateQuotes($xero_tenant_id, $quotes, $summarize_errors)
 
-Allows you to update OR create one or more quotes
+Updates or creates one or more quotes
 
 ### Example
 ```php
@@ -12054,7 +12054,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$quotes = { "Quotes": [ { "Contact": { "ContactID": "00000000-0000-0000-000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "12775" } ], "Date": "2020-02-01" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Quotes | 
+$quotes = { "Quotes": [ { "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "LineItems": [ { "Description": "Foobar", "Quantity": 1, "UnitAmount": 20, "AccountCode": "12775" } ], "Date": "2020-02-01" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Quotes | 
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
 try {
@@ -12092,7 +12092,7 @@ Name | Type | Description  | Notes
 # **updatePurchaseOrder**
 > \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders updatePurchaseOrder($xero_tenant_id, $purchase_order_id, $purchase_orders)
 
-Allows you to update a specified purchase order
+Updates a specific purchase order
 
 ### Example
 ```php
@@ -12109,7 +12109,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_order_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a PurchaseOrder
+$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a PurchaseOrder
 $purchase_orders = { "PurchaseOrders": [ { "AttentionTo": "Peter Parker", "LineItems": [], "Contact": {} } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | 
 
 try {
@@ -12147,7 +12147,7 @@ Name | Type | Description  | Notes
 # **updatePurchaseOrderAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments updatePurchaseOrderAttachmentByFileName($xero_tenant_id, $purchase_order_id, $file_name, $body)
 
-Allows you to update Attachment on Purchase Order by Filename
+Updates a specific attachment for a specific purchase order by filename
 
 ### Example
 ```php
@@ -12164,7 +12164,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_order_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Purchase Order object
+$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Purchase Order object
 $file_name = xero-dev.png; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
@@ -12204,7 +12204,7 @@ Name | Type | Description  | Notes
 # **updateQuote**
 > \XeroAPI\XeroPHP\Models\Accounting\Quotes updateQuote($xero_tenant_id, $quote_id, $quotes)
 
-Allows you to update a specified quote
+Updates a specific quote
 
 ### Example
 ```php
@@ -12221,8 +12221,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for an Quote
-$quotes = { "Quotes": [ { "Reference": "I am an update", "Contact": { "ContactID": "00000000-0000-0000-000-000000000000" }, "Date": "2020-02-01" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Quotes | 
+$quote_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Quote
+$quotes = { "Quotes": [ { "Reference": "I am an update", "Contact": { "ContactID": "00000000-0000-0000-0000-000000000000" }, "Date": "2020-02-01" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Quotes | 
 
 try {
     $result = $apiInstance->updateQuote($xero_tenant_id, $quote_id, $quotes);
@@ -12259,7 +12259,7 @@ Name | Type | Description  | Notes
 # **updateQuoteAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments updateQuoteAttachmentByFileName($xero_tenant_id, $quote_id, $file_name, $body)
 
-Allows you to update Attachment on Quote by Filename
+Updates a specific attachment from a specific quote by filename
 
 ### Example
 ```php
@@ -12276,7 +12276,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$quote_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for Quote object
+$quote_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Quote object
 $file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
@@ -12316,7 +12316,7 @@ Name | Type | Description  | Notes
 # **updateReceipt**
 > \XeroAPI\XeroPHP\Models\Accounting\Receipts updateReceipt($xero_tenant_id, $receipt_id, $receipts, $unitdp)
 
-Allows you to retrieve a specified draft expense claim receipts
+Updates a specific draft expense claim receipts
 
 ### Example
 ```php
@@ -12333,8 +12333,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
-$receipts = { "Receipts": [ { "Lineitems": [], "User": { "UserID": "00000000-0000-0000-000-000000000000" }, "Reference": "Foobar" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Receipts | 
+$receipt_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Receipt
+$receipts = { "Receipts": [ { "Lineitems": [], "User": { "UserID": "00000000-0000-0000-0000-000000000000" }, "Reference": "Foobar" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Receipts | 
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
 try {
@@ -12373,7 +12373,7 @@ Name | Type | Description  | Notes
 # **updateReceiptAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments updateReceiptAttachmentByFileName($xero_tenant_id, $receipt_id, $file_name, $body)
 
-Allows you to update Attachment on expense claim receipts by file name
+Updates a specific attachment on a specific expense claim receipts by file name
 
 ### Example
 ```php
@@ -12390,7 +12390,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$receipt_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Receipt
+$receipt_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Receipt
 $file_name = xero-dev.jpg; // string | The name of the file being attached to the Receipt
 $body = 'body_example'; // string | Byte array of file in body of request
 
@@ -12430,7 +12430,7 @@ Name | Type | Description  | Notes
 # **updateRepeatingInvoiceAttachmentByFileName**
 > \XeroAPI\XeroPHP\Models\Accounting\Attachments updateRepeatingInvoiceAttachmentByFileName($xero_tenant_id, $repeating_invoice_id, $file_name, $body)
 
-Allows you to update specified attachment on repeating invoices by file name
+Updates a specific attachment from a specific repeating invoices by file name
 
 ### Example
 ```php
@@ -12447,7 +12447,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$repeating_invoice_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Repeating Invoice
+$repeating_invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Repeating Invoice
 $file_name = xero-dev.jpg; // string | The name of the file being attached to a Repeating Invoice
 $body = 'body_example'; // string | Byte array of file in body of request
 
@@ -12487,7 +12487,7 @@ Name | Type | Description  | Notes
 # **updateTaxRate**
 > \XeroAPI\XeroPHP\Models\Accounting\TaxRates updateTaxRate($xero_tenant_id, $tax_rates)
 
-Allows you to update Tax Rates
+Updates tax rates
 
 ### Example
 ```php
@@ -12540,7 +12540,7 @@ Name | Type | Description  | Notes
 # **updateTrackingCategory**
 > \XeroAPI\XeroPHP\Models\Accounting\TrackingCategories updateTrackingCategory($xero_tenant_id, $tracking_category_id, $tracking_category)
 
-Allows you to update tracking categories
+Updates a specific tracking category
 
 ### Example
 ```php
@@ -12557,7 +12557,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$tracking_category_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a TrackingCategory
+$tracking_category_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a TrackingCategory
 $tracking_category = { "Name": "Avengers" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory | 
 
 try {
@@ -12595,7 +12595,7 @@ Name | Type | Description  | Notes
 # **updateTrackingOptions**
 > \XeroAPI\XeroPHP\Models\Accounting\TrackingOptions updateTrackingOptions($xero_tenant_id, $tracking_category_id, $tracking_option_id, $tracking_option)
 
-Allows you to update options for a specified tracking category
+Updates a specific option for a specific tracking category
 
 ### Example
 ```php
@@ -12612,8 +12612,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$tracking_category_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a TrackingCategory
-$tracking_option_id = 00000000-0000-0000-000-000000000000; // string | Unique identifier for a Tracking Option
+$tracking_category_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a TrackingCategory
+$tracking_option_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Tracking Option
 $tracking_option = { name: "Vision" }; // \XeroAPI\XeroPHP\Models\Accounting\TrackingOption | 
 
 try {

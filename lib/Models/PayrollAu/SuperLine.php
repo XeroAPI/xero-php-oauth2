@@ -11,7 +11,7 @@
  */
 
 /**
- * Xero Payroll AU
+ * Xero Payroll AU API
  *
  * This is the Xero Payroll API for orgs in Australia region.
  *
@@ -339,7 +339,7 @@ class SuperLine implements ModelInterface, ArrayAccess
     /**
      * Sets minimum_monthly_earnings
      *
-     * @param double|null $minimum_monthly_earnings amount of mimimum earnings
+     * @param double|null $minimum_monthly_earnings amount of minimum earnings
      *
      * @return $this
      */

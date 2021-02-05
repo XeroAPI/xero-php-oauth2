@@ -11,7 +11,7 @@
  */
 
 /**
- * Xero Payroll AU
+ * Xero Payroll AU API
  *
  * This is the Xero Payroll API for orgs in Australia region.
  *
@@ -288,7 +288,7 @@ class SuperMembership implements ModelInterface, ArrayAccess
     /**
      * Sets employee_number
      *
-     * @param string $employee_number The memberhsip number assigned to the employee by the super fund.
+     * @param string $employee_number The membership number assigned to the employee by the super fund.
      *
      * @return $this
      */

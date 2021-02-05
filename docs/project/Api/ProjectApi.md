@@ -4,25 +4,25 @@ All URIs are relative to *https://api.xero.com/projects.xro/2.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createProject**](ProjectApi.md#createProject) | **POST** /projects | create one or more new projects
-[**createTimeEntry**](ProjectApi.md#createTimeEntry) | **POST** /projects/{projectId}/time | Allows you to create a task
-[**deleteTimeEntry**](ProjectApi.md#deleteTimeEntry) | **DELETE** /projects/{projectId}/time/{timeEntryId} | Allows you to delete a time entry
-[**getProject**](ProjectApi.md#getProject) | **GET** /projects/{projectId} | Allows you to retrieve a single project
-[**getProjectUsers**](ProjectApi.md#getProjectUsers) | **GET** /projectsusers | list all project users
-[**getProjects**](ProjectApi.md#getProjects) | **GET** /projects | list all projects
-[**getTask**](ProjectApi.md#getTask) | **GET** /projects/{projectId}/tasks/{taskId} | Allows you to retrieve a single project
-[**getTasks**](ProjectApi.md#getTasks) | **GET** /projects/{projectId}/tasks | Allows you to retrieve a single project
-[**getTimeEntries**](ProjectApi.md#getTimeEntries) | **GET** /projects/{projectId}/time | Allows you to retrieve the time entries associated with a specific project
-[**getTimeEntry**](ProjectApi.md#getTimeEntry) | **GET** /projects/{projectId}/time/{timeEntryId} | Allows you to get a single time entry in a project
-[**patchProject**](ProjectApi.md#patchProject) | **PATCH** /projects/{projectId} | creates a project for the specified contact
-[**updateProject**](ProjectApi.md#updateProject) | **PUT** /projects/{projectId} | update a specific project
-[**updateTimeEntry**](ProjectApi.md#updateTimeEntry) | **PUT** /projects/{projectId}/time/{timeEntryId} | Allows you to update time entry in a project
+[**createProject**](ProjectApi.md#createProject) | **POST** /Projects | Create one or more new projects
+[**createTimeEntry**](ProjectApi.md#createTimeEntry) | **POST** /Projects/{projectId}/Time | Creates a time entry for a specific project
+[**deleteTimeEntry**](ProjectApi.md#deleteTimeEntry) | **DELETE** /Projects/{projectId}/Time/{timeEntryId} | Deletes a time entry for a specific project
+[**getProject**](ProjectApi.md#getProject) | **GET** /Projects/{projectId} | Retrieves a single project
+[**getProjectUsers**](ProjectApi.md#getProjectUsers) | **GET** /ProjectsUsers | Retrieves a list of all project users
+[**getProjects**](ProjectApi.md#getProjects) | **GET** /Projects | Retrieves all projects
+[**getTask**](ProjectApi.md#getTask) | **GET** /Projects/{projectId}/Tasks/{taskId} | Retrieves a single project task
+[**getTasks**](ProjectApi.md#getTasks) | **GET** /Projects/{projectId}/Tasks | Retrieves all project tasks
+[**getTimeEntries**](ProjectApi.md#getTimeEntries) | **GET** /Projects/{projectId}/Time | Retrieves all time entries associated with a specific project
+[**getTimeEntry**](ProjectApi.md#getTimeEntry) | **GET** /Projects/{projectId}/Time/{timeEntryId} | Retrieves a single time entry for a specific project
+[**patchProject**](ProjectApi.md#patchProject) | **PATCH** /Projects/{projectId} | creates a project for the specified contact
+[**updateProject**](ProjectApi.md#updateProject) | **PUT** /Projects/{projectId} | Updates a specific project
+[**updateTimeEntry**](ProjectApi.md#updateTimeEntry) | **PUT** /Projects/{projectId}/Time/{timeEntryId} | Updates a time entry for a specific project
 
 
 # **createProject**
 > \XeroAPI\XeroPHP\Models\Project\Project createProject($xero_tenant_id, $project_create_or_update)
 
-create one or more new projects
+Create one or more new projects
 
 ### Example
 ```php
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 # **createTimeEntry**
 > \XeroAPI\XeroPHP\Models\Project\TimeEntry createTimeEntry($xero_tenant_id, $project_id, $time_entry_create_or_update)
 
-Allows you to create a task
+Creates a time entry for a specific project
 
 Allows you to create a specific task
 
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 # **deleteTimeEntry**
 > deleteTimeEntry($xero_tenant_id, $project_id, $time_entry_id)
 
-Allows you to delete a time entry
+Deletes a time entry for a specific project
 
 Allows you to delete a specific time entry
 
@@ -188,9 +188,9 @@ void (empty response body)
 # **getProject**
 > \XeroAPI\XeroPHP\Models\Project\Project getProject($xero_tenant_id, $project_id)
 
-Allows you to retrieve a single project
+Retrieves a single project
 
-Allows you to retrieve a specific project
+Allows you to retrieve a specific project using the projectId
 
 ### Example
 ```php
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 # **getProjectUsers**
 > \XeroAPI\XeroPHP\Models\Project\ProjectUsers getProjectUsers($xero_tenant_id, $page, $page_size)
 
-list all project users
+Retrieves a list of all project users
 
 Allows you to retrieve the users on a projects.
 
@@ -300,7 +300,7 @@ Name | Type | Description  | Notes
 # **getProjects**
 > \XeroAPI\XeroPHP\Models\Project\Projects getProjects($xero_tenant_id, $project_ids, $contact_id, $states, $page, $page_size)
 
-list all projects
+Retrieves all projects
 
 Allows you to retrieve, create and update projects.
 
@@ -363,7 +363,7 @@ Name | Type | Description  | Notes
 # **getTask**
 > \XeroAPI\XeroPHP\Models\Project\Task getTask($xero_tenant_id, $project_id, $task_id)
 
-Allows you to retrieve a single project
+Retrieves a single project task
 
 Allows you to retrieve a specific project
 
@@ -383,7 +383,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $project_id = 'project_id_example'; // string | You can specify an individual project by appending the projectId to the endpoint
-$task_id = 'task_id_example'; // string | You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskId}
+$task_id = 'task_id_example'; // string | You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskID}
 
 try {
     $result = $apiInstance->getTask($xero_tenant_id, $project_id, $task_id);
@@ -400,7 +400,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **project_id** | [**string**](../Model/.md)| You can specify an individual project by appending the projectId to the endpoint |
- **task_id** | [**string**](../Model/.md)| You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskId} |
+ **task_id** | [**string**](../Model/.md)| You can specify an individual task by appending the taskId to the endpoint, i.e. GET https://.../tasks/{taskID} |
 
 ### Return type
 
@@ -420,7 +420,7 @@ Name | Type | Description  | Notes
 # **getTasks**
 > \XeroAPI\XeroPHP\Models\Project\Tasks getTasks($xero_tenant_id, $project_id, $page, $page_size, $task_ids, $charge_type)
 
-Allows you to retrieve a single project
+Retrieves all project tasks
 
 Allows you to retrieve a specific project
 
@@ -442,7 +442,7 @@ $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tena
 $project_id = 'project_id_example'; // string | You can specify an individual project by appending the projectId to the endpoint
 $page = 1; // int | Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0.
 $page_size = 10; // int | Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
-$task_ids = 'task_ids_example'; // string | taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds={taskId},{taskId}
+$task_ids = 'task_ids_example'; // string | taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds={taskID},{taskID}
 $charge_type = new \XeroAPI\XeroPHP\Models\Project\\XeroAPI\XeroPHP\Models\Project\ChargeType(); // \XeroAPI\XeroPHP\Models\Project\ChargeType | 
 
 try {
@@ -462,7 +462,7 @@ Name | Type | Description  | Notes
  **project_id** | [**string**](../Model/.md)| You can specify an individual project by appending the projectId to the endpoint |
  **page** | **int**| Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. | [optional]
  **page_size** | **int**| Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. | [optional]
- **task_ids** | **string**| taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskId},{taskId} | [optional]
+ **task_ids** | **string**| taskIdsSearch for all tasks that match a comma separated list of taskIds, i.e. GET https://.../tasks?taskIds&#x3D;{taskID},{taskID} | [optional]
  **charge_type** | [**\XeroAPI\XeroPHP\Models\Project\ChargeType**](../Model/.md)|  | [optional]
 
 ### Return type
@@ -483,7 +483,7 @@ Name | Type | Description  | Notes
 # **getTimeEntries**
 > \XeroAPI\XeroPHP\Models\Project\TimeEntries getTimeEntries($xero_tenant_id, $project_id, $user_id, $task_id, $invoice_id, $contact_id, $page, $page_size, $states, $is_chargeable, $date_after_utc, $date_before_utc)
 
-Allows you to retrieve the time entries associated with a specific project
+Retrieves all time entries associated with a specific project
 
 Allows you to retrieve the time entries associated with a specific project
 
@@ -509,7 +509,7 @@ $invoice_id = 'invoice_id_example'; // string | Finds all time entries for this 
 $contact_id = 'contact_id_example'; // string | Finds all time entries for this contact identifier.
 $page = 1; // int | Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0.
 $page_size = 10; // int | Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500.
-$states = array('states_example'); // string[] | Comma-separated list of states to find. Will find all time entries that are in the status of whatever’s specified.
+$states = array('states_example'); // string[] | Comma-separated list of states to find. Will find all time entries that are in the status of whatever is specified.
 $is_chargeable = True; // bool | Finds all time entries which relate to tasks with the charge type `TIME` or `FIXED`.
 $date_after_utc = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | ISO 8601 UTC date. Finds all time entries on or after this date filtered on the `dateUtc` field.
 $date_before_utc = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | ISO 8601 UTC date. Finds all time entries on or before this date filtered on the `dateUtc` field.
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
  **contact_id** | [**string**](../Model/.md)| Finds all time entries for this contact identifier. | [optional]
  **page** | **int**| Set to 1 by default. The requested number of the page in paged response - Must be a number greater than 0. | [optional]
  **page_size** | **int**| Optional, it is set to 50 by default. The number of items to return per page in a paged response - Must be a number between 1 and 500. | [optional]
- **states** | [**string[]**](../Model/string.md)| Comma-separated list of states to find. Will find all time entries that are in the status of whatever’s specified. | [optional]
+ **states** | [**string[]**](../Model/string.md)| Comma-separated list of states to find. Will find all time entries that are in the status of whatever is specified. | [optional]
  **is_chargeable** | **bool**| Finds all time entries which relate to tasks with the charge type &#x60;TIME&#x60; or &#x60;FIXED&#x60;. | [optional]
  **date_after_utc** | **\DateTime**| ISO 8601 UTC date. Finds all time entries on or after this date filtered on the &#x60;dateUtc&#x60; field. | [optional]
  **date_before_utc** | **\DateTime**| ISO 8601 UTC date. Finds all time entries on or before this date filtered on the &#x60;dateUtc&#x60; field. | [optional]
@@ -558,9 +558,9 @@ Name | Type | Description  | Notes
 # **getTimeEntry**
 > \XeroAPI\XeroPHP\Models\Project\TimeEntry getTimeEntry($xero_tenant_id, $project_id, $time_entry_id)
 
-Allows you to get a single time entry in a project
+Retrieves a single time entry for a specific project
 
-Allows you to upget a single time entry in a project
+Allows you to get a single time entry in a project
 
 ### Example
 ```php
@@ -671,7 +671,7 @@ void (empty response body)
 # **updateProject**
 > updateProject($xero_tenant_id, $project_id, $project_create_or_update)
 
-update a specific project
+Updates a specific project
 
 Allows you to update a specific projects.
 
@@ -727,7 +727,7 @@ void (empty response body)
 # **updateTimeEntry**
 > updateTimeEntry($xero_tenant_id, $project_id, $time_entry_id, $time_entry_create_or_update)
 
-Allows you to update time entry in a project
+Updates a time entry for a specific project
 
 Allows you to update time entry in a project
 

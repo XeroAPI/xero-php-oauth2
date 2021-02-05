@@ -4,28 +4,28 @@ All URIs are relative to *https://api.xero.com/files.xro/1.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createFileAssociation**](FilesApi.md#createFileAssociation) | **POST** /Files/{FileId}/Associations | create a new association
-[**createFolder**](FilesApi.md#createFolder) | **POST** /Folders | create a new folder
-[**deleteFile**](FilesApi.md#deleteFile) | **DELETE** /Files/{FileId} | delete a file
-[**deleteFileAssociation**](FilesApi.md#deleteFileAssociation) | **DELETE** /Files/{FileId}/Associations/{ObjectId} | create a new association
-[**deleteFolder**](FilesApi.md#deleteFolder) | **DELETE** /Folders/{FolderId} | delete a folder
-[**getAssociationsByObject**](FilesApi.md#getAssociationsByObject) | **GET** /Associations/{ObjectId} | searches files
-[**getFile**](FilesApi.md#getFile) | **GET** /Files/{FileId} | searches for file by unique id
-[**getFileAssociations**](FilesApi.md#getFileAssociations) | **GET** /Files/{FileId}/Associations | searches files
-[**getFileContent**](FilesApi.md#getFileContent) | **GET** /Files/{FileId}/Content | searches files to retrieve the data
-[**getFiles**](FilesApi.md#getFiles) | **GET** /Files | searches files
-[**getFolder**](FilesApi.md#getFolder) | **GET** /Folders/{FolderId} | searches specific folder by id
-[**getFolders**](FilesApi.md#getFolders) | **GET** /Folders | searches folder
-[**getInbox**](FilesApi.md#getInbox) | **GET** /Inbox | searches inbox folder
-[**updateFile**](FilesApi.md#updateFile) | **PUT** /Files/{FileId} | Update a file
-[**updateFolder**](FilesApi.md#updateFolder) | **PUT** /Folders/{FolderId} | update folder
-[**uploadFile**](FilesApi.md#uploadFile) | **POST** /Files | upload an File
+[**createFileAssociation**](FilesApi.md#createFileAssociation) | **POST** /Files/{FileID}/Associations | Creates a new file association
+[**createFolder**](FilesApi.md#createFolder) | **POST** /Folders | Creates a new folder
+[**deleteFile**](FilesApi.md#deleteFile) | **DELETE** /Files/{FileID} | Deletes a specific file
+[**deleteFileAssociation**](FilesApi.md#deleteFileAssociation) | **DELETE** /Files/{FileID}/Associations/{ObjectID} | Deletes an existing file association
+[**deleteFolder**](FilesApi.md#deleteFolder) | **DELETE** /Folders/{FolderID} | Deletes a folder
+[**getAssociationsByObject**](FilesApi.md#getAssociationsByObject) | **GET** /Associations/{ObjectID} | Retrieves an association object using a unique object ID
+[**getFile**](FilesApi.md#getFile) | **GET** /Files/{FileID} | Retrieves a file by a unique file ID
+[**getFileAssociations**](FilesApi.md#getFileAssociations) | **GET** /Files/{FileID}/Associations | Retrieves a specific file associations
+[**getFileContent**](FilesApi.md#getFileContent) | **GET** /Files/{FileID}/Content | Retrieves the content of a specific file
+[**getFiles**](FilesApi.md#getFiles) | **GET** /Files | Retrieves files
+[**getFolder**](FilesApi.md#getFolder) | **GET** /Folders/{FolderID} | Retrieves specific folder by using a unique folder ID
+[**getFolders**](FilesApi.md#getFolders) | **GET** /Folders | Retrieves folders
+[**getInbox**](FilesApi.md#getInbox) | **GET** /Inbox | Retrieves inbox folder
+[**updateFile**](FilesApi.md#updateFile) | **PUT** /Files/{FileID} | Update a file
+[**updateFolder**](FilesApi.md#updateFolder) | **PUT** /Folders/{FolderID} | Updates an existing folder
+[**uploadFile**](FilesApi.md#uploadFile) | **POST** /Files | Uploads a File
 
 
 # **createFileAssociation**
 > \XeroAPI\XeroPHP\Models\File\Association createFileAssociation($xero_tenant_id, $file_id, $association)
 
-create a new association
+Creates a new file association
 
 By passing in the appropriate options, you can create a new folder
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 # **createFolder**
 > \XeroAPI\XeroPHP\Models\File\Folder createFolder($xero_tenant_id, $folder)
 
-create a new folder
+Creates a new folder
 
 By passing in the appropriate properties, you can create a new folder
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 # **deleteFile**
 > \XeroAPI\XeroPHP\Models\File\FileResponse204 deleteFile($xero_tenant_id, $file_id)
 
-delete a file
+Deletes a specific file
 
 Delete a specific file
 
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 # **deleteFileAssociation**
 > \XeroAPI\XeroPHP\Models\File\FileResponse204 deleteFileAssociation($xero_tenant_id, $file_id, $object_id)
 
-create a new association
+Deletes an existing file association
 
 By passing in the appropriate options, you can create a new folder
 
@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 # **deleteFolder**
 > \XeroAPI\XeroPHP\Models\File\FileResponse204 deleteFolder($xero_tenant_id, $folder_id)
 
-delete a folder
+Deletes a folder
 
 By passing in the appropriate ID, you can delete a folder
 
@@ -304,7 +304,7 @@ Name | Type | Description  | Notes
 # **getAssociationsByObject**
 > \XeroAPI\XeroPHP\Models\File\Association[] getAssociationsByObject($xero_tenant_id, $object_id)
 
-searches files
+Retrieves an association object using a unique object ID
 
 By passing in the appropriate options,
 
@@ -359,7 +359,7 @@ Name | Type | Description  | Notes
 # **getFile**
 > \XeroAPI\XeroPHP\Models\File\FileObject getFile($xero_tenant_id, $file_id)
 
-searches for file by unique id
+Retrieves a file by a unique file ID
 
 ### Example
 ```php
@@ -412,7 +412,7 @@ Name | Type | Description  | Notes
 # **getFileAssociations**
 > \XeroAPI\XeroPHP\Models\File\Association[] getFileAssociations($xero_tenant_id, $file_id)
 
-searches files
+Retrieves a specific file associations
 
 By passing in the appropriate options,
 
@@ -467,7 +467,7 @@ Name | Type | Description  | Notes
 # **getFileContent**
 > \SplFileObject getFileContent($xero_tenant_id, $file_id)
 
-searches files to retrieve the data
+Retrieves the content of a specific file
 
 By passing in the appropriate options, retrieve data for specific file
 
@@ -522,7 +522,7 @@ Name | Type | Description  | Notes
 # **getFiles**
 > \XeroAPI\XeroPHP\Models\File\Files getFiles($xero_tenant_id, $pagesize, $page, $sort)
 
-searches files
+Retrieves files
 
 ### Example
 ```php
@@ -579,7 +579,7 @@ Name | Type | Description  | Notes
 # **getFolder**
 > \XeroAPI\XeroPHP\Models\File\Folder getFolder($xero_tenant_id, $folder_id)
 
-searches specific folder by id
+Retrieves specific folder by using a unique folder ID
 
 By passing in the appropriate ID, you can search for specific folder
 
@@ -634,7 +634,7 @@ Name | Type | Description  | Notes
 # **getFolders**
 > \XeroAPI\XeroPHP\Models\File\Folder[] getFolders($xero_tenant_id, $sort)
 
-searches folder
+Retrieves folders
 
 By passing in the appropriate options, you can search for available folders
 
@@ -689,7 +689,7 @@ Name | Type | Description  | Notes
 # **getInbox**
 > \XeroAPI\XeroPHP\Models\File\Folder getInbox($xero_tenant_id)
 
-searches inbox folder
+Retrieves inbox folder
 
 Search for the user inbox
 
@@ -744,7 +744,7 @@ Name | Type | Description  | Notes
 
 Update a file
 
-Update properties on a single file
+Updates file properties of a single file
 
 ### Example
 ```php
@@ -799,7 +799,7 @@ Name | Type | Description  | Notes
 # **updateFolder**
 > \XeroAPI\XeroPHP\Models\File\Folder updateFolder($xero_tenant_id, $folder_id, $folder)
 
-update folder
+Updates an existing folder
 
 By passing in the appropriate ID and properties, you can update a folder
 
@@ -856,7 +856,7 @@ Name | Type | Description  | Notes
 # **uploadFile**
 > \XeroAPI\XeroPHP\Models\File\FileObject uploadFile($xero_tenant_id, $folder_id, $body, $name, $filename, $mime_type)
 
-upload an File
+Uploads a File
 
 ### Example
 ```php
