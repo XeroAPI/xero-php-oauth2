@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createAsset**](AssetApi.md#createAsset) | **POST** /Assets | adds a fixed asset
 [**createAssetType**](AssetApi.md#createAssetType) | **POST** /AssetTypes | adds a fixed asset type
-[**getAssetById**](AssetApi.md#getAssetById) | **GET** /Assets/{id} | retrieves fixed asset by id
+[**getAssetById**](AssetApi.md#getAssetById) | **GET** /Assets/{id} | Retrieves fixed asset by id
 [**getAssetSettings**](AssetApi.md#getAssetSettings) | **GET** /Settings | searches fixed asset settings
 [**getAssetTypes**](AssetApi.md#getAssetTypes) | **GET** /AssetTypes | searches fixed asset types
 [**getAssets**](AssetApi.md#getAssets) | **GET** /Assets | searches fixed asset
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 # **getAssetById**
 > \XeroAPI\XeroPHP\Models\Asset\Asset getAssetById($xero_tenant_id, $id)
 
-retrieves fixed asset by id
+Retrieves fixed asset by id
 
 By passing in the appropriate asset id, you can search for a specific fixed asset in the system
 
@@ -310,7 +310,7 @@ $page = 1; // int | Results are paged. This specifies which page of the results 
 $page_size = 5; // int | The number of records returned per page. By default the number of records returned is 10.
 $order_by = AssetName; // string | Requests can be ordered by AssetType, AssetName, AssetNumber, PurchaseDate and PurchasePrice. If the asset status is DISPOSED it also allows DisposalDate and DisposalPrice.
 $sort_direction = ASC; // string | ASC or DESC
-$filter_by = Draft; // string | A string that can be used to filter the list to only return assets containing the text. Checks it against the AssetName, AssetNumber, Description and AssetTypeName fields.
+$filter_by = Company Car; // string | A string that can be used to filter the list to only return assets containing the text. Checks it against the AssetName, AssetNumber, Description and AssetTypeName fields.
 
 try {
     $result = $apiInstance->getAssets($xero_tenant_id, $status, $page, $page_size, $order_by, $sort_direction, $filter_by);

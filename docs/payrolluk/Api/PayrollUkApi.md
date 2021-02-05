@@ -4,82 +4,82 @@ All URIs are relative to *https://api.xero.com/payroll.xro/2.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**approveTimesheet**](PayrollUkApi.md#approveTimesheet) | **POST** /Timesheets/{TimesheetID}/Approve | approve a timesheet
-[**createBenefit**](PayrollUkApi.md#createBenefit) | **POST** /Benefits | create a new benefit
-[**createDeduction**](PayrollUkApi.md#createDeduction) | **POST** /Deductions | create a new deduction
-[**createEarningsRate**](PayrollUkApi.md#createEarningsRate) | **POST** /EarningsRates | create a new earnings rate
-[**createEmployee**](PayrollUkApi.md#createEmployee) | **POST** /Employees | creates employees
-[**createEmployeeEarningsTemplate**](PayrollUkApi.md#createEmployeeEarningsTemplate) | **POST** /Employees/{EmployeeId}/PayTemplates/earnings | creates employee earnings template records
-[**createEmployeeLeave**](PayrollUkApi.md#createEmployeeLeave) | **POST** /Employees/{EmployeeId}/Leave | creates employee leave records
-[**createEmployeeLeaveType**](PayrollUkApi.md#createEmployeeLeaveType) | **POST** /Employees/{EmployeeId}/LeaveTypes | creates employee leave type records
-[**createEmployeeOpeningBalances**](PayrollUkApi.md#createEmployeeOpeningBalances) | **POST** /Employees/{EmployeeId}/ukopeningbalances | creates employee opening balances
-[**createEmployeePaymentMethod**](PayrollUkApi.md#createEmployeePaymentMethod) | **POST** /Employees/{EmployeeId}/PaymentMethods | creates employee payment method
-[**createEmployeeSalaryAndWage**](PayrollUkApi.md#createEmployeeSalaryAndWage) | **POST** /Employees/{EmployeeId}/SalaryAndWages | creates employee salary and wage record
-[**createEmployeeStatutorySickLeave**](PayrollUkApi.md#createEmployeeStatutorySickLeave) | **POST** /StatutoryLeaves/Sick | creates employee statutory sick leave records
-[**createEmployment**](PayrollUkApi.md#createEmployment) | **POST** /Employees/{EmployeeId}/Employment | creates employment
-[**createLeaveType**](PayrollUkApi.md#createLeaveType) | **POST** /LeaveTypes | create a new leave type
-[**createMultipleEmployeeEarningsTemplate**](PayrollUkApi.md#createMultipleEmployeeEarningsTemplate) | **POST** /Employees/{EmployeeId}/paytemplateearnings | creates multiple employee earnings template records
-[**createPayRunCalendar**](PayrollUkApi.md#createPayRunCalendar) | **POST** /PayRunCalendars | create a new payrun calendar
-[**createReimbursement**](PayrollUkApi.md#createReimbursement) | **POST** /Reimbursements | create a new reimbursement
-[**createTimesheet**](PayrollUkApi.md#createTimesheet) | **POST** /Timesheets | create a new timesheet
-[**createTimesheetLine**](PayrollUkApi.md#createTimesheetLine) | **POST** /Timesheets/{TimesheetID}/Lines | create a new timesheet line
-[**deleteEmployeeEarningsTemplate**](PayrollUkApi.md#deleteEmployeeEarningsTemplate) | **DELETE** /Employees/{EmployeeId}/PayTemplates/earnings/{PayTemplateEarningID} | deletes an employee earnings template record
-[**deleteEmployeeLeave**](PayrollUkApi.md#deleteEmployeeLeave) | **DELETE** /Employees/{EmployeeId}/Leave/{LeaveID} | deletes an employee leave record
-[**deleteEmployeeSalaryAndWage**](PayrollUkApi.md#deleteEmployeeSalaryAndWage) | **DELETE** /Employees/{EmployeeId}/SalaryAndWages/{SalaryAndWagesID} | deletes an employee salary and wages record
-[**deleteTimesheet**](PayrollUkApi.md#deleteTimesheet) | **DELETE** /Timesheets/{TimesheetID} | delete a timesheet
-[**deleteTimesheetLine**](PayrollUkApi.md#deleteTimesheetLine) | **DELETE** /Timesheets/{TimesheetID}/Lines/{TimesheetLineID} | delete a timesheet line
-[**getBenefit**](PayrollUkApi.md#getBenefit) | **GET** /Benefits/{id} | retrieve a single benefit by id
-[**getBenefits**](PayrollUkApi.md#getBenefits) | **GET** /Benefits | searches benefits
-[**getDeduction**](PayrollUkApi.md#getDeduction) | **GET** /Deductions/{deductionId} | retrieve a single deduction by id
-[**getDeductions**](PayrollUkApi.md#getDeductions) | **GET** /Deductions | searches deductions
-[**getEarningsOrder**](PayrollUkApi.md#getEarningsOrder) | **GET** /EarningsOrders/{id} | retrieve a single deduction by id
-[**getEarningsOrders**](PayrollUkApi.md#getEarningsOrders) | **GET** /EarningsOrders | searches earnings orders
-[**getEarningsRate**](PayrollUkApi.md#getEarningsRate) | **GET** /EarningsRates/{EarningsRateID} | retrieve a single earnings rates by id
-[**getEarningsRates**](PayrollUkApi.md#getEarningsRates) | **GET** /EarningsRates | searches earnings rates
-[**getEmployee**](PayrollUkApi.md#getEmployee) | **GET** /Employees/{EmployeeId} | searches employees
-[**getEmployeeLeave**](PayrollUkApi.md#getEmployeeLeave) | **GET** /Employees/{EmployeeId}/Leave/{LeaveID} | retrieve a single employee leave record
-[**getEmployeeLeaveBalances**](PayrollUkApi.md#getEmployeeLeaveBalances) | **GET** /Employees/{EmployeeId}/LeaveBalances | search employee leave balances
-[**getEmployeeLeavePeriods**](PayrollUkApi.md#getEmployeeLeavePeriods) | **GET** /Employees/{EmployeeId}/LeavePeriods | searches employee leave periods
-[**getEmployeeLeaveTypes**](PayrollUkApi.md#getEmployeeLeaveTypes) | **GET** /Employees/{EmployeeId}/LeaveTypes | searches employee leave types
-[**getEmployeeLeaves**](PayrollUkApi.md#getEmployeeLeaves) | **GET** /Employees/{EmployeeId}/Leave | search employee leave records
-[**getEmployeeOpeningBalances**](PayrollUkApi.md#getEmployeeOpeningBalances) | **GET** /Employees/{EmployeeId}/ukopeningbalances | retrieve employee openingbalances
-[**getEmployeePayTemplate**](PayrollUkApi.md#getEmployeePayTemplate) | **GET** /Employees/{EmployeeId}/PayTemplates | searches employee pay templates
-[**getEmployeePaymentMethod**](PayrollUkApi.md#getEmployeePaymentMethod) | **GET** /Employees/{EmployeeId}/PaymentMethods | retrieves an employee&#39;s payment method
-[**getEmployeeSalaryAndWage**](PayrollUkApi.md#getEmployeeSalaryAndWage) | **GET** /Employees/{EmployeeId}/SalaryAndWages/{SalaryAndWagesID} | get employee salary and wages record by id
-[**getEmployeeSalaryAndWages**](PayrollUkApi.md#getEmployeeSalaryAndWages) | **GET** /Employees/{EmployeeId}/SalaryAndWages | retrieves an employee&#39;s salary and wages
-[**getEmployeeStatutoryLeaveBalances**](PayrollUkApi.md#getEmployeeStatutoryLeaveBalances) | **GET** /Employees/{EmployeeId}/StatutoryLeaveBalance | search employee leave balances
-[**getEmployeeStatutorySickLeave**](PayrollUkApi.md#getEmployeeStatutorySickLeave) | **GET** /StatutoryLeaves/Sick/{StatutorySickLeaveID} | retrieve a statutory sick leave for an employee
-[**getEmployeeTax**](PayrollUkApi.md#getEmployeeTax) | **GET** /Employees/{EmployeeId}/Tax | searches tax records for an employee
-[**getEmployees**](PayrollUkApi.md#getEmployees) | **GET** /Employees | searches employees
-[**getLeaveType**](PayrollUkApi.md#getLeaveType) | **GET** /LeaveTypes/{LeaveTypeID} | retrieve a single leave type by id
-[**getLeaveTypes**](PayrollUkApi.md#getLeaveTypes) | **GET** /LeaveTypes | searches leave types
-[**getPayRun**](PayrollUkApi.md#getPayRun) | **GET** /PayRuns/{PayRunID} | retrieve a single pay run by id
-[**getPayRunCalendar**](PayrollUkApi.md#getPayRunCalendar) | **GET** /PayRunCalendars/{PayRunCalendarID} | retrieve a single payrun calendar by id
-[**getPayRunCalendars**](PayrollUkApi.md#getPayRunCalendars) | **GET** /PayRunCalendars | searches payrun calendars
-[**getPayRuns**](PayrollUkApi.md#getPayRuns) | **GET** /PayRuns | searches pay runs
-[**getPaySlip**](PayrollUkApi.md#getPaySlip) | **GET** /Payslips/{PayslipID} | retrieve a single payslip by id
-[**getPaySlips**](PayrollUkApi.md#getPaySlips) | **GET** /Payslips | searches payslips
-[**getReimbursement**](PayrollUkApi.md#getReimbursement) | **GET** /Reimbursements/{ReimbursementID} | retrieve a single reimbursement by id
-[**getReimbursements**](PayrollUkApi.md#getReimbursements) | **GET** /Reimbursements | searches reimbursements
-[**getSettings**](PayrollUkApi.md#getSettings) | **GET** /Settings | searches settings
-[**getStatutoryLeaveSummary**](PayrollUkApi.md#getStatutoryLeaveSummary) | **GET** /statutoryleaves/summary/{EmployeeId} | retrieve a summary of statutory leaves for an employee
-[**getTimesheet**](PayrollUkApi.md#getTimesheet) | **GET** /Timesheets/{TimesheetID} | retrieve a single timesheet by id
-[**getTimesheets**](PayrollUkApi.md#getTimesheets) | **GET** /Timesheets | searches timesheets
-[**getTrackingCategories**](PayrollUkApi.md#getTrackingCategories) | **GET** /settings/trackingCategories | searches tracking categories
-[**revertTimesheet**](PayrollUkApi.md#revertTimesheet) | **POST** /Timesheets/{TimesheetID}/RevertToDraft | revert a timesheet to draft
-[**updateEmployee**](PayrollUkApi.md#updateEmployee) | **PUT** /Employees/{EmployeeId} | updates employee
-[**updateEmployeeEarningsTemplate**](PayrollUkApi.md#updateEmployeeEarningsTemplate) | **PUT** /Employees/{EmployeeId}/PayTemplates/earnings/{PayTemplateEarningID} | updates employee earnings template records
-[**updateEmployeeLeave**](PayrollUkApi.md#updateEmployeeLeave) | **PUT** /Employees/{EmployeeId}/Leave/{LeaveID} | updates employee leave records
-[**updateEmployeeOpeningBalances**](PayrollUkApi.md#updateEmployeeOpeningBalances) | **PUT** /Employees/{EmployeeId}/ukopeningbalances | updates employee opening balances
-[**updateEmployeeSalaryAndWage**](PayrollUkApi.md#updateEmployeeSalaryAndWage) | **PUT** /Employees/{EmployeeId}/SalaryAndWages/{SalaryAndWagesID} | updates employee salary and wages record
-[**updatePayRun**](PayrollUkApi.md#updatePayRun) | **PUT** /PayRuns/{PayRunID} | update a pay run
-[**updateTimesheetLine**](PayrollUkApi.md#updateTimesheetLine) | **PUT** /Timesheets/{TimesheetID}/Lines/{TimesheetLineID} | update a timesheet line
+[**approveTimesheet**](PayrollUkApi.md#approveTimesheet) | **POST** /Timesheets/{TimesheetID}/Approve | Approves a specific timesheet
+[**createBenefit**](PayrollUkApi.md#createBenefit) | **POST** /Benefits | Creates a new employee benefit
+[**createDeduction**](PayrollUkApi.md#createDeduction) | **POST** /Deductions | Creates a new deduction
+[**createEarningsRate**](PayrollUkApi.md#createEarningsRate) | **POST** /EarningsRates | Creates a new earnings rate
+[**createEmployee**](PayrollUkApi.md#createEmployee) | **POST** /Employees | Creates employees
+[**createEmployeeEarningsTemplate**](PayrollUkApi.md#createEmployeeEarningsTemplate) | **POST** /Employees/{EmployeeID}/PayTemplates/earnings | Creates an earnings template records for a specific employee
+[**createEmployeeLeave**](PayrollUkApi.md#createEmployeeLeave) | **POST** /Employees/{EmployeeID}/Leave | Creates leave records for a specific employee
+[**createEmployeeLeaveType**](PayrollUkApi.md#createEmployeeLeaveType) | **POST** /Employees/{EmployeeID}/LeaveTypes | Creates employee leave type records
+[**createEmployeeOpeningBalances**](PayrollUkApi.md#createEmployeeOpeningBalances) | **POST** /Employees/{EmployeeID}/ukopeningbalances | Creates an opening balance for a specific employee
+[**createEmployeePaymentMethod**](PayrollUkApi.md#createEmployeePaymentMethod) | **POST** /Employees/{EmployeeID}/PaymentMethods | Creates an employee payment method
+[**createEmployeeSalaryAndWage**](PayrollUkApi.md#createEmployeeSalaryAndWage) | **POST** /Employees/{EmployeeID}/SalaryAndWages | Creates a salary and wage record for a specific employee
+[**createEmployeeStatutorySickLeave**](PayrollUkApi.md#createEmployeeStatutorySickLeave) | **POST** /StatutoryLeaves/Sick | Creates statutory sick leave records
+[**createEmployment**](PayrollUkApi.md#createEmployment) | **POST** /Employees/{EmployeeID}/Employment | Creates employment detail for a specific employee using a unique employee ID
+[**createLeaveType**](PayrollUkApi.md#createLeaveType) | **POST** /LeaveTypes | Creates a new leave type
+[**createMultipleEmployeeEarningsTemplate**](PayrollUkApi.md#createMultipleEmployeeEarningsTemplate) | **POST** /Employees/{EmployeeID}/paytemplateearnings | Creates multiple earnings template records for a specific employee using a unique employee ID
+[**createPayRunCalendar**](PayrollUkApi.md#createPayRunCalendar) | **POST** /PayRunCalendars | Creates a new payrun calendar
+[**createReimbursement**](PayrollUkApi.md#createReimbursement) | **POST** /Reimbursements | Creates a new reimbursement
+[**createTimesheet**](PayrollUkApi.md#createTimesheet) | **POST** /Timesheets | Creates a new timesheet
+[**createTimesheetLine**](PayrollUkApi.md#createTimesheetLine) | **POST** /Timesheets/{TimesheetID}/Lines | Creates a new timesheet line for a specific timesheet using a unique timesheet ID
+[**deleteEmployeeEarningsTemplate**](PayrollUkApi.md#deleteEmployeeEarningsTemplate) | **DELETE** /Employees/{EmployeeID}/PayTemplates/earnings/{PayTemplateEarningID} | Deletes a specific employee&#39;s earnings template record
+[**deleteEmployeeLeave**](PayrollUkApi.md#deleteEmployeeLeave) | **DELETE** /Employees/{EmployeeID}/Leave/{LeaveID} | Deletes a specific employee&#39;s leave record
+[**deleteEmployeeSalaryAndWage**](PayrollUkApi.md#deleteEmployeeSalaryAndWage) | **DELETE** /Employees/{EmployeeID}/SalaryAndWages/{SalaryAndWagesID} | Deletes a salary and wages record for a specific employee
+[**deleteTimesheet**](PayrollUkApi.md#deleteTimesheet) | **DELETE** /Timesheets/{TimesheetID} | Deletes a specific timesheet
+[**deleteTimesheetLine**](PayrollUkApi.md#deleteTimesheetLine) | **DELETE** /Timesheets/{TimesheetID}/Lines/{TimesheetLineID} | Deletes a specific timesheet line
+[**getBenefit**](PayrollUkApi.md#getBenefit) | **GET** /Benefits/{id} | Retrieves a specific benefit by using a unique benefit ID
+[**getBenefits**](PayrollUkApi.md#getBenefits) | **GET** /Benefits | Retrieves employee benefits
+[**getDeduction**](PayrollUkApi.md#getDeduction) | **GET** /Deductions/{deductionId} | Retrieves a specific deduction by using a unique deduction ID
+[**getDeductions**](PayrollUkApi.md#getDeductions) | **GET** /Deductions | Retrieves deductions
+[**getEarningsOrder**](PayrollUkApi.md#getEarningsOrder) | **GET** /EarningsOrders/{id} | Retrieves a specific earnings orders by using a unique earnings orders id
+[**getEarningsOrders**](PayrollUkApi.md#getEarningsOrders) | **GET** /EarningsOrders | Retrieves earnings orders
+[**getEarningsRate**](PayrollUkApi.md#getEarningsRate) | **GET** /EarningsRates/{EarningsRateID} | Retrieves a specific earnings rates by using a unique earnings rate id
+[**getEarningsRates**](PayrollUkApi.md#getEarningsRates) | **GET** /EarningsRates | Retrieves earnings rates
+[**getEmployee**](PayrollUkApi.md#getEmployee) | **GET** /Employees/{EmployeeID} | Retrieves specific employees by using a unique employee ID
+[**getEmployeeLeave**](PayrollUkApi.md#getEmployeeLeave) | **GET** /Employees/{EmployeeID}/Leave/{LeaveID} | Retrieves a specific employee&#39;s leave record using a unique employee ID
+[**getEmployeeLeaveBalances**](PayrollUkApi.md#getEmployeeLeaveBalances) | **GET** /Employees/{EmployeeID}/LeaveBalances | Retrieves a specific employee&#39;s leave balances using a unique employee ID
+[**getEmployeeLeavePeriods**](PayrollUkApi.md#getEmployeeLeavePeriods) | **GET** /Employees/{EmployeeID}/LeavePeriods | Retrieves a specific employee&#39;s leave periods using a unique employee ID
+[**getEmployeeLeaveTypes**](PayrollUkApi.md#getEmployeeLeaveTypes) | **GET** /Employees/{EmployeeID}/LeaveTypes | Retrieves a specific employee&#39;s leave types using a unique employee ID
+[**getEmployeeLeaves**](PayrollUkApi.md#getEmployeeLeaves) | **GET** /Employees/{EmployeeID}/Leave | Retrieves a specific employee&#39;s leave records using a unique employee ID
+[**getEmployeeOpeningBalances**](PayrollUkApi.md#getEmployeeOpeningBalances) | **GET** /Employees/{EmployeeID}/ukopeningbalances | Retrieves a specific employee&#39;s openingbalances using a unique employee ID
+[**getEmployeePayTemplate**](PayrollUkApi.md#getEmployeePayTemplate) | **GET** /Employees/{EmployeeID}/PayTemplates | Retrieves a specific employee pay templates using a unique employee ID
+[**getEmployeePaymentMethod**](PayrollUkApi.md#getEmployeePaymentMethod) | **GET** /Employees/{EmployeeID}/PaymentMethods | Retrieves a specific employee&#39;s payment method using a unique employee ID
+[**getEmployeeSalaryAndWage**](PayrollUkApi.md#getEmployeeSalaryAndWage) | **GET** /Employees/{EmployeeID}/SalaryAndWages/{SalaryAndWagesID} | Retrieves a specific salary and wages record for a specific employee using a unique salary and wage id
+[**getEmployeeSalaryAndWages**](PayrollUkApi.md#getEmployeeSalaryAndWages) | **GET** /Employees/{EmployeeID}/SalaryAndWages | Retrieves a specific employee&#39;s salary and wages by using a unique employee ID
+[**getEmployeeStatutoryLeaveBalances**](PayrollUkApi.md#getEmployeeStatutoryLeaveBalances) | **GET** /Employees/{EmployeeID}/StatutoryLeaveBalance | Retrieves a specific employee&#39;s leave balances using a unique employee ID
+[**getEmployeeStatutorySickLeave**](PayrollUkApi.md#getEmployeeStatutorySickLeave) | **GET** /StatutoryLeaves/Sick/{StatutorySickLeaveID} | Retrieves a statutory sick leave for an employee
+[**getEmployeeTax**](PayrollUkApi.md#getEmployeeTax) | **GET** /Employees/{EmployeeID}/Tax | Retrieves tax records for a specific employee using a unique employee ID
+[**getEmployees**](PayrollUkApi.md#getEmployees) | **GET** /Employees | Retrieves employees
+[**getLeaveType**](PayrollUkApi.md#getLeaveType) | **GET** /LeaveTypes/{LeaveTypeID} | Retrieves a specific leave type by using a unique leave type ID
+[**getLeaveTypes**](PayrollUkApi.md#getLeaveTypes) | **GET** /LeaveTypes | Retrieves leave types
+[**getPayRun**](PayrollUkApi.md#getPayRun) | **GET** /PayRuns/{PayRunID} | Retrieves a specific pay run by using a unique pay run ID
+[**getPayRunCalendar**](PayrollUkApi.md#getPayRunCalendar) | **GET** /PayRunCalendars/{PayRunCalendarID} | Retrieves a specific payrun calendar by using a unique payrun calendar ID
+[**getPayRunCalendars**](PayrollUkApi.md#getPayRunCalendars) | **GET** /PayRunCalendars | Retrieves payrun calendars
+[**getPayRuns**](PayrollUkApi.md#getPayRuns) | **GET** /PayRuns | Retrieves pay runs
+[**getPaySlip**](PayrollUkApi.md#getPaySlip) | **GET** /Payslips/{PayslipID} | Retrieves a specific payslip by using a unique payslip ID
+[**getPaySlips**](PayrollUkApi.md#getPaySlips) | **GET** /Payslips | Retrieves payslips
+[**getReimbursement**](PayrollUkApi.md#getReimbursement) | **GET** /Reimbursements/{ReimbursementID} | Retrieves a specific reimbursement by using a unique reimbursement id
+[**getReimbursements**](PayrollUkApi.md#getReimbursements) | **GET** /Reimbursements | Retrieves reimbursements
+[**getSettings**](PayrollUkApi.md#getSettings) | **GET** /Settings | Retrieves payroll settings
+[**getStatutoryLeaveSummary**](PayrollUkApi.md#getStatutoryLeaveSummary) | **GET** /StatutoryLeaves/Summary/{EmployeeID} | Retrieves a specific employee&#39;s summary of statutory leaves using a unique employee ID
+[**getTimesheet**](PayrollUkApi.md#getTimesheet) | **GET** /Timesheets/{TimesheetID} | Retrieve a specific timesheet by using a unique timesheet ID
+[**getTimesheets**](PayrollUkApi.md#getTimesheets) | **GET** /Timesheets | Retrieves timesheets
+[**getTrackingCategories**](PayrollUkApi.md#getTrackingCategories) | **GET** /Settings/trackingCategories | Retrieves tracking categories
+[**revertTimesheet**](PayrollUkApi.md#revertTimesheet) | **POST** /Timesheets/{TimesheetID}/RevertToDraft | Reverts a specific timesheet to draft
+[**updateEmployee**](PayrollUkApi.md#updateEmployee) | **PUT** /Employees/{EmployeeID} | Updates a specific employee&#39;s detail
+[**updateEmployeeEarningsTemplate**](PayrollUkApi.md#updateEmployeeEarningsTemplate) | **PUT** /Employees/{EmployeeID}/PayTemplates/earnings/{PayTemplateEarningID} | Updates a specific employee&#39;s earnings template records
+[**updateEmployeeLeave**](PayrollUkApi.md#updateEmployeeLeave) | **PUT** /Employees/{EmployeeID}/Leave/{LeaveID} | Updates a specific employee&#39;s leave records
+[**updateEmployeeOpeningBalances**](PayrollUkApi.md#updateEmployeeOpeningBalances) | **PUT** /Employees/{EmployeeID}/ukopeningbalances | Updates a specific employee&#39;s opening balances
+[**updateEmployeeSalaryAndWage**](PayrollUkApi.md#updateEmployeeSalaryAndWage) | **PUT** /Employees/{EmployeeID}/SalaryAndWages/{SalaryAndWagesID} | Updates salary and wages record for a specific employee
+[**updatePayRun**](PayrollUkApi.md#updatePayRun) | **PUT** /PayRuns/{PayRunID} | Updates a specific pay run
+[**updateTimesheetLine**](PayrollUkApi.md#updateTimesheetLine) | **PUT** /Timesheets/{TimesheetID}/Lines/{TimesheetLineID} | Updates a specific timesheet line for a specific timesheet
 
 
 # **approveTimesheet**
 > \XeroAPI\XeroPHP\Models\PayrollUk\TimesheetObject approveTimesheet($xero_tenant_id, $timesheet_id)
 
-approve a timesheet
+Approves a specific timesheet
 
 ### Example
 ```php
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 # **createBenefit**
 > \XeroAPI\XeroPHP\Models\PayrollUk\BenefitObject createBenefit($xero_tenant_id, $benefit)
 
-create a new benefit
+Creates a new employee benefit
 
 ### Example
 ```php
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 # **createDeduction**
 > \XeroAPI\XeroPHP\Models\PayrollUk\DeductionObject createDeduction($xero_tenant_id, $deduction)
 
-create a new deduction
+Creates a new deduction
 
 ### Example
 ```php
@@ -202,7 +202,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollUkApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$deduction = { "deductionName": "My new deducation", "deductionCategory": "SalarySacrifice", "liabilityAccountId": "e0faa299-ca0d-4b0a-9e32-0dfabdf9179a", "calculationType": "FixedAmount" }; // \XeroAPI\XeroPHP\Models\PayrollUk\Deduction | 
+$deduction = { "deductionName": "My new deduction", "deductionCategory": "SalarySacrifice", "liabilityAccountId": "e0faa299-ca0d-4b0a-9e32-0dfabdf9179a", "calculationType": "FixedAmount" }; // \XeroAPI\XeroPHP\Models\PayrollUk\Deduction | 
 
 try {
     $result = $apiInstance->createDeduction($xero_tenant_id, $deduction);
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 # **createEarningsRate**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EarningsRateObject createEarningsRate($xero_tenant_id, $earnings_rate)
 
-create a new earnings rate
+Creates a new earnings rate
 
 ### Example
 ```php
@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 # **createEmployee**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EmployeeObject createEmployee($xero_tenant_id, $employee)
 
-creates employees
+Creates employees
 
 ### Example
 ```php
@@ -344,7 +344,7 @@ Name | Type | Description  | Notes
 # **createEmployeeEarningsTemplate**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EarningsTemplateObject createEmployeeEarningsTemplate($xero_tenant_id, $employee_id, $earnings_template)
 
-creates employee earnings template records
+Creates an earnings template records for a specific employee
 
 ### Example
 ```php
@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 # **createEmployeeLeave**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EmployeeLeaveObject createEmployeeLeave($xero_tenant_id, $employee_id, $employee_leave)
 
-creates employee leave records
+Creates leave records for a specific employee
 
 ### Example
 ```php
@@ -417,7 +417,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollUkApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c; // string | Employee id for single object
-$employee_leave = { "leaveTypeID": "1d2778ee-86ea-45c0-bbf8-1045485f6b3f", "description": "Creating a Desription", "startDate": "2020-03-24", "endDate": "2020-03-26" }; // \XeroAPI\XeroPHP\Models\PayrollUk\EmployeeLeave | 
+$employee_leave = { "leaveTypeID": "1d2778ee-86ea-45c0-bbf8-1045485f6b3f", "description": "Creating a Description", "startDate": "2020-03-24", "endDate": "2020-03-26" }; // \XeroAPI\XeroPHP\Models\PayrollUk\EmployeeLeave | 
 
 try {
     $result = $apiInstance->createEmployeeLeave($xero_tenant_id, $employee_id, $employee_leave);
@@ -454,7 +454,7 @@ Name | Type | Description  | Notes
 # **createEmployeeLeaveType**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EmployeeLeaveTypeObject createEmployeeLeaveType($xero_tenant_id, $employee_id, $employee_leave_type)
 
-creates employee leave type records
+Creates employee leave type records
 
 ### Example
 ```php
@@ -509,7 +509,7 @@ Name | Type | Description  | Notes
 # **createEmployeeOpeningBalances**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EmployeeOpeningBalancesObject createEmployeeOpeningBalances($xero_tenant_id, $employee_id, $employee_opening_balances)
 
-creates employee opening balances
+Creates an opening balance for a specific employee
 
 ### Example
 ```php
@@ -564,7 +564,7 @@ Name | Type | Description  | Notes
 # **createEmployeePaymentMethod**
 > \XeroAPI\XeroPHP\Models\PayrollUk\PaymentMethodObject createEmployeePaymentMethod($xero_tenant_id, $employee_id, $payment_method)
 
-creates employee payment method
+Creates an employee payment method
 
 ### Example
 ```php
@@ -619,7 +619,7 @@ Name | Type | Description  | Notes
 # **createEmployeeSalaryAndWage**
 > \XeroAPI\XeroPHP\Models\PayrollUk\SalaryAndWageObject createEmployeeSalaryAndWage($xero_tenant_id, $employee_id, $salary_and_wage)
 
-creates employee salary and wage record
+Creates a salary and wage record for a specific employee
 
 ### Example
 ```php
@@ -674,7 +674,7 @@ Name | Type | Description  | Notes
 # **createEmployeeStatutorySickLeave**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EmployeeStatutorySickLeaveObject createEmployeeStatutorySickLeave($xero_tenant_id, $employee_statutory_sick_leave)
 
-creates employee statutory sick leave records
+Creates statutory sick leave records
 
 ### Example
 ```php
@@ -727,7 +727,7 @@ Name | Type | Description  | Notes
 # **createEmployment**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EmploymentObject createEmployment($xero_tenant_id, $employee_id, $employment)
 
-creates employment
+Creates employment detail for a specific employee using a unique employee ID
 
 ### Example
 ```php
@@ -782,7 +782,7 @@ Name | Type | Description  | Notes
 # **createLeaveType**
 > \XeroAPI\XeroPHP\Models\PayrollUk\LeaveTypeObject createLeaveType($xero_tenant_id, $leave_type)
 
-create a new leave type
+Creates a new leave type
 
 ### Example
 ```php
@@ -835,7 +835,7 @@ Name | Type | Description  | Notes
 # **createMultipleEmployeeEarningsTemplate**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EmployeePayTemplates createMultipleEmployeeEarningsTemplate($xero_tenant_id, $employee_id, $earnings_template)
 
-creates multiple employee earnings template records
+Creates multiple earnings template records for a specific employee using a unique employee ID
 
 ### Example
 ```php
@@ -890,7 +890,7 @@ Name | Type | Description  | Notes
 # **createPayRunCalendar**
 > \XeroAPI\XeroPHP\Models\PayrollUk\PayRunCalendarObject createPayRunCalendar($xero_tenant_id, $pay_run_calendar)
 
-create a new payrun calendar
+Creates a new payrun calendar
 
 ### Example
 ```php
@@ -943,7 +943,7 @@ Name | Type | Description  | Notes
 # **createReimbursement**
 > \XeroAPI\XeroPHP\Models\PayrollUk\ReimbursementObject createReimbursement($xero_tenant_id, $reimbursement)
 
-create a new reimbursement
+Creates a new reimbursement
 
 ### Example
 ```php
@@ -996,7 +996,7 @@ Name | Type | Description  | Notes
 # **createTimesheet**
 > \XeroAPI\XeroPHP\Models\PayrollUk\TimesheetObject createTimesheet($xero_tenant_id, $timesheet)
 
-create a new timesheet
+Creates a new timesheet
 
 ### Example
 ```php
@@ -1049,7 +1049,7 @@ Name | Type | Description  | Notes
 # **createTimesheetLine**
 > \XeroAPI\XeroPHP\Models\PayrollUk\TimesheetLineObject createTimesheetLine($xero_tenant_id, $timesheet_id, $timesheet_line)
 
-create a new timesheet line
+Creates a new timesheet line for a specific timesheet using a unique timesheet ID
 
 ### Example
 ```php
@@ -1104,7 +1104,7 @@ Name | Type | Description  | Notes
 # **deleteEmployeeEarningsTemplate**
 > deleteEmployeeEarningsTemplate($xero_tenant_id, $employee_id, $pay_template_earning_id)
 
-deletes an employee earnings template record
+Deletes a specific employee's earnings template record
 
 ### Example
 ```php
@@ -1158,7 +1158,7 @@ void (empty response body)
 # **deleteEmployeeLeave**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EmployeeLeaveObject deleteEmployeeLeave($xero_tenant_id, $employee_id, $leave_id)
 
-deletes an employee leave record
+Deletes a specific employee's leave record
 
 ### Example
 ```php
@@ -1213,7 +1213,7 @@ Name | Type | Description  | Notes
 # **deleteEmployeeSalaryAndWage**
 > deleteEmployeeSalaryAndWage($xero_tenant_id, $employee_id, $salary_and_wages_id)
 
-deletes an employee salary and wages record
+Deletes a salary and wages record for a specific employee
 
 ### Example
 ```php
@@ -1267,7 +1267,7 @@ void (empty response body)
 # **deleteTimesheet**
 > \XeroAPI\XeroPHP\Models\PayrollUk\TimesheetLine deleteTimesheet($xero_tenant_id, $timesheet_id)
 
-delete a timesheet
+Deletes a specific timesheet
 
 ### Example
 ```php
@@ -1320,7 +1320,7 @@ Name | Type | Description  | Notes
 # **deleteTimesheetLine**
 > \XeroAPI\XeroPHP\Models\PayrollUk\TimesheetLine deleteTimesheetLine($xero_tenant_id, $timesheet_id, $timesheet_line_id)
 
-delete a timesheet line
+Deletes a specific timesheet line
 
 ### Example
 ```php
@@ -1375,7 +1375,7 @@ Name | Type | Description  | Notes
 # **getBenefit**
 > \XeroAPI\XeroPHP\Models\PayrollUk\BenefitObject getBenefit($xero_tenant_id, $id)
 
-retrieve a single benefit by id
+Retrieves a specific benefit by using a unique benefit ID
 
 ### Example
 ```php
@@ -1428,7 +1428,7 @@ Name | Type | Description  | Notes
 # **getBenefits**
 > \XeroAPI\XeroPHP\Models\PayrollUk\Benefits getBenefits($xero_tenant_id, $page)
 
-searches benefits
+Retrieves employee benefits
 
 ### Example
 ```php
@@ -1481,7 +1481,7 @@ Name | Type | Description  | Notes
 # **getDeduction**
 > \XeroAPI\XeroPHP\Models\PayrollUk\DeductionObject getDeduction($xero_tenant_id, $deduction_id)
 
-retrieve a single deduction by id
+Retrieves a specific deduction by using a unique deduction ID
 
 ### Example
 ```php
@@ -1534,7 +1534,7 @@ Name | Type | Description  | Notes
 # **getDeductions**
 > \XeroAPI\XeroPHP\Models\PayrollUk\Deductions getDeductions($xero_tenant_id, $page)
 
-searches deductions
+Retrieves deductions
 
 ### Example
 ```php
@@ -1587,7 +1587,7 @@ Name | Type | Description  | Notes
 # **getEarningsOrder**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EarningsOrderObject getEarningsOrder($xero_tenant_id, $id)
 
-retrieve a single deduction by id
+Retrieves a specific earnings orders by using a unique earnings orders id
 
 ### Example
 ```php
@@ -1640,7 +1640,7 @@ Name | Type | Description  | Notes
 # **getEarningsOrders**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EarningsOrders getEarningsOrders($xero_tenant_id, $page)
 
-searches earnings orders
+Retrieves earnings orders
 
 ### Example
 ```php
@@ -1693,7 +1693,7 @@ Name | Type | Description  | Notes
 # **getEarningsRate**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EarningsRateObject getEarningsRate($xero_tenant_id, $earnings_rate_id)
 
-retrieve a single earnings rates by id
+Retrieves a specific earnings rates by using a unique earnings rate id
 
 ### Example
 ```php
@@ -1746,7 +1746,7 @@ Name | Type | Description  | Notes
 # **getEarningsRates**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EarningsRates getEarningsRates($xero_tenant_id, $page)
 
-searches earnings rates
+Retrieves earnings rates
 
 ### Example
 ```php
@@ -1799,7 +1799,7 @@ Name | Type | Description  | Notes
 # **getEmployee**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EmployeeObject getEmployee($xero_tenant_id, $employee_id)
 
-searches employees
+Retrieves specific employees by using a unique employee ID
 
 ### Example
 ```php
@@ -1852,7 +1852,7 @@ Name | Type | Description  | Notes
 # **getEmployeeLeave**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EmployeeLeaveObject getEmployeeLeave($xero_tenant_id, $employee_id, $leave_id)
 
-retrieve a single employee leave record
+Retrieves a specific employee's leave record using a unique employee ID
 
 ### Example
 ```php
@@ -1907,7 +1907,7 @@ Name | Type | Description  | Notes
 # **getEmployeeLeaveBalances**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EmployeeLeaveBalances getEmployeeLeaveBalances($xero_tenant_id, $employee_id)
 
-search employee leave balances
+Retrieves a specific employee's leave balances using a unique employee ID
 
 ### Example
 ```php
@@ -1960,7 +1960,7 @@ Name | Type | Description  | Notes
 # **getEmployeeLeavePeriods**
 > \XeroAPI\XeroPHP\Models\PayrollUk\LeavePeriods getEmployeeLeavePeriods($xero_tenant_id, $employee_id, $start_date, $end_date)
 
-searches employee leave periods
+Retrieves a specific employee's leave periods using a unique employee ID
 
 ### Example
 ```php
@@ -2017,7 +2017,7 @@ Name | Type | Description  | Notes
 # **getEmployeeLeaveTypes**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EmployeeLeaveTypes getEmployeeLeaveTypes($xero_tenant_id, $employee_id)
 
-searches employee leave types
+Retrieves a specific employee's leave types using a unique employee ID
 
 ### Example
 ```php
@@ -2070,7 +2070,7 @@ Name | Type | Description  | Notes
 # **getEmployeeLeaves**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EmployeeLeaves getEmployeeLeaves($xero_tenant_id, $employee_id)
 
-search employee leave records
+Retrieves a specific employee's leave records using a unique employee ID
 
 ### Example
 ```php
@@ -2123,7 +2123,7 @@ Name | Type | Description  | Notes
 # **getEmployeeOpeningBalances**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EmployeeOpeningBalancesObject getEmployeeOpeningBalances($xero_tenant_id, $employee_id)
 
-retrieve employee openingbalances
+Retrieves a specific employee's openingbalances using a unique employee ID
 
 ### Example
 ```php
@@ -2176,7 +2176,7 @@ Name | Type | Description  | Notes
 # **getEmployeePayTemplate**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EmployeePayTemplateObject getEmployeePayTemplate($xero_tenant_id, $employee_id)
 
-searches employee pay templates
+Retrieves a specific employee pay templates using a unique employee ID
 
 ### Example
 ```php
@@ -2229,7 +2229,7 @@ Name | Type | Description  | Notes
 # **getEmployeePaymentMethod**
 > \XeroAPI\XeroPHP\Models\PayrollUk\PaymentMethodObject getEmployeePaymentMethod($xero_tenant_id, $employee_id)
 
-retrieves an employee's payment method
+Retrieves a specific employee's payment method using a unique employee ID
 
 ### Example
 ```php
@@ -2282,7 +2282,7 @@ Name | Type | Description  | Notes
 # **getEmployeeSalaryAndWage**
 > \XeroAPI\XeroPHP\Models\PayrollUk\SalaryAndWages getEmployeeSalaryAndWage($xero_tenant_id, $employee_id, $salary_and_wages_id)
 
-get employee salary and wages record by id
+Retrieves a specific salary and wages record for a specific employee using a unique salary and wage id
 
 ### Example
 ```php
@@ -2337,7 +2337,7 @@ Name | Type | Description  | Notes
 # **getEmployeeSalaryAndWages**
 > \XeroAPI\XeroPHP\Models\PayrollUk\SalaryAndWages getEmployeeSalaryAndWages($xero_tenant_id, $employee_id, $page)
 
-retrieves an employee's salary and wages
+Retrieves a specific employee's salary and wages by using a unique employee ID
 
 ### Example
 ```php
@@ -2392,7 +2392,7 @@ Name | Type | Description  | Notes
 # **getEmployeeStatutoryLeaveBalances**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EmployeeStatutoryLeaveBalanceObject getEmployeeStatutoryLeaveBalances($xero_tenant_id, $employee_id, $leave_type, $as_of_date)
 
-search employee leave balances
+Retrieves a specific employee's leave balances using a unique employee ID
 
 ### Example
 ```php
@@ -2449,7 +2449,7 @@ Name | Type | Description  | Notes
 # **getEmployeeStatutorySickLeave**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EmployeeStatutorySickLeaveObject getEmployeeStatutorySickLeave($xero_tenant_id, $statutory_sick_leave_id)
 
-retrieve a statutory sick leave for an employee
+Retrieves a statutory sick leave for an employee
 
 ### Example
 ```php
@@ -2502,7 +2502,7 @@ Name | Type | Description  | Notes
 # **getEmployeeTax**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EmployeeTaxObject getEmployeeTax($xero_tenant_id, $employee_id)
 
-searches tax records for an employee
+Retrieves tax records for a specific employee using a unique employee ID
 
 ### Example
 ```php
@@ -2555,7 +2555,7 @@ Name | Type | Description  | Notes
 # **getEmployees**
 > \XeroAPI\XeroPHP\Models\PayrollUk\Employees getEmployees($xero_tenant_id, $first_name, $last_name, $page)
 
-searches employees
+Retrieves employees
 
 ### Example
 ```php
@@ -2612,7 +2612,7 @@ Name | Type | Description  | Notes
 # **getLeaveType**
 > \XeroAPI\XeroPHP\Models\PayrollUk\LeaveTypeObject getLeaveType($xero_tenant_id, $leave_type_id)
 
-retrieve a single leave type by id
+Retrieves a specific leave type by using a unique leave type ID
 
 ### Example
 ```php
@@ -2665,7 +2665,7 @@ Name | Type | Description  | Notes
 # **getLeaveTypes**
 > \XeroAPI\XeroPHP\Models\PayrollUk\LeaveTypes getLeaveTypes($xero_tenant_id, $page, $active_only)
 
-searches leave types
+Retrieves leave types
 
 ### Example
 ```php
@@ -2720,7 +2720,7 @@ Name | Type | Description  | Notes
 # **getPayRun**
 > \XeroAPI\XeroPHP\Models\PayrollUk\PayRunObject getPayRun($xero_tenant_id, $pay_run_id)
 
-retrieve a single pay run by id
+Retrieves a specific pay run by using a unique pay run ID
 
 ### Example
 ```php
@@ -2773,7 +2773,7 @@ Name | Type | Description  | Notes
 # **getPayRunCalendar**
 > \XeroAPI\XeroPHP\Models\PayrollUk\PayRunCalendarObject getPayRunCalendar($xero_tenant_id, $pay_run_calendar_id)
 
-retrieve a single payrun calendar by id
+Retrieves a specific payrun calendar by using a unique payrun calendar ID
 
 ### Example
 ```php
@@ -2826,7 +2826,7 @@ Name | Type | Description  | Notes
 # **getPayRunCalendars**
 > \XeroAPI\XeroPHP\Models\PayrollUk\PayRunCalendars getPayRunCalendars($xero_tenant_id, $page)
 
-searches payrun calendars
+Retrieves payrun calendars
 
 ### Example
 ```php
@@ -2879,7 +2879,7 @@ Name | Type | Description  | Notes
 # **getPayRuns**
 > \XeroAPI\XeroPHP\Models\PayrollUk\PayRuns getPayRuns($xero_tenant_id, $page, $status)
 
-searches pay runs
+Retrieves pay runs
 
 ### Example
 ```php
@@ -2934,7 +2934,7 @@ Name | Type | Description  | Notes
 # **getPaySlip**
 > \XeroAPI\XeroPHP\Models\PayrollUk\PayslipObject getPaySlip($xero_tenant_id, $payslip_id)
 
-retrieve a single payslip by id
+Retrieves a specific payslip by using a unique payslip ID
 
 ### Example
 ```php
@@ -2987,7 +2987,7 @@ Name | Type | Description  | Notes
 # **getPaySlips**
 > \XeroAPI\XeroPHP\Models\PayrollUk\Payslips getPaySlips($xero_tenant_id, $pay_run_id, $page)
 
-searches payslips
+Retrieves payslips
 
 ### Example
 ```php
@@ -3042,7 +3042,7 @@ Name | Type | Description  | Notes
 # **getReimbursement**
 > \XeroAPI\XeroPHP\Models\PayrollUk\ReimbursementObject getReimbursement($xero_tenant_id, $reimbursement_id)
 
-retrieve a single reimbursement by id
+Retrieves a specific reimbursement by using a unique reimbursement id
 
 ### Example
 ```php
@@ -3095,7 +3095,7 @@ Name | Type | Description  | Notes
 # **getReimbursements**
 > \XeroAPI\XeroPHP\Models\PayrollUk\Reimbursements getReimbursements($xero_tenant_id, $page)
 
-searches reimbursements
+Retrieves reimbursements
 
 ### Example
 ```php
@@ -3148,7 +3148,7 @@ Name | Type | Description  | Notes
 # **getSettings**
 > \XeroAPI\XeroPHP\Models\PayrollUk\Settings getSettings($xero_tenant_id)
 
-searches settings
+Retrieves payroll settings
 
 ### Example
 ```php
@@ -3199,7 +3199,7 @@ Name | Type | Description  | Notes
 # **getStatutoryLeaveSummary**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EmployeeStatutoryLeavesSummaries getStatutoryLeaveSummary($xero_tenant_id, $employee_id, $active_only)
 
-retrieve a summary of statutory leaves for an employee
+Retrieves a specific employee's summary of statutory leaves using a unique employee ID
 
 ### Example
 ```php
@@ -3254,7 +3254,7 @@ Name | Type | Description  | Notes
 # **getTimesheet**
 > \XeroAPI\XeroPHP\Models\PayrollUk\TimesheetObject getTimesheet($xero_tenant_id, $timesheet_id)
 
-retrieve a single timesheet by id
+Retrieve a specific timesheet by using a unique timesheet ID
 
 ### Example
 ```php
@@ -3307,7 +3307,7 @@ Name | Type | Description  | Notes
 # **getTimesheets**
 > \XeroAPI\XeroPHP\Models\PayrollUk\Timesheets getTimesheets($xero_tenant_id, $page, $employee_id, $payroll_calendar_id)
 
-searches timesheets
+Retrieves timesheets
 
 ### Example
 ```php
@@ -3325,7 +3325,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollUkApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $page = 56; // int | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
-$employee_id = 'employee_id_example'; // string | By default get Timesheets will return the timesheets for all employees in an organization. You can add GET https://…/timesheets?filter=employeeId=={EmployeeId} to get only the timesheets of a particular employee.
+$employee_id = 'employee_id_example'; // string | By default get Timesheets will return the timesheets for all employees in an organization. You can add GET https://…/timesheets?filter=employeeId=={EmployeeID} to get only the timesheets of a particular employee.
 $payroll_calendar_id = 'payroll_calendar_id_example'; // string | By default get Timesheets will return all the timesheets for an organization. You can add GET https://…/timesheets?filter=payrollCalendarId=={PayrollCalendarID} to filter the timesheets by payroll calendar id
 
 try {
@@ -3343,7 +3343,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **page** | **int**| Page number which specifies the set of records to retrieve. By default the number of the records per set is 100. | [optional]
- **employee_id** | [**string**](../Model/.md)| By default get Timesheets will return the timesheets for all employees in an organization. You can add GET https://…/timesheets?filter&#x3D;employeeId&#x3D;&#x3D;{EmployeeId} to get only the timesheets of a particular employee. | [optional]
+ **employee_id** | [**string**](../Model/.md)| By default get Timesheets will return the timesheets for all employees in an organization. You can add GET https://…/timesheets?filter&#x3D;employeeId&#x3D;&#x3D;{EmployeeID} to get only the timesheets of a particular employee. | [optional]
  **payroll_calendar_id** | [**string**](../Model/.md)| By default get Timesheets will return all the timesheets for an organization. You can add GET https://…/timesheets?filter&#x3D;payrollCalendarId&#x3D;&#x3D;{PayrollCalendarID} to filter the timesheets by payroll calendar id | [optional]
 
 ### Return type
@@ -3364,7 +3364,7 @@ Name | Type | Description  | Notes
 # **getTrackingCategories**
 > \XeroAPI\XeroPHP\Models\PayrollUk\TrackingCategories getTrackingCategories($xero_tenant_id)
 
-searches tracking categories
+Retrieves tracking categories
 
 ### Example
 ```php
@@ -3415,7 +3415,7 @@ Name | Type | Description  | Notes
 # **revertTimesheet**
 > \XeroAPI\XeroPHP\Models\PayrollUk\TimesheetObject revertTimesheet($xero_tenant_id, $timesheet_id)
 
-revert a timesheet to draft
+Reverts a specific timesheet to draft
 
 ### Example
 ```php
@@ -3468,7 +3468,7 @@ Name | Type | Description  | Notes
 # **updateEmployee**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EmployeeObject updateEmployee($xero_tenant_id, $employee_id, $employee)
 
-updates employee
+Updates a specific employee's detail
 
 ### Example
 ```php
@@ -3523,7 +3523,7 @@ Name | Type | Description  | Notes
 # **updateEmployeeEarningsTemplate**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EarningsTemplateObject updateEmployeeEarningsTemplate($xero_tenant_id, $employee_id, $pay_template_earning_id, $earnings_template)
 
-updates employee earnings template records
+Updates a specific employee's earnings template records
 
 ### Example
 ```php
@@ -3580,7 +3580,7 @@ Name | Type | Description  | Notes
 # **updateEmployeeLeave**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EmployeeLeaveObject updateEmployeeLeave($xero_tenant_id, $employee_id, $leave_id, $employee_leave)
 
-updates employee leave records
+Updates a specific employee's leave records
 
 ### Example
 ```php
@@ -3637,7 +3637,7 @@ Name | Type | Description  | Notes
 # **updateEmployeeOpeningBalances**
 > \XeroAPI\XeroPHP\Models\PayrollUk\EmployeeOpeningBalancesObject updateEmployeeOpeningBalances($xero_tenant_id, $employee_id, $employee_opening_balances)
 
-updates employee opening balances
+Updates a specific employee's opening balances
 
 ### Example
 ```php
@@ -3692,7 +3692,7 @@ Name | Type | Description  | Notes
 # **updateEmployeeSalaryAndWage**
 > \XeroAPI\XeroPHP\Models\PayrollUk\SalaryAndWageObject updateEmployeeSalaryAndWage($xero_tenant_id, $employee_id, $salary_and_wages_id, $salary_and_wage)
 
-updates employee salary and wages record
+Updates salary and wages record for a specific employee
 
 ### Example
 ```php
@@ -3749,7 +3749,7 @@ Name | Type | Description  | Notes
 # **updatePayRun**
 > \XeroAPI\XeroPHP\Models\PayrollUk\PayRunObject updatePayRun($xero_tenant_id, $pay_run_id, $pay_run)
 
-update a pay run
+Updates a specific pay run
 
 ### Example
 ```php
@@ -3804,7 +3804,7 @@ Name | Type | Description  | Notes
 # **updateTimesheetLine**
 > \XeroAPI\XeroPHP\Models\PayrollUk\TimesheetLineObject updateTimesheetLine($xero_tenant_id, $timesheet_id, $timesheet_line_id, $timesheet_line)
 
-update a timesheet line
+Updates a specific timesheet line for a specific timesheet
 
 ### Example
 ```php

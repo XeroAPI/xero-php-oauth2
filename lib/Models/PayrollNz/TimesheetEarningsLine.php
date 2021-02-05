@@ -513,7 +513,7 @@ class TimesheetEarningsLine implements ModelInterface, ArrayAccess
     /**
      * Sets is_system_generated
      *
-     * @param bool|null $is_system_generated Flag to indentify whether the earnings line is system generated or not.
+     * @param bool|null $is_system_generated Flag to identify whether the earnings line is system generated or not.
      *
      * @return $this
      */

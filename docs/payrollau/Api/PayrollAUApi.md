@@ -4,41 +4,41 @@ All URIs are relative to *https://api.xero.com/payroll.xro/1.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createEmployee**](PayrollAuApi.md#createEmployee) | **POST** /Employees | Use this method to create a payroll employee
-[**createLeaveApplication**](PayrollAuApi.md#createLeaveApplication) | **POST** /LeaveApplications | Use this method to create a Leave Application
-[**createPayItem**](PayrollAuApi.md#createPayItem) | **POST** /PayItems | Use this method to create a Pay Item
-[**createPayRun**](PayrollAuApi.md#createPayRun) | **POST** /PayRuns | Use this method to create a PayRun
-[**createPayrollCalendar**](PayrollAuApi.md#createPayrollCalendar) | **POST** /PayrollCalendars | Use this method to create a Payroll Calendars
-[**createSuperfund**](PayrollAuApi.md#createSuperfund) | **POST** /Superfunds | Use this method to create a super fund
-[**createTimesheet**](PayrollAuApi.md#createTimesheet) | **POST** /Timesheets | Use this method to create a timesheet
-[**getEmployee**](PayrollAuApi.md#getEmployee) | **GET** /Employees/{EmployeeId} | searches for an employee by unique id
-[**getEmployees**](PayrollAuApi.md#getEmployees) | **GET** /Employees | searches employees
-[**getLeaveApplication**](PayrollAuApi.md#getLeaveApplication) | **GET** /LeaveApplications/{LeaveApplicationId} | searches for an Leave Application by unique id
-[**getLeaveApplications**](PayrollAuApi.md#getLeaveApplications) | **GET** /LeaveApplications | searches Leave Applications
-[**getPayItems**](PayrollAuApi.md#getPayItems) | **GET** /PayItems | searches Pay Items
-[**getPayRun**](PayrollAuApi.md#getPayRun) | **GET** /PayRuns/{PayRunID} | searches for an payrun by unique id
-[**getPayRuns**](PayrollAuApi.md#getPayRuns) | **GET** /PayRuns | searches PayRuns
-[**getPayrollCalendar**](PayrollAuApi.md#getPayrollCalendar) | **GET** /PayrollCalendars/{PayrollCalendarID} | searches Payroll Calendars
-[**getPayrollCalendars**](PayrollAuApi.md#getPayrollCalendars) | **GET** /PayrollCalendars | searches Payroll Calendars
-[**getPayslip**](PayrollAuApi.md#getPayslip) | **GET** /Payslip/{PayslipID} | searches for an payslip by unique id
-[**getSettings**](PayrollAuApi.md#getSettings) | **GET** /Settings | retrieve settings
-[**getSuperfund**](PayrollAuApi.md#getSuperfund) | **GET** /Superfunds/{SuperFundID} | searches for an Superfund by unique id
-[**getSuperfundProducts**](PayrollAuApi.md#getSuperfundProducts) | **GET** /SuperfundProducts | searches SuperfundProducts
-[**getSuperfunds**](PayrollAuApi.md#getSuperfunds) | **GET** /Superfunds | searches SuperFunds
-[**getTimesheet**](PayrollAuApi.md#getTimesheet) | **GET** /Timesheets/{TimesheetID} | searches for an timesheet by unique id
-[**getTimesheets**](PayrollAuApi.md#getTimesheets) | **GET** /Timesheets | searches timesheets
-[**updateEmployee**](PayrollAuApi.md#updateEmployee) | **POST** /Employees/{EmployeeId} | Update an Employee
-[**updateLeaveApplication**](PayrollAuApi.md#updateLeaveApplication) | **POST** /LeaveApplications/{LeaveApplicationId} | Use this method to update a Leave Application
-[**updatePayRun**](PayrollAuApi.md#updatePayRun) | **POST** /PayRuns/{PayRunID} | Update a PayRun
-[**updatePayslip**](PayrollAuApi.md#updatePayslip) | **POST** /Payslip/{PayslipID} | Update a Payslip
-[**updateSuperfund**](PayrollAuApi.md#updateSuperfund) | **POST** /Superfunds/{SuperFundID} | Update a Superfund
-[**updateTimesheet**](PayrollAuApi.md#updateTimesheet) | **POST** /Timesheets/{TimesheetID} | Update a Timesheet
+[**createEmployee**](PayrollAuApi.md#createEmployee) | **POST** /Employees | Creates a payroll employee
+[**createLeaveApplication**](PayrollAuApi.md#createLeaveApplication) | **POST** /LeaveApplications | Creates a leave application
+[**createPayItem**](PayrollAuApi.md#createPayItem) | **POST** /PayItems | Creates a pay item
+[**createPayRun**](PayrollAuApi.md#createPayRun) | **POST** /PayRuns | Creates a pay run
+[**createPayrollCalendar**](PayrollAuApi.md#createPayrollCalendar) | **POST** /PayrollCalendars | Creates a Payroll Calendar
+[**createSuperfund**](PayrollAuApi.md#createSuperfund) | **POST** /Superfunds | Creates a superfund
+[**createTimesheet**](PayrollAuApi.md#createTimesheet) | **POST** /Timesheets | Creates a timesheet
+[**getEmployee**](PayrollAuApi.md#getEmployee) | **GET** /Employees/{EmployeeID} | Retrieves an employee&#39;s detail by unique employee id
+[**getEmployees**](PayrollAuApi.md#getEmployees) | **GET** /Employees | Searches payroll employees
+[**getLeaveApplication**](PayrollAuApi.md#getLeaveApplication) | **GET** /LeaveApplications/{LeaveApplicationID} | Retrieves a leave application by a unique leave application id
+[**getLeaveApplications**](PayrollAuApi.md#getLeaveApplications) | **GET** /LeaveApplications | Retrieves leave applications
+[**getPayItems**](PayrollAuApi.md#getPayItems) | **GET** /PayItems | Retrieves pay items
+[**getPayRun**](PayrollAuApi.md#getPayRun) | **GET** /PayRuns/{PayRunID} | Retrieves a pay run by using a unique pay run id
+[**getPayRuns**](PayrollAuApi.md#getPayRuns) | **GET** /PayRuns | Retrieves pay runs
+[**getPayrollCalendar**](PayrollAuApi.md#getPayrollCalendar) | **GET** /PayrollCalendars/{PayrollCalendarID} | Retrieves payroll calendar by using a unique payroll calendar ID
+[**getPayrollCalendars**](PayrollAuApi.md#getPayrollCalendars) | **GET** /PayrollCalendars | Retrieves payroll calendars
+[**getPayslip**](PayrollAuApi.md#getPayslip) | **GET** /Payslip/{PayslipID} | Retrieves for a payslip by a unique payslip id
+[**getSettings**](PayrollAuApi.md#getSettings) | **GET** /Settings | Retrieves payroll settings
+[**getSuperfund**](PayrollAuApi.md#getSuperfund) | **GET** /Superfunds/{SuperFundID} | Retrieves a superfund by using a unique superfund ID
+[**getSuperfundProducts**](PayrollAuApi.md#getSuperfundProducts) | **GET** /SuperfundProducts | Retrieves superfund products
+[**getSuperfunds**](PayrollAuApi.md#getSuperfunds) | **GET** /Superfunds | Retrieves superfunds
+[**getTimesheet**](PayrollAuApi.md#getTimesheet) | **GET** /Timesheets/{TimesheetID} | Retrieves a timesheet by using a unique timesheet id
+[**getTimesheets**](PayrollAuApi.md#getTimesheets) | **GET** /Timesheets | Retrieves timesheets
+[**updateEmployee**](PayrollAuApi.md#updateEmployee) | **POST** /Employees/{EmployeeID} | Updates an employee&#39;s detail
+[**updateLeaveApplication**](PayrollAuApi.md#updateLeaveApplication) | **POST** /LeaveApplications/{LeaveApplicationID} | Updates a specific leave application
+[**updatePayRun**](PayrollAuApi.md#updatePayRun) | **POST** /PayRuns/{PayRunID} | Updates a pay run
+[**updatePayslip**](PayrollAuApi.md#updatePayslip) | **POST** /Payslip/{PayslipID} | Updates a payslip
+[**updateSuperfund**](PayrollAuApi.md#updateSuperfund) | **POST** /Superfunds/{SuperFundID} | Updates a superfund
+[**updateTimesheet**](PayrollAuApi.md#updateTimesheet) | **POST** /Timesheets/{TimesheetID} | Updates a timesheet
 
 
 # **createEmployee**
 > \XeroAPI\XeroPHP\Models\PayrollAu\Employees createEmployee($xero_tenant_id, $employee)
 
-Use this method to create a payroll employee
+Creates a payroll employee
 
 ### Example
 ```php
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 # **createLeaveApplication**
 > \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications createLeaveApplication($xero_tenant_id, $leave_application)
 
-Use this method to create a Leave Application
+Creates a leave application
 
 ### Example
 ```php
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 # **createPayItem**
 > \XeroAPI\XeroPHP\Models\PayrollAu\PayItems createPayItem($xero_tenant_id, $pay_item)
 
-Use this method to create a Pay Item
+Creates a pay item
 
 ### Example
 ```php
@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 # **createPayRun**
 > \XeroAPI\XeroPHP\Models\PayrollAu\PayRuns createPayRun($xero_tenant_id, $pay_run)
 
-Use this method to create a PayRun
+Creates a pay run
 
 ### Example
 ```php
@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
 # **createPayrollCalendar**
 > \XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars createPayrollCalendar($xero_tenant_id, $payroll_calendar)
 
-Use this method to create a Payroll Calendars
+Creates a Payroll Calendar
 
 ### Example
 ```php
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 # **createSuperfund**
 > \XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds createSuperfund($xero_tenant_id, $super_fund)
 
-Use this method to create a super fund
+Creates a superfund
 
 ### Example
 ```php
@@ -356,7 +356,7 @@ Name | Type | Description  | Notes
 # **createTimesheet**
 > \XeroAPI\XeroPHP\Models\PayrollAu\Timesheets createTimesheet($xero_tenant_id, $timesheet)
 
-Use this method to create a timesheet
+Creates a timesheet
 
 ### Example
 ```php
@@ -409,7 +409,7 @@ Name | Type | Description  | Notes
 # **getEmployee**
 > \XeroAPI\XeroPHP\Models\PayrollAu\Employees getEmployee($xero_tenant_id, $employee_id)
 
-searches for an employee by unique id
+Retrieves an employee's detail by unique employee id
 
 ### Example
 ```php
@@ -462,7 +462,7 @@ Name | Type | Description  | Notes
 # **getEmployees**
 > \XeroAPI\XeroPHP\Models\PayrollAu\Employees getEmployees($xero_tenant_id, $if_modified_since, $where, $order, $page)
 
-searches employees
+Searches payroll employees
 
 ### Example
 ```php
@@ -521,7 +521,7 @@ Name | Type | Description  | Notes
 # **getLeaveApplication**
 > \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications getLeaveApplication($xero_tenant_id, $leave_application_id)
 
-searches for an Leave Application by unique id
+Retrieves a leave application by a unique leave application id
 
 ### Example
 ```php
@@ -574,7 +574,7 @@ Name | Type | Description  | Notes
 # **getLeaveApplications**
 > \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications getLeaveApplications($xero_tenant_id, $if_modified_since, $where, $order, $page)
 
-searches Leave Applications
+Retrieves leave applications
 
 ### Example
 ```php
@@ -633,7 +633,7 @@ Name | Type | Description  | Notes
 # **getPayItems**
 > \XeroAPI\XeroPHP\Models\PayrollAu\PayItems getPayItems($xero_tenant_id, $if_modified_since, $where, $order, $page)
 
-searches Pay Items
+Retrieves pay items
 
 ### Example
 ```php
@@ -692,7 +692,7 @@ Name | Type | Description  | Notes
 # **getPayRun**
 > \XeroAPI\XeroPHP\Models\PayrollAu\PayRuns getPayRun($xero_tenant_id, $pay_run_id)
 
-searches for an payrun by unique id
+Retrieves a pay run by using a unique pay run id
 
 ### Example
 ```php
@@ -745,7 +745,7 @@ Name | Type | Description  | Notes
 # **getPayRuns**
 > \XeroAPI\XeroPHP\Models\PayrollAu\PayRuns getPayRuns($xero_tenant_id, $if_modified_since, $where, $order, $page)
 
-searches PayRuns
+Retrieves pay runs
 
 ### Example
 ```php
@@ -804,7 +804,7 @@ Name | Type | Description  | Notes
 # **getPayrollCalendar**
 > \XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars getPayrollCalendar($xero_tenant_id, $payroll_calendar_id)
 
-searches Payroll Calendars
+Retrieves payroll calendar by using a unique payroll calendar ID
 
 ### Example
 ```php
@@ -857,7 +857,7 @@ Name | Type | Description  | Notes
 # **getPayrollCalendars**
 > \XeroAPI\XeroPHP\Models\PayrollAu\PayrollCalendars getPayrollCalendars($xero_tenant_id, $if_modified_since, $where, $order, $page)
 
-searches Payroll Calendars
+Retrieves payroll calendars
 
 ### Example
 ```php
@@ -916,7 +916,7 @@ Name | Type | Description  | Notes
 # **getPayslip**
 > \XeroAPI\XeroPHP\Models\PayrollAu\PayslipObject getPayslip($xero_tenant_id, $payslip_id)
 
-searches for an payslip by unique id
+Retrieves for a payslip by a unique payslip id
 
 ### Example
 ```php
@@ -969,7 +969,7 @@ Name | Type | Description  | Notes
 # **getSettings**
 > \XeroAPI\XeroPHP\Models\PayrollAu\SettingsObject getSettings($xero_tenant_id)
 
-retrieve settings
+Retrieves payroll settings
 
 ### Example
 ```php
@@ -1020,7 +1020,7 @@ Name | Type | Description  | Notes
 # **getSuperfund**
 > \XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds getSuperfund($xero_tenant_id, $super_fund_id)
 
-searches for an Superfund by unique id
+Retrieves a superfund by using a unique superfund ID
 
 ### Example
 ```php
@@ -1073,7 +1073,7 @@ Name | Type | Description  | Notes
 # **getSuperfundProducts**
 > \XeroAPI\XeroPHP\Models\PayrollAu\SuperFundProducts getSuperfundProducts($xero_tenant_id, $abn, $usi)
 
-searches SuperfundProducts
+Retrieves superfund products
 
 ### Example
 ```php
@@ -1128,7 +1128,7 @@ Name | Type | Description  | Notes
 # **getSuperfunds**
 > \XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds getSuperfunds($xero_tenant_id, $if_modified_since, $where, $order, $page)
 
-searches SuperFunds
+Retrieves superfunds
 
 ### Example
 ```php
@@ -1187,7 +1187,7 @@ Name | Type | Description  | Notes
 # **getTimesheet**
 > \XeroAPI\XeroPHP\Models\PayrollAu\TimesheetObject getTimesheet($xero_tenant_id, $timesheet_id)
 
-searches for an timesheet by unique id
+Retrieves a timesheet by using a unique timesheet id
 
 ### Example
 ```php
@@ -1240,7 +1240,7 @@ Name | Type | Description  | Notes
 # **getTimesheets**
 > \XeroAPI\XeroPHP\Models\PayrollAu\Timesheets getTimesheets($xero_tenant_id, $if_modified_since, $where, $order, $page)
 
-searches timesheets
+Retrieves timesheets
 
 ### Example
 ```php
@@ -1299,7 +1299,7 @@ Name | Type | Description  | Notes
 # **updateEmployee**
 > \XeroAPI\XeroPHP\Models\PayrollAu\Employees updateEmployee($xero_tenant_id, $employee_id, $employee)
 
-Update an Employee
+Updates an employee's detail
 
 Update properties on a single employee
 
@@ -1356,7 +1356,7 @@ Name | Type | Description  | Notes
 # **updateLeaveApplication**
 > \XeroAPI\XeroPHP\Models\PayrollAu\LeaveApplications updateLeaveApplication($xero_tenant_id, $leave_application_id, $leave_application)
 
-Use this method to update a Leave Application
+Updates a specific leave application
 
 ### Example
 ```php
@@ -1411,7 +1411,7 @@ Name | Type | Description  | Notes
 # **updatePayRun**
 > \XeroAPI\XeroPHP\Models\PayrollAu\PayRuns updatePayRun($xero_tenant_id, $pay_run_id, $pay_run)
 
-Update a PayRun
+Updates a pay run
 
 Update properties on a single PayRun
 
@@ -1468,7 +1468,7 @@ Name | Type | Description  | Notes
 # **updatePayslip**
 > \XeroAPI\XeroPHP\Models\PayrollAu\Payslips updatePayslip($xero_tenant_id, $payslip_id, $payslip_lines)
 
-Update a Payslip
+Updates a payslip
 
 Update lines on a single payslips
 
@@ -1525,7 +1525,7 @@ Name | Type | Description  | Notes
 # **updateSuperfund**
 > \XeroAPI\XeroPHP\Models\PayrollAu\SuperFunds updateSuperfund($xero_tenant_id, $super_fund_id, $super_fund)
 
-Update a Superfund
+Updates a superfund
 
 Update properties on a single Superfund
 
@@ -1582,7 +1582,7 @@ Name | Type | Description  | Notes
 # **updateTimesheet**
 > \XeroAPI\XeroPHP\Models\PayrollAu\Timesheets updateTimesheet($xero_tenant_id, $timesheet_id, $timesheet)
 
-Update a Timesheet
+Updates a timesheet
 
 Update properties on a single timesheet
 

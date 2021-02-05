@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **timesheet_id** | **string** | The Xero identifier for a Timesheet | [optional] 
-**payroll_calendar_id** | **string** | The Xero identifier for the Payroll Calandar that the Timesheet applies to | 
+**payroll_calendar_id** | **string** | The Xero identifier for the Payroll Calendar that the Timesheet applies to | 
 **employee_id** | **string** | The Xero identifier for the Employee that the Timesheet is for | 
 **start_date** | [**\DateTime**](\DateTime.md) | The Start Date of the Timesheet period (YYYY-MM-DD) | 
 **end_date** | [**\DateTime**](\DateTime.md) | The End Date of the Timesheet period (YYYY-MM-DD) | 

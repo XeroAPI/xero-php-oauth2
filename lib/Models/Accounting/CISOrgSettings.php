@@ -1,6 +1,6 @@
 <?php
 /**
- * PaymentDelete
+ * CISOrgSettings
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \XeroAPI\XeroPHP\AccountingObjectSerializer;
 use \XeroAPI\XeroPHP\StringUtil;
 /**
- * PaymentDelete Class Doc Comment
+ * CISOrgSettings Class Doc Comment
  *
  * @category Class
  * @package  XeroAPI\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class PaymentDelete implements ModelInterface, ArrayAccess
+class CISOrgSettings implements ModelInterface, ArrayAccess, \Countable, \IteratorAggregate, \JsonSerializable
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class PaymentDelete implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PaymentDelete';
+    protected static $openAPIModelName = 'CISOrgSettings';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,7 +56,7 @@ class PaymentDelete implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'status' => 'string'
+        'cis_settings' => '\XeroAPI\XeroPHP\Models\Accounting\CISOrgSetting[]'
     ];
 
     /**
@@ -65,7 +65,7 @@ class PaymentDelete implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'status' => null
+        'cis_settings' => null
     ];
 
     /**
@@ -95,7 +95,7 @@ class PaymentDelete implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'status' => 'Status'
+        'cis_settings' => 'CISSettings'
     ];
 
     /**
@@ -104,7 +104,7 @@ class PaymentDelete implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'status' => 'setStatus'
+        'cis_settings' => 'setCisSettings'
     ];
 
     /**
@@ -113,7 +113,7 @@ class PaymentDelete implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'status' => 'getStatus'
+        'cis_settings' => 'getCisSettings'
     ];
 
     /**
@@ -176,7 +176,7 @@ class PaymentDelete implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['status'] = isset($data['status']) ? $data['status'] : 'DELETED';
+        $this->container['cis_settings'] = isset($data['cis_settings']) ? $data['cis_settings'] : null;
     }
 
     /**
@@ -188,9 +188,6 @@ class PaymentDelete implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -207,26 +204,26 @@ class PaymentDelete implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets status
+     * Gets cis_settings
      *
-     * @return string
+     * @return \XeroAPI\XeroPHP\Models\Accounting\CISOrgSetting[]|null
      */
-    public function getStatus()
+    public function getCisSettings()
     {
-        return $this->container['status'];
+        return $this->container['cis_settings'];
     }
 
     /**
-     * Sets status
+     * Sets cis_settings
      *
-     * @param string $status The status of the payment.
+     * @param \XeroAPI\XeroPHP\Models\Accounting\CISOrgSetting[]|null $cis_settings cis_settings
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setCisSettings($cis_settings)
     {
 
-        $this->container['status'] = $status;
+        $this->container['cis_settings'] = $cis_settings;
 
         return $this;
     }
@@ -241,7 +238,7 @@ class PaymentDelete implements ModelInterface, ArrayAccess
      */
     public function offsetExists($offset)
     {
-        return isset($this->container[$offset]);
+        return isset($this->container['cis_settings'][$offset]);
     }
 
     /**
@@ -253,7 +250,7 @@ class PaymentDelete implements ModelInterface, ArrayAccess
      */
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return isset($this->container['cis_settings'][$offset]) ? $this->container['cis_settings'][$offset] : null;
     }
 
     /**
@@ -267,9 +264,9 @@ class PaymentDelete implements ModelInterface, ArrayAccess
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
-            $this->container[] = $value;
+            $this->container['cis_settings'][] = $value;
         } else {
-            $this->container[$offset] = $value;
+            $this->container['cis_settings'][$offset] = $value;
         }
     }
 
@@ -282,7 +279,22 @@ class PaymentDelete implements ModelInterface, ArrayAccess
      */
     public function offsetUnset($offset)
     {
-        unset($this->container[$offset]);
+        unset($this->container['cis_settings'][$offset]);
+    }
+
+    public function count() 
+    {
+        return count($this->container['cis_settings']);
+    }
+
+    public function getIterator() 
+    {
+        return new \ArrayIterator($this->container['cis_settings']);
+    }
+
+    public function jsonSerialize()
+    {
+        return AccountingObjectSerializer::sanitizeForSerialization($this)->CISOrgSettings;
     }
 
     /**

@@ -328,7 +328,7 @@ class Timesheet implements ModelInterface, ArrayAccess
     /**
      * Sets payroll_calendar_id
      *
-     * @param string $payroll_calendar_id The Xero identifier for the Payroll Calandar that the Timesheet applies to
+     * @param string $payroll_calendar_id The Xero identifier for the Payroll Calendar that the Timesheet applies to
      *
      * @return $this
      */

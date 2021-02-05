@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**superannuation_type_id** | **string** | Xero identifier for payroll superannucation type | [optional] 
+**superannuation_type_id** | **string** | Xero identifier for payroll superannuation type | [optional] 
 **display_name** | **string** | Benefit display name | [optional] 
 **amount** | **double** | The amount of the superannuation line | [optional] 
 **fixed_amount** | **double** | Superannuation fixed amount | [optional] 

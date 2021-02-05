@@ -246,7 +246,7 @@ class SuperannuationLine implements ModelInterface, ArrayAccess
     /**
      * Sets superannuation_type_id
      *
-     * @param string|null $superannuation_type_id Xero identifier for payroll superannucation type
+     * @param string|null $superannuation_type_id Xero identifier for payroll superannuation type
      *
      * @return $this
      */
