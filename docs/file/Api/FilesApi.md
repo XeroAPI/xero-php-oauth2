@@ -4,21 +4,21 @@ All URIs are relative to *https://api.xero.com/files.xro/1.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createFileAssociation**](FilesApi.md#createFileAssociation) | **POST** /Files/{FileID}/Associations | Creates a new file association
+[**createFileAssociation**](FilesApi.md#createFileAssociation) | **POST** /Files/{FileId}/Associations | Creates a new file association
 [**createFolder**](FilesApi.md#createFolder) | **POST** /Folders | Creates a new folder
-[**deleteFile**](FilesApi.md#deleteFile) | **DELETE** /Files/{FileID} | Deletes a specific file
-[**deleteFileAssociation**](FilesApi.md#deleteFileAssociation) | **DELETE** /Files/{FileID}/Associations/{ObjectID} | Deletes an existing file association
-[**deleteFolder**](FilesApi.md#deleteFolder) | **DELETE** /Folders/{FolderID} | Deletes a folder
-[**getAssociationsByObject**](FilesApi.md#getAssociationsByObject) | **GET** /Associations/{ObjectID} | Retrieves an association object using a unique object ID
-[**getFile**](FilesApi.md#getFile) | **GET** /Files/{FileID} | Retrieves a file by a unique file ID
-[**getFileAssociations**](FilesApi.md#getFileAssociations) | **GET** /Files/{FileID}/Associations | Retrieves a specific file associations
-[**getFileContent**](FilesApi.md#getFileContent) | **GET** /Files/{FileID}/Content | Retrieves the content of a specific file
+[**deleteFile**](FilesApi.md#deleteFile) | **DELETE** /Files/{FileId} | Deletes a specific file
+[**deleteFileAssociation**](FilesApi.md#deleteFileAssociation) | **DELETE** /Files/{FileId}/Associations/{ObjectId} | Deletes an existing file association
+[**deleteFolder**](FilesApi.md#deleteFolder) | **DELETE** /Folders/{FolderId} | Deletes a folder
+[**getAssociationsByObject**](FilesApi.md#getAssociationsByObject) | **GET** /Associations/{ObjectId} | Retrieves an association object using a unique object ID
+[**getFile**](FilesApi.md#getFile) | **GET** /Files/{FileId} | Retrieves a file by a unique file ID
+[**getFileAssociations**](FilesApi.md#getFileAssociations) | **GET** /Files/{FileId}/Associations | Retrieves a specific file associations
+[**getFileContent**](FilesApi.md#getFileContent) | **GET** /Files/{FileId}/Content | Retrieves the content of a specific file
 [**getFiles**](FilesApi.md#getFiles) | **GET** /Files | Retrieves files
-[**getFolder**](FilesApi.md#getFolder) | **GET** /Folders/{FolderID} | Retrieves specific folder by using a unique folder ID
+[**getFolder**](FilesApi.md#getFolder) | **GET** /Folders/{FolderId} | Retrieves specific folder by using a unique folder ID
 [**getFolders**](FilesApi.md#getFolders) | **GET** /Folders | Retrieves folders
 [**getInbox**](FilesApi.md#getInbox) | **GET** /Inbox | Retrieves inbox folder
-[**updateFile**](FilesApi.md#updateFile) | **PUT** /Files/{FileID} | Update a file
-[**updateFolder**](FilesApi.md#updateFolder) | **PUT** /Folders/{FolderID} | Updates an existing folder
+[**updateFile**](FilesApi.md#updateFile) | **PUT** /Files/{FileId} | Update a file
+[**updateFolder**](FilesApi.md#updateFolder) | **PUT** /Folders/{FolderId} | Updates an existing folder
 [**uploadFile**](FilesApi.md#uploadFile) | **POST** /Files | Uploads a File
 
 
@@ -45,7 +45,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\FilesApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $file_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c; // string | File id for single object
-$association = new \XeroAPI\XeroPHP\Models\File\Association(); // \XeroAPI\XeroPHP\Models\File\Association | 
+$association = { "ObjectId": "1270bf7c-5d18-473a-9231-1e36c4bd33ed", "ObjectGroup": "Contact", "ObjectType": "Business" }; // \XeroAPI\XeroPHP\Models\File\Association | 
 
 try {
     $result = $apiInstance->createFileAssociation($xero_tenant_id, $file_id, $association);
@@ -101,7 +101,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\FilesApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$folder = new \XeroAPI\XeroPHP\Models\File\Folder(); // \XeroAPI\XeroPHP\Models\File\Folder | 
+$folder = { "Name": "My Docs" }; // \XeroAPI\XeroPHP\Models\File\Folder | 
 
 try {
     $result = $apiInstance->createFolder($xero_tenant_id, $folder);
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteFile**
-> \XeroAPI\XeroPHP\Models\File\FileResponse204 deleteFile($xero_tenant_id, $file_id)
+> deleteFile($xero_tenant_id, $file_id)
 
 Deletes a specific file
 
@@ -159,8 +159,7 @@ $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $file_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c; // string | File id for single object
 
 try {
-    $result = $apiInstance->deleteFile($xero_tenant_id, $file_id);
-    print_r($result);
+    $apiInstance->deleteFile($xero_tenant_id, $file_id);
 } catch (Exception $e) {
     echo 'Exception when calling FilesApi->deleteFile: ', $e->getMessage(), PHP_EOL;
 }
@@ -176,7 +175,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\File\FileResponse204**](../Model/FileResponse204.md)
+void (empty response body)
 
 ### Authorization
 
@@ -185,12 +184,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteFileAssociation**
-> \XeroAPI\XeroPHP\Models\File\FileResponse204 deleteFileAssociation($xero_tenant_id, $file_id, $object_id)
+> deleteFileAssociation($xero_tenant_id, $file_id, $object_id)
 
 Deletes an existing file association
 
@@ -215,8 +214,7 @@ $file_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c; // string | File id for single 
 $object_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c; // string | Object id for single object
 
 try {
-    $result = $apiInstance->deleteFileAssociation($xero_tenant_id, $file_id, $object_id);
-    print_r($result);
+    $apiInstance->deleteFileAssociation($xero_tenant_id, $file_id, $object_id);
 } catch (Exception $e) {
     echo 'Exception when calling FilesApi->deleteFileAssociation: ', $e->getMessage(), PHP_EOL;
 }
@@ -233,7 +231,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\File\FileResponse204**](../Model/FileResponse204.md)
+void (empty response body)
 
 ### Authorization
 
@@ -242,12 +240,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteFolder**
-> \XeroAPI\XeroPHP\Models\File\FileResponse204 deleteFolder($xero_tenant_id, $folder_id)
+> deleteFolder($xero_tenant_id, $folder_id)
 
 Deletes a folder
 
@@ -271,8 +269,7 @@ $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $folder_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c; // string | Folder id for single object
 
 try {
-    $result = $apiInstance->deleteFolder($xero_tenant_id, $folder_id);
-    print_r($result);
+    $apiInstance->deleteFolder($xero_tenant_id, $folder_id);
 } catch (Exception $e) {
     echo 'Exception when calling FilesApi->deleteFolder: ', $e->getMessage(), PHP_EOL;
 }
@@ -288,7 +285,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\XeroAPI\XeroPHP\Models\File\FileResponse204**](../Model/FileResponse204.md)
+void (empty response body)
 
 ### Authorization
 
@@ -297,7 +294,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -762,7 +759,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\FilesApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $file_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c; // string | File id for single object
-$file_object = new \XeroAPI\XeroPHP\Models\File\FileObject(); // \XeroAPI\XeroPHP\Models\File\FileObject | 
+$file_object = { "FolderId": "bf924975-7097-46f2-a143-1ecfbab3c8c3" }; // \XeroAPI\XeroPHP\Models\File\FileObject | 
 
 try {
     $result = $apiInstance->updateFile($xero_tenant_id, $file_id, $file_object);
@@ -819,7 +816,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\FilesApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $folder_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c; // string | Folder id for single object
-$folder = new \XeroAPI\XeroPHP\Models\File\Folder(); // \XeroAPI\XeroPHP\Models\File\Folder | 
+$folder = { "Name": "Your Docs" }; // \XeroAPI\XeroPHP\Models\File\Folder | 
 
 try {
     $result = $apiInstance->updateFolder($xero_tenant_id, $folder_id, $folder);

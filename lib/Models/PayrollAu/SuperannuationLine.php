@@ -427,7 +427,7 @@ class SuperannuationLine implements ModelInterface, ArrayAccess
       if ($this->getPaymentDateForThisPeriod() != null) {
         return StringUtil::convertStringToDate($this->getPaymentDateForThisPeriod());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 

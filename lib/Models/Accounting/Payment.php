@@ -73,6 +73,7 @@ class Payment implements ModelInterface, ArrayAccess
         'payment_type' => 'string',
         'updated_date_utc' => 'string',
         'payment_id' => 'string',
+        'batch_payment_id' => 'string',
         'bank_account_number' => 'string',
         'particulars' => 'string',
         'details' => 'string',
@@ -105,6 +106,7 @@ class Payment implements ModelInterface, ArrayAccess
         'payment_type' => null,
         'updated_date_utc' => null,
         'payment_id' => 'uuid',
+        'batch_payment_id' => 'uuid',
         'bank_account_number' => null,
         'particulars' => null,
         'details' => null,
@@ -158,6 +160,7 @@ class Payment implements ModelInterface, ArrayAccess
         'payment_type' => 'PaymentType',
         'updated_date_utc' => 'UpdatedDateUTC',
         'payment_id' => 'PaymentID',
+        'batch_payment_id' => 'BatchPaymentID',
         'bank_account_number' => 'BankAccountNumber',
         'particulars' => 'Particulars',
         'details' => 'Details',
@@ -190,6 +193,7 @@ class Payment implements ModelInterface, ArrayAccess
         'payment_type' => 'setPaymentType',
         'updated_date_utc' => 'setUpdatedDateUtc',
         'payment_id' => 'setPaymentId',
+        'batch_payment_id' => 'setBatchPaymentId',
         'bank_account_number' => 'setBankAccountNumber',
         'particulars' => 'setParticulars',
         'details' => 'setDetails',
@@ -222,6 +226,7 @@ class Payment implements ModelInterface, ArrayAccess
         'payment_type' => 'getPaymentType',
         'updated_date_utc' => 'getUpdatedDateUtc',
         'payment_id' => 'getPaymentId',
+        'batch_payment_id' => 'getBatchPaymentId',
         'bank_account_number' => 'getBankAccountNumber',
         'particulars' => 'getParticulars',
         'details' => 'getDetails',
@@ -350,6 +355,7 @@ class Payment implements ModelInterface, ArrayAccess
         $this->container['payment_type'] = isset($data['payment_type']) ? $data['payment_type'] : null;
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
         $this->container['payment_id'] = isset($data['payment_id']) ? $data['payment_id'] : null;
+        $this->container['batch_payment_id'] = isset($data['batch_payment_id']) ? $data['batch_payment_id'] : null;
         $this->container['bank_account_number'] = isset($data['bank_account_number']) ? $data['bank_account_number'] : null;
         $this->container['particulars'] = isset($data['particulars']) ? $data['particulars'] : null;
         $this->container['details'] = isset($data['details']) ? $data['details'] : null;
@@ -629,7 +635,7 @@ class Payment implements ModelInterface, ArrayAccess
       if ($this->getDate() != null) {
         return StringUtil::convertStringToDate($this->getDate());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 
@@ -861,7 +867,7 @@ class Payment implements ModelInterface, ArrayAccess
       if ($this->getUpdatedDateUtc() != null) {
         return StringUtil::convertStringToDateTime($this->getUpdatedDateUtc());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 
@@ -902,6 +908,33 @@ class Payment implements ModelInterface, ArrayAccess
     {
 
         $this->container['payment_id'] = $payment_id;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets batch_payment_id
+     *
+     * @return string|null
+     */
+    public function getBatchPaymentId()
+    {
+        return $this->container['batch_payment_id'];
+    }
+
+    /**
+     * Sets batch_payment_id
+     *
+     * @param string|null $batch_payment_id Present if the payment was created as part of a batch.
+     *
+     * @return $this
+     */
+    public function setBatchPaymentId($batch_payment_id)
+    {
+
+        $this->container['batch_payment_id'] = $batch_payment_id;
 
         return $this;
     }

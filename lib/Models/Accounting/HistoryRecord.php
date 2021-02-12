@@ -316,7 +316,7 @@ class HistoryRecord implements ModelInterface, ArrayAccess
       if ($this->getDateUtc() != null) {
         return StringUtil::convertStringToDateTime($this->getDateUtc());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 

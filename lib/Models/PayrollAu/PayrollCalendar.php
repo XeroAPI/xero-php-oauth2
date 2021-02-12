@@ -307,7 +307,7 @@ class PayrollCalendar implements ModelInterface, ArrayAccess
       if ($this->getStartDate() != null) {
         return StringUtil::convertStringToDate($this->getStartDate());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 
@@ -360,7 +360,7 @@ class PayrollCalendar implements ModelInterface, ArrayAccess
       if ($this->getPaymentDate() != null) {
         return StringUtil::convertStringToDate($this->getPaymentDate());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 
@@ -440,7 +440,7 @@ class PayrollCalendar implements ModelInterface, ArrayAccess
       if ($this->getUpdatedDateUtc() != null) {
         return StringUtil::convertStringToDateTime($this->getUpdatedDateUtc());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 

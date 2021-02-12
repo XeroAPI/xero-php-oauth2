@@ -367,7 +367,7 @@ class BankTransfer implements ModelInterface, ArrayAccess
       if ($this->getDate() != null) {
         return StringUtil::convertStringToDate($this->getDate());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 
@@ -550,7 +550,7 @@ class BankTransfer implements ModelInterface, ArrayAccess
       if ($this->getCreatedDateUtc() != null) {
         return StringUtil::convertStringToDateTime($this->getCreatedDateUtc());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 

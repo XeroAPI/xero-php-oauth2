@@ -433,7 +433,7 @@ class Schedule implements ModelInterface, ArrayAccess
       if ($this->getStartDate() != null) {
         return StringUtil::convertStringToDate($this->getStartDate());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 
@@ -486,7 +486,7 @@ class Schedule implements ModelInterface, ArrayAccess
       if ($this->getNextScheduledDate() != null) {
         return StringUtil::convertStringToDate($this->getNextScheduledDate());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 
@@ -539,7 +539,7 @@ class Schedule implements ModelInterface, ArrayAccess
       if ($this->getEndDate() != null) {
         return StringUtil::convertStringToDate($this->getEndDate());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 
