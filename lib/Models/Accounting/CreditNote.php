@@ -508,7 +508,7 @@ class CreditNote implements ModelInterface, ArrayAccess
       if ($this->getDate() != null) {
         return StringUtil::convertStringToDate($this->getDate());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 
@@ -561,7 +561,7 @@ class CreditNote implements ModelInterface, ArrayAccess
       if ($this->getDueDate() != null) {
         return StringUtil::convertStringToDate($this->getDueDate());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 
@@ -837,7 +837,7 @@ class CreditNote implements ModelInterface, ArrayAccess
       if ($this->getUpdatedDateUtc() != null) {
         return StringUtil::convertStringToDateTime($this->getUpdatedDateUtc());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 
@@ -898,7 +898,7 @@ class CreditNote implements ModelInterface, ArrayAccess
       if ($this->getFullyPaidOnDate() != null) {
         return StringUtil::convertStringToDate($this->getFullyPaidOnDate());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 

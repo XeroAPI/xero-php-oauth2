@@ -262,7 +262,7 @@ class LeavePeriod implements ModelInterface, ArrayAccess
       if ($this->getPayPeriodEndDate() != null) {
         return StringUtil::convertStringToDate($this->getPayPeriodEndDate());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 
@@ -315,7 +315,7 @@ class LeavePeriod implements ModelInterface, ArrayAccess
       if ($this->getPayPeriodStartDate() != null) {
         return StringUtil::convertStringToDate($this->getPayPeriodStartDate());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 

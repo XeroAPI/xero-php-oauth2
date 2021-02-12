@@ -253,7 +253,7 @@ class OpeningBalances implements ModelInterface, ArrayAccess
       if ($this->getOpeningBalanceDate() != null) {
         return StringUtil::convertStringToDate($this->getOpeningBalanceDate());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 

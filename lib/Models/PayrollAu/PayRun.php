@@ -364,7 +364,7 @@ class PayRun implements ModelInterface, ArrayAccess
       if ($this->getPayRunPeriodStartDate() != null) {
         return StringUtil::convertStringToDate($this->getPayRunPeriodStartDate());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 
@@ -417,7 +417,7 @@ class PayRun implements ModelInterface, ArrayAccess
       if ($this->getPayRunPeriodEndDate() != null) {
         return StringUtil::convertStringToDate($this->getPayRunPeriodEndDate());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 
@@ -497,7 +497,7 @@ class PayRun implements ModelInterface, ArrayAccess
       if ($this->getPaymentDate() != null) {
         return StringUtil::convertStringToDate($this->getPaymentDate());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 
@@ -577,7 +577,7 @@ class PayRun implements ModelInterface, ArrayAccess
       if ($this->getUpdatedDateUtc() != null) {
         return StringUtil::convertStringToDateTime($this->getUpdatedDateUtc());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 

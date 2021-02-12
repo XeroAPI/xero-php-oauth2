@@ -1258,7 +1258,7 @@ class Organisation implements ModelInterface, ArrayAccess
       if ($this->getPeriodLockDate() != null) {
         return StringUtil::convertStringToDate($this->getPeriodLockDate());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 
@@ -1311,7 +1311,7 @@ class Organisation implements ModelInterface, ArrayAccess
       if ($this->getEndOfYearLockDate() != null) {
         return StringUtil::convertStringToDate($this->getEndOfYearLockDate());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 
@@ -1364,7 +1364,7 @@ class Organisation implements ModelInterface, ArrayAccess
       if ($this->getCreatedDateUtc() != null) {
         return StringUtil::convertStringToDateTime($this->getCreatedDateUtc());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 

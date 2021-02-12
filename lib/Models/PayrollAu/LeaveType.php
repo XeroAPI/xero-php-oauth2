@@ -408,7 +408,7 @@ class LeaveType implements ModelInterface, ArrayAccess
       if ($this->getUpdatedDateUtc() != null) {
         return StringUtil::convertStringToDateTime($this->getUpdatedDateUtc());
       } else {
-        throw new Exception('can not convert null string to date');
+        throw new \Exception('can not convert null string to date');
       } 
     }
 
