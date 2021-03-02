@@ -16,6 +16,7 @@ This release only supports oAuth2 authentication and the following API sets.
 All third party libraries dependencies managed with Composer.
 
 [SDK reference for Accounting v2.0](https://xeroapi.github.io/xero-php-oauth2/docs/v2/accounting/index.html) methods with runnable code examples.
+
 [Model reference for Accounting](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/accounting) for all models.
 
 [SDK reference for Identity](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/identity) for all methods and models.
