@@ -57,15 +57,15 @@ class ImportSummaryAccounts implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'total' => 'float',
-        'new' => 'float',
-        'updated' => 'float',
-        'deleted' => 'float',
-        'locked' => 'float',
-        'system' => 'float',
-        'errored' => 'float',
+        'total' => 'int',
+        'new' => 'int',
+        'updated' => 'int',
+        'deleted' => 'int',
+        'locked' => 'int',
+        'system' => 'int',
+        'errored' => 'int',
         'present' => 'bool',
-        'new_or_updated' => 'float'
+        'new_or_updated' => 'int'
     ];
 
     /**
@@ -74,15 +74,15 @@ class ImportSummaryAccounts implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'total' => 'integer',
-        'new' => 'integer',
-        'updated' => 'integer',
-        'deleted' => 'integer',
-        'locked' => 'integer',
-        'system' => 'integer',
-        'errored' => 'integer',
+        'total' => 'int32',
+        'new' => 'int32',
+        'updated' => 'int32',
+        'deleted' => 'int32',
+        'locked' => 'int32',
+        'system' => 'int32',
+        'errored' => 'int32',
         'present' => null,
-        'new_or_updated' => 'integer'
+        'new_or_updated' => 'int32'
     ];
 
     /**
@@ -255,7 +255,7 @@ class ImportSummaryAccounts implements ModelInterface, ArrayAccess
     /**
      * Gets total
      *
-     * @return float|null
+     * @return int|null
      */
     public function getTotal()
     {
@@ -265,7 +265,7 @@ class ImportSummaryAccounts implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param float|null $total The total number of accounts in the org
+     * @param int|null $total The total number of accounts in the org
      *
      * @return $this
      */
@@ -282,7 +282,7 @@ class ImportSummaryAccounts implements ModelInterface, ArrayAccess
     /**
      * Gets new
      *
-     * @return float|null
+     * @return int|null
      */
     public function getNew()
     {
@@ -292,7 +292,7 @@ class ImportSummaryAccounts implements ModelInterface, ArrayAccess
     /**
      * Sets new
      *
-     * @param float|null $new The number of new accounts created
+     * @param int|null $new The number of new accounts created
      *
      * @return $this
      */
@@ -309,7 +309,7 @@ class ImportSummaryAccounts implements ModelInterface, ArrayAccess
     /**
      * Gets updated
      *
-     * @return float|null
+     * @return int|null
      */
     public function getUpdated()
     {
@@ -319,7 +319,7 @@ class ImportSummaryAccounts implements ModelInterface, ArrayAccess
     /**
      * Sets updated
      *
-     * @param float|null $updated The number of accounts updated
+     * @param int|null $updated The number of accounts updated
      *
      * @return $this
      */
@@ -336,7 +336,7 @@ class ImportSummaryAccounts implements ModelInterface, ArrayAccess
     /**
      * Gets deleted
      *
-     * @return float|null
+     * @return int|null
      */
     public function getDeleted()
     {
@@ -346,7 +346,7 @@ class ImportSummaryAccounts implements ModelInterface, ArrayAccess
     /**
      * Sets deleted
      *
-     * @param float|null $deleted The number of accounts deleted
+     * @param int|null $deleted The number of accounts deleted
      *
      * @return $this
      */
@@ -363,7 +363,7 @@ class ImportSummaryAccounts implements ModelInterface, ArrayAccess
     /**
      * Gets locked
      *
-     * @return float|null
+     * @return int|null
      */
     public function getLocked()
     {
@@ -373,7 +373,7 @@ class ImportSummaryAccounts implements ModelInterface, ArrayAccess
     /**
      * Sets locked
      *
-     * @param float|null $locked The number of locked accounts
+     * @param int|null $locked The number of locked accounts
      *
      * @return $this
      */
@@ -390,7 +390,7 @@ class ImportSummaryAccounts implements ModelInterface, ArrayAccess
     /**
      * Gets system
      *
-     * @return float|null
+     * @return int|null
      */
     public function getSystem()
     {
@@ -400,7 +400,7 @@ class ImportSummaryAccounts implements ModelInterface, ArrayAccess
     /**
      * Sets system
      *
-     * @param float|null $system The number of system accounts
+     * @param int|null $system The number of system accounts
      *
      * @return $this
      */
@@ -417,7 +417,7 @@ class ImportSummaryAccounts implements ModelInterface, ArrayAccess
     /**
      * Gets errored
      *
-     * @return float|null
+     * @return int|null
      */
     public function getErrored()
     {
@@ -427,7 +427,7 @@ class ImportSummaryAccounts implements ModelInterface, ArrayAccess
     /**
      * Sets errored
      *
-     * @param float|null $errored The number of accounts that had an error
+     * @param int|null $errored The number of accounts that had an error
      *
      * @return $this
      */
@@ -471,7 +471,7 @@ class ImportSummaryAccounts implements ModelInterface, ArrayAccess
     /**
      * Gets new_or_updated
      *
-     * @return float|null
+     * @return int|null
      */
     public function getNewOrUpdated()
     {
@@ -481,7 +481,7 @@ class ImportSummaryAccounts implements ModelInterface, ArrayAccess
     /**
      * Sets new_or_updated
      *
-     * @param float|null $new_or_updated The number of new or updated accounts
+     * @param int|null $new_or_updated The number of new or updated accounts
      *
      * @return $this
      */
