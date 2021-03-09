@@ -58,7 +58,7 @@ class AccessToken implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id_token' => 'string',
         'access_token' => 'string',
-        'expires_in' => 'float',
+        'expires_in' => 'int',
         'token_type' => 'string',
         'refresh_token' => 'string'
     ];
@@ -71,7 +71,7 @@ class AccessToken implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id_token' => null,
         'access_token' => null,
-        'expires_in' => 'int',
+        'expires_in' => 'int64',
         'token_type' => null,
         'refresh_token' => null
     ];
@@ -284,7 +284,7 @@ class AccessToken implements ModelInterface, ArrayAccess
     /**
      * Gets expires_in
      *
-     * @return float|null
+     * @return int|null
      */
     public function getExpiresIn()
     {
@@ -294,7 +294,7 @@ class AccessToken implements ModelInterface, ArrayAccess
     /**
      * Sets expires_in
      *
-     * @param float|null $expires_in time in milliseconds until access token expires.
+     * @param int|null $expires_in time in seconds until access token expires.
      *
      * @return $this
      */

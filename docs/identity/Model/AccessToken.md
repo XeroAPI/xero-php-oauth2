@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id_token** | **string** | Xero unique identifier | [optional] 
 **access_token** | **string** | access token provided during authentication flow | [optional] 
-**expires_in** | **float** | time in milliseconds until access token expires. | [optional] 
+**expires_in** | **int** | time in seconds until access token expires. | [optional] 
 **token_type** | **string** | type of token i.e. Bearer | [optional] 
 **refresh_token** | **string** | token used to refresh an expired access token | [optional] 
 

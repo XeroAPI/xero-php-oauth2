@@ -136,7 +136,7 @@ class Configuration
      *
      * @var string
      */
-    protected $hostFile = 'https://api.xero.com/file.xro/1.0';
+    protected $hostFile = 'https://api.xero.com/files.xro/1.0';
     
     /**
      * User agent of the HTTP request, set to "OpenAPI-Generator/{version}/PHP" by default
@@ -636,8 +636,8 @@ class Configuration
         $report  = 'PHP SDK (XeroAPI\XeroPHP) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
-        $report .= '    OpenAPI Spec Version: 2.9.3' . PHP_EOL;
-        $report .= '    SDK Package Version: 2.4.3' . PHP_EOL;
+        $report .= '    OpenAPI Spec Version: 2.10.0' . PHP_EOL;
+        $report .= '    SDK Package Version: 2.5.0' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;
