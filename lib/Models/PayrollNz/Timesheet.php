@@ -200,6 +200,7 @@ class Timesheet implements ModelInterface, ArrayAccess
     const STATUS_DRAFT = 'Draft';
     const STATUS_APPROVED = 'Approved';
     const STATUS_COMPLETED = 'Completed';
+    const STATUS_REQUESTED = 'Requested';
     
 
     
@@ -214,6 +215,7 @@ class Timesheet implements ModelInterface, ArrayAccess
             self::STATUS_DRAFT,
             self::STATUS_APPROVED,
             self::STATUS_COMPLETED,
+            self::STATUS_REQUESTED,
         ];
     }
     

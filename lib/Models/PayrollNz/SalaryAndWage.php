@@ -204,6 +204,7 @@ class SalaryAndWage implements ModelInterface, ArrayAccess
 
     const STATUS_ACTIVE = 'Active';
     const STATUS_PENDING = 'Pending';
+    const STATUS_HISTORY = 'History';
     const PAYMENT_TYPE_SALARY = 'Salary';
     const PAYMENT_TYPE_HOURLY = 'Hourly';
     
@@ -219,6 +220,7 @@ class SalaryAndWage implements ModelInterface, ArrayAccess
         return [
             self::STATUS_ACTIVE,
             self::STATUS_PENDING,
+            self::STATUS_HISTORY,
         ];
     }
     
