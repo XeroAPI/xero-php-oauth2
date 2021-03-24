@@ -71,7 +71,8 @@ class BatchPayment implements ModelInterface, ArrayAccess
         'status' => 'string',
         'total_amount' => 'string',
         'updated_date_utc' => 'string',
-        'is_reconciled' => 'string'
+        'is_reconciled' => 'string',
+        'validation_errors' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]'
     ];
 
     /**
@@ -95,7 +96,8 @@ class BatchPayment implements ModelInterface, ArrayAccess
         'status' => null,
         'total_amount' => null,
         'updated_date_utc' => null,
-        'is_reconciled' => null
+        'is_reconciled' => null,
+        'validation_errors' => null
     ];
 
     /**
@@ -140,7 +142,8 @@ class BatchPayment implements ModelInterface, ArrayAccess
         'status' => 'Status',
         'total_amount' => 'TotalAmount',
         'updated_date_utc' => 'UpdatedDateUTC',
-        'is_reconciled' => 'IsReconciled'
+        'is_reconciled' => 'IsReconciled',
+        'validation_errors' => 'ValidationErrors'
     ];
 
     /**
@@ -164,7 +167,8 @@ class BatchPayment implements ModelInterface, ArrayAccess
         'status' => 'setStatus',
         'total_amount' => 'setTotalAmount',
         'updated_date_utc' => 'setUpdatedDateUtc',
-        'is_reconciled' => 'setIsReconciled'
+        'is_reconciled' => 'setIsReconciled',
+        'validation_errors' => 'setValidationErrors'
     ];
 
     /**
@@ -188,7 +192,8 @@ class BatchPayment implements ModelInterface, ArrayAccess
         'status' => 'getStatus',
         'total_amount' => 'getTotalAmount',
         'updated_date_utc' => 'getUpdatedDateUtc',
-        'is_reconciled' => 'getIsReconciled'
+        'is_reconciled' => 'getIsReconciled',
+        'validation_errors' => 'getValidationErrors'
     ];
 
     /**
@@ -297,6 +302,7 @@ class BatchPayment implements ModelInterface, ArrayAccess
         $this->container['total_amount'] = isset($data['total_amount']) ? $data['total_amount'] : null;
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
         $this->container['is_reconciled'] = isset($data['is_reconciled']) ? $data['is_reconciled'] : null;
+        $this->container['validation_errors'] = isset($data['validation_errors']) ? $data['validation_errors'] : null;
     }
 
     /**
@@ -847,6 +853,33 @@ class BatchPayment implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+
+    /**
+     * Gets validation_errors
+     *
+     * @return \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null
+     */
+    public function getValidationErrors()
+    {
+        return $this->container['validation_errors'];
+    }
+
+    /**
+     * Sets validation_errors
+     *
+     * @param \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null $validation_errors Displays array of validation error messages from the API
+     *
+     * @return $this
+     */
+    public function setValidationErrors($validation_errors)
+    {
+
+        $this->container['validation_errors'] = $validation_errors;
+
+        return $this;
+    }
+
 
     /**
      * Returns true if offset exists. False otherwise.

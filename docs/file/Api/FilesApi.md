@@ -19,7 +19,8 @@ Method | HTTP request | Description
 [**getInbox**](FilesApi.md#getInbox) | **GET** /Inbox | Retrieves inbox folder
 [**updateFile**](FilesApi.md#updateFile) | **PUT** /Files/{FileId} | Update a file
 [**updateFolder**](FilesApi.md#updateFolder) | **PUT** /Folders/{FolderId} | Updates an existing folder
-[**uploadFile**](FilesApi.md#uploadFile) | **POST** /Files | Uploads a File
+[**uploadFile**](FilesApi.md#uploadFile) | **POST** /Files | Uploads a File to the inbox
+[**uploadFileToFolder**](FilesApi.md#uploadFileToFolder) | **POST** /Files/{FolderId} | Uploads a File to a specific folder
 
 
 # **createFileAssociation**
@@ -851,9 +852,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **uploadFile**
-> \XeroAPI\XeroPHP\Models\File\FileObject uploadFile($xero_tenant_id, $folder_id, $body, $name, $filename, $mime_type)
+> \XeroAPI\XeroPHP\Models\File\FileObject uploadFile($xero_tenant_id, $body, $name, $filename, $mime_type)
 
-Uploads a File
+Uploads a File to the inbox
 
 ### Example
 ```php
@@ -870,14 +871,13 @@ $apiInstance = new XeroAPI\XeroPHP\Api\FilesApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$folder_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c; // string | pass an optional folder id to save file to specific folder
 $body = 'body_example'; // string | 
 $name = 'name_example'; // string | exact name of the file you are uploading
 $filename = 'filename_example'; // string | 
 $mime_type = 'mime_type_example'; // string | 
 
 try {
-    $result = $apiInstance->uploadFile($xero_tenant_id, $folder_id, $body, $name, $filename, $mime_type);
+    $result = $apiInstance->uploadFile($xero_tenant_id, $body, $name, $filename, $mime_type);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FilesApi->uploadFile: ', $e->getMessage(), PHP_EOL;
@@ -890,10 +890,70 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **folder_id** | [**string**](../Model/.md)| pass an optional folder id to save file to specific folder | [optional]
- **body** | **string**|  | [optional]
- **name** | **string**| exact name of the file you are uploading | [optional]
- **filename** | **string**|  | [optional]
+ **body** | **string**|  |
+ **name** | **string**| exact name of the file you are uploading |
+ **filename** | **string**|  |
+ **mime_type** | **string**|  | [optional]
+
+### Return type
+
+[**\XeroAPI\XeroPHP\Models\File\FileObject**](../Model/FileObject.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **uploadFileToFolder**
+> \XeroAPI\XeroPHP\Models\File\FileObject uploadFileToFolder($xero_tenant_id, $folder_id, $body, $name, $filename, $mime_type)
+
+Uploads a File to a specific folder
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new XeroAPI\XeroPHP\Api\FilesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
+$folder_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c; // string | pass required folder id to save file to specific folder
+$body = 'body_example'; // string | 
+$name = 'name_example'; // string | exact name of the file you are uploading
+$filename = 'filename_example'; // string | 
+$mime_type = 'mime_type_example'; // string | 
+
+try {
+    $result = $apiInstance->uploadFileToFolder($xero_tenant_id, $folder_id, $body, $name, $filename, $mime_type);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FilesApi->uploadFileToFolder: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xero_tenant_id** | **string**| Xero identifier for Tenant |
+ **folder_id** | [**string**](../Model/.md)| pass required folder id to save file to specific folder |
+ **body** | **string**|  |
+ **name** | **string**| exact name of the file you are uploading |
+ **filename** | **string**|  |
  **mime_type** | **string**|  | [optional]
 
 ### Return type

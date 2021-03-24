@@ -2553,7 +2553,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getEmployees**
-> \XeroAPI\XeroPHP\Models\PayrollUk\Employees getEmployees($xero_tenant_id, $first_name, $last_name, $page)
+> \XeroAPI\XeroPHP\Models\PayrollUk\Employees getEmployees($xero_tenant_id, $filter, $page)
 
 Retrieves employees
 
@@ -2572,12 +2572,11 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollUkApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$first_name = John; // string | Filter by first name
-$last_name = Johnson; // string | Filter by last name
+$filter = firstName==John,lastName==Smith; // string | Filter by first name and/or lastname
 $page = 56; // int | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
 
 try {
-    $result = $apiInstance->getEmployees($xero_tenant_id, $first_name, $last_name, $page);
+    $result = $apiInstance->getEmployees($xero_tenant_id, $filter, $page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PayrollUkApi->getEmployees: ', $e->getMessage(), PHP_EOL;
@@ -2590,8 +2589,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **first_name** | **string**| Filter by first name | [optional]
- **last_name** | **string**| Filter by last name | [optional]
+ **filter** | **string**| Filter by first name and/or lastname | [optional]
  **page** | **int**| Page number which specifies the set of records to retrieve. By default the number of the records per set is 100. | [optional]
 
 ### Return type
@@ -3305,7 +3303,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTimesheets**
-> \XeroAPI\XeroPHP\Models\PayrollUk\Timesheets getTimesheets($xero_tenant_id, $page, $employee_id, $payroll_calendar_id)
+> \XeroAPI\XeroPHP\Models\PayrollUk\Timesheets getTimesheets($xero_tenant_id, $page, $filter)
 
 Retrieves timesheets
 
@@ -3325,11 +3323,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollUkApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $page = 56; // int | Page number which specifies the set of records to retrieve. By default the number of the records per set is 100.
-$employee_id = 'employee_id_example'; // string | By default get Timesheets will return the timesheets for all employees in an organization. You can add GET https://…/timesheets?filter=employeeId=={EmployeeID} to get only the timesheets of a particular employee.
-$payroll_calendar_id = 'payroll_calendar_id_example'; // string | By default get Timesheets will return all the timesheets for an organization. You can add GET https://…/timesheets?filter=payrollCalendarId=={PayrollCalendarID} to filter the timesheets by payroll calendar id
+$filter = employeeId==00000000-0000-0000-0000-000000000000,payrollCalendarId==00000000-0000-0000-0000-000000000000; // string | Filter by first name and/or lastname
 
 try {
-    $result = $apiInstance->getTimesheets($xero_tenant_id, $page, $employee_id, $payroll_calendar_id);
+    $result = $apiInstance->getTimesheets($xero_tenant_id, $page, $filter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PayrollUkApi->getTimesheets: ', $e->getMessage(), PHP_EOL;
@@ -3343,8 +3340,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **page** | **int**| Page number which specifies the set of records to retrieve. By default the number of the records per set is 100. | [optional]
- **employee_id** | [**string**](../Model/.md)| By default get Timesheets will return the timesheets for all employees in an organization. You can add GET https://…/timesheets?filter&#x3D;employeeId&#x3D;&#x3D;{EmployeeID} to get only the timesheets of a particular employee. | [optional]
- **payroll_calendar_id** | [**string**](../Model/.md)| By default get Timesheets will return all the timesheets for an organization. You can add GET https://…/timesheets?filter&#x3D;payrollCalendarId&#x3D;&#x3D;{PayrollCalendarID} to filter the timesheets by payroll calendar id | [optional]
+ **filter** | **string**| Filter by first name and/or lastname | [optional]
 
 ### Return type
 
