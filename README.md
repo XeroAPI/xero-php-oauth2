@@ -17,21 +17,21 @@ All third party libraries dependencies managed with Composer.
 
 [SDK reference for Accounting](https://xeroapi.github.io/xero-php-oauth2/docs/v2/accounting/index.html) methods with runnable code examples.
 
-[Model reference for Accounting](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/accounting) for all models.
+[Model reference for Accounting](https://github.com/XeroAPI/xero-php-oauth2/tree/master/doc/accounting) for all models.
 
-[SDK reference for Identity](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/identity) for all methods and models.
+[SDK reference for Identity](https://github.com/XeroAPI/xero-php-oauth2/tree/master/doc/identity) for all methods and models.
 
-[SDK reference for Fixed Asset](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/assets) for all methods and models.
+[SDK reference for Fixed Asset](https://github.com/XeroAPI/xero-php-oauth2/tree/master/doc/assets) for all methods and models.
 
-[SDK reference for Projects](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/project) for all methods and models.
+[SDK reference for Projects](https://github.com/XeroAPI/xero-php-oauth2/tree/master/doc/project) for all methods and models.
 
-[SDK reference for Australian Payroll](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/payrollau) for all methods and models.
+[SDK reference for Australian Payroll](https://github.com/XeroAPI/xero-php-oauth2/tree/master/doc/payrollau) for all methods and models.
 
-[SDK reference for UK Payroll](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/payrolluk) for all methods and models.
+[SDK reference for UK Payroll](https://github.com/XeroAPI/xero-php-oauth2/tree/master/doc/payrolluk) for all methods and models.
 
-[SDK reference for NZ Payroll](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/payrollnz) for all methods and models.
+[SDK reference for NZ Payroll](https://github.com/XeroAPI/xero-php-oauth2/tree/master/doc/payrollnz) for all methods and models.
 
-[SDK reference for Files](https://github.com/XeroAPI/xero-php-oauth2/tree/master/docs/file) for all methods and models.
+[SDK reference for Files](https://github.com/XeroAPI/xero-php-oauth2/tree/master/doc/file) for all methods and models.
 
 ## Requirements
 
