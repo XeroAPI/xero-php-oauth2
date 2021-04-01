@@ -48,7 +48,7 @@ class StringUtil
                 $seconds = $date[1]/1000;
             }
             
-            $dateString = date("d-m-Y", $seconds);
+            $dateString = (new \DateTime('@' . $seconds))->format('d-m-Y');
             $dateFormat = new \DateTime($dateString);
             return $dateFormat;
         }
