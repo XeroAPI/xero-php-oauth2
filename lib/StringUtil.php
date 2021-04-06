@@ -6,7 +6,7 @@
  * @category Class
  * @package  XeroAPI\XeroPHP
  * @author   Xero API team
- * @link     
+ * @link
  */
 
 namespace XeroAPI\XeroPHP;
@@ -47,7 +47,7 @@ class StringUtil
             if($match){
                 $seconds = $date[1]/1000;
             }
-            
+
             $dateString = (new \DateTime('@' . $seconds))->format('d-m-Y');
             $dateFormat = new \DateTime($dateString);
             return $dateFormat;
@@ -60,7 +60,7 @@ class StringUtil
         if( self::checkThisDate($data) ) {
             return new \DateTime($data);
         } else {
-           
+
             // Data not in a format that simply converts to a new DateTime();
             // Custom Date Deserializer to allow for Xero's use of .NET JSON Date format
             $match = preg_match( '/([\d]{11})/', $data, $date );
@@ -75,18 +75,18 @@ class StringUtil
             if($match){
                 $seconds = $date[1]/1000;
             }
-            
+
             $datetime = new \DateTime();
             $datetime->setTimestamp($seconds);
-    
+
             $result = $datetime->format('Y-m-d H:i:s');
-                
+
             $date = new \DateTime($result);
             return $date;
         }
     }
 
-    public static function checkThisDate($value) 
+    public static function checkThisDate($value)
     {
         if (!$value) {
             return false;
