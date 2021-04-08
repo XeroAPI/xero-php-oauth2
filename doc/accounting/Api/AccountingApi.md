@@ -361,7 +361,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $bank_transaction_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transaction
-$file_name = xero-dev.jpg; // string | The name of the file being attached
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -379,7 +379,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **bank_transaction_id** | [**string**](../Model/.md)| Xero generated unique identifier for a bank transaction |
- **file_name** | **string**| The name of the file being attached |
+ **file_name** | **string**| Name of the attachment |
  **body** | **string**| Byte array of file in body of request |
 
 ### Return type
@@ -583,7 +583,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $bank_transfer_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transfer
-$file_name = xero-dev.jpg; // string | The name of the file being attached to a Bank Transfer
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -601,7 +601,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **bank_transfer_id** | [**string**](../Model/.md)| Xero generated unique identifier for a bank transfer |
- **file_name** | **string**| The name of the file being attached to a Bank Transfer |
+ **file_name** | **string**| Name of the attachment |
  **body** | **string**| Byte array of file in body of request |
 
 ### Return type
@@ -860,7 +860,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $contact_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact
-$file_name = xero-dev.jpg; // string | Name for the file you are attaching
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -878,7 +878,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **contact_id** | [**string**](../Model/.md)| Unique identifier for a Contact |
- **file_name** | **string**| Name for the file you are attaching |
+ **file_name** | **string**| Name of the attachment |
  **body** | **string**| Byte array of file in body of request |
 
 ### Return type
@@ -1192,7 +1192,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $credit_note_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Credit Note
-$file_name = xero-dev.jpg; // string | Name of the file you are attaching to Credit Note
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 $include_online = true; // bool | Allows an attachment to be seen by the end customer within their online invoice
 
@@ -1211,7 +1211,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **credit_note_id** | [**string**](../Model/.md)| Unique identifier for a Credit Note |
- **file_name** | **string**| Name of the file you are attaching to Credit Note |
+ **file_name** | **string**| Name of the attachment |
  **body** | **string**| Byte array of file in body of request |
  **include_online** | **bool**| Allows an attachment to be seen by the end customer within their online invoice | [optional] [default to false]
 
@@ -1579,7 +1579,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Invoice
-$file_name = xero-dev.jpg; // string | Name of the file you are attaching
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 $include_online = true; // bool | Allows an attachment to be seen by the end customer within their online invoice
 
@@ -1598,7 +1598,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **invoice_id** | [**string**](../Model/.md)| Unique identifier for an Invoice |
- **file_name** | **string**| Name of the file you are attaching |
+ **file_name** | **string**| Name of the attachment |
  **body** | **string**| Byte array of file in body of request |
  **include_online** | **bool**| Allows an attachment to be seen by the end customer within their online invoice | [optional] [default to false]
 
@@ -1915,7 +1915,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $manual_journal_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a ManualJournal
-$file_name = xero-dev.jpg; // string | The name of the file being attached to a ManualJournal
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -1933,7 +1933,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **manual_journal_id** | [**string**](../Model/.md)| Unique identifier for a ManualJournal |
- **file_name** | **string**| The name of the file being attached to a ManualJournal |
+ **file_name** | **string**| Name of the attachment |
  **body** | **string**| Byte array of file in body of request |
 
 ### Return type
@@ -1971,7 +1971,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$manual_journal_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a manual journal
+$manual_journal_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a ManualJournal
 $history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
@@ -1988,7 +1988,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **manual_journal_id** | [**string**](../Model/.md)| Xero generated unique identifier for a manual journal |
+ **manual_journal_id** | [**string**](../Model/.md)| Unique identifier for a ManualJournal |
  **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
@@ -2409,7 +2409,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$prepayment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Prepayment
+$prepayment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a PrePayment
 $allocations = { "Allocations": [ { "Invoice": { "LineItems": [], "InvoiceID": "00000000-0000-0000-0000-000000000000" }, "Amount": 1, "Date": "2019-01-10" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Allocations | Allocations with an array of Allocation object in body of request
 $summarize_errors = true; // bool | If false return 200 OK and mix of successfully created objects and any with validation errors
 
@@ -2427,7 +2427,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **prepayment_id** | [**string**](../Model/.md)| Unique identifier for Prepayment |
+ **prepayment_id** | [**string**](../Model/.md)| Unique identifier for a PrePayment |
  **allocations** | [**\XeroAPI\XeroPHP\Models\Accounting\Allocations**](../Model/Allocations.md)| Allocations with an array of Allocation object in body of request |
  **summarize_errors** | **bool**| If false return 200 OK and mix of successfully created objects and any with validation errors | [optional] [default to false]
 
@@ -2521,8 +2521,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Purchase Order object
-$file_name = xero-dev.png; // string | Name of the attachment
+$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Purchase Order
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -2539,7 +2539,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for Purchase Order object |
+ **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for an Purchase Order |
  **file_name** | **string**| Name of the attachment |
  **body** | **string**| Byte array of file in body of request |
 
@@ -2578,7 +2578,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a PurchaseOrder
+$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Purchase Order
 $history_records = { "HistoryRecords": [ { "Details": "Hello World" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\HistoryRecords | HistoryRecords containing an array of HistoryRecord objects in body of request
 
 try {
@@ -2595,7 +2595,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for a PurchaseOrder |
+ **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for an Purchase Order |
  **history_records** | [**\XeroAPI\XeroPHP\Models\Accounting\HistoryRecords**](../Model/HistoryRecords.md)| HistoryRecords containing an array of HistoryRecord objects in body of request |
 
 ### Return type
@@ -2688,7 +2688,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$quote_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Quote object
+$quote_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Quote
 $file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
@@ -2706,7 +2706,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **quote_id** | [**string**](../Model/.md)| Unique identifier for Quote object |
+ **quote_id** | [**string**](../Model/.md)| Unique identifier for an Quote |
  **file_name** | **string**| Name of the attachment |
  **body** | **string**| Byte array of file in body of request |
 
@@ -2911,7 +2911,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $receipt_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Receipt
-$file_name = xero-dev.jpg; // string | The name of the file being attached to the Receipt
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -2929,7 +2929,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **receipt_id** | [**string**](../Model/.md)| Unique identifier for a Receipt |
- **file_name** | **string**| The name of the file being attached to the Receipt |
+ **file_name** | **string**| Name of the attachment |
  **body** | **string**| Byte array of file in body of request |
 
 ### Return type
@@ -3023,7 +3023,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $repeating_invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Repeating Invoice
-$file_name = xero-dev.jpg; // string | The name of the file being attached to a Repeating Invoice
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -3041,7 +3041,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **repeating_invoice_id** | [**string**](../Model/.md)| Unique identifier for a Repeating Invoice |
- **file_name** | **string**| The name of the file being attached to a Repeating Invoice |
+ **file_name** | **string**| Name of the attachment |
  **body** | **string**| Byte array of file in body of request |
 
 ### Return type
@@ -3295,7 +3295,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$account_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for retrieving single object
+$account_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Account object
 
 try {
     $result = $apiInstance->deleteAccount($xero_tenant_id, $account_id);
@@ -3311,7 +3311,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **account_id** | [**string**](../Model/.md)| Unique identifier for retrieving single object |
+ **account_id** | [**string**](../Model/.md)| Unique identifier for Account object |
 
 ### Return type
 
@@ -3775,7 +3775,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$account_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for retrieving single object
+$account_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Account object
 
 try {
     $result = $apiInstance->getAccount($xero_tenant_id, $account_id);
@@ -3791,7 +3791,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **account_id** | [**string**](../Model/.md)| Unique identifier for retrieving single object |
+ **account_id** | [**string**](../Model/.md)| Unique identifier for Account object |
 
 ### Return type
 
@@ -4108,7 +4108,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $bank_transaction_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transaction
-$file_name = xero-dev.jpg; // string | The name of the file being attached
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -4126,7 +4126,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **bank_transaction_id** | [**string**](../Model/.md)| Xero generated unique identifier for a bank transaction |
- **file_name** | **string**| The name of the file being attached |
+ **file_name** | **string**| Name of the attachment |
  **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
 
 ### Return type
@@ -4165,7 +4165,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $bank_transaction_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transaction
-$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for an attachment
+$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Attachment object
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -4183,7 +4183,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **bank_transaction_id** | [**string**](../Model/.md)| Xero generated unique identifier for a bank transaction |
- **attachment_id** | [**string**](../Model/.md)| Xero generated unique identifier for an attachment |
+ **attachment_id** | [**string**](../Model/.md)| Unique identifier for Attachment object |
  **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
 
 ### Return type
@@ -4442,7 +4442,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $bank_transfer_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transfer
-$file_name = xero-dev.jpg; // string | The name of the file being attached to a Bank Transfer
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -4460,7 +4460,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **bank_transfer_id** | [**string**](../Model/.md)| Xero generated unique identifier for a bank transfer |
- **file_name** | **string**| The name of the file being attached to a Bank Transfer |
+ **file_name** | **string**| Name of the attachment |
  **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
 
 ### Return type
@@ -4499,7 +4499,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $bank_transfer_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transfer
-$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for an Attachment to a bank transfer
+$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Attachment object
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -4517,7 +4517,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **bank_transfer_id** | [**string**](../Model/.md)| Xero generated unique identifier for a bank transfer |
- **attachment_id** | [**string**](../Model/.md)| Xero generated unique identifier for an Attachment to a bank transfer |
+ **attachment_id** | [**string**](../Model/.md)| Unique identifier for Attachment object |
  **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
 
 ### Return type
@@ -5039,7 +5039,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $contact_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact
-$file_name = xero-dev.jpg; // string | Name for the file you are attaching
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -5057,7 +5057,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **contact_id** | [**string**](../Model/.md)| Unique identifier for a Contact |
- **file_name** | **string**| Name for the file you are attaching |
+ **file_name** | **string**| Name of the attachment |
  **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
 
 ### Return type
@@ -5096,7 +5096,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $contact_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact
-$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Attachment
+$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Attachment object
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -5114,7 +5114,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **contact_id** | [**string**](../Model/.md)| Unique identifier for a Contact |
- **attachment_id** | [**string**](../Model/.md)| Unique identifier for a Attachment |
+ **attachment_id** | [**string**](../Model/.md)| Unique identifier for Attachment object |
  **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
 
 ### Return type
@@ -5644,7 +5644,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $credit_note_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Credit Note
-$file_name = xero-dev.jpg; // string | Name of the file you are attaching to Credit Note
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -5662,7 +5662,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **credit_note_id** | [**string**](../Model/.md)| Unique identifier for a Credit Note |
- **file_name** | **string**| Name of the file you are attaching to Credit Note |
+ **file_name** | **string**| Name of the attachment |
  **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
 
 ### Return type
@@ -5701,7 +5701,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $credit_note_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Credit Note
-$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Attachment
+$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Attachment object
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -5719,7 +5719,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **credit_note_id** | [**string**](../Model/.md)| Unique identifier for a Credit Note |
- **attachment_id** | [**string**](../Model/.md)| Unique identifier for a Attachment |
+ **attachment_id** | [**string**](../Model/.md)| Unique identifier for Attachment object |
  **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
 
 ### Return type
@@ -6361,7 +6361,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Invoice
-$file_name = xero-dev.jpg; // string | Name of the file you are attaching
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -6379,7 +6379,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **invoice_id** | [**string**](../Model/.md)| Unique identifier for an Invoice |
- **file_name** | **string**| Name of the file you are attaching |
+ **file_name** | **string**| Name of the attachment |
  **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
 
 ### Return type
@@ -6418,7 +6418,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Invoice
-$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Attachment
+$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Attachment object
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -6436,7 +6436,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **invoice_id** | [**string**](../Model/.md)| Unique identifier for an Invoice |
- **attachment_id** | [**string**](../Model/.md)| Unique identifier for an Attachment |
+ **attachment_id** | [**string**](../Model/.md)| Unique identifier for Attachment object |
  **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
 
 ### Return type
@@ -6639,7 +6639,7 @@ $invoice_numbers = &quot;INV-001&quot;, &quot;INV-002&quot;; // string[] | Filte
 $contact_i_ds = &quot;00000000-0000-0000-0000-000000000000&quot;; // string[] | Filter by a comma-separated list of ContactIDs.
 $statuses = &quot;DRAFT&quot;, &quot;SUBMITTED&quot;; // string[] | Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter.
 $page = 1; // int | e.g. page=1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice
-$include_archived = True; // bool | e.g. includeArchived=true - Contacts with a status of ARCHIVED will be included in the response
+$include_archived = True; // bool | e.g. includeArchived=true - Invoices with a status of ARCHIVED will be included in the response
 $created_by_my_app = false; // bool | When set to true you'll only retrieve Invoices created by your app
 $unitdp = 4; // int | e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
 
@@ -6665,7 +6665,7 @@ Name | Type | Description  | Notes
  **contact_i_ds** | [**string[]**](../Model/string.md)| Filter by a comma-separated list of ContactIDs. | [optional]
  **statuses** | [**string[]**](../Model/string.md)| Filter by a comma-separated list Statuses. For faster response times we recommend using these explicit parameters instead of passing OR conditions into the Where filter. | [optional]
  **page** | **int**| e.g. page&#x3D;1 – Up to 100 invoices will be returned in a single API call with line items shown for each invoice | [optional]
- **include_archived** | **bool**| e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response | [optional]
+ **include_archived** | **bool**| e.g. includeArchived&#x3D;true - Invoices with a status of ARCHIVED will be included in the response | [optional]
  **created_by_my_app** | **bool**| When set to true you&#39;ll only retrieve Invoices created by your app | [optional]
  **unitdp** | **int**| e.g. unitdp&#x3D;4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts | [optional]
 
@@ -7151,7 +7151,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $manual_journal_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a ManualJournal
-$file_name = xero-dev.jpg; // string | The name of the file being attached to a ManualJournal
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -7169,7 +7169,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **manual_journal_id** | [**string**](../Model/.md)| Unique identifier for a ManualJournal |
- **file_name** | **string**| The name of the file being attached to a ManualJournal |
+ **file_name** | **string**| Name of the attachment |
  **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
 
 ### Return type
@@ -7208,7 +7208,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $manual_journal_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a ManualJournal
-$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Attachment
+$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Attachment object
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -7226,7 +7226,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **manual_journal_id** | [**string**](../Model/.md)| Unique identifier for a ManualJournal |
- **attachment_id** | [**string**](../Model/.md)| Unique identifier for a Attachment |
+ **attachment_id** | [**string**](../Model/.md)| Unique identifier for Attachment object |
  **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
 
 ### Return type
@@ -7376,7 +7376,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$manual_journal_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a manual journal
+$manual_journal_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a ManualJournal
 
 try {
     $result = $apiInstance->getManualJournalsHistory($xero_tenant_id, $manual_journal_id);
@@ -7392,7 +7392,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **manual_journal_id** | [**string**](../Model/.md)| Xero generated unique identifier for a manual journal |
+ **manual_journal_id** | [**string**](../Model/.md)| Unique identifier for a ManualJournal |
 
 ### Return type
 
@@ -8187,7 +8187,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a PurchaseOrder
+$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Purchase Order
 
 try {
     $result = $apiInstance->getPurchaseOrder($xero_tenant_id, $purchase_order_id);
@@ -8203,7 +8203,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for a PurchaseOrder |
+ **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for an Purchase Order |
 
 ### Return type
 
@@ -8293,7 +8293,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Purchase Order object
+$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Purchase Order
 $file_name = xero-dev.jpg; // string | Name of the attachment
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
@@ -8311,7 +8311,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for Purchase Order object |
+ **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for an Purchase Order |
  **file_name** | **string**| Name of the attachment |
  **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
 
@@ -8350,7 +8350,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Purchase Order object
+$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Purchase Order
 $attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Attachment object
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
@@ -8368,7 +8368,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for Purchase Order object |
+ **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for an Purchase Order |
  **attachment_id** | [**string**](../Model/.md)| Unique identifier for Attachment object |
  **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
 
@@ -8407,7 +8407,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Purchase Orders object
+$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Purchase Order
 
 try {
     $result = $apiInstance->getPurchaseOrderAttachments($xero_tenant_id, $purchase_order_id);
@@ -8423,7 +8423,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for Purchase Orders object |
+ **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for an Purchase Order |
 
 ### Return type
 
@@ -8513,7 +8513,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a PurchaseOrder
+$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Purchase Order
 
 try {
     $result = $apiInstance->getPurchaseOrderHistory($xero_tenant_id, $purchase_order_id);
@@ -8529,7 +8529,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for a PurchaseOrder |
+ **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for an Purchase Order |
 
 ### Return type
 
@@ -8735,7 +8735,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$quote_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Quote object
+$quote_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Quote
 $file_name = xero-dev.jpg; // string | Name of the attachment
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
@@ -8753,7 +8753,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **quote_id** | [**string**](../Model/.md)| Unique identifier for Quote object |
+ **quote_id** | [**string**](../Model/.md)| Unique identifier for an Quote |
  **file_name** | **string**| Name of the attachment |
  **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
 
@@ -8792,7 +8792,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$quote_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Quote object
+$quote_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Quote
 $attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Attachment object
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
@@ -8810,7 +8810,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **quote_id** | [**string**](../Model/.md)| Unique identifier for Quote object |
+ **quote_id** | [**string**](../Model/.md)| Unique identifier for an Quote |
  **attachment_id** | [**string**](../Model/.md)| Unique identifier for Attachment object |
  **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
 
@@ -8849,7 +8849,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$quote_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Quote object
+$quote_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Quote
 
 try {
     $result = $apiInstance->getQuoteAttachments($xero_tenant_id, $quote_id);
@@ -8865,7 +8865,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **quote_id** | [**string**](../Model/.md)| Unique identifier for Quote object |
+ **quote_id** | [**string**](../Model/.md)| Unique identifier for an Quote |
 
 ### Return type
 
@@ -9082,7 +9082,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $receipt_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Receipt
-$file_name = xero-dev.jpg; // string | The name of the file being attached to the Receipt
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -9100,7 +9100,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **receipt_id** | [**string**](../Model/.md)| Unique identifier for a Receipt |
- **file_name** | **string**| The name of the file being attached to the Receipt |
+ **file_name** | **string**| Name of the attachment |
  **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
 
 ### Return type
@@ -9139,7 +9139,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $receipt_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Receipt
-$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Attachment
+$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Attachment object
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -9157,7 +9157,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **receipt_id** | [**string**](../Model/.md)| Unique identifier for a Receipt |
- **attachment_id** | [**string**](../Model/.md)| Unique identifier for a Attachment |
+ **attachment_id** | [**string**](../Model/.md)| Unique identifier for Attachment object |
  **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
 
 ### Return type
@@ -9414,7 +9414,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $repeating_invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Repeating Invoice
-$file_name = xero-dev.jpg; // string | The name of the file being attached to a Repeating Invoice
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -9432,7 +9432,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **repeating_invoice_id** | [**string**](../Model/.md)| Unique identifier for a Repeating Invoice |
- **file_name** | **string**| The name of the file being attached to a Repeating Invoice |
+ **file_name** | **string**| Name of the attachment |
  **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
 
 ### Return type
@@ -9471,7 +9471,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $repeating_invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Repeating Invoice
-$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Attachment
+$attachment_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Attachment object
 $content_type = image/jpg; // string | The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
 
 try {
@@ -9489,7 +9489,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **repeating_invoice_id** | [**string**](../Model/.md)| Unique identifier for a Repeating Invoice |
- **attachment_id** | [**string**](../Model/.md)| Unique identifier for a Attachment |
+ **attachment_id** | [**string**](../Model/.md)| Unique identifier for Attachment object |
  **content_type** | **string**| The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf |
 
 ### Return type
@@ -9690,8 +9690,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $contact_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact
 $date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The date of the Aged Payables By Contact report
-$from_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The from date of the Aged Payables By Contact report
-$to_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The to date of the Aged Payables By Contact report
+$from_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | filter by the from date of the report e.g. 2021-02-01
+$to_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | filter by the to date of the report e.g. 2021-02-28
 
 try {
     $result = $apiInstance->getReportAgedPayablesByContact($xero_tenant_id, $contact_id, $date, $from_date, $to_date);
@@ -9709,8 +9709,8 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **contact_id** | [**string**](../Model/.md)| Unique identifier for a Contact |
  **date** | **\DateTime**| The date of the Aged Payables By Contact report | [optional]
- **from_date** | **\DateTime**| The from date of the Aged Payables By Contact report | [optional]
- **to_date** | **\DateTime**| The to date of the Aged Payables By Contact report | [optional]
+ **from_date** | **\DateTime**| filter by the from date of the report e.g. 2021-02-01 | [optional]
+ **to_date** | **\DateTime**| filter by the to date of the report e.g. 2021-02-28 | [optional]
 
 ### Return type
 
@@ -9749,8 +9749,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $contact_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact
 $date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The date of the Aged Receivables By Contact report
-$from_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The from date of the Aged Receivables By Contact report
-$to_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The to date of the Aged Receivables By Contact report
+$from_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | filter by the from date of the report e.g. 2021-02-01
+$to_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | filter by the to date of the report e.g. 2021-02-28
 
 try {
     $result = $apiInstance->getReportAgedReceivablesByContact($xero_tenant_id, $contact_id, $date, $from_date, $to_date);
@@ -9768,8 +9768,8 @@ Name | Type | Description  | Notes
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **contact_id** | [**string**](../Model/.md)| Unique identifier for a Contact |
  **date** | **\DateTime**| The date of the Aged Receivables By Contact report | [optional]
- **from_date** | **\DateTime**| The from date of the Aged Receivables By Contact report | [optional]
- **to_date** | **\DateTime**| The to date of the Aged Receivables By Contact report | [optional]
+ **from_date** | **\DateTime**| filter by the from date of the report e.g. 2021-02-01 | [optional]
+ **to_date** | **\DateTime**| filter by the to date of the report e.g. 2021-02-28 | [optional]
 
 ### Return type
 
@@ -9975,8 +9975,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$from_date = 2019-11-01; // \DateTime | The from date for the Bank Summary report e.g. 2018-03-31
-$to_date = 2019-11-30; // \DateTime | The to date for the Bank Summary report e.g. 2018-03-31
+$from_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | filter by the from date of the report e.g. 2021-02-01
+$to_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | filter by the to date of the report e.g. 2021-02-28
 
 try {
     $result = $apiInstance->getReportBankSummary($xero_tenant_id, $from_date, $to_date);
@@ -9992,8 +9992,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **from_date** | **\DateTime**| The from date for the Bank Summary report e.g. 2018-03-31 | [optional]
- **to_date** | **\DateTime**| The to date for the Bank Summary report e.g. 2018-03-31 | [optional]
+ **from_date** | **\DateTime**| filter by the from date of the report e.g. 2021-02-01 | [optional]
+ **to_date** | **\DateTime**| filter by the to date of the report e.g. 2021-02-28 | [optional]
 
 ### Return type
 
@@ -10140,8 +10140,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$from_date = 2019-03-01; // \DateTime | The from date for the ProfitAndLoss report e.g. 2018-03-31
-$to_date = 2019-03-31; // \DateTime | The to date for the ProfitAndLoss report e.g. 2018-03-31
+$from_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | filter by the from date of the report e.g. 2021-02-01
+$to_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | filter by the to date of the report e.g. 2021-02-28
 $periods = 3; // int | The number of periods to compare (integer between 1 and 12)
 $timeframe = MONTH; // string | The period size to compare to (MONTH, QUARTER, YEAR)
 $tracking_category_id = 00000000-0000-0000-0000-000000000000; // string | The trackingCategory 1 for the ProfitAndLoss report
@@ -10165,8 +10165,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **from_date** | **\DateTime**| The from date for the ProfitAndLoss report e.g. 2018-03-31 | [optional]
- **to_date** | **\DateTime**| The to date for the ProfitAndLoss report e.g. 2018-03-31 | [optional]
+ **from_date** | **\DateTime**| filter by the from date of the report e.g. 2021-02-01 | [optional]
+ **to_date** | **\DateTime**| filter by the to date of the report e.g. 2021-02-28 | [optional]
  **periods** | **int**| The number of periods to compare (integer between 1 and 12) | [optional]
  **timeframe** | **string**| The period size to compare to (MONTH, QUARTER, YEAR) | [optional]
  **tracking_category_id** | **string**| The trackingCategory 1 for the ProfitAndLoss report | [optional]
@@ -10649,7 +10649,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$account_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for retrieving single object
+$account_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Account object
 $accounts = { "Accounts":[ { "Code":"123456", "Name":"BarFoo", "AccountID":"99ce6032-0678-4aa0-8148-240c75fee33a", "Type":"EXPENSE", "Description":"GoodBye World", "TaxType":"INPUT", "EnablePaymentsToAccount":false, "ShowInExpenseClaims":false, "Class":"EXPENSE", "ReportingCode":"EXP", "ReportingCodeName":"Expense", "UpdatedDateUTC":"2019-02-21T16:29:47.96-08:00" } ] }; // \XeroAPI\XeroPHP\Models\Accounting\Accounts | Request of type Accounts array with one Account
 
 try {
@@ -10666,7 +10666,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **account_id** | [**string**](../Model/.md)| Unique identifier for retrieving single object |
+ **account_id** | [**string**](../Model/.md)| Unique identifier for Account object |
  **accounts** | [**\XeroAPI\XeroPHP\Models\Accounting\Accounts**](../Model/Accounts.md)| Request of type Accounts array with one Account |
 
 ### Return type
@@ -10819,7 +10819,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $bank_transaction_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transaction
-$file_name = xero-dev.jpg; // string | The name of the file being attached
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -10837,7 +10837,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **bank_transaction_id** | [**string**](../Model/.md)| Xero generated unique identifier for a bank transaction |
- **file_name** | **string**| The name of the file being attached |
+ **file_name** | **string**| Name of the attachment |
  **body** | **string**| Byte array of file in body of request |
 
 ### Return type
@@ -10876,7 +10876,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $bank_transfer_id = 00000000-0000-0000-0000-000000000000; // string | Xero generated unique identifier for a bank transfer
-$file_name = xero-dev.jpg; // string | The name of the file being attached to a Bank Transfer
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -10894,7 +10894,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **bank_transfer_id** | [**string**](../Model/.md)| Xero generated unique identifier for a bank transfer |
- **file_name** | **string**| The name of the file being attached to a Bank Transfer |
+ **file_name** | **string**| Name of the attachment |
  **body** | **string**| Byte array of file in body of request |
 
 ### Return type
@@ -10988,7 +10988,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $contact_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Contact
-$file_name = xero-dev.jpg; // string | Name for the file you are attaching
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -11006,7 +11006,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **contact_id** | [**string**](../Model/.md)| Unique identifier for a Contact |
- **file_name** | **string**| Name for the file you are attaching |
+ **file_name** | **string**| Name of the attachment |
  **body** | **string**| Byte array of file in body of request |
 
 ### Return type
@@ -11157,7 +11157,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $credit_note_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Credit Note
-$file_name = xero-dev.jpg; // string | Name of the file you are attaching to Credit Note
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -11175,7 +11175,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **credit_note_id** | [**string**](../Model/.md)| Unique identifier for a Credit Note |
- **file_name** | **string**| Name of the file you are attaching to Credit Note |
+ **file_name** | **string**| Name of the attachment |
  **body** | **string**| Byte array of file in body of request |
 
 ### Return type
@@ -11326,7 +11326,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Invoice
-$file_name = xero-dev.jpg; // string | Name of the file you are attaching
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -11344,7 +11344,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **invoice_id** | [**string**](../Model/.md)| Unique identifier for an Invoice |
- **file_name** | **string**| Name of the file you are attaching |
+ **file_name** | **string**| Name of the attachment |
  **body** | **string**| Byte array of file in body of request |
 
 ### Return type
@@ -11550,7 +11550,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $manual_journal_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a ManualJournal
-$file_name = xero-dev.jpg; // string | The name of the file being attached to a ManualJournal
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -11568,7 +11568,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **manual_journal_id** | [**string**](../Model/.md)| Unique identifier for a ManualJournal |
- **file_name** | **string**| The name of the file being attached to a ManualJournal |
+ **file_name** | **string**| Name of the attachment |
  **body** | **string**| Byte array of file in body of request |
 
 ### Return type
@@ -12109,7 +12109,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a PurchaseOrder
+$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Purchase Order
 $purchase_orders = { "PurchaseOrders": [ { "AttentionTo": "Peter Parker", "LineItems": [], "Contact": {} } ] }; // \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders | 
 
 try {
@@ -12126,7 +12126,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for a PurchaseOrder |
+ **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for an Purchase Order |
  **purchase_orders** | [**\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders**](../Model/PurchaseOrders.md)|  |
 
 ### Return type
@@ -12164,8 +12164,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Purchase Order object
-$file_name = xero-dev.png; // string | Name of the attachment
+$purchase_order_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Purchase Order
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -12182,7 +12182,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for Purchase Order object |
+ **purchase_order_id** | [**string**](../Model/.md)| Unique identifier for an Purchase Order |
  **file_name** | **string**| Name of the attachment |
  **body** | **string**| Byte array of file in body of request |
 
@@ -12276,7 +12276,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$quote_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for Quote object
+$quote_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for an Quote
 $file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
@@ -12294,7 +12294,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
- **quote_id** | [**string**](../Model/.md)| Unique identifier for Quote object |
+ **quote_id** | [**string**](../Model/.md)| Unique identifier for an Quote |
  **file_name** | **string**| Name of the attachment |
  **body** | **string**| Byte array of file in body of request |
 
@@ -12391,7 +12391,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $receipt_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Receipt
-$file_name = xero-dev.jpg; // string | The name of the file being attached to the Receipt
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -12409,7 +12409,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **receipt_id** | [**string**](../Model/.md)| Unique identifier for a Receipt |
- **file_name** | **string**| The name of the file being attached to the Receipt |
+ **file_name** | **string**| Name of the attachment |
  **body** | **string**| Byte array of file in body of request |
 
 ### Return type
@@ -12448,7 +12448,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
 $repeating_invoice_id = 00000000-0000-0000-0000-000000000000; // string | Unique identifier for a Repeating Invoice
-$file_name = xero-dev.jpg; // string | The name of the file being attached to a Repeating Invoice
+$file_name = xero-dev.jpg; // string | Name of the attachment
 $body = 'body_example'; // string | Byte array of file in body of request
 
 try {
@@ -12466,7 +12466,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xero_tenant_id** | **string**| Xero identifier for Tenant |
  **repeating_invoice_id** | [**string**](../Model/.md)| Unique identifier for a Repeating Invoice |
- **file_name** | **string**| The name of the file being attached to a Repeating Invoice |
+ **file_name** | **string**| Name of the attachment |
  **body** | **string**| Byte array of file in body of request |
 
 ### Return type
