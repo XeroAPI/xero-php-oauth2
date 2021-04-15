@@ -2,6 +2,7 @@
 namespace XeroAPI\XeroPHP;
 
 use \Firebase\JWT\JWT;
+use \Firebase\JWT\JWK;
 
 class JWTClaims
 {
@@ -20,10 +21,77 @@ class JWTClaims
     private $at_hash;
     private $sid;
     private $authentication_event_id;
-
     private $aud;
     private $iat;
+    private $client_id;
+    private $jti;
+    private $scope;
+    private $nbf;
 
+    /**
+    * Decode and verify an id token, then set the JWT claim values into the object
+    * @param string $token - an encrypted json web token 
+    * @return object $verifiedJWT
+    */
+    private function verify($token) {
+        $json = file_get_contents('https://identity.xero.com/.well-known/openid-configuration/jwks');
+        $jwks =  json_decode($json, true);
+        $supportedAlgorithm = array('RS256');
+        $verifiedJWT = JWT::decode($token, JWK::parseKeySet($jwks), $supportedAlgorithm);
+
+        return $verifiedJWT;
+    }
+
+    /**
+    * Decode and verify an access token, then set the JWT claim values into the object
+    * @param string $token - an encrypted json web token 
+    * @return JWTClaims $this
+    */
+    public function decodeAccessToken($token) {
+        $verifiedJWT = $this->verify($token);
+
+        $this->nbf = $verifiedJWT->nbf;
+        $this->expiration = $verifiedJWT->exp;
+        $this->iss = $verifiedJWT->iss;
+        $this->aud = $verifiedJWT->aud;
+        $this->client_id = $verifiedJWT->client_id;
+        $this->auth_time = $verifiedJWT->auth_time;
+        $this->user_id = $verifiedJWT->xero_userid;
+        $this->session_id = $verifiedJWT->global_session_id;
+        $this->jti = $verifiedJWT->jti;
+        $this->authentication_event_id = $verifiedJWT->authentication_event_id;
+        $this->scope = $verifiedJWT->scope;
+
+        return $this;
+    }
+
+    /**
+    * Decode and verify an id token, then set the JWT claim values into the object
+    * @param string $token - an encrypted json web token 
+    * @return JWTClaims $this
+    */
+    public function decodeIdToken($token) {
+        $verifiedJWT = $this->verify($token);
+
+        $this->nbf = $verifiedJWT->nbf;
+        $this->expiration = $verifiedJWT->exp;
+        $this->iss = $verifiedJWT->iss;
+        $this->aud = $verifiedJWT->aud;
+        $this->iat = $verifiedJWT->iat;
+        $this->at_hash = $verifiedJWT->at_hash;
+        $this->sid = $verifiedJWT->sid;
+        $this->subvalue = $verifiedJWT->sub;
+        $this->auth_time = $verifiedJWT->auth_time;
+        $this->preferred_username = $verifiedJWT->preferred_username;
+        $this->email = $verifiedJWT->email;
+        $this->given_name = $verifiedJWT->given_name;
+        $this->family_name = $verifiedJWT->family_name;
+
+        return $this;
+        
+    }
+
+    // Deprecated in favor of token specific decode methods 4/2021
     public function decode() {
         
         if (isset($this->idToken)) {
@@ -148,6 +216,26 @@ class JWTClaims
     //The authentication event id
     public function getAuthenticationEventId() {
         return $this->authentication_event_id;
+    }
+
+    //The client id
+    public function getClientId() {
+        return $this->client_id;
+    }
+
+    //The unique idetifier for the JWT
+    public function getJti() {
+        return $this->jti;
+    }
+
+    //The scope
+    public function getScope() {
+        return $this->scope;
+    }
+
+    //The identifies the time before which the JWT MUST NOT be accepted for processing
+    public function getNbf() {
+        return $this->nbf;
     }
 }
 ?>
