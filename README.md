@@ -527,18 +527,18 @@ The code below shows how to securely read claims about the access token (a user 
   $jwtAccessTokenClaims = new XeroAPI\XeroPHP\JWTClaims();
   $jwtAccessTokenClaims->decodeAccessToken($accessToken);
 
-  echo($jwt->getNbf());
-  echo($jwt->getExp());
-  echo($jwt->getIss());
-  echo($jwt->getAudValue());
-  echo($jwt->getClientId());
-  echo($jwt->getAuthTime());
-  echo($jwt->getXeroUserId());
-  echo($jwt->getGlobalSessionId());
-  echo($jwt->getJti());
-  echo($jwt->getAuthenticationEventId());
+  echo($jwtAccessTokenClaims->getNbf());
+  echo($jwtAccessTokenClaims->getExp());
+  echo($jwtAccessTokenClaims->getIss());
+  echo($jwtAccessTokenClaims->getAudValue());
+  echo($jwtAccessTokenClaims->getClientId());
+  echo($jwtAccessTokenClaims->getAuthTime());
+  echo($jwtAccessTokenClaims->getXeroUserId());
+  echo($jwtAccessTokenClaims->getGlobalSessionId());
+  echo($jwtAccessTokenClaims->getJti());
+  echo($jwtAccessTokenClaims->getAuthenticationEventId());
   // scopes are an array therfore we dump not echo them.
-  var_dump($jwt->getScope());
+  var_dump($jwtAccessTokenClaims->getScope());
   
   //DECODE & VERIFY ID_TOKEN 
   $IdToken = (string)$storage->getSession()['id_token'];
@@ -546,19 +546,19 @@ The code below shows how to securely read claims about the access token (a user 
   $jwtIdTokenClaims->decodeIdToken($IdToken);
 
   // 13 Claims are available
-  echo($jwt->getNbf());
-  echo($jwt->getExp());
-  echo($jwt->getIss());
-  echo($jwt->getAudValue());
-  echo($jwt->getIat());
-  echo($jwt->getAtHash());
-  echo($jwt->getSid());
-  echo($jwt->getSub());
-  echo($jwt->getAuthTime());
-  echo($jwt->getPreferredUsername());
-  echo($jwt->getEmail());
-  echo($jwt->getGivenName());
-  echo($jwt->getFamilyName());
+  echo($jwtIdTokenClaims->getNbf());
+  echo($jwtIdTokenClaims->getExp());
+  echo($jwtIdTokenClaims->getIss());
+  echo($jwtIdTokenClaims->getAudValue());
+  echo($jwtIdTokenClaims->getIat());
+  echo($jwtIdTokenClaims->getAtHash());
+  echo($jwtIdTokenClaims->getSid());
+  echo($jwtIdTokenClaims->getSub());
+  echo($jwtIdTokenClaims->getAuthTime());
+  echo($jwtIdTokenClaims->getPreferredUsername());
+  echo($jwtIdTokenClaims->getEmail());
+  echo($jwtIdTokenClaims->getGivenName());
+  echo($jwtIdTokenClaims->getFamilyName());
 ```
 
 
