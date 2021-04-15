@@ -67,11 +67,6 @@ $leaveapplication->setStartDate("/Date(1547164800000+0000)/");
 
 ```
 
-**This is a breaking change between version 1.x and 2.x.**
-
-## Looking for version 1.x of the SDK?
-Codebase, samples and setup instructions located in [php-1.x branch](https://github.com/XeroAPI/xero-php-oauth2/tree/php-1.x).
-
 ## Getting Started
 
 ### Create a Xero App
@@ -520,26 +515,50 @@ class StorageClass
 
 ## JWT decoding and Signup with Xero
 
-Looking to implement [Signup with Xero](https://developer.xero.com/documentation/oauth2/sign-in)? We've added built in decoding of the ID token to xero-php-oauth2.
+Looking to implement [Signup with Xero](https://developer.xero.com/documentation/oauth2/sign-in)? We've added built in decoding and verification for both Access tokens and ID token in xero-php-oauth2.
+
+Json Web Tokens (JWT) claims are pieces of information asserted about a subject.
+
+The code below shows how to securely read claims about the access token (a user authentication) and abut the id token (a user's identity & profile).
 
 ```php
-  // Decode JWT
-  $jwt = new XeroAPI\XeroPHP\JWTClaims();
-  $jwt->setTokenId($accessToken->getValues()["id_token"]);
-  // Set access token in order to get authentication event id
-  $jwt->setTokenAccess($accessToken->getToken());
-  $jwt->decode();
+  // DECODE & VERIFY ACCESS_TOKEN
+  $accessToken = (string)$storage->getSession()['token'];
+  $jwtAccessTokenClaims = new XeroAPI\XeroPHP\JWTClaims();
+  $jwtAccessTokenClaims->decodeAccessToken($accessToken);
 
-  $sub​ = $jwt->getSub();
-  $iss = $jwt->getIss();
-  $exp = $jwt->getExp();
-  $given_name = $jwt->getGivenName();
-  $family_name =  $jwt->getFamilyName();
-  $email = $jwt->getEmail();
-  $user_id = $jwt->getXeroUserId();
-  $username = $jwt->getPreferredUsername();
-  $session_id = $jwt->getGlobalSessionId();
-  $authentication_event_id = $jwt->getAuthenticationEventId();
+  echo($jwt->getNbf());
+  echo($jwt->getExp());
+  echo($jwt->getIss());
+  echo($jwt->getAudValue());
+  echo($jwt->getClientId());
+  echo($jwt->getAuthTime());
+  echo($jwt->getXeroUserId());
+  echo($jwt->getGlobalSessionId());
+  echo($jwt->getJti());
+  echo($jwt->getAuthenticationEventId());
+  // scopes are an array therfore we dump not echo them.
+  var_dump($jwt->getScope());
+  
+  //DECODE & VERIFY ID_TOKEN 
+  $IdToken = (string)$storage->getSession()['id_token'];
+  $jwtIdTokenClaims = new XeroAPI\XeroPHP\JWTClaims();
+  $jwtIdTokenClaims->decodeIdToken($IdToken);
+
+  // 13 Claims are available
+  echo($jwt->getNbf());
+  echo($jwt->getExp());
+  echo($jwt->getIss());
+  echo($jwt->getAudValue());
+  echo($jwt->getIat());
+  echo($jwt->getAtHash());
+  echo($jwt->getSid());
+  echo($jwt->getSub());
+  echo($jwt->getAuthTime());
+  echo($jwt->getPreferredUsername());
+  echo($jwt->getEmail());
+  echo($jwt->getGivenName());
+  echo($jwt->getFamilyName());
 ```
 
 
