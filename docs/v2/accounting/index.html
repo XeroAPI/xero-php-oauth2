@@ -3662,7 +3662,6 @@ ul.nav-tabs {
       "type" : "number",
       "description" : "The calculated tax amount based on the TaxType and LineAmount",
       "format" : "double",
-      "readOnly" : true,
       "example" : 0.0,
       "x-is-money" : true
     },
@@ -4371,6 +4370,13 @@ ul.nav-tabs {
       "description" : "See Allocations",
       "items" : {
         "$ref" : "#/components/schemas/Allocation"
+      }
+    },
+    "Payments" : {
+      "type" : "array",
+      "description" : "See Payments",
+      "items" : {
+        "$ref" : "#/components/schemas/Payment"
       }
     },
     "AppliedAmount" : {
@@ -5813,7 +5819,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="Accounting"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="Accounting"><strong>VSN: </strong>2.5.3</li>
+              <li class="nav-header" data-group="Accounting"><strong>VSN: </strong>2.5.4</li>
               <li class="nav-header" data-group="Accounting"><a href="#api-Accounting">Methods</a></li>
               <li data-group="Accounting" data-name="createAccount" class="">
                 <a href="#api-Accounting-createAccount">createAccount</a>
@@ -21480,9 +21486,10 @@ $order = "Name ASC";
 $iDs = array(&quot;00000000-0000-0000-0000-000000000000&quot;)
 $page = 1;
 $includeArchived = true;
+$summaryOnly = true;
 
 try {
-  $result = $apiInstance->getContacts($xeroTenantId, $ifModifiedSince, $where, $order, $iDs, $page, $includeArchived);
+  $result = $apiInstance->getContacts($xeroTenantId, $ifModifiedSince, $where, $order, $iDs, $page, $includeArchived, $summaryOnly);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->getContacts: ', $e->getMessage(), PHP_EOL;
 }
@@ -21655,6 +21662,26 @@ e.g. page=1 - Up to 100 contacts will be returned in a single API call.
 
                     <div class="inner description marked">
 e.g. includeArchived=true - Contacts with a status of ARCHIVED will be included in the response
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">summaryOnly</td>
+<td>
+
+
+    <div id="d2e199_getContacts_summaryOnly">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Boolean
+                </span>
+
+                    <div class="inner description marked">
+Use summaryOnly=true in GET Contacts endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
                     </div>
             </div>
         </div>
