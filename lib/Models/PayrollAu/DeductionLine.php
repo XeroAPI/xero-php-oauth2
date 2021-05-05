@@ -215,6 +215,9 @@ class DeductionLine implements ModelInterface, ArrayAccess
         if ($this->container['deduction_type_id'] === null) {
             $invalidProperties[] = "'deduction_type_id' can't be null";
         }
+        if ($this->container['calculation_type'] === null) {
+            $invalidProperties[] = "'calculation_type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -260,7 +263,7 @@ class DeductionLine implements ModelInterface, ArrayAccess
     /**
      * Gets calculation_type
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\DeductionTypeCalculationType|null
+     * @return \XeroAPI\XeroPHP\Models\PayrollAu\DeductionTypeCalculationType
      */
     public function getCalculationType()
     {
@@ -270,7 +273,7 @@ class DeductionLine implements ModelInterface, ArrayAccess
     /**
      * Sets calculation_type
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\DeductionTypeCalculationType|null $calculation_type calculation_type
+     * @param \XeroAPI\XeroPHP\Models\PayrollAu\DeductionTypeCalculationType $calculation_type calculation_type
      *
      * @return $this
      */

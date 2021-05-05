@@ -72,7 +72,6 @@ class Prepayment implements ModelInterface, ArrayAccess
         'currency_rate' => 'double',
         'remaining_credit' => 'double',
         'allocations' => '\XeroAPI\XeroPHP\Models\Accounting\Allocation[]',
-        'payments' => '\XeroAPI\XeroPHP\Models\Accounting\Payment[]',
         'applied_amount' => 'double',
         'has_attachments' => 'bool',
         'attachments' => '\XeroAPI\XeroPHP\Models\Accounting\Attachment[]'
@@ -100,7 +99,6 @@ class Prepayment implements ModelInterface, ArrayAccess
         'currency_rate' => 'double',
         'remaining_credit' => 'double',
         'allocations' => null,
-        'payments' => null,
         'applied_amount' => 'double',
         'has_attachments' => null,
         'attachments' => null
@@ -149,7 +147,6 @@ class Prepayment implements ModelInterface, ArrayAccess
         'currency_rate' => 'CurrencyRate',
         'remaining_credit' => 'RemainingCredit',
         'allocations' => 'Allocations',
-        'payments' => 'Payments',
         'applied_amount' => 'AppliedAmount',
         'has_attachments' => 'HasAttachments',
         'attachments' => 'Attachments'
@@ -177,7 +174,6 @@ class Prepayment implements ModelInterface, ArrayAccess
         'currency_rate' => 'setCurrencyRate',
         'remaining_credit' => 'setRemainingCredit',
         'allocations' => 'setAllocations',
-        'payments' => 'setPayments',
         'applied_amount' => 'setAppliedAmount',
         'has_attachments' => 'setHasAttachments',
         'attachments' => 'setAttachments'
@@ -205,7 +201,6 @@ class Prepayment implements ModelInterface, ArrayAccess
         'currency_rate' => 'getCurrencyRate',
         'remaining_credit' => 'getRemainingCredit',
         'allocations' => 'getAllocations',
-        'payments' => 'getPayments',
         'applied_amount' => 'getAppliedAmount',
         'has_attachments' => 'getHasAttachments',
         'attachments' => 'getAttachments'
@@ -323,7 +318,6 @@ class Prepayment implements ModelInterface, ArrayAccess
         $this->container['currency_rate'] = isset($data['currency_rate']) ? $data['currency_rate'] : null;
         $this->container['remaining_credit'] = isset($data['remaining_credit']) ? $data['remaining_credit'] : null;
         $this->container['allocations'] = isset($data['allocations']) ? $data['allocations'] : null;
-        $this->container['payments'] = isset($data['payments']) ? $data['payments'] : null;
         $this->container['applied_amount'] = isset($data['applied_amount']) ? $data['applied_amount'] : null;
         $this->container['has_attachments'] = isset($data['has_attachments']) ? $data['has_attachments'] : false;
         $this->container['attachments'] = isset($data['attachments']) ? $data['attachments'] : null;
@@ -845,33 +839,6 @@ class Prepayment implements ModelInterface, ArrayAccess
     {
 
         $this->container['allocations'] = $allocations;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets payments
-     *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Payment[]|null
-     */
-    public function getPayments()
-    {
-        return $this->container['payments'];
-    }
-
-    /**
-     * Sets payments
-     *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Payment[]|null $payments See Payments
-     *
-     * @return $this
-     */
-    public function setPayments($payments)
-    {
-
-        $this->container['payments'] = $payments;
 
         return $this;
     }

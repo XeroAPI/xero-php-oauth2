@@ -433,7 +433,6 @@ class ManualJournalLine implements ModelInterface, ArrayAccess
     }
 
 
-
     /**
      * Gets is_blank
      *

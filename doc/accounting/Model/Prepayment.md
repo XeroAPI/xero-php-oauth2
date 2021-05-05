@@ -19,7 +19,6 @@ Name | Type | Description | Notes
 **currency_rate** | **double** | The currency rate for a multicurrency prepayment. If no rate is specified, the XE.com day rate is used | [optional] 
 **remaining_credit** | **double** | The remaining credit balance on the prepayment | [optional] 
 **allocations** | [**\XeroAPI\XeroPHP\Models\Accounting\Allocation[]**](Allocation.md) | See Allocations | [optional] 
-**payments** | [**\XeroAPI\XeroPHP\Models\Accounting\Payment[]**](Payment.md) | See Payments | [optional] 
 **applied_amount** | **double** | The amount of applied to an invoice | [optional] 
 **has_attachments** | **bool** | boolean to indicate if a prepayment has an attachment | [optional] [default to false]
 **attachments** | [**\XeroAPI\XeroPHP\Models\Accounting\Attachment[]**](Attachment.md) | See Attachments | [optional] 
