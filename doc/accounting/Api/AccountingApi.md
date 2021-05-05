@@ -5453,7 +5453,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContacts**
-> \XeroAPI\XeroPHP\Models\Accounting\Contacts getContacts($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $page, $include_archived)
+> \XeroAPI\XeroPHP\Models\Accounting\Contacts getContacts($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $page, $include_archived, $summary_only)
 
 Retrieves all contacts in a Xero organisation
 
@@ -5478,9 +5478,10 @@ $order = Name ASC; // string | Order by an any element
 $i_ds = &quot;00000000-0000-0000-0000-000000000000&quot;; // string[] | Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call.
 $page = 1; // int | e.g. page=1 - Up to 100 contacts will be returned in a single API call.
 $include_archived = True; // bool | e.g. includeArchived=true - Contacts with a status of ARCHIVED will be included in the response
+$summary_only = true; // bool | Use summaryOnly=true in GET Contacts endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
 
 try {
-    $result = $apiInstance->getContacts($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $page, $include_archived);
+    $result = $apiInstance->getContacts($xero_tenant_id, $if_modified_since, $where, $order, $i_ds, $page, $include_archived, $summary_only);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountingApi->getContacts: ', $e->getMessage(), PHP_EOL;
@@ -5499,6 +5500,7 @@ Name | Type | Description  | Notes
  **i_ds** | [**string[]**](../Model/string.md)| Filter by a comma separated list of ContactIDs. Allows you to retrieve a specific set of contacts in a single call. | [optional]
  **page** | **int**| e.g. page&#x3D;1 - Up to 100 contacts will be returned in a single API call. | [optional]
  **include_archived** | **bool**| e.g. includeArchived&#x3D;true - Contacts with a status of ARCHIVED will be included in the response | [optional]
+ **summary_only** | **bool**| Use summaryOnly&#x3D;true in GET Contacts endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient. | [optional] [default to false]
 
 ### Return type
 
