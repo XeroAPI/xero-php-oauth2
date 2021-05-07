@@ -134,11 +134,6 @@ The RedirectURI (something like http://localhost:8888/pathToApp/callback.php) in
 <?php
   ini_set('display_errors', 'On');
   require __DIR__ . '/vendor/autoload.php';
-  require_once('storage.php');
-
-  // Storage Class uses sessions for storing access token (demo only)
-  // you'll need to extend to your Database for a scalable solution
-  $storage = new StorageClass();
 
   session_start();
 
