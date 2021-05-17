@@ -6,7 +6,7 @@
 * [Requirements](#requirements)
 * [Installation and Usage](#installation-and-usage)
 * [Getting Started](#getting-started)
-* [How to use the SDK](#how-to-use-the-xero-java-sdk)
+* [How to use the SDK](#how-to-use-the-sdk)
 * [Example Calls](#example-calls)
 * [Client credential grant type](#client-credential-grant-type)
 * [JWT decoding and Signup with Xero](#jwt-decoding-and-signup-with-xero)
@@ -511,7 +511,7 @@ The code below shows how to perform the OAuth 2 client credential grant flow.  [
   try {
       // Try to get an access token using the client credentials grant.
       $accessToken = $provider->getAccessToken('client_credentials');
-      var_dump($accessToken);
+      echo($accessToken->getToken());
   } catch (\League\OAuth2\Client\Provider\Exception\IdentityProviderException $e) {
       // Failed to get the access token
       exit($e->getMessage());
