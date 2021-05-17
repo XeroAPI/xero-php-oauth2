@@ -2,16 +2,29 @@
 ## Current release of SDK with oAuth 2 support
 [![Latest Stable Version](https://poser.pugx.org/xeroapi/xero-php-oauth2/v/stable)](https://packagist.org/packages/xeroapi/xero-php-oauth2)
 
+* [Documentation](#documentation)
+* [Requirements](#requirements)
+* [Installation and Usage](#installation-and-usage)
+* [Getting Started](#getting-started)
+* [How to use the SDK](#how-to-use-the-xero-java-sdk)
+* [Example Calls](#example-calls)
+* [Client credential grant type](#client-credential-grant-type)
+* [JWT decoding and Signup with Xero](#jwt-decoding-and-signup-with-xero)
+* [Changes in version 2.x](#changes-in-version-2.x)
+* [Contributing](#participating-in-xeros-developer-community)
+
+## Current release of SDK with oAuth 2 support
+
 This release only supports oAuth2 authentication and the following API sets.
 * accounting
+* files 
 * fixed asset 
-* projects
 * payroll AU
 * payroll UK
 * payroll NZ
-* files 
+* projects
 
-## SDK Documentation
+## Documentation
 
 All third party libraries dependencies managed with Composer.
 
@@ -37,53 +50,8 @@ All third party libraries dependencies managed with Composer.
 
 PHP 5.6 and later
 
-## Changes in version 2.x
+## Installation and Usage
 
-### Methods to access Dates in Accounting have changed 
-Both our Accounting and AU Payroll APIs use [Microsoft .NET JSON format](https://developer.xero.com/documentation/api/requests-and-responses#JSON) i.e. "\/Date(1439434356790)\/". Our other APIs use standard date formatting i.e. "2020-03-24T18:43:43.860852". Building our SDKs from OpenAPI specs with such different date formats has been challenging.
-
-For this reason, we've decided dates in MS .NET JSON format will be  strings with NO date or date-time format in our OpenAPI specs. This means developers wanting to use our OpenAPI specs with code generators won't run into deserialization issues trying to handle MS .NET JSON format dates.
-
-The side effect is accounting and AU payroll models now have two getter methods. For example, getDateOfBirth() returns the string "\/Date(1439434356790)\/" while getDateOfBirthAsDate() return a standard date "2020-05-14". Since you can override methods in Java setDateOfBirth() can accept a String or a LocalDate. 
-
-```php
-//Get account by id
-$result = $apiInstance->getAccount($xeroTenantId,$accountId); 	
-
-// display formatted date
-echo($result->getAccounts()[0]->getUpdatedDateUtcAsDate()->format('Y-m-d H:i:s') ):
-
-// display string in MS .NET JSON format \/Date(1439434356790)\/
-echo($result->getAccounts()[0]->getUpdatedDateUtc() ):
-
-//When setting a date for accounting or AU Payroll, remember to use the correct method
-// For example setStartDate has a 2nd  method with "AsDate" if you wish to pass a native date
-// This converts the date object to MS DateFormat
-$leaveapplication->setStartDateAsDate(new DateTime('2020-05-02'));
-
-// You'll get an error from the AU Payroll API if you try setStartDate("2020-05-02")
-// But if you want to pass in MS Dateformat, this string will work.
-$leaveapplication->setStartDate("/Date(1547164800000+0000)/");
-
-```
-
-## Getting Started
-
-### Create a Xero App
-Follow these steps to create your Xero app
-
-* Create a [free Xero user account](https://www.xero.com/us/signup/api/) (if you don't have one)
-* Login to [Xero developer center](https://developer.xero.com/myapps)
-* Click "New App" link
-* Enter your App name, company url, privacy policy url.
-* Enter the redirect URI (something like http://localhost:8888/pathToApp/callback.php)
-* Agree to terms and condition and click "Create App".
-* Click "Generate a secret" button.
-* Copy your client id and client secret and **save for use later**.
-* Click the "Save" button. Your secret is now hidden.
-
-
-## Installation & Usage
 ### Composer
 
 To install the bindings via [Composer](http://getcomposer.org/), and add the xero-php-oauth2 sdk to your `composer.json`:
@@ -116,7 +84,23 @@ Instructions here for [configuring PHPStorm](https://www.jetbrains.com/help/phps
 * https://packagist.org/packages/webfox/laravel-xero-oauth2
 
 
-## How to use xero-php-oauth2
+## Getting Started
+
+### Create a Xero App
+Follow these steps to create your Xero app
+
+* Create a [free Xero user account](https://www.xero.com/us/signup/api/) (if you don't have one)
+* Login to [Xero developer center](https://developer.xero.com/myapps)
+* Click "New App" link
+* Enter your App name, company url, privacy policy url.
+* Enter the redirect URI (something like http://localhost:8888/pathToApp/callback.php)
+* Agree to terms and condition and click "Create App".
+* Click "Generate a secret" button.
+* Copy your client id and client secret and **save for use later**.
+* Click the "Save" button. Your secret is now hidden.
+
+
+## How to use the SDK
 Below is starter code with the oAuth 2 flow.  You can copy/paste the code below into 4 separate PHP files and substitute your **ClientId, ClientSecret and RedirectURI**
 
 ### [Download starter code](https://github.com/XeroAPI/xero-php-oauth2-starter)
@@ -327,6 +311,8 @@ class StorageClass
 ?>
 ```
 
+## Example Calls
+
 ### authorizedResource.php
 
 ```php
@@ -349,7 +335,7 @@ class StorageClass
       'redirectUri'             => 'http://localhost:8888/xero-php-oauth2-starter/callback.php',
       'urlAuthorize'            => 'https://login.xero.com/identity/connect/authorize',
       'urlAccessToken'          => 'https://identity.xero.com/connect/token',
-      'urlResourceOwnerDetails' => 'https://api.xero.com/api.xro/2.0/Organisation'
+      'urlResourceOwnerDetails' => 'https://identity.xero.com/resources'
     ]);
 
     $newAccessToken = $provider->getAccessToken('refresh_token', [
@@ -513,6 +499,30 @@ class StorageClass
 </html>
 ```
 
+## Client Credential grant type
+
+The code below shows how to perform the OAuth 2 client credential grant flow.  [Custom connections](https://developer.xero.com/announcements/custom-integrations-are-coming/) will utilize this flow when it becomes available.
+
+```php
+  $provider = new \League\OAuth2\Client\Provider\GenericProvider([
+      'clientId'                => '__YOUR_CLIENT_ID__',
+      'clientSecret'            => '__YOUR_CLIENT_SECRET__',
+      'redirectUri'             => 'http://localhost:8888/xero-php-oauth2-starter/callback.php',
+      'urlAuthorize'            => 'https://login.xero.com/identity/connect/authorize',
+      'urlAccessToken'          => 'https://identity.xero.com/connect/token',
+      'urlResourceOwnerDetails' => 'https://identity.xero.com/resources'
+  ]);
+
+  try {
+      // Try to get an access token using the client credentials grant.
+      $accessToken = $provider->getAccessToken('client_credentials');
+      var_dump($accessToken);
+  } catch (\League\OAuth2\Client\Provider\Exception\IdentityProviderException $e) {
+      // Failed to get the access token
+      exit($e->getMessage());
+  }
+```
+
 ## JWT decoding and Signup with Xero
 
 Looking to implement [Signup with Xero](https://developer.xero.com/documentation/oauth2/sign-in)? We've added built in decoding and verification for both Access tokens and ID token in xero-php-oauth2.
@@ -561,6 +571,35 @@ The code below shows how to securely read claims about the access token (a user 
   echo($jwtIdTokenClaims->getFamilyName());
 ```
 
+## Changes in version 2.x
+
+### Methods to access Dates in Accounting have changed 
+Both our Accounting and AU Payroll APIs use [Microsoft .NET JSON format](https://developer.xero.com/documentation/api/requests-and-responses#JSON) i.e. "\/Date(1439434356790)\/". Our other APIs use standard date formatting i.e. "2020-03-24T18:43:43.860852". Building our SDKs from OpenAPI specs with such different date formats has been challenging.
+
+For this reason, we've decided dates in MS .NET JSON format will be  strings with NO date or date-time format in our OpenAPI specs. This means developers wanting to use our OpenAPI specs with code generators won't run into deserialization issues trying to handle MS .NET JSON format dates.
+
+The side effect is accounting and AU payroll models now have two getter methods. For example, getDateOfBirth() returns the string "\/Date(1439434356790)\/" while getDateOfBirthAsDate() return a standard date "2020-05-14". Since you can override methods in Java setDateOfBirth() can accept a String or a LocalDate. 
+
+```php
+//Get account by id
+$result = $apiInstance->getAccount($xeroTenantId,$accountId); 	
+
+// display formatted date
+echo($result->getAccounts()[0]->getUpdatedDateUtcAsDate()->format('Y-m-d H:i:s') ):
+
+// display string in MS .NET JSON format \/Date(1439434356790)\/
+echo($result->getAccounts()[0]->getUpdatedDateUtc() ):
+
+//When setting a date for accounting or AU Payroll, remember to use the correct method
+// For example setStartDate has a 2nd  method with "AsDate" if you wish to pass a native date
+// This converts the date object to MS DateFormat
+$leaveapplication->setStartDateAsDate(new DateTime('2020-05-02'));
+
+// You'll get an error from the AU Payroll API if you try setStartDate("2020-05-02")
+// But if you want to pass in MS Dateformat, this string will work.
+$leaveapplication->setStartDate("/Date(1547164800000+0000)/");
+
+```
 
 ## Participating in Xero’s developer community
 This SDK is one of a number of SDK’s that the Xero Developer team builds and maintains. We are grateful for all the contributions that the community makes. 
