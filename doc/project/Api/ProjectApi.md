@@ -39,7 +39,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$project_create_or_update = { "contactId":"00000000-0000-0000-000-000000000000", "name":"New Kitchen", "deadlineUtc":"2019-12-10T12:59:59Z", "estimateAmount":"99.99" }; // \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate | Create a new project with ProjectCreateOrUpdate object
+$project_create_or_update = { "contactId": "00000000-0000-0000-000-000000000000", "name": "New Kitchen", "deadlineUtc": "2019-12-10T12:59:59Z", "estimateAmount": "99.99" }; // \XeroAPI\XeroPHP\Models\Project\ProjectCreateOrUpdate | Create a new project with ProjectCreateOrUpdate object
 
 try {
     $result = $apiInstance->createProject($xero_tenant_id, $project_create_or_update);
@@ -95,7 +95,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $project_id = 'project_id_example'; // string | You can specify an individual project by appending the projectId to the endpoint
-$time_entry_create_or_update = { "userId":"740add2a-a703-4b8a-a670-1093919c2040", "taskId":"7be77337-feec-4458-bb1b-dbaa5a4aafce", "dateUtc":"2020-02-26T15:00:00Z", "duration":30, "description":"My description" }; // \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate | The time entry object you are creating
+$time_entry_create_or_update = { "userId": "00000000-0000-0000-0000-000000000000", "taskId": "00000000-0000-0000-0000-000000000000", "dateUtc": "2020-02-26T15:00:00Z", "duration":30, "description": "My description" }; // \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate | The time entry object you are creating
 
 try {
     $result = $apiInstance->createTimeEntry($xero_tenant_id, $project_id, $time_entry_create_or_update);
@@ -748,7 +748,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
 $project_id = 'project_id_example'; // string | You can specify an individual project by appending the projectId to the endpoint
 $time_entry_id = 'time_entry_id_example'; // string | You can specify an individual time entry by appending the id to the endpoint
-$time_entry_create_or_update = { "userId":"740add2a-a703-4b8a-a670-1093919c2040", "taskId":"7be77337-feec-4458-bb1b-dbaa5a4aafce", "dateUtc":"2020-02-27T15:00:00Z", "duration":45, "description":"My UPDATED description" }; // \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate | The time entry object you are updating
+$time_entry_create_or_update = { "userId": "00000000-0000-0000-0000-000000000000", "taskId": "00000000-0000-0000-0000-000000000000", "dateUtc": "2020-02-27T15:00:00Z", "duration":45, "description": "My UPDATED description" }; // \XeroAPI\XeroPHP\Models\Project\TimeEntryCreateOrUpdate | The time entry object you are updating
 
 try {
     $apiInstance->updateTimeEntry($xero_tenant_id, $project_id, $time_entry_id, $time_entry_create_or_update);

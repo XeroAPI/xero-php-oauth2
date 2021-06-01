@@ -1,6 +1,6 @@
 <?php
 /**
- * Report
+ * BudgetLines
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \XeroAPI\XeroPHP\AccountingObjectSerializer;
 use \XeroAPI\XeroPHP\StringUtil;
 /**
- * Report Class Doc Comment
+ * BudgetLines Class Doc Comment
  *
  * @category Class
  * @package  XeroAPI\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Report implements ModelInterface, ArrayAccess
+class BudgetLines implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class Report implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Report';
+    protected static $openAPIModelName = 'BudgetLines';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,12 +56,10 @@ class Report implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'report_name' => 'string',
-        'report_type' => 'string',
-        'report_title' => 'string',
-        'report_date' => 'string',
-        'updated_date_utc' => 'string',
-        'contacts' => '\XeroAPI\XeroPHP\Models\Accounting\TenNinetyNineContact[]'
+        'period' => 'string',
+        'amount' => 'int',
+        'unit_amount' => 'int',
+        'notes' => 'string'
     ];
 
     /**
@@ -70,12 +68,10 @@ class Report implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'report_name' => null,
-        'report_type' => null,
-        'report_title' => null,
-        'report_date' => null,
-        'updated_date_utc' => null,
-        'contacts' => null
+        'period' => null,
+        'amount' => null,
+        'unit_amount' => null,
+        'notes' => null
     ];
 
     /**
@@ -105,12 +101,10 @@ class Report implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'report_name' => 'ReportName',
-        'report_type' => 'ReportType',
-        'report_title' => 'ReportTitle',
-        'report_date' => 'ReportDate',
-        'updated_date_utc' => 'UpdatedDateUTC',
-        'contacts' => 'Contacts'
+        'period' => 'Period',
+        'amount' => 'Amount',
+        'unit_amount' => 'UnitAmount',
+        'notes' => 'Notes'
     ];
 
     /**
@@ -119,12 +113,10 @@ class Report implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'report_name' => 'setReportName',
-        'report_type' => 'setReportType',
-        'report_title' => 'setReportTitle',
-        'report_date' => 'setReportDate',
-        'updated_date_utc' => 'setUpdatedDateUtc',
-        'contacts' => 'setContacts'
+        'period' => 'setPeriod',
+        'amount' => 'setAmount',
+        'unit_amount' => 'setUnitAmount',
+        'notes' => 'setNotes'
     ];
 
     /**
@@ -133,12 +125,10 @@ class Report implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'report_name' => 'getReportName',
-        'report_type' => 'getReportType',
-        'report_title' => 'getReportTitle',
-        'report_date' => 'getReportDate',
-        'updated_date_utc' => 'getUpdatedDateUtc',
-        'contacts' => 'getContacts'
+        'period' => 'getPeriod',
+        'amount' => 'getAmount',
+        'unit_amount' => 'getUnitAmount',
+        'notes' => 'getNotes'
     ];
 
     /**
@@ -182,21 +172,8 @@ class Report implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const REPORT_TYPE_AGED_PAYABLES_BY_CONTACT = 'AgedPayablesByContact';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getReportTypeAllowableValues()
-    {
-        return [
-            self::REPORT_TYPE_AGED_PAYABLES_BY_CONTACT,
-        ];
-    }
     
 
     /**
@@ -214,12 +191,10 @@ class Report implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['report_name'] = isset($data['report_name']) ? $data['report_name'] : null;
-        $this->container['report_type'] = isset($data['report_type']) ? $data['report_type'] : null;
-        $this->container['report_title'] = isset($data['report_title']) ? $data['report_title'] : null;
-        $this->container['report_date'] = isset($data['report_date']) ? $data['report_date'] : null;
-        $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
-        $this->container['contacts'] = isset($data['contacts']) ? $data['contacts'] : null;
+        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['unit_amount'] = isset($data['unit_amount']) ? $data['unit_amount'] : null;
+        $this->container['notes'] = isset($data['notes']) ? $data['notes'] : null;
     }
 
     /**
@@ -231,12 +206,8 @@ class Report implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getReportTypeAllowableValues();
-        if (!is_null($this->container['report_type']) && !in_array($this->container['report_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'report_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
+        if (!is_null($this->container['notes']) && (mb_strlen($this->container['notes']) > 255)) {
+            $invalidProperties[] = "invalid value for 'notes', the character length must be smaller than or equal to 255.";
         }
 
         return $invalidProperties;
@@ -255,177 +226,137 @@ class Report implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets report_name
+     * Gets period
      *
      * @return string|null
      */
-    public function getReportName()
+    public function getPeriod()
     {
-        return $this->container['report_name'];
+        return $this->container['period'];
     }
-
-    /**
-     * Sets report_name
-     *
-     * @param string|null $report_name See Prepayment Types
-     *
-     * @return $this
-     */
-    public function setReportName($report_name)
+    public function getPeriodAsDate()
     {
-
-        $this->container['report_name'] = $report_name;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets report_type
-     *
-     * @return string|null
-     */
-    public function getReportType()
-    {
-        return $this->container['report_type'];
-    }
-
-    /**
-     * Sets report_type
-     *
-     * @param string|null $report_type See Prepayment Types
-     *
-     * @return $this
-     */
-    public function setReportType($report_type)
-    {
-        $allowedValues = $this->getReportTypeAllowableValues();
-        if (!is_null($report_type) && !in_array($report_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'report_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-
-        $this->container['report_type'] = $report_type;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets report_title
-     *
-     * @return string|null
-     */
-    public function getReportTitle()
-    {
-        return $this->container['report_title'];
-    }
-
-    /**
-     * Sets report_title
-     *
-     * @param string|null $report_title See Prepayment Types
-     *
-     * @return $this
-     */
-    public function setReportTitle($report_title)
-    {
-
-        $this->container['report_title'] = $report_title;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets report_date
-     *
-     * @return string|null
-     */
-    public function getReportDate()
-    {
-        return $this->container['report_date'];
-    }
-
-    /**
-     * Sets report_date
-     *
-     * @param string|null $report_date Date of report
-     *
-     * @return $this
-     */
-    public function setReportDate($report_date)
-    {
-
-        $this->container['report_date'] = $report_date;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets updated_date_utc
-     *
-     * @return string|null
-     */
-    public function getUpdatedDateUtc()
-    {
-        return $this->container['updated_date_utc'];
-    }
-    public function getUpdatedDateUtcAsDate()
-    {
-      if ($this->getUpdatedDateUtc() != null) {
-        return StringUtil::convertStringToDateTime($this->getUpdatedDateUtc());
+      if ($this->getPeriod() != null) {
+        return StringUtil::convertStringToDate($this->getPeriod());
       } else {
         throw new \Exception('can not convert null string to date');
       } 
     }
 
     /**
-     * Sets updated_date_utc
+     * Sets period
      *
-     * @param string|null $updated_date_utc Updated Date
+     * @param string|null $period Period the amount applies to (e.g. “2019-08”)
      *
      * @return $this
      */
-    public function setUpdatedDateUtc($updated_date_utc)
+    public function setPeriod($period)
     {
 
-        $this->container['updated_date_utc'] = $updated_date_utc;
+        $this->container['period'] = $period;
+
+        return $this;
+    }
+    /**
+     * Sets period
+     *
+     * @param \DateTime |null $period Period the amount applies to (e.g. “2019-08”)
+     *
+     * @return $this
+     */
+    public function setPeriodAsDate($period)
+    {
+      //CONVERT Date into MS DateFromat String 
+      if (StringUtil::checkThisDate($period->format('Y-m-d')) )
+      {        
+        $timeInMillis = strtotime($period->format('Y-m-d')." UTC") * 1000;
+        $period = "/Date(" . $timeInMillis. "+0000)/";
+      }  
+      $this->container['period'] = $period;
+      return $this;
+    }
+
+
+
+    /**
+     * Gets amount
+     *
+     * @return int|null
+     */
+    public function getAmount()
+    {
+        return $this->container['amount'];
+    }
+
+    /**
+     * Sets amount
+     *
+     * @param int|null $amount LineItem Quantity
+     *
+     * @return $this
+     */
+    public function setAmount($amount)
+    {
+
+        $this->container['amount'] = $amount;
 
         return $this;
     }
 
 
+
     /**
-     * Gets contacts
+     * Gets unit_amount
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\TenNinetyNineContact[]|null
+     * @return int|null
      */
-    public function getContacts()
+    public function getUnitAmount()
     {
-        return $this->container['contacts'];
+        return $this->container['unit_amount'];
     }
 
     /**
-     * Sets contacts
+     * Sets unit_amount
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\TenNinetyNineContact[]|null $contacts contacts
+     * @param int|null $unit_amount Budgeted amount
      *
      * @return $this
      */
-    public function setContacts($contacts)
+    public function setUnitAmount($unit_amount)
     {
 
-        $this->container['contacts'] = $contacts;
+        $this->container['unit_amount'] = $unit_amount;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets notes
+     *
+     * @return string|null
+     */
+    public function getNotes()
+    {
+        return $this->container['notes'];
+    }
+
+    /**
+     * Sets notes
+     *
+     * @param string|null $notes Any footnotes associated with this balance
+     *
+     * @return $this
+     */
+    public function setNotes($notes)
+    {
+        if (!is_null($notes) && (mb_strlen($notes) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $notes when calling BudgetLines., must be smaller than or equal to 255.');
+        }
+
+
+        $this->container['notes'] = $notes;
 
         return $this;
     }

@@ -1977,9 +1977,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollUkApi(
     $config
 );
 $xero_tenant_id = 'xero_tenant_id_example'; // string | Xero identifier for Tenant
-$employee_id = 4ff1e5cc-9835-40d5-bb18-09fdb118db9c; // string | Employee id for single object
+$employee_id = 00000000-0000-0000-0000-000000000000; // string | Employee id for single object
 $start_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter by start date
-$end_date = Johnson; // \DateTime | Filter by end date
+$end_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter by end date
 
 try {
     $result = $apiInstance->getEmployeeLeavePeriods($xero_tenant_id, $employee_id, $start_date, $end_date);

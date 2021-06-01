@@ -1,6 +1,6 @@
 <?php
 /**
- * ReportWithRow
+ * Budget
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \XeroAPI\XeroPHP\AccountingObjectSerializer;
 use \XeroAPI\XeroPHP\StringUtil;
 /**
- * ReportWithRow Class Doc Comment
+ * Budget Class Doc Comment
  *
  * @category Class
  * @package  XeroAPI\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ReportWithRow implements ModelInterface, ArrayAccess
+class Budget implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class ReportWithRow implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ReportWithRow';
+    protected static $openAPIModelName = 'Budget';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,15 +56,12 @@ class ReportWithRow implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'report_id' => 'string',
-        'report_name' => 'string',
-        'report_title' => 'string',
-        'report_type' => 'string',
-        'report_titles' => 'string[]',
-        'report_date' => 'string',
-        'rows' => '\XeroAPI\XeroPHP\Models\Accounting\ReportRows[]',
+        'budget_id' => 'string',
+        'type' => 'string',
+        'description' => 'string',
         'updated_date_utc' => 'string',
-        'fields' => '\XeroAPI\XeroPHP\Models\Accounting\ReportFields[]'
+        'budget_lines' => '\XeroAPI\XeroPHP\Models\Accounting\BudgetLines',
+        'tracking' => '\XeroAPI\XeroPHP\Models\Accounting\TrackingCategory'
     ];
 
     /**
@@ -73,15 +70,12 @@ class ReportWithRow implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'report_id' => null,
-        'report_name' => null,
-        'report_title' => null,
-        'report_type' => null,
-        'report_titles' => null,
-        'report_date' => null,
-        'rows' => null,
+        'budget_id' => 'uuid',
+        'type' => null,
+        'description' => null,
         'updated_date_utc' => null,
-        'fields' => null
+        'budget_lines' => null,
+        'tracking' => null
     ];
 
     /**
@@ -111,15 +105,12 @@ class ReportWithRow implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'report_id' => 'ReportID',
-        'report_name' => 'ReportName',
-        'report_title' => 'ReportTitle',
-        'report_type' => 'ReportType',
-        'report_titles' => 'ReportTitles',
-        'report_date' => 'ReportDate',
-        'rows' => 'Rows',
+        'budget_id' => 'BudgetID',
+        'type' => 'Type',
+        'description' => 'Description',
         'updated_date_utc' => 'UpdatedDateUTC',
-        'fields' => 'Fields'
+        'budget_lines' => 'BudgetLines',
+        'tracking' => 'Tracking'
     ];
 
     /**
@@ -128,15 +119,12 @@ class ReportWithRow implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'report_id' => 'setReportId',
-        'report_name' => 'setReportName',
-        'report_title' => 'setReportTitle',
-        'report_type' => 'setReportType',
-        'report_titles' => 'setReportTitles',
-        'report_date' => 'setReportDate',
-        'rows' => 'setRows',
+        'budget_id' => 'setBudgetId',
+        'type' => 'setType',
+        'description' => 'setDescription',
         'updated_date_utc' => 'setUpdatedDateUtc',
-        'fields' => 'setFields'
+        'budget_lines' => 'setBudgetLines',
+        'tracking' => 'setTracking'
     ];
 
     /**
@@ -145,15 +133,12 @@ class ReportWithRow implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'report_id' => 'getReportId',
-        'report_name' => 'getReportName',
-        'report_title' => 'getReportTitle',
-        'report_type' => 'getReportType',
-        'report_titles' => 'getReportTitles',
-        'report_date' => 'getReportDate',
-        'rows' => 'getRows',
+        'budget_id' => 'getBudgetId',
+        'type' => 'getType',
+        'description' => 'getDescription',
         'updated_date_utc' => 'getUpdatedDateUtc',
-        'fields' => 'getFields'
+        'budget_lines' => 'getBudgetLines',
+        'tracking' => 'getTracking'
     ];
 
     /**
@@ -197,8 +182,23 @@ class ReportWithRow implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const TYPE_OVERALL = 'OVERALL';
+    const TYPE_TRACKING = 'TRACKING';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_OVERALL,
+            self::TYPE_TRACKING,
+        ];
+    }
     
 
     /**
@@ -216,15 +216,12 @@ class ReportWithRow implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['report_id'] = isset($data['report_id']) ? $data['report_id'] : null;
-        $this->container['report_name'] = isset($data['report_name']) ? $data['report_name'] : null;
-        $this->container['report_title'] = isset($data['report_title']) ? $data['report_title'] : null;
-        $this->container['report_type'] = isset($data['report_type']) ? $data['report_type'] : null;
-        $this->container['report_titles'] = isset($data['report_titles']) ? $data['report_titles'] : null;
-        $this->container['report_date'] = isset($data['report_date']) ? $data['report_date'] : null;
-        $this->container['rows'] = isset($data['rows']) ? $data['rows'] : null;
+        $this->container['budget_id'] = isset($data['budget_id']) ? $data['budget_id'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
-        $this->container['fields'] = isset($data['fields']) ? $data['fields'] : null;
+        $this->container['budget_lines'] = isset($data['budget_lines']) ? $data['budget_lines'] : null;
+        $this->container['tracking'] = isset($data['tracking']) ? $data['tracking'] : null;
     }
 
     /**
@@ -235,6 +232,18 @@ class ReportWithRow implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 255)) {
+            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 255.";
+        }
 
         return $invalidProperties;
     }
@@ -252,26 +261,26 @@ class ReportWithRow implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets report_id
+     * Gets budget_id
      *
      * @return string|null
      */
-    public function getReportId()
+    public function getBudgetId()
     {
-        return $this->container['report_id'];
+        return $this->container['budget_id'];
     }
 
     /**
-     * Sets report_id
+     * Sets budget_id
      *
-     * @param string|null $report_id ID of the Report
+     * @param string|null $budget_id Xero identifier
      *
      * @return $this
      */
-    public function setReportId($report_id)
+    public function setBudgetId($budget_id)
     {
 
-        $this->container['report_id'] = $report_id;
+        $this->container['budget_id'] = $budget_id;
 
         return $this;
     }
@@ -279,26 +288,35 @@ class ReportWithRow implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets report_name
+     * Gets type
      *
      * @return string|null
      */
-    public function getReportName()
+    public function getType()
     {
-        return $this->container['report_name'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets report_name
+     * Sets type
      *
-     * @param string|null $report_name Name of the report
+     * @param string|null $type Type of Budget. OVERALL or TRACKING
      *
      * @return $this
      */
-    public function setReportName($report_name)
+    public function setType($type)
     {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
 
-        $this->container['report_name'] = $report_name;
+        $this->container['type'] = $type;
 
         return $this;
     }
@@ -306,134 +324,30 @@ class ReportWithRow implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets report_title
+     * Gets description
      *
      * @return string|null
      */
-    public function getReportTitle()
+    public function getDescription()
     {
-        return $this->container['report_title'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets report_title
+     * Sets description
      *
-     * @param string|null $report_title Title of the report
+     * @param string|null $description The Budget description
      *
      * @return $this
      */
-    public function setReportTitle($report_title)
+    public function setDescription($description)
     {
-
-        $this->container['report_title'] = $report_title;
-
-        return $this;
-    }
+        if (!is_null($description) && (mb_strlen($description) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $description when calling Budget., must be smaller than or equal to 255.');
+        }
 
 
-
-    /**
-     * Gets report_type
-     *
-     * @return string|null
-     */
-    public function getReportType()
-    {
-        return $this->container['report_type'];
-    }
-
-    /**
-     * Sets report_type
-     *
-     * @param string|null $report_type The type of report (BalanceSheet,ProfitLoss, etc)
-     *
-     * @return $this
-     */
-    public function setReportType($report_type)
-    {
-
-        $this->container['report_type'] = $report_type;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets report_titles
-     *
-     * @return string[]|null
-     */
-    public function getReportTitles()
-    {
-        return $this->container['report_titles'];
-    }
-
-    /**
-     * Sets report_titles
-     *
-     * @param string[]|null $report_titles Report titles array (3 to 4 strings with the report name, orgnisation name and time frame of report)
-     *
-     * @return $this
-     */
-    public function setReportTitles($report_titles)
-    {
-
-        $this->container['report_titles'] = $report_titles;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets report_date
-     *
-     * @return string|null
-     */
-    public function getReportDate()
-    {
-        return $this->container['report_date'];
-    }
-
-    /**
-     * Sets report_date
-     *
-     * @param string|null $report_date Date of report
-     *
-     * @return $this
-     */
-    public function setReportDate($report_date)
-    {
-
-        $this->container['report_date'] = $report_date;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets rows
-     *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ReportRows[]|null
-     */
-    public function getRows()
-    {
-        return $this->container['rows'];
-    }
-
-    /**
-     * Sets rows
-     *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ReportRows[]|null $rows rows
-     *
-     * @return $this
-     */
-    public function setRows($rows)
-    {
-
-        $this->container['rows'] = $rows;
+        $this->container['description'] = $description;
 
         return $this;
     }
@@ -461,7 +375,7 @@ class ReportWithRow implements ModelInterface, ArrayAccess
     /**
      * Sets updated_date_utc
      *
-     * @param string|null $updated_date_utc Updated Date
+     * @param string|null $updated_date_utc UTC timestamp of last update to budget
      *
      * @return $this
      */
@@ -475,26 +389,53 @@ class ReportWithRow implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets fields
+     * Gets budget_lines
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ReportFields[]|null
+     * @return \XeroAPI\XeroPHP\Models\Accounting\BudgetLines|null
      */
-    public function getFields()
+    public function getBudgetLines()
     {
-        return $this->container['fields'];
+        return $this->container['budget_lines'];
     }
 
     /**
-     * Sets fields
+     * Sets budget_lines
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ReportFields[]|null $fields fields
+     * @param \XeroAPI\XeroPHP\Models\Accounting\BudgetLines|null $budget_lines budget_lines
      *
      * @return $this
      */
-    public function setFields($fields)
+    public function setBudgetLines($budget_lines)
     {
 
-        $this->container['fields'] = $fields;
+        $this->container['budget_lines'] = $budget_lines;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets tracking
+     *
+     * @return \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory|null
+     */
+    public function getTracking()
+    {
+        return $this->container['tracking'];
+    }
+
+    /**
+     * Sets tracking
+     *
+     * @param \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory|null $tracking tracking
+     *
+     * @return $this
+     */
+    public function setTracking($tracking)
+    {
+
+        $this->container['tracking'] = $tracking;
 
         return $this;
     }
