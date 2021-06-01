@@ -144,7 +144,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AssetApi(
     $config
 );
 $xero_tenant_id = YOUR_XERO_TENANT_ID; // string | Xero identifier for Tenant
-$id = 4f7bcdcb-5ec1-4258-9558-19f662fccdfe; // string | fixed asset id for single object
+$id = 00000000-0000-0000-0000-000000000000; // string | fixed asset id for single object
 
 try {
     $result = $apiInstance->getAssetById($xero_tenant_id, $id);

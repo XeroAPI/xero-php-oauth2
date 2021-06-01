@@ -56,7 +56,6 @@ class Report implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'report_id' => 'string',
         'report_name' => 'string',
         'report_type' => 'string',
         'report_title' => 'string',
@@ -71,7 +70,6 @@ class Report implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'report_id' => null,
         'report_name' => null,
         'report_type' => null,
         'report_title' => null,
@@ -107,7 +105,6 @@ class Report implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'report_id' => 'ReportID',
         'report_name' => 'ReportName',
         'report_type' => 'ReportType',
         'report_title' => 'ReportTitle',
@@ -122,7 +119,6 @@ class Report implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'report_id' => 'setReportId',
         'report_name' => 'setReportName',
         'report_type' => 'setReportType',
         'report_title' => 'setReportTitle',
@@ -137,7 +133,6 @@ class Report implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'report_id' => 'getReportId',
         'report_name' => 'getReportName',
         'report_type' => 'getReportType',
         'report_title' => 'getReportTitle',
@@ -219,7 +214,6 @@ class Report implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['report_id'] = isset($data['report_id']) ? $data['report_id'] : null;
         $this->container['report_name'] = isset($data['report_name']) ? $data['report_name'] : null;
         $this->container['report_type'] = isset($data['report_type']) ? $data['report_type'] : null;
         $this->container['report_title'] = isset($data['report_title']) ? $data['report_title'] : null;
@@ -258,33 +252,6 @@ class Report implements ModelInterface, ArrayAccess
     {
         return count($this->listInvalidProperties()) === 0;
     }
-
-
-    /**
-     * Gets report_id
-     *
-     * @return string|null
-     */
-    public function getReportId()
-    {
-        return $this->container['report_id'];
-    }
-
-    /**
-     * Sets report_id
-     *
-     * @param string|null $report_id See Prepayment Types
-     *
-     * @return $this
-     */
-    public function setReportId($report_id)
-    {
-
-        $this->container['report_id'] = $report_id;
-
-        return $this;
-    }
-
 
 
     /**

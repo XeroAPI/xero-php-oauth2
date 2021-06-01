@@ -264,7 +264,7 @@ class ReportWithRow implements ModelInterface, ArrayAccess
     /**
      * Sets report_id
      *
-     * @param string|null $report_id Report id
+     * @param string|null $report_id ID of the Report
      *
      * @return $this
      */

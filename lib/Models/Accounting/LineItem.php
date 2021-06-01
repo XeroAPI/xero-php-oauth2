@@ -62,6 +62,7 @@ class LineItem implements ModelInterface, ArrayAccess
         'unit_amount' => 'double',
         'item_code' => 'string',
         'account_code' => 'string',
+        'account_id' => 'string',
         'tax_type' => 'string',
         'tax_amount' => 'double',
         'line_amount' => 'double',
@@ -83,6 +84,7 @@ class LineItem implements ModelInterface, ArrayAccess
         'unit_amount' => 'double',
         'item_code' => null,
         'account_code' => null,
+        'account_id' => 'uuid',
         'tax_type' => null,
         'tax_amount' => 'double',
         'line_amount' => 'double',
@@ -125,6 +127,7 @@ class LineItem implements ModelInterface, ArrayAccess
         'unit_amount' => 'UnitAmount',
         'item_code' => 'ItemCode',
         'account_code' => 'AccountCode',
+        'account_id' => 'AccountID',
         'tax_type' => 'TaxType',
         'tax_amount' => 'TaxAmount',
         'line_amount' => 'LineAmount',
@@ -146,6 +149,7 @@ class LineItem implements ModelInterface, ArrayAccess
         'unit_amount' => 'setUnitAmount',
         'item_code' => 'setItemCode',
         'account_code' => 'setAccountCode',
+        'account_id' => 'setAccountId',
         'tax_type' => 'setTaxType',
         'tax_amount' => 'setTaxAmount',
         'line_amount' => 'setLineAmount',
@@ -167,6 +171,7 @@ class LineItem implements ModelInterface, ArrayAccess
         'unit_amount' => 'getUnitAmount',
         'item_code' => 'getItemCode',
         'account_code' => 'getAccountCode',
+        'account_id' => 'getAccountId',
         'tax_type' => 'getTaxType',
         'tax_amount' => 'getTaxAmount',
         'line_amount' => 'getLineAmount',
@@ -242,6 +247,7 @@ class LineItem implements ModelInterface, ArrayAccess
         $this->container['unit_amount'] = isset($data['unit_amount']) ? $data['unit_amount'] : null;
         $this->container['item_code'] = isset($data['item_code']) ? $data['item_code'] : null;
         $this->container['account_code'] = isset($data['account_code']) ? $data['account_code'] : null;
+        $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['tax_type'] = isset($data['tax_type']) ? $data['tax_type'] : null;
         $this->container['tax_amount'] = isset($data['tax_amount']) ? $data['tax_amount'] : null;
         $this->container['line_amount'] = isset($data['line_amount']) ? $data['line_amount'] : null;
@@ -431,6 +437,33 @@ class LineItem implements ModelInterface, ArrayAccess
     {
 
         $this->container['account_code'] = $account_code;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets account_id
+     *
+     * @return string|null
+     */
+    public function getAccountId()
+    {
+        return $this->container['account_id'];
+    }
+
+    /**
+     * Sets account_id
+     *
+     * @param string|null $account_id The associated account ID related to this line item
+     *
+     * @return $this
+     */
+    public function setAccountId($account_id)
+    {
+
+        $this->container['account_id'] = $account_id;
 
         return $this;
     }

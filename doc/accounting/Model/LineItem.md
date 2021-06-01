@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **unit_amount** | **double** | LineItem Unit Amount | [optional] 
 **item_code** | **string** | See Items | [optional] 
 **account_code** | **string** | See Accounts | [optional] 
+**account_id** | **string** | The associated account ID related to this line item | [optional] 
 **tax_type** | **string** | The tax type from TaxRates | [optional] 
 **tax_amount** | **double** | The tax amount is auto calculated as a percentage of the line amount (see below) based on the tax rate. This value can be overriden if the calculated &lt;TaxAmount&gt; is not correct. | [optional] 
 **line_amount** | **double** | If you wish to omit either of the &lt;Quantity&gt; or &lt;UnitAmount&gt; you can provide a LineAmount and Xero will calculate the missing amount for you. The line amount reflects the discounted price if a DiscountRate has been used . i.e LineAmount &#x3D; Quantity * Unit Amount * ((100 – DiscountRate)/100) | [optional] 
