@@ -10,8 +10,8 @@ The `xero-php-oauth2` SDK makes it easy for developers to access Xero's APIs in 
 - [Sample Applications](#sample-applications)
 - [Xero Account Requirements](#xero-account-requirements)
 - [Installation](#installation)
-- [Configuration](#configuration)
 - [Authentication](#authentication)
+- [Configuration](#configuration)
 - [Custom Connections](#custom-connections)
 - [API Clients](#api-clients)
 - [SDK conventions](#sdk-conventions)
@@ -522,27 +522,70 @@ Because Custom Connections are only valid for a single organisation you don't ne
 
 ---
 ## API Clients
-You can access the different API sets and their available methods through the following:
+You can access the different API sets and their available methods through the following API sets:
+* AccountingApi
+* AssetApi
+* ProjectApi
+* FilesApi
+* PayrollAuApi
+* PayrollNzApi
+* PayrollUkApi
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
 
-```
-// accountingApi
-// assetApi
-// projectApi
-// filesApi
-// payrollAuApi
-// payrollNzApi
-// payrollUkApi
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( 'YOUR_ACCESS_TOKEN' );       
 
-$accountingApi = new XeroAPI\XeroPHP\Api\AccountingApi(
-  new GuzzleHttp\Client(),
-  $config
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    new GuzzleHttp\Client(),
+    $config
 );
+$xeroTenantId = "YOUR_XERO_TENANT_ID";
 
-$assetApi = new XeroAPI\XeroPHP\Api\AssetApi(
-  new GuzzleHttp\Client(),
-  $config
-);
+$account = new XeroAPI\XeroPHP\Models\Accounting\Account;
+$account->setCode('123456');
+$account->setName('FooBar');
+$account->setType(XeroAPI\XeroPHP\Models\Accounting\AccountType::EXPENSE);
+$account->setDescription('Hello World');
+
+try {
+  $result = $apiInstance->createAccount($xeroTenantId, $account);
+} catch (Exception $e) {
+  echo 'Exception when calling AccountingApi->createAccount: ', $e->getMessage(), PHP_EOL;
+}
+?>
 ```
+Or for the Assets API:
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( 'YOUR_ACCESS_TOKEN' );       
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AssetApi(
+    new GuzzleHttp\Client(),
+    $config
+);
+$xeroTenantId = "YOUR_XERO_TENANT_ID";
+$status = ;
+$page = 1;
+$pageSize = 5;
+$orderBy = "AssetName";
+$sortDirection = "ASC";
+$filterBy = "Company Car";
+
+try {
+  $result = $apiInstance->getAssets($xeroTenantId, $status, $page, $pageSize, $orderBy, $sortDirection, $filterBy);
+} catch (Exception $e) {
+  echo 'Exception when calling AssetApi->getAssets: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+> Full method docs can be browsed here: https://xeroapi.github.io/xero-php-oauth2/docs/v2/accounting/index.html
+
 ---
 ## SDK conventions
 
