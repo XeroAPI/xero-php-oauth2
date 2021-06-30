@@ -40,8 +40,8 @@ This SDK supports full method coverage for the following Xero API sets:
 ## Sample Applications
 Sample apps can get you started quickly with simple auth flows and advanced usage examples.
 
-| Sample App | Description | Screenshot |
-| --- | --- | --- |
+| Sample App | Description |
+| --- | --- |
 | [`starter-app`](https://github.com/XeroAPI/Xero-php-oauth2-starter) | Basic getting started code samples
 | [`full-app`](https://github.com/XeroAPI/Xero-php-oauth2-app) | Complete app with more complex examples
 | [`custom-connections-starter`](https://github.com/XeroAPI/xero-ruby-custom-connections-starter) | Basic app showing Custom Connections - a Xero [premium option](https://developer.xero.com/documentation/oauth2/custom-connections) for building M2M integrations to a single orgs
