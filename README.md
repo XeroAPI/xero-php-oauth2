@@ -1,8 +1,8 @@
 # xero-php-oauth2
 [![Latest Stable Version](http://poser.pugx.org/xeroapi/xero-php-oauth2/v)](https://packagist.org/packages/xeroapi/xero-php-oauth2)
 [![Total Downloads](http://poser.pugx.org/xeroapi/xero-php-oauth2/downloads)](https://packagist.org/packages/xeroapi/xero-php-oauth2)
-[![Github forks](https://img.shields.io/github/forks/XeroAPI/xero-php-oauth2.svg)](https://github.com/XeroAPI/xero-ruby/network)
-[![Github stars](https://img.shields.io/github/stars/XeroAPI/xero-php-oauth2.svg)](https://github.com/XeroAPI/xero-ruby/stargazers) [![License](http://poser.pugx.org/xeroapi/xero-php-oauth2/license)](https://packagist.org/packages/xeroapi/xero-php-oauth2)
+[![Github forks](https://img.shields.io/github/forks/XeroAPI/xero-php-oauth2.svg)](https://github.com/XeroAPI/xero-php-oauth2/network)
+[![Github stars](https://img.shields.io/github/stars/XeroAPI/xero-php-oauth2.svg)](https://github.com/XeroAPI/xero-php-oauth2/stargazers) [![License](http://poser.pugx.org/xeroapi/xero-php-oauth2/license)](https://packagist.org/packages/xeroapi/xero-php-oauth2)
 
 The `xero-php-oauth2` SDK makes it easy for developers to access Xero's APIs in their **PHP** code, and build robust applications and software using small business & general ledger accounting data.
 # Table of Contents
@@ -44,7 +44,7 @@ Sample apps can get you started quickly with simple auth flows and advanced usag
 | --- | --- |
 | [`starter-app`](https://github.com/XeroAPI/Xero-php-oauth2-starter) | Basic getting started code samples
 | [`full-app`](https://github.com/XeroAPI/Xero-php-oauth2-app) | Complete app with more complex examples
-| [`custom-connections-starter`](https://github.com/XeroAPI/xero-ruby-custom-connections-starter) | Basic app showing Custom Connections - a Xero [premium option](https://developer.xero.com/documentation/oauth2/custom-connections) for building M2M integrations to a single orgs
+| [`custom-connections-starter`](https://github.com/XeroAPI/xero-php-oauth2-custom-connections-starter) | Basic app showing Custom Connections - a Xero [premium option](https://developer.xero.com/documentation/oauth2/custom-connections) for building M2M integrations to a single orgs
 
 <hr>
 
