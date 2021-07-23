@@ -589,6 +589,34 @@ try {
 ---
 ## SDK conventions
 
+### Accessing HTTP Headers
+
+Every function has with it a more verbose `WithHttpInfo` option in case you need to build logic around any request headers.
+
+For example:
+* `getInvoices` -> `getInvoicesWithHttpInfo`
+* `getContacts` -> `getContactsWithHttpInfo`
+
+This will return an array of 3 elements from the HTTP request. 
+1. The object deserialized via the accounting object
+2. The HTTP status code
+3. The Response Headers
+
+```php
+return [
+  AccountingObjectSerializer::deserialize($content, '\XeroAPI\XeroPHP\Models\Accounting\Organisations', []),
+  $response->getStatusCode(),
+  $response->getHeaders()
+];
+```
+
+```php
+$apiResponse = $apiInstance->getInvoicesWithHttpInfo($xeroTenantId, $if_modified_since, $where, $order, $ids, $invoice_numbers, $contact_ids, $statuses, $page,$include_archived, $created_by_my_app, $unitdp);
+echo '$apiResponse: ' . json_encode($apiResponse[2]);
+```
+
+`$apiResponse: {"Content-Type":["application\/json; charset=utf-8"],"Content-Length":["2116"],"Server":["nginx"],"Xero-Correlation-Id":["9a8fb7f7-e3e6-4f66-a170-88effabe9f4e"],"X-AppMinLimit-Remaining":["9997"],"X-MinLimit-Remaining":["57"],"X-DayLimit-Remaining":["4954"],"Expires":["Fri, 23 Jul 2021 17:32:31 GMT"],"Cache-Control":["max-age=0, no-cache, no-store"],"Pragma":["no-cache"],"Date":["Fri, 23 Jul 2021 17:32:31 GMT"],"Connection":["keep-alive"],"X-Client-TLS-ver":["tls1.3"]}`
+
 ### JWT decoding and Signup with Xero
 
 Looking to implement [Signup with Xero](https://developer.xero.com/documentation/oauth2/sign-in)? We've added built in decoding and verification for both Access tokens and ID token in xero-php-oauth2.

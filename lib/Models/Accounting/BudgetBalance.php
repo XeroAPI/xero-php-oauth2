@@ -1,6 +1,6 @@
 <?php
 /**
- * Budget
+ * BudgetBalance
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \XeroAPI\XeroPHP\AccountingObjectSerializer;
 use \XeroAPI\XeroPHP\StringUtil;
 /**
- * Budget Class Doc Comment
+ * BudgetBalance Class Doc Comment
  *
  * @category Class
  * @package  XeroAPI\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Budget implements ModelInterface, ArrayAccess
+class BudgetBalance implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class Budget implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Budget';
+    protected static $openAPIModelName = 'BudgetBalance';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,12 +56,10 @@ class Budget implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'budget_id' => 'string',
-        'type' => 'string',
-        'description' => 'string',
-        'updated_date_utc' => 'string',
-        'budget_lines' => '\XeroAPI\XeroPHP\Models\Accounting\BudgetLine[]',
-        'tracking' => '\XeroAPI\XeroPHP\Models\Accounting\TrackingCategory[]'
+        'period' => 'string',
+        'amount' => 'int',
+        'unit_amount' => 'int',
+        'notes' => 'string'
     ];
 
     /**
@@ -70,12 +68,10 @@ class Budget implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'budget_id' => 'uuid',
-        'type' => null,
-        'description' => null,
-        'updated_date_utc' => null,
-        'budget_lines' => null,
-        'tracking' => null
+        'period' => null,
+        'amount' => null,
+        'unit_amount' => null,
+        'notes' => null
     ];
 
     /**
@@ -105,12 +101,10 @@ class Budget implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'budget_id' => 'BudgetID',
-        'type' => 'Type',
-        'description' => 'Description',
-        'updated_date_utc' => 'UpdatedDateUTC',
-        'budget_lines' => 'BudgetLines',
-        'tracking' => 'Tracking'
+        'period' => 'Period',
+        'amount' => 'Amount',
+        'unit_amount' => 'UnitAmount',
+        'notes' => 'Notes'
     ];
 
     /**
@@ -119,12 +113,10 @@ class Budget implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'budget_id' => 'setBudgetId',
-        'type' => 'setType',
-        'description' => 'setDescription',
-        'updated_date_utc' => 'setUpdatedDateUtc',
-        'budget_lines' => 'setBudgetLines',
-        'tracking' => 'setTracking'
+        'period' => 'setPeriod',
+        'amount' => 'setAmount',
+        'unit_amount' => 'setUnitAmount',
+        'notes' => 'setNotes'
     ];
 
     /**
@@ -133,12 +125,10 @@ class Budget implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'budget_id' => 'getBudgetId',
-        'type' => 'getType',
-        'description' => 'getDescription',
-        'updated_date_utc' => 'getUpdatedDateUtc',
-        'budget_lines' => 'getBudgetLines',
-        'tracking' => 'getTracking'
+        'period' => 'getPeriod',
+        'amount' => 'getAmount',
+        'unit_amount' => 'getUnitAmount',
+        'notes' => 'getNotes'
     ];
 
     /**
@@ -182,23 +172,8 @@ class Budget implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const TYPE_OVERALL = 'OVERALL';
-    const TYPE_TRACKING = 'TRACKING';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_OVERALL,
-            self::TYPE_TRACKING,
-        ];
-    }
     
 
     /**
@@ -216,12 +191,10 @@ class Budget implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['budget_id'] = isset($data['budget_id']) ? $data['budget_id'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
-        $this->container['budget_lines'] = isset($data['budget_lines']) ? $data['budget_lines'] : null;
-        $this->container['tracking'] = isset($data['tracking']) ? $data['tracking'] : null;
+        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['unit_amount'] = isset($data['unit_amount']) ? $data['unit_amount'] : null;
+        $this->container['notes'] = isset($data['notes']) ? $data['notes'] : null;
     }
 
     /**
@@ -233,16 +206,8 @@ class Budget implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 255)) {
-            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 255.";
+        if (!is_null($this->container['notes']) && (mb_strlen($this->container['notes']) > 255)) {
+            $invalidProperties[] = "invalid value for 'notes', the character length must be smaller than or equal to 255.";
         }
 
         return $invalidProperties;
@@ -261,154 +226,106 @@ class Budget implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets budget_id
+     * Gets period
      *
      * @return string|null
      */
-    public function getBudgetId()
+    public function getPeriod()
     {
-        return $this->container['budget_id'];
+        return $this->container['period'];
     }
-
-    /**
-     * Sets budget_id
-     *
-     * @param string|null $budget_id Xero identifier
-     *
-     * @return $this
-     */
-    public function setBudgetId($budget_id)
+    public function getPeriodAsDate()
     {
-
-        $this->container['budget_id'] = $budget_id;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type Type of Budget. OVERALL or TRACKING
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description The Budget description
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        if (!is_null($description) && (mb_strlen($description) > 255)) {
-            throw new \InvalidArgumentException('invalid length for $description when calling Budget., must be smaller than or equal to 255.');
-        }
-
-
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets updated_date_utc
-     *
-     * @return string|null
-     */
-    public function getUpdatedDateUtc()
-    {
-        return $this->container['updated_date_utc'];
-    }
-    public function getUpdatedDateUtcAsDate()
-    {
-      if ($this->getUpdatedDateUtc() != null) {
-        return StringUtil::convertStringToDateTime($this->getUpdatedDateUtc());
+      if ($this->getPeriod() != null) {
+        return StringUtil::convertStringToDate($this->getPeriod());
       } else {
         throw new \Exception('can not convert null string to date');
       } 
     }
 
     /**
-     * Sets updated_date_utc
+     * Sets period
      *
-     * @param string|null $updated_date_utc UTC timestamp of last update to budget
+     * @param string|null $period Period the amount applies to (e.g. “2019-08”)
      *
      * @return $this
      */
-    public function setUpdatedDateUtc($updated_date_utc)
+    public function setPeriod($period)
     {
 
-        $this->container['updated_date_utc'] = $updated_date_utc;
+        $this->container['period'] = $period;
+
+        return $this;
+    }
+    /**
+     * Sets period
+     *
+     * @param \DateTime |null $period Period the amount applies to (e.g. “2019-08”)
+     *
+     * @return $this
+     */
+    public function setPeriodAsDate($period)
+    {
+      //CONVERT Date into MS DateFromat String 
+      if (StringUtil::checkThisDate($period->format('Y-m-d')) )
+      {        
+        $timeInMillis = strtotime($period->format('Y-m-d')." UTC") * 1000;
+        $period = "/Date(" . $timeInMillis. "+0000)/";
+      }  
+      $this->container['period'] = $period;
+      return $this;
+    }
+
+
+
+    /**
+     * Gets amount
+     *
+     * @return int|null
+     */
+    public function getAmount()
+    {
+        return $this->container['amount'];
+    }
+
+    /**
+     * Sets amount
+     *
+     * @param int|null $amount LineItem Quantity
+     *
+     * @return $this
+     */
+    public function setAmount($amount)
+    {
+
+        $this->container['amount'] = $amount;
 
         return $this;
     }
 
 
+
     /**
-     * Gets budget_lines
+     * Gets unit_amount
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\BudgetLine[]|null
+     * @return int|null
      */
-    public function getBudgetLines()
+    public function getUnitAmount()
     {
-        return $this->container['budget_lines'];
+        return $this->container['unit_amount'];
     }
 
     /**
-     * Sets budget_lines
+     * Sets unit_amount
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\BudgetLine[]|null $budget_lines budget_lines
+     * @param int|null $unit_amount Budgeted amount
      *
      * @return $this
      */
-    public function setBudgetLines($budget_lines)
+    public function setUnitAmount($unit_amount)
     {
 
-        $this->container['budget_lines'] = $budget_lines;
+        $this->container['unit_amount'] = $unit_amount;
 
         return $this;
     }
@@ -416,26 +333,30 @@ class Budget implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets tracking
+     * Gets notes
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory[]|null
+     * @return string|null
      */
-    public function getTracking()
+    public function getNotes()
     {
-        return $this->container['tracking'];
+        return $this->container['notes'];
     }
 
     /**
-     * Sets tracking
+     * Sets notes
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\TrackingCategory[]|null $tracking tracking
+     * @param string|null $notes Any footnotes associated with this balance
      *
      * @return $this
      */
-    public function setTracking($tracking)
+    public function setNotes($notes)
     {
+        if (!is_null($notes) && (mb_strlen($notes) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $notes when calling BudgetBalance., must be smaller than or equal to 255.');
+        }
 
-        $this->container['tracking'] = $tracking;
+
+        $this->container['notes'] = $notes;
 
         return $this;
     }
