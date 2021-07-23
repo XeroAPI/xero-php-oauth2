@@ -62,6 +62,7 @@ class PayrollCalendar implements ModelInterface, ArrayAccess
         'payment_date' => 'string',
         'payroll_calendar_id' => 'string',
         'updated_date_utc' => 'string',
+        'reference_date' => 'string',
         'validation_errors' => '\XeroAPI\XeroPHP\Models\PayrollAu\ValidationError[]'
     ];
 
@@ -77,6 +78,7 @@ class PayrollCalendar implements ModelInterface, ArrayAccess
         'payment_date' => null,
         'payroll_calendar_id' => 'uuid',
         'updated_date_utc' => null,
+        'reference_date' => null,
         'validation_errors' => null
     ];
 
@@ -113,6 +115,7 @@ class PayrollCalendar implements ModelInterface, ArrayAccess
         'payment_date' => 'PaymentDate',
         'payroll_calendar_id' => 'PayrollCalendarID',
         'updated_date_utc' => 'UpdatedDateUTC',
+        'reference_date' => 'ReferenceDate',
         'validation_errors' => 'ValidationErrors'
     ];
 
@@ -128,6 +131,7 @@ class PayrollCalendar implements ModelInterface, ArrayAccess
         'payment_date' => 'setPaymentDate',
         'payroll_calendar_id' => 'setPayrollCalendarId',
         'updated_date_utc' => 'setUpdatedDateUtc',
+        'reference_date' => 'setReferenceDate',
         'validation_errors' => 'setValidationErrors'
     ];
 
@@ -143,6 +147,7 @@ class PayrollCalendar implements ModelInterface, ArrayAccess
         'payment_date' => 'getPaymentDate',
         'payroll_calendar_id' => 'getPayrollCalendarId',
         'updated_date_utc' => 'getUpdatedDateUtc',
+        'reference_date' => 'getReferenceDate',
         'validation_errors' => 'getValidationErrors'
     ];
 
@@ -212,6 +217,7 @@ class PayrollCalendar implements ModelInterface, ArrayAccess
         $this->container['payment_date'] = isset($data['payment_date']) ? $data['payment_date'] : null;
         $this->container['payroll_calendar_id'] = isset($data['payroll_calendar_id']) ? $data['payroll_calendar_id'] : null;
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
+        $this->container['reference_date'] = isset($data['reference_date']) ? $data['reference_date'] : null;
         $this->container['validation_errors'] = isset($data['validation_errors']) ? $data['validation_errors'] : null;
     }
 
@@ -458,6 +464,59 @@ class PayrollCalendar implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+
+    /**
+     * Gets reference_date
+     *
+     * @return string|null
+     */
+    public function getReferenceDate()
+    {
+        return $this->container['reference_date'];
+    }
+    public function getReferenceDateAsDate()
+    {
+      if ($this->getReferenceDate() != null) {
+        return StringUtil::convertStringToDate($this->getReferenceDate());
+      } else {
+        throw new \Exception('can not convert null string to date');
+      } 
+    }
+
+    /**
+     * Sets reference_date
+     *
+     * @param string|null $reference_date Reference Date (YYYY-MM-DD)
+     *
+     * @return $this
+     */
+    public function setReferenceDate($reference_date)
+    {
+
+        $this->container['reference_date'] = $reference_date;
+
+        return $this;
+    }
+    /**
+     * Sets reference_date
+     *
+     * @param \DateTime |null $reference_date Reference Date (YYYY-MM-DD)
+     *
+     * @return $this
+     */
+    public function setReferenceDateAsDate($reference_date)
+    {
+      //CONVERT Date into MS DateFromat String 
+      if (StringUtil::checkThisDate($reference_date->format('Y-m-d')) )
+      {        
+        $timeInMillis = strtotime($reference_date->format('Y-m-d')." UTC") * 1000;
+        $reference_date = "/Date(" . $timeInMillis. "+0000)/";
+      }  
+      $this->container['reference_date'] = $reference_date;
+      return $this;
+    }
+
 
 
     /**

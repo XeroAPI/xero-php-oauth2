@@ -67,6 +67,7 @@ class Payment implements ModelInterface, ArrayAccess
         'date' => 'string',
         'currency_rate' => 'double',
         'amount' => 'double',
+        'bank_amount' => 'double',
         'reference' => 'string',
         'is_reconciled' => 'bool',
         'status' => 'string',
@@ -100,6 +101,7 @@ class Payment implements ModelInterface, ArrayAccess
         'date' => null,
         'currency_rate' => 'double',
         'amount' => 'double',
+        'bank_amount' => 'double',
         'reference' => null,
         'is_reconciled' => null,
         'status' => null,
@@ -154,6 +156,7 @@ class Payment implements ModelInterface, ArrayAccess
         'date' => 'Date',
         'currency_rate' => 'CurrencyRate',
         'amount' => 'Amount',
+        'bank_amount' => 'BankAmount',
         'reference' => 'Reference',
         'is_reconciled' => 'IsReconciled',
         'status' => 'Status',
@@ -187,6 +190,7 @@ class Payment implements ModelInterface, ArrayAccess
         'date' => 'setDate',
         'currency_rate' => 'setCurrencyRate',
         'amount' => 'setAmount',
+        'bank_amount' => 'setBankAmount',
         'reference' => 'setReference',
         'is_reconciled' => 'setIsReconciled',
         'status' => 'setStatus',
@@ -220,6 +224,7 @@ class Payment implements ModelInterface, ArrayAccess
         'date' => 'getDate',
         'currency_rate' => 'getCurrencyRate',
         'amount' => 'getAmount',
+        'bank_amount' => 'getBankAmount',
         'reference' => 'getReference',
         'is_reconciled' => 'getIsReconciled',
         'status' => 'getStatus',
@@ -349,6 +354,7 @@ class Payment implements ModelInterface, ArrayAccess
         $this->container['date'] = isset($data['date']) ? $data['date'] : null;
         $this->container['currency_rate'] = isset($data['currency_rate']) ? $data['currency_rate'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['bank_amount'] = isset($data['bank_amount']) ? $data['bank_amount'] : null;
         $this->container['reference'] = isset($data['reference']) ? $data['reference'] : null;
         $this->container['is_reconciled'] = isset($data['is_reconciled']) ? $data['is_reconciled'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -722,6 +728,33 @@ class Payment implements ModelInterface, ArrayAccess
     {
 
         $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets bank_amount
+     *
+     * @return double|null
+     */
+    public function getBankAmount()
+    {
+        return $this->container['bank_amount'];
+    }
+
+    /**
+     * Sets bank_amount
+     *
+     * @param double|null $bank_amount The amount of the payment in the currency of the bank account.
+     *
+     * @return $this
+     */
+    public function setBankAmount($bank_amount)
+    {
+
+        $this->container['bank_amount'] = $bank_amount;
 
         return $this;
     }

@@ -636,7 +636,7 @@ class Configuration
         $report  = 'PHP SDK (XeroAPI\XeroPHP) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
-        $report .= '    OpenAPI Spec Version: 2.13.2' . PHP_EOL;
+        $report .= '    OpenAPI Spec Version: 2.13.5' . PHP_EOL;
         $report .= '    SDK Package Version: 2.6.0' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
