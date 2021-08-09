@@ -536,7 +536,6 @@ With your app credentials you can create a client via `client_credentials` grant
 $provider = new \League\OAuth2\Client\Provider\GenericProvider([
   'clientId'                => '__CLIENT_ID__',
   'clientSecret'            => '__CLIENT_SECRET__',
-  'redirectUri'             => '__REDIRECT_URI__ ',
   'urlAuthorize'            => 'https://login.xero.com/identity/connect/authorize',
   'urlAccessToken'          => 'https://identity.xero.com/connect/token',
   'urlResourceOwnerDetails' => 'https://identity.xero.com/resources'

@@ -83,6 +83,13 @@ class Configuration
     protected $host = 'https://api.xero.com/appstore/2.0';
 
     /**
+     * The hostAppStore
+     *
+     * @var string
+     */
+    protected $hostAppStore = 'https://api.xero.com/api.xro/2.0';
+
+    /**
      * The hostAccounting
      *
      * @var string
@@ -316,6 +323,29 @@ class Configuration
     public function getHost()
     {
         return $this->host;
+    }
+
+    /**
+     * Sets the hostAppStore
+     *
+     * @param string $hostAppStore
+     *
+     * @return $this
+     */
+    public function setHostAppStore($hostAppStore)
+    {
+        $this->hostAppStore = $hostAppStore;
+        return $this;
+    }
+
+    /**
+     * Gets the hostAppStore
+     *
+     * @return string hostAppStore
+     */
+    public function getHostAppStore()
+    {
+        return $this->hostAppStore;
     }
 
     /**
