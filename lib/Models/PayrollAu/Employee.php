@@ -77,6 +77,7 @@ class Employee implements ModelInterface, ArrayAccess
         'employee_group_name' => 'string',
         'employee_id' => 'string',
         'termination_date' => 'string',
+        'termination_reason' => 'string',
         'bank_accounts' => '\XeroAPI\XeroPHP\Models\PayrollAu\BankAccount[]',
         'pay_template' => '\XeroAPI\XeroPHP\Models\PayrollAu\PayTemplate',
         'opening_balances' => '\XeroAPI\XeroPHP\Models\PayrollAu\OpeningBalances',
@@ -116,6 +117,7 @@ class Employee implements ModelInterface, ArrayAccess
         'employee_group_name' => null,
         'employee_id' => 'uuid',
         'termination_date' => null,
+        'termination_reason' => null,
         'bank_accounts' => null,
         'pay_template' => null,
         'opening_balances' => null,
@@ -176,6 +178,7 @@ class Employee implements ModelInterface, ArrayAccess
         'employee_group_name' => 'EmployeeGroupName',
         'employee_id' => 'EmployeeID',
         'termination_date' => 'TerminationDate',
+        'termination_reason' => 'TerminationReason',
         'bank_accounts' => 'BankAccounts',
         'pay_template' => 'PayTemplate',
         'opening_balances' => 'OpeningBalances',
@@ -215,6 +218,7 @@ class Employee implements ModelInterface, ArrayAccess
         'employee_group_name' => 'setEmployeeGroupName',
         'employee_id' => 'setEmployeeId',
         'termination_date' => 'setTerminationDate',
+        'termination_reason' => 'setTerminationReason',
         'bank_accounts' => 'setBankAccounts',
         'pay_template' => 'setPayTemplate',
         'opening_balances' => 'setOpeningBalances',
@@ -254,6 +258,7 @@ class Employee implements ModelInterface, ArrayAccess
         'employee_group_name' => 'getEmployeeGroupName',
         'employee_id' => 'getEmployeeId',
         'termination_date' => 'getTerminationDate',
+        'termination_reason' => 'getTerminationReason',
         'bank_accounts' => 'getBankAccounts',
         'pay_template' => 'getPayTemplate',
         'opening_balances' => 'getOpeningBalances',
@@ -311,6 +316,13 @@ class Employee implements ModelInterface, ArrayAccess
     const GENDER_M = 'M';
     const GENDER_F = 'F';
     const GENDER_I = 'I';
+    const TERMINATION_REASON_V = 'V';
+    const TERMINATION_REASON_I = 'I';
+    const TERMINATION_REASON_D = 'D';
+    const TERMINATION_REASON_R = 'R';
+    const TERMINATION_REASON_F = 'F';
+    const TERMINATION_REASON_C = 'C';
+    const TERMINATION_REASON_T = 'T';
     
 
     
@@ -326,6 +338,24 @@ class Employee implements ModelInterface, ArrayAccess
             self::GENDER_M,
             self::GENDER_F,
             self::GENDER_I,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTerminationReasonAllowableValues()
+    {
+        return [
+            self::TERMINATION_REASON_V,
+            self::TERMINATION_REASON_I,
+            self::TERMINATION_REASON_D,
+            self::TERMINATION_REASON_R,
+            self::TERMINATION_REASON_F,
+            self::TERMINATION_REASON_C,
+            self::TERMINATION_REASON_T,
         ];
     }
     
@@ -366,6 +396,7 @@ class Employee implements ModelInterface, ArrayAccess
         $this->container['employee_group_name'] = isset($data['employee_group_name']) ? $data['employee_group_name'] : null;
         $this->container['employee_id'] = isset($data['employee_id']) ? $data['employee_id'] : null;
         $this->container['termination_date'] = isset($data['termination_date']) ? $data['termination_date'] : null;
+        $this->container['termination_reason'] = isset($data['termination_reason']) ? $data['termination_reason'] : null;
         $this->container['bank_accounts'] = isset($data['bank_accounts']) ? $data['bank_accounts'] : null;
         $this->container['pay_template'] = isset($data['pay_template']) ? $data['pay_template'] : null;
         $this->container['opening_balances'] = isset($data['opening_balances']) ? $data['opening_balances'] : null;
@@ -400,6 +431,14 @@ class Employee implements ModelInterface, ArrayAccess
         if (!is_null($this->container['gender']) && !in_array($this->container['gender'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'gender', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getTerminationReasonAllowableValues();
+        if (!is_null($this->container['termination_reason']) && !in_array($this->container['termination_reason'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'termination_reason', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -1069,6 +1108,42 @@ class Employee implements ModelInterface, ArrayAccess
       }  
       $this->container['termination_date'] = $termination_date;
       return $this;
+    }
+
+
+
+    /**
+     * Gets termination_reason
+     *
+     * @return string|null
+     */
+    public function getTerminationReason()
+    {
+        return $this->container['termination_reason'];
+    }
+
+    /**
+     * Sets termination_reason
+     *
+     * @param string|null $termination_reason * `V` Voluntary cessation - An employee resignation, retirement, domestic or pressing necessity or abandonment of employment * `I` Ill health - An employee resignation due to medical condition that prevents the continuation of employment, such as for illness, ill-health, medical unfitness or total permanent disability * `D` Deceased - The death of an employee * `R` Redundancy - An employer-initiated termination of employment due to a genuine redundancy or approved early retirement scheme * `F` Dismissal - An employer-initiated termination of employment due to dismissal, inability to perform the required work, misconduct or inefficiency * `C` Contract cessation - The natural conclusion of a limited employment relationship due to contract/engagement duration or task completion, seasonal work completion, or to cease casuals that are no longer required * `T` Transfer - The administrative arrangements performed to transfer employees across payroll systems, move them temporarily to another employer (machinery of government for public servants), transfer of business, move them to outsourcing arrangements or other such technical activities.
+     *
+     * @return $this
+     */
+    public function setTerminationReason($termination_reason)
+    {
+        $allowedValues = $this->getTerminationReasonAllowableValues();
+        if (!is_null($termination_reason) && !in_array($termination_reason, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'termination_reason', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+
+        $this->container['termination_reason'] = $termination_reason;
+
+        return $this;
     }
 
 

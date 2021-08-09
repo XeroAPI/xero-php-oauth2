@@ -151,6 +151,7 @@ class TimeZone
     const HAWAIIANSTANDARDTIME = 'HAWAIIANSTANDARDTIME';
     const UTC11 = 'UTC11';
     const DATELINESTANDARDTIME = 'DATELINESTANDARDTIME';
+    const EASTERISLANDSTANDARDTIME = 'EASTERISLANDSTANDARDTIME';
     
     /**
      * Gets allowable values of the enum
@@ -267,6 +268,7 @@ class TimeZone
             self::HAWAIIANSTANDARDTIME,
             self::UTC11,
             self::DATELINESTANDARDTIME,
+            self::EASTERISLANDSTANDARDTIME,
         ];
     }
 }
