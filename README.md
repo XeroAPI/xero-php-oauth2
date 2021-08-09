@@ -360,7 +360,7 @@ The RedirectURI (ex. http://localhost:8888/pathToApp/callback.php) in your code 
         );
         $message = "ApiException - " . $error->getElements()[0]["validation_errors"][0]["message"];
       }
-    }  else if ($_GET["action"] == 5) {
+    } else if ($_GET["action"] == 5) {
       // DELETE the org FIRST Connection returned
       $connections = $identityApi->getConnections();
       $id = $connections[0]->getId();
