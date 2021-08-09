@@ -551,10 +551,9 @@ $accessToken = $provider->getAccessToken('client_credentials');
 $apiResponse = $apiInstance->getSubscription($subscriptionId);
 
 echo($apiResponse);
-...
-
 ```
 You should use this subscription data to provision user access/permissions to your application.
+
 ### App Store Subscription Webhooks
 
 In additon to a subscription Id being passed through the URL, when a purchase or an upgrade takes place you will be notified via a webhook. You can then use the subscription Id in the webhook payload to query the AppStore endpoints and determine what plan the user purchased, upgraded, downgraded or cancelled.
