@@ -87,7 +87,7 @@ class Configuration
      *
      * @var string
      */
-    protected $hostAppStore = 'https://api.xero.com/api.xro/2.0';
+    protected $hostAppStore = 'https://api.xero.com/appstore/2.0';
 
     /**
      * The hostAccounting
@@ -150,7 +150,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = '[xero-php-oauth2 (2.8.0)]';
+    protected $userAgent = '[xero-php-oauth2 (2.8.1)]';
 
     /**
      * Debug switch (default set to false)
@@ -667,7 +667,7 @@ class Configuration
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    OpenAPI Spec Version: 2.15.0' . PHP_EOL;
-        $report .= '    SDK Package Version: 2.8.0' . PHP_EOL;
+        $report .= '    SDK Package Version: 2.8.1' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;
