@@ -521,6 +521,47 @@ To use this SDK with a Custom Connections:
 Because Custom Connections are only valid for a single organisation you don't need to pass the `xero-tenant-id` as the first parameter to every method, or more specifically for this SDK `xeroTenantId` can be an empty string.
 
 ---
+
+## App Store Subscriptions
+
+If you are implementing subscriptions to participate in Xero's App Store you will need to setup [App Store subscriptions](https://developer.xero.com/documentation/guides/how-to-guides/xero-app-store-referrals/) endpoints.
+
+When a plan is successfully purchased, the user is redirected back to the URL specified in the setup process. The Xero App Store appends the subscription Id to this URL so you can immediately determine what plan the user has subscribed to through the subscriptions API.
+
+With your app credentials you can create a client via `client_credentials` grant_type with the `marketplace.billing` scope. This unique access_token will allow you to query any functions in `appStoreApi`. Client Credentials tokens to query app store endpoints will only work for apps that have completed the App Store on-boarding process.
+
+```php
+// => /post-purchase-url?subscriptionId=03bc74f2-1237-4477-b782-2dfb1a6d8b21
+
+$provider = new \League\OAuth2\Client\Provider\GenericProvider([
+  'clientId'                => '__CLIENT_ID__',
+  'clientSecret'            => '__CLIENT_SECRET__',
+  'redirectUri'             => '__REDIRECT_URI__ ',
+  'urlAuthorize'            => 'https://login.xero.com/identity/connect/authorize',
+  'urlAccessToken'          => 'https://identity.xero.com/connect/token',
+  'urlResourceOwnerDetails' => 'https://identity.xero.com/resources'
+]);
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AppStoreApi(
+    new GuzzleHttp\Client(),
+    $config
+);
+
+$accessToken = $provider->getAccessToken('client_credentials');
+
+$apiResponse = $apiInstance->getSubscription($subscriptionId);
+
+echo($apiResponse);
+...
+
+```
+You should use this subscription data to provision user access/permissions to your application.
+### App Store Subscription Webhooks
+
+In additon to a subscription Id being passed through the URL, when a purchase or an upgrade takes place you will be notified via a webhook. You can then use the subscription Id in the webhook payload to query the AppStore endpoints and determine what plan the user purchased, upgraded, downgraded or cancelled.
+
+Refer to Xero's documenation to learn more about setting up and receiving webhooks.
+> https://developer.xero.com/documentation/guides/webhooks/overview/
 ## API Clients
 You can access the different API sets and their available methods through the following API sets:
 * AccountingApi
@@ -530,6 +571,8 @@ You can access the different API sets and their available methods through the fo
 * PayrollAuApi
 * PayrollNzApi
 * PayrollUkApi
+* AppStoreApi
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
