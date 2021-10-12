@@ -64,6 +64,9 @@ class BankTransfer implements ModelInterface, ArrayAccess
         'currency_rate' => 'double',
         'from_bank_transaction_id' => 'string',
         'to_bank_transaction_id' => 'string',
+        'from_is_reconciled' => 'bool',
+        'to_is_reconciled' => 'bool',
+        'reference' => 'string',
         'has_attachments' => 'bool',
         'created_date_utc' => 'string',
         'validation_errors' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]'
@@ -83,6 +86,9 @@ class BankTransfer implements ModelInterface, ArrayAccess
         'currency_rate' => 'double',
         'from_bank_transaction_id' => 'uuid',
         'to_bank_transaction_id' => 'uuid',
+        'from_is_reconciled' => null,
+        'to_is_reconciled' => null,
+        'reference' => null,
         'has_attachments' => null,
         'created_date_utc' => null,
         'validation_errors' => null
@@ -123,6 +129,9 @@ class BankTransfer implements ModelInterface, ArrayAccess
         'currency_rate' => 'CurrencyRate',
         'from_bank_transaction_id' => 'FromBankTransactionID',
         'to_bank_transaction_id' => 'ToBankTransactionID',
+        'from_is_reconciled' => 'FromIsReconciled',
+        'to_is_reconciled' => 'ToIsReconciled',
+        'reference' => 'Reference',
         'has_attachments' => 'HasAttachments',
         'created_date_utc' => 'CreatedDateUTC',
         'validation_errors' => 'ValidationErrors'
@@ -142,6 +151,9 @@ class BankTransfer implements ModelInterface, ArrayAccess
         'currency_rate' => 'setCurrencyRate',
         'from_bank_transaction_id' => 'setFromBankTransactionId',
         'to_bank_transaction_id' => 'setToBankTransactionId',
+        'from_is_reconciled' => 'setFromIsReconciled',
+        'to_is_reconciled' => 'setToIsReconciled',
+        'reference' => 'setReference',
         'has_attachments' => 'setHasAttachments',
         'created_date_utc' => 'setCreatedDateUtc',
         'validation_errors' => 'setValidationErrors'
@@ -161,6 +173,9 @@ class BankTransfer implements ModelInterface, ArrayAccess
         'currency_rate' => 'getCurrencyRate',
         'from_bank_transaction_id' => 'getFromBankTransactionId',
         'to_bank_transaction_id' => 'getToBankTransactionId',
+        'from_is_reconciled' => 'getFromIsReconciled',
+        'to_is_reconciled' => 'getToIsReconciled',
+        'reference' => 'getReference',
         'has_attachments' => 'getHasAttachments',
         'created_date_utc' => 'getCreatedDateUtc',
         'validation_errors' => 'getValidationErrors'
@@ -234,6 +249,9 @@ class BankTransfer implements ModelInterface, ArrayAccess
         $this->container['currency_rate'] = isset($data['currency_rate']) ? $data['currency_rate'] : null;
         $this->container['from_bank_transaction_id'] = isset($data['from_bank_transaction_id']) ? $data['from_bank_transaction_id'] : null;
         $this->container['to_bank_transaction_id'] = isset($data['to_bank_transaction_id']) ? $data['to_bank_transaction_id'] : null;
+        $this->container['from_is_reconciled'] = isset($data['from_is_reconciled']) ? $data['from_is_reconciled'] : false;
+        $this->container['to_is_reconciled'] = isset($data['to_is_reconciled']) ? $data['to_is_reconciled'] : false;
+        $this->container['reference'] = isset($data['reference']) ? $data['reference'] : null;
         $this->container['has_attachments'] = isset($data['has_attachments']) ? $data['has_attachments'] : false;
         $this->container['created_date_utc'] = isset($data['created_date_utc']) ? $data['created_date_utc'] : null;
         $this->container['validation_errors'] = isset($data['validation_errors']) ? $data['validation_errors'] : null;
@@ -508,6 +526,87 @@ class BankTransfer implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+
+    /**
+     * Gets from_is_reconciled
+     *
+     * @return bool|null
+     */
+    public function getFromIsReconciled()
+    {
+        return $this->container['from_is_reconciled'];
+    }
+
+    /**
+     * Sets from_is_reconciled
+     *
+     * @param bool|null $from_is_reconciled The Bank Transaction boolean to show if it is reconciled for the source account
+     *
+     * @return $this
+     */
+    public function setFromIsReconciled($from_is_reconciled)
+    {
+
+        $this->container['from_is_reconciled'] = $from_is_reconciled;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets to_is_reconciled
+     *
+     * @return bool|null
+     */
+    public function getToIsReconciled()
+    {
+        return $this->container['to_is_reconciled'];
+    }
+
+    /**
+     * Sets to_is_reconciled
+     *
+     * @param bool|null $to_is_reconciled The Bank Transaction boolean to show if it is reconciled for the destination account
+     *
+     * @return $this
+     */
+    public function setToIsReconciled($to_is_reconciled)
+    {
+
+        $this->container['to_is_reconciled'] = $to_is_reconciled;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets reference
+     *
+     * @return string|null
+     */
+    public function getReference()
+    {
+        return $this->container['reference'];
+    }
+
+    /**
+     * Sets reference
+     *
+     * @param string|null $reference Reference for the transactions.
+     *
+     * @return $this
+     */
+    public function setReference($reference)
+    {
+
+        $this->container['reference'] = $reference;
+
+        return $this;
+    }
+
 
 
     /**
