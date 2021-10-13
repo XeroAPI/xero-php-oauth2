@@ -52,6 +52,8 @@ class EarningsType
     const LUMPSUMB = 'LUMPSUMB';
     const BONUSESANDCOMMISSIONS = 'BONUSESANDCOMMISSIONS';
     const LUMPSUME = 'LUMPSUME';
+    const LUMPSUMW = 'LUMPSUMW';
+    const DIRECTORSFEES = 'DIRECTORSFEES';
     
     /**
      * Gets allowable values of the enum
@@ -70,6 +72,8 @@ class EarningsType
             self::LUMPSUMB,
             self::BONUSESANDCOMMISSIONS,
             self::LUMPSUME,
+            self::LUMPSUMW,
+            self::DIRECTORSFEES,
         ];
     }
 }
