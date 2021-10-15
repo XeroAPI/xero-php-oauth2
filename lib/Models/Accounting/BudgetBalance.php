@@ -57,8 +57,8 @@ class BudgetBalance implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'period' => 'string',
-        'amount' => 'int',
-        'unit_amount' => 'int',
+        'amount' => 'double',
+        'unit_amount' => 'double',
         'notes' => 'string'
     ];
 
@@ -69,8 +69,8 @@ class BudgetBalance implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'period' => null,
-        'amount' => null,
-        'unit_amount' => null,
+        'amount' => 'double',
+        'unit_amount' => 'double',
         'notes' => null
     ];
 
@@ -281,7 +281,7 @@ class BudgetBalance implements ModelInterface, ArrayAccess
     /**
      * Gets amount
      *
-     * @return int|null
+     * @return double|null
      */
     public function getAmount()
     {
@@ -291,7 +291,7 @@ class BudgetBalance implements ModelInterface, ArrayAccess
     /**
      * Sets amount
      *
-     * @param int|null $amount LineItem Quantity
+     * @param double|null $amount LineItem Quantity
      *
      * @return $this
      */
@@ -308,7 +308,7 @@ class BudgetBalance implements ModelInterface, ArrayAccess
     /**
      * Gets unit_amount
      *
-     * @return int|null
+     * @return double|null
      */
     public function getUnitAmount()
     {
@@ -318,7 +318,7 @@ class BudgetBalance implements ModelInterface, ArrayAccess
     /**
      * Sets unit_amount
      *
-     * @param int|null $unit_amount Budgeted amount
+     * @param double|null $unit_amount Budgeted amount
      *
      * @return $this
      */

@@ -47,6 +47,7 @@ class ManualTaxType
     const ETPRMANUAL = 'ETPRMANUAL';
     const SCHEDULE5_MANUAL = 'SCHEDULE5MANUAL';
     const SCHEDULE5_STSLMANUAL = 'SCHEDULE5STSLMANUAL';
+    const SCHEDULE4_MANUAL = 'SCHEDULE4MANUAL';
     
     /**
      * Gets allowable values of the enum
@@ -60,6 +61,7 @@ class ManualTaxType
             self::ETPRMANUAL,
             self::SCHEDULE5_MANUAL,
             self::SCHEDULE5_STSLMANUAL,
+            self::SCHEDULE4_MANUAL,
         ];
     }
 }

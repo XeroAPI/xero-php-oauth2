@@ -58,7 +58,8 @@ class Product implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'string',
         'name' => 'string',
-        'type' => 'string'
+        'type' => 'string',
+        'seat_unit' => 'string'
     ];
 
     /**
@@ -69,7 +70,8 @@ class Product implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => 'uuid',
         'name' => null,
-        'type' => null
+        'type' => null,
+        'seat_unit' => null
     ];
 
     /**
@@ -101,7 +103,8 @@ class Product implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'name' => 'name',
-        'type' => 'type'
+        'type' => 'type',
+        'seat_unit' => 'seatUnit'
     ];
 
     /**
@@ -112,7 +115,8 @@ class Product implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'name' => 'setName',
-        'type' => 'setType'
+        'type' => 'setType',
+        'seat_unit' => 'setSeatUnit'
     ];
 
     /**
@@ -123,7 +127,8 @@ class Product implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'name' => 'getName',
-        'type' => 'getType'
+        'type' => 'getType',
+        'seat_unit' => 'getSeatUnit'
     ];
 
     /**
@@ -204,6 +209,7 @@ class Product implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['seat_unit'] = isset($data['seat_unit']) ? $data['seat_unit'] : null;
     }
 
     /**
@@ -322,6 +328,33 @@ class Product implements ModelInterface, ArrayAccess
         }
 
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets seat_unit
+     *
+     * @return string|null
+     */
+    public function getSeatUnit()
+    {
+        return $this->container['seat_unit'];
+    }
+
+    /**
+     * Sets seat_unit
+     *
+     * @param string|null $seat_unit The unit of the per seat product. e.g. \"user\", \"organisation\", \"SMS\", etc
+     *
+     * @return $this
+     */
+    public function setSeatUnit($seat_unit)
+    {
+
+        $this->container['seat_unit'] = $seat_unit;
 
         return $this;
     }

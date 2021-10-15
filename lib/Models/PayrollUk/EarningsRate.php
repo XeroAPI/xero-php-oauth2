@@ -222,8 +222,8 @@ class EarningsRate implements ModelInterface, ArrayAccess
     const EARNINGS_TYPE_STATUTORY_SHARED_PARENTAL_PAY_NON_PENSIONABLE = 'StatutorySharedParentalPayNonPensionable';
     const EARNINGS_TYPE_STATUTORY_SICK_PAY = 'StatutorySickPay';
     const EARNINGS_TYPE_STATUTORY_SICK_PAY_NON_PENSIONABLE = 'StatutorySickPayNonPensionable';
-    const EARNINGS_TYPE_TIPS_DIRECT = 'Tips(Direct)';
-    const EARNINGS_TYPE_TIPS_NON_DIRECT = 'Tips(Non-Direct)';
+    const EARNINGS_TYPE_TIPS_NON_DIRECT = 'TipsNonDirect';
+    const EARNINGS_TYPE_TIPS_DIRECT = 'TipsDirect';
     const EARNINGS_TYPE_TERMINATION_PAY = 'TerminationPay';
     const RATE_TYPE_RATE_PER_UNIT = 'RatePerUnit';
     const RATE_TYPE_MULTIPLE_OF_ORDINARY_EARNINGS_RATE = 'MultipleOfOrdinaryEarningsRate';
@@ -259,8 +259,8 @@ class EarningsRate implements ModelInterface, ArrayAccess
             self::EARNINGS_TYPE_STATUTORY_SHARED_PARENTAL_PAY_NON_PENSIONABLE,
             self::EARNINGS_TYPE_STATUTORY_SICK_PAY,
             self::EARNINGS_TYPE_STATUTORY_SICK_PAY_NON_PENSIONABLE,
-            self::EARNINGS_TYPE_TIPS_DIRECT,
             self::EARNINGS_TYPE_TIPS_NON_DIRECT,
+            self::EARNINGS_TYPE_TIPS_DIRECT,
             self::EARNINGS_TYPE_TERMINATION_PAY,
         ];
     }
