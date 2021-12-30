@@ -9,7 +9,6 @@
   // Storage Classe uses sessions for storing token > extend to your DB of choice
   $storage = new StorageClass();
   $xeroTenantId = (string)$storage->getSession()['tenant_id'];
-
   if ($storage->getHasExpired()) {
     $provider = new \League\OAuth2\Client\Provider\GenericProvider([
       'clientId'                => 'B0EFA94D5C2D4F06B6EF5E043635B5AA',
