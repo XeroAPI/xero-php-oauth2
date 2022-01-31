@@ -76,6 +76,13 @@ class Configuration
     protected $password = '';
 
     /**
+     * The host
+     *
+     * @var string
+     */
+    protected $host = 'https://api.xero.com/finance.xro/1.0';
+
+    /**
      * The hostFinance
      *
      * @var string
@@ -323,6 +330,29 @@ class Configuration
     public function getHost()
     {
         return $this->host;
+    }
+
+    /**
+     * Sets the hostFinance
+     *
+     * @param string $hostFinance
+     *
+     * @return $this
+     */
+    public function setHostFinance($hostFinance)
+    {
+        $this->hostFinance = $hostFinance;
+        return $this;
+    }
+
+    /**
+     * Gets the hostFinance
+     *
+     * @return string hostFinance
+     */
+    public function getHostFinance()
+    {
+        return $this->hostFinance;
     }
 
     /**
