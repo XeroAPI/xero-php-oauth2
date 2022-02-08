@@ -57,12 +57,14 @@ class Contact implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'contact_id' => 'string',
+        'merged_to_contact_id' => 'string',
         'contact_number' => 'string',
         'account_number' => 'string',
         'contact_status' => 'string',
         'name' => 'string',
         'first_name' => 'string',
         'last_name' => 'string',
+        'company_number' => 'string',
         'email_address' => 'string',
         'skype_user_name' => 'string',
         'contact_persons' => '\XeroAPI\XeroPHP\Models\Accounting\ContactPerson[]',
@@ -74,6 +76,8 @@ class Contact implements ModelInterface, ArrayAccess
         'phones' => '\XeroAPI\XeroPHP\Models\Accounting\Phone[]',
         'is_supplier' => 'bool',
         'is_customer' => 'bool',
+        'sales_default_line_amount_type' => 'string',
+        'purchases_default_line_amount_type' => 'string',
         'default_currency' => '\XeroAPI\XeroPHP\Models\Accounting\CurrencyCode',
         'xero_network_key' => 'string',
         'sales_default_account_code' => 'string',
@@ -104,12 +108,14 @@ class Contact implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'contact_id' => 'uuid',
+        'merged_to_contact_id' => 'uuid',
         'contact_number' => null,
         'account_number' => null,
         'contact_status' => null,
         'name' => null,
         'first_name' => null,
         'last_name' => null,
+        'company_number' => null,
         'email_address' => null,
         'skype_user_name' => null,
         'contact_persons' => null,
@@ -121,6 +127,8 @@ class Contact implements ModelInterface, ArrayAccess
         'phones' => null,
         'is_supplier' => null,
         'is_customer' => null,
+        'sales_default_line_amount_type' => null,
+        'purchases_default_line_amount_type' => null,
         'default_currency' => null,
         'xero_network_key' => null,
         'sales_default_account_code' => null,
@@ -172,12 +180,14 @@ class Contact implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'contact_id' => 'ContactID',
+        'merged_to_contact_id' => 'MergedToContactID',
         'contact_number' => 'ContactNumber',
         'account_number' => 'AccountNumber',
         'contact_status' => 'ContactStatus',
         'name' => 'Name',
         'first_name' => 'FirstName',
         'last_name' => 'LastName',
+        'company_number' => 'CompanyNumber',
         'email_address' => 'EmailAddress',
         'skype_user_name' => 'SkypeUserName',
         'contact_persons' => 'ContactPersons',
@@ -189,6 +199,8 @@ class Contact implements ModelInterface, ArrayAccess
         'phones' => 'Phones',
         'is_supplier' => 'IsSupplier',
         'is_customer' => 'IsCustomer',
+        'sales_default_line_amount_type' => 'SalesDefaultLineAmountType',
+        'purchases_default_line_amount_type' => 'PurchasesDefaultLineAmountType',
         'default_currency' => 'DefaultCurrency',
         'xero_network_key' => 'XeroNetworkKey',
         'sales_default_account_code' => 'SalesDefaultAccountCode',
@@ -219,12 +231,14 @@ class Contact implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'contact_id' => 'setContactId',
+        'merged_to_contact_id' => 'setMergedToContactId',
         'contact_number' => 'setContactNumber',
         'account_number' => 'setAccountNumber',
         'contact_status' => 'setContactStatus',
         'name' => 'setName',
         'first_name' => 'setFirstName',
         'last_name' => 'setLastName',
+        'company_number' => 'setCompanyNumber',
         'email_address' => 'setEmailAddress',
         'skype_user_name' => 'setSkypeUserName',
         'contact_persons' => 'setContactPersons',
@@ -236,6 +250,8 @@ class Contact implements ModelInterface, ArrayAccess
         'phones' => 'setPhones',
         'is_supplier' => 'setIsSupplier',
         'is_customer' => 'setIsCustomer',
+        'sales_default_line_amount_type' => 'setSalesDefaultLineAmountType',
+        'purchases_default_line_amount_type' => 'setPurchasesDefaultLineAmountType',
         'default_currency' => 'setDefaultCurrency',
         'xero_network_key' => 'setXeroNetworkKey',
         'sales_default_account_code' => 'setSalesDefaultAccountCode',
@@ -266,12 +282,14 @@ class Contact implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'contact_id' => 'getContactId',
+        'merged_to_contact_id' => 'getMergedToContactId',
         'contact_number' => 'getContactNumber',
         'account_number' => 'getAccountNumber',
         'contact_status' => 'getContactStatus',
         'name' => 'getName',
         'first_name' => 'getFirstName',
         'last_name' => 'getLastName',
+        'company_number' => 'getCompanyNumber',
         'email_address' => 'getEmailAddress',
         'skype_user_name' => 'getSkypeUserName',
         'contact_persons' => 'getContactPersons',
@@ -283,6 +301,8 @@ class Contact implements ModelInterface, ArrayAccess
         'phones' => 'getPhones',
         'is_supplier' => 'getIsSupplier',
         'is_customer' => 'getIsCustomer',
+        'sales_default_line_amount_type' => 'getSalesDefaultLineAmountType',
+        'purchases_default_line_amount_type' => 'getPurchasesDefaultLineAmountType',
         'default_currency' => 'getDefaultCurrency',
         'xero_network_key' => 'getXeroNetworkKey',
         'sales_default_account_code' => 'getSalesDefaultAccountCode',
@@ -350,6 +370,12 @@ class Contact implements ModelInterface, ArrayAccess
     const CONTACT_STATUS_ACTIVE = 'ACTIVE';
     const CONTACT_STATUS_ARCHIVED = 'ARCHIVED';
     const CONTACT_STATUS_GDPRREQUEST = 'GDPRREQUEST';
+    const SALES_DEFAULT_LINE_AMOUNT_TYPE_INCLUSIVE = 'INCLUSIVE';
+    const SALES_DEFAULT_LINE_AMOUNT_TYPE_EXCLUSIVE = 'EXCLUSIVE';
+    const SALES_DEFAULT_LINE_AMOUNT_TYPE_NONE = 'NONE';
+    const PURCHASES_DEFAULT_LINE_AMOUNT_TYPE_INCLUSIVE = 'INCLUSIVE';
+    const PURCHASES_DEFAULT_LINE_AMOUNT_TYPE_EXCLUSIVE = 'EXCLUSIVE';
+    const PURCHASES_DEFAULT_LINE_AMOUNT_TYPE_NONE = 'NONE';
     
 
     
@@ -364,6 +390,34 @@ class Contact implements ModelInterface, ArrayAccess
             self::CONTACT_STATUS_ACTIVE,
             self::CONTACT_STATUS_ARCHIVED,
             self::CONTACT_STATUS_GDPRREQUEST,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSalesDefaultLineAmountTypeAllowableValues()
+    {
+        return [
+            self::SALES_DEFAULT_LINE_AMOUNT_TYPE_INCLUSIVE,
+            self::SALES_DEFAULT_LINE_AMOUNT_TYPE_EXCLUSIVE,
+            self::SALES_DEFAULT_LINE_AMOUNT_TYPE_NONE,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPurchasesDefaultLineAmountTypeAllowableValues()
+    {
+        return [
+            self::PURCHASES_DEFAULT_LINE_AMOUNT_TYPE_INCLUSIVE,
+            self::PURCHASES_DEFAULT_LINE_AMOUNT_TYPE_EXCLUSIVE,
+            self::PURCHASES_DEFAULT_LINE_AMOUNT_TYPE_NONE,
         ];
     }
     
@@ -384,12 +438,14 @@ class Contact implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['contact_id'] = isset($data['contact_id']) ? $data['contact_id'] : null;
+        $this->container['merged_to_contact_id'] = isset($data['merged_to_contact_id']) ? $data['merged_to_contact_id'] : null;
         $this->container['contact_number'] = isset($data['contact_number']) ? $data['contact_number'] : null;
         $this->container['account_number'] = isset($data['account_number']) ? $data['account_number'] : null;
         $this->container['contact_status'] = isset($data['contact_status']) ? $data['contact_status'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
         $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
+        $this->container['company_number'] = isset($data['company_number']) ? $data['company_number'] : null;
         $this->container['email_address'] = isset($data['email_address']) ? $data['email_address'] : null;
         $this->container['skype_user_name'] = isset($data['skype_user_name']) ? $data['skype_user_name'] : null;
         $this->container['contact_persons'] = isset($data['contact_persons']) ? $data['contact_persons'] : null;
@@ -401,6 +457,8 @@ class Contact implements ModelInterface, ArrayAccess
         $this->container['phones'] = isset($data['phones']) ? $data['phones'] : null;
         $this->container['is_supplier'] = isset($data['is_supplier']) ? $data['is_supplier'] : null;
         $this->container['is_customer'] = isset($data['is_customer']) ? $data['is_customer'] : null;
+        $this->container['sales_default_line_amount_type'] = isset($data['sales_default_line_amount_type']) ? $data['sales_default_line_amount_type'] : null;
+        $this->container['purchases_default_line_amount_type'] = isset($data['purchases_default_line_amount_type']) ? $data['purchases_default_line_amount_type'] : null;
         $this->container['default_currency'] = isset($data['default_currency']) ? $data['default_currency'] : null;
         $this->container['xero_network_key'] = isset($data['xero_network_key']) ? $data['xero_network_key'] : null;
         $this->container['sales_default_account_code'] = isset($data['sales_default_account_code']) ? $data['sales_default_account_code'] : null;
@@ -461,12 +519,32 @@ class Contact implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'last_name', the character length must be smaller than or equal to 255.";
         }
 
+        if (!is_null($this->container['company_number']) && (mb_strlen($this->container['company_number']) > 50)) {
+            $invalidProperties[] = "invalid value for 'company_number', the character length must be smaller than or equal to 50.";
+        }
+
         if (!is_null($this->container['email_address']) && (mb_strlen($this->container['email_address']) > 255)) {
             $invalidProperties[] = "invalid value for 'email_address', the character length must be smaller than or equal to 255.";
         }
 
         if (!is_null($this->container['tax_number']) && (mb_strlen($this->container['tax_number']) > 50)) {
             $invalidProperties[] = "invalid value for 'tax_number', the character length must be smaller than or equal to 50.";
+        }
+
+        $allowedValues = $this->getSalesDefaultLineAmountTypeAllowableValues();
+        if (!is_null($this->container['sales_default_line_amount_type']) && !in_array($this->container['sales_default_line_amount_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'sales_default_line_amount_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getPurchasesDefaultLineAmountTypeAllowableValues();
+        if (!is_null($this->container['purchases_default_line_amount_type']) && !in_array($this->container['purchases_default_line_amount_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'purchases_default_line_amount_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
 
         return $invalidProperties;
@@ -505,6 +583,33 @@ class Contact implements ModelInterface, ArrayAccess
     {
 
         $this->container['contact_id'] = $contact_id;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets merged_to_contact_id
+     *
+     * @return string|null
+     */
+    public function getMergedToContactId()
+    {
+        return $this->container['merged_to_contact_id'];
+    }
+
+    /**
+     * Sets merged_to_contact_id
+     *
+     * @param string|null $merged_to_contact_id ID for the destination of a merged contact. Only returned when using paging or when fetching a contact by ContactId or ContactNumber.
+     *
+     * @return $this
+     */
+    public function setMergedToContactId($merged_to_contact_id)
+    {
+
+        $this->container['merged_to_contact_id'] = $merged_to_contact_id;
 
         return $this;
     }
@@ -696,6 +801,37 @@ class Contact implements ModelInterface, ArrayAccess
 
 
         $this->container['last_name'] = $last_name;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets company_number
+     *
+     * @return string|null
+     */
+    public function getCompanyNumber()
+    {
+        return $this->container['company_number'];
+    }
+
+    /**
+     * Sets company_number
+     *
+     * @param string|null $company_number Company registration number (max length = 50)
+     *
+     * @return $this
+     */
+    public function setCompanyNumber($company_number)
+    {
+        if (!is_null($company_number) && (mb_strlen($company_number) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $company_number when calling Contact., must be smaller than or equal to 50.');
+        }
+
+
+        $this->container['company_number'] = $company_number;
 
         return $this;
     }
@@ -1001,6 +1137,78 @@ class Contact implements ModelInterface, ArrayAccess
     {
 
         $this->container['is_customer'] = $is_customer;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets sales_default_line_amount_type
+     *
+     * @return string|null
+     */
+    public function getSalesDefaultLineAmountType()
+    {
+        return $this->container['sales_default_line_amount_type'];
+    }
+
+    /**
+     * Sets sales_default_line_amount_type
+     *
+     * @param string|null $sales_default_line_amount_type The default sales line amount type for a contact. Only available when summaryOnly parameter or paging is used, or when fetch by ContactId or ContactNumber.
+     *
+     * @return $this
+     */
+    public function setSalesDefaultLineAmountType($sales_default_line_amount_type)
+    {
+        $allowedValues = $this->getSalesDefaultLineAmountTypeAllowableValues();
+        if (!is_null($sales_default_line_amount_type) && !in_array($sales_default_line_amount_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'sales_default_line_amount_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+
+        $this->container['sales_default_line_amount_type'] = $sales_default_line_amount_type;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets purchases_default_line_amount_type
+     *
+     * @return string|null
+     */
+    public function getPurchasesDefaultLineAmountType()
+    {
+        return $this->container['purchases_default_line_amount_type'];
+    }
+
+    /**
+     * Sets purchases_default_line_amount_type
+     *
+     * @param string|null $purchases_default_line_amount_type The default purchases line amount type for a contact Only available when summaryOnly parameter or paging is used, or when fetch by ContactId or ContactNumber.
+     *
+     * @return $this
+     */
+    public function setPurchasesDefaultLineAmountType($purchases_default_line_amount_type)
+    {
+        $allowedValues = $this->getPurchasesDefaultLineAmountTypeAllowableValues();
+        if (!is_null($purchases_default_line_amount_type) && !in_array($purchases_default_line_amount_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'purchases_default_line_amount_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+
+        $this->container['purchases_default_line_amount_type'] = $purchases_default_line_amount_type;
 
         return $this;
     }
