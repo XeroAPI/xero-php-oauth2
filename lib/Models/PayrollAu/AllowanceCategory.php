@@ -1,6 +1,6 @@
 <?php
 /**
- * AllowanceType
+ * AllowanceCategory
  *
  * PHP version 5
  *
@@ -30,28 +30,25 @@ namespace XeroAPI\XeroPHP\Models\PayrollAu;
 use \XeroAPI\XeroPHP\PayrollAuObjectSerializer;
 use \XeroAPI\XeroPHP\StringUtil;
 /**
- * AllowanceType Class Doc Comment
+ * AllowanceCategory Class Doc Comment
  *
  * @category Class
  * @package  XeroAPI\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class AllowanceType
+class AllowanceCategory
 {
     /**
      * Possible values of this enum
      */
-    const CAR = 'CAR';
+    const NONDEDUCTIBLE = 'NONDEDUCTIBLE';
+    const UNIFORM = 'UNIFORM';
+    const PRIVATEVEHICLE = 'PRIVATEVEHICLE';
+    const HOMEOFFICE = 'HOMEOFFICE';
     const TRANSPORT = 'TRANSPORT';
-    const LAUNDRY = 'LAUNDRY';
-    const MEALS = 'MEALS';
-    const TRAVEL = 'TRAVEL';
+    const GENERAL = 'GENERAL';
     const OTHER = 'OTHER';
-    const JOBKEEPER = 'JOBKEEPER';
-    const TOOLS = 'TOOLS';
-    const TASKS = 'TASKS';
-    const QUALIFICATIONS = 'QUALIFICATIONS';
     
     /**
      * Gets allowable values of the enum
@@ -60,16 +57,13 @@ class AllowanceType
     public static function getAllowableEnumValues()
     {
         return [
-            self::CAR,
+            self::NONDEDUCTIBLE,
+            self::UNIFORM,
+            self::PRIVATEVEHICLE,
+            self::HOMEOFFICE,
             self::TRANSPORT,
-            self::LAUNDRY,
-            self::MEALS,
-            self::TRAVEL,
+            self::GENERAL,
             self::OTHER,
-            self::JOBKEEPER,
-            self::TOOLS,
-            self::TASKS,
-            self::QUALIFICATIONS,
         ];
     }
 }

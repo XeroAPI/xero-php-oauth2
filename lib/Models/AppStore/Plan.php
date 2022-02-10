@@ -173,6 +173,7 @@ class Plan implements ModelInterface, ArrayAccess
     }
 
     const STATUS_ACTIVE = 'ACTIVE';
+    const STATUS_CANCELED = 'CANCELED';
     const STATUS_PENDING_ACTIVATION = 'PENDING_ACTIVATION';
     
 
@@ -186,6 +187,7 @@ class Plan implements ModelInterface, ArrayAccess
     {
         return [
             self::STATUS_ACTIVE,
+            self::STATUS_CANCELED,
             self::STATUS_PENDING_ACTIVATION,
         ];
     }
@@ -323,7 +325,7 @@ class Plan implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string $status Status of the plan. Available statuses are ACTIVE, PENDING_ACTIVATION.
+     * @param string $status Status of the plan. Available statuses are ACTIVE, CANCELED, and PENDING_ACTIVATION.
      *
      * @return $this
      */

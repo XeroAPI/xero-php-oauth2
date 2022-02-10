@@ -72,7 +72,8 @@ class EarningsRate implements ModelInterface, ArrayAccess
         'employment_termination_payment_type' => '\XeroAPI\XeroPHP\Models\PayrollAu\EmploymentTerminationPaymentType',
         'updated_date_utc' => 'string',
         'current_record' => 'bool',
-        'allowance_type' => '\XeroAPI\XeroPHP\Models\PayrollAu\AllowanceType'
+        'allowance_type' => '\XeroAPI\XeroPHP\Models\PayrollAu\AllowanceType',
+        'allowance_category' => '\XeroAPI\XeroPHP\Models\PayrollAu\AllowanceCategory'
     ];
 
     /**
@@ -97,7 +98,8 @@ class EarningsRate implements ModelInterface, ArrayAccess
         'employment_termination_payment_type' => null,
         'updated_date_utc' => null,
         'current_record' => null,
-        'allowance_type' => null
+        'allowance_type' => null,
+        'allowance_category' => null
     ];
 
     /**
@@ -143,7 +145,8 @@ class EarningsRate implements ModelInterface, ArrayAccess
         'employment_termination_payment_type' => 'EmploymentTerminationPaymentType',
         'updated_date_utc' => 'UpdatedDateUTC',
         'current_record' => 'CurrentRecord',
-        'allowance_type' => 'AllowanceType'
+        'allowance_type' => 'AllowanceType',
+        'allowance_category' => 'AllowanceCategory'
     ];
 
     /**
@@ -168,7 +171,8 @@ class EarningsRate implements ModelInterface, ArrayAccess
         'employment_termination_payment_type' => 'setEmploymentTerminationPaymentType',
         'updated_date_utc' => 'setUpdatedDateUtc',
         'current_record' => 'setCurrentRecord',
-        'allowance_type' => 'setAllowanceType'
+        'allowance_type' => 'setAllowanceType',
+        'allowance_category' => 'setAllowanceCategory'
     ];
 
     /**
@@ -193,7 +197,8 @@ class EarningsRate implements ModelInterface, ArrayAccess
         'employment_termination_payment_type' => 'getEmploymentTerminationPaymentType',
         'updated_date_utc' => 'getUpdatedDateUtc',
         'current_record' => 'getCurrentRecord',
-        'allowance_type' => 'getAllowanceType'
+        'allowance_type' => 'getAllowanceType',
+        'allowance_category' => 'getAllowanceCategory'
     ];
 
     /**
@@ -273,6 +278,7 @@ class EarningsRate implements ModelInterface, ArrayAccess
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
         $this->container['current_record'] = isset($data['current_record']) ? $data['current_record'] : null;
         $this->container['allowance_type'] = isset($data['allowance_type']) ? $data['allowance_type'] : null;
+        $this->container['allowance_category'] = isset($data['allowance_category']) ? $data['allowance_category'] : null;
     }
 
     /**
@@ -775,6 +781,33 @@ class EarningsRate implements ModelInterface, ArrayAccess
     {
 
         $this->container['allowance_type'] = $allowance_type;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets allowance_category
+     *
+     * @return \XeroAPI\XeroPHP\Models\PayrollAu\AllowanceCategory|null
+     */
+    public function getAllowanceCategory()
+    {
+        return $this->container['allowance_category'];
+    }
+
+    /**
+     * Sets allowance_category
+     *
+     * @param \XeroAPI\XeroPHP\Models\PayrollAu\AllowanceCategory|null $allowance_category allowance_category
+     *
+     * @return $this
+     */
+    public function setAllowanceCategory($allowance_category)
+    {
+
+        $this->container['allowance_category'] = $allowance_category;
 
         return $this;
     }

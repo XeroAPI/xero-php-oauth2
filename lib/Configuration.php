@@ -157,7 +157,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = '[xero-php-oauth2 (2.10.0)]';
+    protected $userAgent = '[xero-php-oauth2 (2.11.0)]';
 
     /**
      * Debug switch (default set to false)
@@ -333,6 +333,16 @@ class Configuration
     }
 
     /**
+     * Gets the hostFinance
+     *
+     * @return string hostFinance
+     */
+    public function getHostFinance()
+    {
+        return $this->hostFinance;
+    }
+
+    /**
      * Sets the hostFinance
      *
      * @param string $hostFinance
@@ -341,18 +351,8 @@ class Configuration
      */
     public function setHostFinance($hostFinance)
     {
-        $this->hostFinance = $hostFinance;
+        $this->hostFinance = $hostAppStore;
         return $this;
-    }
-
-    /**
-     * Gets the hostFinance
-     *
-     * @return string hostFinance
-     */
-    public function getHostFinance()
-    {
-        return $this->hostFinance;
     }
 
     /**
@@ -696,8 +696,8 @@ class Configuration
         $report  = 'PHP SDK (XeroAPI\XeroPHP) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
-        $report .= '    OpenAPI Spec Version: 2.17.2' . PHP_EOL;
-        $report .= '    SDK Package Version: 2.10.0' . PHP_EOL;
+        $report .= '    OpenAPI Spec Version: 2.17.4' . PHP_EOL;
+        $report .= '    SDK Package Version: 2.11.0' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;
