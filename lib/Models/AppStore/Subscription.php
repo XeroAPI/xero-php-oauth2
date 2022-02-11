@@ -192,8 +192,25 @@ class Subscription implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const STATUS_ACTIVE = 'ACTIVE';
+    const STATUS_CANCELED = 'CANCELED';
+    const STATUS_PAST_DUE = 'PAST_DUE';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_ACTIVE,
+            self::STATUS_CANCELED,
+            self::STATUS_PAST_DUE,
+        ];
+    }
     
 
     /**
@@ -248,6 +265,14 @@ class Subscription implements ModelInterface, ArrayAccess
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
         }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -444,6 +469,15 @@ class Subscription implements ModelInterface, ArrayAccess
      */
     public function setStatus($status)
     {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
 
         $this->container['status'] = $status;
 

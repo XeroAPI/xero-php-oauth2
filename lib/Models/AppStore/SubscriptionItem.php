@@ -61,6 +61,7 @@ class SubscriptionItem implements ModelInterface, ArrayAccess
         'price' => '\XeroAPI\XeroPHP\Models\AppStore\Price',
         'product' => '\XeroAPI\XeroPHP\Models\AppStore\Product',
         'start_date' => '\DateTime',
+        'status' => 'string',
         'test_mode' => 'bool'
     ];
 
@@ -75,6 +76,7 @@ class SubscriptionItem implements ModelInterface, ArrayAccess
         'price' => null,
         'product' => null,
         'start_date' => 'date-time',
+        'status' => null,
         'test_mode' => null
     ];
 
@@ -110,6 +112,7 @@ class SubscriptionItem implements ModelInterface, ArrayAccess
         'price' => 'price',
         'product' => 'product',
         'start_date' => 'startDate',
+        'status' => 'status',
         'test_mode' => 'testMode'
     ];
 
@@ -124,6 +127,7 @@ class SubscriptionItem implements ModelInterface, ArrayAccess
         'price' => 'setPrice',
         'product' => 'setProduct',
         'start_date' => 'setStartDate',
+        'status' => 'setStatus',
         'test_mode' => 'setTestMode'
     ];
 
@@ -138,6 +142,7 @@ class SubscriptionItem implements ModelInterface, ArrayAccess
         'price' => 'getPrice',
         'product' => 'getProduct',
         'start_date' => 'getStartDate',
+        'status' => 'getStatus',
         'test_mode' => 'getTestMode'
     ];
 
@@ -182,8 +187,25 @@ class SubscriptionItem implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const STATUS_ACTIVE = 'ACTIVE';
+    const STATUS_CANCELED = 'CANCELED';
+    const STATUS_PENDING_ACTIVATION = 'PENDING_ACTIVATION';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_ACTIVE,
+            self::STATUS_CANCELED,
+            self::STATUS_PENDING_ACTIVATION,
+        ];
+    }
     
 
     /**
@@ -206,6 +228,7 @@ class SubscriptionItem implements ModelInterface, ArrayAccess
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['product'] = isset($data['product']) ? $data['product'] : null;
         $this->container['start_date'] = isset($data['start_date']) ? $data['start_date'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['test_mode'] = isset($data['test_mode']) ? $data['test_mode'] : null;
     }
 
@@ -230,6 +253,17 @@ class SubscriptionItem implements ModelInterface, ArrayAccess
         if ($this->container['start_date'] === null) {
             $invalidProperties[] = "'start_date' can't be null";
         }
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
+        }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -374,6 +408,42 @@ class SubscriptionItem implements ModelInterface, ArrayAccess
     {
 
         $this->container['start_date'] = $start_date;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status Status of the subscription item. Available statuses are ACTIVE, CANCELED, and PENDING_ACTIVATION.
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+
+        $this->container['status'] = $status;
 
         return $this;
     }

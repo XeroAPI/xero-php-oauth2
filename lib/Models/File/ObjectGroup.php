@@ -53,6 +53,7 @@ class ObjectGroup
     const OVERPAYMENT = 'Overpayment';
     const PAYMENT = 'Payment';
     const PREPAYMENT = 'Prepayment';
+    const QUOTE = 'Quote';
     const RECEIPT = 'Receipt';
     
     /**
@@ -72,6 +73,7 @@ class ObjectGroup
             self::OVERPAYMENT,
             self::PAYMENT,
             self::PREPAYMENT,
+            self::QUOTE,
             self::RECEIPT,
         ];
     }
