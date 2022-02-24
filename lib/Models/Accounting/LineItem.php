@@ -65,6 +65,7 @@ class LineItem implements ModelInterface, ArrayAccess
         'account_id' => 'string',
         'tax_type' => 'string',
         'tax_amount' => 'double',
+        'item' => '\XeroAPI\XeroPHP\Models\Accounting\LineItemItem',
         'line_amount' => 'double',
         'tracking' => '\XeroAPI\XeroPHP\Models\Accounting\LineItemTracking[]',
         'discount_rate' => 'double',
@@ -87,6 +88,7 @@ class LineItem implements ModelInterface, ArrayAccess
         'account_id' => 'uuid',
         'tax_type' => null,
         'tax_amount' => 'double',
+        'item' => null,
         'line_amount' => 'double',
         'tracking' => null,
         'discount_rate' => 'double',
@@ -130,6 +132,7 @@ class LineItem implements ModelInterface, ArrayAccess
         'account_id' => 'AccountID',
         'tax_type' => 'TaxType',
         'tax_amount' => 'TaxAmount',
+        'item' => 'Item',
         'line_amount' => 'LineAmount',
         'tracking' => 'Tracking',
         'discount_rate' => 'DiscountRate',
@@ -152,6 +155,7 @@ class LineItem implements ModelInterface, ArrayAccess
         'account_id' => 'setAccountId',
         'tax_type' => 'setTaxType',
         'tax_amount' => 'setTaxAmount',
+        'item' => 'setItem',
         'line_amount' => 'setLineAmount',
         'tracking' => 'setTracking',
         'discount_rate' => 'setDiscountRate',
@@ -174,6 +178,7 @@ class LineItem implements ModelInterface, ArrayAccess
         'account_id' => 'getAccountId',
         'tax_type' => 'getTaxType',
         'tax_amount' => 'getTaxAmount',
+        'item' => 'getItem',
         'line_amount' => 'getLineAmount',
         'tracking' => 'getTracking',
         'discount_rate' => 'getDiscountRate',
@@ -250,6 +255,7 @@ class LineItem implements ModelInterface, ArrayAccess
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['tax_type'] = isset($data['tax_type']) ? $data['tax_type'] : null;
         $this->container['tax_amount'] = isset($data['tax_amount']) ? $data['tax_amount'] : null;
+        $this->container['item'] = isset($data['item']) ? $data['item'] : null;
         $this->container['line_amount'] = isset($data['line_amount']) ? $data['line_amount'] : null;
         $this->container['tracking'] = isset($data['tracking']) ? $data['tracking'] : null;
         $this->container['discount_rate'] = isset($data['discount_rate']) ? $data['discount_rate'] : null;
@@ -518,6 +524,33 @@ class LineItem implements ModelInterface, ArrayAccess
     {
 
         $this->container['tax_amount'] = $tax_amount;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets item
+     *
+     * @return \XeroAPI\XeroPHP\Models\Accounting\LineItemItem|null
+     */
+    public function getItem()
+    {
+        return $this->container['item'];
+    }
+
+    /**
+     * Sets item
+     *
+     * @param \XeroAPI\XeroPHP\Models\Accounting\LineItemItem|null $item item
+     *
+     * @return $this
+     */
+    public function setItem($item)
+    {
+
+        $this->container['item'] = $item;
 
         return $this;
     }
