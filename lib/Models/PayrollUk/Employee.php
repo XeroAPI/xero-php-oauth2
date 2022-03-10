@@ -70,7 +70,8 @@ class Employee implements ModelInterface, ArrayAccess
         'payroll_calendar_id' => 'string',
         'updated_date_utc' => '\DateTime',
         'created_date_utc' => '\DateTime',
-        'national_insurance_number' => 'string'
+        'national_insurance_number' => 'string',
+        'is_off_payroll_worker' => 'bool'
     ];
 
     /**
@@ -93,7 +94,8 @@ class Employee implements ModelInterface, ArrayAccess
         'payroll_calendar_id' => 'uuid',
         'updated_date_utc' => 'date-time',
         'created_date_utc' => 'date-time',
-        'national_insurance_number' => null
+        'national_insurance_number' => null,
+        'is_off_payroll_worker' => null
     ];
 
     /**
@@ -137,7 +139,8 @@ class Employee implements ModelInterface, ArrayAccess
         'payroll_calendar_id' => 'payrollCalendarID',
         'updated_date_utc' => 'updatedDateUTC',
         'created_date_utc' => 'createdDateUTC',
-        'national_insurance_number' => 'nationalInsuranceNumber'
+        'national_insurance_number' => 'nationalInsuranceNumber',
+        'is_off_payroll_worker' => 'isOffPayrollWorker'
     ];
 
     /**
@@ -160,7 +163,8 @@ class Employee implements ModelInterface, ArrayAccess
         'payroll_calendar_id' => 'setPayrollCalendarId',
         'updated_date_utc' => 'setUpdatedDateUtc',
         'created_date_utc' => 'setCreatedDateUtc',
-        'national_insurance_number' => 'setNationalInsuranceNumber'
+        'national_insurance_number' => 'setNationalInsuranceNumber',
+        'is_off_payroll_worker' => 'setIsOffPayrollWorker'
     ];
 
     /**
@@ -183,7 +187,8 @@ class Employee implements ModelInterface, ArrayAccess
         'payroll_calendar_id' => 'getPayrollCalendarId',
         'updated_date_utc' => 'getUpdatedDateUtc',
         'created_date_utc' => 'getCreatedDateUtc',
-        'national_insurance_number' => 'getNationalInsuranceNumber'
+        'national_insurance_number' => 'getNationalInsuranceNumber',
+        'is_off_payroll_worker' => 'getIsOffPayrollWorker'
     ];
 
     /**
@@ -276,6 +281,7 @@ class Employee implements ModelInterface, ArrayAccess
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
         $this->container['created_date_utc'] = isset($data['created_date_utc']) ? $data['created_date_utc'] : null;
         $this->container['national_insurance_number'] = isset($data['national_insurance_number']) ? $data['national_insurance_number'] : null;
+        $this->container['is_off_payroll_worker'] = isset($data['is_off_payroll_worker']) ? $data['is_off_payroll_worker'] : null;
     }
 
     /**
@@ -718,6 +724,33 @@ class Employee implements ModelInterface, ArrayAccess
     {
 
         $this->container['national_insurance_number'] = $national_insurance_number;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets is_off_payroll_worker
+     *
+     * @return bool|null
+     */
+    public function getIsOffPayrollWorker()
+    {
+        return $this->container['is_off_payroll_worker'];
+    }
+
+    /**
+     * Sets is_off_payroll_worker
+     *
+     * @param bool|null $is_off_payroll_worker Whether the employee is an off payroll worker
+     *
+     * @return $this
+     */
+    public function setIsOffPayrollWorker($is_off_payroll_worker)
+    {
+
+        $this->container['is_off_payroll_worker'] = $is_off_payroll_worker;
 
         return $this;
     }

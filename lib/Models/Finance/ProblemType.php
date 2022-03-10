@@ -43,10 +43,15 @@ class ProblemType
      * Possible values of this enum
      */
     const NOT_SET = 'NotSet';
-    const INVALID_REQUEST = 'invalid-request';
-    const INVALID_APPLICATION = 'invalid-application';
-    const SERVICE_UNAVAILABLE = 'service-unavailable';
+    const BANK_ACCOUNT_NOT_FOUND = 'bank-account-not-found';
     const INTERNAL_ERROR = 'internal-error';
+    const INVALID_APPLICATION = 'invalid-application';
+    const INVALID_REQUEST = 'invalid-request';
+    const ORGANISATION_NOT_FOUND = 'organisation-not-found';
+    const ORGANISATION_OFFLINE = 'organisation-offline';
+    const REQUEST_TIMEOUT = 'request-timeout';
+    const SERVICE_UNAVAILABLE = 'service-unavailable';
+    const UNAUTHORIZED = 'unauthorized';
     
     /**
      * Gets allowable values of the enum
@@ -56,10 +61,15 @@ class ProblemType
     {
         return [
             self::NOT_SET,
-            self::INVALID_REQUEST,
-            self::INVALID_APPLICATION,
-            self::SERVICE_UNAVAILABLE,
+            self::BANK_ACCOUNT_NOT_FOUND,
             self::INTERNAL_ERROR,
+            self::INVALID_APPLICATION,
+            self::INVALID_REQUEST,
+            self::ORGANISATION_NOT_FOUND,
+            self::ORGANISATION_OFFLINE,
+            self::REQUEST_TIMEOUT,
+            self::SERVICE_UNAVAILABLE,
+            self::UNAUTHORIZED,
         ];
     }
 }
