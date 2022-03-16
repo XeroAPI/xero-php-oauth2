@@ -76,7 +76,7 @@ class PaymentResponse implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'payment_id' => 'uuid',
         'batch_payment_id' => 'uuid',
-        'date' => 'date-time',
+        'date' => 'date',
         'amount' => 'double',
         'bank_amount' => 'double',
         'currency_rate' => 'double',

@@ -71,8 +71,8 @@ class StatementResponse implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'statement_id' => 'uuid',
-        'start_date' => 'date-time',
-        'end_date' => 'date-time',
+        'start_date' => 'date',
+        'end_date' => 'date',
         'imported_date_time_utc' => 'date-time',
         'import_source' => null,
         'statement_lines' => null

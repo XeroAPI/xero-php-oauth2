@@ -78,12 +78,12 @@ class StatementLineResponse implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'statement_line_id' => 'uuid',
-        'posted_date' => 'date-time',
+        'posted_date' => 'date',
         'reference' => null,
         'notes' => null,
         'cheque_no' => null,
         'amount' => 'double',
-        'transaction_date' => 'date-time',
+        'transaction_date' => 'date',
         'type' => null,
         'is_reconciled' => null,
         'is_duplicate' => null,
