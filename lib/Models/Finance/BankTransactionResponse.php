@@ -73,7 +73,7 @@ class BankTransactionResponse implements ModelInterface, ArrayAccess
         'bank_transaction_id' => 'uuid',
         'batch_payment_id' => 'uuid',
         'contact' => null,
-        'date' => 'date-time',
+        'date' => 'date',
         'amount' => 'double',
         'line_items' => null
     ];
