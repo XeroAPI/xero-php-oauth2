@@ -450,6 +450,11 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
      */
     public function setLineItems($line_items)
     {
+        if (is_null($line_items) || !is_array($line_items)) {
+            throw new \InvalidArgumentException(
+                "Invalid value for 'line_items', must be an array"
+            );
+        }
 
         $this->container['line_items'] = $line_items;
 
