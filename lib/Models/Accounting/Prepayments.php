@@ -236,6 +236,7 @@ class Prepayments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      *
      * @return boolean
      */
+     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['prepayments'][$offset]);
@@ -248,6 +249,7 @@ class Prepayments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      *
      * @return mixed
      */
+     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['prepayments'][$offset]) ? $this->container['prepayments'][$offset] : null;
@@ -261,6 +263,7 @@ class Prepayments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      *
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -277,21 +280,25 @@ class Prepayments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      *
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['prepayments'][$offset]);
     }
 
+     #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['prepayments']);
     }
 
+     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['prepayments']);
     }
 
+     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return AccountingObjectSerializer::sanitizeForSerialization($this)->Prepayments;

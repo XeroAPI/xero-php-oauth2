@@ -236,6 +236,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
      *
      * @return boolean
      */
+     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['purchase_orders'][$offset]);
@@ -248,6 +249,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
      *
      * @return mixed
      */
+     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['purchase_orders'][$offset]) ? $this->container['purchase_orders'][$offset] : null;
@@ -261,6 +263,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
      *
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -277,21 +280,25 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
      *
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['purchase_orders'][$offset]);
     }
 
+     #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['purchase_orders']);
     }
 
+     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['purchase_orders']);
     }
 
+     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return AccountingObjectSerializer::sanitizeForSerialization($this)->PurchaseOrders;

@@ -236,6 +236,7 @@ class Allocations implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      *
      * @return boolean
      */
+     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['allocations'][$offset]);
@@ -248,6 +249,7 @@ class Allocations implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      *
      * @return mixed
      */
+     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['allocations'][$offset]) ? $this->container['allocations'][$offset] : null;
@@ -261,6 +263,7 @@ class Allocations implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      *
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -277,21 +280,25 @@ class Allocations implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      *
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['allocations'][$offset]);
     }
 
+     #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['allocations']);
     }
 
+     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['allocations']);
     }
 
+     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return AccountingObjectSerializer::sanitizeForSerialization($this)->Allocations;

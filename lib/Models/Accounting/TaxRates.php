@@ -236,6 +236,7 @@ class TaxRates implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      *
      * @return boolean
      */
+     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['tax_rates'][$offset]);
@@ -248,6 +249,7 @@ class TaxRates implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      *
      * @return mixed
      */
+     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['tax_rates'][$offset]) ? $this->container['tax_rates'][$offset] : null;
@@ -261,6 +263,7 @@ class TaxRates implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      *
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -277,21 +280,25 @@ class TaxRates implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      *
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['tax_rates'][$offset]);
     }
 
+     #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['tax_rates']);
     }
 
+     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['tax_rates']);
     }
 
+     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return AccountingObjectSerializer::sanitizeForSerialization($this)->TaxRates;

@@ -236,6 +236,7 @@ class LinkedTransactions implements ModelInterface, ArrayAccess, \Countable, \It
      *
      * @return boolean
      */
+     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['linked_transactions'][$offset]);
@@ -248,6 +249,7 @@ class LinkedTransactions implements ModelInterface, ArrayAccess, \Countable, \It
      *
      * @return mixed
      */
+     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['linked_transactions'][$offset]) ? $this->container['linked_transactions'][$offset] : null;
@@ -261,6 +263,7 @@ class LinkedTransactions implements ModelInterface, ArrayAccess, \Countable, \It
      *
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -277,21 +280,25 @@ class LinkedTransactions implements ModelInterface, ArrayAccess, \Countable, \It
      *
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['linked_transactions'][$offset]);
     }
 
+     #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['linked_transactions']);
     }
 
+     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['linked_transactions']);
     }
 
+     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return AccountingObjectSerializer::sanitizeForSerialization($this)->LinkedTransactions;

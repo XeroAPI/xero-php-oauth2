@@ -236,6 +236,7 @@ class ExpenseClaims implements ModelInterface, ArrayAccess, \Countable, \Iterato
      *
      * @return boolean
      */
+     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['expense_claims'][$offset]);
@@ -248,6 +249,7 @@ class ExpenseClaims implements ModelInterface, ArrayAccess, \Countable, \Iterato
      *
      * @return mixed
      */
+     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['expense_claims'][$offset]) ? $this->container['expense_claims'][$offset] : null;
@@ -261,6 +263,7 @@ class ExpenseClaims implements ModelInterface, ArrayAccess, \Countable, \Iterato
      *
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -277,21 +280,25 @@ class ExpenseClaims implements ModelInterface, ArrayAccess, \Countable, \Iterato
      *
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['expense_claims'][$offset]);
     }
 
+     #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['expense_claims']);
     }
 
+     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['expense_claims']);
     }
 
+     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return AccountingObjectSerializer::sanitizeForSerialization($this)->ExpenseClaims;

@@ -236,6 +236,7 @@ class InvoiceReminders implements ModelInterface, ArrayAccess, \Countable, \Iter
      *
      * @return boolean
      */
+     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['invoice_reminders'][$offset]);
@@ -248,6 +249,7 @@ class InvoiceReminders implements ModelInterface, ArrayAccess, \Countable, \Iter
      *
      * @return mixed
      */
+     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['invoice_reminders'][$offset]) ? $this->container['invoice_reminders'][$offset] : null;
@@ -261,6 +263,7 @@ class InvoiceReminders implements ModelInterface, ArrayAccess, \Countable, \Iter
      *
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -277,21 +280,25 @@ class InvoiceReminders implements ModelInterface, ArrayAccess, \Countable, \Iter
      *
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['invoice_reminders'][$offset]);
     }
 
+     #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['invoice_reminders']);
     }
 
+     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['invoice_reminders']);
     }
 
+     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return AccountingObjectSerializer::sanitizeForSerialization($this)->InvoiceReminders;

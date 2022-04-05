@@ -236,6 +236,7 @@ class TrackingOptions implements ModelInterface, ArrayAccess, \Countable, \Itera
      *
      * @return boolean
      */
+     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['options'][$offset]);
@@ -248,6 +249,7 @@ class TrackingOptions implements ModelInterface, ArrayAccess, \Countable, \Itera
      *
      * @return mixed
      */
+     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['options'][$offset]) ? $this->container['options'][$offset] : null;
@@ -261,6 +263,7 @@ class TrackingOptions implements ModelInterface, ArrayAccess, \Countable, \Itera
      *
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -277,21 +280,25 @@ class TrackingOptions implements ModelInterface, ArrayAccess, \Countable, \Itera
      *
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['options'][$offset]);
     }
 
+     #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['options']);
     }
 
+     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['options']);
     }
 
+     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return AccountingObjectSerializer::sanitizeForSerialization($this)->TrackingOptions;

@@ -236,6 +236,7 @@ class Reports implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
      *
      * @return boolean
      */
+     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['reports'][$offset]);
@@ -248,6 +249,7 @@ class Reports implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
      *
      * @return mixed
      */
+     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['reports'][$offset]) ? $this->container['reports'][$offset] : null;
@@ -261,6 +263,7 @@ class Reports implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
      *
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -277,21 +280,25 @@ class Reports implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
      *
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['reports'][$offset]);
     }
 
+     #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['reports']);
     }
 
+     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['reports']);
     }
 
+     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return AccountingObjectSerializer::sanitizeForSerialization($this)->Reports;

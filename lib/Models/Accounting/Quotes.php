@@ -236,6 +236,7 @@ class Quotes implements ModelInterface, ArrayAccess, \Countable, \IteratorAggreg
      *
      * @return boolean
      */
+     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['quotes'][$offset]);
@@ -248,6 +249,7 @@ class Quotes implements ModelInterface, ArrayAccess, \Countable, \IteratorAggreg
      *
      * @return mixed
      */
+     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['quotes'][$offset]) ? $this->container['quotes'][$offset] : null;
@@ -261,6 +263,7 @@ class Quotes implements ModelInterface, ArrayAccess, \Countable, \IteratorAggreg
      *
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -277,21 +280,25 @@ class Quotes implements ModelInterface, ArrayAccess, \Countable, \IteratorAggreg
      *
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['quotes'][$offset]);
     }
 
+     #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['quotes']);
     }
 
+     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['quotes']);
     }
 
+     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return AccountingObjectSerializer::sanitizeForSerialization($this)->Quotes;

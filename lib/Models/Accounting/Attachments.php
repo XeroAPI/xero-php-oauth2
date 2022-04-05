@@ -236,6 +236,7 @@ class Attachments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      *
      * @return boolean
      */
+     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['attachments'][$offset]);
@@ -248,6 +249,7 @@ class Attachments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      *
      * @return mixed
      */
+     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['attachments'][$offset]) ? $this->container['attachments'][$offset] : null;
@@ -261,6 +263,7 @@ class Attachments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      *
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -277,21 +280,25 @@ class Attachments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      *
      * @return void
      */
+     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['attachments'][$offset]);
     }
 
+     #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['attachments']);
     }
 
+     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['attachments']);
     }
 
+     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return AccountingObjectSerializer::sanitizeForSerialization($this)->Attachments;
