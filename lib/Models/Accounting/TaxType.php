@@ -104,6 +104,7 @@ class TaxType
     const DRCHARGE20 = 'DRCHARGE20';
     const DRCHARGESUPPLY5 = 'DRCHARGESUPPLY5';
     const DRCHARGE5 = 'DRCHARGE5';
+    const BADDEBTRELIEF = 'BADDEBTRELIEF';
     
     /**
      * Gets allowable values of the enum
@@ -171,6 +172,7 @@ class TaxType
             self::DRCHARGE20,
             self::DRCHARGESUPPLY5,
             self::DRCHARGE5,
+            self::BADDEBTRELIEF,
         ];
     }
 }

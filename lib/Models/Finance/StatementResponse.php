@@ -63,6 +63,8 @@ class StatementResponse implements ModelInterface, ArrayAccess
         'end_date' => '\DateTime',
         'imported_date_time_utc' => '\DateTime',
         'import_source' => 'string',
+        'start_balance' => 'double',
+        'end_balance' => 'double',
         'statement_lines' => '\XeroAPI\XeroPHP\Models\Finance\StatementLineResponse[]'
     ];
 
@@ -77,6 +79,8 @@ class StatementResponse implements ModelInterface, ArrayAccess
         'end_date' => 'date',
         'imported_date_time_utc' => 'date-time',
         'import_source' => null,
+        'start_balance' => 'double',
+        'end_balance' => 'double',
         'statement_lines' => null
     ];
 
@@ -112,6 +116,8 @@ class StatementResponse implements ModelInterface, ArrayAccess
         'end_date' => 'endDate',
         'imported_date_time_utc' => 'importedDateTimeUtc',
         'import_source' => 'importSource',
+        'start_balance' => 'startBalance',
+        'end_balance' => 'endBalance',
         'statement_lines' => 'statementLines'
     ];
 
@@ -126,6 +132,8 @@ class StatementResponse implements ModelInterface, ArrayAccess
         'end_date' => 'setEndDate',
         'imported_date_time_utc' => 'setImportedDateTimeUtc',
         'import_source' => 'setImportSource',
+        'start_balance' => 'setStartBalance',
+        'end_balance' => 'setEndBalance',
         'statement_lines' => 'setStatementLines'
     ];
 
@@ -140,6 +148,8 @@ class StatementResponse implements ModelInterface, ArrayAccess
         'end_date' => 'getEndDate',
         'imported_date_time_utc' => 'getImportedDateTimeUtc',
         'import_source' => 'getImportSource',
+        'start_balance' => 'getStartBalance',
+        'end_balance' => 'getEndBalance',
         'statement_lines' => 'getStatementLines'
     ];
 
@@ -208,6 +218,8 @@ class StatementResponse implements ModelInterface, ArrayAccess
         $this->container['end_date'] = isset($data['end_date']) ? $data['end_date'] : null;
         $this->container['imported_date_time_utc'] = isset($data['imported_date_time_utc']) ? $data['imported_date_time_utc'] : null;
         $this->container['import_source'] = isset($data['import_source']) ? $data['import_source'] : null;
+        $this->container['start_balance'] = isset($data['start_balance']) ? $data['start_balance'] : null;
+        $this->container['end_balance'] = isset($data['end_balance']) ? $data['end_balance'] : null;
         $this->container['statement_lines'] = isset($data['statement_lines']) ? $data['statement_lines'] : null;
     }
 
@@ -356,7 +368,7 @@ class StatementResponse implements ModelInterface, ArrayAccess
     /**
      * Sets import_source
      *
-     * @param string|null $import_source Import source of statement (STMTIMPORTSRC/MANUAL, STMTIMPORTSRC/CSV, STMTIMPORTSRC/QIF, STMTIMPORTSRC/OFX, XeroApi)
+     * @param string|null $import_source Indicates the source of the statement data. Either imported from 1) direct bank feed OR 2) manual customer entry or upload. Manual import sources are STMTIMPORTSRC/MANUAL, STMTIMPORTSRC/CSV, STMTIMPORTSRC/OFX, Ofx or STMTIMPORTSRC/QIF. All other import sources are direct and, depending on the direct solution, may contain the name of the financial institution.
      *
      * @return $this
      */
@@ -364,6 +376,60 @@ class StatementResponse implements ModelInterface, ArrayAccess
     {
 
         $this->container['import_source'] = $import_source;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets start_balance
+     *
+     * @return double|null
+     */
+    public function getStartBalance()
+    {
+        return $this->container['start_balance'];
+    }
+
+    /**
+     * Sets start_balance
+     *
+     * @param double|null $start_balance Opening balance sourced from imported bank statements (if supplied). Note, for manually uploaded statements, this balance is also manual and usually not supplied.
+     *
+     * @return $this
+     */
+    public function setStartBalance($start_balance)
+    {
+
+        $this->container['start_balance'] = $start_balance;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets end_balance
+     *
+     * @return double|null
+     */
+    public function getEndBalance()
+    {
+        return $this->container['end_balance'];
+    }
+
+    /**
+     * Sets end_balance
+     *
+     * @param double|null $end_balance Closing balance sourced from imported bank statements (if supplied). Note, for manually uploaded statements, this balance is also manual and usually not supplied.
+     *
+     * @return $this
+     */
+    public function setEndBalance($end_balance)
+    {
+
+        $this->container['end_balance'] = $end_balance;
 
         return $this;
     }

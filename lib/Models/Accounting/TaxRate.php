@@ -292,6 +292,7 @@ class TaxRate implements ModelInterface, ArrayAccess
     const REPORT_TAX_TYPE_ZRINPUT = 'ZRINPUT';
     const REPORT_TAX_TYPE_BADDEBT = 'BADDEBT';
     const REPORT_TAX_TYPE_OTHERINPUT = 'OTHERINPUT';
+    const REPORT_TAX_TYPE_BADDEBTRELIEF = 'BADDEBTRELIEF';
     
 
     
@@ -392,6 +393,7 @@ class TaxRate implements ModelInterface, ArrayAccess
             self::REPORT_TAX_TYPE_ZRINPUT,
             self::REPORT_TAX_TYPE_BADDEBT,
             self::REPORT_TAX_TYPE_OTHERINPUT,
+            self::REPORT_TAX_TYPE_BADDEBTRELIEF,
         ];
     }
     
