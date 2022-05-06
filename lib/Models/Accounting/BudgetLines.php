@@ -31,6 +31,8 @@ namespace XeroAPI\XeroPHP\Models\Accounting;
 use \ArrayAccess;
 use \XeroAPI\XeroPHP\AccountingObjectSerializer;
 use \XeroAPI\XeroPHP\StringUtil;
+use ReturnTypeWillChange;
+
 /**
  * BudgetLines Class Doc Comment
  *
@@ -369,6 +371,7 @@ class BudgetLines implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -381,6 +384,7 @@ class BudgetLines implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -394,6 +398,7 @@ class BudgetLines implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -410,6 +415,7 @@ class BudgetLines implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);
