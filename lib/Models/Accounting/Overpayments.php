@@ -238,7 +238,7 @@ class Overpayments implements ModelInterface, ArrayAccess, \Countable, \Iterator
      *
      * @return boolean
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['overpayments'][$offset]);
@@ -251,7 +251,7 @@ class Overpayments implements ModelInterface, ArrayAccess, \Countable, \Iterator
      *
      * @return mixed
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['overpayments'][$offset]) ? $this->container['overpayments'][$offset] : null;
@@ -265,7 +265,7 @@ class Overpayments implements ModelInterface, ArrayAccess, \Countable, \Iterator
      *
      * @return void
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -282,7 +282,7 @@ class Overpayments implements ModelInterface, ArrayAccess, \Countable, \Iterator
      *
      * @return void
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['overpayments'][$offset]);

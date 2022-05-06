@@ -238,7 +238,7 @@ class SuperFundProducts implements ModelInterface, ArrayAccess, \Countable, \Ite
      *
      * @return boolean
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['super_fund_products'][$offset]);
@@ -251,7 +251,7 @@ class SuperFundProducts implements ModelInterface, ArrayAccess, \Countable, \Ite
      *
      * @return mixed
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['super_fund_products'][$offset]) ? $this->container['super_fund_products'][$offset] : null;
@@ -265,7 +265,7 @@ class SuperFundProducts implements ModelInterface, ArrayAccess, \Countable, \Ite
      *
      * @return void
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -282,7 +282,7 @@ class SuperFundProducts implements ModelInterface, ArrayAccess, \Countable, \Ite
      *
      * @return void
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['super_fund_products'][$offset]);

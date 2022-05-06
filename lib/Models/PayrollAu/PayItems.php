@@ -238,7 +238,7 @@ class PayItems implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      *
      * @return boolean
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['pay_items'][$offset]);
@@ -251,7 +251,7 @@ class PayItems implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      *
      * @return mixed
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['pay_items'][$offset]) ? $this->container['pay_items'][$offset] : null;
@@ -265,7 +265,7 @@ class PayItems implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      *
      * @return void
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -282,7 +282,7 @@ class PayItems implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      *
      * @return void
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['pay_items'][$offset]);

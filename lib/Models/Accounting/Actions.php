@@ -238,7 +238,7 @@ class Actions implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
      *
      * @return boolean
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['actions'][$offset]);
@@ -251,7 +251,7 @@ class Actions implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
      *
      * @return mixed
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['actions'][$offset]) ? $this->container['actions'][$offset] : null;
@@ -265,7 +265,7 @@ class Actions implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
      *
      * @return void
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -282,7 +282,7 @@ class Actions implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
      *
      * @return void
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['actions'][$offset]);

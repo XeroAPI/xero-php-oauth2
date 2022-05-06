@@ -238,7 +238,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
      *
      * @return boolean
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['bank_transactions'][$offset]);
@@ -251,7 +251,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
      *
      * @return mixed
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['bank_transactions'][$offset]) ? $this->container['bank_transactions'][$offset] : null;
@@ -265,7 +265,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
      *
      * @return void
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -282,7 +282,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
      *
      * @return void
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['bank_transactions'][$offset]);

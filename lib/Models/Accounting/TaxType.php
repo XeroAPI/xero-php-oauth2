@@ -105,6 +105,12 @@ class TaxType
     const DRCHARGESUPPLY5 = 'DRCHARGESUPPLY5';
     const DRCHARGE5 = 'DRCHARGE5';
     const BADDEBTRELIEF = 'BADDEBTRELIEF';
+    const IGDSINPUT3 = 'IGDSINPUT3';
+    const SROVR = 'SROVR';
+    const TOURISTREFUND = 'TOURISTREFUND';
+    const TXRCN33_INPUT = 'TXRCN33INPUT';
+    const TXRCREINPUT = 'TXRCREINPUT';
+    const TXRCESSINPUT = 'TXRCESSINPUT';
     
     /**
      * Gets allowable values of the enum
@@ -173,6 +179,12 @@ class TaxType
             self::DRCHARGESUPPLY5,
             self::DRCHARGE5,
             self::BADDEBTRELIEF,
+            self::IGDSINPUT3,
+            self::SROVR,
+            self::TOURISTREFUND,
+            self::TXRCN33_INPUT,
+            self::TXRCREINPUT,
+            self::TXRCESSINPUT,
         ];
     }
 }

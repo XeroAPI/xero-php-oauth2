@@ -239,7 +239,7 @@ class ReimbursementLines implements ModelInterface, ArrayAccess, \Countable, \It
      *
      * @return boolean
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['reimbursement_lines'][$offset]);
@@ -252,7 +252,7 @@ class ReimbursementLines implements ModelInterface, ArrayAccess, \Countable, \It
      *
      * @return mixed
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['reimbursement_lines'][$offset]) ? $this->container['reimbursement_lines'][$offset] : null;
@@ -266,7 +266,7 @@ class ReimbursementLines implements ModelInterface, ArrayAccess, \Countable, \It
      *
      * @return void
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -283,7 +283,7 @@ class ReimbursementLines implements ModelInterface, ArrayAccess, \Countable, \It
      *
      * @return void
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['reimbursement_lines'][$offset]);

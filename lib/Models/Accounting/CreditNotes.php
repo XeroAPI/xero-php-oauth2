@@ -238,7 +238,7 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      *
      * @return boolean
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['credit_notes'][$offset]);
@@ -251,7 +251,7 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      *
      * @return mixed
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['credit_notes'][$offset]) ? $this->container['credit_notes'][$offset] : null;
@@ -265,7 +265,7 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      *
      * @return void
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -282,7 +282,7 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      *
      * @return void
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['credit_notes'][$offset]);

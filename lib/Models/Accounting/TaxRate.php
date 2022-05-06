@@ -293,6 +293,12 @@ class TaxRate implements ModelInterface, ArrayAccess
     const REPORT_TAX_TYPE_BADDEBT = 'BADDEBT';
     const REPORT_TAX_TYPE_OTHERINPUT = 'OTHERINPUT';
     const REPORT_TAX_TYPE_BADDEBTRELIEF = 'BADDEBTRELIEF';
+    const REPORT_TAX_TYPE_IGDSINPUT3 = 'IGDSINPUT3';
+    const REPORT_TAX_TYPE_SROVR = 'SROVR';
+    const REPORT_TAX_TYPE_TOURISTREFUND = 'TOURISTREFUND';
+    const REPORT_TAX_TYPE_TXRCN33_INPUT = 'TXRCN33INPUT';
+    const REPORT_TAX_TYPE_TXRCREINPUT = 'TXRCREINPUT';
+    const REPORT_TAX_TYPE_TXRCESSINPUT = 'TXRCESSINPUT';
     
 
     
@@ -394,6 +400,12 @@ class TaxRate implements ModelInterface, ArrayAccess
             self::REPORT_TAX_TYPE_BADDEBT,
             self::REPORT_TAX_TYPE_OTHERINPUT,
             self::REPORT_TAX_TYPE_BADDEBTRELIEF,
+            self::REPORT_TAX_TYPE_IGDSINPUT3,
+            self::REPORT_TAX_TYPE_SROVR,
+            self::REPORT_TAX_TYPE_TOURISTREFUND,
+            self::REPORT_TAX_TYPE_TXRCN33_INPUT,
+            self::REPORT_TAX_TYPE_TXRCREINPUT,
+            self::REPORT_TAX_TYPE_TXRCESSINPUT,
         ];
     }
     
@@ -808,7 +820,7 @@ class TaxRate implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
@@ -821,7 +833,7 @@ class TaxRate implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -835,7 +847,7 @@ class TaxRate implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -852,7 +864,7 @@ class TaxRate implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);

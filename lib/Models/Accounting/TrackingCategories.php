@@ -238,7 +238,7 @@ class TrackingCategories implements ModelInterface, ArrayAccess, \Countable, \It
      *
      * @return boolean
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['tracking_categories'][$offset]);
@@ -251,7 +251,7 @@ class TrackingCategories implements ModelInterface, ArrayAccess, \Countable, \It
      *
      * @return mixed
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['tracking_categories'][$offset]) ? $this->container['tracking_categories'][$offset] : null;
@@ -265,7 +265,7 @@ class TrackingCategories implements ModelInterface, ArrayAccess, \Countable, \It
      *
      * @return void
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -282,7 +282,7 @@ class TrackingCategories implements ModelInterface, ArrayAccess, \Countable, \It
      *
      * @return void
      */
-     #[ReturnTypeWillChange]
+     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['tracking_categories'][$offset]);
