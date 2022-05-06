@@ -238,7 +238,7 @@ class Journals implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      *
      * @return boolean
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['journals'][$offset]);
@@ -251,7 +251,7 @@ class Journals implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      *
      * @return mixed
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['journals'][$offset]) ? $this->container['journals'][$offset] : null;
@@ -265,7 +265,7 @@ class Journals implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -282,22 +282,25 @@ class Journals implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['journals'][$offset]);
     }
 
+    #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['journals']);
     }
 
+    #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['journals']);
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return AccountingObjectSerializer::sanitizeForSerialization($this)->Journals;

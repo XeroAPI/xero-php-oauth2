@@ -238,7 +238,7 @@ class SuperFunds implements ModelInterface, ArrayAccess, \Countable, \IteratorAg
      *
      * @return boolean
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['super_funds'][$offset]);
@@ -251,7 +251,7 @@ class SuperFunds implements ModelInterface, ArrayAccess, \Countable, \IteratorAg
      *
      * @return mixed
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['super_funds'][$offset]) ? $this->container['super_funds'][$offset] : null;
@@ -265,7 +265,7 @@ class SuperFunds implements ModelInterface, ArrayAccess, \Countable, \IteratorAg
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -282,22 +282,25 @@ class SuperFunds implements ModelInterface, ArrayAccess, \Countable, \IteratorAg
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['super_funds'][$offset]);
     }
 
+    #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['super_funds']);
     }
 
+    #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['super_funds']);
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return PayrollAuObjectSerializer::sanitizeForSerialization($this)->SuperFunds;

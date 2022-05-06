@@ -238,7 +238,7 @@ class Currencies implements ModelInterface, ArrayAccess, \Countable, \IteratorAg
      *
      * @return boolean
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['currencies'][$offset]);
@@ -251,7 +251,7 @@ class Currencies implements ModelInterface, ArrayAccess, \Countable, \IteratorAg
      *
      * @return mixed
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['currencies'][$offset]) ? $this->container['currencies'][$offset] : null;
@@ -265,7 +265,7 @@ class Currencies implements ModelInterface, ArrayAccess, \Countable, \IteratorAg
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -282,22 +282,25 @@ class Currencies implements ModelInterface, ArrayAccess, \Countable, \IteratorAg
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['currencies'][$offset]);
     }
 
+    #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['currencies']);
     }
 
+    #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['currencies']);
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return AccountingObjectSerializer::sanitizeForSerialization($this)->Currencies;

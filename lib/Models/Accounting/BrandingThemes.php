@@ -238,7 +238,7 @@ class BrandingThemes implements ModelInterface, ArrayAccess, \Countable, \Iterat
      *
      * @return boolean
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['branding_themes'][$offset]);
@@ -251,7 +251,7 @@ class BrandingThemes implements ModelInterface, ArrayAccess, \Countable, \Iterat
      *
      * @return mixed
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['branding_themes'][$offset]) ? $this->container['branding_themes'][$offset] : null;
@@ -265,7 +265,7 @@ class BrandingThemes implements ModelInterface, ArrayAccess, \Countable, \Iterat
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -282,22 +282,25 @@ class BrandingThemes implements ModelInterface, ArrayAccess, \Countable, \Iterat
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['branding_themes'][$offset]);
     }
 
+    #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['branding_themes']);
     }
 
+    #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['branding_themes']);
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return AccountingObjectSerializer::sanitizeForSerialization($this)->BrandingThemes;

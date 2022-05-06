@@ -238,7 +238,7 @@ class Budgets implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
      *
      * @return boolean
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['budgets'][$offset]);
@@ -251,7 +251,7 @@ class Budgets implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
      *
      * @return mixed
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['budgets'][$offset]) ? $this->container['budgets'][$offset] : null;
@@ -265,7 +265,7 @@ class Budgets implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -282,22 +282,25 @@ class Budgets implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['budgets'][$offset]);
     }
 
+    #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['budgets']);
     }
 
+    #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['budgets']);
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return AccountingObjectSerializer::sanitizeForSerialization($this)->Budgets;

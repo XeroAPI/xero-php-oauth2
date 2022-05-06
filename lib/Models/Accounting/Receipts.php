@@ -238,7 +238,7 @@ class Receipts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      *
      * @return boolean
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['receipts'][$offset]);
@@ -251,7 +251,7 @@ class Receipts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      *
      * @return mixed
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['receipts'][$offset]) ? $this->container['receipts'][$offset] : null;
@@ -265,7 +265,7 @@ class Receipts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -282,22 +282,25 @@ class Receipts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['receipts'][$offset]);
     }
 
+    #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['receipts']);
     }
 
+    #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['receipts']);
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return AccountingObjectSerializer::sanitizeForSerialization($this)->Receipts;

@@ -238,7 +238,7 @@ class CISSettings implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      *
      * @return boolean
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['cis_settings'][$offset]);
@@ -251,7 +251,7 @@ class CISSettings implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      *
      * @return mixed
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['cis_settings'][$offset]) ? $this->container['cis_settings'][$offset] : null;
@@ -265,7 +265,7 @@ class CISSettings implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -282,22 +282,25 @@ class CISSettings implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['cis_settings'][$offset]);
     }
 
+    #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['cis_settings']);
     }
 
+    #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['cis_settings']);
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return AccountingObjectSerializer::sanitizeForSerialization($this)->CISSettings;

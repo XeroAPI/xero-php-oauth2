@@ -238,7 +238,7 @@ class PayrollCalendars implements ModelInterface, ArrayAccess, \Countable, \Iter
      *
      * @return boolean
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['payroll_calendars'][$offset]);
@@ -251,7 +251,7 @@ class PayrollCalendars implements ModelInterface, ArrayAccess, \Countable, \Iter
      *
      * @return mixed
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['payroll_calendars'][$offset]) ? $this->container['payroll_calendars'][$offset] : null;
@@ -265,7 +265,7 @@ class PayrollCalendars implements ModelInterface, ArrayAccess, \Countable, \Iter
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -282,22 +282,25 @@ class PayrollCalendars implements ModelInterface, ArrayAccess, \Countable, \Iter
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['payroll_calendars'][$offset]);
     }
 
+    #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['payroll_calendars']);
     }
 
+    #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['payroll_calendars']);
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return PayrollAuObjectSerializer::sanitizeForSerialization($this)->PayrollCalendars;

@@ -238,7 +238,7 @@ class Timesheets implements ModelInterface, ArrayAccess, \Countable, \IteratorAg
      *
      * @return boolean
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['timesheets'][$offset]);
@@ -251,7 +251,7 @@ class Timesheets implements ModelInterface, ArrayAccess, \Countable, \IteratorAg
      *
      * @return mixed
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['timesheets'][$offset]) ? $this->container['timesheets'][$offset] : null;
@@ -265,7 +265,7 @@ class Timesheets implements ModelInterface, ArrayAccess, \Countable, \IteratorAg
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -282,22 +282,25 @@ class Timesheets implements ModelInterface, ArrayAccess, \Countable, \IteratorAg
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['timesheets'][$offset]);
     }
 
+    #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['timesheets']);
     }
 
+    #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['timesheets']);
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return PayrollAuObjectSerializer::sanitizeForSerialization($this)->Timesheets;

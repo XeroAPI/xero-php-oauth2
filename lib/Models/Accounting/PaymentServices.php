@@ -238,7 +238,7 @@ class PaymentServices implements ModelInterface, ArrayAccess, \Countable, \Itera
      *
      * @return boolean
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['payment_services'][$offset]);
@@ -251,7 +251,7 @@ class PaymentServices implements ModelInterface, ArrayAccess, \Countable, \Itera
      *
      * @return mixed
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['payment_services'][$offset]) ? $this->container['payment_services'][$offset] : null;
@@ -265,7 +265,7 @@ class PaymentServices implements ModelInterface, ArrayAccess, \Countable, \Itera
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -282,22 +282,25 @@ class PaymentServices implements ModelInterface, ArrayAccess, \Countable, \Itera
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['payment_services'][$offset]);
     }
 
+    #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['payment_services']);
     }
 
+    #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['payment_services']);
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return AccountingObjectSerializer::sanitizeForSerialization($this)->PaymentServices;

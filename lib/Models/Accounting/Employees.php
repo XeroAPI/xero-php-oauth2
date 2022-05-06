@@ -238,7 +238,7 @@ class Employees implements ModelInterface, ArrayAccess, \Countable, \IteratorAgg
      *
      * @return boolean
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['employees'][$offset]);
@@ -251,7 +251,7 @@ class Employees implements ModelInterface, ArrayAccess, \Countable, \IteratorAgg
      *
      * @return mixed
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['employees'][$offset]) ? $this->container['employees'][$offset] : null;
@@ -265,7 +265,7 @@ class Employees implements ModelInterface, ArrayAccess, \Countable, \IteratorAgg
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -282,22 +282,25 @@ class Employees implements ModelInterface, ArrayAccess, \Countable, \IteratorAgg
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['employees'][$offset]);
     }
 
+    #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['employees']);
     }
 
+    #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['employees']);
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return AccountingObjectSerializer::sanitizeForSerialization($this)->Employees;

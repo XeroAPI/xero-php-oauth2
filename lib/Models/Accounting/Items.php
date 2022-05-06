@@ -238,7 +238,7 @@ class Items implements ModelInterface, ArrayAccess, \Countable, \IteratorAggrega
      *
      * @return boolean
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['items'][$offset]);
@@ -251,7 +251,7 @@ class Items implements ModelInterface, ArrayAccess, \Countable, \IteratorAggrega
      *
      * @return mixed
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['items'][$offset]) ? $this->container['items'][$offset] : null;
@@ -265,7 +265,7 @@ class Items implements ModelInterface, ArrayAccess, \Countable, \IteratorAggrega
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -282,22 +282,25 @@ class Items implements ModelInterface, ArrayAccess, \Countable, \IteratorAggrega
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['items'][$offset]);
     }
 
+    #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['items']);
     }
 
+    #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['items']);
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return AccountingObjectSerializer::sanitizeForSerialization($this)->Items;

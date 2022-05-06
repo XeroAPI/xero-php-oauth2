@@ -238,7 +238,7 @@ class Organisations implements ModelInterface, ArrayAccess, \Countable, \Iterato
      *
      * @return boolean
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->container['organisations'][$offset]);
@@ -251,7 +251,7 @@ class Organisations implements ModelInterface, ArrayAccess, \Countable, \Iterato
      *
      * @return mixed
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container['organisations'][$offset]) ? $this->container['organisations'][$offset] : null;
@@ -265,7 +265,7 @@ class Organisations implements ModelInterface, ArrayAccess, \Countable, \Iterato
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -282,22 +282,25 @@ class Organisations implements ModelInterface, ArrayAccess, \Countable, \Iterato
      *
      * @return void
      */
-     #[\ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container['organisations'][$offset]);
     }
 
+    #[\ReturnTypeWillChange]
     public function count() 
     {
         return count($this->container['organisations']);
     }
 
+    #[\ReturnTypeWillChange]
     public function getIterator() 
     {
         return new \ArrayIterator($this->container['organisations']);
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return AccountingObjectSerializer::sanitizeForSerialization($this)->Organisations;
