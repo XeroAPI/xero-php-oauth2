@@ -111,6 +111,7 @@ class TaxType
     const TXRCN33_INPUT = 'TXRCN33INPUT';
     const TXRCREINPUT = 'TXRCREINPUT';
     const TXRCESSINPUT = 'TXRCESSINPUT';
+    const TXRCTSINPUT = 'TXRCTSINPUT';
     
     /**
      * Gets allowable values of the enum
@@ -185,6 +186,7 @@ class TaxType
             self::TXRCN33_INPUT,
             self::TXRCREINPUT,
             self::TXRCESSINPUT,
+            self::TXRCTSINPUT,
         ];
     }
 }

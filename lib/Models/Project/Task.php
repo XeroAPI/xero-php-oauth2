@@ -62,14 +62,14 @@ class Task implements ModelInterface, ArrayAccess
         'name' => 'string',
         'rate' => '\XeroAPI\XeroPHP\Models\Project\Amount',
         'charge_type' => '\XeroAPI\XeroPHP\Models\Project\ChargeType',
-        'estimate_minutes' => 'double',
+        'estimate_minutes' => 'int',
         'project_id' => 'string',
-        'total_minutes' => 'double',
+        'total_minutes' => 'int',
         'total_amount' => '\XeroAPI\XeroPHP\Models\Project\Amount',
-        'minutes_invoiced' => 'double',
-        'minutes_to_be_invoiced' => 'double',
-        'fixed_minutes' => 'double',
-        'non_chargeable_minutes' => 'double',
+        'minutes_invoiced' => 'int',
+        'minutes_to_be_invoiced' => 'int',
+        'fixed_minutes' => 'int',
+        'non_chargeable_minutes' => 'int',
         'amount_to_be_invoiced' => '\XeroAPI\XeroPHP\Models\Project\Amount',
         'amount_invoiced' => '\XeroAPI\XeroPHP\Models\Project\Amount',
         'status' => 'string'
@@ -85,14 +85,14 @@ class Task implements ModelInterface, ArrayAccess
         'name' => null,
         'rate' => null,
         'charge_type' => null,
-        'estimate_minutes' => 'double',
+        'estimate_minutes' => null,
         'project_id' => 'uuid',
-        'total_minutes' => 'double',
+        'total_minutes' => null,
         'total_amount' => null,
-        'minutes_invoiced' => 'double',
-        'minutes_to_be_invoiced' => 'double',
-        'fixed_minutes' => 'double',
-        'non_chargeable_minutes' => 'double',
+        'minutes_invoiced' => null,
+        'minutes_to_be_invoiced' => null,
+        'fixed_minutes' => null,
+        'non_chargeable_minutes' => null,
         'amount_to_be_invoiced' => null,
         'amount_invoiced' => null,
         'status' => null
@@ -425,7 +425,7 @@ class Task implements ModelInterface, ArrayAccess
     /**
      * Gets estimate_minutes
      *
-     * @return double|null
+     * @return int|null
      */
     public function getEstimateMinutes()
     {
@@ -435,7 +435,7 @@ class Task implements ModelInterface, ArrayAccess
     /**
      * Sets estimate_minutes
      *
-     * @param double|null $estimate_minutes An estimated time to perform the task
+     * @param int|null $estimate_minutes An estimated time to perform the task
      *
      * @return $this
      */
@@ -479,7 +479,7 @@ class Task implements ModelInterface, ArrayAccess
     /**
      * Gets total_minutes
      *
-     * @return double|null
+     * @return int|null
      */
     public function getTotalMinutes()
     {
@@ -489,7 +489,7 @@ class Task implements ModelInterface, ArrayAccess
     /**
      * Sets total_minutes
      *
-     * @param double|null $total_minutes Total minutes which have been logged against the task. Logged by assigning a time entry to a task
+     * @param int|null $total_minutes Total minutes which have been logged against the task. Logged by assigning a time entry to a task
      *
      * @return $this
      */
@@ -533,7 +533,7 @@ class Task implements ModelInterface, ArrayAccess
     /**
      * Gets minutes_invoiced
      *
-     * @return double|null
+     * @return int|null
      */
     public function getMinutesInvoiced()
     {
@@ -543,7 +543,7 @@ class Task implements ModelInterface, ArrayAccess
     /**
      * Sets minutes_invoiced
      *
-     * @param double|null $minutes_invoiced Minutes on this task which have been invoiced.
+     * @param int|null $minutes_invoiced Minutes on this task which have been invoiced.
      *
      * @return $this
      */
@@ -560,7 +560,7 @@ class Task implements ModelInterface, ArrayAccess
     /**
      * Gets minutes_to_be_invoiced
      *
-     * @return double|null
+     * @return int|null
      */
     public function getMinutesToBeInvoiced()
     {
@@ -570,7 +570,7 @@ class Task implements ModelInterface, ArrayAccess
     /**
      * Sets minutes_to_be_invoiced
      *
-     * @param double|null $minutes_to_be_invoiced Minutes on this task which have not been invoiced.
+     * @param int|null $minutes_to_be_invoiced Minutes on this task which have not been invoiced.
      *
      * @return $this
      */
@@ -587,7 +587,7 @@ class Task implements ModelInterface, ArrayAccess
     /**
      * Gets fixed_minutes
      *
-     * @return double|null
+     * @return int|null
      */
     public function getFixedMinutes()
     {
@@ -597,7 +597,7 @@ class Task implements ModelInterface, ArrayAccess
     /**
      * Sets fixed_minutes
      *
-     * @param double|null $fixed_minutes Minutes logged against this task if its charge type is `FIXED`.
+     * @param int|null $fixed_minutes Minutes logged against this task if its charge type is `FIXED`.
      *
      * @return $this
      */
@@ -614,7 +614,7 @@ class Task implements ModelInterface, ArrayAccess
     /**
      * Gets non_chargeable_minutes
      *
-     * @return double|null
+     * @return int|null
      */
     public function getNonChargeableMinutes()
     {
@@ -624,7 +624,7 @@ class Task implements ModelInterface, ArrayAccess
     /**
      * Sets non_chargeable_minutes
      *
-     * @param double|null $non_chargeable_minutes Minutes logged against this task if its charge type is `NON_CHARGEABLE`.
+     * @param int|null $non_chargeable_minutes Minutes logged against this task if its charge type is `NON_CHARGEABLE`.
      *
      * @return $this
      */
