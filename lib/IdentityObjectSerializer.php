@@ -308,9 +308,6 @@ class IdentityObjectSerializer
             } else {
                 return null;
             }
-        } elseif (in_array($class, ['\DateTime', '\SplFileObject', 'array', 'bool', 'boolean', 'byte', 'double', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void'], true)) {
-            settype($data, $class);
-            return $data;
         } elseif ($class === '\SplFileObject') {
             /** @var \Psr\Http\Message\StreamInterface $data */
 
@@ -329,6 +326,9 @@ class IdentityObjectSerializer
             fclose($file);
 
             return new \SplFileObject($filename, 'r');
+        } elseif (in_array($class, ['\DateTime', '\SplFileObject', 'array', 'bool', 'boolean', 'byte', 'double', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void'], true)) {
+            settype($data, $class);
+            return $data;
         } elseif (method_exists($class, 'getAllowableEnumValues')) {
             if (!in_array($data, $class::getAllowableEnumValues(), true)) {
                 $imploded = implode("', '", $class::getAllowableEnumValues());
