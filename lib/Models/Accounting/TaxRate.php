@@ -299,6 +299,7 @@ class TaxRate implements ModelInterface, ArrayAccess
     const REPORT_TAX_TYPE_TXRCN33_INPUT = 'TXRCN33INPUT';
     const REPORT_TAX_TYPE_TXRCREINPUT = 'TXRCREINPUT';
     const REPORT_TAX_TYPE_TXRCESSINPUT = 'TXRCESSINPUT';
+    const REPORT_TAX_TYPE_TXRCTSINPUT = 'TXRCTSINPUT';
     
 
     
@@ -406,6 +407,7 @@ class TaxRate implements ModelInterface, ArrayAccess
             self::REPORT_TAX_TYPE_TXRCN33_INPUT,
             self::REPORT_TAX_TYPE_TXRCREINPUT,
             self::REPORT_TAX_TYPE_TXRCESSINPUT,
+            self::REPORT_TAX_TYPE_TXRCTSINPUT,
         ];
     }
     

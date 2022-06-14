@@ -328,7 +328,7 @@ class TaskCreateOrUpdate implements ModelInterface, ArrayAccess
     /**
      * Sets estimate_minutes
      *
-     * @param int|null $estimate_minutes Estimated time to perform the task. EstimateMinutes has to be greater than 0 if provided.
+     * @param int|null $estimate_minutes An estimated time to perform the task
      *
      * @return $this
      */
