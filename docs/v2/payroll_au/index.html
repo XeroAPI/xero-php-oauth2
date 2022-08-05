@@ -1245,7 +1245,7 @@ ul.nav-tabs {
   "title" : "",
   "type" : "string",
   "description" : "",
-  "enum" : [ "FIXED", "ORDINARYTIMEEARNINGS", "OVERTIMEEARNINGS", "ALLOWANCE", "LUMPSUMD", "EMPLOYMENTTERMINATIONPAYMENT", "LUMPSUMA", "LUMPSUMB", "BONUSESANDCOMMISSIONS", "LUMPSUME", "LUMPSUMW", "DIRECTORSFEES" ]
+  "enum" : [ "FIXED", "ORDINARYTIMEEARNINGS", "OVERTIMEEARNINGS", "ALLOWANCE", "LUMPSUMD", "EMPLOYMENTTERMINATIONPAYMENT", "LUMPSUMA", "LUMPSUMB", "BONUSESANDCOMMISSIONS", "LUMPSUME", "LUMPSUMW", "DIRECTORSFEES", "PAIDPARENTALLEAVE", "WORKERSCOMPENSATION" ]
 };
       defs["Employee"] = {
   "title" : "",
@@ -2983,6 +2983,11 @@ ul.nav-tabs {
     "HasStudentStartupLoan" : {
       "type" : "boolean",
       "description" : "If the employee is eligible for student startup loan rules",
+      "example" : true
+    },
+    "HasLoanOrStudentDebt" : {
+      "type" : "boolean",
+      "description" : "If the employee has any of the following loans or debts: Higher Education Loan Program (HELP/HECS), VET Student Loan (VSL), Financial Supplement (FS), Student Start-up Loan (SSL), or Trade Support Loan (TSL)",
       "example" : true
     },
     "UpdatedDateUTC" : {

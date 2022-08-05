@@ -56,6 +56,8 @@ class EarningsType
     const LUMPSUME = 'LUMPSUME';
     const LUMPSUMW = 'LUMPSUMW';
     const DIRECTORSFEES = 'DIRECTORSFEES';
+    const PAIDPARENTALLEAVE = 'PAIDPARENTALLEAVE';
+    const WORKERSCOMPENSATION = 'WORKERSCOMPENSATION';
     
     /**
      * Gets allowable values of the enum
@@ -76,6 +78,8 @@ class EarningsType
             self::LUMPSUME,
             self::LUMPSUMW,
             self::DIRECTORSFEES,
+            self::PAIDPARENTALLEAVE,
+            self::WORKERSCOMPENSATION,
         ];
     }
 }
