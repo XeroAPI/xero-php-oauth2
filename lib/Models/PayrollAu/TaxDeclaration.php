@@ -73,6 +73,7 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
         'eligible_to_receive_leave_loading' => 'bool',
         'approved_withholding_variation_percentage' => 'float',
         'has_student_startup_loan' => 'bool',
+        'has_loan_or_student_debt' => 'bool',
         'updated_date_utc' => 'string'
     ];
 
@@ -97,6 +98,7 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
         'eligible_to_receive_leave_loading' => null,
         'approved_withholding_variation_percentage' => 'int',
         'has_student_startup_loan' => null,
+        'has_loan_or_student_debt' => null,
         'updated_date_utc' => null
     ];
 
@@ -142,6 +144,7 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
         'eligible_to_receive_leave_loading' => 'EligibleToReceiveLeaveLoading',
         'approved_withholding_variation_percentage' => 'ApprovedWithholdingVariationPercentage',
         'has_student_startup_loan' => 'HasStudentStartupLoan',
+        'has_loan_or_student_debt' => 'HasLoanOrStudentDebt',
         'updated_date_utc' => 'UpdatedDateUTC'
     ];
 
@@ -166,6 +169,7 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
         'eligible_to_receive_leave_loading' => 'setEligibleToReceiveLeaveLoading',
         'approved_withholding_variation_percentage' => 'setApprovedWithholdingVariationPercentage',
         'has_student_startup_loan' => 'setHasStudentStartupLoan',
+        'has_loan_or_student_debt' => 'setHasLoanOrStudentDebt',
         'updated_date_utc' => 'setUpdatedDateUtc'
     ];
 
@@ -190,6 +194,7 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
         'eligible_to_receive_leave_loading' => 'getEligibleToReceiveLeaveLoading',
         'approved_withholding_variation_percentage' => 'getApprovedWithholdingVariationPercentage',
         'has_student_startup_loan' => 'getHasStudentStartupLoan',
+        'has_loan_or_student_debt' => 'getHasLoanOrStudentDebt',
         'updated_date_utc' => 'getUpdatedDateUtc'
     ];
 
@@ -268,6 +273,7 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
         $this->container['eligible_to_receive_leave_loading'] = isset($data['eligible_to_receive_leave_loading']) ? $data['eligible_to_receive_leave_loading'] : null;
         $this->container['approved_withholding_variation_percentage'] = isset($data['approved_withholding_variation_percentage']) ? $data['approved_withholding_variation_percentage'] : null;
         $this->container['has_student_startup_loan'] = isset($data['has_student_startup_loan']) ? $data['has_student_startup_loan'] : null;
+        $this->container['has_loan_or_student_debt'] = isset($data['has_loan_or_student_debt']) ? $data['has_loan_or_student_debt'] : null;
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
     }
 
@@ -694,6 +700,33 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
     {
 
         $this->container['has_student_startup_loan'] = $has_student_startup_loan;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets has_loan_or_student_debt
+     *
+     * @return bool|null
+     */
+    public function getHasLoanOrStudentDebt()
+    {
+        return $this->container['has_loan_or_student_debt'];
+    }
+
+    /**
+     * Sets has_loan_or_student_debt
+     *
+     * @param bool|null $has_loan_or_student_debt If the employee has any of the following loans or debts: Higher Education Loan Program (HELP/HECS), VET Student Loan (VSL), Financial Supplement (FS), Student Start-up Loan (SSL), or Trade Support Loan (TSL)
+     *
+     * @return $this
+     */
+    public function setHasLoanOrStudentDebt($has_loan_or_student_debt)
+    {
+
+        $this->container['has_loan_or_student_debt'] = $has_loan_or_student_debt;
 
         return $this;
     }

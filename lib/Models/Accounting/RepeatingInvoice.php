@@ -73,7 +73,11 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
         'repeating_invoice_id' => 'string',
         'id' => 'string',
         'has_attachments' => 'bool',
-        'attachments' => '\XeroAPI\XeroPHP\Models\Accounting\Attachment[]'
+        'attachments' => '\XeroAPI\XeroPHP\Models\Accounting\Attachment[]',
+        'approved_for_sending' => 'bool',
+        'send_copy' => 'bool',
+        'mark_as_sent' => 'bool',
+        'include_pdf' => 'bool'
     ];
 
     /**
@@ -97,7 +101,11 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
         'repeating_invoice_id' => 'uuid',
         'id' => 'uuid',
         'has_attachments' => null,
-        'attachments' => null
+        'attachments' => null,
+        'approved_for_sending' => null,
+        'send_copy' => null,
+        'mark_as_sent' => null,
+        'include_pdf' => null
     ];
 
     /**
@@ -142,7 +150,11 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
         'repeating_invoice_id' => 'RepeatingInvoiceID',
         'id' => 'ID',
         'has_attachments' => 'HasAttachments',
-        'attachments' => 'Attachments'
+        'attachments' => 'Attachments',
+        'approved_for_sending' => 'ApprovedForSending',
+        'send_copy' => 'SendCopy',
+        'mark_as_sent' => 'MarkAsSent',
+        'include_pdf' => 'IncludePDF'
     ];
 
     /**
@@ -166,7 +178,11 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
         'repeating_invoice_id' => 'setRepeatingInvoiceId',
         'id' => 'setId',
         'has_attachments' => 'setHasAttachments',
-        'attachments' => 'setAttachments'
+        'attachments' => 'setAttachments',
+        'approved_for_sending' => 'setApprovedForSending',
+        'send_copy' => 'setSendCopy',
+        'mark_as_sent' => 'setMarkAsSent',
+        'include_pdf' => 'setIncludePdf'
     ];
 
     /**
@@ -190,7 +206,11 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
         'repeating_invoice_id' => 'getRepeatingInvoiceId',
         'id' => 'getId',
         'has_attachments' => 'getHasAttachments',
-        'attachments' => 'getAttachments'
+        'attachments' => 'getAttachments',
+        'approved_for_sending' => 'getApprovedForSending',
+        'send_copy' => 'getSendCopy',
+        'mark_as_sent' => 'getMarkAsSent',
+        'include_pdf' => 'getIncludePdf'
     ];
 
     /**
@@ -301,6 +321,10 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['has_attachments'] = isset($data['has_attachments']) ? $data['has_attachments'] : false;
         $this->container['attachments'] = isset($data['attachments']) ? $data['attachments'] : null;
+        $this->container['approved_for_sending'] = isset($data['approved_for_sending']) ? $data['approved_for_sending'] : false;
+        $this->container['send_copy'] = isset($data['send_copy']) ? $data['send_copy'] : false;
+        $this->container['mark_as_sent'] = isset($data['mark_as_sent']) ? $data['mark_as_sent'] : false;
+        $this->container['include_pdf'] = isset($data['include_pdf']) ? $data['include_pdf'] : false;
     }
 
     /**
@@ -752,7 +776,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     /**
      * Sets has_attachments
      *
-     * @param bool|null $has_attachments boolean to indicate if an invoice has an attachment
+     * @param bool|null $has_attachments Boolean to indicate if an invoice has an attachment
      *
      * @return $this
      */
@@ -786,6 +810,114 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
     {
 
         $this->container['attachments'] = $attachments;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets approved_for_sending
+     *
+     * @return bool|null
+     */
+    public function getApprovedForSending()
+    {
+        return $this->container['approved_for_sending'];
+    }
+
+    /**
+     * Sets approved_for_sending
+     *
+     * @param bool|null $approved_for_sending Boolean to indicate whether the invoice has been approved for sending
+     *
+     * @return $this
+     */
+    public function setApprovedForSending($approved_for_sending)
+    {
+
+        $this->container['approved_for_sending'] = $approved_for_sending;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets send_copy
+     *
+     * @return bool|null
+     */
+    public function getSendCopy()
+    {
+        return $this->container['send_copy'];
+    }
+
+    /**
+     * Sets send_copy
+     *
+     * @param bool|null $send_copy Boolean to indicate whether a copy is sent to sender's email
+     *
+     * @return $this
+     */
+    public function setSendCopy($send_copy)
+    {
+
+        $this->container['send_copy'] = $send_copy;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets mark_as_sent
+     *
+     * @return bool|null
+     */
+    public function getMarkAsSent()
+    {
+        return $this->container['mark_as_sent'];
+    }
+
+    /**
+     * Sets mark_as_sent
+     *
+     * @param bool|null $mark_as_sent Boolean to indicate whether the invoice in the Xero app displays as \"sent\"
+     *
+     * @return $this
+     */
+    public function setMarkAsSent($mark_as_sent)
+    {
+
+        $this->container['mark_as_sent'] = $mark_as_sent;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets include_pdf
+     *
+     * @return bool|null
+     */
+    public function getIncludePdf()
+    {
+        return $this->container['include_pdf'];
+    }
+
+    /**
+     * Sets include_pdf
+     *
+     * @param bool|null $include_pdf Boolean to indicate whether to include PDF attachment
+     *
+     * @return $this
+     */
+    public function setIncludePdf($include_pdf)
+    {
+
+        $this->container['include_pdf'] = $include_pdf;
 
         return $this;
     }
