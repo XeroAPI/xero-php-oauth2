@@ -745,7 +745,7 @@ class Account implements ModelInterface, ArrayAccess
     /**
      * Sets tax_type
      *
-     * @param string|null $tax_type The tax type from TaxRates
+     * @param string|null $tax_type The tax type from taxRates
      *
      * @return $this
      */
