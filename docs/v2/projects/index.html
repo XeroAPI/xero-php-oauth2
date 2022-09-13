@@ -1690,7 +1690,7 @@ $xeroTenantId = "xeroTenantId_example";
 $projectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d";
 
 try {
-  $apiInstance->createTask($xeroTenantId, $projectId, $taskCreateOrUpdate);
+  $result = $apiInstance->createTask($xeroTenantId, $projectId, $taskCreateOrUpdate);
 } catch (Exception $e) {
   echo 'Exception when calling ProjectApi->createTask: ', $e->getMessage(), PHP_EOL;
 }
