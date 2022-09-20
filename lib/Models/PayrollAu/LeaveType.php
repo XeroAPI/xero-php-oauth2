@@ -66,7 +66,9 @@ class LeaveType implements ModelInterface, ArrayAccess
         'updated_date_utc' => 'string',
         'is_paid_leave' => 'bool',
         'show_on_payslip' => 'bool',
-        'current_record' => 'bool'
+        'current_record' => 'bool',
+        'leave_category_code' => '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveCategoryCode',
+        'sgc_exempt' => 'bool'
     ];
 
     /**
@@ -83,7 +85,9 @@ class LeaveType implements ModelInterface, ArrayAccess
         'updated_date_utc' => null,
         'is_paid_leave' => null,
         'show_on_payslip' => null,
-        'current_record' => null
+        'current_record' => null,
+        'leave_category_code' => null,
+        'sgc_exempt' => null
     ];
 
     /**
@@ -121,7 +125,9 @@ class LeaveType implements ModelInterface, ArrayAccess
         'updated_date_utc' => 'UpdatedDateUTC',
         'is_paid_leave' => 'IsPaidLeave',
         'show_on_payslip' => 'ShowOnPayslip',
-        'current_record' => 'CurrentRecord'
+        'current_record' => 'CurrentRecord',
+        'leave_category_code' => 'LeaveCategoryCode',
+        'sgc_exempt' => 'SGCExempt'
     ];
 
     /**
@@ -138,7 +144,9 @@ class LeaveType implements ModelInterface, ArrayAccess
         'updated_date_utc' => 'setUpdatedDateUtc',
         'is_paid_leave' => 'setIsPaidLeave',
         'show_on_payslip' => 'setShowOnPayslip',
-        'current_record' => 'setCurrentRecord'
+        'current_record' => 'setCurrentRecord',
+        'leave_category_code' => 'setLeaveCategoryCode',
+        'sgc_exempt' => 'setSgcExempt'
     ];
 
     /**
@@ -155,7 +163,9 @@ class LeaveType implements ModelInterface, ArrayAccess
         'updated_date_utc' => 'getUpdatedDateUtc',
         'is_paid_leave' => 'getIsPaidLeave',
         'show_on_payslip' => 'getShowOnPayslip',
-        'current_record' => 'getCurrentRecord'
+        'current_record' => 'getCurrentRecord',
+        'leave_category_code' => 'getLeaveCategoryCode',
+        'sgc_exempt' => 'getSgcExempt'
     ];
 
     /**
@@ -227,6 +237,8 @@ class LeaveType implements ModelInterface, ArrayAccess
         $this->container['is_paid_leave'] = isset($data['is_paid_leave']) ? $data['is_paid_leave'] : null;
         $this->container['show_on_payslip'] = isset($data['show_on_payslip']) ? $data['show_on_payslip'] : null;
         $this->container['current_record'] = isset($data['current_record']) ? $data['current_record'] : null;
+        $this->container['leave_category_code'] = isset($data['leave_category_code']) ? $data['leave_category_code'] : null;
+        $this->container['sgc_exempt'] = isset($data['sgc_exempt']) ? $data['sgc_exempt'] : null;
     }
 
     /**
@@ -505,6 +517,60 @@ class LeaveType implements ModelInterface, ArrayAccess
     {
 
         $this->container['current_record'] = $current_record;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets leave_category_code
+     *
+     * @return \XeroAPI\XeroPHP\Models\PayrollAu\LeaveCategoryCode|null
+     */
+    public function getLeaveCategoryCode()
+    {
+        return $this->container['leave_category_code'];
+    }
+
+    /**
+     * Sets leave_category_code
+     *
+     * @param \XeroAPI\XeroPHP\Models\PayrollAu\LeaveCategoryCode|null $leave_category_code leave_category_code
+     *
+     * @return $this
+     */
+    public function setLeaveCategoryCode($leave_category_code)
+    {
+
+        $this->container['leave_category_code'] = $leave_category_code;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets sgc_exempt
+     *
+     * @return bool|null
+     */
+    public function getSgcExempt()
+    {
+        return $this->container['sgc_exempt'];
+    }
+
+    /**
+     * Sets sgc_exempt
+     *
+     * @param bool|null $sgc_exempt Set this to indicate that the leave type is exempt from superannuation guarantee contribution
+     *
+     * @return $this
+     */
+    public function setSgcExempt($sgc_exempt)
+    {
+
+        $this->container['sgc_exempt'] = $sgc_exempt;
 
         return $this;
     }

@@ -1461,7 +1461,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="Project"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="Project"><strong>VSN: </strong>2.15.0</li>
+              <li class="nav-header" data-group="Project"><strong>VSN: </strong>2.16.0</li>
               <li class="nav-header" data-group="Project"><a href="#api-Project">Methods</a></li>
               <li data-group="Project" data-name="createProject" class="">
                 <a href="#api-Project-createProject">createProject</a>
@@ -1690,7 +1690,7 @@ $xeroTenantId = "xeroTenantId_example";
 $projectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d";
 
 try {
-  $apiInstance->createTask($xeroTenantId, $projectId, $taskCreateOrUpdate);
+  $result = $apiInstance->createTask($xeroTenantId, $projectId, $taskCreateOrUpdate);
 } catch (Exception $e) {
   echo 'Exception when calling ProjectApi->createTask: ', $e->getMessage(), PHP_EOL;
 }

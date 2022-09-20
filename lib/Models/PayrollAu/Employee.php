@@ -741,7 +741,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Sets gender
      *
-     * @param string|null $gender The employee’s gender. See Employee Gender
+     * @param string|null $gender The employee’s gender. See Employee Gender
      *
      * @return $this
      */

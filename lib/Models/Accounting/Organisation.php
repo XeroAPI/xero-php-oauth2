@@ -390,6 +390,7 @@ class Organisation implements ModelInterface, ArrayAccess
     const MODEL_CLASS_GST_CASHBOOK = 'GST_CASHBOOK';
     const MODEL_CLASS_NON_GST_CASHBOOK = 'NON_GST_CASHBOOK';
     const MODEL_CLASS_ULTIMATE = 'ULTIMATE';
+    const MODEL_CLASS_LITE = 'LITE';
     const EDITION_BUSINESS = 'BUSINESS';
     const EDITION_PARTNER = 'PARTNER';
     
@@ -529,6 +530,7 @@ class Organisation implements ModelInterface, ArrayAccess
             self::MODEL_CLASS_GST_CASHBOOK,
             self::MODEL_CLASS_NON_GST_CASHBOOK,
             self::MODEL_CLASS_ULTIMATE,
+            self::MODEL_CLASS_LITE,
         ];
     }
     
