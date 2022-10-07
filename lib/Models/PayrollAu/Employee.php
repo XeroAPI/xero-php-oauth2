@@ -84,6 +84,10 @@ class Employee implements ModelInterface, ArrayAccess
         'pay_template' => '\XeroAPI\XeroPHP\Models\PayrollAu\PayTemplate',
         'opening_balances' => '\XeroAPI\XeroPHP\Models\PayrollAu\OpeningBalances',
         'tax_declaration' => '\XeroAPI\XeroPHP\Models\PayrollAu\TaxDeclaration',
+        'income_type' => '\XeroAPI\XeroPHP\Models\PayrollAu\IncomeType',
+        'employment_type' => '\XeroAPI\XeroPHP\Models\PayrollAu\EmploymentType',
+        'country_of_residence' => '\XeroAPI\XeroPHP\Models\PayrollAu\CountryOfResidence',
+        'is_stp2_qualified' => 'bool',
         'leave_balances' => '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveBalance[]',
         'leave_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveLine[]',
         'super_memberships' => '\XeroAPI\XeroPHP\Models\PayrollAu\SuperMembership[]',
@@ -124,6 +128,10 @@ class Employee implements ModelInterface, ArrayAccess
         'pay_template' => null,
         'opening_balances' => null,
         'tax_declaration' => null,
+        'income_type' => null,
+        'employment_type' => null,
+        'country_of_residence' => null,
+        'is_stp2_qualified' => null,
         'leave_balances' => null,
         'leave_lines' => null,
         'super_memberships' => null,
@@ -185,6 +193,10 @@ class Employee implements ModelInterface, ArrayAccess
         'pay_template' => 'PayTemplate',
         'opening_balances' => 'OpeningBalances',
         'tax_declaration' => 'TaxDeclaration',
+        'income_type' => 'IncomeType',
+        'employment_type' => 'EmploymentType',
+        'country_of_residence' => 'CountryOfResidence',
+        'is_stp2_qualified' => 'IsSTP2Qualified',
         'leave_balances' => 'LeaveBalances',
         'leave_lines' => 'LeaveLines',
         'super_memberships' => 'SuperMemberships',
@@ -225,6 +237,10 @@ class Employee implements ModelInterface, ArrayAccess
         'pay_template' => 'setPayTemplate',
         'opening_balances' => 'setOpeningBalances',
         'tax_declaration' => 'setTaxDeclaration',
+        'income_type' => 'setIncomeType',
+        'employment_type' => 'setEmploymentType',
+        'country_of_residence' => 'setCountryOfResidence',
+        'is_stp2_qualified' => 'setIsStp2Qualified',
         'leave_balances' => 'setLeaveBalances',
         'leave_lines' => 'setLeaveLines',
         'super_memberships' => 'setSuperMemberships',
@@ -265,6 +281,10 @@ class Employee implements ModelInterface, ArrayAccess
         'pay_template' => 'getPayTemplate',
         'opening_balances' => 'getOpeningBalances',
         'tax_declaration' => 'getTaxDeclaration',
+        'income_type' => 'getIncomeType',
+        'employment_type' => 'getEmploymentType',
+        'country_of_residence' => 'getCountryOfResidence',
+        'is_stp2_qualified' => 'getIsStp2Qualified',
         'leave_balances' => 'getLeaveBalances',
         'leave_lines' => 'getLeaveLines',
         'super_memberships' => 'getSuperMemberships',
@@ -403,6 +423,10 @@ class Employee implements ModelInterface, ArrayAccess
         $this->container['pay_template'] = isset($data['pay_template']) ? $data['pay_template'] : null;
         $this->container['opening_balances'] = isset($data['opening_balances']) ? $data['opening_balances'] : null;
         $this->container['tax_declaration'] = isset($data['tax_declaration']) ? $data['tax_declaration'] : null;
+        $this->container['income_type'] = isset($data['income_type']) ? $data['income_type'] : null;
+        $this->container['employment_type'] = isset($data['employment_type']) ? $data['employment_type'] : null;
+        $this->container['country_of_residence'] = isset($data['country_of_residence']) ? $data['country_of_residence'] : null;
+        $this->container['is_stp2_qualified'] = isset($data['is_stp2_qualified']) ? $data['is_stp2_qualified'] : null;
         $this->container['leave_balances'] = isset($data['leave_balances']) ? $data['leave_balances'] : null;
         $this->container['leave_lines'] = isset($data['leave_lines']) ? $data['leave_lines'] : null;
         $this->container['super_memberships'] = isset($data['super_memberships']) ? $data['super_memberships'] : null;
@@ -1252,6 +1276,114 @@ class Employee implements ModelInterface, ArrayAccess
     {
 
         $this->container['tax_declaration'] = $tax_declaration;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets income_type
+     *
+     * @return \XeroAPI\XeroPHP\Models\PayrollAu\IncomeType|null
+     */
+    public function getIncomeType()
+    {
+        return $this->container['income_type'];
+    }
+
+    /**
+     * Sets income_type
+     *
+     * @param \XeroAPI\XeroPHP\Models\PayrollAu\IncomeType|null $income_type income_type
+     *
+     * @return $this
+     */
+    public function setIncomeType($income_type)
+    {
+
+        $this->container['income_type'] = $income_type;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets employment_type
+     *
+     * @return \XeroAPI\XeroPHP\Models\PayrollAu\EmploymentType|null
+     */
+    public function getEmploymentType()
+    {
+        return $this->container['employment_type'];
+    }
+
+    /**
+     * Sets employment_type
+     *
+     * @param \XeroAPI\XeroPHP\Models\PayrollAu\EmploymentType|null $employment_type employment_type
+     *
+     * @return $this
+     */
+    public function setEmploymentType($employment_type)
+    {
+
+        $this->container['employment_type'] = $employment_type;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets country_of_residence
+     *
+     * @return \XeroAPI\XeroPHP\Models\PayrollAu\CountryOfResidence|null
+     */
+    public function getCountryOfResidence()
+    {
+        return $this->container['country_of_residence'];
+    }
+
+    /**
+     * Sets country_of_residence
+     *
+     * @param \XeroAPI\XeroPHP\Models\PayrollAu\CountryOfResidence|null $country_of_residence country_of_residence
+     *
+     * @return $this
+     */
+    public function setCountryOfResidence($country_of_residence)
+    {
+
+        $this->container['country_of_residence'] = $country_of_residence;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets is_stp2_qualified
+     *
+     * @return bool|null
+     */
+    public function getIsStp2Qualified()
+    {
+        return $this->container['is_stp2_qualified'];
+    }
+
+    /**
+     * Sets is_stp2_qualified
+     *
+     * @param bool|null $is_stp2_qualified Indicates if the employee has been updated for STP Phase 2 compliance. Doesn't indicate that the employee is payable.
+     *
+     * @return $this
+     */
+    public function setIsStp2Qualified($is_stp2_qualified)
+    {
+
+        $this->container['is_stp2_qualified'] = $is_stp2_qualified;
 
         return $this;
     }

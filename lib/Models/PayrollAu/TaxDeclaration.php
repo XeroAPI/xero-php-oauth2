@@ -62,8 +62,12 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
         'employment_basis' => '\XeroAPI\XeroPHP\Models\PayrollAu\EmploymentBasis',
         'tfn_exemption_type' => '\XeroAPI\XeroPHP\Models\PayrollAu\TFNExemptionType',
         'tax_file_number' => 'string',
+        'abn' => 'string',
         'australian_resident_for_tax_purposes' => 'bool',
         'residency_status' => '\XeroAPI\XeroPHP\Models\PayrollAu\ResidencyStatus',
+        'tax_scale_type' => '\XeroAPI\XeroPHP\Models\PayrollAu\TaxScaleType',
+        'work_condition' => '\XeroAPI\XeroPHP\Models\PayrollAu\WorkCondition',
+        'senior_marital_status' => '\XeroAPI\XeroPHP\Models\PayrollAu\SeniorMaritalStatus',
         'tax_free_threshold_claimed' => 'bool',
         'tax_offset_estimated_amount' => 'float',
         'has_help_debt' => 'bool',
@@ -87,8 +91,12 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
         'employment_basis' => null,
         'tfn_exemption_type' => null,
         'tax_file_number' => null,
+        'abn' => null,
         'australian_resident_for_tax_purposes' => null,
         'residency_status' => null,
+        'tax_scale_type' => null,
+        'work_condition' => null,
+        'senior_marital_status' => null,
         'tax_free_threshold_claimed' => null,
         'tax_offset_estimated_amount' => 'int',
         'has_help_debt' => null,
@@ -133,8 +141,12 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
         'employment_basis' => 'EmploymentBasis',
         'tfn_exemption_type' => 'TFNExemptionType',
         'tax_file_number' => 'TaxFileNumber',
+        'abn' => 'ABN',
         'australian_resident_for_tax_purposes' => 'AustralianResidentForTaxPurposes',
         'residency_status' => 'ResidencyStatus',
+        'tax_scale_type' => 'TaxScaleType',
+        'work_condition' => 'WorkCondition',
+        'senior_marital_status' => 'SeniorMaritalStatus',
         'tax_free_threshold_claimed' => 'TaxFreeThresholdClaimed',
         'tax_offset_estimated_amount' => 'TaxOffsetEstimatedAmount',
         'has_help_debt' => 'HasHELPDebt',
@@ -158,8 +170,12 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
         'employment_basis' => 'setEmploymentBasis',
         'tfn_exemption_type' => 'setTfnExemptionType',
         'tax_file_number' => 'setTaxFileNumber',
+        'abn' => 'setAbn',
         'australian_resident_for_tax_purposes' => 'setAustralianResidentForTaxPurposes',
         'residency_status' => 'setResidencyStatus',
+        'tax_scale_type' => 'setTaxScaleType',
+        'work_condition' => 'setWorkCondition',
+        'senior_marital_status' => 'setSeniorMaritalStatus',
         'tax_free_threshold_claimed' => 'setTaxFreeThresholdClaimed',
         'tax_offset_estimated_amount' => 'setTaxOffsetEstimatedAmount',
         'has_help_debt' => 'setHasHelpDebt',
@@ -183,8 +199,12 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
         'employment_basis' => 'getEmploymentBasis',
         'tfn_exemption_type' => 'getTfnExemptionType',
         'tax_file_number' => 'getTaxFileNumber',
+        'abn' => 'getAbn',
         'australian_resident_for_tax_purposes' => 'getAustralianResidentForTaxPurposes',
         'residency_status' => 'getResidencyStatus',
+        'tax_scale_type' => 'getTaxScaleType',
+        'work_condition' => 'getWorkCondition',
+        'senior_marital_status' => 'getSeniorMaritalStatus',
         'tax_free_threshold_claimed' => 'getTaxFreeThresholdClaimed',
         'tax_offset_estimated_amount' => 'getTaxOffsetEstimatedAmount',
         'has_help_debt' => 'getHasHelpDebt',
@@ -262,8 +282,12 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
         $this->container['employment_basis'] = isset($data['employment_basis']) ? $data['employment_basis'] : null;
         $this->container['tfn_exemption_type'] = isset($data['tfn_exemption_type']) ? $data['tfn_exemption_type'] : null;
         $this->container['tax_file_number'] = isset($data['tax_file_number']) ? $data['tax_file_number'] : null;
+        $this->container['abn'] = isset($data['abn']) ? $data['abn'] : null;
         $this->container['australian_resident_for_tax_purposes'] = isset($data['australian_resident_for_tax_purposes']) ? $data['australian_resident_for_tax_purposes'] : null;
         $this->container['residency_status'] = isset($data['residency_status']) ? $data['residency_status'] : null;
+        $this->container['tax_scale_type'] = isset($data['tax_scale_type']) ? $data['tax_scale_type'] : null;
+        $this->container['work_condition'] = isset($data['work_condition']) ? $data['work_condition'] : null;
+        $this->container['senior_marital_status'] = isset($data['senior_marital_status']) ? $data['senior_marital_status'] : null;
         $this->container['tax_free_threshold_claimed'] = isset($data['tax_free_threshold_claimed']) ? $data['tax_free_threshold_claimed'] : null;
         $this->container['tax_offset_estimated_amount'] = isset($data['tax_offset_estimated_amount']) ? $data['tax_offset_estimated_amount'] : null;
         $this->container['has_help_debt'] = isset($data['has_help_debt']) ? $data['has_help_debt'] : null;
@@ -410,6 +434,33 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets abn
+     *
+     * @return string|null
+     */
+    public function getAbn()
+    {
+        return $this->container['abn'];
+    }
+
+    /**
+     * Sets abn
+     *
+     * @param string|null $abn 11-digit Australian Business Number e.g 21006819692 or an empty string (\"\") to unset a previously set value. Only applicable, and mandatory if income type is NONEMPLOYEE.
+     *
+     * @return $this
+     */
+    public function setAbn($abn)
+    {
+
+        $this->container['abn'] = $abn;
+
+        return $this;
+    }
+
+
+
+    /**
      * Gets australian_resident_for_tax_purposes
      *
      * @return bool|null
@@ -457,6 +508,87 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
     {
 
         $this->container['residency_status'] = $residency_status;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets tax_scale_type
+     *
+     * @return \XeroAPI\XeroPHP\Models\PayrollAu\TaxScaleType|null
+     */
+    public function getTaxScaleType()
+    {
+        return $this->container['tax_scale_type'];
+    }
+
+    /**
+     * Sets tax_scale_type
+     *
+     * @param \XeroAPI\XeroPHP\Models\PayrollAu\TaxScaleType|null $tax_scale_type tax_scale_type
+     *
+     * @return $this
+     */
+    public function setTaxScaleType($tax_scale_type)
+    {
+
+        $this->container['tax_scale_type'] = $tax_scale_type;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets work_condition
+     *
+     * @return \XeroAPI\XeroPHP\Models\PayrollAu\WorkCondition|null
+     */
+    public function getWorkCondition()
+    {
+        return $this->container['work_condition'];
+    }
+
+    /**
+     * Sets work_condition
+     *
+     * @param \XeroAPI\XeroPHP\Models\PayrollAu\WorkCondition|null $work_condition work_condition
+     *
+     * @return $this
+     */
+    public function setWorkCondition($work_condition)
+    {
+
+        $this->container['work_condition'] = $work_condition;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets senior_marital_status
+     *
+     * @return \XeroAPI\XeroPHP\Models\PayrollAu\SeniorMaritalStatus|null
+     */
+    public function getSeniorMaritalStatus()
+    {
+        return $this->container['senior_marital_status'];
+    }
+
+    /**
+     * Sets senior_marital_status
+     *
+     * @param \XeroAPI\XeroPHP\Models\PayrollAu\SeniorMaritalStatus|null $senior_marital_status senior_marital_status
+     *
+     * @return $this
+     */
+    public function setSeniorMaritalStatus($senior_marital_status)
+    {
+
+        $this->container['senior_marital_status'] = $senior_marital_status;
 
         return $this;
     }

@@ -60,7 +60,8 @@ class Settings implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'accounts' => '\XeroAPI\XeroPHP\Models\PayrollAu\Account[]',
         'tracking_categories' => '\XeroAPI\XeroPHP\Models\PayrollAu\SettingsTrackingCategories',
-        'days_in_payroll_year' => 'int'
+        'days_in_payroll_year' => 'int',
+        'employees_are_stp2' => 'bool'
     ];
 
     /**
@@ -71,7 +72,8 @@ class Settings implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'accounts' => null,
         'tracking_categories' => null,
-        'days_in_payroll_year' => 'int32'
+        'days_in_payroll_year' => 'int32',
+        'employees_are_stp2' => null
     ];
 
     /**
@@ -103,7 +105,8 @@ class Settings implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'accounts' => 'Accounts',
         'tracking_categories' => 'TrackingCategories',
-        'days_in_payroll_year' => 'DaysInPayrollYear'
+        'days_in_payroll_year' => 'DaysInPayrollYear',
+        'employees_are_stp2' => 'EmployeesAreSTP2'
     ];
 
     /**
@@ -114,7 +117,8 @@ class Settings implements ModelInterface, ArrayAccess
     protected static $setters = [
         'accounts' => 'setAccounts',
         'tracking_categories' => 'setTrackingCategories',
-        'days_in_payroll_year' => 'setDaysInPayrollYear'
+        'days_in_payroll_year' => 'setDaysInPayrollYear',
+        'employees_are_stp2' => 'setEmployeesAreStp2'
     ];
 
     /**
@@ -125,7 +129,8 @@ class Settings implements ModelInterface, ArrayAccess
     protected static $getters = [
         'accounts' => 'getAccounts',
         'tracking_categories' => 'getTrackingCategories',
-        'days_in_payroll_year' => 'getDaysInPayrollYear'
+        'days_in_payroll_year' => 'getDaysInPayrollYear',
+        'employees_are_stp2' => 'getEmployeesAreStp2'
     ];
 
     /**
@@ -191,6 +196,7 @@ class Settings implements ModelInterface, ArrayAccess
         $this->container['accounts'] = isset($data['accounts']) ? $data['accounts'] : null;
         $this->container['tracking_categories'] = isset($data['tracking_categories']) ? $data['tracking_categories'] : null;
         $this->container['days_in_payroll_year'] = isset($data['days_in_payroll_year']) ? $data['days_in_payroll_year'] : null;
+        $this->container['employees_are_stp2'] = isset($data['employees_are_stp2']) ? $data['employees_are_stp2'] : null;
     }
 
     /**
@@ -292,6 +298,33 @@ class Settings implements ModelInterface, ArrayAccess
     {
 
         $this->container['days_in_payroll_year'] = $days_in_payroll_year;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets employees_are_stp2
+     *
+     * @return bool|null
+     */
+    public function getEmployeesAreStp2()
+    {
+        return $this->container['employees_are_stp2'];
+    }
+
+    /**
+     * Sets employees_are_stp2
+     *
+     * @param bool|null $employees_are_stp2 Indicates if the organisation has been enabled for STP Phase 2 editing of employees.
+     *
+     * @return $this
+     */
+    public function setEmployeesAreStp2($employees_are_stp2)
+    {
+
+        $this->container['employees_are_stp2'] = $employees_are_stp2;
 
         return $this;
     }

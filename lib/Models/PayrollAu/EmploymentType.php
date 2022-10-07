@@ -1,6 +1,6 @@
 <?php
 /**
- * EmploymentBasis
+ * EmploymentType
  *
  * PHP version 5
  *
@@ -32,24 +32,20 @@ use \XeroAPI\XeroPHP\StringUtil;
 use ReturnTypeWillChange;
 
 /**
- * EmploymentBasis Class Doc Comment
+ * EmploymentType Class Doc Comment
  *
  * @category Class
  * @package  XeroAPI\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class EmploymentBasis
+class EmploymentType
 {
     /**
      * Possible values of this enum
      */
-    const FULLTIME = 'FULLTIME';
-    const PARTTIME = 'PARTTIME';
-    const CASUAL = 'CASUAL';
-    const LABOURHIRE = 'LABOURHIRE';
-    const SUPERINCOMESTREAM = 'SUPERINCOMESTREAM';
-    const NONEMPLOYEE = 'NONEMPLOYEE';
+    const EMPLOYEE = 'EMPLOYEE';
+    const CONTRACTOR = 'CONTRACTOR';
     
     /**
      * Gets allowable values of the enum
@@ -58,12 +54,8 @@ class EmploymentBasis
     public static function getAllowableEnumValues()
     {
         return [
-            self::FULLTIME,
-            self::PARTTIME,
-            self::CASUAL,
-            self::LABOURHIRE,
-            self::SUPERINCOMESTREAM,
-            self::NONEMPLOYEE,
+            self::EMPLOYEE,
+            self::CONTRACTOR,
         ];
     }
 }
