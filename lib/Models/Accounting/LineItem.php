@@ -572,7 +572,7 @@ class LineItem implements ModelInterface, ArrayAccess
     /**
      * Sets line_amount
      *
-     * @param double|null $line_amount If you wish to omit either of the <Quantity> or <UnitAmount> you can provide a LineAmount and Xero will calculate the missing amount for you. The line amount reflects the discounted price if a DiscountRate has been used . i.e LineAmount = Quantity * Unit Amount * ((100 – DiscountRate)/100)
+     * @param double|null $line_amount If you wish to omit either the Quantity or UnitAmount you can provide a LineAmount and Xero will calculate the missing amount for you. The line amount reflects the discounted price if either a DiscountRate or DiscountAmount has been used i.e. LineAmount = Quantity * Unit Amount * ((100 - DiscountRate)/100) or LineAmount = (Quantity * UnitAmount) - DiscountAmount
      *
      * @return $this
      */
@@ -653,7 +653,7 @@ class LineItem implements ModelInterface, ArrayAccess
     /**
      * Sets discount_amount
      *
-     * @param double|null $discount_amount Discount amount being applied to a line item. Only supported on ACCREC invoices - ACCPAY invoices and credit notes in Xero do not support discounts.
+     * @param double|null $discount_amount Discount amount being applied to a line item. Only supported on ACCREC invoices and quotes. ACCPAY invoices and credit notes in Xero do not support discounts.
      *
      * @return $this
      */
