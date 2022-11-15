@@ -307,6 +307,9 @@ class TaxRate implements ModelInterface, ArrayAccess
     const REPORT_TAX_TYPE_GOODSIMPORT = 'GOODSIMPORT';
     const REPORT_TAX_TYPE_NONEINPUT = 'NONEINPUT';
     const REPORT_TAX_TYPE_NOTREPORTED = 'NOTREPORTED';
+    const REPORT_TAX_TYPE_SROVRRS = 'SROVRRS';
+    const REPORT_TAX_TYPE_SROVRLVG = 'SROVRLVG';
+    const REPORT_TAX_TYPE_SRLVG = 'SRLVG';
     
 
     
@@ -422,6 +425,9 @@ class TaxRate implements ModelInterface, ArrayAccess
             self::REPORT_TAX_TYPE_GOODSIMPORT,
             self::REPORT_TAX_TYPE_NONEINPUT,
             self::REPORT_TAX_TYPE_NOTREPORTED,
+            self::REPORT_TAX_TYPE_SROVRRS,
+            self::REPORT_TAX_TYPE_SROVRLVG,
+            self::REPORT_TAX_TYPE_SRLVG,
         ];
     }
     

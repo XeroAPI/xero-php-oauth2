@@ -64,6 +64,7 @@ class Payment implements ModelInterface, ArrayAccess
         'overpayment' => '\XeroAPI\XeroPHP\Models\Accounting\Overpayment',
         'invoice_number' => 'string',
         'credit_note_number' => 'string',
+        'batch_payment' => '\XeroAPI\XeroPHP\Models\Accounting\BatchPayment',
         'account' => '\XeroAPI\XeroPHP\Models\Accounting\Account',
         'code' => 'string',
         'date' => 'string',
@@ -98,6 +99,7 @@ class Payment implements ModelInterface, ArrayAccess
         'overpayment' => null,
         'invoice_number' => null,
         'credit_note_number' => null,
+        'batch_payment' => null,
         'account' => null,
         'code' => null,
         'date' => null,
@@ -153,6 +155,7 @@ class Payment implements ModelInterface, ArrayAccess
         'overpayment' => 'Overpayment',
         'invoice_number' => 'InvoiceNumber',
         'credit_note_number' => 'CreditNoteNumber',
+        'batch_payment' => 'BatchPayment',
         'account' => 'Account',
         'code' => 'Code',
         'date' => 'Date',
@@ -187,6 +190,7 @@ class Payment implements ModelInterface, ArrayAccess
         'overpayment' => 'setOverpayment',
         'invoice_number' => 'setInvoiceNumber',
         'credit_note_number' => 'setCreditNoteNumber',
+        'batch_payment' => 'setBatchPayment',
         'account' => 'setAccount',
         'code' => 'setCode',
         'date' => 'setDate',
@@ -221,6 +225,7 @@ class Payment implements ModelInterface, ArrayAccess
         'overpayment' => 'getOverpayment',
         'invoice_number' => 'getInvoiceNumber',
         'credit_note_number' => 'getCreditNoteNumber',
+        'batch_payment' => 'getBatchPayment',
         'account' => 'getAccount',
         'code' => 'getCode',
         'date' => 'getDate',
@@ -351,6 +356,7 @@ class Payment implements ModelInterface, ArrayAccess
         $this->container['overpayment'] = isset($data['overpayment']) ? $data['overpayment'] : null;
         $this->container['invoice_number'] = isset($data['invoice_number']) ? $data['invoice_number'] : null;
         $this->container['credit_note_number'] = isset($data['credit_note_number']) ? $data['credit_note_number'] : null;
+        $this->container['batch_payment'] = isset($data['batch_payment']) ? $data['batch_payment'] : null;
         $this->container['account'] = isset($data['account']) ? $data['account'] : null;
         $this->container['code'] = isset($data['code']) ? $data['code'] : null;
         $this->container['date'] = isset($data['date']) ? $data['date'] : null;
@@ -569,6 +575,33 @@ class Payment implements ModelInterface, ArrayAccess
     {
 
         $this->container['credit_note_number'] = $credit_note_number;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets batch_payment
+     *
+     * @return \XeroAPI\XeroPHP\Models\Accounting\BatchPayment|null
+     */
+    public function getBatchPayment()
+    {
+        return $this->container['batch_payment'];
+    }
+
+    /**
+     * Sets batch_payment
+     *
+     * @param \XeroAPI\XeroPHP\Models\Accounting\BatchPayment|null $batch_payment batch_payment
+     *
+     * @return $this
+     */
+    public function setBatchPayment($batch_payment)
+    {
+
+        $this->container['batch_payment'] = $batch_payment;
 
         return $this;
     }
