@@ -8537,8 +8537,13 @@ $paymentService->setPaymentServiceName('ACME Payments');
 $paymentService->setPaymentServiceUrl('https://www.payupnow.com/');
 $paymentService->setPayNowText('Pay Now');
 
+$paymentServices = new XeroAPI\XeroPHP\Models\Accounting\PaymentServices;
+$arr_paymentServices = [];
+array_push($arr_paymentServices, $paymentService);
+$paymentServices->setPaymentServices($arr_paymentServices);
+
 try {
-  $result = $apiInstance->createBrandingThemePaymentServices($xeroTenantId, $brandingThemeID, $paymentService);
+  $result = $apiInstance->createBrandingThemePaymentServices($xeroTenantId, $brandingThemeID, $paymentServices);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createBrandingThemePaymentServices: ', $e->getMessage(), PHP_EOL;
 }
@@ -8626,15 +8631,15 @@ Xero identifier for Tenant
                       <th>Description</th>
                     </tr>
                     <tr>
-  <td style="width:150px;">paymentService <span style="color:red;">*</span></td>
+  <td style="width:150px;">paymentServices <span style="color:red;">*</span></td>
   <td>
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        PaymentService
+        PaymentServices
         </span>
         <div class="inner description marked">
-          PaymentService object in body of request
+          PaymentServices array with PaymentService object in body of request
         </div>
       </div>
       <div class="inner required">
@@ -8643,13 +8648,13 @@ Xero identifier for Tenant
     </div>
     <script type="application/ld+json">
       {
-  "description" : "PaymentService object in body of request",
+  "description" : "PaymentServices array with PaymentService object in body of request",
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/PaymentService"
+        "$ref" : "#/components/schemas/PaymentServices"
       },
-      "example" : "{ \"PaymentServiceID\": \"00000000-0000-0000-0000-000000000000\", \"PaymentServiceName\": \"Payments Service\", \"PaymentServiceUrl\": \"https://www.paymentservice.com/\", \"PayNowText\": \"Pay Now\" }"
+      "example" : "{ \"PaymentServices\": [ { \"PaymentServiceID\": \"54b3b4f6-0443-4fba-bcd1-61ec0c35ca55\", \"PaymentServiceName\": \"PayUpNow\", \"PaymentServiceUrl\": \"https://www.payupnow.com/\", \"PaymentServiceType\": \"Custom\", \"PayNowText\": \"Time To Pay\" } ] }"
     }
   },
   "required" : true
