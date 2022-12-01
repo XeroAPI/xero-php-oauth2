@@ -112,6 +112,21 @@ class TaxType
     const TXRCREINPUT = 'TXRCREINPUT';
     const TXRCESSINPUT = 'TXRCESSINPUT';
     const TXRCTSINPUT = 'TXRCTSINPUT';
+    const OUTPUTY23 = 'OUTPUTY23';
+    const DSOUTPUTY23 = 'DSOUTPUTY23';
+    const INPUTY23 = 'INPUTY23';
+    const IMINPUT2_Y23 = 'IMINPUT2Y23';
+    const IGDSINPUT2_Y23 = 'IGDSINPUT2Y23';
+    const TXPETINPUTY23 = 'TXPETINPUTY23';
+    const TXESSINPUTY23 = 'TXESSINPUTY23';
+    const TXN33_INPUTY23 = 'TXN33INPUTY23';
+    const TXREINPUTY23 = 'TXREINPUTY23';
+    const TXCAY23 = 'TXCAY23';
+    const BADDEBTRELIEFY23 = 'BADDEBTRELIEFY23';
+    const IGDSINPUT3_Y23 = 'IGDSINPUT3Y23';
+    const SROVRRSY23 = 'SROVRRSY23';
+    const SROVRLVGY23 = 'SROVRLVGY23';
+    const SRLVGY23 = 'SRLVGY23';
     
     /**
      * Gets allowable values of the enum
@@ -187,6 +202,21 @@ class TaxType
             self::TXRCREINPUT,
             self::TXRCESSINPUT,
             self::TXRCTSINPUT,
+            self::OUTPUTY23,
+            self::DSOUTPUTY23,
+            self::INPUTY23,
+            self::IMINPUT2_Y23,
+            self::IGDSINPUT2_Y23,
+            self::TXPETINPUTY23,
+            self::TXESSINPUTY23,
+            self::TXN33_INPUTY23,
+            self::TXREINPUTY23,
+            self::TXCAY23,
+            self::BADDEBTRELIEFY23,
+            self::IGDSINPUT3_Y23,
+            self::SROVRRSY23,
+            self::SROVRLVGY23,
+            self::SRLVGY23,
         ];
     }
 }

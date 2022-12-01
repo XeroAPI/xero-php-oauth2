@@ -71,9 +71,9 @@ class BatchPayment implements ModelInterface, ArrayAccess
         'payments' => '\XeroAPI\XeroPHP\Models\Accounting\Payment[]',
         'type' => 'string',
         'status' => 'string',
-        'total_amount' => 'string',
+        'total_amount' => 'double',
         'updated_date_utc' => 'string',
-        'is_reconciled' => 'string',
+        'is_reconciled' => 'bool',
         'validation_errors' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]'
     ];
 
@@ -96,7 +96,7 @@ class BatchPayment implements ModelInterface, ArrayAccess
         'payments' => null,
         'type' => null,
         'status' => null,
-        'total_amount' => null,
+        'total_amount' => 'double',
         'updated_date_utc' => null,
         'is_reconciled' => null,
         'validation_errors' => null
@@ -774,7 +774,7 @@ class BatchPayment implements ModelInterface, ArrayAccess
     /**
      * Gets total_amount
      *
-     * @return string|null
+     * @return double|null
      */
     public function getTotalAmount()
     {
@@ -784,7 +784,7 @@ class BatchPayment implements ModelInterface, ArrayAccess
     /**
      * Sets total_amount
      *
-     * @param string|null $total_amount The total of the payments that make up the batch (read-only)
+     * @param double|null $total_amount The total of the payments that make up the batch (read-only)
      *
      * @return $this
      */
@@ -834,7 +834,7 @@ class BatchPayment implements ModelInterface, ArrayAccess
     /**
      * Gets is_reconciled
      *
-     * @return string|null
+     * @return bool|null
      */
     public function getIsReconciled()
     {
@@ -844,7 +844,7 @@ class BatchPayment implements ModelInterface, ArrayAccess
     /**
      * Sets is_reconciled
      *
-     * @param string|null $is_reconciled Booelan that tells you if the batch payment has been reconciled (read-only)
+     * @param bool|null $is_reconciled Booelan that tells you if the batch payment has been reconciled (read-only)
      *
      * @return $this
      */
