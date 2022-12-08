@@ -205,7 +205,7 @@ class EarningsRate implements ModelInterface, ArrayAccess
     }
 
     const EARNINGS_TYPE_ALLOWANCE = 'Allowance';
-    const EARNINGS_TYPE_BACKPAY = 'Backpay';
+    const EARNINGS_TYPE_BACK_PAY = 'BackPay';
     const EARNINGS_TYPE_BONUS = 'Bonus';
     const EARNINGS_TYPE_COMMISSION = 'Commission';
     const EARNINGS_TYPE_LUMP_SUM = 'LumpSum';
@@ -242,7 +242,7 @@ class EarningsRate implements ModelInterface, ArrayAccess
     {
         return [
             self::EARNINGS_TYPE_ALLOWANCE,
-            self::EARNINGS_TYPE_BACKPAY,
+            self::EARNINGS_TYPE_BACK_PAY,
             self::EARNINGS_TYPE_BONUS,
             self::EARNINGS_TYPE_COMMISSION,
             self::EARNINGS_TYPE_LUMP_SUM,
