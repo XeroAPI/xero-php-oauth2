@@ -60,6 +60,7 @@ class StatementLineResponse implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'statement_line_id' => 'string',
         'posted_date' => '\DateTime',
+        'payee' => 'string',
         'reference' => 'string',
         'notes' => 'string',
         'cheque_no' => 'string',
@@ -81,6 +82,7 @@ class StatementLineResponse implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'statement_line_id' => 'uuid',
         'posted_date' => 'date',
+        'payee' => null,
         'reference' => null,
         'notes' => null,
         'cheque_no' => null,
@@ -123,6 +125,7 @@ class StatementLineResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'statement_line_id' => 'statementLineId',
         'posted_date' => 'postedDate',
+        'payee' => 'payee',
         'reference' => 'reference',
         'notes' => 'notes',
         'cheque_no' => 'chequeNo',
@@ -144,6 +147,7 @@ class StatementLineResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'statement_line_id' => 'setStatementLineId',
         'posted_date' => 'setPostedDate',
+        'payee' => 'setPayee',
         'reference' => 'setReference',
         'notes' => 'setNotes',
         'cheque_no' => 'setChequeNo',
@@ -165,6 +169,7 @@ class StatementLineResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'statement_line_id' => 'getStatementLineId',
         'posted_date' => 'getPostedDate',
+        'payee' => 'getPayee',
         'reference' => 'getReference',
         'notes' => 'getNotes',
         'cheque_no' => 'getChequeNo',
@@ -240,6 +245,7 @@ class StatementLineResponse implements ModelInterface, ArrayAccess
     {
         $this->container['statement_line_id'] = isset($data['statement_line_id']) ? $data['statement_line_id'] : null;
         $this->container['posted_date'] = isset($data['posted_date']) ? $data['posted_date'] : null;
+        $this->container['payee'] = isset($data['payee']) ? $data['payee'] : null;
         $this->container['reference'] = isset($data['reference']) ? $data['reference'] : null;
         $this->container['notes'] = isset($data['notes']) ? $data['notes'] : null;
         $this->container['cheque_no'] = isset($data['cheque_no']) ? $data['cheque_no'] : null;
@@ -325,6 +331,33 @@ class StatementLineResponse implements ModelInterface, ArrayAccess
     {
 
         $this->container['posted_date'] = $posted_date;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets payee
+     *
+     * @return string|null
+     */
+    public function getPayee()
+    {
+        return $this->container['payee'];
+    }
+
+    /**
+     * Sets payee
+     *
+     * @param string|null $payee Payee description of statement line
+     *
+     * @return $this
+     */
+    public function setPayee($payee)
+    {
+
+        $this->container['payee'] = $payee;
 
         return $this;
     }

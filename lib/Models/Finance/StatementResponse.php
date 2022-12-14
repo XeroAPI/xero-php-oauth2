@@ -65,6 +65,8 @@ class StatementResponse implements ModelInterface, ArrayAccess
         'import_source' => 'string',
         'start_balance' => 'double',
         'end_balance' => 'double',
+        'indicative_start_balance' => 'double',
+        'indicative_end_balance' => 'double',
         'statement_lines' => '\XeroAPI\XeroPHP\Models\Finance\StatementLineResponse[]'
     ];
 
@@ -81,6 +83,8 @@ class StatementResponse implements ModelInterface, ArrayAccess
         'import_source' => null,
         'start_balance' => 'double',
         'end_balance' => 'double',
+        'indicative_start_balance' => 'double',
+        'indicative_end_balance' => 'double',
         'statement_lines' => null
     ];
 
@@ -118,6 +122,8 @@ class StatementResponse implements ModelInterface, ArrayAccess
         'import_source' => 'importSource',
         'start_balance' => 'startBalance',
         'end_balance' => 'endBalance',
+        'indicative_start_balance' => 'indicativeStartBalance',
+        'indicative_end_balance' => 'indicativeEndBalance',
         'statement_lines' => 'statementLines'
     ];
 
@@ -134,6 +140,8 @@ class StatementResponse implements ModelInterface, ArrayAccess
         'import_source' => 'setImportSource',
         'start_balance' => 'setStartBalance',
         'end_balance' => 'setEndBalance',
+        'indicative_start_balance' => 'setIndicativeStartBalance',
+        'indicative_end_balance' => 'setIndicativeEndBalance',
         'statement_lines' => 'setStatementLines'
     ];
 
@@ -150,6 +158,8 @@ class StatementResponse implements ModelInterface, ArrayAccess
         'import_source' => 'getImportSource',
         'start_balance' => 'getStartBalance',
         'end_balance' => 'getEndBalance',
+        'indicative_start_balance' => 'getIndicativeStartBalance',
+        'indicative_end_balance' => 'getIndicativeEndBalance',
         'statement_lines' => 'getStatementLines'
     ];
 
@@ -220,6 +230,8 @@ class StatementResponse implements ModelInterface, ArrayAccess
         $this->container['import_source'] = isset($data['import_source']) ? $data['import_source'] : null;
         $this->container['start_balance'] = isset($data['start_balance']) ? $data['start_balance'] : null;
         $this->container['end_balance'] = isset($data['end_balance']) ? $data['end_balance'] : null;
+        $this->container['indicative_start_balance'] = isset($data['indicative_start_balance']) ? $data['indicative_start_balance'] : null;
+        $this->container['indicative_end_balance'] = isset($data['indicative_end_balance']) ? $data['indicative_end_balance'] : null;
         $this->container['statement_lines'] = isset($data['statement_lines']) ? $data['statement_lines'] : null;
     }
 
@@ -395,7 +407,7 @@ class StatementResponse implements ModelInterface, ArrayAccess
     /**
      * Sets start_balance
      *
-     * @param double|null $start_balance Opening balance sourced from imported bank statements (if supplied). Note, for manually uploaded statements, this balance is also manual and usually not supplied.
+     * @param double|null $start_balance Opening balance sourced from imported bank statements (if supplied). Note, for manually uploaded statements, this balance is also manual and usually not supplied. Where not supplied, the value will be 0.
      *
      * @return $this
      */
@@ -422,7 +434,7 @@ class StatementResponse implements ModelInterface, ArrayAccess
     /**
      * Sets end_balance
      *
-     * @param double|null $end_balance Closing balance sourced from imported bank statements (if supplied). Note, for manually uploaded statements, this balance is also manual and usually not supplied.
+     * @param double|null $end_balance Closing balance sourced from imported bank statements (if supplied). Note, for manually uploaded statements, this balance is also manual and usually not supplied. Where not supplied, the value will be 0.
      *
      * @return $this
      */
@@ -430,6 +442,60 @@ class StatementResponse implements ModelInterface, ArrayAccess
     {
 
         $this->container['end_balance'] = $end_balance;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets indicative_start_balance
+     *
+     * @return double|null
+     */
+    public function getIndicativeStartBalance()
+    {
+        return $this->container['indicative_start_balance'];
+    }
+
+    /**
+     * Sets indicative_start_balance
+     *
+     * @param double|null $indicative_start_balance Opening statement balance calculated in Xero (= bank account conversion balance plus sum of imported bank statement lines). Note: If indicative statement balance doesn't match imported statement balance for the same date, either the conversion (opening at inception) balance in Xero is wrong or there's an error in the bank statement lines in Xero. Ref: https://central.xero.com/s/article/Compare-the-statement-balance-in-Xero-to-your-actual-bank-balance?userregion=true
+     *
+     * @return $this
+     */
+    public function setIndicativeStartBalance($indicative_start_balance)
+    {
+
+        $this->container['indicative_start_balance'] = $indicative_start_balance;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets indicative_end_balance
+     *
+     * @return double|null
+     */
+    public function getIndicativeEndBalance()
+    {
+        return $this->container['indicative_end_balance'];
+    }
+
+    /**
+     * Sets indicative_end_balance
+     *
+     * @param double|null $indicative_end_balance Closing statement balance calculated in Xero (= bank account conversion balance plus sum of imported bank statement lines). Note: If indicative statement balance doesn't match imported statement balance for the same date, either the conversion (opening at inception) balance in Xero is wrong or there's an error in the bank statement lines in Xero. Ref: https://central.xero.com/s/article/Compare-the-statement-balance-in-Xero-to-your-actual-bank-balance?userregion=true
+     *
+     * @return $this
+     */
+    public function setIndicativeEndBalance($indicative_end_balance)
+    {
+
+        $this->container['indicative_end_balance'] = $indicative_end_balance;
 
         return $this;
     }
