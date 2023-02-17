@@ -1,6 +1,6 @@
 <?php
 /**
- * LeaveEarningsLine
+ * PaidLeaveEarningsLine
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use \XeroAPI\XeroPHP\StringUtil;
 use ReturnTypeWillChange;
 
 /**
- * LeaveEarningsLine Class Doc Comment
+ * PaidLeaveEarningsLine Class Doc Comment
  *
  * @category Class
  * @package  XeroAPI\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class LeaveEarningsLine implements ModelInterface, ArrayAccess
+class PaidLeaveEarningsLine implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class LeaveEarningsLine implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'LeaveEarningsLine';
+    protected static $openAPIModelName = 'PaidLeaveEarningsLine';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,11 @@ class LeaveEarningsLine implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'earnings_rate_id' => 'string',
-        'rate_per_unit' => 'double',
-        'number_of_units' => 'double',
-        'pay_out_type' => '\XeroAPI\XeroPHP\Models\PayrollAu\PayOutType'
+        'leave_type_id' => 'string',
+        'amount' => 'double',
+        'sgc_applied_leave_loading_amount' => 'double',
+        'sgc_exempted_leave_loading_amount' => 'double',
+        'reset_stp_categorisation' => 'bool'
     ];
 
     /**
@@ -70,10 +71,11 @@ class LeaveEarningsLine implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'earnings_rate_id' => 'uuid',
-        'rate_per_unit' => 'double',
-        'number_of_units' => 'double',
-        'pay_out_type' => null
+        'leave_type_id' => 'uuid',
+        'amount' => 'double',
+        'sgc_applied_leave_loading_amount' => 'double',
+        'sgc_exempted_leave_loading_amount' => 'double',
+        'reset_stp_categorisation' => null
     ];
 
     /**
@@ -103,10 +105,11 @@ class LeaveEarningsLine implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'earnings_rate_id' => 'EarningsRateID',
-        'rate_per_unit' => 'RatePerUnit',
-        'number_of_units' => 'NumberOfUnits',
-        'pay_out_type' => 'PayOutType'
+        'leave_type_id' => 'LeaveTypeID',
+        'amount' => 'Amount',
+        'sgc_applied_leave_loading_amount' => 'SGCAppliedLeaveLoadingAmount',
+        'sgc_exempted_leave_loading_amount' => 'SGCExemptedLeaveLoadingAmount',
+        'reset_stp_categorisation' => 'ResetSTPCategorisation'
     ];
 
     /**
@@ -115,10 +118,11 @@ class LeaveEarningsLine implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'earnings_rate_id' => 'setEarningsRateId',
-        'rate_per_unit' => 'setRatePerUnit',
-        'number_of_units' => 'setNumberOfUnits',
-        'pay_out_type' => 'setPayOutType'
+        'leave_type_id' => 'setLeaveTypeId',
+        'amount' => 'setAmount',
+        'sgc_applied_leave_loading_amount' => 'setSgcAppliedLeaveLoadingAmount',
+        'sgc_exempted_leave_loading_amount' => 'setSgcExemptedLeaveLoadingAmount',
+        'reset_stp_categorisation' => 'setResetStpCategorisation'
     ];
 
     /**
@@ -127,10 +131,11 @@ class LeaveEarningsLine implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'earnings_rate_id' => 'getEarningsRateId',
-        'rate_per_unit' => 'getRatePerUnit',
-        'number_of_units' => 'getNumberOfUnits',
-        'pay_out_type' => 'getPayOutType'
+        'leave_type_id' => 'getLeaveTypeId',
+        'amount' => 'getAmount',
+        'sgc_applied_leave_loading_amount' => 'getSgcAppliedLeaveLoadingAmount',
+        'sgc_exempted_leave_loading_amount' => 'getSgcExemptedLeaveLoadingAmount',
+        'reset_stp_categorisation' => 'getResetStpCategorisation'
     ];
 
     /**
@@ -193,10 +198,11 @@ class LeaveEarningsLine implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['earnings_rate_id'] = isset($data['earnings_rate_id']) ? $data['earnings_rate_id'] : null;
-        $this->container['rate_per_unit'] = isset($data['rate_per_unit']) ? $data['rate_per_unit'] : null;
-        $this->container['number_of_units'] = isset($data['number_of_units']) ? $data['number_of_units'] : null;
-        $this->container['pay_out_type'] = isset($data['pay_out_type']) ? $data['pay_out_type'] : null;
+        $this->container['leave_type_id'] = isset($data['leave_type_id']) ? $data['leave_type_id'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['sgc_applied_leave_loading_amount'] = isset($data['sgc_applied_leave_loading_amount']) ? $data['sgc_applied_leave_loading_amount'] : null;
+        $this->container['sgc_exempted_leave_loading_amount'] = isset($data['sgc_exempted_leave_loading_amount']) ? $data['sgc_exempted_leave_loading_amount'] : null;
+        $this->container['reset_stp_categorisation'] = isset($data['reset_stp_categorisation']) ? $data['reset_stp_categorisation'] : null;
     }
 
     /**
@@ -208,6 +214,12 @@ class LeaveEarningsLine implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['leave_type_id'] === null) {
+            $invalidProperties[] = "'leave_type_id' can't be null";
+        }
+        if ($this->container['amount'] === null) {
+            $invalidProperties[] = "'amount' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -224,26 +236,26 @@ class LeaveEarningsLine implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets earnings_rate_id
+     * Gets leave_type_id
      *
-     * @return string|null
+     * @return string
      */
-    public function getEarningsRateId()
+    public function getLeaveTypeId()
     {
-        return $this->container['earnings_rate_id'];
+        return $this->container['leave_type_id'];
     }
 
     /**
-     * Sets earnings_rate_id
+     * Sets leave_type_id
      *
-     * @param string|null $earnings_rate_id Xero identifier
+     * @param string $leave_type_id Xero leave type identifier
      *
      * @return $this
      */
-    public function setEarningsRateId($earnings_rate_id)
+    public function setLeaveTypeId($leave_type_id)
     {
 
-        $this->container['earnings_rate_id'] = $earnings_rate_id;
+        $this->container['leave_type_id'] = $leave_type_id;
 
         return $this;
     }
@@ -251,26 +263,53 @@ class LeaveEarningsLine implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets rate_per_unit
+     * Gets amount
+     *
+     * @return double
+     */
+    public function getAmount()
+    {
+        return $this->container['amount'];
+    }
+
+    /**
+     * Sets amount
+     *
+     * @param double $amount Paid leave amount
+     *
+     * @return $this
+     */
+    public function setAmount($amount)
+    {
+
+        $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets sgc_applied_leave_loading_amount
      *
      * @return double|null
      */
-    public function getRatePerUnit()
+    public function getSgcAppliedLeaveLoadingAmount()
     {
-        return $this->container['rate_per_unit'];
+        return $this->container['sgc_applied_leave_loading_amount'];
     }
 
     /**
-     * Sets rate_per_unit
+     * Sets sgc_applied_leave_loading_amount
      *
-     * @param double|null $rate_per_unit Rate per unit of the EarningsLine.
+     * @param double|null $sgc_applied_leave_loading_amount The amount of leave loading applied for the leave type that is subject to Superannuation Guarantee Contributions. *Only applicable for Leave Types with Annual Leave Categories
      *
      * @return $this
      */
-    public function setRatePerUnit($rate_per_unit)
+    public function setSgcAppliedLeaveLoadingAmount($sgc_applied_leave_loading_amount)
     {
 
-        $this->container['rate_per_unit'] = $rate_per_unit;
+        $this->container['sgc_applied_leave_loading_amount'] = $sgc_applied_leave_loading_amount;
 
         return $this;
     }
@@ -278,26 +317,26 @@ class LeaveEarningsLine implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets number_of_units
+     * Gets sgc_exempted_leave_loading_amount
      *
      * @return double|null
      */
-    public function getNumberOfUnits()
+    public function getSgcExemptedLeaveLoadingAmount()
     {
-        return $this->container['number_of_units'];
+        return $this->container['sgc_exempted_leave_loading_amount'];
     }
 
     /**
-     * Sets number_of_units
+     * Sets sgc_exempted_leave_loading_amount
      *
-     * @param double|null $number_of_units Earnings rate number of units.
+     * @param double|null $sgc_exempted_leave_loading_amount The amount of leave loading applied for the leave type that is exempt from Superannuation Guarantee Contributions. *Only applicable for Leave Types with Annual Leave Categories
      *
      * @return $this
      */
-    public function setNumberOfUnits($number_of_units)
+    public function setSgcExemptedLeaveLoadingAmount($sgc_exempted_leave_loading_amount)
     {
 
-        $this->container['number_of_units'] = $number_of_units;
+        $this->container['sgc_exempted_leave_loading_amount'] = $sgc_exempted_leave_loading_amount;
 
         return $this;
     }
@@ -305,26 +344,26 @@ class LeaveEarningsLine implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets pay_out_type
+     * Gets reset_stp_categorisation
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\PayOutType|null
+     * @return bool|null
      */
-    public function getPayOutType()
+    public function getResetStpCategorisation()
     {
-        return $this->container['pay_out_type'];
+        return $this->container['reset_stp_categorisation'];
     }
 
     /**
-     * Sets pay_out_type
+     * Sets reset_stp_categorisation
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\PayOutType|null $pay_out_type pay_out_type
+     * @param bool|null $reset_stp_categorisation Reset the STP categorisations for the leave type. *Only applicable for Leave Types with Annual Leave Categories
      *
      * @return $this
      */
-    public function setPayOutType($pay_out_type)
+    public function setResetStpCategorisation($reset_stp_categorisation)
     {
 
-        $this->container['pay_out_type'] = $pay_out_type;
+        $this->container['reset_stp_categorisation'] = $reset_stp_categorisation;
 
         return $this;
     }
