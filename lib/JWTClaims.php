@@ -17,6 +17,7 @@ class JWTClaims
     private $subvalue;
     private $expiration;
     private $auth_time;
+    private $preferred_username;
     private $iss;
     private $at_hash;
     private $sid;
