@@ -239,4 +239,3 @@ class JWTClaims
         return $this->nbf;
     }
 }
-?>
