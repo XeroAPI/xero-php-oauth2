@@ -82,7 +82,7 @@ class JWTClaims
         $this->sid = $verifiedJWT->sid;
         $this->subvalue = $verifiedJWT->sub;
         $this->auth_time = $verifiedJWT->auth_time;
-        $this->preferred_username = $verifiedJWT->preferred_username;
+        $this->username = $verifiedJWT->preferred_username;
         $this->email = $verifiedJWT->email;
         $this->given_name = $verifiedJWT->given_name;
         $this->family_name = $verifiedJWT->family_name;
