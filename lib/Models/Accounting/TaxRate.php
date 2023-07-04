@@ -310,6 +310,11 @@ class TaxRate implements ModelInterface, ArrayAccess
     const REPORT_TAX_TYPE_SROVRRS = 'SROVRRS';
     const REPORT_TAX_TYPE_SROVRLVG = 'SROVRLVG';
     const REPORT_TAX_TYPE_SRLVG = 'SRLVG';
+    const REPORT_TAX_TYPE_IM = 'IM';
+    const REPORT_TAX_TYPE_IMESS = 'IMESS';
+    const REPORT_TAX_TYPE_IMN33 = 'IMN33';
+    const REPORT_TAX_TYPE_IMRE = 'IMRE';
+    const REPORT_TAX_TYPE_BADDEBTRECOVERY = 'BADDEBTRECOVERY';
     
 
     
@@ -428,6 +433,11 @@ class TaxRate implements ModelInterface, ArrayAccess
             self::REPORT_TAX_TYPE_SROVRRS,
             self::REPORT_TAX_TYPE_SROVRLVG,
             self::REPORT_TAX_TYPE_SRLVG,
+            self::REPORT_TAX_TYPE_IM,
+            self::REPORT_TAX_TYPE_IMESS,
+            self::REPORT_TAX_TYPE_IMN33,
+            self::REPORT_TAX_TYPE_IMRE,
+            self::REPORT_TAX_TYPE_BADDEBTRECOVERY,
         ];
     }
     
