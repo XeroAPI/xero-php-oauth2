@@ -131,6 +131,16 @@ class TaxType
     const TXRCREY23 = 'TXRCREY23';
     const TXRCESSY23 = 'TXRCESSY23';
     const TXRCTSY23 = 'TXRCTSY23';
+    const IM = 'IM';
+    const IMY23 = 'IMY23';
+    const IMESS = 'IMESS';
+    const IMESSY23 = 'IMESSY23';
+    const IMN33 = 'IMN33';
+    const IMN33_Y23 = 'IMN33Y23';
+    const IMRE = 'IMRE';
+    const IMREY23 = 'IMREY23';
+    const BADDEBTRECOVERY = 'BADDEBTRECOVERY';
+    const BADDEBTRECOVERYY23 = 'BADDEBTRECOVERYY23';
     
     /**
      * Gets allowable values of the enum
@@ -225,6 +235,16 @@ class TaxType
             self::TXRCREY23,
             self::TXRCESSY23,
             self::TXRCTSY23,
+            self::IM,
+            self::IMY23,
+            self::IMESS,
+            self::IMESSY23,
+            self::IMN33,
+            self::IMN33_Y23,
+            self::IMRE,
+            self::IMREY23,
+            self::BADDEBTRECOVERY,
+            self::BADDEBTRECOVERYY23,
         ];
     }
 }
