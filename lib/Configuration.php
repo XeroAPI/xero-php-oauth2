@@ -157,7 +157,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = '[xero-php-oauth2 (2.24.0)]';
+    protected $userAgent = '[xero-php-oauth2 (2.23.1)]';
 
     /**
      * Debug switch (default set to false)
@@ -697,7 +697,7 @@ class Configuration
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    OpenAPI Spec Version: 2.38.0' . PHP_EOL;
-        $report .= '    SDK Package Version: 2.24.0' . PHP_EOL;
+        $report .= '    SDK Package Version: 2.23.1' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;
