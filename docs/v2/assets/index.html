@@ -1391,7 +1391,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="Asset"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="Asset"><strong>VSN: </strong>2.21.0</li>
+              <li class="nav-header" data-group="Asset"><strong>VSN: </strong>2.23.2</li>
               <li class="nav-header" data-group="Asset"><a href="#api-Asset">Methods</a></li>
               <li data-group="Asset" data-name="createAsset" class="">
                 <a href="#api-Asset-createAsset">createAsset</a>
@@ -1463,6 +1463,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AssetApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 
 $asset = new XeroAPI\XeroPHP\Models\Asset\Asset;
 $asset->setassetName('Other Computer');
@@ -1470,7 +1471,7 @@ $asset->setassetNumber('FA-00210');
 $asset->setStatus(XeroAPI\XeroPHP\Models\Asset\AssetStatus::Draft);
 
 try {
-  $result = $apiInstance->createAsset($xeroTenantId, $asset);
+  $result = $apiInstance->createAsset($xeroTenantId, $asset, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AssetApi->createAsset: ', $e->getMessage(), PHP_EOL;
 }
@@ -1512,6 +1513,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createAsset_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -1592,6 +1613,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AssetApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 
 $bookDepreciationSetting = new XeroAPI\XeroPHP\Models\Asset\BookDepreciationSetting;
 $bookDepreciationSetting->setDepreciationMethod('DiminishingValue100');
@@ -1607,7 +1629,7 @@ $assetType->setAccumulatedDepreciationAccountId('00000000-0000-0000-0000-0000000
 $assetType->setBookDepreciationSetting($bookDepreciationSetting);
 
 try {
-  $result = $apiInstance->createAssetType($xeroTenantId, $assetType);
+  $result = $apiInstance->createAssetType($xeroTenantId, $idempotencyKey, $assetType);
 } catch (Exception $e) {
   echo 'Exception when calling AssetApi->createAssetType: ', $e->getMessage(), PHP_EOL;
 }
@@ -1649,6 +1671,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createAssetType_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>

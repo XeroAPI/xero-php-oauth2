@@ -68,7 +68,6 @@ class Contact implements ModelInterface, ArrayAccess
         'last_name' => 'string',
         'company_number' => 'string',
         'email_address' => 'string',
-        'skype_user_name' => 'string',
         'contact_persons' => '\XeroAPI\XeroPHP\Models\Accounting\ContactPerson[]',
         'bank_account_details' => 'string',
         'tax_number' => 'string',
@@ -119,7 +118,6 @@ class Contact implements ModelInterface, ArrayAccess
         'last_name' => null,
         'company_number' => null,
         'email_address' => null,
-        'skype_user_name' => null,
         'contact_persons' => null,
         'bank_account_details' => null,
         'tax_number' => null,
@@ -191,7 +189,6 @@ class Contact implements ModelInterface, ArrayAccess
         'last_name' => 'LastName',
         'company_number' => 'CompanyNumber',
         'email_address' => 'EmailAddress',
-        'skype_user_name' => 'SkypeUserName',
         'contact_persons' => 'ContactPersons',
         'bank_account_details' => 'BankAccountDetails',
         'tax_number' => 'TaxNumber',
@@ -242,7 +239,6 @@ class Contact implements ModelInterface, ArrayAccess
         'last_name' => 'setLastName',
         'company_number' => 'setCompanyNumber',
         'email_address' => 'setEmailAddress',
-        'skype_user_name' => 'setSkypeUserName',
         'contact_persons' => 'setContactPersons',
         'bank_account_details' => 'setBankAccountDetails',
         'tax_number' => 'setTaxNumber',
@@ -293,7 +289,6 @@ class Contact implements ModelInterface, ArrayAccess
         'last_name' => 'getLastName',
         'company_number' => 'getCompanyNumber',
         'email_address' => 'getEmailAddress',
-        'skype_user_name' => 'getSkypeUserName',
         'contact_persons' => 'getContactPersons',
         'bank_account_details' => 'getBankAccountDetails',
         'tax_number' => 'getTaxNumber',
@@ -449,7 +444,6 @@ class Contact implements ModelInterface, ArrayAccess
         $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
         $this->container['company_number'] = isset($data['company_number']) ? $data['company_number'] : null;
         $this->container['email_address'] = isset($data['email_address']) ? $data['email_address'] : null;
-        $this->container['skype_user_name'] = isset($data['skype_user_name']) ? $data['skype_user_name'] : null;
         $this->container['contact_persons'] = isset($data['contact_persons']) ? $data['contact_persons'] : null;
         $this->container['bank_account_details'] = isset($data['bank_account_details']) ? $data['bank_account_details'] : null;
         $this->container['tax_number'] = isset($data['tax_number']) ? $data['tax_number'] : null;
@@ -865,33 +859,6 @@ class Contact implements ModelInterface, ArrayAccess
 
 
         $this->container['email_address'] = $email_address;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets skype_user_name
-     *
-     * @return string|null
-     */
-    public function getSkypeUserName()
-    {
-        return $this->container['skype_user_name'];
-    }
-
-    /**
-     * Sets skype_user_name
-     *
-     * @param string|null $skype_user_name Skype user name of contact
-     *
-     * @return $this
-     */
-    public function setSkypeUserName($skype_user_name)
-    {
-
-        $this->container['skype_user_name'] = $skype_user_name;
 
         return $this;
     }

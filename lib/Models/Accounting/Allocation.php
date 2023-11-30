@@ -58,12 +58,14 @@ class Allocation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'allocation_id' => 'string',
         'invoice' => '\XeroAPI\XeroPHP\Models\Accounting\Invoice',
         'overpayment' => '\XeroAPI\XeroPHP\Models\Accounting\Overpayment',
         'prepayment' => '\XeroAPI\XeroPHP\Models\Accounting\Prepayment',
         'credit_note' => '\XeroAPI\XeroPHP\Models\Accounting\CreditNote',
         'amount' => 'double',
         'date' => 'string',
+        'is_deleted' => 'bool',
         'status_attribute_string' => 'string',
         'validation_errors' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]'
     ];
@@ -74,12 +76,14 @@ class Allocation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'allocation_id' => 'uuid',
         'invoice' => null,
         'overpayment' => null,
         'prepayment' => null,
         'credit_note' => null,
         'amount' => 'double',
         'date' => null,
+        'is_deleted' => null,
         'status_attribute_string' => null,
         'validation_errors' => null
     ];
@@ -111,12 +115,14 @@ class Allocation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'allocation_id' => 'AllocationID',
         'invoice' => 'Invoice',
         'overpayment' => 'Overpayment',
         'prepayment' => 'Prepayment',
         'credit_note' => 'CreditNote',
         'amount' => 'Amount',
         'date' => 'Date',
+        'is_deleted' => 'IsDeleted',
         'status_attribute_string' => 'StatusAttributeString',
         'validation_errors' => 'ValidationErrors'
     ];
@@ -127,12 +133,14 @@ class Allocation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'allocation_id' => 'setAllocationId',
         'invoice' => 'setInvoice',
         'overpayment' => 'setOverpayment',
         'prepayment' => 'setPrepayment',
         'credit_note' => 'setCreditNote',
         'amount' => 'setAmount',
         'date' => 'setDate',
+        'is_deleted' => 'setIsDeleted',
         'status_attribute_string' => 'setStatusAttributeString',
         'validation_errors' => 'setValidationErrors'
     ];
@@ -143,12 +151,14 @@ class Allocation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'allocation_id' => 'getAllocationId',
         'invoice' => 'getInvoice',
         'overpayment' => 'getOverpayment',
         'prepayment' => 'getPrepayment',
         'credit_note' => 'getCreditNote',
         'amount' => 'getAmount',
         'date' => 'getDate',
+        'is_deleted' => 'getIsDeleted',
         'status_attribute_string' => 'getStatusAttributeString',
         'validation_errors' => 'getValidationErrors'
     ];
@@ -213,12 +223,14 @@ class Allocation implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['allocation_id'] = isset($data['allocation_id']) ? $data['allocation_id'] : null;
         $this->container['invoice'] = isset($data['invoice']) ? $data['invoice'] : null;
         $this->container['overpayment'] = isset($data['overpayment']) ? $data['overpayment'] : null;
         $this->container['prepayment'] = isset($data['prepayment']) ? $data['prepayment'] : null;
         $this->container['credit_note'] = isset($data['credit_note']) ? $data['credit_note'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['date'] = isset($data['date']) ? $data['date'] : null;
+        $this->container['is_deleted'] = isset($data['is_deleted']) ? $data['is_deleted'] : null;
         $this->container['status_attribute_string'] = isset($data['status_attribute_string']) ? $data['status_attribute_string'] : null;
         $this->container['validation_errors'] = isset($data['validation_errors']) ? $data['validation_errors'] : null;
     }
@@ -254,6 +266,33 @@ class Allocation implements ModelInterface, ArrayAccess
     {
         return count($this->listInvalidProperties()) === 0;
     }
+
+
+    /**
+     * Gets allocation_id
+     *
+     * @return string|null
+     */
+    public function getAllocationId()
+    {
+        return $this->container['allocation_id'];
+    }
+
+    /**
+     * Sets allocation_id
+     *
+     * @param string|null $allocation_id Xero generated unique identifier
+     *
+     * @return $this
+     */
+    public function setAllocationId($allocation_id)
+    {
+
+        $this->container['allocation_id'] = $allocation_id;
+
+        return $this;
+    }
+
 
 
     /**
@@ -442,6 +481,32 @@ class Allocation implements ModelInterface, ArrayAccess
       return $this;
     }
 
+
+
+    /**
+     * Gets is_deleted
+     *
+     * @return bool|null
+     */
+    public function getIsDeleted()
+    {
+        return $this->container['is_deleted'];
+    }
+
+    /**
+     * Sets is_deleted
+     *
+     * @param bool|null $is_deleted A flag that returns true when the allocation is succesfully deleted
+     *
+     * @return $this
+     */
+    public function setIsDeleted($is_deleted)
+    {
+
+        $this->container['is_deleted'] = $is_deleted;
+
+        return $this;
+    }
 
 
     /**
