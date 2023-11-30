@@ -1240,7 +1240,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="AppStore"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="AppStore"><strong>VSN: </strong>2.21.0</li>
+              <li class="nav-header" data-group="AppStore"><strong>VSN: </strong>2.23.2</li>
               <li class="nav-header" data-group="AppStore"><a href="#api-AppStore">Methods</a></li>
               <li data-group="AppStore" data-name="getSubscription" class="">
                 <a href="#api-AppStore-getSubscription">getSubscription</a>
@@ -1487,9 +1487,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AppStoreApi(
 );
 $subscriptionId = "&quot;00000000-0000-0000-0000-000000000000&quot;";
 $subscriptionItemId = "&quot;00000000-0000-0000-0000-000000000000&quot;";
+$idempotencyKey = "KEY_VALUE";
 
 try {
-  $result = $apiInstance->postUsageRecords($subscriptionId, $subscriptionItemId, $createUsageRecord);
+  $result = $apiInstance->postUsageRecords($subscriptionId, $subscriptionItemId, $createUsageRecord, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AppStoreApi->postUsageRecords: ', $e->getMessage(), PHP_EOL;
 }
@@ -1560,6 +1561,33 @@ The unique identifier of the subscriptionItem
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                  <div class="methodsubtabletitle">Header parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_postUsageRecords_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -1642,9 +1670,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AppStoreApi(
 $subscriptionId = "&quot;00000000-0000-0000-0000-000000000000&quot;";
 $subscriptionItemId = "&quot;00000000-0000-0000-0000-000000000000&quot;";
 $usageRecordId = "&quot;00000000-0000-0000-0000-000000000000&quot;";
+$idempotencyKey = "KEY_VALUE";
 
 try {
-  $result = $apiInstance->putUsageRecords($subscriptionId, $subscriptionItemId, $usageRecordId, $updateUsageRecord);
+  $result = $apiInstance->putUsageRecords($subscriptionId, $subscriptionItemId, $usageRecordId, $updateUsageRecord, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AppStoreApi->putUsageRecords: ', $e->getMessage(), PHP_EOL;
 }
@@ -1741,6 +1770,33 @@ The unique identifier of the usage record
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                  <div class="methodsubtabletitle">Header parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_putUsageRecords_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>

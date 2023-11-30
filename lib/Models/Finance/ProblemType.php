@@ -54,6 +54,7 @@ class ProblemType
     const REQUEST_TIMEOUT = 'request-timeout';
     const SERVICE_UNAVAILABLE = 'service-unavailable';
     const UNAUTHORIZED = 'unauthorized';
+    const RATE_LIMIT_ERROR = 'rate-limit-error';
     
     /**
      * Gets allowable values of the enum
@@ -72,6 +73,7 @@ class ProblemType
             self::REQUEST_TIMEOUT,
             self::SERVICE_UNAVAILABLE,
             self::UNAUTHORIZED,
+            self::RATE_LIMIT_ERROR,
         ];
     }
 }

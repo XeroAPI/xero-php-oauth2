@@ -46,6 +46,8 @@ class LeavePeriodStatus
      */
     const SCHEDULED = 'SCHEDULED';
     const PROCESSED = 'PROCESSED';
+    const REQUESTED = 'REQUESTED';
+    const REJECTED = 'REJECTED';
     
     /**
      * Gets allowable values of the enum
@@ -56,6 +58,8 @@ class LeavePeriodStatus
         return [
             self::SCHEDULED,
             self::PROCESSED,
+            self::REQUESTED,
+            self::REJECTED,
         ];
     }
 }

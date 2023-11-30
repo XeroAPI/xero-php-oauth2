@@ -1813,7 +1813,7 @@ ul.nav-tabs {
   "title" : "",
   "type" : "string",
   "description" : "",
-  "enum" : [ "SCHEDULED", "PROCESSED" ]
+  "enum" : [ "SCHEDULED", "PROCESSED", "REQUESTED", "REJECTED" ]
 };
       defs["LeaveType"] = {
   "title" : "",
@@ -3411,8 +3411,11 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="PayrollAu"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="PayrollAu"><strong>VSN: </strong>2.21.0</li>
+              <li class="nav-header" data-group="PayrollAu"><strong>VSN: </strong>2.23.2</li>
               <li class="nav-header" data-group="PayrollAu"><a href="#api-PayrollAu">Methods</a></li>
+              <li data-group="PayrollAu" data-name="approveLeaveApplication" class="">
+                <a href="#api-PayrollAu-approveLeaveApplication">approveLeaveApplication</a>
+              </li>
               <li data-group="PayrollAu" data-name="createEmployee" class="">
                 <a href="#api-PayrollAu-createEmployee">createEmployee</a>
               </li>
@@ -3445,6 +3448,9 @@ ul.nav-tabs {
               </li>
               <li data-group="PayrollAu" data-name="getLeaveApplications" class="">
                 <a href="#api-PayrollAu-getLeaveApplications">getLeaveApplications</a>
+              </li>
+              <li data-group="PayrollAu" data-name="getLeaveApplicationsV2" class="">
+                <a href="#api-PayrollAu-getLeaveApplicationsV2">getLeaveApplicationsV2</a>
               </li>
               <li data-group="PayrollAu" data-name="getPayItems" class="">
                 <a href="#api-PayrollAu-getPayItems">getPayItems</a>
@@ -3482,6 +3488,9 @@ ul.nav-tabs {
               <li data-group="PayrollAu" data-name="getTimesheets" class="">
                 <a href="#api-PayrollAu-getTimesheets">getTimesheets</a>
               </li>
+              <li data-group="PayrollAu" data-name="rejectLeaveApplication" class="">
+                <a href="#api-PayrollAu-rejectLeaveApplication">rejectLeaveApplication</a>
+              </li>
               <li data-group="PayrollAu" data-name="updateEmployee" class="">
                 <a href="#api-PayrollAu-updateEmployee">updateEmployee</a>
               </li>
@@ -3518,6 +3527,148 @@ ul.nav-tabs {
           <div id="sections">
             <section id="api-PayrollAu">
               <h1>PayrollAu</h1>
+              <div id="api-PayrollAu-approveLeaveApplication">
+                <article id="api-PayrollAu-approveLeaveApplication-0" data-group="User" data-name="approveLeaveApplication" data-version="0">
+                  <div class="pull-left">
+                    <h1>approveLeaveApplication</h1>
+                    <p>Approve a requested leave application by a unique leave application id</p>
+                  </div>
+                  <div class="pull-right"></div>
+                  <div class="clearfix"></div>
+                  <p></p>
+                  <p class="marked"></p>
+                  <p></p>
+                  <br />
+                  <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/LeaveApplications/{LeaveApplicationID}/approve</span></code></pre>
+                  <p>
+                  <h3>Usage and SDK Samples</h3>
+                  </p>
+                  <ul class="nav nav-tabs nav-tabs-examples">
+                    <!-- *****REPLACE***** comment out the other languages <li> -->
+                    <li class=""><a href="#examples-PayrollAu-approveLeaveApplication-0-php">PHP</a></li>
+                  </ul>
+                  <div class="tab-content">
+                    <!-- *****REPLACE***** comment out the other languages tab-pane -->
+                    <div class="tab-pane" id="examples-PayrollAu-approveLeaveApplication-0-php">
+                      <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( 'YOUR_ACCESS_TOKEN' );       
+
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
+    new GuzzleHttp\Client(),
+    $config
+);
+$xeroTenantId = "xeroTenantId_example";
+$leaveApplicationID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
+$idempotencyKey = "KEY_VALUE";
+
+try {
+  $result = $apiInstance->approveLeaveApplication($xeroTenantId, $leaveApplicationID, $idempotencyKey);
+} catch (Exception $e) {
+  echo 'Exception when calling PayrollAuApi->approveLeaveApplication: ', $e->getMessage(), PHP_EOL;
+}
+?>
+</code></pre>
+                    </div>
+                  </div>
+                  <h2>Scopes</h2>
+                  <table>
+                    
+                    <tr>
+                      <td>payroll.employees</td>
+                      <td>Grant read-write access to payroll employees</td>
+                    </tr>
+                    
+                  </table>
+                  <h2>Parameters</h2>
+                  <div class="methodsubtabletitle">Path parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">LeaveApplicationID<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_approveLeaveApplication_leaveApplicationID">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    UUID
+                </span>
+                    <span class="format">
+                        (uuid)
+                    </span>
+
+                    <div class="inner description marked">
+Leave Application id for single object
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                  <div class="methodsubtabletitle">Header parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">Xero-Tenant-Id<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_approveLeaveApplication_xeroTenantId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+Xero identifier for Tenant
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_approveLeaveApplication_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                </article>
+              </div>
+              <hr>
               <div id="api-PayrollAu-createEmployee">
                 <article id="api-PayrollAu-createEmployee-0" data-group="User" data-name="createEmployee" data-version="0">
                   <div class="pull-left">
@@ -3552,6 +3703,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     $config
 );
 $xeroTenantId = "xeroTenantId_example";
+$idempotencyKey = "KEY_VALUE";
 $dateOfBirth = new DateTime('2000-10-28');
 
 $homeAddress = new XeroAPI\XeroPHP\Models\PayrollAu\HomeAddress;
@@ -3567,7 +3719,7 @@ $employee->setDateOfBirth($dateOfBirth);
 $employee->setHomeAddress($homeAddress);
 
 try {
-  $result = $apiInstance->createEmployee($xeroTenantId, $employee);
+  $result = $apiInstance->createEmployee($xeroTenantId, $employee, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollAuApi->createEmployee: ', $e->getMessage(), PHP_EOL;
 }
@@ -3609,6 +3761,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createEmployee_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -3691,6 +3863,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     $config
 );
 $xeroTenantId = "xeroTenantId_example";
+$idempotencyKey = "KEY_VALUE";
 $startDate = new DateTime('2020-10-28');
 $endDate = new DateTime('2020-10-30');
 
@@ -3702,7 +3875,7 @@ $leaveApplication->setStartDate($startDate);
 $leaveApplication->setEndDate($endDate);
 
 try {
-  $result = $apiInstance->createLeaveApplication($xeroTenantId, $leaveApplication);
+  $result = $apiInstance->createLeaveApplication($xeroTenantId, $leaveApplication, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollAuApi->createLeaveApplication: ', $e->getMessage(), PHP_EOL;
 }
@@ -3744,6 +3917,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createLeaveApplication_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -3826,6 +4019,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     $config
 );
 $xeroTenantId = "xeroTenantId_example";
+$idempotencyKey = "KEY_VALUE";
 
 $earningsRate = new XeroAPI\XeroPHP\Models\PayrollAu\EarningsRate;
 $earningsRate->setName('Ordinary Hours 123');
@@ -3865,7 +4059,7 @@ $payItem->setLeaveTypes($leaveTypes);
 $payItem->setReimbursementTypes($reimbursementTypes);
 
 try {
-  $result = $apiInstance->createPayItem($xeroTenantId, $payItem);
+  $result = $apiInstance->createPayItem($xeroTenantId, $payItem, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollAuApi->createPayItem: ', $e->getMessage(), PHP_EOL;
 }
@@ -3907,6 +4101,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createPayItem_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -3986,12 +4200,13 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     $config
 );
 $xeroTenantId = "xeroTenantId_example";
+$idempotencyKey = "KEY_VALUE";
 
 $payRun = new XeroAPI\XeroPHP\Models\PayrollAu\PayRun;
 $payRun->setPayrollCalendarID('00000000-0000-0000-0000-000000000000');
 
 try {
-  $result = $apiInstance->createPayRun($xeroTenantId, $payRun);
+  $result = $apiInstance->createPayRun($xeroTenantId, $payRun, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollAuApi->createPayRun: ', $e->getMessage(), PHP_EOL;
 }
@@ -4033,6 +4248,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createPayRun_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -4115,6 +4350,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     $config
 );
 $xeroTenantId = "xeroTenantId_example";
+$idempotencyKey = "KEY_VALUE";
 $startDate = new DateTime('2020-10-28');
 $paymentDate = new DateTime('2020-10-30');
 
@@ -4127,7 +4363,7 @@ $payrollCalendars = [];
 array_push($payrollCalendars, $payrollCalendar);
 
 try {
-  $result = $apiInstance->createPayrollCalendar($xeroTenantId, $payrollCalendar);
+  $result = $apiInstance->createPayrollCalendar($xeroTenantId, $payrollCalendar, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollAuApi->createPayrollCalendar: ', $e->getMessage(), PHP_EOL;
 }
@@ -4169,6 +4405,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createPayrollCalendar_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -4251,13 +4507,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     $config
 );
 $xeroTenantId = "xeroTenantId_example";
+$idempotencyKey = "KEY_VALUE";
 
 $superFund = new XeroAPI\XeroPHP\Models\PayrollAu\SuperFund;
 $superfund->setType(XeroAPI\XeroPHP\Models\PayrollAu\SuperFundType::REGULATED);
 $superfund->setUSI('40022701955002');
 
 try {
-  $result = $apiInstance->createSuperfund($xeroTenantId, $superFund);
+  $result = $apiInstance->createSuperfund($xeroTenantId, $superFund, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollAuApi->createSuperfund: ', $e->getMessage(), PHP_EOL;
 }
@@ -4299,6 +4556,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createSuperfund_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -4381,6 +4658,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
     $config
 );
 $xeroTenantId = "xeroTenantId_example";
+$idempotencyKey = "KEY_VALUE";
 $startDate = new DateTime('2020-10-23');
 $endDate = new DateTime('2020-10-30');
 
@@ -4391,7 +4669,7 @@ $timesheet->setEndDate($endDate);
 $timesheet->setStatus(XeroAPI\XeroPHP\Models\PayrollAu\TimesheetStatus::DRAFT);
 
 try {
-  $result = $apiInstance->createTimesheet($xeroTenantId, $timesheet);
+  $result = $apiInstance->createTimesheet($xeroTenantId, $timesheet, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollAuApi->createTimesheet: ', $e->getMessage(), PHP_EOL;
 }
@@ -4433,6 +4711,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createTimesheet_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -5086,6 +5384,192 @@ Order by an any element
 
 
     <div id="d2e199_getLeaveApplications_page">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+e.g. page=1 – Up to 100 objects will be returned in a single API call
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                </article>
+              </div>
+              <hr>
+              <div id="api-PayrollAu-getLeaveApplicationsV2">
+                <article id="api-PayrollAu-getLeaveApplicationsV2-0" data-group="User" data-name="getLeaveApplicationsV2" data-version="0">
+                  <div class="pull-left">
+                    <h1>getLeaveApplicationsV2</h1>
+                    <p>Retrieves leave applications including leave requests</p>
+                  </div>
+                  <div class="pull-right"></div>
+                  <div class="clearfix"></div>
+                  <p></p>
+                  <p class="marked"></p>
+                  <p></p>
+                  <br />
+                  <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/LeaveApplications/v2</span></code></pre>
+                  <p>
+                  <h3>Usage and SDK Samples</h3>
+                  </p>
+                  <ul class="nav nav-tabs nav-tabs-examples">
+                    <!-- *****REPLACE***** comment out the other languages <li> -->
+                    <li class=""><a href="#examples-PayrollAu-getLeaveApplicationsV2-0-php">PHP</a></li>
+                  </ul>
+                  <div class="tab-content">
+                    <!-- *****REPLACE***** comment out the other languages tab-pane -->
+                    <div class="tab-pane" id="examples-PayrollAu-getLeaveApplicationsV2-0-php">
+                      <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( 'YOUR_ACCESS_TOKEN' );       
+
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
+    new GuzzleHttp\Client(),
+    $config
+);
+$xeroTenantId = "xeroTenantId_example";
+$ifModifiedSince = new DateTime("2020-02-06T12:17:43.202-08:00");
+$where = "Status=="ACTIVE"";
+$order = "EmailAddress%20DESC";
+$page = 56;
+
+try {
+  $result = $apiInstance->getLeaveApplicationsV2($xeroTenantId, $ifModifiedSince, $where, $order, $page);
+} catch (Exception $e) {
+  echo 'Exception when calling PayrollAuApi->getLeaveApplicationsV2: ', $e->getMessage(), PHP_EOL;
+}
+?>
+</code></pre>
+                    </div>
+                  </div>
+                  <h2>Scopes</h2>
+                  <table>
+                    
+                    <tr>
+                      <td>payroll.employees</td>
+                      <td>Grant read-write access to payroll employees</td>
+                    </tr>
+                    
+                    <tr>
+                      <td>payroll.employees.read</td>
+                      <td>Grant read-only access to payroll employees</td>
+                    </tr>
+                    
+                  </table>
+                  <h2>Parameters</h2>
+                  <div class="methodsubtabletitle">Header parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">Xero-Tenant-Id<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_getLeaveApplicationsV2_xeroTenantId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+Xero identifier for Tenant
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">If-Modified-Since</td>
+<td>
+
+
+    <div id="d2e199_getLeaveApplicationsV2_ifModifiedSince">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Date
+                </span>
+                    <span class="format">
+                        (date-time)
+                    </span>
+
+                    <div class="inner description marked">
+Only records created or modified since this timestamp will be returned
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                  <div class="methodsubtabletitle">Query parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">where</td>
+<td>
+
+
+    <div id="d2e199_getLeaveApplicationsV2_where">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+Filter by an any element
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">order</td>
+<td>
+
+
+    <div id="d2e199_getLeaveApplicationsV2_order">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+Order by an any element
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">page</td>
+<td>
+
+
+    <div id="d2e199_getLeaveApplicationsV2_page">
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
@@ -6898,6 +7382,148 @@ e.g. page=1 – Up to 100 timesheets will be returned in a single API call
                 </article>
               </div>
               <hr>
+              <div id="api-PayrollAu-rejectLeaveApplication">
+                <article id="api-PayrollAu-rejectLeaveApplication-0" data-group="User" data-name="rejectLeaveApplication" data-version="0">
+                  <div class="pull-left">
+                    <h1>rejectLeaveApplication</h1>
+                    <p>Reject a leave application by a unique leave application id</p>
+                  </div>
+                  <div class="pull-right"></div>
+                  <div class="clearfix"></div>
+                  <p></p>
+                  <p class="marked"></p>
+                  <p></p>
+                  <br />
+                  <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/LeaveApplications/{LeaveApplicationID}/reject</span></code></pre>
+                  <p>
+                  <h3>Usage and SDK Samples</h3>
+                  </p>
+                  <ul class="nav nav-tabs nav-tabs-examples">
+                    <!-- *****REPLACE***** comment out the other languages <li> -->
+                    <li class=""><a href="#examples-PayrollAu-rejectLeaveApplication-0-php">PHP</a></li>
+                  </ul>
+                  <div class="tab-content">
+                    <!-- *****REPLACE***** comment out the other languages tab-pane -->
+                    <div class="tab-pane" id="examples-PayrollAu-rejectLeaveApplication-0-php">
+                      <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( 'YOUR_ACCESS_TOKEN' );       
+
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
+    new GuzzleHttp\Client(),
+    $config
+);
+$xeroTenantId = "xeroTenantId_example";
+$leaveApplicationID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
+$idempotencyKey = "KEY_VALUE";
+
+try {
+  $result = $apiInstance->rejectLeaveApplication($xeroTenantId, $leaveApplicationID, $idempotencyKey);
+} catch (Exception $e) {
+  echo 'Exception when calling PayrollAuApi->rejectLeaveApplication: ', $e->getMessage(), PHP_EOL;
+}
+?>
+</code></pre>
+                    </div>
+                  </div>
+                  <h2>Scopes</h2>
+                  <table>
+                    
+                    <tr>
+                      <td>payroll.employees</td>
+                      <td>Grant read-write access to payroll employees</td>
+                    </tr>
+                    
+                  </table>
+                  <h2>Parameters</h2>
+                  <div class="methodsubtabletitle">Path parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">LeaveApplicationID<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_rejectLeaveApplication_leaveApplicationID">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    UUID
+                </span>
+                    <span class="format">
+                        (uuid)
+                    </span>
+
+                    <div class="inner description marked">
+Leave Application id for single object
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                  <div class="methodsubtabletitle">Header parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">Xero-Tenant-Id<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_rejectLeaveApplication_xeroTenantId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+Xero identifier for Tenant
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_rejectLeaveApplication_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                </article>
+              </div>
+              <hr>
               <div id="api-PayrollAu-updateEmployee">
                 <article id="api-PayrollAu-updateEmployee-0" data-group="User" data-name="updateEmployee" data-version="0">
                   <div class="pull-left">
@@ -6933,6 +7559,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $employeeID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
+$idempotencyKey = "KEY_VALUE";
 $dateOfBirth = new DateTime('2000-10-28');
 
 $homeAddress = new XeroAPI\XeroPHP\Models\PayrollAu\HomeAddress;
@@ -6948,7 +7575,7 @@ $employee->setDateOfBirth($dateOfBirth);
 $employee->setHomeAddress($homeAddress);
 
 try {
-  $result = $apiInstance->updateEmployee($xeroTenantId, $employeeID, $employee);
+  $result = $apiInstance->updateEmployee($xeroTenantId, $employeeID, $idempotencyKey, $employee);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollAuApi->updateEmployee: ', $e->getMessage(), PHP_EOL;
 }
@@ -7028,6 +7655,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateEmployee_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -7102,6 +7749,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $leaveApplicationID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
+$idempotencyKey = "KEY_VALUE";
 $startDate = new DateTime('2020-10-28');
 $endDate = new DateTime('2020-10-30');
 
@@ -7113,7 +7761,7 @@ $leaveApplication->setStartDate($startDate);
 $leaveApplication->setEndDate($endDate);
 
 try {
-  $result = $apiInstance->updateLeaveApplication($xeroTenantId, $leaveApplicationID, $leaveApplication);
+  $result = $apiInstance->updateLeaveApplication($xeroTenantId, $leaveApplicationID, $leaveApplication, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollAuApi->updateLeaveApplication: ', $e->getMessage(), PHP_EOL;
 }
@@ -7193,6 +7841,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateLeaveApplication_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -7226,7 +7894,7 @@ Xero identifier for Tenant
           "$ref" : "#/components/schemas/LeaveApplication"
         }
       },
-      "example" : "[ { \"EmployeeID\": \"cdfb8371-0b21-4b8a-8903-1024df6c391e\", \"LeaveTypeID\": \"184ea8f7-d143-46dd-bef3-0c60e1aa6fca\", \"StartDate\": \"/Date(1572559200000+0000)/\", \"EndDate\": \"/Date(1572645600000+0000)/\", \"Description\": \"My updated Description\" } ]"
+      "example" : "[ { \"EmployeeID\": \"cdfb8371-0b21-4b8a-8903-1024df6c391e\", \"LeaveApplicationID\": \"1d4cd583-0107-4386-936b-672eb3d1f624\", \"LeaveTypeID\": \"184ea8f7-d143-46dd-bef3-0c60e1aa6fca\", \"LeavePeriods\": [ { \"PayPeriodStartDate\": \"/Date(1572566400000+0000)/\", \"PayPeriodEndDate\": \"/Date(1573084800000+0000)/\", \"LeavePeriodStatus\": \"SCHEDULED\", \"NumberOfUnits\": 7.6 } ], \"Title\": \"vacation\", \"Description\": \"My updated Description\", \"StartDate\": \"/Date(1572559200000+0000)/\", \"EndDate\": \"/Date(1572645600000+0000)/\", \"PayOutType\": \"DEFAULT\" } ]"
     }
   },
   "required" : true
@@ -7271,12 +7939,13 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $payRunID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
+$idempotencyKey = "KEY_VALUE";
 
 $payRun = new XeroAPI\XeroPHP\Models\PayrollAu\PayRun;
 $payRun->setPayrollCalendarID('00000000-0000-0000-0000-000000000000');
 
 try {
-  $result = $apiInstance->updatePayRun($xeroTenantId, $payRunID, $payRun);
+  $result = $apiInstance->updatePayRun($xeroTenantId, $payRunID, $idempotencyKey, $payRun);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollAuApi->updatePayRun: ', $e->getMessage(), PHP_EOL;
 }
@@ -7356,6 +8025,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updatePayRun_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -7430,6 +8119,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $payslipID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
+$idempotencyKey = "KEY_VALUE";
 
 $earningsLine = new XeroAPI\XeroPHP\Models\PayrollAu\EarningsLine;
 $earningsLine->setEarningsRateID('00000000-0000-0000-0000-000000000000');
@@ -7444,7 +8134,7 @@ $payslipLines = [];
 array_push($payslipLines, $payslipLine);
 
 try {
-  $result = $apiInstance->updatePayslip($xeroTenantId, $payslipID, $payslipLines);
+  $result = $apiInstance->updatePayslip($xeroTenantId, $payslipID, $idempotencyKey, $payslipLines);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollAuApi->updatePayslip: ', $e->getMessage(), PHP_EOL;
 }
@@ -7524,6 +8214,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updatePayslip_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -7598,13 +8308,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $superFundID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
+$idempotencyKey = "KEY_VALUE";
 
 $superFund = new XeroAPI\XeroPHP\Models\PayrollAu\SuperFund;
 $superfund->setType(XeroAPI\XeroPHP\Models\PayrollAu\SuperFundType::REGULATED);
 $superfund->setUSI('40022701955002');
 
 try {
-  $result = $apiInstance->updateSuperfund($xeroTenantId, $superFundID, $superFund);
+  $result = $apiInstance->updateSuperfund($xeroTenantId, $superFundID, $idempotencyKey, $superFund);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollAuApi->updateSuperfund: ', $e->getMessage(), PHP_EOL;
 }
@@ -7684,6 +8395,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateSuperfund_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -7758,6 +8489,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollAuApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $timesheetID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
+$idempotencyKey = "KEY_VALUE";
 $startDate = new DateTime('2020-10-23');
 $endDate = new DateTime('2020-10-30');
 
@@ -7768,7 +8500,7 @@ $timesheet->setEndDate($endDate);
 $timesheet->setStatus(XeroAPI\XeroPHP\Models\PayrollAu\TimesheetStatus::DRAFT);
 
 try {
-  $result = $apiInstance->updateTimesheet($xeroTenantId, $timesheetID, $timesheet);
+  $result = $apiInstance->updateTimesheet($xeroTenantId, $timesheetID, $idempotencyKey, $timesheet);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollAuApi->updateTimesheet: ', $e->getMessage(), PHP_EOL;
 }
@@ -7843,6 +8575,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateTimesheet_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>

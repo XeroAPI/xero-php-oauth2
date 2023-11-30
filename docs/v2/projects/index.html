@@ -1461,7 +1461,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="Project"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="Project"><strong>VSN: </strong>2.21.0</li>
+              <li class="nav-header" data-group="Project"><strong>VSN: </strong>2.23.2</li>
               <li class="nav-header" data-group="Project"><a href="#api-Project">Methods</a></li>
               <li data-group="Project" data-name="createProject" class="">
                 <a href="#api-Project-createProject">createProject</a>
@@ -1563,9 +1563,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
     $config
 );
 $xeroTenantId = "xeroTenantId_example";
+$idempotencyKey = "KEY_VALUE";
 
 try {
-  $result = $apiInstance->createProject($xeroTenantId, $projectCreateOrUpdate);
+  $result = $apiInstance->createProject($xeroTenantId, $projectCreateOrUpdate, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling ProjectApi->createProject: ', $e->getMessage(), PHP_EOL;
 }
@@ -1607,6 +1608,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createProject_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -1688,9 +1709,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $projectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d";
+$idempotencyKey = "KEY_VALUE";
 
 try {
-  $result = $apiInstance->createTask($xeroTenantId, $projectId, $taskCreateOrUpdate);
+  $result = $apiInstance->createTask($xeroTenantId, $projectId, $taskCreateOrUpdate, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling ProjectApi->createTask: ', $e->getMessage(), PHP_EOL;
 }
@@ -1765,6 +1787,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createTask_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -1846,9 +1888,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $projectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d";
+$idempotencyKey = "KEY_VALUE";
 
 try {
-  $result = $apiInstance->createTimeEntry($xeroTenantId, $projectId, $timeEntryCreateOrUpdate);
+  $result = $apiInstance->createTimeEntry($xeroTenantId, $projectId, $timeEntryCreateOrUpdate, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling ProjectApi->createTimeEntry: ', $e->getMessage(), PHP_EOL;
 }
@@ -1923,6 +1966,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createTimeEntry_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -3661,9 +3724,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $projectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d";
+$idempotencyKey = "KEY_VALUE";
 
 try {
-  $apiInstance->patchProject($xeroTenantId, $projectId, $projectPatch);
+  $apiInstance->patchProject($xeroTenantId, $projectId, $projectPatch, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling ProjectApi->patchProject: ', $e->getMessage(), PHP_EOL;
 }
@@ -3738,6 +3802,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_patchProject_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -3819,9 +3903,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $projectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d";
+$idempotencyKey = "KEY_VALUE";
 
 try {
-  $apiInstance->updateProject($xeroTenantId, $projectId, $projectCreateOrUpdate);
+  $apiInstance->updateProject($xeroTenantId, $projectId, $projectCreateOrUpdate, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling ProjectApi->updateProject: ', $e->getMessage(), PHP_EOL;
 }
@@ -3896,6 +3981,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateProject_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -3978,9 +4083,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
 $xeroTenantId = "xeroTenantId_example";
 $projectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d";
 $taskId = "38400000-8cf0-11bd-b23e-10b96e4ef00d";
+$idempotencyKey = "KEY_VALUE";
 
 try {
-  $apiInstance->updateTask($xeroTenantId, $projectId, $taskId, $taskCreateOrUpdate);
+  $apiInstance->updateTask($xeroTenantId, $projectId, $taskId, $taskCreateOrUpdate, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling ProjectApi->updateTask: ', $e->getMessage(), PHP_EOL;
 }
@@ -4086,6 +4192,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateTask_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -4162,9 +4288,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\ProjectApi(
 $xeroTenantId = "xeroTenantId_example";
 $projectId = "38400000-8cf0-11bd-b23e-10b96e4ef00d";
 $timeEntryId = "38400000-8cf0-11bd-b23e-10b96e4ef00d";
+$idempotencyKey = "KEY_VALUE";
 
 try {
-  $apiInstance->updateTimeEntry($xeroTenantId, $projectId, $timeEntryId, $timeEntryCreateOrUpdate);
+  $apiInstance->updateTimeEntry($xeroTenantId, $projectId, $timeEntryId, $timeEntryCreateOrUpdate, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling ProjectApi->updateTimeEntry: ', $e->getMessage(), PHP_EOL;
 }
@@ -4265,6 +4392,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateTimeEntry_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>

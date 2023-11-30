@@ -79,7 +79,10 @@ class TenNinetyNineContact implements ModelInterface, ArrayAccess
         'email' => 'string',
         'street_address' => 'string',
         'tax_id' => 'string',
-        'contact_id' => 'string'
+        'contact_id' => 'string',
+        'legal_name' => 'string',
+        'business_name' => 'string',
+        'federal_tax_classification' => 'string'
     ];
 
     /**
@@ -109,7 +112,10 @@ class TenNinetyNineContact implements ModelInterface, ArrayAccess
         'email' => null,
         'street_address' => null,
         'tax_id' => null,
-        'contact_id' => 'uuid'
+        'contact_id' => 'uuid',
+        'legal_name' => null,
+        'business_name' => null,
+        'federal_tax_classification' => null
     ];
 
     /**
@@ -160,7 +166,10 @@ class TenNinetyNineContact implements ModelInterface, ArrayAccess
         'email' => 'Email',
         'street_address' => 'StreetAddress',
         'tax_id' => 'TaxID',
-        'contact_id' => 'ContactId'
+        'contact_id' => 'ContactId',
+        'legal_name' => 'LegalName',
+        'business_name' => 'BusinessName',
+        'federal_tax_classification' => 'FederalTaxClassification'
     ];
 
     /**
@@ -190,7 +199,10 @@ class TenNinetyNineContact implements ModelInterface, ArrayAccess
         'email' => 'setEmail',
         'street_address' => 'setStreetAddress',
         'tax_id' => 'setTaxId',
-        'contact_id' => 'setContactId'
+        'contact_id' => 'setContactId',
+        'legal_name' => 'setLegalName',
+        'business_name' => 'setBusinessName',
+        'federal_tax_classification' => 'setFederalTaxClassification'
     ];
 
     /**
@@ -220,7 +232,10 @@ class TenNinetyNineContact implements ModelInterface, ArrayAccess
         'email' => 'getEmail',
         'street_address' => 'getStreetAddress',
         'tax_id' => 'getTaxId',
-        'contact_id' => 'getContactId'
+        'contact_id' => 'getContactId',
+        'legal_name' => 'getLegalName',
+        'business_name' => 'getBusinessName',
+        'federal_tax_classification' => 'getFederalTaxClassification'
     ];
 
     /**
@@ -264,8 +279,33 @@ class TenNinetyNineContact implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const FEDERAL_TAX_CLASSIFICATION_SOLE_PROPRIETOR = 'SOLE_PROPRIETOR';
+    const FEDERAL_TAX_CLASSIFICATION_PARTNERSHIP = 'PARTNERSHIP';
+    const FEDERAL_TAX_CLASSIFICATION_TRUST_OR_ESTATE = 'TRUST_OR_ESTATE';
+    const FEDERAL_TAX_CLASSIFICATION_NONPROFIT = 'NONPROFIT';
+    const FEDERAL_TAX_CLASSIFICATION_C_CORP = 'C_CORP';
+    const FEDERAL_TAX_CLASSIFICATION_S_CORP = 'S_CORP';
+    const FEDERAL_TAX_CLASSIFICATION_OTHER = 'OTHER';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFederalTaxClassificationAllowableValues()
+    {
+        return [
+            self::FEDERAL_TAX_CLASSIFICATION_SOLE_PROPRIETOR,
+            self::FEDERAL_TAX_CLASSIFICATION_PARTNERSHIP,
+            self::FEDERAL_TAX_CLASSIFICATION_TRUST_OR_ESTATE,
+            self::FEDERAL_TAX_CLASSIFICATION_NONPROFIT,
+            self::FEDERAL_TAX_CLASSIFICATION_C_CORP,
+            self::FEDERAL_TAX_CLASSIFICATION_S_CORP,
+            self::FEDERAL_TAX_CLASSIFICATION_OTHER,
+        ];
+    }
     
 
     /**
@@ -305,6 +345,9 @@ class TenNinetyNineContact implements ModelInterface, ArrayAccess
         $this->container['street_address'] = isset($data['street_address']) ? $data['street_address'] : null;
         $this->container['tax_id'] = isset($data['tax_id']) ? $data['tax_id'] : null;
         $this->container['contact_id'] = isset($data['contact_id']) ? $data['contact_id'] : null;
+        $this->container['legal_name'] = isset($data['legal_name']) ? $data['legal_name'] : null;
+        $this->container['business_name'] = isset($data['business_name']) ? $data['business_name'] : null;
+        $this->container['federal_tax_classification'] = isset($data['federal_tax_classification']) ? $data['federal_tax_classification'] : null;
     }
 
     /**
@@ -315,6 +358,14 @@ class TenNinetyNineContact implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getFederalTaxClassificationAllowableValues();
+        if (!is_null($this->container['federal_tax_classification']) && !in_array($this->container['federal_tax_classification'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'federal_tax_classification', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -919,6 +970,96 @@ class TenNinetyNineContact implements ModelInterface, ArrayAccess
     {
 
         $this->container['contact_id'] = $contact_id;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets legal_name
+     *
+     * @return string|null
+     */
+    public function getLegalName()
+    {
+        return $this->container['legal_name'];
+    }
+
+    /**
+     * Sets legal_name
+     *
+     * @param string|null $legal_name Contact legal name
+     *
+     * @return $this
+     */
+    public function setLegalName($legal_name)
+    {
+
+        $this->container['legal_name'] = $legal_name;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets business_name
+     *
+     * @return string|null
+     */
+    public function getBusinessName()
+    {
+        return $this->container['business_name'];
+    }
+
+    /**
+     * Sets business_name
+     *
+     * @param string|null $business_name Contact business name
+     *
+     * @return $this
+     */
+    public function setBusinessName($business_name)
+    {
+
+        $this->container['business_name'] = $business_name;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets federal_tax_classification
+     *
+     * @return string|null
+     */
+    public function getFederalTaxClassification()
+    {
+        return $this->container['federal_tax_classification'];
+    }
+
+    /**
+     * Sets federal_tax_classification
+     *
+     * @param string|null $federal_tax_classification Contact federal tax classification
+     *
+     * @return $this
+     */
+    public function setFederalTaxClassification($federal_tax_classification)
+    {
+        $allowedValues = $this->getFederalTaxClassificationAllowableValues();
+        if (!is_null($federal_tax_classification) && !in_array($federal_tax_classification, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'federal_tax_classification', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+
+        $this->container['federal_tax_classification'] = $federal_tax_classification;
 
         return $this;
     }

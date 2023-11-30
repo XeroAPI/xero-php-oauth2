@@ -141,6 +141,30 @@ class TaxType
     const IMREY23 = 'IMREY23';
     const BADDEBTRECOVERY = 'BADDEBTRECOVERY';
     const BADDEBTRECOVERYY23 = 'BADDEBTRECOVERYY23';
+    const OUTPUTY24 = 'OUTPUTY24';
+    const DSOUTPUTY24 = 'DSOUTPUTY24';
+    const INPUTY24 = 'INPUTY24';
+    const IGDSINPUT2_Y24 = 'IGDSINPUT2Y24';
+    const TXPETINPUTY24 = 'TXPETINPUTY24';
+    const TXESSINPUTY24 = 'TXESSINPUTY24';
+    const TXN33_INPUTY24 = 'TXN33INPUTY24';
+    const TXREINPUTY24 = 'TXREINPUTY24';
+    const TXCAY24 = 'TXCAY24';
+    const BADDEBTRELIEFY24 = 'BADDEBTRELIEFY24';
+    const IGDSINPUT3_Y24 = 'IGDSINPUT3Y24';
+    const SROVRRSY24 = 'SROVRRSY24';
+    const SROVRLVGY24 = 'SROVRLVGY24';
+    const SRLVGY24 = 'SRLVGY24';
+    const TXRCTSY24 = 'TXRCTSY24';
+    const TXRCESSY24 = 'TXRCESSY24';
+    const TXRCN33_Y24 = 'TXRCN33Y24';
+    const TXRCREY24 = 'TXRCREY24';
+    const IMY24 = 'IMY24';
+    const IMESSY24 = 'IMESSY24';
+    const IMN33_Y24 = 'IMN33Y24';
+    const IMREY24 = 'IMREY24';
+    const BADDEBTRECOVERYY24 = 'BADDEBTRECOVERYY24';
+    const OSOUTPUT2 = 'OSOUTPUT2';
     
     /**
      * Gets allowable values of the enum
@@ -245,6 +269,30 @@ class TaxType
             self::IMREY23,
             self::BADDEBTRECOVERY,
             self::BADDEBTRECOVERYY23,
+            self::OUTPUTY24,
+            self::DSOUTPUTY24,
+            self::INPUTY24,
+            self::IGDSINPUT2_Y24,
+            self::TXPETINPUTY24,
+            self::TXESSINPUTY24,
+            self::TXN33_INPUTY24,
+            self::TXREINPUTY24,
+            self::TXCAY24,
+            self::BADDEBTRELIEFY24,
+            self::IGDSINPUT3_Y24,
+            self::SROVRRSY24,
+            self::SROVRLVGY24,
+            self::SRLVGY24,
+            self::TXRCTSY24,
+            self::TXRCESSY24,
+            self::TXRCN33_Y24,
+            self::TXRCREY24,
+            self::IMY24,
+            self::IMESSY24,
+            self::IMN33_Y24,
+            self::IMREY24,
+            self::BADDEBTRECOVERYY24,
+            self::OSOUTPUT2,
         ];
     }
 }

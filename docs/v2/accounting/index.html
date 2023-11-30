@@ -975,7 +975,7 @@ ul.nav-tabs {
   "title" : "",
   "type" : "string",
   "description" : "See Account Types",
-  "enum" : [ "BANK", "CURRENT", "CURRLIAB", "DEPRECIATN", "DIRECTCOSTS", "EQUITY", "EXPENSE", "FIXED", "INVENTORY", "LIABILITY", "NONCURRENT", "OTHERINCOME", "OVERHEADS", "PREPAYMENT", "REVENUE", "SALES", "TERMLIAB", "PAYGLIABILITY", "PAYG", "SUPERANNUATIONEXPENSE", "SUPERANNUATIONLIABILITY", "WAGESEXPENSE" ]
+  "enum" : [ "BANK", "CURRENT", "CURRLIAB", "DEPRECIATN", "DIRECTCOSTS", "EQUITY", "EXPENSE", "FIXED", "INVENTORY", "LIABILITY", "NONCURRENT", "OTHERINCOME", "OVERHEADS", "PREPAYMENT", "REVENUE", "SALES", "TERMLIAB", "PAYG" ]
 };
       defs["Accounts"] = {
   "title" : "",
@@ -1183,6 +1183,11 @@ ul.nav-tabs {
   "required" : [ "Amount", "Date", "Invoice" ],
   "type" : "object",
   "properties" : {
+    "AllocationID" : {
+      "type" : "string",
+      "description" : "Xero generated unique identifier",
+      "format" : "uuid"
+    },
     "Invoice" : {
       "$ref" : "#/components/schemas/Invoice"
     },
@@ -1205,6 +1210,11 @@ ul.nav-tabs {
       "type" : "string",
       "description" : "the date the allocation is applied YYYY-MM-DD.",
       "x-is-msdate" : true
+    },
+    "IsDeleted" : {
+      "type" : "boolean",
+      "description" : "A flag that returns true when the allocation is succesfully deleted",
+      "readOnly" : true
     },
     "StatusAttributeString" : {
       "type" : "string",
@@ -2068,10 +2078,6 @@ ul.nav-tabs {
       "type" : "string",
       "description" : "Email address of contact person (umlauts not supported) (max length  = 255)"
     },
-    "SkypeUserName" : {
-      "type" : "string",
-      "description" : "Skype user name of contact"
-    },
     "ContactPersons" : {
       "type" : "array",
       "description" : "See contact persons",
@@ -2594,8 +2600,8 @@ ul.nav-tabs {
   "title" : "",
   "type" : "string",
   "description" : "3 letter alpha code for the currency – see list of currency codes",
-  "enum" : [ "AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BRL", "BSD", "BTN", "BWP", "BYN", "BYR", "BZD", "CAD", "CDF", "CHF", "CLP", "CNY", "COP", "CRC", "CUC", "CUP", "CVE", "CZK", "DJF", "DKK", "DOP", "DZD", "EGP", "ERN", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GGP", "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "IMP", "INR", "IQD", "IRR", "ISK", "JEP", "JMD", "JOD", "JPY", "KES", "KGS", "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LTL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRU", "MUR", "MVR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SLL", "SOS", "SPL", "SRD", "STN", "SVC", "SYP", "SZL", "THB", "TJS", "TMT", "TND", "TOP", "TRY", "TTD", "TVD", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "UZS", "VEF", "VND", "VUV", "WST", "XAF", "XCD", "XDR", "XOF", "XPF", "YER", "ZAR", "ZMW", "ZMK", "ZWD", "" ],
-  "x-enum-varnames" : [ "AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BRL", "BSD", "BTN", "BWP", "BYN", "BYR", "BZD", "CAD", "CDF", "CHF", "CLP", "CNY", "COP", "CRC", "CUC", "CUP", "CVE", "CZK", "DJF", "DKK", "DOP", "DZD", "EGP", "ERN", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GGP", "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "IMP", "INR", "IQD", "IRR", "ISK", "JEP", "JMD", "JOD", "JPY", "KES", "KGS", "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LTL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRU", "MUR", "MVR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SLL", "SOS", "SPL", "SRD", "STN", "SVC", "SYP", "SZL", "THB", "TJS", "TMT", "TND", "TOP", "TRY_LIRA", "TTD", "TVD", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "UZS", "VEF", "VND", "VUV", "WST", "XAF", "XCD", "XDR", "XOF", "XPF", "YER", "ZAR", "ZMW", "ZMK", "ZWD", "EMPTY_CURRENCY" ]
+  "enum" : [ "AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BRL", "BSD", "BTN", "BWP", "BYN", "BYR", "BZD", "CAD", "CDF", "CHF", "CLF", "CLP", "CNY", "COP", "CRC", "CUC", "CUP", "CVE", "CZK", "DJF", "DKK", "DOP", "DZD", "EEK", "EGP", "ERN", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "INR", "IQD", "IRR", "ISK", "JMD", "JOD", "JPY", "KES", "KGS", "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LTL", "LVL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRO", "MRU", "MUR", "MVR", "MWK", "MXN", "MXV", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SKK", "SLE", "SLL", "SOS", "SRD", "STD", "STN", "SVC", "SYP", "SZL", "THB", "TJS", "TMT", "TND", "TOP", "TRY", "TTD", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "UZS", "VEF", "VES", "VND", "VUV", "WST", "XAF", "XCD", "XOF", "XPF", "YER", "ZAR", "ZMW", "ZMK", "ZWD", "" ],
+  "x-enum-varnames" : [ "AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BRL", "BSD", "BTN", "BWP", "BYN", "BYR", "BZD", "CAD", "CDF", "CHF", "CLF", "CLP", "CNY", "COP", "CRC", "CUC", "CUP", "CVE", "CZK", "DJF", "DKK", "DOP", "DZD", "EEK", "EGP", "ERN", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "INR", "IQD", "IRR", "ISK", "JMD", "JOD", "JPY", "KES", "KGS", "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LTL", "LVL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRO", "MRU", "MUR", "MVR", "MWK", "MXN", "MXV", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SKK", "SLE", "SLL", "SOS", "SRD", "STN", "STD", "SVC", "SYP", "SZL", "THB", "TJS", "TMT", "TND", "TOP", "TRY_LIRA", "TTD", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "UZS", "VEF", "VES", "VND", "VUV", "WST", "XAF", "XCD", "XOF", "XPF", "YER", "ZAR", "ZMW", "ZMK", "ZWD", "EMPTY_CURRENCY" ]
 };
       defs["Element"] = {
   "title" : "",
@@ -5626,7 +5632,7 @@ ul.nav-tabs {
     "ReportTaxType" : {
       "type" : "string",
       "description" : "See ReportTaxTypes",
-      "enum" : [ "AVALARA", "BASEXCLUDED", "CAPITALSALESOUTPUT", "CAPITALEXPENSESINPUT", "ECOUTPUT", "ECOUTPUTSERVICES", "ECINPUT", "ECACQUISITIONS", "EXEMPTEXPENSES", "EXEMPTINPUT", "EXEMPTOUTPUT", "GSTONIMPORTS", "INPUT", "INPUTTAXED", "MOSSSALES", "NONE", "NONEOUTPUT", "OUTPUT", "PURCHASESINPUT", "SALESOUTPUT", "EXEMPTCAPITAL", "EXEMPTEXPORT", "CAPITALEXINPUT", "GSTONCAPIMPORTS", "GSTONCAPITALIMPORTS", "REVERSECHARGES", "PAYMENTS", "INVOICE", "CASH", "ACCRUAL", "FLATRATECASH", "FLATRATEACCRUAL", "ACCRUALS", "TXCA", "SRCAS", "DSOUTPUT", "BLINPUT2", "EPINPUT", "IMINPUT2", "MEINPUT", "IGDSINPUT2", "ESN33OUTPUT", "OPINPUT", "OSOUTPUT", "TXN33INPUT", "TXESSINPUT", "TXREINPUT", "TXPETINPUT", "NRINPUT", "ES33OUTPUT", "ZERORATEDINPUT", "ZERORATEDOUTPUT", "DRCHARGESUPPLY", "DRCHARGE", "CAPINPUT", "CAPIMPORTS", "IMINPUT", "INPUT2", "CIUINPUT", "SRINPUT", "OUTPUT2", "SROUTPUT", "CAPOUTPUT", "SROUTPUT2", "CIUOUTPUT", "ZROUTPUT", "ZREXPORT", "ACC28PLUS", "ACCUPTO28", "OTHEROUTPUT", "SHOUTPUT", "ZRINPUT", "BADDEBT", "OTHERINPUT", "BADDEBTRELIEF", "IGDSINPUT3", "SROVR", "TOURISTREFUND", "TXRCN33INPUT", "TXRCREINPUT", "TXRCESSINPUT", "TXRCTSINPUT", "CAPEXINPUT", "UNDEFINED", "CAPEXOUTPUT", "ZEROEXPOUTPUT", "GOODSIMPORT", "NONEINPUT", "NOTREPORTED", "SROVRRS", "SROVRLVG", "SRLVG" ]
+      "enum" : [ "AVALARA", "BASEXCLUDED", "CAPITALSALESOUTPUT", "CAPITALEXPENSESINPUT", "ECOUTPUT", "ECOUTPUTSERVICES", "ECINPUT", "ECACQUISITIONS", "EXEMPTEXPENSES", "EXEMPTINPUT", "EXEMPTOUTPUT", "GSTONIMPORTS", "INPUT", "INPUTTAXED", "MOSSSALES", "NONE", "NONEOUTPUT", "OUTPUT", "PURCHASESINPUT", "SALESOUTPUT", "EXEMPTCAPITAL", "EXEMPTEXPORT", "CAPITALEXINPUT", "GSTONCAPIMPORTS", "GSTONCAPITALIMPORTS", "REVERSECHARGES", "PAYMENTS", "INVOICE", "CASH", "ACCRUAL", "FLATRATECASH", "FLATRATEACCRUAL", "ACCRUALS", "TXCA", "SRCAS", "DSOUTPUT", "BLINPUT2", "EPINPUT", "IMINPUT2", "MEINPUT", "IGDSINPUT2", "ESN33OUTPUT", "OPINPUT", "OSOUTPUT", "TXN33INPUT", "TXESSINPUT", "TXREINPUT", "TXPETINPUT", "NRINPUT", "ES33OUTPUT", "ZERORATEDINPUT", "ZERORATEDOUTPUT", "DRCHARGESUPPLY", "DRCHARGE", "CAPINPUT", "CAPIMPORTS", "IMINPUT", "INPUT2", "CIUINPUT", "SRINPUT", "OUTPUT2", "SROUTPUT", "CAPOUTPUT", "SROUTPUT2", "CIUOUTPUT", "ZROUTPUT", "ZREXPORT", "ACC28PLUS", "ACCUPTO28", "OTHEROUTPUT", "SHOUTPUT", "ZRINPUT", "BADDEBT", "OTHERINPUT", "BADDEBTRELIEF", "IGDSINPUT3", "SROVR", "TOURISTREFUND", "TXRCN33", "TXRCRE", "TXRCESS", "TXRCTS", "CAPEXINPUT", "UNDEFINED", "CAPEXOUTPUT", "ZEROEXPOUTPUT", "GOODSIMPORT", "NONEINPUT", "NOTREPORTED", "SROVRRS", "SROVRLVG", "SRLVG", "IM", "IMESS", "IMN33", "IMRE", "BADDEBTRECOVERY" ]
     },
     "CanApplyToAssets" : {
       "type" : "boolean",
@@ -5691,7 +5697,7 @@ ul.nav-tabs {
   "title" : "",
   "type" : "string",
   "description" : "See Tax Types – can only be used on update calls",
-  "enum" : [ "OUTPUT", "INPUT", "CAPEXINPUT", "EXEMPTEXPORT", "EXEMPTEXPENSES", "EXEMPTCAPITAL", "EXEMPTOUTPUT", "INPUTTAXED", "BASEXCLUDED", "GSTONCAPIMPORTS", "GSTONIMPORTS", "NONE", "INPUT2", "ZERORATED", "OUTPUT2", "CAPEXINPUT2", "CAPEXOUTPUT", "CAPEXOUTPUT2", "CAPEXSRINPUT", "CAPEXSROUTPUT", "ECACQUISITIONS", "ECZRINPUT", "ECZROUTPUT", "ECZROUTPUTSERVICES", "EXEMPTINPUT", "REVERSECHARGES", "RRINPUT", "RROUTPUT", "SRINPUT", "SROUTPUT", "ZERORATEDINPUT", "ZERORATEDOUTPUT", "BLINPUT", "DSOUTPUT", "EPINPUT", "ES33OUTPUT", "ESN33OUTPUT", "IGDSINPUT2", "IMINPUT2", "MEINPUT", "NRINPUT", "OPINPUT", "OSOUTPUT", "TXESSINPUT", "TXN33INPUT", "TXPETINPUT", "TXREINPUT", "INPUT3", "INPUT4", "OUTPUT3", "OUTPUT4", "SROUTPUT2", "TXCA", "SRCAS", "BLINPUT2", "DRCHARGESUPPLY20", "DRCHARGE20", "DRCHARGESUPPLY5", "DRCHARGE5", "BADDEBTRELIEF", "IGDSINPUT3", "SROVR", "TOURISTREFUND", "TXRCN33INPUT", "TXRCREINPUT", "TXRCESSINPUT", "TXRCTSINPUT", "OUTPUTY23", "DSOUTPUTY23", "INPUTY23", "IMINPUT2Y23", "IGDSINPUT2Y23", "TXPETINPUTY23", "TXESSINPUTY23", "TXN33INPUTY23", "TXREINPUTY23", "TXCAY23", "BADDEBTRELIEFY23", "IGDSINPUT3Y23", "SROVRRSY23", "SROVRLVGY23", "SRLVGY23" ]
+  "enum" : [ "OUTPUT", "INPUT", "CAPEXINPUT", "EXEMPTEXPORT", "EXEMPTEXPENSES", "EXEMPTCAPITAL", "EXEMPTOUTPUT", "INPUTTAXED", "BASEXCLUDED", "GSTONCAPIMPORTS", "GSTONIMPORTS", "NONE", "INPUT2", "ZERORATED", "OUTPUT2", "CAPEXINPUT2", "CAPEXOUTPUT", "CAPEXOUTPUT2", "CAPEXSRINPUT", "CAPEXSROUTPUT", "ECACQUISITIONS", "ECZRINPUT", "ECZROUTPUT", "ECZROUTPUTSERVICES", "EXEMPTINPUT", "REVERSECHARGES", "RRINPUT", "RROUTPUT", "SRINPUT", "SROUTPUT", "ZERORATEDINPUT", "ZERORATEDOUTPUT", "BLINPUT", "DSOUTPUT", "EPINPUT", "ES33OUTPUT", "ESN33OUTPUT", "IGDSINPUT2", "IMINPUT2", "MEINPUT", "NRINPUT", "OPINPUT", "OSOUTPUT", "TXESSINPUT", "TXN33INPUT", "TXPETINPUT", "TXREINPUT", "INPUT3", "INPUT4", "OUTPUT3", "OUTPUT4", "SROUTPUT2", "TXCA", "SRCAS", "BLINPUT2", "DRCHARGESUPPLY20", "DRCHARGE20", "DRCHARGESUPPLY5", "DRCHARGE5", "BADDEBTRELIEF", "IGDSINPUT3", "SROVR", "TOURISTREFUND", "TXRCN33", "TXRCRE", "TXRCESS", "TXRCTS", "OUTPUTY23", "DSOUTPUTY23", "INPUTY23", "IMINPUT2Y23", "IGDSINPUT2Y23", "TXPETINPUTY23", "TXESSINPUTY23", "TXN33INPUTY23", "TXREINPUTY23", "TXCAY23", "BADDEBTRELIEFY23", "IGDSINPUT3Y23", "SROVRRSY23", "SROVRLVGY23", "SRLVGY23", "TXRCN33Y23", "TXRCREY23", "TXRCESSY23", "TXRCTSY23", "IM", "IMY23", "IMESS", "IMESSY23", "IMN33", "IMN33Y23", "IMRE", "IMREY23", "BADDEBTRECOVERY", "BADDEBTRECOVERYY23", "OUTPUTY24", "DSOUTPUTY24", "INPUTY24", "IGDSINPUT2Y24", "TXPETINPUTY24", "TXESSINPUTY24", "TXN33INPUTY24", "TXREINPUTY24", "TXCAY24", "BADDEBTRELIEFY24", "IGDSINPUT3Y24", "SROVRRSY24", "SROVRLVGY24", "SRLVGY24", "TXRCTSY24", "TXRCESSY24", "TXRCN33Y24", "TXRCREY24", "IMY24", "IMESSY24", "IMN33Y24", "IMREY24", "BADDEBTRECOVERYY24", "OSOUTPUT2" ]
 };
       defs["TenNinetyNineContact"] = {
   "title" : "",
@@ -5810,6 +5816,19 @@ ul.nav-tabs {
       "type" : "string",
       "description" : "Contact contact id",
       "format" : "uuid"
+    },
+    "LegalName" : {
+      "type" : "string",
+      "description" : "Contact legal name"
+    },
+    "BusinessName" : {
+      "type" : "string",
+      "description" : "Contact business name"
+    },
+    "FederalTaxClassification" : {
+      "type" : "string",
+      "description" : "Contact federal tax classification",
+      "enum" : [ "SOLE_PROPRIETOR", "PARTNERSHIP", "TRUST_OR_ESTATE", "NONPROFIT", "C_CORP", "S_CORP", "OTHER" ]
     }
   },
   "description" : ""
@@ -6073,7 +6092,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="Accounting"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="Accounting"><strong>VSN: </strong>2.21.0</li>
+              <li class="nav-header" data-group="Accounting"><strong>VSN: </strong>2.23.2</li>
               <li class="nav-header" data-group="Accounting"><a href="#api-Accounting">Methods</a></li>
               <li data-group="Accounting" data-name="createAccount" class="">
                 <a href="#api-Accounting-createAccount">createAccount</a>
@@ -6258,14 +6277,23 @@ ul.nav-tabs {
               <li data-group="Accounting" data-name="deleteContactGroupContacts" class="">
                 <a href="#api-Accounting-deleteContactGroupContacts">deleteContactGroupContacts</a>
               </li>
+              <li data-group="Accounting" data-name="deleteCreditNoteAllocations" class="">
+                <a href="#api-Accounting-deleteCreditNoteAllocations">deleteCreditNoteAllocations</a>
+              </li>
               <li data-group="Accounting" data-name="deleteItem" class="">
                 <a href="#api-Accounting-deleteItem">deleteItem</a>
               </li>
               <li data-group="Accounting" data-name="deleteLinkedTransaction" class="">
                 <a href="#api-Accounting-deleteLinkedTransaction">deleteLinkedTransaction</a>
               </li>
+              <li data-group="Accounting" data-name="deleteOverpaymentAllocations" class="">
+                <a href="#api-Accounting-deleteOverpaymentAllocations">deleteOverpaymentAllocations</a>
+              </li>
               <li data-group="Accounting" data-name="deletePayment" class="">
                 <a href="#api-Accounting-deletePayment">deletePayment</a>
+              </li>
+              <li data-group="Accounting" data-name="deletePrepaymentAllocations" class="">
+                <a href="#api-Accounting-deletePrepaymentAllocations">deletePrepaymentAllocations</a>
               </li>
               <li data-group="Accounting" data-name="deleteTrackingCategory" class="">
                 <a href="#api-Accounting-deleteTrackingCategory">deleteTrackingCategory</a>
@@ -6534,6 +6562,9 @@ ul.nav-tabs {
               <li data-group="Accounting" data-name="getPurchaseOrderAsPdf" class="">
                 <a href="#api-Accounting-getPurchaseOrderAsPdf">getPurchaseOrderAsPdf</a>
               </li>
+              <li data-group="Accounting" data-name="getPurchaseOrderAttachmentByFileName" class="">
+                <a href="#api-Accounting-getPurchaseOrderAttachmentByFileName">getPurchaseOrderAttachmentByFileName</a>
+              </li>
               <li data-group="Accounting" data-name="getPurchaseOrderAttachmentById" class="">
                 <a href="#api-Accounting-getPurchaseOrderAttachmentById">getPurchaseOrderAttachmentById</a>
               </li>
@@ -6548,9 +6579,6 @@ ul.nav-tabs {
               </li>
               <li data-group="Accounting" data-name="getPurchaseOrders" class="">
                 <a href="#api-Accounting-getPurchaseOrders">getPurchaseOrders</a>
-              </li>
-              <li data-group="Accounting" data-name="getPurchaseOrder≠AttachmentByFileName" class="">
-                <a href="#api-Accounting-getPurchaseOrder≠AttachmentByFileName">getPurchaseOrder≠AttachmentByFileName</a>
               </li>
               <li data-group="Accounting" data-name="getQuote" class="">
                 <a href="#api-Accounting-getQuote">getQuote</a>
@@ -6826,6 +6854,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 
 $account = new XeroAPI\XeroPHP\Models\Accounting\Account;
 $account->setCode('123456');
@@ -6834,7 +6863,7 @@ $account->setType(XeroAPI\XeroPHP\Models\Accounting\AccountType::EXPENSE);
 $account->setDescription('Hello World');
 
 try {
-  $result = $apiInstance->createAccount($xeroTenantId, $account);
+  $result = $apiInstance->createAccount($xeroTenantId, $account, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createAccount: ', $e->getMessage(), PHP_EOL;
 }
@@ -6876,6 +6905,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createAccount_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -6958,13 +7007,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $accountID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
+$idempotencyKey = "KEY_VALUE";
 
 $handle = fopen($fileName, "r");
 $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->createAccountAttachmentByFileName($xeroTenantId, $accountID, $fileName, $body);
+  $result = $apiInstance->createAccountAttachmentByFileName($xeroTenantId, $accountID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createAccountAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -7067,6 +7117,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createAccountAttachmentByFileName_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -7144,13 +7214,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $bankTransactionID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
+$idempotencyKey = "KEY_VALUE";
 
 $handle = fopen($fileName, "r");
 $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->createBankTransactionAttachmentByFileName($xeroTenantId, $bankTransactionID, $fileName, $body);
+  $result = $apiInstance->createBankTransactionAttachmentByFileName($xeroTenantId, $bankTransactionID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createBankTransactionAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -7253,6 +7324,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createBankTransactionAttachmentByFileName_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -7329,6 +7420,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $bankTransactionID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $historyRecord = new XeroAPI\XeroPHP\Models\Accounting\HistoryRecord;
 $historyRecord->setDetails('Hello World');
@@ -7339,7 +7431,7 @@ array_push($arr_history_records, $historyRecord);
 $historyRecords->setHistoryRecords($arr_history_records);
 
 try {
-  $result = $apiInstance->createBankTransactionHistoryRecord($xeroTenantId, $bankTransactionID, $historyRecords);
+  $result = $apiInstance->createBankTransactionHistoryRecord($xeroTenantId, $bankTransactionID, $historyRecords, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createBankTransactionHistoryRecord: ', $e->getMessage(), PHP_EOL;
 }
@@ -7414,6 +7506,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createBankTransactionHistoryRecord_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -7494,6 +7606,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $unitdp = 4;
 
@@ -7523,7 +7636,7 @@ array_push($arr_bank_transactions, $bankTransaction);
 $bankTransactions->setBankTransactions($arr_bank_transactions);
 
 try {
-  $result = $apiInstance->createBankTransactions($xeroTenantId, $bankTransactions, $summarizeErrors, $unitdp);
+  $result = $apiInstance->createBankTransactions($xeroTenantId, $bankTransactions, $idempotencyKey, $summarizeErrors, $unitdp);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createBankTransactions: ', $e->getMessage(), PHP_EOL;
 }
@@ -7565,6 +7678,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createBankTransactions_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -7692,6 +7825,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 
 $fromBankAccount = new XeroAPI\XeroPHP\Models\Accounting\Account;
 $fromBankAccount->setAccountID('00000000-0000-0000-0000-000000000000');
@@ -7710,7 +7844,7 @@ array_push($arr_bank_transfers, $bankTransfer);
 $bankTransfers->setBankTransfers($arr_bank_transfers);
 
 try {
-  $result = $apiInstance->createBankTransfer($xeroTenantId, $bankTransfers);
+  $result = $apiInstance->createBankTransfer($xeroTenantId, $bankTransfers, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createBankTransfer: ', $e->getMessage(), PHP_EOL;
 }
@@ -7752,6 +7886,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createBankTransfer_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -7834,13 +7988,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $bankTransferID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
+$idempotencyKey = "KEY_VALUE";
 
 $handle = fopen($fileName, "r");
 $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->createBankTransferAttachmentByFileName($xeroTenantId, $bankTransferID, $fileName, $body);
+  $result = $apiInstance->createBankTransferAttachmentByFileName($xeroTenantId, $bankTransferID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createBankTransferAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -7943,6 +8098,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createBankTransferAttachmentByFileName_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -8019,6 +8194,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $bankTransferID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $historyRecord = new XeroAPI\XeroPHP\Models\Accounting\HistoryRecord;
 $historyRecord->setDetails('Hello World');
@@ -8029,7 +8205,7 @@ array_push($arr_history_records, $historyRecord);
 $historyRecords->setHistoryRecords($arr_history_records);
 
 try {
-  $result = $apiInstance->createBankTransferHistoryRecord($xeroTenantId, $bankTransferID, $historyRecords);
+  $result = $apiInstance->createBankTransferHistoryRecord($xeroTenantId, $bankTransferID, $historyRecords, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createBankTransferHistoryRecord: ', $e->getMessage(), PHP_EOL;
 }
@@ -8104,6 +8280,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createBankTransferHistoryRecord_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -8185,6 +8381,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $summarizeErrors = true;
+$idempotencyKey = "KEY_VALUE";
 $currDate = new DateTime('2020-12-10');
 
 $paymentAccount = new XeroAPI\XeroPHP\Models\Accounting\Account;
@@ -8216,7 +8413,7 @@ array_push($arr_batch_payments, $batchPayment);
 $batchPayments->setBatchPayments($arr_batch_payments);
 
 try {
-  $result = $apiInstance->createBatchPayment($xeroTenantId, $batchPayments, $summarizeErrors);
+  $result = $apiInstance->createBatchPayment($xeroTenantId, $batchPayments, $summarizeErrors, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createBatchPayment: ', $e->getMessage(), PHP_EOL;
 }
@@ -8258,6 +8455,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createBatchPayment_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -8366,6 +8583,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $batchPaymentID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $historyRecord = new XeroAPI\XeroPHP\Models\Accounting\HistoryRecord;
 $historyRecord->setDetails('Hello World');
@@ -8376,7 +8594,7 @@ array_push($arr_history_records, $historyRecord);
 $historyRecords->setHistoryRecords($arr_history_records);
 
 try {
-  $result = $apiInstance->createBatchPaymentHistoryRecord($xeroTenantId, $batchPaymentID, $historyRecords);
+  $result = $apiInstance->createBatchPaymentHistoryRecord($xeroTenantId, $batchPaymentID, $historyRecords, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createBatchPaymentHistoryRecord: ', $e->getMessage(), PHP_EOL;
 }
@@ -8451,6 +8669,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createBatchPaymentHistoryRecord_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -8532,6 +8770,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $brandingThemeID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $paymentService = new XeroAPI\XeroPHP\Models\Accounting\PaymentService;
 $paymentService->setPaymentServiceID('00000000-0000-0000-0000-000000000000');
@@ -8545,7 +8784,7 @@ array_push($arr_paymentServices, $paymentService);
 $paymentServices->setPaymentServices($arr_paymentServices);
 
 try {
-  $result = $apiInstance->createBrandingThemePaymentServices($xeroTenantId, $brandingThemeID, $paymentServices);
+  $result = $apiInstance->createBrandingThemePaymentServices($xeroTenantId, $brandingThemeID, $paymentServices, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createBrandingThemePaymentServices: ', $e->getMessage(), PHP_EOL;
 }
@@ -8620,6 +8859,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createBrandingThemePaymentServices_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -8702,13 +8961,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $contactID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
+$idempotencyKey = "KEY_VALUE";
 
 $handle = fopen($fileName, "r");
 $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->createContactAttachmentByFileName($xeroTenantId, $contactID, $fileName, $body);
+  $result = $apiInstance->createContactAttachmentByFileName($xeroTenantId, $contactID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createContactAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -8811,6 +9071,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createContactAttachmentByFileName_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -8886,6 +9166,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 
 $contactGroup = new XeroAPI\XeroPHP\Models\Accounting\ContactGroup;
 $contactGroup->setName('VIPs');
@@ -8896,7 +9177,7 @@ array_push($arr_contact_groups, $contactGroup);
 $contactGroups->setContactGroups($arr_contact_groups);
 
 try {
-  $result = $apiInstance->createContactGroup($xeroTenantId, $contactGroups);
+  $result = $apiInstance->createContactGroup($xeroTenantId, $contactGroups, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createContactGroup: ', $e->getMessage(), PHP_EOL;
 }
@@ -8938,6 +9219,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createContactGroup_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -9019,6 +9320,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $contactGroupID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
 $contact->setContactID('00000000-0000-0000-0000-000000000000');
@@ -9029,7 +9331,7 @@ array_push($arr_contacts, $contact);
 $contacts->setContacts($arr_contacts);
 
 try {
-  $result = $apiInstance->createContactGroupContacts($xeroTenantId, $contactGroupID, $contacts);
+  $result = $apiInstance->createContactGroupContacts($xeroTenantId, $contactGroupID, $contacts, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createContactGroupContacts: ', $e->getMessage(), PHP_EOL;
 }
@@ -9104,6 +9406,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createContactGroupContacts_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -9185,6 +9507,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $contactID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $historyRecord = new XeroAPI\XeroPHP\Models\Accounting\HistoryRecord;
 $historyRecord->setDetails('Hello World');
@@ -9195,7 +9518,7 @@ array_push($arr_history_records, $historyRecord);
 $historyRecords->setHistoryRecords($arr_history_records);
 
 try {
-  $result = $apiInstance->createContactHistory($xeroTenantId, $contactID, $historyRecords);
+  $result = $apiInstance->createContactHistory($xeroTenantId, $contactID, $historyRecords, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createContactHistory: ', $e->getMessage(), PHP_EOL;
 }
@@ -9270,6 +9593,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createContactHistory_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -9350,6 +9693,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 
 $phone = new XeroAPI\XeroPHP\Models\Accounting\Phone;
@@ -9369,7 +9713,7 @@ array_push($arr_contacts, $contact);
 $contacts->setContacts($arr_contacts);
 
 try {
-  $result = $apiInstance->createContacts($xeroTenantId, $contacts, $summarizeErrors);
+  $result = $apiInstance->createContacts($xeroTenantId, $contacts, $idempotencyKey, $summarizeErrors);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createContacts: ', $e->getMessage(), PHP_EOL;
 }
@@ -9411,6 +9755,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createContacts_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -9519,6 +9883,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $creditNoteID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $currDate = new DateTime('2020-12-10');
 
@@ -9536,7 +9901,7 @@ array_push($arr_allocations, $allocation);
 $allocations->setAllocations($arr_allocations);
 
 try {
-  $result = $apiInstance->createCreditNoteAllocation($xeroTenantId, $creditNoteID, $allocations, $summarizeErrors);
+  $result = $apiInstance->createCreditNoteAllocation($xeroTenantId, $creditNoteID, $allocations, $idempotencyKey, $summarizeErrors);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createCreditNoteAllocation: ', $e->getMessage(), PHP_EOL;
 }
@@ -9611,6 +9976,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createCreditNoteAllocation_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -9720,6 +10105,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $creditNoteID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
+$idempotencyKey = "KEY_VALUE";
 $includeOnline = true;
 
 $handle = fopen($fileName, "r");
@@ -9727,7 +10113,7 @@ $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->createCreditNoteAttachmentByFileName($xeroTenantId, $creditNoteID, $fileName, $body, $includeOnline);
+  $result = $apiInstance->createCreditNoteAttachmentByFileName($xeroTenantId, $creditNoteID, $fileName, $body, $idempotencyKey, $includeOnline);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createCreditNoteAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -9825,6 +10211,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createCreditNoteAttachmentByFileName_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -9933,6 +10339,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $creditNoteID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $historyRecord = new XeroAPI\XeroPHP\Models\Accounting\HistoryRecord;
 $historyRecord->setDetails('Hello World');
@@ -9943,7 +10350,7 @@ array_push($arr_history_records, $historyRecord);
 $historyRecords->setHistoryRecords($arr_history_records);
 
 try {
-  $result = $apiInstance->createCreditNoteHistory($xeroTenantId, $creditNoteID, $historyRecords);
+  $result = $apiInstance->createCreditNoteHistory($xeroTenantId, $creditNoteID, $historyRecords, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createCreditNoteHistory: ', $e->getMessage(), PHP_EOL;
 }
@@ -10018,6 +10425,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createCreditNoteHistory_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -10098,6 +10525,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $unitdp = 4;
 $currDate = new DateTime('2020-12-10');
@@ -10125,7 +10553,7 @@ array_push($arr_credit_notes, $creditNote);
 $creditNotes->setCreditNotes($arr_credit_notes);
 
 try {
-  $result = $apiInstance->createCreditNotes($xeroTenantId, $creditNotes, $summarizeErrors, $unitdp);
+  $result = $apiInstance->createCreditNotes($xeroTenantId, $creditNotes, $idempotencyKey, $summarizeErrors, $unitdp);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createCreditNotes: ', $e->getMessage(), PHP_EOL;
 }
@@ -10167,6 +10595,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createCreditNotes_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -10294,13 +10742,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 
 $currency = new XeroAPI\XeroPHP\Models\Accounting\Currency;
 $currency->setCode(XeroAPI\XeroPHP\Models\Accounting\CurrencyCode::USD);
 $currency->setDescription('United States Dollar');
 
 try {
-  $result = $apiInstance->createCurrency($xeroTenantId, $currency);
+  $result = $apiInstance->createCurrency($xeroTenantId, $currency, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createCurrency: ', $e->getMessage(), PHP_EOL;
 }
@@ -10342,6 +10791,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createCurrency_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -10422,6 +10891,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 
 $employee = new XeroAPI\XeroPHP\Models\Accounting\Employee;
@@ -10434,7 +10904,7 @@ array_push($arr_employees, $employee);
 $employees->setEmployees($arr_employees);
 
 try {
-  $result = $apiInstance->createEmployees($xeroTenantId, $employees, $summarizeErrors);
+  $result = $apiInstance->createEmployees($xeroTenantId, $employees, $idempotencyKey, $summarizeErrors);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createEmployees: ', $e->getMessage(), PHP_EOL;
 }
@@ -10476,6 +10946,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createEmployees_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -10584,6 +11074,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $expenseClaimID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $historyRecord = new XeroAPI\XeroPHP\Models\Accounting\HistoryRecord;
 $historyRecord->setDetails('Hello World');
@@ -10594,7 +11085,7 @@ array_push($arr_history_records, $historyRecord);
 $historyRecords->setHistoryRecords($arr_history_records);
 
 try {
-  $result = $apiInstance->createExpenseClaimHistory($xeroTenantId, $expenseClaimID, $historyRecords);
+  $result = $apiInstance->createExpenseClaimHistory($xeroTenantId, $expenseClaimID, $historyRecords, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createExpenseClaimHistory: ', $e->getMessage(), PHP_EOL;
 }
@@ -10669,6 +11160,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createExpenseClaimHistory_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -10749,6 +11260,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $currDate = new DateTime('2020-12-10');
 
 $user = new XeroAPI\XeroPHP\Models\Accounting\User;
@@ -10771,7 +11283,7 @@ array_push($arr_expense_claims, $expenseClaim);
 $expenseClaims->setExpenseClaims($arr_expense_claims);
 
 try {
-  $result = $apiInstance->createExpenseClaims($xeroTenantId, $expenseClaims);
+  $result = $apiInstance->createExpenseClaims($xeroTenantId, $expenseClaims, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createExpenseClaims: ', $e->getMessage(), PHP_EOL;
 }
@@ -10813,6 +11325,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createExpenseClaims_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -10895,6 +11427,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $invoiceID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
+$idempotencyKey = "KEY_VALUE";
 $includeOnline = true;
 
 $handle = fopen($fileName, "r");
@@ -10902,7 +11435,7 @@ $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->createInvoiceAttachmentByFileName($xeroTenantId, $invoiceID, $fileName, $body, $includeOnline);
+  $result = $apiInstance->createInvoiceAttachmentByFileName($xeroTenantId, $invoiceID, $fileName, $body, $idempotencyKey, $includeOnline);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createInvoiceAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -11000,6 +11533,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createInvoiceAttachmentByFileName_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -11108,6 +11661,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $invoiceID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $historyRecord = new XeroAPI\XeroPHP\Models\Accounting\HistoryRecord;
 $historyRecord->setDetails('Hello World');
@@ -11118,7 +11672,7 @@ array_push($arr_history_records, $historyRecord);
 $historyRecords->setHistoryRecords($arr_history_records);
 
 try {
-  $result = $apiInstance->createInvoiceHistory($xeroTenantId, $invoiceID, $historyRecords);
+  $result = $apiInstance->createInvoiceHistory($xeroTenantId, $invoiceID, $historyRecords, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createInvoiceHistory: ', $e->getMessage(), PHP_EOL;
 }
@@ -11193,6 +11747,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createInvoiceHistory_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -11273,6 +11847,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $unitdp = 4;
 $dateValue = new DateTime('2020-10-10');
@@ -11311,7 +11886,7 @@ array_push($arr_invoices, $invoice);
 $invoices->setInvoices($arr_invoices);
 
 try {
-  $result = $apiInstance->createInvoices($xeroTenantId, $invoices, $summarizeErrors, $unitdp);
+  $result = $apiInstance->createInvoices($xeroTenantId, $invoices, $idempotencyKey, $summarizeErrors, $unitdp);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createInvoices: ', $e->getMessage(), PHP_EOL;
 }
@@ -11353,6 +11928,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createInvoices_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -11481,6 +12076,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $itemID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $historyRecord = new XeroAPI\XeroPHP\Models\Accounting\HistoryRecord;
 $historyRecord->setDetails('Hello World');
@@ -11491,7 +12087,7 @@ array_push($arr_history_records, $historyRecord);
 $historyRecords->setHistoryRecords($arr_history_records);
 
 try {
-  $result = $apiInstance->createItemHistory($xeroTenantId, $itemID, $historyRecords);
+  $result = $apiInstance->createItemHistory($xeroTenantId, $itemID, $historyRecords, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createItemHistory: ', $e->getMessage(), PHP_EOL;
 }
@@ -11566,6 +12162,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createItemHistory_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -11646,6 +12262,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $unitdp = 4;
 
@@ -11665,7 +12282,7 @@ array_push($arr_items, $item);
 $items->setItems($arr_items);
 
 try {
-  $result = $apiInstance->createItems($xeroTenantId, $items, $summarizeErrors, $unitdp);
+  $result = $apiInstance->createItems($xeroTenantId, $items, $idempotencyKey, $summarizeErrors, $unitdp);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createItems: ', $e->getMessage(), PHP_EOL;
 }
@@ -11707,6 +12324,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createItems_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -11834,13 +12471,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 
 $linkedTransaction = new XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction;
 $linkedTransaction->setSourceTransactionID('00000000-0000-0000-0000-000000000000');
 $linkedTransaction->setSourceLineItemID('00000000-0000-0000-0000-000000000000');
 
 try {
-  $result = $apiInstance->createLinkedTransaction($xeroTenantId, $linkedTransaction);
+  $result = $apiInstance->createLinkedTransaction($xeroTenantId, $linkedTransaction, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createLinkedTransaction: ', $e->getMessage(), PHP_EOL;
 }
@@ -11882,6 +12520,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createLinkedTransaction_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -11964,13 +12622,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $manualJournalID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
+$idempotencyKey = "KEY_VALUE";
 
 $handle = fopen($fileName, "r");
 $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->createManualJournalAttachmentByFileName($xeroTenantId, $manualJournalID, $fileName, $body);
+  $result = $apiInstance->createManualJournalAttachmentByFileName($xeroTenantId, $manualJournalID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createManualJournalAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -12073,6 +12732,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createManualJournalAttachmentByFileName_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -12149,6 +12828,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $manualJournalID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $historyRecord = new XeroAPI\XeroPHP\Models\Accounting\HistoryRecord;
 $historyRecord->setDetails('Hello World');
@@ -12159,7 +12839,7 @@ array_push($arr_history_records, $historyRecord);
 $historyRecords->setHistoryRecords($arr_history_records);
 
 try {
-  $result = $apiInstance->createManualJournalHistoryRecord($xeroTenantId, $manualJournalID, $historyRecords);
+  $result = $apiInstance->createManualJournalHistoryRecord($xeroTenantId, $manualJournalID, $historyRecords, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createManualJournalHistoryRecord: ', $e->getMessage(), PHP_EOL;
 }
@@ -12234,6 +12914,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createManualJournalHistoryRecord_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -12314,6 +13014,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $dateValue = new DateTime('2019-10-10');
 $manualJournalLines = [];
@@ -12341,7 +13042,7 @@ array_push($arr_manual_journals, $manualJournal);
 $manualJournals->setManualJournals($arr_manual_journals);
 
 try {
-  $result = $apiInstance->createManualJournals($xeroTenantId, $manualJournals, $summarizeErrors);
+  $result = $apiInstance->createManualJournals($xeroTenantId, $manualJournals, $idempotencyKey, $summarizeErrors);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createManualJournals: ', $e->getMessage(), PHP_EOL;
 }
@@ -12383,6 +13084,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createManualJournals_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -12491,6 +13212,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $overpaymentID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $currDate = new DateTime('2020-12-10');
 
@@ -12508,7 +13230,7 @@ array_push($arr_allocations, $allocation);
 $allocations->setAllocations($arr_allocations);
 
 try {
-  $result = $apiInstance->createOverpaymentAllocations($xeroTenantId, $overpaymentID, $allocations, $summarizeErrors);
+  $result = $apiInstance->createOverpaymentAllocations($xeroTenantId, $overpaymentID, $allocations, $idempotencyKey, $summarizeErrors);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createOverpaymentAllocations: ', $e->getMessage(), PHP_EOL;
 }
@@ -12583,6 +13305,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createOverpaymentAllocations_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -12691,6 +13433,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $overpaymentID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $historyRecord = new XeroAPI\XeroPHP\Models\Accounting\HistoryRecord;
 $historyRecord->setDetails('Hello World');
@@ -12701,7 +13444,7 @@ array_push($arr_history_records, $historyRecord);
 $historyRecords->setHistoryRecords($arr_history_records);
 
 try {
-  $result = $apiInstance->createOverpaymentHistory($xeroTenantId, $overpaymentID, $historyRecords);
+  $result = $apiInstance->createOverpaymentHistory($xeroTenantId, $overpaymentID, $historyRecords, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createOverpaymentHistory: ', $e->getMessage(), PHP_EOL;
 }
@@ -12776,6 +13519,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createOverpaymentHistory_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -12856,6 +13619,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $dateValue = new DateTime('2020-10-10');
 
 $invoice = new XeroAPI\XeroPHP\Models\Accounting\Invoice;
@@ -12876,7 +13640,7 @@ array_push($arr_payments, $payment);
 $payments->setPayments($arr_payments);
 
 try {
-  $result = $apiInstance->createPayment($xeroTenantId, $payment);
+  $result = $apiInstance->createPayment($xeroTenantId, $payment, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createPayment: ', $e->getMessage(), PHP_EOL;
 }
@@ -12918,6 +13682,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createPayment_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -12999,6 +13783,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $paymentID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $historyRecord = new XeroAPI\XeroPHP\Models\Accounting\HistoryRecord;
 $historyRecord->setDetails('Hello World');
@@ -13009,7 +13794,7 @@ array_push($arr_history_records, $historyRecord);
 $historyRecords->setHistoryRecords($arr_history_records);
 
 try {
-  $result = $apiInstance->createPaymentHistory($xeroTenantId, $paymentID, $historyRecords);
+  $result = $apiInstance->createPaymentHistory($xeroTenantId, $paymentID, $historyRecords, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createPaymentHistory: ', $e->getMessage(), PHP_EOL;
 }
@@ -13084,6 +13869,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createPaymentHistory_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -13164,6 +13969,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 
 $paymentService = new XeroAPI\XeroPHP\Models\Accounting\PaymentService;
 $paymentService->setPaymentServiceName('ACME Payments');
@@ -13176,7 +13982,7 @@ array_push($arr_paymentServices, $paymentService);
 $paymentServices->setPaymentServices($arr_paymentServices);
 
 try {
-  $result = $apiInstance->createPaymentService($xeroTenantId, $paymentServices);
+  $result = $apiInstance->createPaymentService($xeroTenantId, $paymentServices, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createPaymentService: ', $e->getMessage(), PHP_EOL;
 }
@@ -13218,6 +14024,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createPaymentService_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -13298,6 +14124,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $dateValue = new DateTime('2020-10-10');
 
@@ -13319,7 +14146,7 @@ array_push($arr_payments, $payment);
 $payments->setPayments($arr_payments);
 
 try {
-  $result = $apiInstance->createPayments($xeroTenantId, $payments, $summarizeErrors);
+  $result = $apiInstance->createPayments($xeroTenantId, $payments, $idempotencyKey, $summarizeErrors);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createPayments: ', $e->getMessage(), PHP_EOL;
 }
@@ -13361,6 +14188,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createPayments_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -13469,6 +14316,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $prepaymentID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $currDate = new DateTime('2020-12-10');
 
@@ -13486,7 +14334,7 @@ array_push($arr_allocations, $allocation);
 $allocations->setAllocations($arr_allocations);
 
 try {
-  $result = $apiInstance->createPrepaymentAllocations($xeroTenantId, $prepaymentID, $allocations, $summarizeErrors);
+  $result = $apiInstance->createPrepaymentAllocations($xeroTenantId, $prepaymentID, $allocations, $idempotencyKey, $summarizeErrors);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createPrepaymentAllocations: ', $e->getMessage(), PHP_EOL;
 }
@@ -13561,6 +14409,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createPrepaymentAllocations_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -13669,6 +14537,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $prepaymentID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $historyRecord = new XeroAPI\XeroPHP\Models\Accounting\HistoryRecord;
 $historyRecord->setDetails('Hello World');
@@ -13679,7 +14548,7 @@ array_push($arr_history_records, $historyRecord);
 $historyRecords->setHistoryRecords($arr_history_records);
 
 try {
-  $result = $apiInstance->createPrepaymentHistory($xeroTenantId, $prepaymentID, $historyRecords);
+  $result = $apiInstance->createPrepaymentHistory($xeroTenantId, $prepaymentID, $historyRecords, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createPrepaymentHistory: ', $e->getMessage(), PHP_EOL;
 }
@@ -13754,6 +14623,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createPrepaymentHistory_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -13836,13 +14725,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $purchaseOrderID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
+$idempotencyKey = "KEY_VALUE";
 
 $handle = fopen($fileName, "r");
 $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->createPurchaseOrderAttachmentByFileName($xeroTenantId, $purchaseOrderID, $fileName, $body);
+  $result = $apiInstance->createPurchaseOrderAttachmentByFileName($xeroTenantId, $purchaseOrderID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createPurchaseOrderAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -13945,6 +14835,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createPurchaseOrderAttachmentByFileName_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -14021,6 +14931,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $purchaseOrderID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $historyRecord = new XeroAPI\XeroPHP\Models\Accounting\HistoryRecord;
 $historyRecord->setDetails('Hello World');
@@ -14031,7 +14942,7 @@ array_push($arr_history_records, $historyRecord);
 $historyRecords->setHistoryRecords($arr_history_records);
 
 try {
-  $result = $apiInstance->createPurchaseOrderHistory($xeroTenantId, $purchaseOrderID, $historyRecords);
+  $result = $apiInstance->createPurchaseOrderHistory($xeroTenantId, $purchaseOrderID, $historyRecords, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createPurchaseOrderHistory: ', $e->getMessage(), PHP_EOL;
 }
@@ -14106,6 +15017,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createPurchaseOrderHistory_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -14186,6 +15117,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $dateValue = new DateTime('2020-12-10');
 
@@ -14211,7 +15143,7 @@ array_push($arr_purchase_orders, $purchaseOrder);
 $purchaseOrders->setPurchaseOrders($arr_purchase_orders);
 
 try {
-  $result = $apiInstance->createPurchaseOrders($xeroTenantId, $purchaseOrders, $summarizeErrors);
+  $result = $apiInstance->createPurchaseOrders($xeroTenantId, $purchaseOrders, $idempotencyKey, $summarizeErrors);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createPurchaseOrders: ', $e->getMessage(), PHP_EOL;
 }
@@ -14253,6 +15185,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createPurchaseOrders_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -14362,13 +15314,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $quoteID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
+$idempotencyKey = "KEY_VALUE";
 
 $handle = fopen($fileName, "r");
 $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->createQuoteAttachmentByFileName($xeroTenantId, $quoteID, $fileName, $body);
+  $result = $apiInstance->createQuoteAttachmentByFileName($xeroTenantId, $quoteID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createQuoteAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -14471,6 +15424,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createQuoteAttachmentByFileName_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -14547,6 +15520,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $quoteID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $historyRecord = new XeroAPI\XeroPHP\Models\Accounting\HistoryRecord;
 $historyRecord->setDetails('Hello World');
@@ -14557,7 +15531,7 @@ array_push($arr_history_records, $historyRecord);
 $historyRecords->setHistoryRecords($arr_history_records);
 
 try {
-  $result = $apiInstance->createQuoteHistory($xeroTenantId, $quoteID, $historyRecords);
+  $result = $apiInstance->createQuoteHistory($xeroTenantId, $quoteID, $historyRecords, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createQuoteHistory: ', $e->getMessage(), PHP_EOL;
 }
@@ -14632,6 +15606,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createQuoteHistory_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -14712,6 +15706,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $dateValue = new DateTime('2020-12-10');
 
@@ -14737,7 +15732,7 @@ array_push($arr_quotes, $quote);
 $quotes->setQuotes($arr_quotes);
 
 try {
-  $result = $apiInstance->createQuotes($xeroTenantId, $quotes, $summarizeErrors);
+  $result = $apiInstance->createQuotes($xeroTenantId, $quotes, $idempotencyKey, $summarizeErrors);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createQuotes: ', $e->getMessage(), PHP_EOL;
 }
@@ -14779,6 +15774,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createQuotes_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -14886,6 +15901,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $unitdp = 4;
 
 $contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
@@ -14915,7 +15931,7 @@ array_push($arr_receipts, $receipt);
 $receipts->setReceipts($arr_receipts);
 
 try {
-  $result = $apiInstance->createReceipt($xeroTenantId, $receipts, $unitdp);
+  $result = $apiInstance->createReceipt($xeroTenantId, $receipts, $idempotencyKey, $unitdp);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createReceipt: ', $e->getMessage(), PHP_EOL;
 }
@@ -14957,6 +15973,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createReceipt_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -15066,13 +16102,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $receiptID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
+$idempotencyKey = "KEY_VALUE";
 
 $handle = fopen($fileName, "r");
 $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->createReceiptAttachmentByFileName($xeroTenantId, $receiptID, $fileName, $body);
+  $result = $apiInstance->createReceiptAttachmentByFileName($xeroTenantId, $receiptID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createReceiptAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -15175,6 +16212,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createReceiptAttachmentByFileName_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -15251,6 +16308,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $receiptID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $historyRecord = new XeroAPI\XeroPHP\Models\Accounting\HistoryRecord;
 $historyRecord->setDetails('Hello World');
@@ -15261,7 +16319,7 @@ array_push($arr_history_records, $historyRecord);
 $historyRecords->setHistoryRecords($arr_history_records);
 
 try {
-  $result = $apiInstance->createReceiptHistory($xeroTenantId, $receiptID, $historyRecords);
+  $result = $apiInstance->createReceiptHistory($xeroTenantId, $receiptID, $historyRecords, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createReceiptHistory: ', $e->getMessage(), PHP_EOL;
 }
@@ -15336,6 +16394,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createReceiptHistory_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -15418,13 +16496,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $repeatingInvoiceID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
+$idempotencyKey = "KEY_VALUE";
 
 $handle = fopen($fileName, "r");
 $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->createRepeatingInvoiceAttachmentByFileName($xeroTenantId, $repeatingInvoiceID, $fileName, $body);
+  $result = $apiInstance->createRepeatingInvoiceAttachmentByFileName($xeroTenantId, $repeatingInvoiceID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createRepeatingInvoiceAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -15527,6 +16606,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createRepeatingInvoiceAttachmentByFileName_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -15603,6 +16702,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $repeatingInvoiceID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $historyRecord = new XeroAPI\XeroPHP\Models\Accounting\HistoryRecord;
 $historyRecord->setDetails('Hello World');
@@ -15613,7 +16713,7 @@ array_push($arr_history_records, $historyRecord);
 $historyRecords->setHistoryRecords($arr_history_records);
 
 try {
-  $result = $apiInstance->createRepeatingInvoiceHistory($xeroTenantId, $repeatingInvoiceID, $historyRecords);
+  $result = $apiInstance->createRepeatingInvoiceHistory($xeroTenantId, $repeatingInvoiceID, $historyRecords, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createRepeatingInvoiceHistory: ', $e->getMessage(), PHP_EOL;
 }
@@ -15688,6 +16788,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createRepeatingInvoiceHistory_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -15768,10 +16888,11 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 
 try {
-  $result = $apiInstance->createRepeatingInvoices($xeroTenantId, $repeatingInvoices, $summarizeErrors);
+  $result = $apiInstance->createRepeatingInvoices($xeroTenantId, $repeatingInvoices, $idempotencyKey, $summarizeErrors);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createRepeatingInvoices: ', $e->getMessage(), PHP_EOL;
 }
@@ -15813,6 +16934,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createRepeatingInvoices_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -15920,6 +17061,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 
 $taxComponent = new XeroAPI\XeroPHP\Models\Accounting\TaxComponent;
 $taxComponent->setName('State Tax');
@@ -15937,7 +17079,7 @@ array_push($arr_tax_rates, $taxRate);
 $taxRates->setTaxRates($arr_tax_rates);
 
 try {
-  $result = $apiInstance->createTaxRates($xeroTenantId, $taxRates);
+  $result = $apiInstance->createTaxRates($xeroTenantId, $taxRates, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createTaxRates: ', $e->getMessage(), PHP_EOL;
 }
@@ -15979,6 +17121,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createTaxRates_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -16059,12 +17221,13 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 
 $trackingCategory = new XeroAPI\XeroPHP\Models\Accounting\TrackingCategory;
 $trackingCategory->setName('Foobar');
 
 try {
-  $result = $apiInstance->createTrackingCategory($xeroTenantId, $trackingCategory);
+  $result = $apiInstance->createTrackingCategory($xeroTenantId, $trackingCategory, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createTrackingCategory: ', $e->getMessage(), PHP_EOL;
 }
@@ -16106,6 +17269,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createTrackingCategory_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -16187,12 +17370,13 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $trackingCategoryID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $trackingOption = new XeroAPI\XeroPHP\Models\Accounting\TrackingOption;
 $trackingOption->setName('Foobar');
 
 try {
-  $result = $apiInstance->createTrackingOptions($xeroTenantId, $trackingCategoryID, $trackingOption);
+  $result = $apiInstance->createTrackingOptions($xeroTenantId, $trackingCategoryID, $trackingOption, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createTrackingOptions: ', $e->getMessage(), PHP_EOL;
 }
@@ -16267,6 +17451,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createTrackingOptions_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -16468,13 +17672,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 
 $batchPaymentDelete = new XeroAPI\XeroPHP\Models\Accounting\BatchPaymentDelete;
 $batchPaymentDelete->setStatus('DELETED');
 $batchPaymentDelete->setBatchPaymentID('00000000-0000-0000-0000-000000000000');
 
 try {
-  $result = $apiInstance->deleteBatchPayment($xeroTenantId, $batchPaymentDelete);
+  $result = $apiInstance->deleteBatchPayment($xeroTenantId, $batchPaymentDelete, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->deleteBatchPayment: ', $e->getMessage(), PHP_EOL;
 }
@@ -16516,6 +17721,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_deleteBatchPayment_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -16596,9 +17821,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $batchPaymentID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 try {
-  $result = $apiInstance->deleteBatchPaymentByUrlParam($xeroTenantId, $batchPaymentID, $batchPaymentDeleteByUrlParam);
+  $result = $apiInstance->deleteBatchPaymentByUrlParam($xeroTenantId, $batchPaymentID, $batchPaymentDeleteByUrlParam, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->deleteBatchPaymentByUrlParam: ', $e->getMessage(), PHP_EOL;
 }
@@ -16673,6 +17899,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_deleteBatchPaymentByUrlParam_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -16987,6 +18233,154 @@ Xero identifier for Tenant
                 </article>
               </div>
               <hr>
+              <div id="api-Accounting-deleteCreditNoteAllocations">
+                <article id="api-Accounting-deleteCreditNoteAllocations-0" data-group="User" data-name="deleteCreditNoteAllocations" data-version="0">
+                  <div class="pull-left">
+                    <h1>deleteCreditNoteAllocations</h1>
+                    <p>Deletes an Allocation from a Credit Note</p>
+                  </div>
+                  <div class="pull-right"></div>
+                  <div class="clearfix"></div>
+                  <p></p>
+                  <p class="marked"></p>
+                  <p></p>
+                  <br />
+                  <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/CreditNotes/{CreditNoteID}/Allocations/{AllocationID}</span></code></pre>
+                  <p>
+                  <h3>Usage and SDK Samples</h3>
+                  </p>
+                  <ul class="nav nav-tabs nav-tabs-examples">
+                    <!-- *****REPLACE***** comment out the other languages <li> -->
+                    <li class=""><a href="#examples-Accounting-deleteCreditNoteAllocations-0-php">PHP</a></li>
+                  </ul>
+                  <div class="tab-content">
+                    <!-- *****REPLACE***** comment out the other languages tab-pane -->
+                    <div class="tab-pane" id="examples-Accounting-deleteCreditNoteAllocations-0-php">
+                      <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( 'YOUR_ACCESS_TOKEN' );       
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    new GuzzleHttp\Client(),
+    $config
+);
+$xeroTenantId = "YOUR_XERO_TENANT_ID";
+$creditNoteID = "00000000-0000-0000-0000-000000000000";
+$allocationID = "00000000-0000-0000-0000-000000000000";
+
+try {
+  $result = $apiInstance->deleteCreditNoteAllocations($xeroTenantId, $creditNoteID, $allocationID);
+} catch (Exception $e) {
+  echo 'Exception when calling AccountingApi->deleteCreditNoteAllocations: ', $e->getMessage(), PHP_EOL;
+}
+?>
+</code></pre>
+                    </div>
+                  </div>
+                  <h2>Scopes</h2>
+                  <table>
+                    
+                    <tr>
+                      <td>accounting.transactions</td>
+                      <td>Grant read-write access to bank transactions, credit notes, invoices, repeating invoices</td>
+                    </tr>
+                    
+                  </table>
+                  <h2>Parameters</h2>
+                  <div class="methodsubtabletitle">Path parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">CreditNoteID<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_deleteCreditNoteAllocations_creditNoteID">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    UUID
+                </span>
+                    <span class="format">
+                        (uuid)
+                    </span>
+
+                    <div class="inner description marked">
+Unique identifier for a Credit Note
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">AllocationID<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_deleteCreditNoteAllocations_allocationID">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    UUID
+                </span>
+                    <span class="format">
+                        (uuid)
+                    </span>
+
+                    <div class="inner description marked">
+Unique identifier for Allocation object
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                  <div class="methodsubtabletitle">Header parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">xero-tenant-id<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_deleteCreditNoteAllocations_xeroTenantId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+Xero identifier for Tenant
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                </article>
+              </div>
+              <hr>
               <div id="api-Accounting-deleteItem">
                 <article id="api-Accounting-deleteItem-0" data-group="User" data-name="deleteItem" data-version="0">
                   <div class="pull-left">
@@ -17229,6 +18623,154 @@ Xero identifier for Tenant
                 </article>
               </div>
               <hr>
+              <div id="api-Accounting-deleteOverpaymentAllocations">
+                <article id="api-Accounting-deleteOverpaymentAllocations-0" data-group="User" data-name="deleteOverpaymentAllocations" data-version="0">
+                  <div class="pull-left">
+                    <h1>deleteOverpaymentAllocations</h1>
+                    <p>Deletes an Allocation from an overpayment</p>
+                  </div>
+                  <div class="pull-right"></div>
+                  <div class="clearfix"></div>
+                  <p></p>
+                  <p class="marked"></p>
+                  <p></p>
+                  <br />
+                  <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/Overpayments/{OverpaymentID}/Allocations/{AllocationID}</span></code></pre>
+                  <p>
+                  <h3>Usage and SDK Samples</h3>
+                  </p>
+                  <ul class="nav nav-tabs nav-tabs-examples">
+                    <!-- *****REPLACE***** comment out the other languages <li> -->
+                    <li class=""><a href="#examples-Accounting-deleteOverpaymentAllocations-0-php">PHP</a></li>
+                  </ul>
+                  <div class="tab-content">
+                    <!-- *****REPLACE***** comment out the other languages tab-pane -->
+                    <div class="tab-pane" id="examples-Accounting-deleteOverpaymentAllocations-0-php">
+                      <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( 'YOUR_ACCESS_TOKEN' );       
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    new GuzzleHttp\Client(),
+    $config
+);
+$xeroTenantId = "YOUR_XERO_TENANT_ID";
+$overpaymentID = "00000000-0000-0000-0000-000000000000";
+$allocationID = "00000000-0000-0000-0000-000000000000";
+
+try {
+  $result = $apiInstance->deleteOverpaymentAllocations($xeroTenantId, $overpaymentID, $allocationID);
+} catch (Exception $e) {
+  echo 'Exception when calling AccountingApi->deleteOverpaymentAllocations: ', $e->getMessage(), PHP_EOL;
+}
+?>
+</code></pre>
+                    </div>
+                  </div>
+                  <h2>Scopes</h2>
+                  <table>
+                    
+                    <tr>
+                      <td>accounting.transactions</td>
+                      <td>Grant read-write access to bank transactions, credit notes, invoices, repeating invoices</td>
+                    </tr>
+                    
+                  </table>
+                  <h2>Parameters</h2>
+                  <div class="methodsubtabletitle">Path parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">OverpaymentID<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_deleteOverpaymentAllocations_overpaymentID">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    UUID
+                </span>
+                    <span class="format">
+                        (uuid)
+                    </span>
+
+                    <div class="inner description marked">
+Unique identifier for a Overpayment
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">AllocationID<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_deleteOverpaymentAllocations_allocationID">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    UUID
+                </span>
+                    <span class="format">
+                        (uuid)
+                    </span>
+
+                    <div class="inner description marked">
+Unique identifier for Allocation object
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                  <div class="methodsubtabletitle">Header parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">xero-tenant-id<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_deleteOverpaymentAllocations_xeroTenantId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+Xero identifier for Tenant
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                </article>
+              </div>
+              <hr>
               <div id="api-Accounting-deletePayment">
                 <article id="api-Accounting-deletePayment-0" data-group="User" data-name="deletePayment" data-version="0">
                   <div class="pull-left">
@@ -17264,12 +18806,13 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $paymentID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $paymentDelete = new XeroAPI\XeroPHP\Models\Accounting\PaymentDelete;
 $paymentDelete->setStatus('DELETED');
 
 try {
-  $result = $apiInstance->deletePayment($xeroTenantId, $paymentID, $paymentDelete);
+  $result = $apiInstance->deletePayment($xeroTenantId, $paymentID, $paymentDelete, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->deletePayment: ', $e->getMessage(), PHP_EOL;
 }
@@ -17349,6 +18892,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_deletePayment_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -17385,6 +18948,154 @@ Xero identifier for Tenant
   "required" : true
 }
     </script>
+                  </table>
+                </article>
+              </div>
+              <hr>
+              <div id="api-Accounting-deletePrepaymentAllocations">
+                <article id="api-Accounting-deletePrepaymentAllocations-0" data-group="User" data-name="deletePrepaymentAllocations" data-version="0">
+                  <div class="pull-left">
+                    <h1>deletePrepaymentAllocations</h1>
+                    <p>Deletes an Allocation from a Prepayment</p>
+                  </div>
+                  <div class="pull-right"></div>
+                  <div class="clearfix"></div>
+                  <p></p>
+                  <p class="marked"></p>
+                  <p></p>
+                  <br />
+                  <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/Prepayments/{PrepaymentID}/Allocations/{AllocationID}</span></code></pre>
+                  <p>
+                  <h3>Usage and SDK Samples</h3>
+                  </p>
+                  <ul class="nav nav-tabs nav-tabs-examples">
+                    <!-- *****REPLACE***** comment out the other languages <li> -->
+                    <li class=""><a href="#examples-Accounting-deletePrepaymentAllocations-0-php">PHP</a></li>
+                  </ul>
+                  <div class="tab-content">
+                    <!-- *****REPLACE***** comment out the other languages tab-pane -->
+                    <div class="tab-pane" id="examples-Accounting-deletePrepaymentAllocations-0-php">
+                      <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( 'YOUR_ACCESS_TOKEN' );       
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    new GuzzleHttp\Client(),
+    $config
+);
+$xeroTenantId = "YOUR_XERO_TENANT_ID";
+$prepaymentID = "00000000-0000-0000-0000-000000000000";
+$allocationID = "00000000-0000-0000-0000-000000000000";
+
+try {
+  $result = $apiInstance->deletePrepaymentAllocations($xeroTenantId, $prepaymentID, $allocationID);
+} catch (Exception $e) {
+  echo 'Exception when calling AccountingApi->deletePrepaymentAllocations: ', $e->getMessage(), PHP_EOL;
+}
+?>
+</code></pre>
+                    </div>
+                  </div>
+                  <h2>Scopes</h2>
+                  <table>
+                    
+                    <tr>
+                      <td>accounting.transactions</td>
+                      <td>Grant read-write access to bank transactions, credit notes, invoices, repeating invoices</td>
+                    </tr>
+                    
+                  </table>
+                  <h2>Parameters</h2>
+                  <div class="methodsubtabletitle">Path parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">PrepaymentID<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_deletePrepaymentAllocations_prepaymentID">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    UUID
+                </span>
+                    <span class="format">
+                        (uuid)
+                    </span>
+
+                    <div class="inner description marked">
+Unique identifier for a PrePayment
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">AllocationID<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_deletePrepaymentAllocations_allocationID">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    UUID
+                </span>
+                    <span class="format">
+                        (uuid)
+                    </span>
+
+                    <div class="inner description marked">
+Unique identifier for Allocation object
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                  <div class="methodsubtabletitle">Header parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">xero-tenant-id<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_deletePrepaymentAllocations_xeroTenantId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+Xero identifier for Tenant
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                 </article>
               </div>
@@ -17693,11 +19404,12 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $invoiceID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $requestEmpty = new XeroAPI\XeroPHP\Models\Accounting\RequestEmpty;
 
 try {
-  $apiInstance->emailInvoice($xeroTenantId, $invoiceID, $requestEmpty);
+  $apiInstance->emailInvoice($xeroTenantId, $invoiceID, $requestEmpty, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->emailInvoice: ', $e->getMessage(), PHP_EOL;
 }
@@ -17772,6 +19484,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_emailInvoice_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -30607,6 +32339,180 @@ Xero identifier for Tenant
                 </article>
               </div>
               <hr>
+              <div id="api-Accounting-getPurchaseOrderAttachmentByFileName">
+                <article id="api-Accounting-getPurchaseOrderAttachmentByFileName-0" data-group="User" data-name="getPurchaseOrderAttachmentByFileName" data-version="0">
+                  <div class="pull-left">
+                    <h1>getPurchaseOrderAttachmentByFileName</h1>
+                    <p>Retrieves a specific attachment for a specific purchase order by filename</p>
+                  </div>
+                  <div class="pull-right"></div>
+                  <div class="clearfix"></div>
+                  <p></p>
+                  <p class="marked"></p>
+                  <p></p>
+                  <br />
+                  <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/PurchaseOrders/{PurchaseOrderID}/Attachments/{FileName}</span></code></pre>
+                  <p>
+                  <h3>Usage and SDK Samples</h3>
+                  </p>
+                  <ul class="nav nav-tabs nav-tabs-examples">
+                    <!-- *****REPLACE***** comment out the other languages <li> -->
+                    <li class=""><a href="#examples-Accounting-getPurchaseOrderAttachmentByFileName-0-php">PHP</a></li>
+                  </ul>
+                  <div class="tab-content">
+                    <!-- *****REPLACE***** comment out the other languages tab-pane -->
+                    <div class="tab-pane" id="examples-Accounting-getPurchaseOrderAttachmentByFileName-0-php">
+                      <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( 'YOUR_ACCESS_TOKEN' );       
+
+$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
+    new GuzzleHttp\Client(),
+    $config
+);
+$xeroTenantId = "YOUR_XERO_TENANT_ID";
+$purchaseOrderID = "00000000-0000-0000-0000-000000000000";
+$fileName = "xero-dev.jpg";
+$contentType = "image/jpg";
+
+try {
+  $result = $apiInstance->getPurchaseOrderAttachmentByFileName($xeroTenantId, $purchaseOrderID, $fileName, $contentType);
+} catch (Exception $e) {
+  echo 'Exception when calling AccountingApi->getPurchaseOrderAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
+}
+?>
+</code></pre>
+                    </div>
+                  </div>
+                  <h2>Scopes</h2>
+                  <table>
+                    
+                    <tr>
+                      <td>accounting.attachments</td>
+                      <td>Grant read-write access to attachments</td>
+                    </tr>
+                    
+                    <tr>
+                      <td>accounting.attachments.read</td>
+                      <td>Grant read-only access to attachments</td>
+                    </tr>
+                    
+                  </table>
+                  <h2>Parameters</h2>
+                  <div class="methodsubtabletitle">Path parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">PurchaseOrderID<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_getPurchaseOrderAttachmentByFileName_purchaseOrderID">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    UUID
+                </span>
+                    <span class="format">
+                        (uuid)
+                    </span>
+
+                    <div class="inner description marked">
+Unique identifier for an Purchase Order
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">FileName<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_getPurchaseOrderAttachmentByFileName_fileName">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+Name of the attachment
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                  <div class="methodsubtabletitle">Header parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">xero-tenant-id<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_getPurchaseOrderAttachmentByFileName_xeroTenantId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+Xero identifier for Tenant
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">contentType<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_getPurchaseOrderAttachmentByFileName_contentType">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                </article>
+              </div>
+              <hr>
               <div id="api-Accounting-getPurchaseOrderAttachmentById">
                 <article id="api-Accounting-getPurchaseOrderAttachmentById-0" data-group="User" data-name="getPurchaseOrderAttachmentById" data-version="0">
                   <div class="pull-left">
@@ -31378,180 +33284,6 @@ Order by an any element
 To specify a page, append the page parameter to the URL e.g. ?page=1. If there are 100 records in the response you will need to check if there is any more data by fetching the next page e.g ?page=2 and continuing this process until no more results are returned.
                     </div>
             </div>
-        </div>
-    </div>
-</td>
-</tr>
-
-                  </table>
-                </article>
-              </div>
-              <hr>
-              <div id="api-Accounting-getPurchaseOrder≠AttachmentByFileName">
-                <article id="api-Accounting-getPurchaseOrder≠AttachmentByFileName-0" data-group="User" data-name="getPurchaseOrder≠AttachmentByFileName" data-version="0">
-                  <div class="pull-left">
-                    <h1>getPurchaseOrder≠AttachmentByFileName</h1>
-                    <p>Retrieves a specific attachment for a specific purchase order by filename</p>
-                  </div>
-                  <div class="pull-right"></div>
-                  <div class="clearfix"></div>
-                  <p></p>
-                  <p class="marked"></p>
-                  <p></p>
-                  <br />
-                  <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/PurchaseOrders/{PurchaseOrderID}/Attachments/{FileName}</span></code></pre>
-                  <p>
-                  <h3>Usage and SDK Samples</h3>
-                  </p>
-                  <ul class="nav nav-tabs nav-tabs-examples">
-                    <!-- *****REPLACE***** comment out the other languages <li> -->
-                    <li class=""><a href="#examples-Accounting-getPurchaseOrder≠AttachmentByFileName-0-php">PHP</a></li>
-                  </ul>
-                  <div class="tab-content">
-                    <!-- *****REPLACE***** comment out the other languages tab-pane -->
-                    <div class="tab-pane" id="examples-Accounting-getPurchaseOrder≠AttachmentByFileName-0-php">
-                      <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( 'YOUR_ACCESS_TOKEN' );       
-
-$apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
-    new GuzzleHttp\Client(),
-    $config
-);
-$xeroTenantId = "YOUR_XERO_TENANT_ID";
-$purchaseOrderID = "00000000-0000-0000-0000-000000000000";
-$fileName = "xero-dev.jpg";
-$contentType = "image/jpg";
-
-try {
-  $result = $apiInstance->getPurchaseOrder≠AttachmentByFileName($xeroTenantId, $purchaseOrderID, $fileName, $contentType);
-} catch (Exception $e) {
-  echo 'Exception when calling AccountingApi->getPurchaseOrder≠AttachmentByFileName: ', $e->getMessage(), PHP_EOL;
-}
-?>
-</code></pre>
-                    </div>
-                  </div>
-                  <h2>Scopes</h2>
-                  <table>
-                    
-                    <tr>
-                      <td>accounting.attachments</td>
-                      <td>Grant read-write access to attachments</td>
-                    </tr>
-                    
-                    <tr>
-                      <td>accounting.attachments.read</td>
-                      <td>Grant read-only access to attachments</td>
-                    </tr>
-                    
-                  </table>
-                  <h2>Parameters</h2>
-                  <div class="methodsubtabletitle">Path parameters</div>
-                  <table id="methodsubtable">
-                    <tr>
-                      <th width="150px">Name</th>
-                      <th>Description</th>
-                    </tr>
-                    <tr><td style="width:150px;">PurchaseOrderID<span style="color:red;">*</span></td>
-<td>
-
-
-    <div id="d2e199_getPurchaseOrder≠AttachmentByFileName_purchaseOrderID">
-        <div class="json-schema-view">
-            <div class="primitive">
-                <span class="type">
-                    UUID
-                </span>
-                    <span class="format">
-                        (uuid)
-                    </span>
-
-                    <div class="inner description marked">
-Unique identifier for an Purchase Order
-                    </div>
-            </div>
-                <div class="inner required">
-                    Required
-                </div>
-        </div>
-    </div>
-</td>
-</tr>
-
-                    <tr><td style="width:150px;">FileName<span style="color:red;">*</span></td>
-<td>
-
-
-    <div id="d2e199_getPurchaseOrder≠AttachmentByFileName_fileName">
-        <div class="json-schema-view">
-            <div class="primitive">
-                <span class="type">
-                    String
-                </span>
-
-                    <div class="inner description marked">
-Name of the attachment
-                    </div>
-            </div>
-                <div class="inner required">
-                    Required
-                </div>
-        </div>
-    </div>
-</td>
-</tr>
-
-                  </table>
-                  <div class="methodsubtabletitle">Header parameters</div>
-                  <table id="methodsubtable">
-                    <tr>
-                      <th width="150px">Name</th>
-                      <th>Description</th>
-                    </tr>
-                    <tr><td style="width:150px;">xero-tenant-id<span style="color:red;">*</span></td>
-<td>
-
-
-    <div id="d2e199_getPurchaseOrder≠AttachmentByFileName_xeroTenantId">
-        <div class="json-schema-view">
-            <div class="primitive">
-                <span class="type">
-                    String
-                </span>
-
-                    <div class="inner description marked">
-Xero identifier for Tenant
-                    </div>
-            </div>
-                <div class="inner required">
-                    Required
-                </div>
-        </div>
-    </div>
-</td>
-</tr>
-
-                    <tr><td style="width:150px;">contentType<span style="color:red;">*</span></td>
-<td>
-
-
-    <div id="d2e199_getPurchaseOrder≠AttachmentByFileName_contentType">
-        <div class="json-schema-view">
-            <div class="primitive">
-                <span class="type">
-                    String
-                </span>
-
-                    <div class="inner description marked">
-The mime type of the attachment file you are retrieving i.e image/jpg, application/pdf
-                    </div>
-            </div>
-                <div class="inner required">
-                    Required
-                </div>
         </div>
     </div>
 </td>
@@ -37155,6 +38887,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 
 $account = new XeroAPI\XeroPHP\Models\Accounting\Account;
 $account->setCode('123');
@@ -37174,7 +38907,7 @@ $setup->setConversionDate($conversionDate);
 $setup->setConversionBalances($conversionBalances);
 
 try {
-  $result = $apiInstance->postSetup($xeroTenantId, $setup);
+  $result = $apiInstance->postSetup($xeroTenantId, $setup, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->postSetup: ', $e->getMessage(), PHP_EOL;
 }
@@ -37216,6 +38949,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_postSetup_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -37297,6 +39050,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $accountID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $account = new XeroAPI\XeroPHP\Models\Accounting\Account;
 $account->setCode('123456');
@@ -37311,7 +39065,7 @@ array_push($arr_accounts, $account);
 $accounts->setAccounts($arr_accounts);
 
 try {
-  $result = $apiInstance->updateAccount($xeroTenantId, $accountID, $accounts);
+  $result = $apiInstance->updateAccount($xeroTenantId, $accountID, $accounts, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateAccount: ', $e->getMessage(), PHP_EOL;
 }
@@ -37386,6 +39140,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateAccount_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -37468,13 +39242,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $accountID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
+$idempotencyKey = "KEY_VALUE";
 
 $handle = fopen($fileName, "r");
 $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->updateAccountAttachmentByFileName($xeroTenantId, $accountID, $fileName, $body);
+  $result = $apiInstance->updateAccountAttachmentByFileName($xeroTenantId, $accountID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateAccountAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -37577,6 +39352,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateAccountAttachmentByFileName_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -37653,6 +39448,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $bankTransactionID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 $unitdp = 4;
 
 $contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
@@ -37682,7 +39478,7 @@ array_push($arr_bank_transactions, $bankTransaction);
 $bankTransactions->setBankTransactions($arr_bank_transactions);
 
 try {
-  $result = $apiInstance->updateBankTransaction($xeroTenantId, $bankTransactionID, $bankTransactions, $unitdp);
+  $result = $apiInstance->updateBankTransaction($xeroTenantId, $bankTransactionID, $bankTransactions, $idempotencyKey, $unitdp);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateBankTransaction: ', $e->getMessage(), PHP_EOL;
 }
@@ -37757,6 +39553,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateBankTransaction_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -37865,13 +39681,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $bankTransactionID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
+$idempotencyKey = "KEY_VALUE";
 
 $handle = fopen($fileName, "r");
 $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->updateBankTransactionAttachmentByFileName($xeroTenantId, $bankTransactionID, $fileName, $body);
+  $result = $apiInstance->updateBankTransactionAttachmentByFileName($xeroTenantId, $bankTransactionID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateBankTransactionAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -37974,6 +39791,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateBankTransactionAttachmentByFileName_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -38051,13 +39888,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $bankTransferID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
+$idempotencyKey = "KEY_VALUE";
 
 $handle = fopen($fileName, "r");
 $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->updateBankTransferAttachmentByFileName($xeroTenantId, $bankTransferID, $fileName, $body);
+  $result = $apiInstance->updateBankTransferAttachmentByFileName($xeroTenantId, $bankTransferID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateBankTransferAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -38160,6 +39998,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateBankTransferAttachmentByFileName_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -38236,6 +40094,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $contactID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
 $contact->setName('Thanos');
@@ -38247,7 +40106,7 @@ array_push($arr_contacts, $contact);
 $contacts->setContacts($arr_contacts);
 
 try {
-  $result = $apiInstance->updateContact($xeroTenantId, $contactID, $contacts);
+  $result = $apiInstance->updateContact($xeroTenantId, $contactID, $contacts, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateContact: ', $e->getMessage(), PHP_EOL;
 }
@@ -38322,6 +40181,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateContact_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -38404,13 +40283,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $contactID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
+$idempotencyKey = "KEY_VALUE";
 
 $handle = fopen($fileName, "r");
 $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->updateContactAttachmentByFileName($xeroTenantId, $contactID, $fileName, $body);
+  $result = $apiInstance->updateContactAttachmentByFileName($xeroTenantId, $contactID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateContactAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -38513,6 +40393,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateContactAttachmentByFileName_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -38589,6 +40489,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $contactGroupID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $contactGroup = new XeroAPI\XeroPHP\Models\Accounting\ContactGroup;
 $contactGroup->setName('Vendor');
@@ -38599,7 +40500,7 @@ array_push($arr_contact_groups, $contactGroup);
 $contactGroups->setContactGroups($arr_contact_groups);
 
 try {
-  $result = $apiInstance->updateContactGroup($xeroTenantId, $contactGroupID, $contactGroups);
+  $result = $apiInstance->updateContactGroup($xeroTenantId, $contactGroupID, $contactGroups, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateContactGroup: ', $e->getMessage(), PHP_EOL;
 }
@@ -38674,6 +40575,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateContactGroup_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -38755,6 +40676,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $creditNoteID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 $unitdp = 4;
 $currDate = new DateTime('2020-12-10');
 
@@ -38783,7 +40705,7 @@ array_push($arr_credit_notes, $creditNote);
 $creditNotes->setCreditNotes($arr_credit_notes);
 
 try {
-  $result = $apiInstance->updateCreditNote($xeroTenantId, $creditNoteID, $creditNotes, $unitdp);
+  $result = $apiInstance->updateCreditNote($xeroTenantId, $creditNoteID, $creditNotes, $idempotencyKey, $unitdp);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateCreditNote: ', $e->getMessage(), PHP_EOL;
 }
@@ -38858,6 +40780,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateCreditNote_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -38967,13 +40909,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $creditNoteID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
+$idempotencyKey = "KEY_VALUE";
 
 $handle = fopen($fileName, "r");
 $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->updateCreditNoteAttachmentByFileName($xeroTenantId, $creditNoteID, $fileName, $body);
+  $result = $apiInstance->updateCreditNoteAttachmentByFileName($xeroTenantId, $creditNoteID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateCreditNoteAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -39076,6 +41019,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateCreditNoteAttachmentByFileName_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -39152,6 +41115,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $expenseClaimID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 $currDate = new DateTime('2020-12-10');
 
 $user = new XeroAPI\XeroPHP\Models\Accounting\User;
@@ -39174,7 +41138,7 @@ array_push($arr_expense_claims, $expenseClaim);
 $expenseClaims->setExpenseClaims($arr_expense_claims);
 
 try {
-  $result = $apiInstance->updateExpenseClaim($xeroTenantId, $expenseClaimID, $expenseClaims);
+  $result = $apiInstance->updateExpenseClaim($xeroTenantId, $expenseClaimID, $expenseClaims, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateExpenseClaim: ', $e->getMessage(), PHP_EOL;
 }
@@ -39249,6 +41213,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateExpenseClaim_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -39329,6 +41313,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $invoiceID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 $unitdp = 4;
 
 $invoice = new XeroAPI\XeroPHP\Models\Accounting\Invoice;
@@ -39340,7 +41325,7 @@ array_push($arr_invoices, $invoice);
 $invoices->setInvoices($arr_invoices);
 
 try {
-  $result = $apiInstance->updateInvoice($xeroTenantId, $invoiceID, $invoices, $unitdp);
+  $result = $apiInstance->updateInvoice($xeroTenantId, $invoiceID, $invoices, $idempotencyKey, $unitdp);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateInvoice: ', $e->getMessage(), PHP_EOL;
 }
@@ -39415,6 +41400,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateInvoice_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -39523,13 +41528,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $invoiceID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
+$idempotencyKey = "KEY_VALUE";
 
 $handle = fopen($fileName, "r");
 $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->updateInvoiceAttachmentByFileName($xeroTenantId, $invoiceID, $fileName, $body);
+  $result = $apiInstance->updateInvoiceAttachmentByFileName($xeroTenantId, $invoiceID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateInvoiceAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -39632,6 +41638,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateInvoiceAttachmentByFileName_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -39708,6 +41734,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $itemID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 $unitdp = 4;
 
 $item = new XeroAPI\XeroPHP\Models\Accounting\Item;
@@ -39720,7 +41747,7 @@ array_push($arr_items, $item);
 $items->setItems($arr_items);
 
 try {
-  $result = $apiInstance->updateItem($xeroTenantId, $itemID, $items, $unitdp);
+  $result = $apiInstance->updateItem($xeroTenantId, $itemID, $items, $idempotencyKey, $unitdp);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateItem: ', $e->getMessage(), PHP_EOL;
 }
@@ -39795,6 +41822,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateItem_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -39902,6 +41949,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $linkedTransactionID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $linkedTransaction = new XeroAPI\XeroPHP\Models\Accounting\LinkedTransaction;
 $linkedTransaction->setSourceLineItemID('00000000-0000-0000-0000-000000000000');
@@ -39913,7 +41961,7 @@ array_push($arr_linked_transactions, $linkedTransaction);
 $linkedTransactions->setLinkedTransactions($arr_linked_transactions);
 
 try {
-  $result = $apiInstance->updateLinkedTransaction($xeroTenantId, $linkedTransactionID, $linkedTransactions);
+  $result = $apiInstance->updateLinkedTransaction($xeroTenantId, $linkedTransactionID, $linkedTransactions, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateLinkedTransaction: ', $e->getMessage(), PHP_EOL;
 }
@@ -39988,6 +42036,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateLinkedTransaction_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -40068,6 +42136,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $manualJournalID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 $dateValue = new DateTime('2020-10-10');
 $manualJournalLines = [];
 
@@ -40094,7 +42163,7 @@ array_push($arr_manual_journals, $manualJournal);
 $manualJournals->setManualJournals($arr_manual_journals);
 
 try {
-  $result = $apiInstance->updateManualJournal($xeroTenantId, $manualJournalID, $manualJournals);
+  $result = $apiInstance->updateManualJournal($xeroTenantId, $manualJournalID, $manualJournals, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateManualJournal: ', $e->getMessage(), PHP_EOL;
 }
@@ -40169,6 +42238,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateManualJournal_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -40250,13 +42339,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $manualJournalID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
+$idempotencyKey = "KEY_VALUE";
 
 $handle = fopen($fileName, "r");
 $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->updateManualJournalAttachmentByFileName($xeroTenantId, $manualJournalID, $fileName, $body);
+  $result = $apiInstance->updateManualJournalAttachmentByFileName($xeroTenantId, $manualJournalID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateManualJournalAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -40359,6 +42449,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateManualJournalAttachmentByFileName_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -40434,6 +42544,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $unitdp = 4;
 
@@ -40463,7 +42574,7 @@ array_push($arr_bank_transactions, $bankTransaction);
 $bankTransactions->setBankTransactions($arr_bank_transactions);
 
 try {
-  $result = $apiInstance->updateOrCreateBankTransactions($xeroTenantId, $bankTransactions, $summarizeErrors, $unitdp);
+  $result = $apiInstance->updateOrCreateBankTransactions($xeroTenantId, $bankTransactions, $idempotencyKey, $summarizeErrors, $unitdp);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateOrCreateBankTransactions: ', $e->getMessage(), PHP_EOL;
 }
@@ -40505,6 +42616,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateOrCreateBankTransactions_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -40631,6 +42762,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 
 $phone = new XeroAPI\XeroPHP\Models\Accounting\Phone;
@@ -40650,7 +42782,7 @@ array_push($arr_contacts, $contact);
 $contacts->setContacts($arr_contacts);
 
 try {
-  $result = $apiInstance->updateOrCreateContacts($xeroTenantId, $contacts, $summarizeErrors);
+  $result = $apiInstance->updateOrCreateContacts($xeroTenantId, $contacts, $idempotencyKey, $summarizeErrors);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateOrCreateContacts: ', $e->getMessage(), PHP_EOL;
 }
@@ -40692,6 +42824,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateOrCreateContacts_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -40798,6 +42950,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $unitdp = 4;
 $currDate = new DateTime('2020-12-10');
@@ -40825,7 +42978,7 @@ array_push($arr_credit_notes, $creditNote);
 $creditNotes->setCreditNotes($arr_credit_notes);
 
 try {
-  $result = $apiInstance->updateOrCreateCreditNotes($xeroTenantId, $creditNotes, $summarizeErrors, $unitdp);
+  $result = $apiInstance->updateOrCreateCreditNotes($xeroTenantId, $creditNotes, $idempotencyKey, $summarizeErrors, $unitdp);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateOrCreateCreditNotes: ', $e->getMessage(), PHP_EOL;
 }
@@ -40867,6 +43020,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateOrCreateCreditNotes_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -40994,6 +43167,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 
 $employee = new XeroAPI\XeroPHP\Models\Accounting\Employee;
@@ -41006,7 +43180,7 @@ array_push($arr_employees, $employee);
 $employees->setEmployees($arr_employees);
 
 try {
-  $result = $apiInstance->updateOrCreateEmployees($xeroTenantId, $employees, $summarizeErrors);
+  $result = $apiInstance->updateOrCreateEmployees($xeroTenantId, $employees, $idempotencyKey, $summarizeErrors);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateOrCreateEmployees: ', $e->getMessage(), PHP_EOL;
 }
@@ -41048,6 +43222,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateOrCreateEmployees_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -41155,6 +43349,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $unitdp = 4;
 $dateValue = new DateTime('2020-10-10');
@@ -41186,7 +43381,7 @@ array_push($arr_invoices, $invoice);
 $invoices->setInvoices($arr_invoices);
 
 try {
-  $result = $apiInstance->updateOrCreateInvoices($xeroTenantId, $invoices, $summarizeErrors, $unitdp);
+  $result = $apiInstance->updateOrCreateInvoices($xeroTenantId, $invoices, $idempotencyKey, $summarizeErrors, $unitdp);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateOrCreateInvoices: ', $e->getMessage(), PHP_EOL;
 }
@@ -41228,6 +43423,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateOrCreateInvoices_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -41354,6 +43569,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $unitdp = 4;
 
@@ -41368,7 +43584,7 @@ array_push($arr_items, $item);
 $items->setItems($arr_items);
 
 try {
-  $result = $apiInstance->updateOrCreateItems($xeroTenantId, $items, $summarizeErrors, $unitdp);
+  $result = $apiInstance->updateOrCreateItems($xeroTenantId, $items, $idempotencyKey, $summarizeErrors, $unitdp);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateOrCreateItems: ', $e->getMessage(), PHP_EOL;
 }
@@ -41410,6 +43626,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateOrCreateItems_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -41536,6 +43772,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $dateValue = new DateTime('2020-10-10');
 $manualJournalLines = [];
@@ -41563,7 +43800,7 @@ array_push($arr_manual_journals, $manualJournal);
 $manualJournals->setManualJournals($arr_manual_journals);
 
 try {
-  $result = $apiInstance->updateOrCreateManualJournals($xeroTenantId, $manualJournals, $summarizeErrors);
+  $result = $apiInstance->updateOrCreateManualJournals($xeroTenantId, $manualJournals, $idempotencyKey, $summarizeErrors);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateOrCreateManualJournals: ', $e->getMessage(), PHP_EOL;
 }
@@ -41605,6 +43842,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateOrCreateManualJournals_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -41712,6 +43969,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $dateValue = new DateTime('2020-12-10');
 
@@ -41737,7 +43995,7 @@ array_push($arr_purchase_orders, $purchaseOrder);
 $purchaseOrders->setPurchaseOrders($arr_purchase_orders);
 
 try {
-  $result = $apiInstance->updateOrCreatePurchaseOrders($xeroTenantId, $purchaseOrders, $summarizeErrors);
+  $result = $apiInstance->updateOrCreatePurchaseOrders($xeroTenantId, $purchaseOrders, $idempotencyKey, $summarizeErrors);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateOrCreatePurchaseOrders: ', $e->getMessage(), PHP_EOL;
 }
@@ -41779,6 +44037,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateOrCreatePurchaseOrders_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -41885,6 +44163,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $dateValue = new DateTime('2020-12-10');
 
@@ -41910,7 +44189,7 @@ array_push($arr_quotes, $quote);
 $quotes->setQuotes($arr_quotes);
 
 try {
-  $result = $apiInstance->updateOrCreateQuotes($xeroTenantId, $quotes, $summarizeErrors);
+  $result = $apiInstance->updateOrCreateQuotes($xeroTenantId, $quotes, $idempotencyKey, $summarizeErrors);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateOrCreateQuotes: ', $e->getMessage(), PHP_EOL;
 }
@@ -41952,6 +44231,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateOrCreateQuotes_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -42058,10 +44357,11 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 
 try {
-  $result = $apiInstance->updateOrCreateRepeatingInvoices($xeroTenantId, $repeatingInvoices, $summarizeErrors);
+  $result = $apiInstance->updateOrCreateRepeatingInvoices($xeroTenantId, $repeatingInvoices, $idempotencyKey, $summarizeErrors);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateOrCreateRepeatingInvoices: ', $e->getMessage(), PHP_EOL;
 }
@@ -42103,6 +44403,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateOrCreateRepeatingInvoices_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -42211,6 +44531,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $purchaseOrderID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $purchaseOrder = new XeroAPI\XeroPHP\Models\Accounting\PurchaseOrder;
 $purchaseOrder->setAttentionTo('Peter Parker');
@@ -42221,7 +44542,7 @@ array_push($arr_purchase_orders, $purchaseOrder);
 $purchaseOrders->setPurchaseOrders($arr_purchase_orders);
 
 try {
-  $result = $apiInstance->updatePurchaseOrder($xeroTenantId, $purchaseOrderID, $purchaseOrders);
+  $result = $apiInstance->updatePurchaseOrder($xeroTenantId, $purchaseOrderID, $purchaseOrders, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updatePurchaseOrder: ', $e->getMessage(), PHP_EOL;
 }
@@ -42296,6 +44617,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updatePurchaseOrder_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -42377,13 +44718,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $purchaseOrderID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
+$idempotencyKey = "KEY_VALUE";
 
 $handle = fopen($fileName, "r");
 $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->updatePurchaseOrderAttachmentByFileName($xeroTenantId, $purchaseOrderID, $fileName, $body);
+  $result = $apiInstance->updatePurchaseOrderAttachmentByFileName($xeroTenantId, $purchaseOrderID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updatePurchaseOrderAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -42486,6 +44828,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updatePurchaseOrderAttachmentByFileName_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -42562,6 +44924,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $quoteID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 $dateValue = new DateTime('2020-12-10');
 
 $contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
@@ -42578,7 +44941,7 @@ array_push($arr_quotes, $quote);
 $quotes->setQuotes($arr_quotes);
 
 try {
-  $result = $apiInstance->updateQuote($xeroTenantId, $quoteID, $quotes);
+  $result = $apiInstance->updateQuote($xeroTenantId, $quoteID, $quotes, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateQuote: ', $e->getMessage(), PHP_EOL;
 }
@@ -42653,6 +45016,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateQuote_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -42734,13 +45117,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $quoteID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
+$idempotencyKey = "KEY_VALUE";
 
 $handle = fopen($fileName, "r");
 $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->updateQuoteAttachmentByFileName($xeroTenantId, $quoteID, $fileName, $body);
+  $result = $apiInstance->updateQuoteAttachmentByFileName($xeroTenantId, $quoteID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateQuoteAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -42843,6 +45227,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateQuoteAttachmentByFileName_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -42919,6 +45323,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $receiptID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 $unitdp = 4;
 $dateValue = new DateTime('2020-12-10');
 
@@ -42936,7 +45341,7 @@ array_push($arr_receipts, $receipt);
 $receipts->setReceipts($arr_receipts);
 
 try {
-  $result = $apiInstance->updateReceipt($xeroTenantId, $receiptID, $receipts, $unitdp);
+  $result = $apiInstance->updateReceipt($xeroTenantId, $receiptID, $receipts, $idempotencyKey, $unitdp);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateReceipt: ', $e->getMessage(), PHP_EOL;
 }
@@ -43011,6 +45416,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateReceipt_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -43119,13 +45544,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $receiptID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
+$idempotencyKey = "KEY_VALUE";
 
 $handle = fopen($fileName, "r");
 $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->updateReceiptAttachmentByFileName($xeroTenantId, $receiptID, $fileName, $body);
+  $result = $apiInstance->updateReceiptAttachmentByFileName($xeroTenantId, $receiptID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateReceiptAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -43228,6 +45654,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateReceiptAttachmentByFileName_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -43304,9 +45750,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $repeatingInvoiceID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 try {
-  $result = $apiInstance->updateRepeatingInvoice($xeroTenantId, $repeatingInvoiceID, $repeatingInvoices);
+  $result = $apiInstance->updateRepeatingInvoice($xeroTenantId, $repeatingInvoiceID, $repeatingInvoices, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateRepeatingInvoice: ', $e->getMessage(), PHP_EOL;
 }
@@ -43381,6 +45828,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateRepeatingInvoice_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -43462,13 +45929,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $repeatingInvoiceID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
+$idempotencyKey = "KEY_VALUE";
 
 $handle = fopen($fileName, "r");
 $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->updateRepeatingInvoiceAttachmentByFileName($xeroTenantId, $repeatingInvoiceID, $fileName, $body);
+  $result = $apiInstance->updateRepeatingInvoiceAttachmentByFileName($xeroTenantId, $repeatingInvoiceID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateRepeatingInvoiceAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -43571,6 +46039,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateRepeatingInvoiceAttachmentByFileName_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -43646,6 +46134,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
+$idempotencyKey = "KEY_VALUE";
 
 $taxComponent = new XeroAPI\XeroPHP\Models\Accounting\TaxComponent;
 $taxComponent->setName('State Tax');
@@ -43663,7 +46152,7 @@ array_push($arr_tax_rates, $taxRate);
 $taxRates->setTaxRates($arr_tax_rates);
 
 try {
-  $result = $apiInstance->updateTaxRate($xeroTenantId, $taxRates);
+  $result = $apiInstance->updateTaxRate($xeroTenantId, $taxRates, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateTaxRate: ', $e->getMessage(), PHP_EOL;
 }
@@ -43705,6 +46194,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateTaxRate_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -43785,12 +46294,13 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $trackingCategoryID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $trackingCategory = new XeroAPI\XeroPHP\Models\Accounting\TrackingCategory;
 $trackingCategory->setName('Foobar');
 
 try {
-  $result = $apiInstance->updateTrackingCategory($xeroTenantId, $trackingCategoryID, $trackingCategory);
+  $result = $apiInstance->updateTrackingCategory($xeroTenantId, $trackingCategoryID, $trackingCategory, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateTrackingCategory: ', $e->getMessage(), PHP_EOL;
 }
@@ -43865,6 +46375,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateTrackingCategory_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -43946,12 +46476,13 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $trackingCategoryID = "00000000-0000-0000-0000-000000000000";
 $trackingOptionID = "00000000-0000-0000-0000-000000000000";
+$idempotencyKey = "KEY_VALUE";
 
 $trackingOption = new XeroAPI\XeroPHP\Models\Accounting\TrackingOption;
 $trackingOption->setName('Foobar');
 
 try {
-  $result = $apiInstance->updateTrackingOptions($xeroTenantId, $trackingCategoryID, $trackingOptionID, $trackingOption);
+  $result = $apiInstance->updateTrackingOptions($xeroTenantId, $trackingCategoryID, $trackingOptionID, $trackingOption, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateTrackingOptions: ', $e->getMessage(), PHP_EOL;
 }
@@ -44052,6 +46583,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateTrackingOptions_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>

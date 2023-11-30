@@ -3837,7 +3837,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="PayrollNz"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="PayrollNz"><strong>VSN: </strong>2.21.0</li>
+              <li class="nav-header" data-group="PayrollNz"><strong>VSN: </strong>2.23.2</li>
               <li class="nav-header" data-group="PayrollNz"><a href="#api-PayrollNz">Methods</a></li>
               <li data-group="PayrollNz" data-name="approveTimesheet" class="">
                 <a href="#api-PayrollNz-approveTimesheet">approveTimesheet</a>
@@ -4096,9 +4096,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $timesheetID = "38400000-8cf0-11bd-b23e-10b96e4ef00d";
+$idempotencyKey = "KEY_VALUE";
 
 try {
-  $result = $apiInstance->approveTimesheet($xeroTenantId, $timesheetID);
+  $result = $apiInstance->approveTimesheet($xeroTenantId, $timesheetID, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->approveTimesheet: ', $e->getMessage(), PHP_EOL;
 }
@@ -4178,6 +4179,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_approveTimesheet_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                 </article>
               </div>
@@ -4216,6 +4237,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
     $config
 );
 $xeroTenantId = "xeroTenantId_example";
+$idempotencyKey = "KEY_VALUE";
 
 $deduction = new XeroAPI\XeroPHP\Models\PayrollNz\Deduction;
 $deduction->setDeductionName('Deduction test');
@@ -4223,7 +4245,7 @@ $deduction->setDeductionCategory(XeroAPI\XeroPHP\Models\PayrollNz\Deduction\DEDU
 $deduction->setLiabilityAccountId('00000000-0000-0000-0000-000000000000');
 
 try {
-  $result = $apiInstance->createDeduction($xeroTenantId, $deduction);
+  $result = $apiInstance->createDeduction($xeroTenantId, $deduction, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->createDeduction: ', $e->getMessage(), PHP_EOL;
 }
@@ -4265,6 +4287,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createDeduction_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -4344,6 +4386,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
     $config
 );
 $xeroTenantId = "xeroTenantId_example";
+$idempotencyKey = "KEY_VALUE";
 
 $earningsRate = new XeroAPI\XeroPHP\Models\PayrollNz\EarningsRate;
 $earningsRate->setEarningsType(XeroAPI\XeroPHP\Models\PayrollNz\EarningsRate\EarningsTypeEnum.RegularEarnings);
@@ -4351,7 +4394,7 @@ $earningsRate->setRateType(XeroAPI\XeroPHP\Models\PayrollNz\EarningsRate\RateTyp
 $earningsRate->setExpenseAccountID('00000000-0000-0000-0000-000000000000');
 
 try {
-  $result = $apiInstance->createEarningsRate($xeroTenantId, $earningsRate);
+  $result = $apiInstance->createEarningsRate($xeroTenantId, $earningsRate, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->createEarningsRate: ', $e->getMessage(), PHP_EOL;
 }
@@ -4393,6 +4436,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createEarningsRate_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -4472,6 +4535,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
     $config
 );
 $xeroTenantId = "xeroTenantId_example";
+$idempotencyKey = "KEY_VALUE";
 $dateOfBirth = new DateTime('2000-10-28');
 
 $address = new XeroAPI\XeroPHP\Models\PayrollNz\Address;
@@ -4487,7 +4551,7 @@ $employee->setDateOfBirth($dateOfBirth);
 $employee->setAddress($address);
 
 try {
-  $result = $apiInstance->createEmployee($xeroTenantId, $employee);
+  $result = $apiInstance->createEmployee($xeroTenantId, $employee, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->createEmployee: ', $e->getMessage(), PHP_EOL;
 }
@@ -4529,6 +4593,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createEmployee_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -4609,6 +4693,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $employeeID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
+$idempotencyKey = "KEY_VALUE";
 
 $earningsTemplate = new XeroAPI\XeroPHP\Models\PayrollNz\EarningsTemplate;
 $earningsTemplate->setPayTemplateEarningID('00000000-0000-0000-0000-000000000000');
@@ -4621,7 +4706,7 @@ $earningsTemplates = [];
 array_push($earningsTemplates, $earningsTemplate);
 
 try {
-  $result = $apiInstance->createEmployeeEarningsTemplate($xeroTenantId, $employeeID, $earningsTemplate);
+  $result = $apiInstance->createEmployeeEarningsTemplate($xeroTenantId, $employeeID, $earningsTemplate, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->createEmployeeEarningsTemplate: ', $e->getMessage(), PHP_EOL;
 }
@@ -4696,6 +4781,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createEmployeeEarningsTemplate_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -4776,6 +4881,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $employeeID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
+$idempotencyKey = "KEY_VALUE";
 $startDate = new DateTime('2020-10-28');
 $endDate = new DateTime('2020-10-30');
 
@@ -4785,7 +4891,7 @@ $employeeLeave->setStartDate($startDate);
 $employeeLeave->setEndDate($endDate);
 
 try {
-  $result = $apiInstance->createEmployeeLeave($xeroTenantId, $employeeID, $employeeLeave);
+  $result = $apiInstance->createEmployeeLeave($xeroTenantId, $employeeID, $employeeLeave, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->createEmployeeLeave: ', $e->getMessage(), PHP_EOL;
 }
@@ -4860,6 +4966,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createEmployeeLeave_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -4940,6 +5066,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $employeeID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
+$idempotencyKey = "KEY_VALUE";
 
 $employeeLeaveSetup = new XeroAPI\XeroPHP\Models\PayrollNz\EmployeeLeaveSetup;
 $employeeLeaveSetup->setIncludeHolidayPay(false);
@@ -4950,7 +5077,7 @@ $employeeLeaveSetup->setSickLeaveMaximumHoursToAccrue(200.0);
 $employeeLeaveSetup->setSickLeaveOpeningBalance(10.5);
 
 try {
-  $result = $apiInstance->createEmployeeLeaveSetup($xeroTenantId, $employeeID, $employeeLeaveSetup);
+  $result = $apiInstance->createEmployeeLeaveSetup($xeroTenantId, $employeeID, $employeeLeaveSetup, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->createEmployeeLeaveSetup: ', $e->getMessage(), PHP_EOL;
 }
@@ -5025,6 +5152,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createEmployeeLeaveSetup_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -5105,6 +5252,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $employeeID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
+$idempotencyKey = "KEY_VALUE";
 
 $employeeLeaveType = new XeroAPI\XeroPHP\Models\PayrollNz\EmployeeLeaveType;
 $employeeLeaveType->setLeaveTypeID('00000000-0000-0000-0000-000000000000');
@@ -5112,7 +5260,7 @@ $employeeLeaveType->setScheduleOfAccrual(XeroAPI\XeroPHP\Models\PayrollNz\Employ
 $employeeLeaveType->setOpeningBalance(5.25);
 
 try {
-  $result = $apiInstance->createEmployeeLeaveType($xeroTenantId, $employeeID, $employeeLeaveType);
+  $result = $apiInstance->createEmployeeLeaveType($xeroTenantId, $employeeID, $employeeLeaveType, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->createEmployeeLeaveType: ', $e->getMessage(), PHP_EOL;
 }
@@ -5187,6 +5335,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createEmployeeLeaveType_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -5267,6 +5435,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $employeeID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
+$idempotencyKey = "KEY_VALUE";
 $periodEndDate = new DateTime('2020-10-30');
 
 $employeeOpeningBalance = new XeroAPI\XeroPHP\Models\PayrollNz\EmployeeOpeningBalance;
@@ -5278,7 +5447,7 @@ $employeeOpeningBalances = [];
 array_push($employeeOpeningBalances, $employeeOpeningBalance);
 
 try {
-  $result = $apiInstance->createEmployeeOpeningBalances($xeroTenantId, $employeeID, $employeeOpeningBalance);
+  $result = $apiInstance->createEmployeeOpeningBalances($xeroTenantId, $employeeID, $employeeOpeningBalance, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->createEmployeeOpeningBalances: ', $e->getMessage(), PHP_EOL;
 }
@@ -5353,6 +5522,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createEmployeeOpeningBalances_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -5433,6 +5622,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $employeeID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
+$idempotencyKey = "KEY_VALUE";
 
 $bankAccount = new XeroAPI\XeroPHP\Models\PayrollNz\BankAccount;
 $bankAccount->setAccountName('Charlotte Danes');
@@ -5445,7 +5635,7 @@ $paymentMethod = new XeroAPI\XeroPHP\Models\PayrollNz\PaymentMethod;
 $paymentMethod->setBankAccounts($bankAccounts);
 
 try {
-  $result = $apiInstance->createEmployeePaymentMethod($xeroTenantId, $employeeID, $paymentMethod);
+  $result = $apiInstance->createEmployeePaymentMethod($xeroTenantId, $employeeID, $paymentMethod, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->createEmployeePaymentMethod: ', $e->getMessage(), PHP_EOL;
 }
@@ -5525,6 +5715,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createEmployeePaymentMethod_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -5599,6 +5809,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $employeeID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
+$idempotencyKey = "KEY_VALUE";
 
 $salaryAndWage = new XeroAPI\XeroPHP\Models\PayrollNz\SalaryAndWage;
 $salaryAndWage->setEarningsRateID('00000000-0000-0000-0000-000000000000');
@@ -5607,7 +5818,7 @@ $salaryAndWage->setDaysPerWeek(0);
 $salaryAndWage->setPaymentType(XeroAPI\XeroPHP\Models\PayrollNz\SalaryAndWage\PaymentTypeEnum.HOURLY);
 
 try {
-  $result = $apiInstance->createEmployeeSalaryAndWage($xeroTenantId, $employeeID, $salaryAndWage);
+  $result = $apiInstance->createEmployeeSalaryAndWage($xeroTenantId, $employeeID, $salaryAndWage, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->createEmployeeSalaryAndWage: ', $e->getMessage(), PHP_EOL;
 }
@@ -5682,6 +5893,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createEmployeeSalaryAndWage_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -5762,6 +5993,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $employeeID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
+$idempotencyKey = "KEY_VALUE";
 $startDate = new DateTime('2020-10-28');
 
 $employment = new XeroAPI\XeroPHP\Models\PayrollNz\Employment;
@@ -5769,7 +6001,7 @@ $employment->setPayrollCalendarID('00000000-0000-0000-0000-000000000000');
 $employment->setStartDate($startDate);
 
 try {
-  $result = $apiInstance->createEmployment($xeroTenantId, $employeeID, $employment);
+  $result = $apiInstance->createEmployment($xeroTenantId, $employeeID, $employment, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->createEmployment: ', $e->getMessage(), PHP_EOL;
 }
@@ -5849,6 +6081,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createEmployment_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -5923,6 +6175,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
     $config
 );
 $xeroTenantId = "xeroTenantId_example";
+$idempotencyKey = "KEY_VALUE";
 
 $leaveType = new XeroAPI\XeroPHP\Models\PayrollNz\LeaveType;
 $leaveType->setName('LeaveType');
@@ -5930,7 +6183,7 @@ $leaveType->setIsPaidLeave(true);
 $leaveType->setShowOnPayslip(true);
 
 try {
-  $result = $apiInstance->createLeaveType($xeroTenantId, $leaveType);
+  $result = $apiInstance->createLeaveType($xeroTenantId, $leaveType, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->createLeaveType: ', $e->getMessage(), PHP_EOL;
 }
@@ -5972,6 +6225,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createLeaveType_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -6052,6 +6325,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $employeeID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
+$idempotencyKey = "KEY_VALUE";
 
 $earningsTemplate = new XeroAPI\XeroPHP\Models\PayrollNz\EarningsTemplate;
 $earningsTemplate->setPayTemplateEarningID('00000000-0000-0000-0000-000000000000');
@@ -6064,7 +6338,7 @@ $earningsTemplates = [];
 array_push($earningsTemplates, $earningsTemplate);
 
 try {
-  $result = $apiInstance->createMultipleEmployeeEarningsTemplate($xeroTenantId, $employeeID, $earningsTemplate);
+  $result = $apiInstance->createMultipleEmployeeEarningsTemplate($xeroTenantId, $employeeID, $earningsTemplate, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->createMultipleEmployeeEarningsTemplate: ', $e->getMessage(), PHP_EOL;
 }
@@ -6144,6 +6418,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createMultipleEmployeeEarningsTemplate_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -6218,13 +6512,14 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
     $config
 );
 $xeroTenantId = "xeroTenantId_example";
+$idempotencyKey = "KEY_VALUE";
 
 $payRun = new XeroAPI\XeroPHP\Models\PayrollNz\PayRun;
 $payRun->setPayRunType(XeroAPI\XeroPHP\Models\PayrollNz\PayRun\PayRunTypeEnum.SCHEDULED);
 $payRun->setPayrollCalendarID('00000000-0000-0000-0000-000000000000');
 
 try {
-  $result = $apiInstance->createPayRun($xeroTenantId, $payRun);
+  $result = $apiInstance->createPayRun($xeroTenantId, $payRun, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->createPayRun: ', $e->getMessage(), PHP_EOL;
 }
@@ -6266,6 +6561,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createPayRun_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -6345,6 +6660,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
     $config
 );
 $xeroTenantId = "xeroTenantId_example";
+$idempotencyKey = "KEY_VALUE";
 $startDate = new DateTime('2020-10-28');
 $paymentDate = new DateTime('2020-10-30');
 
@@ -6354,7 +6670,7 @@ $payRunCalendar->setPeriodStartDate($startDate);
 $payRunCalendar->setPaymentDate($paymentDate);
 
 try {
-  $result = $apiInstance->createPayRunCalendar($xeroTenantId, $payRunCalendar);
+  $result = $apiInstance->createPayRunCalendar($xeroTenantId, $payRunCalendar, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->createPayRunCalendar: ', $e->getMessage(), PHP_EOL;
 }
@@ -6396,6 +6712,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createPayRunCalendar_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -6475,6 +6811,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
     $config
 );
 $xeroTenantId = "xeroTenantId_example";
+$idempotencyKey = "KEY_VALUE";
 
 $reimbursement = new XeroAPI\XeroPHP\Models\PayrollNz\Reimbursement;
 $reimbursement->setName('Test Reimbursement');
@@ -6483,7 +6820,7 @@ $reimbursement->setCalculationType(XeroAPI\XeroPHP\Models\PayrollNz\Reimbursemen
 $reimbursement->setReimbursementCategory(XeroAPI\XeroPHP\Models\PayrollNz\Reimbursement\ReimbursementCategoryEnum.GST);
 
 try {
-  $result = $apiInstance->createReimbursement($xeroTenantId, $reimbursement);
+  $result = $apiInstance->createReimbursement($xeroTenantId, $reimbursement, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->createReimbursement: ', $e->getMessage(), PHP_EOL;
 }
@@ -6525,6 +6862,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createReimbursement_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -6604,6 +6961,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
     $config
 );
 $xeroTenantId = "xeroTenantId_example";
+$idempotencyKey = "KEY_VALUE";
 
 $benefit = new XeroAPI\XeroPHP\Models\PayrollNz\Benefit;
 $benefit->setCategory(XeroAPI\XeroPHP\Models\PayrollNz\Benefit\CategoryEnum.ComplyingFund);
@@ -6614,7 +6972,7 @@ $benefit->setPercentage(3);
 $benefit->setStandardAmount(100);
 
 try {
-  $result = $apiInstance->createSuperannuation($xeroTenantId, $benefit);
+  $result = $apiInstance->createSuperannuation($xeroTenantId, $benefit, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->createSuperannuation: ', $e->getMessage(), PHP_EOL;
 }
@@ -6656,6 +7014,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createSuperannuation_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -6735,6 +7113,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
     $config
 );
 $xeroTenantId = "xeroTenantId_example";
+$idempotencyKey = "KEY_VALUE";
 $startDate = new DateTime('2020-10-28');
 $endDate = new DateTime('2020-10-30');
 
@@ -6745,7 +7124,7 @@ $timesheet->setStartDate($startDate);
 $timesheet->setEndDate($endDate);
 
 try {
-  $result = $apiInstance->createTimesheet($xeroTenantId, $timesheet);
+  $result = $apiInstance->createTimesheet($xeroTenantId, $timesheet, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->createTimesheet: ', $e->getMessage(), PHP_EOL;
 }
@@ -6787,6 +7166,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createTimesheet_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -6867,6 +7266,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $timesheetID = "38400000-8cf0-11bd-b23e-10b96e4ef00d";
+$idempotencyKey = "KEY_VALUE";
 $date = new DateTime('2020-10-28');
 
 $timesheetLine = new XeroAPI\XeroPHP\Models\PayrollNz\TimesheetLine;
@@ -6877,7 +7277,7 @@ $timesheetLine->setTrackingItemID('00000000-0000-0000-0000-000000000000');
 $timesheetLine->setNumberOfUnits(6);
 
 try {
-  $result = $apiInstance->createTimesheetLine($xeroTenantId, $timesheetID, $timesheetLine);
+  $result = $apiInstance->createTimesheetLine($xeroTenantId, $timesheetID, $timesheetLine, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->createTimesheetLine: ', $e->getMessage(), PHP_EOL;
 }
@@ -6952,6 +7352,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createTimesheetLine_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -12200,9 +12620,10 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $timesheetID = "38400000-8cf0-11bd-b23e-10b96e4ef00d";
+$idempotencyKey = "KEY_VALUE";
 
 try {
-  $result = $apiInstance->revertTimesheet($xeroTenantId, $timesheetID);
+  $result = $apiInstance->revertTimesheet($xeroTenantId, $timesheetID, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->revertTimesheet: ', $e->getMessage(), PHP_EOL;
 }
@@ -12282,6 +12703,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_revertTimesheet_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                 </article>
               </div>
@@ -12321,6 +12762,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $employeeID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
+$idempotencyKey = "KEY_VALUE";
 $dateOfBirth = new DateTime('2000-10-28');
 
 $address = new XeroAPI\XeroPHP\Models\PayrollNz\Address;
@@ -12336,7 +12778,7 @@ $employee->setDateOfBirth($dateOfBirth);
 $employee->setAddress($address);
 
 try {
-  $result = $apiInstance->updateEmployee($xeroTenantId, $employeeID, $employee);
+  $result = $apiInstance->updateEmployee($xeroTenantId, $employeeID, $employee, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->updateEmployee: ', $e->getMessage(), PHP_EOL;
 }
@@ -12411,6 +12853,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateEmployee_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -12492,6 +12954,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
 $xeroTenantId = "xeroTenantId_example";
 $employeeID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
 $payTemplateEarningID = "3fa85f64-5717-4562-b3fc-2c963f66afa6";
+$idempotencyKey = "KEY_VALUE";
 
 $earningsTemplate = new XeroAPI\XeroPHP\Models\PayrollNz\EarningsTemplate;
 $earningsTemplate->setPayTemplateEarningID('00000000-0000-0000-0000-000000000000');
@@ -12504,7 +12967,7 @@ $earningsTemplates = [];
 array_push($earningsTemplates, $earningsTemplate);
 
 try {
-  $result = $apiInstance->updateEmployeeEarningsTemplate($xeroTenantId, $employeeID, $payTemplateEarningID, $earningsTemplate);
+  $result = $apiInstance->updateEmployeeEarningsTemplate($xeroTenantId, $employeeID, $payTemplateEarningID, $earningsTemplate, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->updateEmployeeEarningsTemplate: ', $e->getMessage(), PHP_EOL;
 }
@@ -12610,6 +13073,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateEmployeeEarningsTemplate_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -12686,6 +13169,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
 $xeroTenantId = "xeroTenantId_example";
 $employeeID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
 $leaveID = "c4be24e5-e840-4c92-9eaa-2d86cd596314";
+$idempotencyKey = "KEY_VALUE";
 $startDate = new DateTime('2020-10-28');
 $endDate = new DateTime('2020-10-30');
 
@@ -12695,7 +13179,7 @@ $employeeLeave->setStartDate($startDate);
 $employeeLeave->setEndDate($endDate);
 
 try {
-  $result = $apiInstance->updateEmployeeLeave($xeroTenantId, $employeeID, $leaveID, $employeeLeave);
+  $result = $apiInstance->updateEmployeeLeave($xeroTenantId, $employeeID, $leaveID, $employeeLeave, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->updateEmployeeLeave: ', $e->getMessage(), PHP_EOL;
 }
@@ -12801,6 +13285,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateEmployeeLeave_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -12877,6 +13381,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
 $xeroTenantId = "xeroTenantId_example";
 $employeeID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
 $salaryAndWagesID = "3fa85f64-5717-4562-b3fc-2c963f66afa6";
+$idempotencyKey = "KEY_VALUE";
 
 $salaryAndWage = new XeroAPI\XeroPHP\Models\PayrollNz\SalaryAndWage;
 $salaryAndWage->setEarningsRateID('00000000-0000-0000-0000-000000000000');
@@ -12885,7 +13390,7 @@ $salaryAndWage->setDaysPerWeek(0);
 $salaryAndWage->setPaymentType(XeroAPI\XeroPHP\Models\PayrollNz\SalaryAndWage\PaymentTypeEnum.HOURLY);
 
 try {
-  $result = $apiInstance->updateEmployeeSalaryAndWage($xeroTenantId, $employeeID, $salaryAndWagesID, $salaryAndWage);
+  $result = $apiInstance->updateEmployeeSalaryAndWage($xeroTenantId, $employeeID, $salaryAndWagesID, $salaryAndWage, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->updateEmployeeSalaryAndWage: ', $e->getMessage(), PHP_EOL;
 }
@@ -12991,6 +13496,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateEmployeeSalaryAndWage_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -13066,6 +13591,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $employeeID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
+$idempotencyKey = "KEY_VALUE";
 $studentLoanAsAt = new DateTime('2020-10-30');
 
 $employeeTax = new XeroAPI\XeroPHP\Models\PayrollNz\EmployeeTax;
@@ -13083,7 +13609,7 @@ $employeeTax->setStudentLoanBalance(30.0);
 $employeeTax->setStudentLoanAsAt($studentLoanAsAt);
 
 try {
-  $result = $apiInstance->updateEmployeeTax($xeroTenantId, $employeeID, $employeeTax);
+  $result = $apiInstance->updateEmployeeTax($xeroTenantId, $employeeID, $employeeTax, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->updateEmployeeTax: ', $e->getMessage(), PHP_EOL;
 }
@@ -13163,6 +13689,26 @@ Xero identifier for Tenant
 </td>
 </tr>
 
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateEmployeeTax_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                   </table>
                   <div class="methodsubtabletitle">Body parameters</div>
                   <table id="methodsubtable">
@@ -13237,6 +13783,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $payRunID = "38400000-8cf0-11bd-b23e-10b96e4ef00d";
+$idempotencyKey = "KEY_VALUE";
 $startDate = new DateTime('2020-10-28');
 $paymentDate = new DateTime('2020-10-30');
 
@@ -13246,7 +13793,7 @@ $payRunCalendar->setPeriodStartDate($startDate);
 $payRunCalendar->setPaymentDate($paymentDate);
 
 try {
-  $result = $apiInstance->updatePayRun($xeroTenantId, $payRunID, $payRun);
+  $result = $apiInstance->updatePayRun($xeroTenantId, $payRunID, $payRun, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->updatePayRun: ', $e->getMessage(), PHP_EOL;
 }
@@ -13321,6 +13868,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updatePayRun_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -13401,6 +13968,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
 );
 $xeroTenantId = "xeroTenantId_example";
 $paySlipID = "38400000-8cf0-11bd-b23e-10b96e4ef00d";
+$idempotencyKey = "KEY_VALUE";
 
 $earningsLine = new XeroAPI\XeroPHP\Models\PayrollNz\EarningsLine;
 $earningsLine->setEarningsLineID('00000000-0000-0000-0000-000000000000');
@@ -13416,7 +13984,7 @@ $paySlip = new XeroAPI\XeroPHP\Models\PayrollNz\PaySlip;
 $paySlip->setEarningsLines($earningsLines);
 
 try {
-  $result = $apiInstance->updatePaySlipLineItems($xeroTenantId, $paySlipID, $paySlip);
+  $result = $apiInstance->updatePaySlipLineItems($xeroTenantId, $paySlipID, $paySlip, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->updatePaySlipLineItems: ', $e->getMessage(), PHP_EOL;
 }
@@ -13491,6 +14059,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updatePaySlipLineItems_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
@@ -13572,6 +14160,7 @@ $apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
 $xeroTenantId = "xeroTenantId_example";
 $timesheetID = "38400000-8cf0-11bd-b23e-10b96e4ef00d";
 $timesheetLineID = "38400000-8cf0-11bd-b23e-10b96e4ef00d";
+$idempotencyKey = "KEY_VALUE";
 $date = new DateTime('2020-10-28');
 
 $timesheetLine = new XeroAPI\XeroPHP\Models\PayrollNz\TimesheetLine;
@@ -13582,7 +14171,7 @@ $timesheetLine->setTrackingItemID('00000000-0000-0000-0000-000000000000');
 $timesheetLine->setNumberOfUnits(6);
 
 try {
-  $result = $apiInstance->updateTimesheetLine($xeroTenantId, $timesheetID, $timesheetLineID, $timesheetLine);
+  $result = $apiInstance->updateTimesheetLine($xeroTenantId, $timesheetID, $timesheetLineID, $timesheetLine, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling PayrollNzApi->updateTimesheetLine: ', $e->getMessage(), PHP_EOL;
 }
@@ -13683,6 +14272,26 @@ Xero identifier for Tenant
                 <div class="inner required">
                     Required
                 </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_updateTimesheetLine_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
         </div>
     </div>
 </td>
