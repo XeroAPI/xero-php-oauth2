@@ -35,7 +35,7 @@ use ReturnTypeWillChange;
  * CountryOfResidence Class Doc Comment
  *
  * @category Class
- * @description Country of residence as a valid ISO 3166-1 alpha-2 country code e.g. \&quot;AU\&quot;, \&quot;NZ\&quot;, \&quot;CA\&quot; or an empty string (\&quot;\&quot;) to unset a previously set value. Only applicable, and mandatory if income type is WORKINGHOLIDAYMAKER.
+ * @description Country of residence as a valid ISO 3166-1 alpha-2 country code e.g. \&quot;AU\&quot;, \&quot;NZ\&quot;, \&quot;CA\&quot;. Only applicable, and mandatory if income type is WORKINGHOLIDAYMAKER.
  * @package  XeroAPI\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -295,7 +295,6 @@ class CountryOfResidence
     const CW = 'CW';
     const SX = 'SX';
     const SS = 'SS';
-    const EMPTY = '';
     
     /**
      * Gets allowable values of the enum
@@ -554,7 +553,6 @@ class CountryOfResidence
             self::CW,
             self::SX,
             self::SS,
-            self::EMPTY,
         ];
     }
 }
