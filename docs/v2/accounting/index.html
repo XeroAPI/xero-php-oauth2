@@ -6092,7 +6092,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="Accounting"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="Accounting"><strong>VSN: </strong>2.23.3</li>
+              <li class="nav-header" data-group="Accounting"><strong>VSN: </strong>3.0.0</li>
               <li class="nav-header" data-group="Accounting"><a href="#api-Accounting">Methods</a></li>
               <li data-group="Accounting" data-name="createAccount" class="">
                 <a href="#api-Accounting-createAccount">createAccount</a>
@@ -7606,9 +7606,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $unitdp = 4;
+$idempotencyKey = "KEY_VALUE";
 
 $contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
 $contact->setContactID('00000000-0000-0000-0000-000000000000');
@@ -7636,7 +7636,7 @@ array_push($arr_bank_transactions, $bankTransaction);
 $bankTransactions->setBankTransactions($arr_bank_transactions);
 
 try {
-  $result = $apiInstance->createBankTransactions($xeroTenantId, $bankTransactions, $idempotencyKey, $summarizeErrors, $unitdp);
+  $result = $apiInstance->createBankTransactions($xeroTenantId, $bankTransactions, $summarizeErrors, $unitdp, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createBankTransactions: ', $e->getMessage(), PHP_EOL;
 }
@@ -9693,8 +9693,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
+$idempotencyKey = "KEY_VALUE";
 
 $phone = new XeroAPI\XeroPHP\Models\Accounting\Phone;
 $phone->setPhoneNumber('555-1212');
@@ -9713,7 +9713,7 @@ array_push($arr_contacts, $contact);
 $contacts->setContacts($arr_contacts);
 
 try {
-  $result = $apiInstance->createContacts($xeroTenantId, $contacts, $idempotencyKey, $summarizeErrors);
+  $result = $apiInstance->createContacts($xeroTenantId, $contacts, $summarizeErrors, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createContacts: ', $e->getMessage(), PHP_EOL;
 }
@@ -9883,8 +9883,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $creditNoteID = "00000000-0000-0000-0000-000000000000";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
+$idempotencyKey = "KEY_VALUE";
 $currDate = new DateTime('2020-12-10');
 
 $invoice = new XeroAPI\XeroPHP\Models\Accounting\Invoice;
@@ -9901,7 +9901,7 @@ array_push($arr_allocations, $allocation);
 $allocations->setAllocations($arr_allocations);
 
 try {
-  $result = $apiInstance->createCreditNoteAllocation($xeroTenantId, $creditNoteID, $allocations, $idempotencyKey, $summarizeErrors);
+  $result = $apiInstance->createCreditNoteAllocation($xeroTenantId, $creditNoteID, $allocations, $summarizeErrors, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createCreditNoteAllocation: ', $e->getMessage(), PHP_EOL;
 }
@@ -10105,15 +10105,15 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $creditNoteID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
-$idempotencyKey = "KEY_VALUE";
 $includeOnline = true;
+$idempotencyKey = "KEY_VALUE";
 
 $handle = fopen($fileName, "r");
 $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->createCreditNoteAttachmentByFileName($xeroTenantId, $creditNoteID, $fileName, $body, $idempotencyKey, $includeOnline);
+  $result = $apiInstance->createCreditNoteAttachmentByFileName($xeroTenantId, $creditNoteID, $fileName, $body, $includeOnline, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createCreditNoteAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -10525,9 +10525,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $unitdp = 4;
+$idempotencyKey = "KEY_VALUE";
 $currDate = new DateTime('2020-12-10');
 
 $contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
@@ -10553,7 +10553,7 @@ array_push($arr_credit_notes, $creditNote);
 $creditNotes->setCreditNotes($arr_credit_notes);
 
 try {
-  $result = $apiInstance->createCreditNotes($xeroTenantId, $creditNotes, $idempotencyKey, $summarizeErrors, $unitdp);
+  $result = $apiInstance->createCreditNotes($xeroTenantId, $creditNotes, $summarizeErrors, $unitdp, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createCreditNotes: ', $e->getMessage(), PHP_EOL;
 }
@@ -10891,8 +10891,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
+$idempotencyKey = "KEY_VALUE";
 
 $employee = new XeroAPI\XeroPHP\Models\Accounting\Employee;
 $employee->setFirstName('Nick');
@@ -10904,7 +10904,7 @@ array_push($arr_employees, $employee);
 $employees->setEmployees($arr_employees);
 
 try {
-  $result = $apiInstance->createEmployees($xeroTenantId, $employees, $idempotencyKey, $summarizeErrors);
+  $result = $apiInstance->createEmployees($xeroTenantId, $employees, $summarizeErrors, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createEmployees: ', $e->getMessage(), PHP_EOL;
 }
@@ -11427,15 +11427,15 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $invoiceID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
-$idempotencyKey = "KEY_VALUE";
 $includeOnline = true;
+$idempotencyKey = "KEY_VALUE";
 
 $handle = fopen($fileName, "r");
 $body = fread($handle, filesize($fileName));
 fclose($handle);
 
 try {
-  $result = $apiInstance->createInvoiceAttachmentByFileName($xeroTenantId, $invoiceID, $fileName, $body, $idempotencyKey, $includeOnline);
+  $result = $apiInstance->createInvoiceAttachmentByFileName($xeroTenantId, $invoiceID, $fileName, $body, $includeOnline, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createInvoiceAttachmentByFileName: ', $e->getMessage(), PHP_EOL;
 }
@@ -11847,9 +11847,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $unitdp = 4;
+$idempotencyKey = "KEY_VALUE";
 $dateValue = new DateTime('2020-10-10');
 $dueDateValue = new DateTime('2020-10-28');
 
@@ -11886,7 +11886,7 @@ array_push($arr_invoices, $invoice);
 $invoices->setInvoices($arr_invoices);
 
 try {
-  $result = $apiInstance->createInvoices($xeroTenantId, $invoices, $idempotencyKey, $summarizeErrors, $unitdp);
+  $result = $apiInstance->createInvoices($xeroTenantId, $invoices, $summarizeErrors, $unitdp, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createInvoices: ', $e->getMessage(), PHP_EOL;
 }
@@ -12262,9 +12262,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $unitdp = 4;
+$idempotencyKey = "KEY_VALUE";
 
 $purchaseDetails = new XeroAPI\XeroPHP\Models\Accounting\Purchase;
 $purchaseDetails->setCoGSAccountCode('500');
@@ -12282,7 +12282,7 @@ array_push($arr_items, $item);
 $items->setItems($arr_items);
 
 try {
-  $result = $apiInstance->createItems($xeroTenantId, $items, $idempotencyKey, $summarizeErrors, $unitdp);
+  $result = $apiInstance->createItems($xeroTenantId, $items, $summarizeErrors, $unitdp, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createItems: ', $e->getMessage(), PHP_EOL;
 }
@@ -13014,8 +13014,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
+$idempotencyKey = "KEY_VALUE";
 $dateValue = new DateTime('2019-10-10');
 $manualJournalLines = [];
 
@@ -13042,7 +13042,7 @@ array_push($arr_manual_journals, $manualJournal);
 $manualJournals->setManualJournals($arr_manual_journals);
 
 try {
-  $result = $apiInstance->createManualJournals($xeroTenantId, $manualJournals, $idempotencyKey, $summarizeErrors);
+  $result = $apiInstance->createManualJournals($xeroTenantId, $manualJournals, $summarizeErrors, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createManualJournals: ', $e->getMessage(), PHP_EOL;
 }
@@ -13212,8 +13212,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $overpaymentID = "00000000-0000-0000-0000-000000000000";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
+$idempotencyKey = "KEY_VALUE";
 $currDate = new DateTime('2020-12-10');
 
 $invoice = new XeroAPI\XeroPHP\Models\Accounting\Invoice;
@@ -13230,7 +13230,7 @@ array_push($arr_allocations, $allocation);
 $allocations->setAllocations($arr_allocations);
 
 try {
-  $result = $apiInstance->createOverpaymentAllocations($xeroTenantId, $overpaymentID, $allocations, $idempotencyKey, $summarizeErrors);
+  $result = $apiInstance->createOverpaymentAllocations($xeroTenantId, $overpaymentID, $allocations, $summarizeErrors, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createOverpaymentAllocations: ', $e->getMessage(), PHP_EOL;
 }
@@ -14124,8 +14124,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
+$idempotencyKey = "KEY_VALUE";
 $dateValue = new DateTime('2020-10-10');
 
 $invoice = new XeroAPI\XeroPHP\Models\Accounting\Invoice;
@@ -14146,7 +14146,7 @@ array_push($arr_payments, $payment);
 $payments->setPayments($arr_payments);
 
 try {
-  $result = $apiInstance->createPayments($xeroTenantId, $payments, $idempotencyKey, $summarizeErrors);
+  $result = $apiInstance->createPayments($xeroTenantId, $payments, $summarizeErrors, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createPayments: ', $e->getMessage(), PHP_EOL;
 }
@@ -14316,8 +14316,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $prepaymentID = "00000000-0000-0000-0000-000000000000";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
+$idempotencyKey = "KEY_VALUE";
 $currDate = new DateTime('2020-12-10');
 
 $invoice = new XeroAPI\XeroPHP\Models\Accounting\Invoice;
@@ -14334,7 +14334,7 @@ array_push($arr_allocations, $allocation);
 $allocations->setAllocations($arr_allocations);
 
 try {
-  $result = $apiInstance->createPrepaymentAllocations($xeroTenantId, $prepaymentID, $allocations, $idempotencyKey, $summarizeErrors);
+  $result = $apiInstance->createPrepaymentAllocations($xeroTenantId, $prepaymentID, $allocations, $summarizeErrors, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createPrepaymentAllocations: ', $e->getMessage(), PHP_EOL;
 }
@@ -15117,8 +15117,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
+$idempotencyKey = "KEY_VALUE";
 $dateValue = new DateTime('2020-12-10');
 
 $contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
@@ -15143,7 +15143,7 @@ array_push($arr_purchase_orders, $purchaseOrder);
 $purchaseOrders->setPurchaseOrders($arr_purchase_orders);
 
 try {
-  $result = $apiInstance->createPurchaseOrders($xeroTenantId, $purchaseOrders, $idempotencyKey, $summarizeErrors);
+  $result = $apiInstance->createPurchaseOrders($xeroTenantId, $purchaseOrders, $summarizeErrors, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createPurchaseOrders: ', $e->getMessage(), PHP_EOL;
 }
@@ -15706,8 +15706,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
+$idempotencyKey = "KEY_VALUE";
 $dateValue = new DateTime('2020-12-10');
 
 $contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
@@ -15732,7 +15732,7 @@ array_push($arr_quotes, $quote);
 $quotes->setQuotes($arr_quotes);
 
 try {
-  $result = $apiInstance->createQuotes($xeroTenantId, $quotes, $idempotencyKey, $summarizeErrors);
+  $result = $apiInstance->createQuotes($xeroTenantId, $quotes, $summarizeErrors, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createQuotes: ', $e->getMessage(), PHP_EOL;
 }
@@ -15901,8 +15901,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
-$idempotencyKey = "KEY_VALUE";
 $unitdp = 4;
+$idempotencyKey = "KEY_VALUE";
 
 $contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
 $contact->setContactID('00000000-0000-0000-0000-000000000000');
@@ -15931,7 +15931,7 @@ array_push($arr_receipts, $receipt);
 $receipts->setReceipts($arr_receipts);
 
 try {
-  $result = $apiInstance->createReceipt($xeroTenantId, $receipts, $idempotencyKey, $unitdp);
+  $result = $apiInstance->createReceipt($xeroTenantId, $receipts, $unitdp, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createReceipt: ', $e->getMessage(), PHP_EOL;
 }
@@ -16888,11 +16888,11 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
+$idempotencyKey = "KEY_VALUE";
 
 try {
-  $result = $apiInstance->createRepeatingInvoices($xeroTenantId, $repeatingInvoices, $idempotencyKey, $summarizeErrors);
+  $result = $apiInstance->createRepeatingInvoices($xeroTenantId, $repeatingInvoices, $summarizeErrors, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->createRepeatingInvoices: ', $e->getMessage(), PHP_EOL;
 }
@@ -39448,8 +39448,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $bankTransactionID = "00000000-0000-0000-0000-000000000000";
-$idempotencyKey = "KEY_VALUE";
 $unitdp = 4;
+$idempotencyKey = "KEY_VALUE";
 
 $contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
 $contact->setContactID('00000000-0000-0000-0000-000000000000');
@@ -39478,7 +39478,7 @@ array_push($arr_bank_transactions, $bankTransaction);
 $bankTransactions->setBankTransactions($arr_bank_transactions);
 
 try {
-  $result = $apiInstance->updateBankTransaction($xeroTenantId, $bankTransactionID, $bankTransactions, $idempotencyKey, $unitdp);
+  $result = $apiInstance->updateBankTransaction($xeroTenantId, $bankTransactionID, $bankTransactions, $unitdp, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateBankTransaction: ', $e->getMessage(), PHP_EOL;
 }
@@ -40676,8 +40676,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $creditNoteID = "00000000-0000-0000-0000-000000000000";
-$idempotencyKey = "KEY_VALUE";
 $unitdp = 4;
+$idempotencyKey = "KEY_VALUE";
 $currDate = new DateTime('2020-12-10');
 
 $contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
@@ -40705,7 +40705,7 @@ array_push($arr_credit_notes, $creditNote);
 $creditNotes->setCreditNotes($arr_credit_notes);
 
 try {
-  $result = $apiInstance->updateCreditNote($xeroTenantId, $creditNoteID, $creditNotes, $idempotencyKey, $unitdp);
+  $result = $apiInstance->updateCreditNote($xeroTenantId, $creditNoteID, $creditNotes, $unitdp, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateCreditNote: ', $e->getMessage(), PHP_EOL;
 }
@@ -41313,8 +41313,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $invoiceID = "00000000-0000-0000-0000-000000000000";
-$idempotencyKey = "KEY_VALUE";
 $unitdp = 4;
+$idempotencyKey = "KEY_VALUE";
 
 $invoice = new XeroAPI\XeroPHP\Models\Accounting\Invoice;
 $invoice->setReference('I am Iron man');
@@ -41325,7 +41325,7 @@ array_push($arr_invoices, $invoice);
 $invoices->setInvoices($arr_invoices);
 
 try {
-  $result = $apiInstance->updateInvoice($xeroTenantId, $invoiceID, $invoices, $idempotencyKey, $unitdp);
+  $result = $apiInstance->updateInvoice($xeroTenantId, $invoiceID, $invoices, $unitdp, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateInvoice: ', $e->getMessage(), PHP_EOL;
 }
@@ -41734,8 +41734,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $itemID = "00000000-0000-0000-0000-000000000000";
-$idempotencyKey = "KEY_VALUE";
 $unitdp = 4;
+$idempotencyKey = "KEY_VALUE";
 
 $item = new XeroAPI\XeroPHP\Models\Accounting\Item;
 $item->setCode('ItemCode123');
@@ -41747,7 +41747,7 @@ array_push($arr_items, $item);
 $items->setItems($arr_items);
 
 try {
-  $result = $apiInstance->updateItem($xeroTenantId, $itemID, $items, $idempotencyKey, $unitdp);
+  $result = $apiInstance->updateItem($xeroTenantId, $itemID, $items, $unitdp, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateItem: ', $e->getMessage(), PHP_EOL;
 }
@@ -42544,9 +42544,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $unitdp = 4;
+$idempotencyKey = "KEY_VALUE";
 
 $contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
 $contact->setContactID('00000000-0000-0000-0000-000000000000');
@@ -42574,7 +42574,7 @@ array_push($arr_bank_transactions, $bankTransaction);
 $bankTransactions->setBankTransactions($arr_bank_transactions);
 
 try {
-  $result = $apiInstance->updateOrCreateBankTransactions($xeroTenantId, $bankTransactions, $idempotencyKey, $summarizeErrors, $unitdp);
+  $result = $apiInstance->updateOrCreateBankTransactions($xeroTenantId, $bankTransactions, $summarizeErrors, $unitdp, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateOrCreateBankTransactions: ', $e->getMessage(), PHP_EOL;
 }
@@ -42762,8 +42762,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
+$idempotencyKey = "KEY_VALUE";
 
 $phone = new XeroAPI\XeroPHP\Models\Accounting\Phone;
 $phone->setPhoneNumber('555-1212');
@@ -42782,7 +42782,7 @@ array_push($arr_contacts, $contact);
 $contacts->setContacts($arr_contacts);
 
 try {
-  $result = $apiInstance->updateOrCreateContacts($xeroTenantId, $contacts, $idempotencyKey, $summarizeErrors);
+  $result = $apiInstance->updateOrCreateContacts($xeroTenantId, $contacts, $summarizeErrors, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateOrCreateContacts: ', $e->getMessage(), PHP_EOL;
 }
@@ -42950,9 +42950,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $unitdp = 4;
+$idempotencyKey = "KEY_VALUE";
 $currDate = new DateTime('2020-12-10');
 
 $contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
@@ -42978,7 +42978,7 @@ array_push($arr_credit_notes, $creditNote);
 $creditNotes->setCreditNotes($arr_credit_notes);
 
 try {
-  $result = $apiInstance->updateOrCreateCreditNotes($xeroTenantId, $creditNotes, $idempotencyKey, $summarizeErrors, $unitdp);
+  $result = $apiInstance->updateOrCreateCreditNotes($xeroTenantId, $creditNotes, $summarizeErrors, $unitdp, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateOrCreateCreditNotes: ', $e->getMessage(), PHP_EOL;
 }
@@ -43167,8 +43167,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
+$idempotencyKey = "KEY_VALUE";
 
 $employee = new XeroAPI\XeroPHP\Models\Accounting\Employee;
 $employee->setFirstName('Nick');
@@ -43180,7 +43180,7 @@ array_push($arr_employees, $employee);
 $employees->setEmployees($arr_employees);
 
 try {
-  $result = $apiInstance->updateOrCreateEmployees($xeroTenantId, $employees, $idempotencyKey, $summarizeErrors);
+  $result = $apiInstance->updateOrCreateEmployees($xeroTenantId, $employees, $summarizeErrors, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateOrCreateEmployees: ', $e->getMessage(), PHP_EOL;
 }
@@ -43349,9 +43349,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $unitdp = 4;
+$idempotencyKey = "KEY_VALUE";
 $dateValue = new DateTime('2020-10-10');
 $dueDateValue = new DateTime('2020-10-28');
 
@@ -43381,7 +43381,7 @@ array_push($arr_invoices, $invoice);
 $invoices->setInvoices($arr_invoices);
 
 try {
-  $result = $apiInstance->updateOrCreateInvoices($xeroTenantId, $invoices, $idempotencyKey, $summarizeErrors, $unitdp);
+  $result = $apiInstance->updateOrCreateInvoices($xeroTenantId, $invoices, $summarizeErrors, $unitdp, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateOrCreateInvoices: ', $e->getMessage(), PHP_EOL;
 }
@@ -43569,9 +43569,9 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
 $unitdp = 4;
+$idempotencyKey = "KEY_VALUE";
 
 $item = new XeroAPI\XeroPHP\Models\Accounting\Item;
 $item->setCode('abcXYZ123');
@@ -43584,7 +43584,7 @@ array_push($arr_items, $item);
 $items->setItems($arr_items);
 
 try {
-  $result = $apiInstance->updateOrCreateItems($xeroTenantId, $items, $idempotencyKey, $summarizeErrors, $unitdp);
+  $result = $apiInstance->updateOrCreateItems($xeroTenantId, $items, $summarizeErrors, $unitdp, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateOrCreateItems: ', $e->getMessage(), PHP_EOL;
 }
@@ -43772,8 +43772,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
+$idempotencyKey = "KEY_VALUE";
 $dateValue = new DateTime('2020-10-10');
 $manualJournalLines = [];
 
@@ -43800,7 +43800,7 @@ array_push($arr_manual_journals, $manualJournal);
 $manualJournals->setManualJournals($arr_manual_journals);
 
 try {
-  $result = $apiInstance->updateOrCreateManualJournals($xeroTenantId, $manualJournals, $idempotencyKey, $summarizeErrors);
+  $result = $apiInstance->updateOrCreateManualJournals($xeroTenantId, $manualJournals, $summarizeErrors, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateOrCreateManualJournals: ', $e->getMessage(), PHP_EOL;
 }
@@ -43969,8 +43969,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
+$idempotencyKey = "KEY_VALUE";
 $dateValue = new DateTime('2020-12-10');
 
 $contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
@@ -43995,7 +43995,7 @@ array_push($arr_purchase_orders, $purchaseOrder);
 $purchaseOrders->setPurchaseOrders($arr_purchase_orders);
 
 try {
-  $result = $apiInstance->updateOrCreatePurchaseOrders($xeroTenantId, $purchaseOrders, $idempotencyKey, $summarizeErrors);
+  $result = $apiInstance->updateOrCreatePurchaseOrders($xeroTenantId, $purchaseOrders, $summarizeErrors, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateOrCreatePurchaseOrders: ', $e->getMessage(), PHP_EOL;
 }
@@ -44163,8 +44163,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
+$idempotencyKey = "KEY_VALUE";
 $dateValue = new DateTime('2020-12-10');
 
 $contact = new XeroAPI\XeroPHP\Models\Accounting\Contact;
@@ -44189,7 +44189,7 @@ array_push($arr_quotes, $quote);
 $quotes->setQuotes($arr_quotes);
 
 try {
-  $result = $apiInstance->updateOrCreateQuotes($xeroTenantId, $quotes, $idempotencyKey, $summarizeErrors);
+  $result = $apiInstance->updateOrCreateQuotes($xeroTenantId, $quotes, $summarizeErrors, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateOrCreateQuotes: ', $e->getMessage(), PHP_EOL;
 }
@@ -44357,11 +44357,11 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
     $config
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
-$idempotencyKey = "KEY_VALUE";
 $summarizeErrors = true;
+$idempotencyKey = "KEY_VALUE";
 
 try {
-  $result = $apiInstance->updateOrCreateRepeatingInvoices($xeroTenantId, $repeatingInvoices, $idempotencyKey, $summarizeErrors);
+  $result = $apiInstance->updateOrCreateRepeatingInvoices($xeroTenantId, $repeatingInvoices, $summarizeErrors, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateOrCreateRepeatingInvoices: ', $e->getMessage(), PHP_EOL;
 }
@@ -45323,8 +45323,8 @@ $apiInstance = new XeroAPI\XeroPHP\Api\AccountingApi(
 );
 $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $receiptID = "00000000-0000-0000-0000-000000000000";
-$idempotencyKey = "KEY_VALUE";
 $unitdp = 4;
+$idempotencyKey = "KEY_VALUE";
 $dateValue = new DateTime('2020-12-10');
 
 $user = new XeroAPI\XeroPHP\Models\Accounting\User;
@@ -45341,7 +45341,7 @@ array_push($arr_receipts, $receipt);
 $receipts->setReceipts($arr_receipts);
 
 try {
-  $result = $apiInstance->updateReceipt($xeroTenantId, $receiptID, $receipts, $idempotencyKey, $unitdp);
+  $result = $apiInstance->updateReceipt($xeroTenantId, $receiptID, $receipts, $unitdp, $idempotencyKey);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->updateReceipt: ', $e->getMessage(), PHP_EOL;
 }
