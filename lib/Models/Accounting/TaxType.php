@@ -165,6 +165,9 @@ class TaxType
     const IMREY24 = 'IMREY24';
     const BADDEBTRECOVERYY24 = 'BADDEBTRECOVERYY24';
     const OSOUTPUT2 = 'OSOUTPUT2';
+    const BLINPUT3 = 'BLINPUT3';
+    const BLINPUT3_Y23 = 'BLINPUT3Y23';
+    const BLINPUT3_Y24 = 'BLINPUT3Y24';
     
     /**
      * Gets allowable values of the enum
@@ -293,6 +296,9 @@ class TaxType
             self::IMREY24,
             self::BADDEBTRECOVERYY24,
             self::OSOUTPUT2,
+            self::BLINPUT3,
+            self::BLINPUT3_Y23,
+            self::BLINPUT3_Y24,
         ];
     }
 }
