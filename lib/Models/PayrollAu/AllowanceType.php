@@ -50,7 +50,6 @@ class AllowanceType
     const MEALS = 'MEALS';
     const TRAVEL = 'TRAVEL';
     const OTHER = 'OTHER';
-    const JOBKEEPER = 'JOBKEEPER';
     const TOOLS = 'TOOLS';
     const TASKS = 'TASKS';
     const QUALIFICATIONS = 'QUALIFICATIONS';
@@ -68,7 +67,6 @@ class AllowanceType
             self::MEALS,
             self::TRAVEL,
             self::OTHER,
-            self::JOBKEEPER,
             self::TOOLS,
             self::TASKS,
             self::QUALIFICATIONS,
