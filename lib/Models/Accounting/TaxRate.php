@@ -316,6 +316,7 @@ class TaxRate implements ModelInterface, ArrayAccess
     const REPORT_TAX_TYPE_IMRE = 'IMRE';
     const REPORT_TAX_TYPE_BADDEBTRECOVERY = 'BADDEBTRECOVERY';
     const REPORT_TAX_TYPE_USSALESTAX = 'USSALESTAX';
+    const REPORT_TAX_TYPE_BLINPUT3 = 'BLINPUT3';
     
 
     
@@ -440,6 +441,7 @@ class TaxRate implements ModelInterface, ArrayAccess
             self::REPORT_TAX_TYPE_IMRE,
             self::REPORT_TAX_TYPE_BADDEBTRECOVERY,
             self::REPORT_TAX_TYPE_USSALESTAX,
+            self::REPORT_TAX_TYPE_BLINPUT3,
         ];
     }
     
