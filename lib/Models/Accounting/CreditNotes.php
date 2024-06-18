@@ -159,9 +159,9 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
         return self::$openAPIModelName;
     }
 
-    
 
-    
+
+
 
     /**
      * Associative array for storing property values
@@ -288,18 +288,33 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
         unset($this->container['credit_notes'][$offset]);
     }
 
+    /**
+     * Gets count.
+     *
+     * @return int
+     */
     #[\ReturnTypeWillChange]
-    public function count() 
+    public function count()
     {
         return count($this->container['credit_notes']);
     }
 
+    /**
+     * Gets iterator.
+     *
+     * @return \Traversable
+     */
     #[\ReturnTypeWillChange]
-    public function getIterator() 
+    public function getIterator()
     {
         return new \ArrayIterator($this->container['credit_notes']);
     }
 
+    /**
+     * Gets the json presentation of the object.
+     *
+     * @return mixed
+     */
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
