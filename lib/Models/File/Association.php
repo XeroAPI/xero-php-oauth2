@@ -58,6 +58,9 @@ class Association implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'send_with_object' => 'bool',
+        'name' => 'string',
+        'size' => 'int',
         'file_id' => 'string',
         'object_id' => 'string',
         'object_group' => '\XeroAPI\XeroPHP\Models\File\ObjectGroup',
@@ -70,6 +73,9 @@ class Association implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'send_with_object' => null,
+        'name' => null,
+        'size' => null,
         'file_id' => 'uuid',
         'object_id' => 'uuid',
         'object_group' => null,
@@ -103,6 +109,9 @@ class Association implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'send_with_object' => 'SendWithObject',
+        'name' => 'Name',
+        'size' => 'Size',
         'file_id' => 'FileId',
         'object_id' => 'ObjectId',
         'object_group' => 'ObjectGroup',
@@ -115,6 +124,9 @@ class Association implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'send_with_object' => 'setSendWithObject',
+        'name' => 'setName',
+        'size' => 'setSize',
         'file_id' => 'setFileId',
         'object_id' => 'setObjectId',
         'object_group' => 'setObjectGroup',
@@ -127,6 +139,9 @@ class Association implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'send_with_object' => 'getSendWithObject',
+        'name' => 'getName',
+        'size' => 'getSize',
         'file_id' => 'getFileId',
         'object_id' => 'getObjectId',
         'object_group' => 'getObjectGroup',
@@ -193,6 +208,9 @@ class Association implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['send_with_object'] = isset($data['send_with_object']) ? $data['send_with_object'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
         $this->container['file_id'] = isset($data['file_id']) ? $data['file_id'] : null;
         $this->container['object_id'] = isset($data['object_id']) ? $data['object_id'] : null;
         $this->container['object_group'] = isset($data['object_group']) ? $data['object_group'] : null;
@@ -221,6 +239,87 @@ class Association implements ModelInterface, ArrayAccess
     {
         return count($this->listInvalidProperties()) === 0;
     }
+
+
+    /**
+     * Gets send_with_object
+     *
+     * @return bool|null
+     */
+    public function getSendWithObject()
+    {
+        return $this->container['send_with_object'];
+    }
+
+    /**
+     * Sets send_with_object
+     *
+     * @param bool|null $send_with_object Boolean flag to determines whether the file is sent with the document it is attached to on client facing communications. Note- The SendWithObject element is only returned when using /Associations/{ObjectId} endpoint.
+     *
+     * @return $this
+     */
+    public function setSendWithObject($send_with_object)
+    {
+
+        $this->container['send_with_object'] = $send_with_object;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name The name of the associated file. Note- The Name element is only returned when using /Associations/{ObjectId} endpoint.
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets size
+     *
+     * @return int|null
+     */
+    public function getSize()
+    {
+        return $this->container['size'];
+    }
+
+    /**
+     * Sets size
+     *
+     * @param int|null $size The size of the associated file in bytes. Note- The Size element is only returned when using /Associations/{ObjectId} endpoint.
+     *
+     * @return $this
+     */
+    public function setSize($size)
+    {
+
+        $this->container['size'] = $size;
+
+        return $this;
+    }
+
 
 
     /**
