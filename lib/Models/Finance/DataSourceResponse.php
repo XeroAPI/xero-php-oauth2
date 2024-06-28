@@ -302,7 +302,7 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
     /**
      * Sets direct_bank_feed
      *
-     * @param double|null $direct_bank_feed Sum of the amounts of all statement lines where the source of the data was a direct bank feed in to Xero.   This gives an indication on the certainty of correctness of the data.
+     * @param double|null $direct_bank_feed Sum of the amounts of all statement lines where the source of the data was a direct bank feed in to Xero via an API integration.   This could be from a bank or aggregator.   This gives an indication on the certainty of correctness of the data.
      *
      * @return $this
      */
@@ -329,7 +329,7 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
     /**
      * Sets indirect_bank_feed
      *
-     * @param double|null $indirect_bank_feed Sum of the amounts of all statement lines where the source of the data was a indirect bank feed to Xero (usually via Yodlee).   This gives an indication on the certainty of correctness of the data.
+     * @param double|null $indirect_bank_feed No longer in use.
      *
      * @return $this
      */
@@ -356,7 +356,7 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
     /**
      * Sets file_upload
      *
-     * @param double|null $file_upload Sum of the amounts of all statement lines where the source of the data was a CSV file upload in to Xero.   This gives an indication on the certainty of correctness of the data.
+     * @param double|null $file_upload Sum of the amounts of all statement lines where the source of the data was a file manually uploaded in to Xero.   This gives an indication on the certainty of correctness of the data.
      *
      * @return $this
      */
@@ -383,7 +383,7 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
     /**
      * Sets manual
      *
-     * @param double|null $manual Sum of the amounts of all statement lines where the source of the data was manually keyed in to Xero.   This gives an indication on the certainty of correctness of the data.
+     * @param double|null $manual Sum of the amounts of all statement lines where the source of the data was manually input in to Xero.   This gives an indication on the certainty of correctness of the data.
      *
      * @return $this
      */
@@ -410,7 +410,7 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
     /**
      * Sets direct_bank_feed_pos
      *
-     * @param double|null $direct_bank_feed_pos Sum of the amounts of all statement lines where the source of the data was a direct bank feed in to Xero.  This gives an indication on the certainty of correctness of the data.  Only positive transactions are included.
+     * @param double|null $direct_bank_feed_pos Sum of the amounts of all statement lines where the source of the data was a direct bank feed in to Xero via an API integration.   This could be from a bank or aggregator.  This gives an indication on the certainty of correctness of the data.  Only positive transactions are included.
      *
      * @return $this
      */
@@ -437,7 +437,7 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
     /**
      * Sets indirect_bank_feed_pos
      *
-     * @param double|null $indirect_bank_feed_pos Sum of the amounts of all statement lines where the source of the data was a indirect bank feed to Xero (usually via Yodlee).   This gives an indication on the certainty of correctness of the data. Only positive transactions are included.
+     * @param double|null $indirect_bank_feed_pos No longer in use.
      *
      * @return $this
      */
@@ -464,7 +464,7 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
     /**
      * Sets file_upload_pos
      *
-     * @param double|null $file_upload_pos Sum of the amounts of all statement lines where the source of the data was a CSV file upload in to Xero.   This gives an indication on the certainty of correctness of the data. Only positive transactions are included.
+     * @param double|null $file_upload_pos Sum of the amounts of all statement lines where the source of the data was a file manually uploaded in to Xero.   This gives an indication on the certainty of correctness of the data. Only positive transactions are included.
      *
      * @return $this
      */
@@ -491,7 +491,7 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
     /**
      * Sets manual_pos
      *
-     * @param double|null $manual_pos Sum of the amounts of all statement lines where the source of the data was manually keyed in to Xero.   This gives an indication on the certainty of correctness of the data. Only positive transactions are included.
+     * @param double|null $manual_pos Sum of the amounts of all statement lines where the source of the data was manually input in to Xero.   This gives an indication on the certainty of correctness of the data. Only positive transactions are included.
      *
      * @return $this
      */
@@ -518,7 +518,7 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
     /**
      * Sets direct_bank_feed_neg
      *
-     * @param double|null $direct_bank_feed_neg Sum of the amounts of all statement lines where the source of the data was a direct bank feed in to Xero.   This gives an indication on the certainty of correctness of the data.  Only negative transactions are included.
+     * @param double|null $direct_bank_feed_neg Sum of the amounts of all statement lines where the source of the data was a direct bank feed in to Xero via an API integration.   This could be from a bank or aggregator.   This gives an indication on the certainty of correctness of the data.  Only negative transactions are included.
      *
      * @return $this
      */
@@ -545,7 +545,7 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
     /**
      * Sets indirect_bank_feed_neg
      *
-     * @param double|null $indirect_bank_feed_neg Sum of the amounts of all statement lines where the source of the data was a indirect bank feed to Xero (usually via Yodlee).   This gives an indication on the certainty of correctness of the data.  Only negative transactions are included.
+     * @param double|null $indirect_bank_feed_neg No longer in use.
      *
      * @return $this
      */
@@ -572,7 +572,7 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
     /**
      * Sets file_upload_neg
      *
-     * @param double|null $file_upload_neg Sum of the amounts of all statement lines where the source of the data was a CSV file upload in to Xero.   This gives an indication on the certainty of correctness of the data.  Only negative transactions are included.
+     * @param double|null $file_upload_neg Sum of the amounts of all statement lines where the source of the data was a file manually uploaded in to Xero.   This gives an indication on the certainty of correctness of the data.  Only negative transactions are included.
      *
      * @return $this
      */
@@ -599,7 +599,7 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
     /**
      * Sets manual_neg
      *
-     * @param double|null $manual_neg Sum of the amounts of all statement lines where the source of the data was manually keyed in to Xero.   This gives an indication on the certainty of correctness of the data.  Only negative transactions are included.
+     * @param double|null $manual_neg Sum of the amounts of all statement lines where the source of the data was manually input in to Xero.   This gives an indication on the certainty of correctness of the data.  Only negative transactions are included.
      *
      * @return $this
      */
@@ -626,7 +626,7 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
     /**
      * Sets other_pos
      *
-     * @param double|null $other_pos Sum of the amounts of all statement lines where the source of the data was any other category.   This gives an indication on the certainty of correctness of the data.  Only positive transactions are included.
+     * @param double|null $other_pos Sum of the amounts of all statement lines where the source of the data was unknown.   This gives an indication on the certainty of correctness of the data.  Only positive transactions are included.
      *
      * @return $this
      */
@@ -653,7 +653,7 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
     /**
      * Sets other_neg
      *
-     * @param double|null $other_neg Sum of the amounts of all statement lines where the source of the data was any other category.   This gives an indication on the certainty of correctness of the data.  Only negative transactions are included.
+     * @param double|null $other_neg Sum of the amounts of all statement lines where the source of the data was unknown.   This gives an indication on the certainty of correctness of the data.  Only negative transactions are included.
      *
      * @return $this
      */
@@ -680,7 +680,7 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
     /**
      * Sets other
      *
-     * @param double|null $other Sum of the amounts of all statement lines where the source of the data was any other category.   This gives an indication on the certainty of correctness of the data.
+     * @param double|null $other Sum of the amounts of all statement lines where the source of the data was unknown.   This gives an indication on the certainty of correctness of the data.
      *
      * @return $this
      */
