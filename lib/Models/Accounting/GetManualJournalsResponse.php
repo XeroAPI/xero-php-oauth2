@@ -63,7 +63,7 @@ class GetManualJournalsResponse implements ModelInterface, ArrayAccess
         'provider_name' => 'string',
         'date_time_utc' => 'string',
         'page_info' => '\XeroAPI\XeroPHP\Models\Accounting\PageInfo',
-        'manual_journals' => '\XeroAPI\XeroPHP\Models\Accounting\ManualJournals[]'
+        'manual_journals' => '\XeroAPI\XeroPHP\Models\Accounting\ManualJournal[]'
     ];
 
     /**
@@ -377,7 +377,7 @@ class GetManualJournalsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets manual_journals
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\ManualJournals[]|null
+     * @return \XeroAPI\XeroPHP\Models\Accounting\ManualJournal[]|null
      */
     public function getManualJournals()
     {
@@ -387,7 +387,7 @@ class GetManualJournalsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets manual_journals
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\ManualJournals[]|null $manual_journals manual_journals
+     * @param \XeroAPI\XeroPHP\Models\Accounting\ManualJournal[]|null $manual_journals manual_journals
      *
      * @return $this
      */

@@ -63,7 +63,7 @@ class GetPrepaymentsResponse implements ModelInterface, ArrayAccess
         'provider_name' => 'string',
         'date_time_utc' => 'string',
         'page_info' => '\XeroAPI\XeroPHP\Models\Accounting\PageInfo',
-        'prepayments' => '\XeroAPI\XeroPHP\Models\Accounting\Prepayments[]'
+        'prepayments' => '\XeroAPI\XeroPHP\Models\Accounting\Prepayment[]'
     ];
 
     /**
@@ -377,7 +377,7 @@ class GetPrepaymentsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets prepayments
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Prepayments[]|null
+     * @return \XeroAPI\XeroPHP\Models\Accounting\Prepayment[]|null
      */
     public function getPrepayments()
     {
@@ -387,7 +387,7 @@ class GetPrepaymentsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets prepayments
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Prepayments[]|null $prepayments prepayments
+     * @param \XeroAPI\XeroPHP\Models\Accounting\Prepayment[]|null $prepayments prepayments
      *
      * @return $this
      */

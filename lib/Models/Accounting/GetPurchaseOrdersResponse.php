@@ -63,7 +63,7 @@ class GetPurchaseOrdersResponse implements ModelInterface, ArrayAccess
         'provider_name' => 'string',
         'date_time_utc' => 'string',
         'page_info' => '\XeroAPI\XeroPHP\Models\Accounting\PageInfo',
-        'purchase_orders' => '\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders[]'
+        'purchase_orders' => '\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrder[]'
     ];
 
     /**
@@ -377,7 +377,7 @@ class GetPurchaseOrdersResponse implements ModelInterface, ArrayAccess
     /**
      * Gets purchase_orders
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders[]|null
+     * @return \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrder[]|null
      */
     public function getPurchaseOrders()
     {
@@ -387,7 +387,7 @@ class GetPurchaseOrdersResponse implements ModelInterface, ArrayAccess
     /**
      * Sets purchase_orders
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrders[]|null $purchase_orders purchase_orders
+     * @param \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrder[]|null $purchase_orders purchase_orders
      *
      * @return $this
      */

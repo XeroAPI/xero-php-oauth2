@@ -63,7 +63,7 @@ class GetBankTransactionsResponse implements ModelInterface, ArrayAccess
         'provider_name' => 'string',
         'date_time_utc' => 'string',
         'page_info' => '\XeroAPI\XeroPHP\Models\Accounting\PageInfo',
-        'bank_transactions' => '\XeroAPI\XeroPHP\Models\Accounting\BankTransactions[]'
+        'bank_transactions' => '\XeroAPI\XeroPHP\Models\Accounting\BankTransaction[]'
     ];
 
     /**
@@ -377,7 +377,7 @@ class GetBankTransactionsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets bank_transactions
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\BankTransactions[]|null
+     * @return \XeroAPI\XeroPHP\Models\Accounting\BankTransaction[]|null
      */
     public function getBankTransactions()
     {
@@ -387,7 +387,7 @@ class GetBankTransactionsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets bank_transactions
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\BankTransactions[]|null $bank_transactions bank_transactions
+     * @param \XeroAPI\XeroPHP\Models\Accounting\BankTransaction[]|null $bank_transactions bank_transactions
      *
      * @return $this
      */

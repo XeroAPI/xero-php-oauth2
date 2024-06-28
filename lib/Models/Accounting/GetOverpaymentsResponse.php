@@ -63,7 +63,7 @@ class GetOverpaymentsResponse implements ModelInterface, ArrayAccess
         'provider_name' => 'string',
         'date_time_utc' => 'string',
         'page_info' => '\XeroAPI\XeroPHP\Models\Accounting\PageInfo',
-        'overpayments' => '\XeroAPI\XeroPHP\Models\Accounting\Overpayments[]'
+        'overpayments' => '\XeroAPI\XeroPHP\Models\Accounting\Overpayment[]'
     ];
 
     /**
@@ -377,7 +377,7 @@ class GetOverpaymentsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets overpayments
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Overpayments[]|null
+     * @return \XeroAPI\XeroPHP\Models\Accounting\Overpayment[]|null
      */
     public function getOverpayments()
     {
@@ -387,7 +387,7 @@ class GetOverpaymentsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets overpayments
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Overpayments[]|null $overpayments overpayments
+     * @param \XeroAPI\XeroPHP\Models\Accounting\Overpayment[]|null $overpayments overpayments
      *
      * @return $this
      */

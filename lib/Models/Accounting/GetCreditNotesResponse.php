@@ -63,7 +63,7 @@ class GetCreditNotesResponse implements ModelInterface, ArrayAccess
         'provider_name' => 'string',
         'date_time_utc' => 'string',
         'page_info' => '\XeroAPI\XeroPHP\Models\Accounting\PageInfo',
-        'credit_notes' => '\XeroAPI\XeroPHP\Models\Accounting\CreditNotes[]'
+        'credit_notes' => '\XeroAPI\XeroPHP\Models\Accounting\CreditNote[]'
     ];
 
     /**
@@ -377,7 +377,7 @@ class GetCreditNotesResponse implements ModelInterface, ArrayAccess
     /**
      * Gets credit_notes
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\CreditNotes[]|null
+     * @return \XeroAPI\XeroPHP\Models\Accounting\CreditNote[]|null
      */
     public function getCreditNotes()
     {
@@ -387,7 +387,7 @@ class GetCreditNotesResponse implements ModelInterface, ArrayAccess
     /**
      * Sets credit_notes
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\CreditNotes[]|null $credit_notes credit_notes
+     * @param \XeroAPI\XeroPHP\Models\Accounting\CreditNote[]|null $credit_notes credit_notes
      *
      * @return $this
      */

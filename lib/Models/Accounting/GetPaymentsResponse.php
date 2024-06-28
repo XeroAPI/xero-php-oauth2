@@ -63,7 +63,7 @@ class GetPaymentsResponse implements ModelInterface, ArrayAccess
         'provider_name' => 'string',
         'date_time_utc' => 'string',
         'page_info' => '\XeroAPI\XeroPHP\Models\Accounting\PageInfo',
-        'payments' => '\XeroAPI\XeroPHP\Models\Accounting\Payments[]'
+        'payments' => '\XeroAPI\XeroPHP\Models\Accounting\Payment[]'
     ];
 
     /**
@@ -377,7 +377,7 @@ class GetPaymentsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets payments
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Payments[]|null
+     * @return \XeroAPI\XeroPHP\Models\Accounting\Payment[]|null
      */
     public function getPayments()
     {
@@ -387,7 +387,7 @@ class GetPaymentsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets payments
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Payments[]|null $payments payments
+     * @param \XeroAPI\XeroPHP\Models\Accounting\Payment[]|null $payments payments
      *
      * @return $this
      */

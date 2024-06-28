@@ -63,7 +63,7 @@ class GetContactsResponse implements ModelInterface, ArrayAccess
         'provider_name' => 'string',
         'date_time_utc' => 'string',
         'page_info' => '\XeroAPI\XeroPHP\Models\Accounting\PageInfo',
-        'contacts' => '\XeroAPI\XeroPHP\Models\Accounting\Contacts[]'
+        'contacts' => '\XeroAPI\XeroPHP\Models\Accounting\Contact[]'
     ];
 
     /**
@@ -377,7 +377,7 @@ class GetContactsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets contacts
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Contacts[]|null
+     * @return \XeroAPI\XeroPHP\Models\Accounting\Contact[]|null
      */
     public function getContacts()
     {
@@ -387,7 +387,7 @@ class GetContactsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets contacts
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Contacts[]|null $contacts contacts
+     * @param \XeroAPI\XeroPHP\Models\Accounting\Contact[]|null $contacts contacts
      *
      * @return $this
      */
