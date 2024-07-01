@@ -2860,6 +2860,267 @@ ul.nav-tabs {
     "url" : "http://developer.xero.com/documentation/api/organisation/"
   }
 };
+      defs["GetBankTransactionsResponse"] = {
+  "title" : "",
+  "type" : "object",
+  "properties" : {
+    "Id" : {
+      "type" : "string"
+    },
+    "Status" : {
+      "type" : "string"
+    },
+    "ProviderName" : {
+      "type" : "string"
+    },
+    "DateTimeUTC" : {
+      "type" : "string"
+    },
+    "PageInfo" : {
+      "$ref" : "#/components/schemas/PageInfo"
+    },
+    "BankTransactions" : {
+      "minItems" : 1,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/BankTransaction"
+      }
+    }
+  },
+  "description" : ""
+};
+      defs["GetContactsResponse"] = {
+  "title" : "",
+  "type" : "object",
+  "properties" : {
+    "Id" : {
+      "type" : "string"
+    },
+    "Status" : {
+      "type" : "string"
+    },
+    "ProviderName" : {
+      "type" : "string"
+    },
+    "DateTimeUTC" : {
+      "type" : "string"
+    },
+    "PageInfo" : {
+      "$ref" : "#/components/schemas/PageInfo"
+    },
+    "Contacts" : {
+      "minItems" : 1,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/Contact"
+      }
+    }
+  },
+  "description" : ""
+};
+      defs["GetCreditNotesResponse"] = {
+  "title" : "",
+  "type" : "object",
+  "properties" : {
+    "Id" : {
+      "type" : "string"
+    },
+    "Status" : {
+      "type" : "string"
+    },
+    "ProviderName" : {
+      "type" : "string"
+    },
+    "DateTimeUTC" : {
+      "type" : "string"
+    },
+    "PageInfo" : {
+      "$ref" : "#/components/schemas/PageInfo"
+    },
+    "CreditNotes" : {
+      "minItems" : 1,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/CreditNote"
+      }
+    }
+  },
+  "description" : ""
+};
+      defs["GetInvoicesResponse"] = {
+  "title" : "",
+  "type" : "object",
+  "properties" : {
+    "Id" : {
+      "type" : "string"
+    },
+    "Status" : {
+      "type" : "string"
+    },
+    "ProviderName" : {
+      "type" : "string"
+    },
+    "DateTimeUTC" : {
+      "type" : "string"
+    },
+    "PageInfo" : {
+      "$ref" : "#/components/schemas/PageInfo"
+    },
+    "Invoices" : {
+      "minItems" : 1,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/Invoice"
+      }
+    }
+  },
+  "description" : ""
+};
+      defs["GetManualJournalsResponse"] = {
+  "title" : "",
+  "type" : "object",
+  "properties" : {
+    "Id" : {
+      "type" : "string"
+    },
+    "Status" : {
+      "type" : "string"
+    },
+    "ProviderName" : {
+      "type" : "string"
+    },
+    "DateTimeUTC" : {
+      "type" : "string"
+    },
+    "PageInfo" : {
+      "$ref" : "#/components/schemas/PageInfo"
+    },
+    "ManualJournals" : {
+      "minItems" : 1,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/ManualJournal"
+      }
+    }
+  },
+  "description" : ""
+};
+      defs["GetOverpaymentsResponse"] = {
+  "title" : "",
+  "type" : "object",
+  "properties" : {
+    "Id" : {
+      "type" : "string"
+    },
+    "Status" : {
+      "type" : "string"
+    },
+    "ProviderName" : {
+      "type" : "string"
+    },
+    "DateTimeUTC" : {
+      "type" : "string"
+    },
+    "PageInfo" : {
+      "$ref" : "#/components/schemas/PageInfo"
+    },
+    "Overpayments" : {
+      "minItems" : 1,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/Overpayment"
+      }
+    }
+  },
+  "description" : ""
+};
+      defs["GetPaymentsResponse"] = {
+  "title" : "",
+  "type" : "object",
+  "properties" : {
+    "Id" : {
+      "type" : "string"
+    },
+    "Status" : {
+      "type" : "string"
+    },
+    "ProviderName" : {
+      "type" : "string"
+    },
+    "DateTimeUTC" : {
+      "type" : "string"
+    },
+    "PageInfo" : {
+      "$ref" : "#/components/schemas/PageInfo"
+    },
+    "Payments" : {
+      "minItems" : 1,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/Payment"
+      }
+    }
+  },
+  "description" : ""
+};
+      defs["GetPrepaymentsResponse"] = {
+  "title" : "",
+  "type" : "object",
+  "properties" : {
+    "Id" : {
+      "type" : "string"
+    },
+    "Status" : {
+      "type" : "string"
+    },
+    "ProviderName" : {
+      "type" : "string"
+    },
+    "DateTimeUTC" : {
+      "type" : "string"
+    },
+    "PageInfo" : {
+      "$ref" : "#/components/schemas/PageInfo"
+    },
+    "Prepayments" : {
+      "minItems" : 1,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/Prepayment"
+      }
+    }
+  },
+  "description" : ""
+};
+      defs["GetPurchaseOrdersResponse"] = {
+  "title" : "",
+  "type" : "object",
+  "properties" : {
+    "Id" : {
+      "type" : "string"
+    },
+    "Status" : {
+      "type" : "string"
+    },
+    "ProviderName" : {
+      "type" : "string"
+    },
+    "DateTimeUTC" : {
+      "type" : "string"
+    },
+    "PageInfo" : {
+      "$ref" : "#/components/schemas/PageInfo"
+    },
+    "PurchaseOrders" : {
+      "minItems" : 1,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/PurchaseOrder"
+      }
+    }
+  },
+  "description" : ""
+};
       defs["HistoryRecord"] = {
   "title" : "",
   "type" : "object",
@@ -4247,6 +4508,25 @@ ul.nav-tabs {
   },
   "description" : "",
   "x-isObjectArray" : true
+};
+      defs["PageInfo"] = {
+  "title" : "",
+  "type" : "object",
+  "properties" : {
+    "Page" : {
+      "type" : "integer"
+    },
+    "PageSize" : {
+      "type" : "integer"
+    },
+    "TotalPages" : {
+      "type" : "integer"
+    },
+    "TotalRows" : {
+      "type" : "integer"
+    }
+  },
+  "description" : "Pagination information"
 };
       defs["Payment"] = {
   "title" : "",
@@ -6099,7 +6379,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="Accounting"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="Accounting"><strong>VSN: </strong>5.0.0</li>
+              <li class="nav-header" data-group="Accounting"><strong>VSN: </strong>6.0.0</li>
               <li class="nav-header" data-group="Accounting"><a href="#api-Accounting">Methods</a></li>
               <li data-group="Accounting" data-name="createAccount" class="">
                 <a href="#api-Accounting-createAccount">createAccount</a>
@@ -20997,9 +21277,10 @@ $where = "Status==&quot;&apos; . XeroAPI\XeroPHP\Models\Accounting\BankTransacti
 $order = "Type ASC";
 $page = 1;
 $unitdp = 4;
+$pageSize = 100;
 
 try {
-  $result = $apiInstance->getBankTransactions($xeroTenantId, $ifModifiedSince, $where, $order, $page, $unitdp);
+  $result = $apiInstance->getBankTransactions($xeroTenantId, $ifModifiedSince, $where, $order, $page, $unitdp, $pageSize);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->getBankTransactions: ', $e->getMessage(), PHP_EOL;
 }
@@ -21154,6 +21435,26 @@ Up to 100 bank transactions will be returned in a single API call with line item
 
                     <div class="inner description marked">
 e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">pageSize</td>
+<td>
+
+
+    <div id="d2e199_getBankTransactions_pageSize">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+Number of records to retrieve per page
                     </div>
             </div>
         </div>
@@ -24570,9 +24871,10 @@ $page = 1;
 $includeArchived = true;
 $summaryOnly = true;
 $searchTerm = "Joe Bloggs";
+$pageSize = 100;
 
 try {
-  $result = $apiInstance->getContacts($xeroTenantId, $ifModifiedSince, $where, $order, $iDs, $page, $includeArchived, $summaryOnly, $searchTerm);
+  $result = $apiInstance->getContacts($xeroTenantId, $ifModifiedSince, $where, $order, $iDs, $page, $includeArchived, $summaryOnly, $searchTerm, $pageSize);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->getContacts: ', $e->getMessage(), PHP_EOL;
 }
@@ -24790,6 +25092,26 @@ Use summaryOnly=true in GET Contacts and Invoices endpoint to retrieve a smaller
 
                     <div class="inner description marked">
 Search parameter that performs a case-insensitive text search across the Name, FirstName, LastName, ContactNumber and EmailAddress fields.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">pageSize</td>
+<td>
+
+
+    <div id="d2e199_getContacts_pageSize">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+Number of records to retrieve per page
                     </div>
             </div>
         </div>
@@ -25723,9 +26045,10 @@ $where = "Status==&quot;&apos; . \XeroAPI\XeroPHP\Models\Accounting\CreditNote::
 $order = "CreditNoteNumber ASC";
 $page = 1;
 $unitdp = 4;
+$pageSize = 100;
 
 try {
-  $result = $apiInstance->getCreditNotes($xeroTenantId, $ifModifiedSince, $where, $order, $page, $unitdp);
+  $result = $apiInstance->getCreditNotes($xeroTenantId, $ifModifiedSince, $where, $order, $page, $unitdp, $pageSize);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->getCreditNotes: ', $e->getMessage(), PHP_EOL;
 }
@@ -25880,6 +26203,26 @@ e.g. page=1 – Up to 100 credit notes will be returned in a single API call wit
 
                     <div class="inner description marked">
 e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal places for unit amounts
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">pageSize</td>
+<td>
+
+
+    <div id="d2e199_getCreditNotes_pageSize">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+Number of records to retrieve per page
                     </div>
             </div>
         </div>
@@ -27761,9 +28104,10 @@ $includeArchived = true;
 $createdByMyApp = false;
 $unitdp = 4;
 $summaryOnly = true;
+$pageSize = 100;
 
 try {
-  $result = $apiInstance->getInvoices($xeroTenantId, $ifModifiedSince, $where, $order, $iDs, $invoiceNumbers, $contactIDs, $statuses, $page, $includeArchived, $createdByMyApp, $unitdp, $summaryOnly);
+  $result = $apiInstance->getInvoices($xeroTenantId, $ifModifiedSince, $where, $order, $iDs, $invoiceNumbers, $contactIDs, $statuses, $page, $includeArchived, $createdByMyApp, $unitdp, $summaryOnly, $pageSize);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->getInvoices: ', $e->getMessage(), PHP_EOL;
 }
@@ -28064,6 +28408,26 @@ e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal place
 
                     <div class="inner description marked">
 Use summaryOnly=true in GET Contacts and Invoices endpoint to retrieve a smaller version of the response object. This returns only lightweight fields, excluding computation-heavy fields from the response, making the API calls quick and efficient.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">pageSize</td>
+<td>
+
+
+    <div id="d2e199_getInvoices_pageSize">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+Number of records to retrieve per page
                     </div>
             </div>
         </div>
@@ -29944,9 +30308,10 @@ $ifModifiedSince = new DateTime("2020-02-06T12:17:43.202-08:00");
 $where = "Status==&quot;&apos; . \XeroAPI\XeroPHP\Models\Accounting\ManualJournal::STATUS_DRAFT . &apos;&quot;";
 $order = "Date ASC";
 $page = 1;
+$pageSize = 100;
 
 try {
-  $result = $apiInstance->getManualJournals($xeroTenantId, $ifModifiedSince, $where, $order, $page);
+  $result = $apiInstance->getManualJournals($xeroTenantId, $ifModifiedSince, $where, $order, $page, $pageSize);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->getManualJournals: ', $e->getMessage(), PHP_EOL;
 }
@@ -30081,6 +30446,26 @@ Order by an any element
 
                     <div class="inner description marked">
 e.g. page=1 – Up to 100 manual journals will be returned in a single API call with line items shown for each overpayment
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">pageSize</td>
+<td>
+
+
+    <div id="d2e199_getManualJournals_pageSize">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+Number of records to retrieve per page
                     </div>
             </div>
         </div>
@@ -31490,9 +31875,10 @@ $ifModifiedSince = new DateTime("2020-02-06T12:17:43.202-08:00");
 $where = "Status==&quot;&apos; . \XeroAPI\XeroPHP\Models\Accounting\Payment::STATUS_AUTHORISED . &apos;&quot;";
 $order = "Amount ASC";
 $page = 1;
+$pageSize = 100;
 
 try {
-  $result = $apiInstance->getPayments($xeroTenantId, $ifModifiedSince, $where, $order, $page);
+  $result = $apiInstance->getPayments($xeroTenantId, $ifModifiedSince, $where, $order, $page, $pageSize);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->getPayments: ', $e->getMessage(), PHP_EOL;
 }
@@ -31627,6 +32013,26 @@ Order by an any element
 
                     <div class="inner description marked">
 Up to 100 payments will be returned in a single API call
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">pageSize</td>
+<td>
+
+
+    <div id="d2e199_getPayments_pageSize">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+Number of records to retrieve per page
                     </div>
             </div>
         </div>
@@ -33115,9 +33521,10 @@ $dateFrom = "2019-12-01";
 $dateTo = "2019-12-31";
 $order = "PurchaseOrderNumber ASC";
 $page = 1;
+$pageSize = 100;
 
 try {
-  $result = $apiInstance->getPurchaseOrders($xeroTenantId, $ifModifiedSince, $status, $dateFrom, $dateTo, $order, $page);
+  $result = $apiInstance->getPurchaseOrders($xeroTenantId, $ifModifiedSince, $status, $dateFrom, $dateTo, $order, $page, $pageSize);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->getPurchaseOrders: ', $e->getMessage(), PHP_EOL;
 }
@@ -33292,6 +33699,26 @@ Order by an any element
 
                     <div class="inner description marked">
 To specify a page, append the page parameter to the URL e.g. ?page=1. If there are 100 records in the response you will need to check if there is any more data by fetching the next page e.g ?page=2 and continuing this process until no more results are returned.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">pageSize</td>
+<td>
+
+
+    <div id="d2e199_getPurchaseOrders_pageSize">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+                    <div class="inner description marked">
+Number of records to retrieve per page
                     </div>
             </div>
         </div>
