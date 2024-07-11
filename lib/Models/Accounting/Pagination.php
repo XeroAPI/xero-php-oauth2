@@ -1,6 +1,6 @@
 <?php
 /**
- * PurchaseOrders
+ * Pagination
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use \XeroAPI\XeroPHP\StringUtil;
 use ReturnTypeWillChange;
 
 /**
- * PurchaseOrders Class Doc Comment
+ * Pagination Class Doc Comment
  *
  * @category Class
  * @package  XeroAPI\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \IteratorAggregate, \JsonSerializable
+class Pagination implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PurchaseOrders';
+    protected static $openAPIModelName = 'Pagination';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,10 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
       * @var string[]
       */
     protected static $openAPITypes = [
-        'pagination' => '\XeroAPI\XeroPHP\Models\Accounting\Pagination',
-        'purchase_orders' => '\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrder[]'
+        'page' => 'int',
+        'page_size' => 'int',
+        'page_count' => 'int',
+        'item_count' => 'int'
     ];
 
     /**
@@ -68,8 +70,10 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'pagination' => null,
-        'purchase_orders' => null
+        'page' => null,
+        'page_size' => null,
+        'page_count' => null,
+        'item_count' => null
     ];
 
     /**
@@ -99,8 +103,10 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
      * @var string[]
      */
     protected static $attributeMap = [
-        'pagination' => 'pagination',
-        'purchase_orders' => 'PurchaseOrders'
+        'page' => 'page',
+        'page_size' => 'pageSize',
+        'page_count' => 'pageCount',
+        'item_count' => 'itemCount'
     ];
 
     /**
@@ -109,8 +115,10 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
      * @var string[]
      */
     protected static $setters = [
-        'pagination' => 'setPagination',
-        'purchase_orders' => 'setPurchaseOrders'
+        'page' => 'setPage',
+        'page_size' => 'setPageSize',
+        'page_count' => 'setPageCount',
+        'item_count' => 'setItemCount'
     ];
 
     /**
@@ -119,8 +127,10 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
      * @var string[]
      */
     protected static $getters = [
-        'pagination' => 'getPagination',
-        'purchase_orders' => 'getPurchaseOrders'
+        'page' => 'getPage',
+        'page_size' => 'getPageSize',
+        'page_count' => 'getPageCount',
+        'item_count' => 'getItemCount'
     ];
 
     /**
@@ -183,8 +193,10 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
      */
     public function __construct(array $data = null)
     {
-        $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;
-        $this->container['purchase_orders'] = isset($data['purchase_orders']) ? $data['purchase_orders'] : null;
+        $this->container['page'] = isset($data['page']) ? $data['page'] : null;
+        $this->container['page_size'] = isset($data['page_size']) ? $data['page_size'] : null;
+        $this->container['page_count'] = isset($data['page_count']) ? $data['page_count'] : null;
+        $this->container['item_count'] = isset($data['item_count']) ? $data['item_count'] : null;
     }
 
     /**
@@ -212,26 +224,26 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
 
 
     /**
-     * Gets pagination
+     * Gets page
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Pagination|null
+     * @return int|null
      */
-    public function getPagination()
+    public function getPage()
     {
-        return $this->container['pagination'];
+        return $this->container['page'];
     }
 
     /**
-     * Sets pagination
+     * Sets page
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Pagination|null $pagination pagination
+     * @param int|null $page page
      *
      * @return $this
      */
-    public function setPagination($pagination)
+    public function setPage($page)
     {
 
-        $this->container['pagination'] = $pagination;
+        $this->container['page'] = $page;
 
         return $this;
     }
@@ -239,26 +251,80 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
 
 
     /**
-     * Gets purchase_orders
+     * Gets page_size
      *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrder[]|null
+     * @return int|null
      */
-    public function getPurchaseOrders()
+    public function getPageSize()
     {
-        return $this->container['purchase_orders'];
+        return $this->container['page_size'];
     }
 
     /**
-     * Sets purchase_orders
+     * Sets page_size
      *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\PurchaseOrder[]|null $purchase_orders purchase_orders
+     * @param int|null $page_size page_size
      *
      * @return $this
      */
-    public function setPurchaseOrders($purchase_orders)
+    public function setPageSize($page_size)
     {
 
-        $this->container['purchase_orders'] = $purchase_orders;
+        $this->container['page_size'] = $page_size;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets page_count
+     *
+     * @return int|null
+     */
+    public function getPageCount()
+    {
+        return $this->container['page_count'];
+    }
+
+    /**
+     * Sets page_count
+     *
+     * @param int|null $page_count page_count
+     *
+     * @return $this
+     */
+    public function setPageCount($page_count)
+    {
+
+        $this->container['page_count'] = $page_count;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets item_count
+     *
+     * @return int|null
+     */
+    public function getItemCount()
+    {
+        return $this->container['item_count'];
+    }
+
+    /**
+     * Sets item_count
+     *
+     * @param int|null $item_count item_count
+     *
+     * @return $this
+     */
+    public function setItemCount($item_count)
+    {
+
+        $this->container['item_count'] = $item_count;
 
         return $this;
     }
@@ -274,7 +340,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
-        return isset($this->container['pagination''purchase_orders'][$offset]);
+        return isset($this->container[$offset]);
     }
 
     /**
@@ -287,7 +353,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container['pagination''purchase_orders'][$offset]) ? $this->container['pagination''purchase_orders'][$offset] : null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**
@@ -302,9 +368,9 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
-            $this->container['pagination''purchase_orders'][] = $value;
+            $this->container[] = $value;
         } else {
-            $this->container['pagination''purchase_orders'][$offset] = $value;
+            $this->container[$offset] = $value;
         }
     }
 
@@ -318,25 +384,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
-        unset($this->container['pagination''purchase_orders'][$offset]);
-    }
-
-    #[\ReturnTypeWillChange]
-    public function count() 
-    {
-        return count($this->container['pagination''purchase_orders']);
-    }
-
-    #[\ReturnTypeWillChange]
-    public function getIterator() 
-    {
-        return new \ArrayIterator($this->container['pagination''purchase_orders']);
-    }
-
-    #[\ReturnTypeWillChange]
-    public function jsonSerialize()
-    {
-        return AccountingObjectSerializer::sanitizeForSerialization($this)->PurchaseOrders;
+        unset($this->container[$offset]);
     }
 
     /**

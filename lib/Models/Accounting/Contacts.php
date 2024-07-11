@@ -58,6 +58,7 @@ class Contacts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
       * @var string[]
       */
     protected static $openAPITypes = [
+        'pagination' => '\XeroAPI\XeroPHP\Models\Accounting\Pagination',
         'contacts' => '\XeroAPI\XeroPHP\Models\Accounting\Contact[]'
     ];
 
@@ -67,6 +68,7 @@ class Contacts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'pagination' => null,
         'contacts' => null
     ];
 
@@ -97,6 +99,7 @@ class Contacts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      * @var string[]
      */
     protected static $attributeMap = [
+        'pagination' => 'pagination',
         'contacts' => 'Contacts'
     ];
 
@@ -106,6 +109,7 @@ class Contacts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      * @var string[]
      */
     protected static $setters = [
+        'pagination' => 'setPagination',
         'contacts' => 'setContacts'
     ];
 
@@ -115,6 +119,7 @@ class Contacts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      * @var string[]
      */
     protected static $getters = [
+        'pagination' => 'getPagination',
         'contacts' => 'getContacts'
     ];
 
@@ -178,6 +183,7 @@ class Contacts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      */
     public function __construct(array $data = null)
     {
+        $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;
         $this->container['contacts'] = isset($data['contacts']) ? $data['contacts'] : null;
     }
 
@@ -203,6 +209,33 @@ class Contacts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     {
         return count($this->listInvalidProperties()) === 0;
     }
+
+
+    /**
+     * Gets pagination
+     *
+     * @return \XeroAPI\XeroPHP\Models\Accounting\Pagination|null
+     */
+    public function getPagination()
+    {
+        return $this->container['pagination'];
+    }
+
+    /**
+     * Sets pagination
+     *
+     * @param \XeroAPI\XeroPHP\Models\Accounting\Pagination|null $pagination pagination
+     *
+     * @return $this
+     */
+    public function setPagination($pagination)
+    {
+
+        $this->container['pagination'] = $pagination;
+
+        return $this;
+    }
+
 
 
     /**
@@ -241,7 +274,7 @@ class Contacts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
-        return isset($this->container['contacts'][$offset]);
+        return isset($this->container['pagination''contacts'][$offset]);
     }
 
     /**
@@ -254,7 +287,7 @@ class Contacts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container['contacts'][$offset]) ? $this->container['contacts'][$offset] : null;
+        return isset($this->container['pagination''contacts'][$offset]) ? $this->container['pagination''contacts'][$offset] : null;
     }
 
     /**
@@ -269,9 +302,9 @@ class Contacts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
-            $this->container['contacts'][] = $value;
+            $this->container['pagination''contacts'][] = $value;
         } else {
-            $this->container['contacts'][$offset] = $value;
+            $this->container['pagination''contacts'][$offset] = $value;
         }
     }
 
@@ -285,19 +318,19 @@ class Contacts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
-        unset($this->container['contacts'][$offset]);
+        unset($this->container['pagination''contacts'][$offset]);
     }
 
     #[\ReturnTypeWillChange]
     public function count() 
     {
-        return count($this->container['contacts']);
+        return count($this->container['pagination''contacts']);
     }
 
     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
-        return new \ArrayIterator($this->container['contacts']);
+        return new \ArrayIterator($this->container['pagination''contacts']);
     }
 
     #[\ReturnTypeWillChange]
