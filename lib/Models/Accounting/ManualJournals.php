@@ -58,6 +58,7 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
       * @var string[]
       */
     protected static $openAPITypes = [
+        'pagination' => '\XeroAPI\XeroPHP\Models\Accounting\Pagination',
         'manual_journals' => '\XeroAPI\XeroPHP\Models\Accounting\ManualJournal[]'
     ];
 
@@ -67,6 +68,7 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'pagination' => null,
         'manual_journals' => null
     ];
 
@@ -97,6 +99,7 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
      * @var string[]
      */
     protected static $attributeMap = [
+        'pagination' => 'pagination',
         'manual_journals' => 'ManualJournals'
     ];
 
@@ -106,6 +109,7 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
      * @var string[]
      */
     protected static $setters = [
+        'pagination' => 'setPagination',
         'manual_journals' => 'setManualJournals'
     ];
 
@@ -115,6 +119,7 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
      * @var string[]
      */
     protected static $getters = [
+        'pagination' => 'getPagination',
         'manual_journals' => 'getManualJournals'
     ];
 
@@ -178,6 +183,7 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
      */
     public function __construct(array $data = null)
     {
+        $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;
         $this->container['manual_journals'] = isset($data['manual_journals']) ? $data['manual_journals'] : null;
     }
 
@@ -203,6 +209,33 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
     {
         return count($this->listInvalidProperties()) === 0;
     }
+
+
+    /**
+     * Gets pagination
+     *
+     * @return \XeroAPI\XeroPHP\Models\Accounting\Pagination|null
+     */
+    public function getPagination()
+    {
+        return $this->container['pagination'];
+    }
+
+    /**
+     * Sets pagination
+     *
+     * @param \XeroAPI\XeroPHP\Models\Accounting\Pagination|null $pagination pagination
+     *
+     * @return $this
+     */
+    public function setPagination($pagination)
+    {
+
+        $this->container['pagination'] = $pagination;
+
+        return $this;
+    }
+
 
 
     /**
@@ -241,7 +274,7 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
-        return isset($this->container['manual_journals'][$offset]);
+        return isset($this->container['pagination''manual_journals'][$offset]);
     }
 
     /**
@@ -254,7 +287,7 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container['manual_journals'][$offset]) ? $this->container['manual_journals'][$offset] : null;
+        return isset($this->container['pagination''manual_journals'][$offset]) ? $this->container['pagination''manual_journals'][$offset] : null;
     }
 
     /**
@@ -269,9 +302,9 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
-            $this->container['manual_journals'][] = $value;
+            $this->container['pagination''manual_journals'][] = $value;
         } else {
-            $this->container['manual_journals'][$offset] = $value;
+            $this->container['pagination''manual_journals'][$offset] = $value;
         }
     }
 
@@ -285,19 +318,19 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
-        unset($this->container['manual_journals'][$offset]);
+        unset($this->container['pagination''manual_journals'][$offset]);
     }
 
     #[\ReturnTypeWillChange]
     public function count() 
     {
-        return count($this->container['manual_journals']);
+        return count($this->container['pagination''manual_journals']);
     }
 
     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
-        return new \ArrayIterator($this->container['manual_journals']);
+        return new \ArrayIterator($this->container['pagination''manual_journals']);
     }
 
     #[\ReturnTypeWillChange]

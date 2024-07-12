@@ -58,6 +58,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
       * @var string[]
       */
     protected static $openAPITypes = [
+        'pagination' => '\XeroAPI\XeroPHP\Models\Accounting\Pagination',
         'bank_transactions' => '\XeroAPI\XeroPHP\Models\Accounting\BankTransaction[]'
     ];
 
@@ -67,6 +68,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'pagination' => null,
         'bank_transactions' => null
     ];
 
@@ -97,6 +99,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
      * @var string[]
      */
     protected static $attributeMap = [
+        'pagination' => 'pagination',
         'bank_transactions' => 'BankTransactions'
     ];
 
@@ -106,6 +109,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
      * @var string[]
      */
     protected static $setters = [
+        'pagination' => 'setPagination',
         'bank_transactions' => 'setBankTransactions'
     ];
 
@@ -115,6 +119,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
      * @var string[]
      */
     protected static $getters = [
+        'pagination' => 'getPagination',
         'bank_transactions' => 'getBankTransactions'
     ];
 
@@ -178,6 +183,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
      */
     public function __construct(array $data = null)
     {
+        $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;
         $this->container['bank_transactions'] = isset($data['bank_transactions']) ? $data['bank_transactions'] : null;
     }
 
@@ -203,6 +209,33 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
     {
         return count($this->listInvalidProperties()) === 0;
     }
+
+
+    /**
+     * Gets pagination
+     *
+     * @return \XeroAPI\XeroPHP\Models\Accounting\Pagination|null
+     */
+    public function getPagination()
+    {
+        return $this->container['pagination'];
+    }
+
+    /**
+     * Sets pagination
+     *
+     * @param \XeroAPI\XeroPHP\Models\Accounting\Pagination|null $pagination pagination
+     *
+     * @return $this
+     */
+    public function setPagination($pagination)
+    {
+
+        $this->container['pagination'] = $pagination;
+
+        return $this;
+    }
+
 
 
     /**
@@ -241,7 +274,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
-        return isset($this->container['bank_transactions'][$offset]);
+        return isset($this->container['pagination''bank_transactions'][$offset]);
     }
 
     /**
@@ -254,7 +287,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container['bank_transactions'][$offset]) ? $this->container['bank_transactions'][$offset] : null;
+        return isset($this->container['pagination''bank_transactions'][$offset]) ? $this->container['pagination''bank_transactions'][$offset] : null;
     }
 
     /**
@@ -269,9 +302,9 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
-            $this->container['bank_transactions'][] = $value;
+            $this->container['pagination''bank_transactions'][] = $value;
         } else {
-            $this->container['bank_transactions'][$offset] = $value;
+            $this->container['pagination''bank_transactions'][$offset] = $value;
         }
     }
 
@@ -285,19 +318,19 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
-        unset($this->container['bank_transactions'][$offset]);
+        unset($this->container['pagination''bank_transactions'][$offset]);
     }
 
     #[\ReturnTypeWillChange]
     public function count() 
     {
-        return count($this->container['bank_transactions']);
+        return count($this->container['pagination''bank_transactions']);
     }
 
     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
-        return new \ArrayIterator($this->container['bank_transactions']);
+        return new \ArrayIterator($this->container['pagination''bank_transactions']);
     }
 
     #[\ReturnTypeWillChange]
