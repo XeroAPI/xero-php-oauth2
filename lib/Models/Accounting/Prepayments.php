@@ -58,6 +58,7 @@ class Prepayments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
       * @var string[]
       */
     protected static $openAPITypes = [
+        'pagination' => '\XeroAPI\XeroPHP\Models\Accounting\Pagination',
         'prepayments' => '\XeroAPI\XeroPHP\Models\Accounting\Prepayment[]'
     ];
 
@@ -67,6 +68,7 @@ class Prepayments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'pagination' => null,
         'prepayments' => null
     ];
 
@@ -97,6 +99,7 @@ class Prepayments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      * @var string[]
      */
     protected static $attributeMap = [
+        'pagination' => 'pagination',
         'prepayments' => 'Prepayments'
     ];
 
@@ -106,6 +109,7 @@ class Prepayments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      * @var string[]
      */
     protected static $setters = [
+        'pagination' => 'setPagination',
         'prepayments' => 'setPrepayments'
     ];
 
@@ -115,6 +119,7 @@ class Prepayments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      * @var string[]
      */
     protected static $getters = [
+        'pagination' => 'getPagination',
         'prepayments' => 'getPrepayments'
     ];
 
@@ -178,6 +183,7 @@ class Prepayments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      */
     public function __construct(array $data = null)
     {
+        $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;
         $this->container['prepayments'] = isset($data['prepayments']) ? $data['prepayments'] : null;
     }
 
@@ -203,6 +209,33 @@ class Prepayments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
     {
         return count($this->listInvalidProperties()) === 0;
     }
+
+
+    /**
+     * Gets pagination
+     *
+     * @return \XeroAPI\XeroPHP\Models\Accounting\Pagination|null
+     */
+    public function getPagination()
+    {
+        return $this->container['pagination'];
+    }
+
+    /**
+     * Sets pagination
+     *
+     * @param \XeroAPI\XeroPHP\Models\Accounting\Pagination|null $pagination pagination
+     *
+     * @return $this
+     */
+    public function setPagination($pagination)
+    {
+
+        $this->container['pagination'] = $pagination;
+
+        return $this;
+    }
+
 
 
     /**
@@ -241,7 +274,7 @@ class Prepayments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
-        return isset($this->container['prepayments'][$offset]);
+        return isset($this->container['pagination''prepayments'][$offset]);
     }
 
     /**
@@ -254,7 +287,7 @@ class Prepayments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container['prepayments'][$offset]) ? $this->container['prepayments'][$offset] : null;
+        return isset($this->container['pagination''prepayments'][$offset]) ? $this->container['pagination''prepayments'][$offset] : null;
     }
 
     /**
@@ -269,9 +302,9 @@ class Prepayments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
-            $this->container['prepayments'][] = $value;
+            $this->container['pagination''prepayments'][] = $value;
         } else {
-            $this->container['prepayments'][$offset] = $value;
+            $this->container['pagination''prepayments'][$offset] = $value;
         }
     }
 
@@ -285,19 +318,19 @@ class Prepayments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
-        unset($this->container['prepayments'][$offset]);
+        unset($this->container['pagination''prepayments'][$offset]);
     }
 
     #[\ReturnTypeWillChange]
     public function count() 
     {
-        return count($this->container['prepayments']);
+        return count($this->container['pagination''prepayments']);
     }
 
     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
-        return new \ArrayIterator($this->container['prepayments']);
+        return new \ArrayIterator($this->container['pagination''prepayments']);
     }
 
     #[\ReturnTypeWillChange]

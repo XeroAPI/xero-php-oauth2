@@ -58,6 +58,7 @@ class Payments implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
       * @var string[]
       */
     protected static $openAPITypes = [
+        'pagination' => '\XeroAPI\XeroPHP\Models\Accounting\Pagination',
         'payments' => '\XeroAPI\XeroPHP\Models\Accounting\Payment[]'
     ];
 
@@ -67,6 +68,7 @@ class Payments implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'pagination' => null,
         'payments' => null
     ];
 
@@ -97,6 +99,7 @@ class Payments implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      * @var string[]
      */
     protected static $attributeMap = [
+        'pagination' => 'pagination',
         'payments' => 'Payments'
     ];
 
@@ -106,6 +109,7 @@ class Payments implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      * @var string[]
      */
     protected static $setters = [
+        'pagination' => 'setPagination',
         'payments' => 'setPayments'
     ];
 
@@ -115,6 +119,7 @@ class Payments implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      * @var string[]
      */
     protected static $getters = [
+        'pagination' => 'getPagination',
         'payments' => 'getPayments'
     ];
 
@@ -178,6 +183,7 @@ class Payments implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      */
     public function __construct(array $data = null)
     {
+        $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;
         $this->container['payments'] = isset($data['payments']) ? $data['payments'] : null;
     }
 
@@ -203,6 +209,33 @@ class Payments implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     {
         return count($this->listInvalidProperties()) === 0;
     }
+
+
+    /**
+     * Gets pagination
+     *
+     * @return \XeroAPI\XeroPHP\Models\Accounting\Pagination|null
+     */
+    public function getPagination()
+    {
+        return $this->container['pagination'];
+    }
+
+    /**
+     * Sets pagination
+     *
+     * @param \XeroAPI\XeroPHP\Models\Accounting\Pagination|null $pagination pagination
+     *
+     * @return $this
+     */
+    public function setPagination($pagination)
+    {
+
+        $this->container['pagination'] = $pagination;
+
+        return $this;
+    }
+
 
 
     /**
@@ -241,7 +274,7 @@ class Payments implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
-        return isset($this->container['payments'][$offset]);
+        return isset($this->container['pagination''payments'][$offset]);
     }
 
     /**
@@ -254,7 +287,7 @@ class Payments implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container['payments'][$offset]) ? $this->container['payments'][$offset] : null;
+        return isset($this->container['pagination''payments'][$offset]) ? $this->container['pagination''payments'][$offset] : null;
     }
 
     /**
@@ -269,9 +302,9 @@ class Payments implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
-            $this->container['payments'][] = $value;
+            $this->container['pagination''payments'][] = $value;
         } else {
-            $this->container['payments'][$offset] = $value;
+            $this->container['pagination''payments'][$offset] = $value;
         }
     }
 
@@ -285,19 +318,19 @@ class Payments implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
-        unset($this->container['payments'][$offset]);
+        unset($this->container['pagination''payments'][$offset]);
     }
 
     #[\ReturnTypeWillChange]
     public function count() 
     {
-        return count($this->container['payments']);
+        return count($this->container['pagination''payments']);
     }
 
     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
-        return new \ArrayIterator($this->container['payments']);
+        return new \ArrayIterator($this->container['pagination''payments']);
     }
 
     #[\ReturnTypeWillChange]
