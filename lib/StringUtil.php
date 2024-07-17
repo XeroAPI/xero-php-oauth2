@@ -34,23 +34,17 @@ class StringUtil
         if( self::checkThisDate($data) ) {
             return new \DateTime($data);
         } else {
-            // convert Microsfot .NET JSON Date format into native PHP DateTime()
-            $match = preg_match( '/([\d]{11})/', $data, $date );
-            if($match){
-                $seconds = $date[1]/1000;
-            }
-            $match = preg_match( '/([\d]{12})/', $data, $date );
-            if($match){
-                $seconds = $date[1]/1000;
-            }
-            $match = preg_match( '/([\d]{13})/', $data, $date );
-            if($match){
-                $seconds = $date[1]/1000;
-            }
-            
-            $dateString = date("d-m-Y", $seconds);
-            $dateFormat = new \DateTime($dateString);
-            return $dateFormat;
+            // convert Microsoft .NET JSON Date format into native PHP DateTime()
+         
+            preg_match('/Date\(([-]?\d+)([+,-]?\d*)\)/', $data, $matches);
+   
+            $dateTime = \DateTime::createFromFormat(
+                'U.u',
+                sprintf("%d.%06d", $matches[1] / 1000, ($matches[1] % 1000) * 1000)
+             );
+  
+          return $dateTime->setTimezone(new \DateTimeZone($matches[2]));      
+
         }
     }
 
