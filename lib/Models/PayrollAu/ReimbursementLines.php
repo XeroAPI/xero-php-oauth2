@@ -242,7 +242,7 @@ class ReimbursementLines implements ModelInterface, ArrayAccess, \Countable, \It
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
-        return isset($this->container['reimbursement_lines'][$offset]);
+        return isset($this->container['ReimbursementLines'][$offset]);
     }
 
     /**
@@ -255,7 +255,7 @@ class ReimbursementLines implements ModelInterface, ArrayAccess, \Countable, \It
     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container['reimbursement_lines'][$offset]) ? $this->container['reimbursement_lines'][$offset] : null;
+        return isset($this->container['ReimbursementLines'][$offset]) ? $this->container['ReimbursementLines'][$offset] : null;
     }
 
     /**
@@ -270,9 +270,9 @@ class ReimbursementLines implements ModelInterface, ArrayAccess, \Countable, \It
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
-            $this->container['reimbursement_lines'][] = $value;
+            $this->container['ReimbursementLines'][] = $value;
         } else {
-            $this->container['reimbursement_lines'][$offset] = $value;
+            $this->container['ReimbursementLines'][$offset] = $value;
         }
     }
 
@@ -286,25 +286,31 @@ class ReimbursementLines implements ModelInterface, ArrayAccess, \Countable, \It
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
-        unset($this->container['reimbursement_lines'][$offset]);
+        unset($this->container['ReimbursementLines'][$offset]);
     }
 
     #[\ReturnTypeWillChange]
     public function count() 
     {
-        return count($this->container['reimbursement_lines']);
+        return count($this->container['ReimbursementLines']);
     }
 
     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
-        return new \ArrayIterator($this->container['reimbursement_lines']);
+        return new \ArrayIterator($this->container['ReimbursementLines']);
     }
 
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return PayrollAuObjectSerializer::sanitizeForSerialization($this)->ReimbursementLines;
+       $sanitizedObject = PayrollAuObjectSerializer::sanitizeForSerialization($this);
+        $json = [];
+        if(isset($sanitizedObject->pagination)){
+            $json['pagination'] = $sanitizedObject->pagination;
+        }
+        $json->ReimbursementLines = $sanitizedObject->ReimbursementLines;
+        return $json;
     }
 
     /**

@@ -303,7 +303,13 @@ class Allocations implements ModelInterface, ArrayAccess, \Countable, \IteratorA
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($this)->Allocations;
+       $sanitizedObject = AccountingObjectSerializer::sanitizeForSerialization($this);
+        $json = [];
+        if(isset($sanitizedObject->pagination)){
+            $json['pagination'] = $sanitizedObject->pagination;
+        }
+        $json->Allocations = $sanitizedObject->Allocations;
+        return $json;
     }
 
     /**

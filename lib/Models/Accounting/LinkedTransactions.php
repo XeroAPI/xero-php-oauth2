@@ -241,7 +241,7 @@ class LinkedTransactions implements ModelInterface, ArrayAccess, \Countable, \It
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
-        return isset($this->container['linked_transactions'][$offset]);
+        return isset($this->container['linked_Transactions'][$offset]);
     }
 
     /**
@@ -254,7 +254,7 @@ class LinkedTransactions implements ModelInterface, ArrayAccess, \Countable, \It
     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container['linked_transactions'][$offset]) ? $this->container['linked_transactions'][$offset] : null;
+        return isset($this->container['linked_Transactions'][$offset]) ? $this->container['linked_Transactions'][$offset] : null;
     }
 
     /**
@@ -269,9 +269,9 @@ class LinkedTransactions implements ModelInterface, ArrayAccess, \Countable, \It
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
-            $this->container['linked_transactions'][] = $value;
+            $this->container['linked_Transactions'][] = $value;
         } else {
-            $this->container['linked_transactions'][$offset] = $value;
+            $this->container['linked_Transactions'][$offset] = $value;
         }
     }
 
@@ -285,25 +285,31 @@ class LinkedTransactions implements ModelInterface, ArrayAccess, \Countable, \It
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
-        unset($this->container['linked_transactions'][$offset]);
+        unset($this->container['linked_Transactions'][$offset]);
     }
 
     #[\ReturnTypeWillChange]
     public function count() 
     {
-        return count($this->container['linked_transactions']);
+        return count($this->container['linked_Transactions']);
     }
 
     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
-        return new \ArrayIterator($this->container['linked_transactions']);
+        return new \ArrayIterator($this->container['linked_Transactions']);
     }
 
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($this)->LinkedTransactions;
+       $sanitizedObject = AccountingObjectSerializer::sanitizeForSerialization($this);
+        $json = [];
+        if(isset($sanitizedObject->pagination)){
+            $json['pagination'] = $sanitizedObject->pagination;
+        }
+        $json->LinkedTransactions = $sanitizedObject->LinkedTransactions;
+        return $json;
     }
 
     /**

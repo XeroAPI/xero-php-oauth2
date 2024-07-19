@@ -303,7 +303,13 @@ class InvoiceReminders implements ModelInterface, ArrayAccess, \Countable, \Iter
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($this)->InvoiceReminders;
+       $sanitizedObject = AccountingObjectSerializer::sanitizeForSerialization($this);
+        $json = [];
+        if(isset($sanitizedObject->pagination)){
+            $json['pagination'] = $sanitizedObject->pagination;
+        }
+        $json->InvoiceReminders = $sanitizedObject->InvoiceReminders;
+        return $json;
     }
 
     /**

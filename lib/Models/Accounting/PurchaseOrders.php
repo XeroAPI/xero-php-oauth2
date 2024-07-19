@@ -274,7 +274,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
-        return isset($this->container['pagination''purchase_orders'][$offset]);
+        return isset($this->container['purchase_orders'][$offset]);
     }
 
     /**
@@ -287,7 +287,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container['pagination''purchase_orders'][$offset]) ? $this->container['pagination''purchase_orders'][$offset] : null;
+        return isset($this->container['purchase_orders'][$offset]) ? $this->container['purchase_orders'][$offset] : null;
     }
 
     /**
@@ -302,9 +302,9 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
-            $this->container['pagination''purchase_orders'][] = $value;
+            $this->container['purchase_orders'][] = $value;
         } else {
-            $this->container['pagination''purchase_orders'][$offset] = $value;
+            $this->container['purchase_orders'][$offset] = $value;
         }
     }
 
@@ -318,25 +318,31 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
-        unset($this->container['pagination''purchase_orders'][$offset]);
+        unset($this->container['purchase_orders'][$offset]);
     }
 
     #[\ReturnTypeWillChange]
     public function count() 
     {
-        return count($this->container['pagination''purchase_orders']);
+        return count($this->container['purchase_orders']);
     }
 
     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
-        return new \ArrayIterator($this->container['pagination''purchase_orders']);
+        return new \ArrayIterator($this->container['purchase_orders']);
     }
 
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($this)->PurchaseOrders;
+       $sanitizedObject = AccountingObjectSerializer::sanitizeForSerialization($this);
+        $json = [];
+        if(isset($sanitizedObject->pagination)){
+            $json['pagination'] = $sanitizedObject->pagination;
+        }
+        $json->PurchaseOrders = $sanitizedObject->PurchaseOrders;
+        return $json;
     }
 
     /**

@@ -274,7 +274,7 @@ class Contacts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
-        return isset($this->container['pagination''contacts'][$offset]);
+        return isset($this->container['contacts'][$offset]);
     }
 
     /**
@@ -287,7 +287,7 @@ class Contacts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container['pagination''contacts'][$offset]) ? $this->container['pagination''contacts'][$offset] : null;
+        return isset($this->container['contacts'][$offset]) ? $this->container['contacts'][$offset] : null;
     }
 
     /**
@@ -302,9 +302,9 @@ class Contacts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
-            $this->container['pagination''contacts'][] = $value;
+            $this->container['contacts'][] = $value;
         } else {
-            $this->container['pagination''contacts'][$offset] = $value;
+            $this->container['contacts'][$offset] = $value;
         }
     }
 
@@ -318,25 +318,31 @@ class Contacts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
-        unset($this->container['pagination''contacts'][$offset]);
+        unset($this->container['contacts'][$offset]);
     }
 
     #[\ReturnTypeWillChange]
     public function count() 
     {
-        return count($this->container['pagination''contacts']);
+        return count($this->container['contacts']);
     }
 
     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
-        return new \ArrayIterator($this->container['pagination''contacts']);
+        return new \ArrayIterator($this->container['contacts']);
     }
 
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($this)->Contacts;
+       $sanitizedObject = AccountingObjectSerializer::sanitizeForSerialization($this);
+        $json = [];
+        if(isset($sanitizedObject->pagination)){
+            $json['pagination'] = $sanitizedObject->pagination;
+        }
+        $json->Contacts = $sanitizedObject->Contacts;
+        return $json;
     }
 
     /**

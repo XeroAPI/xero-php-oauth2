@@ -274,7 +274,7 @@ class Invoices implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
-        return isset($this->container['pagination''invoices'][$offset]);
+        return isset($this->container['invoices'][$offset]);
     }
 
     /**
@@ -287,7 +287,7 @@ class Invoices implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container['pagination''invoices'][$offset]) ? $this->container['pagination''invoices'][$offset] : null;
+        return isset($this->container['invoices'][$offset]) ? $this->container['invoices'][$offset] : null;
     }
 
     /**
@@ -302,9 +302,9 @@ class Invoices implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
-            $this->container['pagination''invoices'][] = $value;
+            $this->container['invoices'][] = $value;
         } else {
-            $this->container['pagination''invoices'][$offset] = $value;
+            $this->container['invoices'][$offset] = $value;
         }
     }
 
@@ -318,25 +318,31 @@ class Invoices implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
-        unset($this->container['pagination''invoices'][$offset]);
+        unset($this->container['invoices'][$offset]);
     }
 
     #[\ReturnTypeWillChange]
     public function count() 
     {
-        return count($this->container['pagination''invoices']);
+        return count($this->container['invoices']);
     }
 
     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
-        return new \ArrayIterator($this->container['pagination''invoices']);
+        return new \ArrayIterator($this->container['invoices']);
     }
 
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($this)->Invoices;
+       $sanitizedObject = AccountingObjectSerializer::sanitizeForSerialization($this);
+        $json = [];
+        if(isset($sanitizedObject->pagination)){
+            $json['pagination'] = $sanitizedObject->pagination;
+        }
+        $json->Invoices = $sanitizedObject->Invoices;
+        return $json;
     }
 
     /**

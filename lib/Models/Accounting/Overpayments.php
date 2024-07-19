@@ -274,7 +274,7 @@ class Overpayments implements ModelInterface, ArrayAccess, \Countable, \Iterator
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
-        return isset($this->container['pagination''overpayments'][$offset]);
+        return isset($this->container['overpayments'][$offset]);
     }
 
     /**
@@ -287,7 +287,7 @@ class Overpayments implements ModelInterface, ArrayAccess, \Countable, \Iterator
     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container['pagination''overpayments'][$offset]) ? $this->container['pagination''overpayments'][$offset] : null;
+        return isset($this->container['overpayments'][$offset]) ? $this->container['overpayments'][$offset] : null;
     }
 
     /**
@@ -302,9 +302,9 @@ class Overpayments implements ModelInterface, ArrayAccess, \Countable, \Iterator
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
-            $this->container['pagination''overpayments'][] = $value;
+            $this->container['overpayments'][] = $value;
         } else {
-            $this->container['pagination''overpayments'][$offset] = $value;
+            $this->container['overpayments'][$offset] = $value;
         }
     }
 
@@ -318,25 +318,31 @@ class Overpayments implements ModelInterface, ArrayAccess, \Countable, \Iterator
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
-        unset($this->container['pagination''overpayments'][$offset]);
+        unset($this->container['overpayments'][$offset]);
     }
 
     #[\ReturnTypeWillChange]
     public function count() 
     {
-        return count($this->container['pagination''overpayments']);
+        return count($this->container['overpayments']);
     }
 
     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
-        return new \ArrayIterator($this->container['pagination''overpayments']);
+        return new \ArrayIterator($this->container['overpayments']);
     }
 
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($this)->Overpayments;
+       $sanitizedObject = AccountingObjectSerializer::sanitizeForSerialization($this);
+        $json = [];
+        if(isset($sanitizedObject->pagination)){
+            $json['pagination'] = $sanitizedObject->pagination;
+        }
+        $json->Overpayments = $sanitizedObject->Overpayments;
+        return $json;
     }
 
     /**

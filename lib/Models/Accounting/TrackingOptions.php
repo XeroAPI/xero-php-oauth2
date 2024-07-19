@@ -303,7 +303,13 @@ class TrackingOptions implements ModelInterface, ArrayAccess, \Countable, \Itera
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($this)->TrackingOptions;
+       $sanitizedObject = AccountingObjectSerializer::sanitizeForSerialization($this);
+        $json = [];
+        if(isset($sanitizedObject->pagination)){
+            $json['pagination'] = $sanitizedObject->pagination;
+        }
+        $json->TrackingOptions = $sanitizedObject->TrackingOptions;
+        return $json;
     }
 
     /**
