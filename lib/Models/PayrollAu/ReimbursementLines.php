@@ -242,7 +242,7 @@ class ReimbursementLines implements ModelInterface, ArrayAccess, \Countable, \It
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
-        return isset($this->container['ReimbursementLines'][$offset]);
+        return isset($this->container['reimbursement_lines'][$offset]);
     }
 
     /**
@@ -255,7 +255,7 @@ class ReimbursementLines implements ModelInterface, ArrayAccess, \Countable, \It
     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container['ReimbursementLines'][$offset]) ? $this->container['ReimbursementLines'][$offset] : null;
+        return isset($this->container['reimbursement_lines'][$offset]) ? $this->container['reimbursement_lines'][$offset] : null;
     }
 
     /**
@@ -270,9 +270,9 @@ class ReimbursementLines implements ModelInterface, ArrayAccess, \Countable, \It
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
-            $this->container['ReimbursementLines'][] = $value;
+            $this->container['reimbursement_lines'][] = $value;
         } else {
-            $this->container['ReimbursementLines'][$offset] = $value;
+            $this->container['reimbursement_lines'][$offset] = $value;
         }
     }
 
@@ -286,19 +286,19 @@ class ReimbursementLines implements ModelInterface, ArrayAccess, \Countable, \It
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
-        unset($this->container['ReimbursementLines'][$offset]);
+        unset($this->container['reimbursement_lines'][$offset]);
     }
 
     #[\ReturnTypeWillChange]
     public function count() 
     {
-        return count($this->container['ReimbursementLines']);
+        return count($this->container['reimbursement_lines']);
     }
 
     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
-        return new \ArrayIterator($this->container['ReimbursementLines']);
+        return new \ArrayIterator($this->container['reimbursement_lines']);
     }
 
     #[\ReturnTypeWillChange]
