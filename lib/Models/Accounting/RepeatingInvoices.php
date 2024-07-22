@@ -303,7 +303,13 @@ class RepeatingInvoices implements ModelInterface, ArrayAccess, \Countable, \Ite
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($this)->RepeatingInvoices;
+       $sanitizedObject = AccountingObjectSerializer::sanitizeForSerialization($this);
+        $json = [];
+        if(isset($sanitizedObject->pagination)){
+            $json['pagination'] = $sanitizedObject->pagination;
+        }
+        $json->RepeatingInvoices = $sanitizedObject->RepeatingInvoices;
+        return $json;
     }
 
     /**

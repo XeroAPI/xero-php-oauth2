@@ -303,7 +303,13 @@ class Receipts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($this)->Receipts;
+       $sanitizedObject = AccountingObjectSerializer::sanitizeForSerialization($this);
+        $json = [];
+        if(isset($sanitizedObject->pagination)){
+            $json['pagination'] = $sanitizedObject->pagination;
+        }
+        $json->Receipts = $sanitizedObject->Receipts;
+        return $json;
     }
 
     /**

@@ -303,7 +303,13 @@ class Reports implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($this)->Reports;
+       $sanitizedObject = AccountingObjectSerializer::sanitizeForSerialization($this);
+        $json = [];
+        if(isset($sanitizedObject->pagination)){
+            $json['pagination'] = $sanitizedObject->pagination;
+        }
+        $json->Reports = $sanitizedObject->Reports;
+        return $json;
     }
 
     /**

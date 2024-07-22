@@ -274,7 +274,7 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
-        return isset($this->container['pagination''manual_journals'][$offset]);
+        return isset($this->container['manual_journals'][$offset]);
     }
 
     /**
@@ -287,7 +287,7 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container['pagination''manual_journals'][$offset]) ? $this->container['pagination''manual_journals'][$offset] : null;
+        return isset($this->container['manual_journals'][$offset]) ? $this->container['manual_journals'][$offset] : null;
     }
 
     /**
@@ -302,9 +302,9 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
-            $this->container['pagination''manual_journals'][] = $value;
+            $this->container['manual_journals'][] = $value;
         } else {
-            $this->container['pagination''manual_journals'][$offset] = $value;
+            $this->container['manual_journals'][$offset] = $value;
         }
     }
 
@@ -318,25 +318,31 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
-        unset($this->container['pagination''manual_journals'][$offset]);
+        unset($this->container['manual_journals'][$offset]);
     }
 
     #[\ReturnTypeWillChange]
     public function count() 
     {
-        return count($this->container['pagination''manual_journals']);
+        return count($this->container['manual_journals']);
     }
 
     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
-        return new \ArrayIterator($this->container['pagination''manual_journals']);
+        return new \ArrayIterator($this->container['manual_journals']);
     }
 
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($this)->ManualJournals;
+       $sanitizedObject = AccountingObjectSerializer::sanitizeForSerialization($this);
+        $json = [];
+        if(isset($sanitizedObject->pagination)){
+            $json['pagination'] = $sanitizedObject->pagination;
+        }
+        $json->ManualJournals = $sanitizedObject->ManualJournals;
+        return $json;
     }
 
     /**

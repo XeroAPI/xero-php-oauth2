@@ -303,7 +303,13 @@ class Employees implements ModelInterface, ArrayAccess, \Countable, \IteratorAgg
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return PayrollAuObjectSerializer::sanitizeForSerialization($this)->Employees;
+       $sanitizedObject = PayrollAuObjectSerializer::sanitizeForSerialization($this);
+        $json = [];
+        if(isset($sanitizedObject->pagination)){
+            $json['pagination'] = $sanitizedObject->pagination;
+        }
+        $json->Employees = $sanitizedObject->Employees;
+        return $json;
     }
 
     /**

@@ -303,7 +303,13 @@ class Currencies implements ModelInterface, ArrayAccess, \Countable, \IteratorAg
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($this)->Currencies;
+       $sanitizedObject = AccountingObjectSerializer::sanitizeForSerialization($this);
+        $json = [];
+        if(isset($sanitizedObject->pagination)){
+            $json['pagination'] = $sanitizedObject->pagination;
+        }
+        $json->Currencies = $sanitizedObject->Currencies;
+        return $json;
     }
 
     /**

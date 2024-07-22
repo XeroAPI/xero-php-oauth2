@@ -303,7 +303,13 @@ class Actions implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($this)->Actions;
+       $sanitizedObject = AccountingObjectSerializer::sanitizeForSerialization($this);
+        $json = [];
+        if(isset($sanitizedObject->pagination)){
+            $json['pagination'] = $sanitizedObject->pagination;
+        }
+        $json->Actions = $sanitizedObject->Actions;
+        return $json;
     }
 
     /**

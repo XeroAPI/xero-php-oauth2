@@ -303,7 +303,13 @@ class Users implements ModelInterface, ArrayAccess, \Countable, \IteratorAggrega
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($this)->Users;
+       $sanitizedObject = AccountingObjectSerializer::sanitizeForSerialization($this);
+        $json = [];
+        if(isset($sanitizedObject->pagination)){
+            $json['pagination'] = $sanitizedObject->pagination;
+        }
+        $json->Users = $sanitizedObject->Users;
+        return $json;
     }
 
     /**

@@ -303,7 +303,13 @@ class TrackingCategories implements ModelInterface, ArrayAccess, \Countable, \It
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($this)->TrackingCategories;
+       $sanitizedObject = AccountingObjectSerializer::sanitizeForSerialization($this);
+        $json = [];
+        if(isset($sanitizedObject->pagination)){
+            $json['pagination'] = $sanitizedObject->pagination;
+        }
+        $json->TrackingCategories = $sanitizedObject->TrackingCategories;
+        return $json;
     }
 
     /**

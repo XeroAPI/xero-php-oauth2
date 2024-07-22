@@ -274,7 +274,7 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
-        return isset($this->container['pagination''credit_notes'][$offset]);
+        return isset($this->container['credit_notes'][$offset]);
     }
 
     /**
@@ -287,7 +287,7 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container['pagination''credit_notes'][$offset]) ? $this->container['pagination''credit_notes'][$offset] : null;
+        return isset($this->container['credit_notes'][$offset]) ? $this->container['credit_notes'][$offset] : null;
     }
 
     /**
@@ -302,9 +302,9 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
-            $this->container['pagination''credit_notes'][] = $value;
+            $this->container['credit_notes'][] = $value;
         } else {
-            $this->container['pagination''credit_notes'][$offset] = $value;
+            $this->container['credit_notes'][$offset] = $value;
         }
     }
 
@@ -318,25 +318,31 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
-        unset($this->container['pagination''credit_notes'][$offset]);
+        unset($this->container['credit_notes'][$offset]);
     }
 
     #[\ReturnTypeWillChange]
     public function count() 
     {
-        return count($this->container['pagination''credit_notes']);
+        return count($this->container['credit_notes']);
     }
 
     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
-        return new \ArrayIterator($this->container['pagination''credit_notes']);
+        return new \ArrayIterator($this->container['credit_notes']);
     }
 
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($this)->CreditNotes;
+       $sanitizedObject = AccountingObjectSerializer::sanitizeForSerialization($this);
+        $json = [];
+        if(isset($sanitizedObject->pagination)){
+            $json['pagination'] = $sanitizedObject->pagination;
+        }
+        $json->CreditNotes = $sanitizedObject->CreditNotes;
+        return $json;
     }
 
     /**

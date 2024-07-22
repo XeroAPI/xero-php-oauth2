@@ -303,7 +303,13 @@ class Quotes implements ModelInterface, ArrayAccess, \Countable, \IteratorAggreg
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($this)->Quotes;
+       $sanitizedObject = AccountingObjectSerializer::sanitizeForSerialization($this);
+        $json = [];
+        if(isset($sanitizedObject->pagination)){
+            $json['pagination'] = $sanitizedObject->pagination;
+        }
+        $json->Quotes = $sanitizedObject->Quotes;
+        return $json;
     }
 
     /**

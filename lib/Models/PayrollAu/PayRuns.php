@@ -303,7 +303,13 @@ class PayRuns implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return PayrollAuObjectSerializer::sanitizeForSerialization($this)->PayRuns;
+       $sanitizedObject = PayrollAuObjectSerializer::sanitizeForSerialization($this);
+        $json = [];
+        if(isset($sanitizedObject->pagination)){
+            $json['pagination'] = $sanitizedObject->pagination;
+        }
+        $json->PayRuns = $sanitizedObject->PayRuns;
+        return $json;
     }
 
     /**

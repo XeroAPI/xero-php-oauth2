@@ -274,7 +274,7 @@ class Payments implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
-        return isset($this->container['pagination''payments'][$offset]);
+        return isset($this->container['payments'][$offset]);
     }
 
     /**
@@ -287,7 +287,7 @@ class Payments implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container['pagination''payments'][$offset]) ? $this->container['pagination''payments'][$offset] : null;
+        return isset($this->container['payments'][$offset]) ? $this->container['payments'][$offset] : null;
     }
 
     /**
@@ -302,9 +302,9 @@ class Payments implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
-            $this->container['pagination''payments'][] = $value;
+            $this->container['payments'][] = $value;
         } else {
-            $this->container['pagination''payments'][$offset] = $value;
+            $this->container['payments'][$offset] = $value;
         }
     }
 
@@ -318,25 +318,31 @@ class Payments implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
-        unset($this->container['pagination''payments'][$offset]);
+        unset($this->container['payments'][$offset]);
     }
 
     #[\ReturnTypeWillChange]
     public function count() 
     {
-        return count($this->container['pagination''payments']);
+        return count($this->container['payments']);
     }
 
     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
-        return new \ArrayIterator($this->container['pagination''payments']);
+        return new \ArrayIterator($this->container['payments']);
     }
 
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($this)->Payments;
+       $sanitizedObject = AccountingObjectSerializer::sanitizeForSerialization($this);
+        $json = [];
+        if(isset($sanitizedObject->pagination)){
+            $json['pagination'] = $sanitizedObject->pagination;
+        }
+        $json->Payments = $sanitizedObject->Payments;
+        return $json;
     }
 
     /**

@@ -274,7 +274,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
-        return isset($this->container['pagination''bank_transactions'][$offset]);
+        return isset($this->container['bank_transactions'][$offset]);
     }
 
     /**
@@ -287,7 +287,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container['pagination''bank_transactions'][$offset]) ? $this->container['pagination''bank_transactions'][$offset] : null;
+        return isset($this->container['bank_transactions'][$offset]) ? $this->container['bank_transactions'][$offset] : null;
     }
 
     /**
@@ -302,9 +302,9 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
-            $this->container['pagination''bank_transactions'][] = $value;
+            $this->container['bank_transactions'][] = $value;
         } else {
-            $this->container['pagination''bank_transactions'][$offset] = $value;
+            $this->container['bank_transactions'][$offset] = $value;
         }
     }
 
@@ -318,25 +318,31 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
-        unset($this->container['pagination''bank_transactions'][$offset]);
+        unset($this->container['bank_transactions'][$offset]);
     }
 
     #[\ReturnTypeWillChange]
     public function count() 
     {
-        return count($this->container['pagination''bank_transactions']);
+        return count($this->container['bank_transactions']);
     }
 
     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
-        return new \ArrayIterator($this->container['pagination''bank_transactions']);
+        return new \ArrayIterator($this->container['bank_transactions']);
     }
 
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return AccountingObjectSerializer::sanitizeForSerialization($this)->BankTransactions;
+       $sanitizedObject = AccountingObjectSerializer::sanitizeForSerialization($this);
+        $json = [];
+        if(isset($sanitizedObject->pagination)){
+            $json['pagination'] = $sanitizedObject->pagination;
+        }
+        $json->BankTransactions = $sanitizedObject->BankTransactions;
+        return $json;
     }
 
     /**
