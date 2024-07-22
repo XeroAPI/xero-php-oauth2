@@ -241,7 +241,7 @@ class LinkedTransactions implements ModelInterface, ArrayAccess, \Countable, \It
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
-        return isset($this->container['linked_Transactions'][$offset]);
+        return isset($this->container['linked_transactions'][$offset]);
     }
 
     /**
@@ -254,7 +254,7 @@ class LinkedTransactions implements ModelInterface, ArrayAccess, \Countable, \It
     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container['linked_Transactions'][$offset]) ? $this->container['linked_Transactions'][$offset] : null;
+        return isset($this->container['linked_transactions'][$offset]) ? $this->container['linked_transactions'][$offset] : null;
     }
 
     /**
@@ -269,9 +269,9 @@ class LinkedTransactions implements ModelInterface, ArrayAccess, \Countable, \It
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
-            $this->container['linked_Transactions'][] = $value;
+            $this->container['linked_transactions'][] = $value;
         } else {
-            $this->container['linked_Transactions'][$offset] = $value;
+            $this->container['linked_transactions'][$offset] = $value;
         }
     }
 
@@ -285,19 +285,19 @@ class LinkedTransactions implements ModelInterface, ArrayAccess, \Countable, \It
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
-        unset($this->container['linked_Transactions'][$offset]);
+        unset($this->container['linked_transactions'][$offset]);
     }
 
     #[\ReturnTypeWillChange]
     public function count() 
     {
-        return count($this->container['linked_Transactions']);
+        return count($this->container['linked_transactions']);
     }
 
     #[\ReturnTypeWillChange]
     public function getIterator() 
     {
-        return new \ArrayIterator($this->container['linked_Transactions']);
+        return new \ArrayIterator($this->container['linked_transactions']);
     }
 
     #[\ReturnTypeWillChange]
