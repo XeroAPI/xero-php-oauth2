@@ -59,6 +59,7 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
       */
     protected static $openAPITypes = [
         'pagination' => '\XeroAPI\XeroPHP\Models\Accounting\Pagination',
+        'warnings' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]',
         'credit_notes' => '\XeroAPI\XeroPHP\Models\Accounting\CreditNote[]'
     ];
 
@@ -69,6 +70,7 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
       */
     protected static $openAPIFormats = [
         'pagination' => null,
+        'warnings' => null,
         'credit_notes' => null
     ];
 
@@ -100,6 +102,7 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      */
     protected static $attributeMap = [
         'pagination' => 'pagination',
+        'warnings' => 'Warnings',
         'credit_notes' => 'CreditNotes'
     ];
 
@@ -110,6 +113,7 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      */
     protected static $setters = [
         'pagination' => 'setPagination',
+        'warnings' => 'setWarnings',
         'credit_notes' => 'setCreditNotes'
     ];
 
@@ -120,6 +124,7 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
      */
     protected static $getters = [
         'pagination' => 'getPagination',
+        'warnings' => 'getWarnings',
         'credit_notes' => 'getCreditNotes'
     ];
 
@@ -184,6 +189,7 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
     public function __construct(array $data = null)
     {
         $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;
+        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
         $this->container['credit_notes'] = isset($data['credit_notes']) ? $data['credit_notes'] : null;
     }
 
@@ -232,6 +238,33 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
     {
 
         $this->container['pagination'] = $pagination;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets warnings
+     *
+     * @return \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null
+     */
+    public function getWarnings()
+    {
+        return $this->container['warnings'];
+    }
+
+    /**
+     * Sets warnings
+     *
+     * @param \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null $warnings Displays array of warning messages from the API
+     *
+     * @return $this
+     */
+    public function setWarnings($warnings)
+    {
+
+        $this->container['warnings'] = $warnings;
 
         return $this;
     }
@@ -340,6 +373,9 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
         $json = [];
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
+        }
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
         }
         $json->CreditNotes = $sanitizedObject->CreditNotes;
         return $json;

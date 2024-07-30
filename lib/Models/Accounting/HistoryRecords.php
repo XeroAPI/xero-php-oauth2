@@ -308,6 +308,9 @@ class HistoryRecords implements ModelInterface, ArrayAccess, \Countable, \Iterat
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
         $json->HistoryRecords = $sanitizedObject->HistoryRecords;
         return $json;
     }

@@ -308,6 +308,9 @@ class Actions implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
         $json->Actions = $sanitizedObject->Actions;
         return $json;
     }

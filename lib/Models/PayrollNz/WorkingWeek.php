@@ -1,6 +1,6 @@
 <?php
 /**
- * Employment
+ * WorkingWeek
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use \XeroAPI\XeroPHP\StringUtil;
 use ReturnTypeWillChange;
 
 /**
- * Employment Class Doc Comment
+ * WorkingWeek Class Doc Comment
  *
  * @category Class
  * @package  XeroAPI\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Employment implements ModelInterface, ArrayAccess
+class WorkingWeek implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Employment implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Employment';
+    protected static $openAPIModelName = 'WorkingWeek';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +58,13 @@ class Employment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'payroll_calendar_id' => 'string',
-        'pay_run_calendar_id' => 'string',
-        'start_date' => '\DateTime',
-        'engagement_type' => 'string',
-        'fixed_term_end_date' => '\DateTime'
+        'monday' => 'double',
+        'tuesday' => 'double',
+        'wednesday' => 'double',
+        'thursday' => 'double',
+        'friday' => 'double',
+        'saturday' => 'double',
+        'sunday' => 'double'
     ];
 
     /**
@@ -71,11 +73,13 @@ class Employment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'payroll_calendar_id' => 'uuid',
-        'pay_run_calendar_id' => 'uuid',
-        'start_date' => 'date',
-        'engagement_type' => null,
-        'fixed_term_end_date' => 'date'
+        'monday' => 'double',
+        'tuesday' => 'double',
+        'wednesday' => 'double',
+        'thursday' => 'double',
+        'friday' => 'double',
+        'saturday' => 'double',
+        'sunday' => 'double'
     ];
 
     /**
@@ -105,11 +109,13 @@ class Employment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'payroll_calendar_id' => 'payrollCalendarID',
-        'pay_run_calendar_id' => 'payRunCalendarID',
-        'start_date' => 'startDate',
-        'engagement_type' => 'engagementType',
-        'fixed_term_end_date' => 'fixedTermEndDate'
+        'monday' => 'monday',
+        'tuesday' => 'tuesday',
+        'wednesday' => 'wednesday',
+        'thursday' => 'thursday',
+        'friday' => 'friday',
+        'saturday' => 'saturday',
+        'sunday' => 'sunday'
     ];
 
     /**
@@ -118,11 +124,13 @@ class Employment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'payroll_calendar_id' => 'setPayrollCalendarId',
-        'pay_run_calendar_id' => 'setPayRunCalendarId',
-        'start_date' => 'setStartDate',
-        'engagement_type' => 'setEngagementType',
-        'fixed_term_end_date' => 'setFixedTermEndDate'
+        'monday' => 'setMonday',
+        'tuesday' => 'setTuesday',
+        'wednesday' => 'setWednesday',
+        'thursday' => 'setThursday',
+        'friday' => 'setFriday',
+        'saturday' => 'setSaturday',
+        'sunday' => 'setSunday'
     ];
 
     /**
@@ -131,11 +139,13 @@ class Employment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'payroll_calendar_id' => 'getPayrollCalendarId',
-        'pay_run_calendar_id' => 'getPayRunCalendarId',
-        'start_date' => 'getStartDate',
-        'engagement_type' => 'getEngagementType',
-        'fixed_term_end_date' => 'getFixedTermEndDate'
+        'monday' => 'getMonday',
+        'tuesday' => 'getTuesday',
+        'wednesday' => 'getWednesday',
+        'thursday' => 'getThursday',
+        'friday' => 'getFriday',
+        'saturday' => 'getSaturday',
+        'sunday' => 'getSunday'
     ];
 
     /**
@@ -198,11 +208,13 @@ class Employment implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['payroll_calendar_id'] = isset($data['payroll_calendar_id']) ? $data['payroll_calendar_id'] : null;
-        $this->container['pay_run_calendar_id'] = isset($data['pay_run_calendar_id']) ? $data['pay_run_calendar_id'] : null;
-        $this->container['start_date'] = isset($data['start_date']) ? $data['start_date'] : null;
-        $this->container['engagement_type'] = isset($data['engagement_type']) ? $data['engagement_type'] : null;
-        $this->container['fixed_term_end_date'] = isset($data['fixed_term_end_date']) ? $data['fixed_term_end_date'] : null;
+        $this->container['monday'] = isset($data['monday']) ? $data['monday'] : null;
+        $this->container['tuesday'] = isset($data['tuesday']) ? $data['tuesday'] : null;
+        $this->container['wednesday'] = isset($data['wednesday']) ? $data['wednesday'] : null;
+        $this->container['thursday'] = isset($data['thursday']) ? $data['thursday'] : null;
+        $this->container['friday'] = isset($data['friday']) ? $data['friday'] : null;
+        $this->container['saturday'] = isset($data['saturday']) ? $data['saturday'] : null;
+        $this->container['sunday'] = isset($data['sunday']) ? $data['sunday'] : null;
     }
 
     /**
@@ -214,6 +226,27 @@ class Employment implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['monday'] === null) {
+            $invalidProperties[] = "'monday' can't be null";
+        }
+        if ($this->container['tuesday'] === null) {
+            $invalidProperties[] = "'tuesday' can't be null";
+        }
+        if ($this->container['wednesday'] === null) {
+            $invalidProperties[] = "'wednesday' can't be null";
+        }
+        if ($this->container['thursday'] === null) {
+            $invalidProperties[] = "'thursday' can't be null";
+        }
+        if ($this->container['friday'] === null) {
+            $invalidProperties[] = "'friday' can't be null";
+        }
+        if ($this->container['saturday'] === null) {
+            $invalidProperties[] = "'saturday' can't be null";
+        }
+        if ($this->container['sunday'] === null) {
+            $invalidProperties[] = "'sunday' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -230,26 +263,26 @@ class Employment implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets payroll_calendar_id
+     * Gets monday
      *
-     * @return string|null
+     * @return double
      */
-    public function getPayrollCalendarId()
+    public function getMonday()
     {
-        return $this->container['payroll_calendar_id'];
+        return $this->container['monday'];
     }
 
     /**
-     * Sets payroll_calendar_id
+     * Sets monday
      *
-     * @param string|null $payroll_calendar_id Xero unique identifier for the payroll calendar of the employee
+     * @param double $monday The number of hours worked on a Monday
      *
      * @return $this
      */
-    public function setPayrollCalendarId($payroll_calendar_id)
+    public function setMonday($monday)
     {
 
-        $this->container['payroll_calendar_id'] = $payroll_calendar_id;
+        $this->container['monday'] = $monday;
 
         return $this;
     }
@@ -257,26 +290,26 @@ class Employment implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets pay_run_calendar_id
+     * Gets tuesday
      *
-     * @return string|null
+     * @return double
      */
-    public function getPayRunCalendarId()
+    public function getTuesday()
     {
-        return $this->container['pay_run_calendar_id'];
+        return $this->container['tuesday'];
     }
 
     /**
-     * Sets pay_run_calendar_id
+     * Sets tuesday
      *
-     * @param string|null $pay_run_calendar_id Xero unique identifier for the payrun calendar for the employee (Deprecated in version 1.1.6)
+     * @param double $tuesday The number of hours worked on a Tuesday
      *
      * @return $this
      */
-    public function setPayRunCalendarId($pay_run_calendar_id)
+    public function setTuesday($tuesday)
     {
 
-        $this->container['pay_run_calendar_id'] = $pay_run_calendar_id;
+        $this->container['tuesday'] = $tuesday;
 
         return $this;
     }
@@ -284,26 +317,26 @@ class Employment implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets start_date
+     * Gets wednesday
      *
-     * @return \DateTime|null
+     * @return double
      */
-    public function getStartDate()
+    public function getWednesday()
     {
-        return $this->container['start_date'];
+        return $this->container['wednesday'];
     }
 
     /**
-     * Sets start_date
+     * Sets wednesday
      *
-     * @param \DateTime|null $start_date Start date of the employment (YYYY-MM-DD)
+     * @param double $wednesday The number of hours worked on a Wednesday
      *
      * @return $this
      */
-    public function setStartDate($start_date)
+    public function setWednesday($wednesday)
     {
 
-        $this->container['start_date'] = $start_date;
+        $this->container['wednesday'] = $wednesday;
 
         return $this;
     }
@@ -311,26 +344,26 @@ class Employment implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets engagement_type
+     * Gets thursday
      *
-     * @return string|null
+     * @return double
      */
-    public function getEngagementType()
+    public function getThursday()
     {
-        return $this->container['engagement_type'];
+        return $this->container['thursday'];
     }
 
     /**
-     * Sets engagement_type
+     * Sets thursday
      *
-     * @param string|null $engagement_type Engagement type of the employee
+     * @param double $thursday The number of hours worked on a Thursday
      *
      * @return $this
      */
-    public function setEngagementType($engagement_type)
+    public function setThursday($thursday)
     {
 
-        $this->container['engagement_type'] = $engagement_type;
+        $this->container['thursday'] = $thursday;
 
         return $this;
     }
@@ -338,26 +371,80 @@ class Employment implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets fixed_term_end_date
+     * Gets friday
      *
-     * @return \DateTime|null
+     * @return double
      */
-    public function getFixedTermEndDate()
+    public function getFriday()
     {
-        return $this->container['fixed_term_end_date'];
+        return $this->container['friday'];
     }
 
     /**
-     * Sets fixed_term_end_date
+     * Sets friday
      *
-     * @param \DateTime|null $fixed_term_end_date End date for an employee with a fixed-term engagement type
+     * @param double $friday The number of hours worked on a Friday
      *
      * @return $this
      */
-    public function setFixedTermEndDate($fixed_term_end_date)
+    public function setFriday($friday)
     {
 
-        $this->container['fixed_term_end_date'] = $fixed_term_end_date;
+        $this->container['friday'] = $friday;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets saturday
+     *
+     * @return double
+     */
+    public function getSaturday()
+    {
+        return $this->container['saturday'];
+    }
+
+    /**
+     * Sets saturday
+     *
+     * @param double $saturday The number of hours worked on a Saturday
+     *
+     * @return $this
+     */
+    public function setSaturday($saturday)
+    {
+
+        $this->container['saturday'] = $saturday;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets sunday
+     *
+     * @return double
+     */
+    public function getSunday()
+    {
+        return $this->container['sunday'];
+    }
+
+    /**
+     * Sets sunday
+     *
+     * @param double $sunday The number of hours worked on a Sunday
+     *
+     * @return $this
+     */
+    public function setSunday($sunday)
+    {
+
+        $this->container['sunday'] = $sunday;
 
         return $this;
     }

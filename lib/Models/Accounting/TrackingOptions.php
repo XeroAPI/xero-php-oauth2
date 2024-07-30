@@ -308,6 +308,9 @@ class TrackingOptions implements ModelInterface, ArrayAccess, \Countable, \Itera
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
         $json->TrackingOptions = $sanitizedObject->TrackingOptions;
         return $json;
     }

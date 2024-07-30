@@ -308,6 +308,9 @@ class CISOrgSettings implements ModelInterface, ArrayAccess, \Countable, \Iterat
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
         $json->CISOrgSettings = $sanitizedObject->CISOrgSettings;
         return $json;
     }

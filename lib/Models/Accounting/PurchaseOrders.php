@@ -59,6 +59,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
       */
     protected static $openAPITypes = [
         'pagination' => '\XeroAPI\XeroPHP\Models\Accounting\Pagination',
+        'warnings' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]',
         'purchase_orders' => '\XeroAPI\XeroPHP\Models\Accounting\PurchaseOrder[]'
     ];
 
@@ -69,6 +70,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
       */
     protected static $openAPIFormats = [
         'pagination' => null,
+        'warnings' => null,
         'purchase_orders' => null
     ];
 
@@ -100,6 +102,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
      */
     protected static $attributeMap = [
         'pagination' => 'pagination',
+        'warnings' => 'Warnings',
         'purchase_orders' => 'PurchaseOrders'
     ];
 
@@ -110,6 +113,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
      */
     protected static $setters = [
         'pagination' => 'setPagination',
+        'warnings' => 'setWarnings',
         'purchase_orders' => 'setPurchaseOrders'
     ];
 
@@ -120,6 +124,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
      */
     protected static $getters = [
         'pagination' => 'getPagination',
+        'warnings' => 'getWarnings',
         'purchase_orders' => 'getPurchaseOrders'
     ];
 
@@ -184,6 +189,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
     public function __construct(array $data = null)
     {
         $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;
+        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
         $this->container['purchase_orders'] = isset($data['purchase_orders']) ? $data['purchase_orders'] : null;
     }
 
@@ -232,6 +238,33 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
     {
 
         $this->container['pagination'] = $pagination;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets warnings
+     *
+     * @return \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null
+     */
+    public function getWarnings()
+    {
+        return $this->container['warnings'];
+    }
+
+    /**
+     * Sets warnings
+     *
+     * @param \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null $warnings Displays array of warning messages from the API
+     *
+     * @return $this
+     */
+    public function setWarnings($warnings)
+    {
+
+        $this->container['warnings'] = $warnings;
 
         return $this;
     }
@@ -340,6 +373,9 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
         $json = [];
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
+        }
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
         }
         $json->PurchaseOrders = $sanitizedObject->PurchaseOrders;
         return $json;

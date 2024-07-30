@@ -308,6 +308,9 @@ class Payslips implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
         $json->Payslips = $sanitizedObject->Payslips;
         return $json;
     }
