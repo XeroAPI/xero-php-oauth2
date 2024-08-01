@@ -377,7 +377,7 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->ManualJournals = $sanitizedObject->ManualJournals;
+        $json['ManualJournals'] = $sanitizedObject->ManualJournals;
         return $json;
     }
 

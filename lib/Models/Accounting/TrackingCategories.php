@@ -311,7 +311,7 @@ class TrackingCategories implements ModelInterface, ArrayAccess, \Countable, \It
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->TrackingCategories = $sanitizedObject->TrackingCategories;
+        $json['TrackingCategories'] = $sanitizedObject->TrackingCategories;
         return $json;
     }
 

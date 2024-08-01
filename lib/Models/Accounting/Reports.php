@@ -311,7 +311,7 @@ class Reports implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->Reports = $sanitizedObject->Reports;
+        $json['Reports'] = $sanitizedObject->Reports;
         return $json;
     }
 

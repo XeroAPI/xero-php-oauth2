@@ -311,7 +311,7 @@ class Receipts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->Receipts = $sanitizedObject->Receipts;
+        $json['Receipts'] = $sanitizedObject->Receipts;
         return $json;
     }
 

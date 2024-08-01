@@ -311,7 +311,7 @@ class OnlineInvoices implements ModelInterface, ArrayAccess, \Countable, \Iterat
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->OnlineInvoices = $sanitizedObject->OnlineInvoices;
+        $json['OnlineInvoices'] = $sanitizedObject->OnlineInvoices;
         return $json;
     }
 

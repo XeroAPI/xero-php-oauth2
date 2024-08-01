@@ -311,7 +311,7 @@ class BatchPayments implements ModelInterface, ArrayAccess, \Countable, \Iterato
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->BatchPayments = $sanitizedObject->BatchPayments;
+        $json['BatchPayments'] = $sanitizedObject->BatchPayments;
         return $json;
     }
 

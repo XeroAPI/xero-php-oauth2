@@ -312,7 +312,7 @@ class LeaveLines implements ModelInterface, ArrayAccess, \Countable, \IteratorAg
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->LeaveLines = $sanitizedObject->LeaveLines;
+        $json['LeaveLines'] = $sanitizedObject->LeaveLines;
         return $json;
     }
 

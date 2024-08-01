@@ -377,7 +377,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->BankTransactions = $sanitizedObject->BankTransactions;
+        $json['BankTransactions'] = $sanitizedObject->BankTransactions;
         return $json;
     }
 

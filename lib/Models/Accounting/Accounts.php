@@ -311,7 +311,7 @@ class Accounts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->Accounts = $sanitizedObject->Accounts;
+        $json['Accounts'] = $sanitizedObject->Accounts;
         return $json;
     }
 

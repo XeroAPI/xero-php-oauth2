@@ -311,7 +311,7 @@ class PayrollCalendars implements ModelInterface, ArrayAccess, \Countable, \Iter
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->PayrollCalendars = $sanitizedObject->PayrollCalendars;
+        $json['PayrollCalendars'] = $sanitizedObject->PayrollCalendars;
         return $json;
     }
 

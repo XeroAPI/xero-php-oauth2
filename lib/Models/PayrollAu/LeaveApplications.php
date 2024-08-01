@@ -311,7 +311,7 @@ class LeaveApplications implements ModelInterface, ArrayAccess, \Countable, \Ite
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->LeaveApplications = $sanitizedObject->LeaveApplications;
+        $json['LeaveApplications'] = $sanitizedObject->LeaveApplications;
         return $json;
     }
 

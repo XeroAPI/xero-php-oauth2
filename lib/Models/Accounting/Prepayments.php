@@ -377,7 +377,7 @@ class Prepayments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->Prepayments = $sanitizedObject->Prepayments;
+        $json['Prepayments'] = $sanitizedObject->Prepayments;
         return $json;
     }
 

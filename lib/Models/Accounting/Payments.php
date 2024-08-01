@@ -377,7 +377,7 @@ class Payments implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->Payments = $sanitizedObject->Payments;
+        $json['Payments'] = $sanitizedObject->Payments;
         return $json;
     }
 

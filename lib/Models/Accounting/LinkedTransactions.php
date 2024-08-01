@@ -311,7 +311,7 @@ class LinkedTransactions implements ModelInterface, ArrayAccess, \Countable, \It
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->LinkedTransactions = $sanitizedObject->LinkedTransactions;
+        $json['LinkedTransactions'] = $sanitizedObject->LinkedTransactions;
         return $json;
     }
 

@@ -377,7 +377,7 @@ class Contacts implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->Contacts = $sanitizedObject->Contacts;
+        $json['Contacts'] = $sanitizedObject->Contacts;
         return $json;
     }
 

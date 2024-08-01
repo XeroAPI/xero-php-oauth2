@@ -377,7 +377,7 @@ class Invoices implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->Invoices = $sanitizedObject->Invoices;
+        $json['Invoices'] = $sanitizedObject->Invoices;
         return $json;
     }
 

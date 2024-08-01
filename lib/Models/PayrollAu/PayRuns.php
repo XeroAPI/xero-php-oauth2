@@ -311,7 +311,7 @@ class PayRuns implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->PayRuns = $sanitizedObject->PayRuns;
+        $json['PayRuns'] = $sanitizedObject->PayRuns;
         return $json;
     }
 

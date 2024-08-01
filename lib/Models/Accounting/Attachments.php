@@ -311,7 +311,7 @@ class Attachments implements ModelInterface, ArrayAccess, \Countable, \IteratorA
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->Attachments = $sanitizedObject->Attachments;
+        $json['Attachments'] = $sanitizedObject->Attachments;
         return $json;
     }
 

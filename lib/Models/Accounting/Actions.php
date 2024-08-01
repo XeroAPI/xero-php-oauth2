@@ -311,7 +311,7 @@ class Actions implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->Actions = $sanitizedObject->Actions;
+        $json['Actions'] = $sanitizedObject->Actions;
         return $json;
     }
 

@@ -311,7 +311,7 @@ class SuperFundProducts implements ModelInterface, ArrayAccess, \Countable, \Ite
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->SuperFundProducts = $sanitizedObject->SuperFundProducts;
+        $json['SuperFundProducts'] = $sanitizedObject->SuperFundProducts;
         return $json;
     }
 

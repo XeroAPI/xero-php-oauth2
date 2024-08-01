@@ -311,7 +311,7 @@ class InvoiceReminders implements ModelInterface, ArrayAccess, \Countable, \Iter
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->InvoiceReminders = $sanitizedObject->InvoiceReminders;
+        $json['InvoiceReminders'] = $sanitizedObject->InvoiceReminders;
         return $json;
     }
 

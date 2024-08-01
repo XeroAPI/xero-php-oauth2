@@ -311,7 +311,7 @@ class ExpenseClaims implements ModelInterface, ArrayAccess, \Countable, \Iterato
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->ExpenseClaims = $sanitizedObject->ExpenseClaims;
+        $json['ExpenseClaims'] = $sanitizedObject->ExpenseClaims;
         return $json;
     }
 

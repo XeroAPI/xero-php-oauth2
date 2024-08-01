@@ -377,7 +377,7 @@ class CreditNotes implements ModelInterface, ArrayAccess, \Countable, \IteratorA
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->CreditNotes = $sanitizedObject->CreditNotes;
+        $json['CreditNotes'] = $sanitizedObject->CreditNotes;
         return $json;
     }
 

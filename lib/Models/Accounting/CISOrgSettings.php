@@ -311,7 +311,7 @@ class CISOrgSettings implements ModelInterface, ArrayAccess, \Countable, \Iterat
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->CISOrgSettings = $sanitizedObject->CISOrgSettings;
+        $json['CISOrgSettings'] = $sanitizedObject->CISOrgSettings;
         return $json;
     }
 

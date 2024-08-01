@@ -344,7 +344,7 @@ class Journals implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->Journals = $sanitizedObject->Journals;
+        $json['Journals'] = $sanitizedObject->Journals;
         return $json;
     }
 

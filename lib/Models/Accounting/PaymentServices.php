@@ -311,7 +311,7 @@ class PaymentServices implements ModelInterface, ArrayAccess, \Countable, \Itera
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->PaymentServices = $sanitizedObject->PaymentServices;
+        $json['PaymentServices'] = $sanitizedObject->PaymentServices;
         return $json;
     }
 

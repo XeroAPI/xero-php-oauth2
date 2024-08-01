@@ -311,7 +311,7 @@ class BrandingThemes implements ModelInterface, ArrayAccess, \Countable, \Iterat
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->BrandingThemes = $sanitizedObject->BrandingThemes;
+        $json['BrandingThemes'] = $sanitizedObject->BrandingThemes;
         return $json;
     }
 

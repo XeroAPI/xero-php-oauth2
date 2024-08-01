@@ -311,7 +311,7 @@ class Currencies implements ModelInterface, ArrayAccess, \Countable, \IteratorAg
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->Currencies = $sanitizedObject->Currencies;
+        $json['Currencies'] = $sanitizedObject->Currencies;
         return $json;
     }
 

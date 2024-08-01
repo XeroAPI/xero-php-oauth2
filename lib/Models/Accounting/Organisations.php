@@ -311,7 +311,7 @@ class Organisations implements ModelInterface, ArrayAccess, \Countable, \Iterato
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->Organisations = $sanitizedObject->Organisations;
+        $json['Organisations'] = $sanitizedObject->Organisations;
         return $json;
     }
 

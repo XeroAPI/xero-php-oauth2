@@ -312,7 +312,7 @@ class ReimbursementLines implements ModelInterface, ArrayAccess, \Countable, \It
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->ReimbursementLines = $sanitizedObject->ReimbursementLines;
+        $json['ReimbursementLines'] = $sanitizedObject->ReimbursementLines;
         return $json;
     }
 

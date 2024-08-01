@@ -311,7 +311,7 @@ class Items implements ModelInterface, ArrayAccess, \Countable, \IteratorAggrega
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->Items = $sanitizedObject->Items;
+        $json['Items'] = $sanitizedObject->Items;
         return $json;
     }
 

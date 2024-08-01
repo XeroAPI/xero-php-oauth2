@@ -311,7 +311,7 @@ class Users implements ModelInterface, ArrayAccess, \Countable, \IteratorAggrega
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->Users = $sanitizedObject->Users;
+        $json['Users'] = $sanitizedObject->Users;
         return $json;
     }
 

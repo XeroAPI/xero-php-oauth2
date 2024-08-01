@@ -311,7 +311,7 @@ class Budgets implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->Budgets = $sanitizedObject->Budgets;
+        $json['Budgets'] = $sanitizedObject->Budgets;
         return $json;
     }
 

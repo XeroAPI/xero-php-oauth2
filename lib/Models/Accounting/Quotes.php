@@ -311,7 +311,7 @@ class Quotes implements ModelInterface, ArrayAccess, \Countable, \IteratorAggreg
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->Quotes = $sanitizedObject->Quotes;
+        $json['Quotes'] = $sanitizedObject->Quotes;
         return $json;
     }
 

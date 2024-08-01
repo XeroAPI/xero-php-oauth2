@@ -377,7 +377,7 @@ class Overpayments implements ModelInterface, ArrayAccess, \Countable, \Iterator
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->Overpayments = $sanitizedObject->Overpayments;
+        $json['Overpayments'] = $sanitizedObject->Overpayments;
         return $json;
     }
 

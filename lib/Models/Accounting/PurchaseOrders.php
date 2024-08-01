@@ -377,7 +377,7 @@ class PurchaseOrders implements ModelInterface, ArrayAccess, \Countable, \Iterat
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->PurchaseOrders = $sanitizedObject->PurchaseOrders;
+        $json['PurchaseOrders'] = $sanitizedObject->PurchaseOrders;
         return $json;
     }
 

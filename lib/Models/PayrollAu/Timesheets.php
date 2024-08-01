@@ -311,7 +311,7 @@ class Timesheets implements ModelInterface, ArrayAccess, \Countable, \IteratorAg
         if(isset($sanitizedObject->warnings)){
             $json['warnings'] = $sanitizedObject->warnings;
         }
-        $json->Timesheets = $sanitizedObject->Timesheets;
+        $json['Timesheets'] = $sanitizedObject->Timesheets;
         return $json;
     }
 
