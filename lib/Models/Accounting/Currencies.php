@@ -308,7 +308,10 @@ class Currencies implements ModelInterface, ArrayAccess, \Countable, \IteratorAg
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
-        $json->Currencies = $sanitizedObject->Currencies;
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
+        $json['Currencies'] = $sanitizedObject->Currencies;
         return $json;
     }
 

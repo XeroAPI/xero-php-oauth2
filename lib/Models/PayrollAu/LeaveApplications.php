@@ -308,7 +308,10 @@ class LeaveApplications implements ModelInterface, ArrayAccess, \Countable, \Ite
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
-        $json->LeaveApplications = $sanitizedObject->LeaveApplications;
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
+        $json['LeaveApplications'] = $sanitizedObject->LeaveApplications;
         return $json;
     }
 

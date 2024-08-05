@@ -59,6 +59,7 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
       */
     protected static $openAPITypes = [
         'pagination' => '\XeroAPI\XeroPHP\Models\Accounting\Pagination',
+        'warnings' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]',
         'manual_journals' => '\XeroAPI\XeroPHP\Models\Accounting\ManualJournal[]'
     ];
 
@@ -69,6 +70,7 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
       */
     protected static $openAPIFormats = [
         'pagination' => null,
+        'warnings' => null,
         'manual_journals' => null
     ];
 
@@ -100,6 +102,7 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
      */
     protected static $attributeMap = [
         'pagination' => 'pagination',
+        'warnings' => 'Warnings',
         'manual_journals' => 'ManualJournals'
     ];
 
@@ -110,6 +113,7 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
      */
     protected static $setters = [
         'pagination' => 'setPagination',
+        'warnings' => 'setWarnings',
         'manual_journals' => 'setManualJournals'
     ];
 
@@ -120,6 +124,7 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
      */
     protected static $getters = [
         'pagination' => 'getPagination',
+        'warnings' => 'getWarnings',
         'manual_journals' => 'getManualJournals'
     ];
 
@@ -184,6 +189,7 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
     public function __construct(array $data = null)
     {
         $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;
+        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
         $this->container['manual_journals'] = isset($data['manual_journals']) ? $data['manual_journals'] : null;
     }
 
@@ -232,6 +238,33 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
     {
 
         $this->container['pagination'] = $pagination;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets warnings
+     *
+     * @return \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null
+     */
+    public function getWarnings()
+    {
+        return $this->container['warnings'];
+    }
+
+    /**
+     * Sets warnings
+     *
+     * @param \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null $warnings Displays array of warning messages from the API
+     *
+     * @return $this
+     */
+    public function setWarnings($warnings)
+    {
+
+        $this->container['warnings'] = $warnings;
 
         return $this;
     }
@@ -341,7 +374,10 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
-        $json->ManualJournals = $sanitizedObject->ManualJournals;
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
+        $json['ManualJournals'] = $sanitizedObject->ManualJournals;
         return $json;
     }
 

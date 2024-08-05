@@ -1507,6 +1507,18 @@ ul.nav-tabs {
       "type" : "string",
       "description" : "Employee's job title",
       "example" : "General Manager"
+    },
+    "engagementType" : {
+      "type" : "string",
+      "description" : "Engagement type of the employee",
+      "example" : "Permanent"
+    },
+    "fixedTermEndDate" : {
+      "type" : "string",
+      "description" : "End date for an employee with a fixed-term engagement type",
+      "format" : "date",
+      "example" : "2020-01-19",
+      "x-is-date" : true
     }
   },
   "description" : ""
@@ -1690,6 +1702,18 @@ ul.nav-tabs {
       "format" : "double",
       "example" : 10.5,
       "x-is-money" : true
+    },
+    "SickLeaveScheduleOfAccrual" : {
+      "type" : "string",
+      "description" : "Set Schedule of Accrual Type for Sick Leave",
+      "example" : "OnAnniversaryDate"
+    },
+    "SickLeaveAnniversaryDate" : {
+      "type" : "string",
+      "description" : "If Sick Leave Schedule of Accrual is \"OnAnniversaryDate\", this is the date when entitled to Sick Leave",
+      "format" : "date",
+      "example" : "2020-01-19",
+      "x-is-date" : true
     }
   },
   "description" : ""
@@ -1767,6 +1791,13 @@ ul.nav-tabs {
       "description" : "Specific to Annual Leave. Annual leave balance in dollars",
       "format" : "double",
       "x-is-money" : true
+    },
+    "scheduleOfAccrualDate" : {
+      "type" : "string",
+      "description" : "The date when an employee becomes entitled to their accrual.",
+      "format" : "date",
+      "example" : "2020-01-19",
+      "x-is-date" : true
     }
   },
   "description" : ""
@@ -2286,6 +2317,96 @@ ul.nav-tabs {
   },
   "description" : ""
 };
+      defs["EmployeeWorkingPattern"] = {
+  "title" : "",
+  "required" : [ "effectiveFrom", "payeeWorkingPatternID" ],
+  "type" : "object",
+  "properties" : {
+    "payeeWorkingPatternID" : {
+      "type" : "string",
+      "description" : "The Xero identifier for for Employee working pattern",
+      "format" : "uuid"
+    },
+    "effectiveFrom" : {
+      "type" : "string",
+      "description" : "The effective date of the corresponding salary and wages",
+      "format" : "date",
+      "x-is-date" : true
+    }
+  },
+  "description" : ""
+};
+      defs["EmployeeWorkingPatternWithWorkingWeeks"] = {
+  "title" : "",
+  "required" : [ "effectiveFrom", "payeeWorkingPatternID" ],
+  "type" : "object",
+  "properties" : {
+    "payeeWorkingPatternID" : {
+      "type" : "string",
+      "description" : "The Xero identifier for for Employee working pattern",
+      "format" : "uuid"
+    },
+    "effectiveFrom" : {
+      "type" : "string",
+      "description" : "The effective date of the corresponding salary and wages",
+      "format" : "date",
+      "x-is-date" : true
+    },
+    "workingWeeks" : {
+      "$ref" : "#/components/schemas/WorkingWeeks"
+    }
+  },
+  "description" : ""
+};
+      defs["EmployeeWorkingPatternWithWorkingWeeksObject"] = {
+  "title" : "",
+  "type" : "object",
+  "properties" : {
+    "pagination" : {
+      "$ref" : "#/components/schemas/Pagination"
+    },
+    "problem" : {
+      "$ref" : "#/components/schemas/Problem"
+    },
+    "payeeWorkingPattern" : {
+      "$ref" : "#/components/schemas/EmployeeWorkingPatternWithWorkingWeeks"
+    }
+  },
+  "description" : ""
+};
+      defs["EmployeeWorkingPatternWithWorkingWeeksRequest"] = {
+  "title" : "",
+  "required" : [ "effectiveFrom", "workingWeeks" ],
+  "type" : "object",
+  "properties" : {
+    "effectiveFrom" : {
+      "type" : "string",
+      "description" : "The effective date of the corresponding salary and wages",
+      "format" : "date",
+      "x-is-date" : true
+    },
+    "workingWeeks" : {
+      "$ref" : "#/components/schemas/WorkingWeeks"
+    }
+  },
+  "description" : ""
+};
+      defs["EmployeeWorkingPatternsObject"] = {
+  "title" : "",
+  "type" : "object",
+  "properties" : {
+    "pagination" : {
+      "$ref" : "#/components/schemas/Pagination"
+    },
+    "problem" : {
+      "$ref" : "#/components/schemas/Problem"
+    },
+    "payeeWorkingPatterns" : {
+      "$ref" : "#/components/schemas/EmployeeWorkingPatterns"
+    }
+  },
+  "description" : ""
+};
       defs["Employees"] = {
   "title" : "",
   "type" : "object",
@@ -2307,7 +2428,7 @@ ul.nav-tabs {
 };
       defs["Employment"] = {
   "title" : "",
-  "required" : [ "PayrollCalendarID", "StartDate" ],
+  "required" : [ "EngagementType", "PayrollCalendarID", "StartDate" ],
   "type" : "object",
   "properties" : {
     "payrollCalendarID" : {
@@ -2324,6 +2445,18 @@ ul.nav-tabs {
       "type" : "string",
       "description" : "Start date of the employment (YYYY-MM-DD)",
       "format" : "date",
+      "x-is-date" : true
+    },
+    "engagementType" : {
+      "type" : "string",
+      "description" : "Engagement type of the employee",
+      "example" : "Permanent"
+    },
+    "fixedTermEndDate" : {
+      "type" : "string",
+      "description" : "End date for an employee with a fixed-term engagement type",
+      "format" : "date",
+      "example" : "2020-01-19",
       "x-is-date" : true
     }
   },
@@ -3234,6 +3367,11 @@ ul.nav-tabs {
       "type" : "string",
       "description" : "The type of the payment of the corresponding salary and wages",
       "enum" : [ "Salary", "Hourly" ]
+    },
+    "workPatternType" : {
+      "type" : "string",
+      "description" : "The type of the Working Pattern of the corresponding salary and wages",
+      "enum" : [ "DaysAndHours", "RegularWeek" ]
     }
   },
   "description" : ""
@@ -3760,6 +3898,56 @@ ul.nav-tabs {
   },
   "description" : ""
 };
+      defs["WorkingWeek"] = {
+  "title" : "",
+  "required" : [ "friday", "monday", "saturday", "sunday", "thursday", "tuesday", "wednesday" ],
+  "type" : "object",
+  "properties" : {
+    "monday" : {
+      "type" : "number",
+      "description" : "The number of hours worked on a Monday",
+      "format" : "double",
+      "x-is-money" : true
+    },
+    "tuesday" : {
+      "type" : "number",
+      "description" : "The number of hours worked on a Tuesday",
+      "format" : "double",
+      "x-is-money" : true
+    },
+    "wednesday" : {
+      "type" : "number",
+      "description" : "The number of hours worked on a Wednesday",
+      "format" : "double",
+      "x-is-money" : true
+    },
+    "thursday" : {
+      "type" : "number",
+      "description" : "The number of hours worked on a Thursday",
+      "format" : "double",
+      "x-is-money" : true
+    },
+    "friday" : {
+      "type" : "number",
+      "description" : "The number of hours worked on a Friday",
+      "format" : "double",
+      "x-is-money" : true
+    },
+    "saturday" : {
+      "type" : "number",
+      "description" : "The number of hours worked on a Saturday",
+      "format" : "double",
+      "x-is-money" : true
+    },
+    "sunday" : {
+      "type" : "number",
+      "description" : "The number of hours worked on a Sunday",
+      "format" : "double",
+      "x-is-money" : true
+    }
+  },
+  "description" : ""
+};
 
       var errs = {};
 
@@ -3842,7 +4030,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="PayrollNz"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="PayrollNz"><strong>VSN: </strong>7.0.1</li>
+              <li class="nav-header" data-group="PayrollNz"><strong>VSN: </strong>7.1.1</li>
               <li class="nav-header" data-group="PayrollNz"><a href="#api-PayrollNz">Methods</a></li>
               <li data-group="PayrollNz" data-name="approveTimesheet" class="">
                 <a href="#api-PayrollNz-approveTimesheet">approveTimesheet</a>
@@ -3876,6 +4064,9 @@ ul.nav-tabs {
               </li>
               <li data-group="PayrollNz" data-name="createEmployeeSalaryAndWage" class="">
                 <a href="#api-PayrollNz-createEmployeeSalaryAndWage">createEmployeeSalaryAndWage</a>
+              </li>
+              <li data-group="PayrollNz" data-name="createEmployeeWorkingPattern" class="">
+                <a href="#api-PayrollNz-createEmployeeWorkingPattern">createEmployeeWorkingPattern</a>
               </li>
               <li data-group="PayrollNz" data-name="createEmployment" class="">
                 <a href="#api-PayrollNz-createEmployment">createEmployment</a>
@@ -3912,6 +4103,9 @@ ul.nav-tabs {
               </li>
               <li data-group="PayrollNz" data-name="deleteEmployeeSalaryAndWage" class="">
                 <a href="#api-PayrollNz-deleteEmployeeSalaryAndWage">deleteEmployeeSalaryAndWage</a>
+              </li>
+              <li data-group="PayrollNz" data-name="deleteEmployeeWorkingPattern" class="">
+                <a href="#api-PayrollNz-deleteEmployeeWorkingPattern">deleteEmployeeWorkingPattern</a>
               </li>
               <li data-group="PayrollNz" data-name="deleteTimesheet" class="">
                 <a href="#api-PayrollNz-deleteTimesheet">deleteTimesheet</a>
@@ -3963,6 +4157,12 @@ ul.nav-tabs {
               </li>
               <li data-group="PayrollNz" data-name="getEmployeeTax" class="">
                 <a href="#api-PayrollNz-getEmployeeTax">getEmployeeTax</a>
+              </li>
+              <li data-group="PayrollNz" data-name="getEmployeeWorkingPattern" class="">
+                <a href="#api-PayrollNz-getEmployeeWorkingPattern">getEmployeeWorkingPattern</a>
+              </li>
+              <li data-group="PayrollNz" data-name="getEmployeeWorkingPatterns" class="">
+                <a href="#api-PayrollNz-getEmployeeWorkingPatterns">getEmployeeWorkingPatterns</a>
               </li>
               <li data-group="PayrollNz" data-name="getEmployees" class="">
                 <a href="#api-PayrollNz-getEmployees">getEmployees</a>
@@ -4675,7 +4875,7 @@ This allows you to safely retry requests without the risk of duplicate processin
                   <p class="marked"></p>
                   <p></p>
                   <br />
-                  <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/Employees/{EmployeeID}/PayTemplates/earnings</span></code></pre>
+                  <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/Employees/{EmployeeID}/PayTemplates/Earnings</span></code></pre>
                   <p>
                   <h3>Usage and SDK Samples</h3>
                   </p>
@@ -4894,6 +5094,8 @@ $employeeLeave = new XeroAPI\XeroPHP\Models\PayrollNz\EmployeeLeave;
 $employeeLeave->setLeaveTypeID('00000000-0000-0000-0000-000000000000');
 $employeeLeave->setStartDate($startDate);
 $employeeLeave->setEndDate($endDate);
+$employeeLeave->setNumberOfUnits($numberOfUnits);
+$employeeLeave->setNumberOfUnitsTaken($numberOfUnitsTaken);
 
 try {
   $result = $apiInstance->createEmployeeLeave($xeroTenantId, $employeeID, $employeeLeave, $idempotencyKey);
@@ -5048,7 +5250,7 @@ This allows you to safely retry requests without the risk of duplicate processin
                   <p class="marked"></p>
                   <p></p>
                   <br />
-                  <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/Employees/{EmployeeID}/leaveSetup</span></code></pre>
+                  <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/Employees/{EmployeeID}/LeaveSetup</span></code></pre>
                   <p>
                   <h3>Usage and SDK Samples</h3>
                   </p>
@@ -5080,6 +5282,11 @@ $employeeLeaveSetup->setAnnualLeaveOpeningBalance(25.89);
 $employeeLeaveSetup->setSickLeaveHoursToAccrueAnnually(100.0);
 $employeeLeaveSetup->setSickLeaveMaximumHoursToAccrue(200.0);
 $employeeLeaveSetup->setSickLeaveOpeningBalance(10.5);
+$employeeLeaveSetup->setSickLeaveToAccrueAnnually($100.0);
+$employeeLeaveSetup->setSickLeaveMaximumToAccrue($200.0);
+$employeeLeaveSetup->setSickLeaveScheduleOfAccrual($'');
+$employeeLeaveSetup->setSickLeaveAnniversaryDate($);
+$employeeLeaveSetup->setAnnualLeaveAnniversaryDate($);
 
 try {
   $result = $apiInstance->createEmployeeLeaveSetup($xeroTenantId, $employeeID, $employeeLeaveSetup, $idempotencyKey);
@@ -5212,7 +5419,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       "schema" : {
         "$ref" : "#/components/schemas/EmployeeLeaveSetup"
       },
-      "example" : "{ \"holidayPayOpeningBalance\": 10, \"annualLeaveOpeningBalance\": 100, \"sickLeaveHoursToAccrueAnnually\": 20, \"sickLeaveOpeningBalance\": 10 }"
+      "example" : "{ \"holidayPayOpeningBalance\": 10, \"annualLeaveOpeningBalance\": 100, \"sickLeaveHoursToAccrueAnnually\": 20, \"sickLeaveToAccrueAnnually\": 20, \"sickLeaveOpeningBalance\": 10, \"sickLeaveScheduleOfAccrual\": \"OnAnniversaryDate\", \"sickLeaveAnniversaryDate\": \"2023-12-31\", \"annualLeaveAnniversaryDate\": \"2023-12-31\" }"
     }
   },
   "required" : true
@@ -5263,6 +5470,7 @@ $employeeLeaveType = new XeroAPI\XeroPHP\Models\PayrollNz\EmployeeLeaveType;
 $employeeLeaveType->setLeaveTypeID('00000000-0000-0000-0000-000000000000');
 $employeeLeaveType->setScheduleOfAccrual(XeroAPI\XeroPHP\Models\PayrollNz\EmployeeLeaveType\ScheduleOfAccrualEnum.PercentageOfGrossEarnings);
 $employeeLeaveType->setOpeningBalance(5.25);
+$employeeLeaveType->setScheduleOfAccrualDate($);
 
 try {
   $result = $apiInstance->createEmployeeLeaveType($xeroTenantId, $employeeID, $employeeLeaveType, $idempotencyKey);
@@ -5395,7 +5603,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       "schema" : {
         "$ref" : "#/components/schemas/EmployeeLeaveType"
       },
-      "example" : "{ \"leaveTypeID\": \"35da97ae-05b9-427f-9a98-69157ba42cec\", \"scheduleOfAccrual\": \"AnnuallyAfter6Months\", \"hoursAccruedAnnually\": 10, \"maximumToAccrue\": 80, \"openingBalance\": 100, \"rateAccruedHourly\": 3.5 }"
+      "example" : "{ \"leaveTypeID\": \"35da97ae-05b9-427f-9a98-69157ba42cec\", \"scheduleOfAccrual\": \"AnnuallyAfter6Months\", \"hoursAccruedAnnually\": 10, \"unitsAccruedAnnually\": 10, \"typeOfUnitsToAccrue\": \"Hours\", \"openingBalanceTypeOfUnits\": \"Hours\" \"maximumToAccrue\": 80, \"openingBalance\": 100, \"rateAccruedHourly\": 3.5 }"
     }
   },
   "required" : true
@@ -5417,7 +5625,7 @@ This allows you to safely retry requests without the risk of duplicate processin
                   <p class="marked"></p>
                   <p></p>
                   <br />
-                  <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/Employees/{EmployeeID}/openingBalances</span></code></pre>
+                  <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/Employees/{EmployeeID}/OpeningBalances</span></code></pre>
                   <p>
                   <h3>Usage and SDK Samples</h3>
                   </p>
@@ -5963,6 +6171,194 @@ This allows you to safely retry requests without the risk of duplicate processin
                 </article>
               </div>
               <hr>
+              <div id="api-PayrollNz-createEmployeeWorkingPattern">
+                <article id="api-PayrollNz-createEmployeeWorkingPattern-0" data-group="User" data-name="createEmployeeWorkingPattern" data-version="0">
+                  <div class="pull-left">
+                    <h1>createEmployeeWorkingPattern</h1>
+                    <p>Creates an employee working pattern</p>
+                  </div>
+                  <div class="pull-right"></div>
+                  <div class="clearfix"></div>
+                  <p></p>
+                  <p class="marked"></p>
+                  <p></p>
+                  <br />
+                  <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/Employees/{EmployeeID}/Working-Patterns</span></code></pre>
+                  <p>
+                  <h3>Usage and SDK Samples</h3>
+                  </p>
+                  <ul class="nav nav-tabs nav-tabs-examples">
+                    <!-- *****REPLACE***** comment out the other languages <li> -->
+                    <li class=""><a href="#examples-PayrollNz-createEmployeeWorkingPattern-0-php">PHP</a></li>
+                  </ul>
+                  <div class="tab-content">
+                    <!-- *****REPLACE***** comment out the other languages tab-pane -->
+                    <div class="tab-pane" id="examples-PayrollNz-createEmployeeWorkingPattern-0-php">
+                      <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( 'YOUR_ACCESS_TOKEN' );       
+
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
+    new GuzzleHttp\Client(),
+    $config
+);
+$xeroTenantId = "xeroTenantId_example";
+$employeeID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
+$idempotencyKey = "KEY_VALUE";
+$effectiveFrom = new DateTime('2020-10-28');
+
+$workingWeek = new XeroAPI\XeroPHP\Models\PayrollNz\WorkingWeek;
+$workingWeek->setmonday(8);
+$workingWeek->settuesday(8);
+$workingWeek->setwednesday(8);
+$workingWeek->setthursday(8);
+$workingWeek->setfriday(8);
+$workingWeek->setsaturday(0);
+$workingWeek->setsunday(0);
+
+try {
+  $result = $apiInstance->createEmployeeWorkingPattern($xeroTenantId, $employeeID, $employeeWorkingPatternWithWorkingWeeksRequest, $idempotencyKey);
+} catch (Exception $e) {
+  echo 'Exception when calling PayrollNzApi->createEmployeeWorkingPattern: ', $e->getMessage(), PHP_EOL;
+}
+?>
+</code></pre>
+                    </div>
+                  </div>
+                  <h2>Scopes</h2>
+                  <table>
+                    
+                    <tr>
+                      <td>payroll.employees</td>
+                      <td>Grant read-write access to payroll employees</td>
+                    </tr>
+                    
+                  </table>
+                  <h2>Parameters</h2>
+                  <div class="methodsubtabletitle">Path parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">EmployeeID<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_createEmployeeWorkingPattern_employeeID">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    UUID
+                </span>
+                    <span class="format">
+                        (uuid)
+                    </span>
+
+                    <div class="inner description marked">
+Employee id for single object
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                  <div class="methodsubtabletitle">Header parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">Xero-Tenant-Id<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_createEmployeeWorkingPattern_xeroTenantId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+Xero identifier for Tenant
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">Idempotency-Key</td>
+<td>
+
+
+    <div id="d2e199_createEmployeeWorkingPattern_idempotencyKey">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+This allows you to safely retry requests without the risk of duplicate processing. 128 character max.
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                  <div class="methodsubtabletitle">Body parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+  <td style="width:150px;">employeeWorkingPatternWithWorkingWeeksRequest <span style="color:red;">*</span></td>
+  <td>
+    <div class="json-schema-view">
+      <div class="primitive">
+        <span class="type">
+        EmployeeWorkingPatternWithWorkingWeeksRequest
+        </span>
+        <div class="inner description marked">
+          
+        </div>
+      </div>
+      <div class="inner required">
+        Required
+      </div>
+    </div>
+    <script type="application/ld+json">
+      {
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/EmployeeWorkingPatternWithWorkingWeeksRequest"
+      },
+      "example" : "{ \"effectiveFrom\": \"2020-01-01T00:00:00\", \"workingWeeks\": [ { \"monday\": 0.0, \"tuesday\": 3.0000, \"wednesday\": 0.0, \"thursday\": 0.0, \"friday\": 0.0, \"saturday\": 0.0, \"sunday\": 0.0 } ] }"
+    }
+  },
+  "required" : true
+}
+    </script>
+                  </table>
+                </article>
+              </div>
+              <hr>
               <div id="api-PayrollNz-createEmployment">
                 <article id="api-PayrollNz-createEmployment-0" data-group="User" data-name="createEmployment" data-version="0">
                   <div class="pull-left">
@@ -6004,6 +6400,8 @@ $startDate = new DateTime('2020-10-28');
 $employment = new XeroAPI\XeroPHP\Models\PayrollNz\Employment;
 $employment->setPayrollCalendarID('00000000-0000-0000-0000-000000000000');
 $employment->setStartDate($startDate);
+$employment->setEngagementType($'');
+$employment->setFixedTermEndDate($);
 
 try {
   $result = $apiInstance->createEmployment($xeroTenantId, $employeeID, $employment, $idempotencyKey);
@@ -6136,7 +6534,7 @@ This allows you to safely retry requests without the risk of duplicate processin
       "schema" : {
         "$ref" : "#/components/schemas/Employment"
       },
-      "example" : "{ \"payrollCalendarID\": \"9aa56064-990f-4ad3-a189-d966d8f6a030\", \"startDate\": \"2020-09-02\" }"
+      "example" : "{ \"payrollCalendarID\": \"9aa56064-990f-4ad3-a189-d966d8f6a030\", \"startDate\": \"2020-09-02\", \"engagementType\": \"FixedTerm\", \"fixedTermEndDate\": \"2026-01-01\" }"
     }
   },
   "required" : true
@@ -6307,7 +6705,7 @@ This allows you to safely retry requests without the risk of duplicate processin
                   <p class="marked"></p>
                   <p></p>
                   <br />
-                  <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/Employees/{EmployeeID}/paytemplateearnings</span></code></pre>
+                  <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/Employees/{EmployeeID}/PayTemplateEarnings</span></code></pre>
                   <p>
                   <h3>Usage and SDK Samples</h3>
                   </p>
@@ -7434,7 +7832,7 @@ This allows you to safely retry requests without the risk of duplicate processin
                   <p class="marked"></p>
                   <p></p>
                   <br />
-                  <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/Employees/{EmployeeID}/PayTemplates/earnings/{PayTemplateEarningID}</span></code></pre>
+                  <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/Employees/{EmployeeID}/PayTemplates/Earnings/{PayTemplateEarningID}</span></code></pre>
                   <p>
                   <h3>Usage and SDK Samples</h3>
                   </p>
@@ -7844,6 +8242,154 @@ Id for single salary and wages object
 
 
     <div id="d2e199_deleteEmployeeSalaryAndWage_xeroTenantId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+Xero identifier for Tenant
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                </article>
+              </div>
+              <hr>
+              <div id="api-PayrollNz-deleteEmployeeWorkingPattern">
+                <article id="api-PayrollNz-deleteEmployeeWorkingPattern-0" data-group="User" data-name="deleteEmployeeWorkingPattern" data-version="0">
+                  <div class="pull-left">
+                    <h1>deleteEmployeeWorkingPattern</h1>
+                    <p>deletes employee's working patterns</p>
+                  </div>
+                  <div class="pull-right"></div>
+                  <div class="clearfix"></div>
+                  <p></p>
+                  <p class="marked"></p>
+                  <p></p>
+                  <br />
+                  <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/Employees/{EmployeeID}/Working-Patterns/{EmployeeWorkingPatternID}</span></code></pre>
+                  <p>
+                  <h3>Usage and SDK Samples</h3>
+                  </p>
+                  <ul class="nav nav-tabs nav-tabs-examples">
+                    <!-- *****REPLACE***** comment out the other languages <li> -->
+                    <li class=""><a href="#examples-PayrollNz-deleteEmployeeWorkingPattern-0-php">PHP</a></li>
+                  </ul>
+                  <div class="tab-content">
+                    <!-- *****REPLACE***** comment out the other languages tab-pane -->
+                    <div class="tab-pane" id="examples-PayrollNz-deleteEmployeeWorkingPattern-0-php">
+                      <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( 'YOUR_ACCESS_TOKEN' );       
+
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
+    new GuzzleHttp\Client(),
+    $config
+);
+$xeroTenantId = "xeroTenantId_example";
+$employeeID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
+$employeeWorkingPatternID = "4ff1e5cc-9835-40d5-bb18-09f3b118db9c";
+
+try {
+  $result = $apiInstance->deleteEmployeeWorkingPattern($xeroTenantId, $employeeID, $employeeWorkingPatternID);
+} catch (Exception $e) {
+  echo 'Exception when calling PayrollNzApi->deleteEmployeeWorkingPattern: ', $e->getMessage(), PHP_EOL;
+}
+?>
+</code></pre>
+                    </div>
+                  </div>
+                  <h2>Scopes</h2>
+                  <table>
+                    
+                    <tr>
+                      <td>payroll.employees</td>
+                      <td>Grant read-write access to payroll employees</td>
+                    </tr>
+                    
+                  </table>
+                  <h2>Parameters</h2>
+                  <div class="methodsubtabletitle">Path parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">EmployeeID<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_deleteEmployeeWorkingPattern_employeeID">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    UUID
+                </span>
+                    <span class="format">
+                        (uuid)
+                    </span>
+
+                    <div class="inner description marked">
+Employee id for single object
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">EmployeeWorkingPatternID<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_deleteEmployeeWorkingPattern_employeeWorkingPatternID">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    UUID
+                </span>
+                    <span class="format">
+                        (uuid)
+                    </span>
+
+                    <div class="inner description marked">
+Employee working pattern id for single object
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                  <div class="methodsubtabletitle">Header parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">Xero-Tenant-Id<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_deleteEmployeeWorkingPattern_xeroTenantId">
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
@@ -9324,7 +9870,7 @@ Xero identifier for Tenant
                   <p class="marked"></p>
                   <p></p>
                   <br />
-                  <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/Employees/{EmployeeID}/openingBalances</span></code></pre>
+                  <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/Employees/{EmployeeID}/OpeningBalances</span></code></pre>
                   <p>
                   <h3>Usage and SDK Samples</h3>
                   </p>
@@ -10101,6 +10647,285 @@ Employee id for single object
 
 
     <div id="d2e199_getEmployeeTax_xeroTenantId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+Xero identifier for Tenant
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                </article>
+              </div>
+              <hr>
+              <div id="api-PayrollNz-getEmployeeWorkingPattern">
+                <article id="api-PayrollNz-getEmployeeWorkingPattern-0" data-group="User" data-name="getEmployeeWorkingPattern" data-version="0">
+                  <div class="pull-left">
+                    <h1>getEmployeeWorkingPattern</h1>
+                    <p>Retrieves employee's working patterns</p>
+                  </div>
+                  <div class="pull-right"></div>
+                  <div class="clearfix"></div>
+                  <p></p>
+                  <p class="marked"></p>
+                  <p></p>
+                  <br />
+                  <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/Employees/{EmployeeID}/Working-Patterns/{EmployeeWorkingPatternID}</span></code></pre>
+                  <p>
+                  <h3>Usage and SDK Samples</h3>
+                  </p>
+                  <ul class="nav nav-tabs nav-tabs-examples">
+                    <!-- *****REPLACE***** comment out the other languages <li> -->
+                    <li class=""><a href="#examples-PayrollNz-getEmployeeWorkingPattern-0-php">PHP</a></li>
+                  </ul>
+                  <div class="tab-content">
+                    <!-- *****REPLACE***** comment out the other languages tab-pane -->
+                    <div class="tab-pane" id="examples-PayrollNz-getEmployeeWorkingPattern-0-php">
+                      <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( 'YOUR_ACCESS_TOKEN' );       
+
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
+    new GuzzleHttp\Client(),
+    $config
+);
+$xeroTenantId = "xeroTenantId_example";
+$employeeID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
+$employeeWorkingPatternID = "4ff1e5cc-9835-40d5-bb18-09f3b118db9c";
+
+try {
+  $result = $apiInstance->getEmployeeWorkingPattern($xeroTenantId, $employeeID, $employeeWorkingPatternID);
+} catch (Exception $e) {
+  echo 'Exception when calling PayrollNzApi->getEmployeeWorkingPattern: ', $e->getMessage(), PHP_EOL;
+}
+?>
+</code></pre>
+                    </div>
+                  </div>
+                  <h2>Scopes</h2>
+                  <table>
+                    
+                    <tr>
+                      <td>payroll.employees</td>
+                      <td>Grant read-write access to payroll employees</td>
+                    </tr>
+                    
+                    <tr>
+                      <td>payroll.employees.read</td>
+                      <td>Grant read-only access to payroll employees</td>
+                    </tr>
+                    
+                  </table>
+                  <h2>Parameters</h2>
+                  <div class="methodsubtabletitle">Path parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">EmployeeID<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_getEmployeeWorkingPattern_employeeID">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    UUID
+                </span>
+                    <span class="format">
+                        (uuid)
+                    </span>
+
+                    <div class="inner description marked">
+Employee id for single object
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">EmployeeWorkingPatternID<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_getEmployeeWorkingPattern_employeeWorkingPatternID">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    UUID
+                </span>
+                    <span class="format">
+                        (uuid)
+                    </span>
+
+                    <div class="inner description marked">
+Employee working pattern id for single object
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                  <div class="methodsubtabletitle">Header parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">Xero-Tenant-Id<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_getEmployeeWorkingPattern_xeroTenantId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+Xero identifier for Tenant
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                </article>
+              </div>
+              <hr>
+              <div id="api-PayrollNz-getEmployeeWorkingPatterns">
+                <article id="api-PayrollNz-getEmployeeWorkingPatterns-0" data-group="User" data-name="getEmployeeWorkingPatterns" data-version="0">
+                  <div class="pull-left">
+                    <h1>getEmployeeWorkingPatterns</h1>
+                    <p>Retrieves employee's working patterns</p>
+                  </div>
+                  <div class="pull-right"></div>
+                  <div class="clearfix"></div>
+                  <p></p>
+                  <p class="marked"></p>
+                  <p></p>
+                  <br />
+                  <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/Employees/{EmployeeID}/Working-Patterns</span></code></pre>
+                  <p>
+                  <h3>Usage and SDK Samples</h3>
+                  </p>
+                  <ul class="nav nav-tabs nav-tabs-examples">
+                    <!-- *****REPLACE***** comment out the other languages <li> -->
+                    <li class=""><a href="#examples-PayrollNz-getEmployeeWorkingPatterns-0-php">PHP</a></li>
+                  </ul>
+                  <div class="tab-content">
+                    <!-- *****REPLACE***** comment out the other languages tab-pane -->
+                    <div class="tab-pane" id="examples-PayrollNz-getEmployeeWorkingPatterns-0-php">
+                      <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = XeroAPI\XeroPHP\Configuration::getDefaultConfiguration()->setAccessToken( 'YOUR_ACCESS_TOKEN' );       
+
+$apiInstance = new XeroAPI\XeroPHP\Api\PayrollNzApi(
+    new GuzzleHttp\Client(),
+    $config
+);
+$xeroTenantId = "xeroTenantId_example";
+$employeeID = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c";
+
+try {
+  $result = $apiInstance->getEmployeeWorkingPatterns($xeroTenantId, $employeeID);
+} catch (Exception $e) {
+  echo 'Exception when calling PayrollNzApi->getEmployeeWorkingPatterns: ', $e->getMessage(), PHP_EOL;
+}
+?>
+</code></pre>
+                    </div>
+                  </div>
+                  <h2>Scopes</h2>
+                  <table>
+                    
+                    <tr>
+                      <td>payroll.employees</td>
+                      <td>Grant read-write access to payroll employees</td>
+                    </tr>
+                    
+                    <tr>
+                      <td>payroll.employees.read</td>
+                      <td>Grant read-only access to payroll employees</td>
+                    </tr>
+                    
+                  </table>
+                  <h2>Parameters</h2>
+                  <div class="methodsubtabletitle">Path parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">EmployeeID<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_getEmployeeWorkingPatterns_employeeID">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    UUID
+                </span>
+                    <span class="format">
+                        (uuid)
+                    </span>
+
+                    <div class="inner description marked">
+Employee id for single object
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                  </table>
+                  <div class="methodsubtabletitle">Header parameters</div>
+                  <table id="methodsubtable">
+                    <tr>
+                      <th width="150px">Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr><td style="width:150px;">Xero-Tenant-Id<span style="color:red;">*</span></td>
+<td>
+
+
+    <div id="d2e199_getEmployeeWorkingPatterns_xeroTenantId">
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
@@ -12935,7 +13760,7 @@ This allows you to safely retry requests without the risk of duplicate processin
                   <p class="marked"></p>
                   <p></p>
                   <br />
-                  <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/Employees/{EmployeeID}/PayTemplates/earnings/{PayTemplateEarningID}</span></code></pre>
+                  <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/Employees/{EmployeeID}/PayTemplates/Earnings/{PayTemplateEarningID}</span></code></pre>
                   <p>
                   <h3>Usage and SDK Samples</h3>
                   </p>

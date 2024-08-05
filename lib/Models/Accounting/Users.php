@@ -308,7 +308,10 @@ class Users implements ModelInterface, ArrayAccess, \Countable, \IteratorAggrega
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
-        $json->Users = $sanitizedObject->Users;
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
+        $json['Users'] = $sanitizedObject->Users;
         return $json;
     }
 

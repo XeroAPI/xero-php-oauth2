@@ -308,7 +308,10 @@ class Allocations implements ModelInterface, ArrayAccess, \Countable, \IteratorA
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
-        $json->Allocations = $sanitizedObject->Allocations;
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
+        $json['Allocations'] = $sanitizedObject->Allocations;
         return $json;
     }
 

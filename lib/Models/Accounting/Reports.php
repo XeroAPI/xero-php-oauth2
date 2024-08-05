@@ -308,7 +308,10 @@ class Reports implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
-        $json->Reports = $sanitizedObject->Reports;
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
+        $json['Reports'] = $sanitizedObject->Reports;
         return $json;
     }
 

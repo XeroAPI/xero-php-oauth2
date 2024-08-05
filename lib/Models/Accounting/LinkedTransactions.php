@@ -308,7 +308,10 @@ class LinkedTransactions implements ModelInterface, ArrayAccess, \Countable, \It
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
-        $json->LinkedTransactions = $sanitizedObject->LinkedTransactions;
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
+        $json['LinkedTransactions'] = $sanitizedObject->LinkedTransactions;
         return $json;
     }
 

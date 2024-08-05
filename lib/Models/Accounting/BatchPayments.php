@@ -308,7 +308,10 @@ class BatchPayments implements ModelInterface, ArrayAccess, \Countable, \Iterato
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
-        $json->BatchPayments = $sanitizedObject->BatchPayments;
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
+        $json['BatchPayments'] = $sanitizedObject->BatchPayments;
         return $json;
     }
 

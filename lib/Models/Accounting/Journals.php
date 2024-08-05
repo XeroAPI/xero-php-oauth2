@@ -58,6 +58,7 @@ class Journals implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
       * @var string[]
       */
     protected static $openAPITypes = [
+        'warnings' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]',
         'journals' => '\XeroAPI\XeroPHP\Models\Accounting\Journal[]'
     ];
 
@@ -67,6 +68,7 @@ class Journals implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'warnings' => null,
         'journals' => null
     ];
 
@@ -97,6 +99,7 @@ class Journals implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      * @var string[]
      */
     protected static $attributeMap = [
+        'warnings' => 'Warnings',
         'journals' => 'Journals'
     ];
 
@@ -106,6 +109,7 @@ class Journals implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      * @var string[]
      */
     protected static $setters = [
+        'warnings' => 'setWarnings',
         'journals' => 'setJournals'
     ];
 
@@ -115,6 +119,7 @@ class Journals implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      * @var string[]
      */
     protected static $getters = [
+        'warnings' => 'getWarnings',
         'journals' => 'getJournals'
     ];
 
@@ -178,6 +183,7 @@ class Journals implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      */
     public function __construct(array $data = null)
     {
+        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
         $this->container['journals'] = isset($data['journals']) ? $data['journals'] : null;
     }
 
@@ -203,6 +209,33 @@ class Journals implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     {
         return count($this->listInvalidProperties()) === 0;
     }
+
+
+    /**
+     * Gets warnings
+     *
+     * @return \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null
+     */
+    public function getWarnings()
+    {
+        return $this->container['warnings'];
+    }
+
+    /**
+     * Sets warnings
+     *
+     * @param \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null $warnings Displays array of warning messages from the API
+     *
+     * @return $this
+     */
+    public function setWarnings($warnings)
+    {
+
+        $this->container['warnings'] = $warnings;
+
+        return $this;
+    }
+
 
 
     /**
@@ -308,7 +341,10 @@ class Journals implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
-        $json->Journals = $sanitizedObject->Journals;
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
+        $json['Journals'] = $sanitizedObject->Journals;
         return $json;
     }
 

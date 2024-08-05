@@ -308,7 +308,10 @@ class Quotes implements ModelInterface, ArrayAccess, \Countable, \IteratorAggreg
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
-        $json->Quotes = $sanitizedObject->Quotes;
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
+        $json['Quotes'] = $sanitizedObject->Quotes;
         return $json;
     }
 

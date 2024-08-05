@@ -308,7 +308,10 @@ class RepeatingInvoices implements ModelInterface, ArrayAccess, \Countable, \Ite
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
-        $json->RepeatingInvoices = $sanitizedObject->RepeatingInvoices;
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
+        $json['RepeatingInvoices'] = $sanitizedObject->RepeatingInvoices;
         return $json;
     }
 

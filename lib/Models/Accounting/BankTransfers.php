@@ -308,7 +308,10 @@ class BankTransfers implements ModelInterface, ArrayAccess, \Countable, \Iterato
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
-        $json->BankTransfers = $sanitizedObject->BankTransfers;
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
+        $json['BankTransfers'] = $sanitizedObject->BankTransfers;
         return $json;
     }
 

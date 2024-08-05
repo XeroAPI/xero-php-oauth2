@@ -308,7 +308,10 @@ class CISSettings implements ModelInterface, ArrayAccess, \Countable, \IteratorA
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
-        $json->CISSettings = $sanitizedObject->CISSettings;
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
+        $json['CISSettings'] = $sanitizedObject->CISSettings;
         return $json;
     }
 

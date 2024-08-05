@@ -59,6 +59,7 @@ class Invoices implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
       */
     protected static $openAPITypes = [
         'pagination' => '\XeroAPI\XeroPHP\Models\Accounting\Pagination',
+        'warnings' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]',
         'invoices' => '\XeroAPI\XeroPHP\Models\Accounting\Invoice[]'
     ];
 
@@ -69,6 +70,7 @@ class Invoices implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
       */
     protected static $openAPIFormats = [
         'pagination' => null,
+        'warnings' => null,
         'invoices' => null
     ];
 
@@ -100,6 +102,7 @@ class Invoices implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      */
     protected static $attributeMap = [
         'pagination' => 'pagination',
+        'warnings' => 'Warnings',
         'invoices' => 'Invoices'
     ];
 
@@ -110,6 +113,7 @@ class Invoices implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      */
     protected static $setters = [
         'pagination' => 'setPagination',
+        'warnings' => 'setWarnings',
         'invoices' => 'setInvoices'
     ];
 
@@ -120,6 +124,7 @@ class Invoices implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
      */
     protected static $getters = [
         'pagination' => 'getPagination',
+        'warnings' => 'getWarnings',
         'invoices' => 'getInvoices'
     ];
 
@@ -184,6 +189,7 @@ class Invoices implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     public function __construct(array $data = null)
     {
         $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;
+        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
         $this->container['invoices'] = isset($data['invoices']) ? $data['invoices'] : null;
     }
 
@@ -232,6 +238,33 @@ class Invoices implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
     {
 
         $this->container['pagination'] = $pagination;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets warnings
+     *
+     * @return \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null
+     */
+    public function getWarnings()
+    {
+        return $this->container['warnings'];
+    }
+
+    /**
+     * Sets warnings
+     *
+     * @param \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null $warnings Displays array of warning messages from the API
+     *
+     * @return $this
+     */
+    public function setWarnings($warnings)
+    {
+
+        $this->container['warnings'] = $warnings;
 
         return $this;
     }
@@ -341,7 +374,10 @@ class Invoices implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
-        $json->Invoices = $sanitizedObject->Invoices;
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
+        $json['Invoices'] = $sanitizedObject->Invoices;
         return $json;
     }
 

@@ -308,7 +308,10 @@ class Items implements ModelInterface, ArrayAccess, \Countable, \IteratorAggrega
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
-        $json->Items = $sanitizedObject->Items;
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
+        $json['Items'] = $sanitizedObject->Items;
         return $json;
     }
 

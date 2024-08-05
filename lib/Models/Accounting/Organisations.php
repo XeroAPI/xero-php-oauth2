@@ -308,7 +308,10 @@ class Organisations implements ModelInterface, ArrayAccess, \Countable, \Iterato
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
-        $json->Organisations = $sanitizedObject->Organisations;
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
+        $json['Organisations'] = $sanitizedObject->Organisations;
         return $json;
     }
 

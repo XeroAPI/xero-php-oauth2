@@ -308,7 +308,10 @@ class SuperFundProducts implements ModelInterface, ArrayAccess, \Countable, \Ite
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
-        $json->SuperFundProducts = $sanitizedObject->SuperFundProducts;
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
+        $json['SuperFundProducts'] = $sanitizedObject->SuperFundProducts;
         return $json;
     }
 

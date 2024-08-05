@@ -308,7 +308,10 @@ class Employees implements ModelInterface, ArrayAccess, \Countable, \IteratorAgg
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
-        $json->Employees = $sanitizedObject->Employees;
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
+        $json['Employees'] = $sanitizedObject->Employees;
         return $json;
     }
 

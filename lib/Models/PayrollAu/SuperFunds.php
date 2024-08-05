@@ -308,7 +308,10 @@ class SuperFunds implements ModelInterface, ArrayAccess, \Countable, \IteratorAg
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
-        $json->SuperFunds = $sanitizedObject->SuperFunds;
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
+        $json['SuperFunds'] = $sanitizedObject->SuperFunds;
         return $json;
     }
 

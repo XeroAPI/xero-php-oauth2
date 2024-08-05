@@ -308,7 +308,10 @@ class PayItems implements ModelInterface, ArrayAccess, \Countable, \IteratorAggr
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
-        $json->PayItems = $sanitizedObject->PayItems;
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
+        $json['PayItems'] = $sanitizedObject->PayItems;
         return $json;
     }
 

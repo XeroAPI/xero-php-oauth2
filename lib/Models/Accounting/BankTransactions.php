@@ -59,6 +59,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
       */
     protected static $openAPITypes = [
         'pagination' => '\XeroAPI\XeroPHP\Models\Accounting\Pagination',
+        'warnings' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]',
         'bank_transactions' => '\XeroAPI\XeroPHP\Models\Accounting\BankTransaction[]'
     ];
 
@@ -69,6 +70,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
       */
     protected static $openAPIFormats = [
         'pagination' => null,
+        'warnings' => null,
         'bank_transactions' => null
     ];
 
@@ -100,6 +102,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
      */
     protected static $attributeMap = [
         'pagination' => 'pagination',
+        'warnings' => 'Warnings',
         'bank_transactions' => 'BankTransactions'
     ];
 
@@ -110,6 +113,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
      */
     protected static $setters = [
         'pagination' => 'setPagination',
+        'warnings' => 'setWarnings',
         'bank_transactions' => 'setBankTransactions'
     ];
 
@@ -120,6 +124,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
      */
     protected static $getters = [
         'pagination' => 'getPagination',
+        'warnings' => 'getWarnings',
         'bank_transactions' => 'getBankTransactions'
     ];
 
@@ -184,6 +189,7 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
     public function __construct(array $data = null)
     {
         $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;
+        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
         $this->container['bank_transactions'] = isset($data['bank_transactions']) ? $data['bank_transactions'] : null;
     }
 
@@ -232,6 +238,33 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
     {
 
         $this->container['pagination'] = $pagination;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets warnings
+     *
+     * @return \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null
+     */
+    public function getWarnings()
+    {
+        return $this->container['warnings'];
+    }
+
+    /**
+     * Sets warnings
+     *
+     * @param \XeroAPI\XeroPHP\Models\Accounting\ValidationError[]|null $warnings Displays array of warning messages from the API
+     *
+     * @return $this
+     */
+    public function setWarnings($warnings)
+    {
+
+        $this->container['warnings'] = $warnings;
 
         return $this;
     }
@@ -341,7 +374,10 @@ class BankTransactions implements ModelInterface, ArrayAccess, \Countable, \Iter
         if(isset($sanitizedObject->pagination)){
             $json['pagination'] = $sanitizedObject->pagination;
         }
-        $json->BankTransactions = $sanitizedObject->BankTransactions;
+        if(isset($sanitizedObject->warnings)){
+            $json['warnings'] = $sanitizedObject->warnings;
+        }
+        $json['BankTransactions'] = $sanitizedObject->BankTransactions;
         return $json;
     }
 
