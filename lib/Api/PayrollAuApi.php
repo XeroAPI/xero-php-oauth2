@@ -37,6 +37,7 @@ use XeroAPI\XeroPHP\Configuration;
 use XeroAPI\XeroPHP\HeaderSelector;
 use XeroAPI\XeroPHP\PayrollAuObjectSerializer;
 
+
 /**
  * PayrollAuApi Class Doc Comment
  *
