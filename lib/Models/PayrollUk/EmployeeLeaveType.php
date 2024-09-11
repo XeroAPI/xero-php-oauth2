@@ -63,7 +63,8 @@ class EmployeeLeaveType implements ModelInterface, ArrayAccess
         'hours_accrued_annually' => 'double',
         'maximum_to_accrue' => 'double',
         'opening_balance' => 'double',
-        'rate_accrued_hourly' => 'double'
+        'rate_accrued_hourly' => 'double',
+        'schedule_of_accrual_date' => '\DateTime'
     ];
 
     /**
@@ -77,7 +78,8 @@ class EmployeeLeaveType implements ModelInterface, ArrayAccess
         'hours_accrued_annually' => 'double',
         'maximum_to_accrue' => 'double',
         'opening_balance' => 'double',
-        'rate_accrued_hourly' => 'double'
+        'rate_accrued_hourly' => 'double',
+        'schedule_of_accrual_date' => 'date'
     ];
 
     /**
@@ -112,7 +114,8 @@ class EmployeeLeaveType implements ModelInterface, ArrayAccess
         'hours_accrued_annually' => 'hoursAccruedAnnually',
         'maximum_to_accrue' => 'maximumToAccrue',
         'opening_balance' => 'openingBalance',
-        'rate_accrued_hourly' => 'rateAccruedHourly'
+        'rate_accrued_hourly' => 'rateAccruedHourly',
+        'schedule_of_accrual_date' => 'scheduleOfAccrualDate'
     ];
 
     /**
@@ -126,7 +129,8 @@ class EmployeeLeaveType implements ModelInterface, ArrayAccess
         'hours_accrued_annually' => 'setHoursAccruedAnnually',
         'maximum_to_accrue' => 'setMaximumToAccrue',
         'opening_balance' => 'setOpeningBalance',
-        'rate_accrued_hourly' => 'setRateAccruedHourly'
+        'rate_accrued_hourly' => 'setRateAccruedHourly',
+        'schedule_of_accrual_date' => 'setScheduleOfAccrualDate'
     ];
 
     /**
@@ -140,7 +144,8 @@ class EmployeeLeaveType implements ModelInterface, ArrayAccess
         'hours_accrued_annually' => 'getHoursAccruedAnnually',
         'maximum_to_accrue' => 'getMaximumToAccrue',
         'opening_balance' => 'getOpeningBalance',
-        'rate_accrued_hourly' => 'getRateAccruedHourly'
+        'rate_accrued_hourly' => 'getRateAccruedHourly',
+        'schedule_of_accrual_date' => 'getScheduleOfAccrualDate'
     ];
 
     /**
@@ -228,6 +233,7 @@ class EmployeeLeaveType implements ModelInterface, ArrayAccess
         $this->container['maximum_to_accrue'] = isset($data['maximum_to_accrue']) ? $data['maximum_to_accrue'] : null;
         $this->container['opening_balance'] = isset($data['opening_balance']) ? $data['opening_balance'] : null;
         $this->container['rate_accrued_hourly'] = isset($data['rate_accrued_hourly']) ? $data['rate_accrued_hourly'] : null;
+        $this->container['schedule_of_accrual_date'] = isset($data['schedule_of_accrual_date']) ? $data['schedule_of_accrual_date'] : null;
     }
 
     /**
@@ -433,6 +439,33 @@ class EmployeeLeaveType implements ModelInterface, ArrayAccess
     {
 
         $this->container['rate_accrued_hourly'] = $rate_accrued_hourly;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets schedule_of_accrual_date
+     *
+     * @return \DateTime|null
+     */
+    public function getScheduleOfAccrualDate()
+    {
+        return $this->container['schedule_of_accrual_date'];
+    }
+
+    /**
+     * Sets schedule_of_accrual_date
+     *
+     * @param \DateTime|null $schedule_of_accrual_date The date when an employee becomes entitled to their accrual. Only applicable when scheduleOfAccrual is \"OnAnniversaryDate\"
+     *
+     * @return $this
+     */
+    public function setScheduleOfAccrualDate($schedule_of_accrual_date)
+    {
+
+        $this->container['schedule_of_accrual_date'] = $schedule_of_accrual_date;
 
         return $this;
     }
