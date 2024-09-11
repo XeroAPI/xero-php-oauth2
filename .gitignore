@@ -1,3 +1,4 @@
 .DS_Store
 .build_notes.md
 vendor/
+composer.lock
