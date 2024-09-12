@@ -4908,7 +4908,7 @@ $employeeLeaveType = new XeroAPI\XeroPHP\Models\PayrollUk\EmployeeLeaveType;
 $employeeLeaveType->setLeaveTypeID('00000000-0000-0000-0000-000000000000');
 $employeeLeaveType->setScheduleOfAccrual(XeroAPI\XeroPHP\Models\PayrollUk\EmployeeLeaveType\ScheduleOfAccrualEnum.BeginningOfCalendarYear);
 $employeeLeaveType->setOpeningBalance(5.25);
-$employeeLeaveType->setScheduleOfAccrualDate($);
+$employeeLeaveType->setScheduleOfAccrualDate($2024-05-01);
 
 try {
   $result = $apiInstance->createEmployeeLeaveType($xeroTenantId, $employeeID, $employeeLeaveType, $idempotencyKey);
