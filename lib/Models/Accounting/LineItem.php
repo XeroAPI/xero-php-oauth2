@@ -72,7 +72,10 @@ class LineItem implements ModelInterface, ArrayAccess
         'tracking' => '\XeroAPI\XeroPHP\Models\Accounting\LineItemTracking[]',
         'discount_rate' => 'double',
         'discount_amount' => 'double',
-        'repeating_invoice_id' => 'string'
+        'repeating_invoice_id' => 'string',
+        'taxability' => 'string',
+        'sales_tax_code_id' => 'float',
+        'tax_breakdown' => '\XeroAPI\XeroPHP\Models\Accounting\TaxBreakdownComponent[]'
     ];
 
     /**
@@ -95,7 +98,10 @@ class LineItem implements ModelInterface, ArrayAccess
         'tracking' => null,
         'discount_rate' => 'double',
         'discount_amount' => 'double',
-        'repeating_invoice_id' => 'uuid'
+        'repeating_invoice_id' => 'uuid',
+        'taxability' => null,
+        'sales_tax_code_id' => null,
+        'tax_breakdown' => null
     ];
 
     /**
@@ -139,7 +145,10 @@ class LineItem implements ModelInterface, ArrayAccess
         'tracking' => 'Tracking',
         'discount_rate' => 'DiscountRate',
         'discount_amount' => 'DiscountAmount',
-        'repeating_invoice_id' => 'RepeatingInvoiceID'
+        'repeating_invoice_id' => 'RepeatingInvoiceID',
+        'taxability' => 'Taxability',
+        'sales_tax_code_id' => 'SalesTaxCodeId',
+        'tax_breakdown' => 'TaxBreakdown'
     ];
 
     /**
@@ -162,7 +171,10 @@ class LineItem implements ModelInterface, ArrayAccess
         'tracking' => 'setTracking',
         'discount_rate' => 'setDiscountRate',
         'discount_amount' => 'setDiscountAmount',
-        'repeating_invoice_id' => 'setRepeatingInvoiceId'
+        'repeating_invoice_id' => 'setRepeatingInvoiceId',
+        'taxability' => 'setTaxability',
+        'sales_tax_code_id' => 'setSalesTaxCodeId',
+        'tax_breakdown' => 'setTaxBreakdown'
     ];
 
     /**
@@ -185,7 +197,10 @@ class LineItem implements ModelInterface, ArrayAccess
         'tracking' => 'getTracking',
         'discount_rate' => 'getDiscountRate',
         'discount_amount' => 'getDiscountAmount',
-        'repeating_invoice_id' => 'getRepeatingInvoiceId'
+        'repeating_invoice_id' => 'getRepeatingInvoiceId',
+        'taxability' => 'getTaxability',
+        'sales_tax_code_id' => 'getSalesTaxCodeId',
+        'tax_breakdown' => 'getTaxBreakdown'
     ];
 
     /**
@@ -229,8 +244,29 @@ class LineItem implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const TAXABILITY_TAXABLE = 'TAXABLE';
+    const TAXABILITY_NON_TAXABLE = 'NON_TAXABLE';
+    const TAXABILITY_EXEMPT = 'EXEMPT';
+    const TAXABILITY_PART_TAXABLE = 'PART_TAXABLE';
+    const TAXABILITY_NOT_APPLICABLE = 'NOT_APPLICABLE';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTaxabilityAllowableValues()
+    {
+        return [
+            self::TAXABILITY_TAXABLE,
+            self::TAXABILITY_NON_TAXABLE,
+            self::TAXABILITY_EXEMPT,
+            self::TAXABILITY_PART_TAXABLE,
+            self::TAXABILITY_NOT_APPLICABLE,
+        ];
+    }
     
 
     /**
@@ -263,6 +299,9 @@ class LineItem implements ModelInterface, ArrayAccess
         $this->container['discount_rate'] = isset($data['discount_rate']) ? $data['discount_rate'] : null;
         $this->container['discount_amount'] = isset($data['discount_amount']) ? $data['discount_amount'] : null;
         $this->container['repeating_invoice_id'] = isset($data['repeating_invoice_id']) ? $data['repeating_invoice_id'] : null;
+        $this->container['taxability'] = isset($data['taxability']) ? $data['taxability'] : null;
+        $this->container['sales_tax_code_id'] = isset($data['sales_tax_code_id']) ? $data['sales_tax_code_id'] : null;
+        $this->container['tax_breakdown'] = isset($data['tax_breakdown']) ? $data['tax_breakdown'] : null;
     }
 
     /**
@@ -273,6 +312,14 @@ class LineItem implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTaxabilityAllowableValues();
+        if (!is_null($this->container['taxability']) && !in_array($this->container['taxability'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'taxability', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -688,6 +735,96 @@ class LineItem implements ModelInterface, ArrayAccess
     {
 
         $this->container['repeating_invoice_id'] = $repeating_invoice_id;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets taxability
+     *
+     * @return string|null
+     */
+    public function getTaxability()
+    {
+        return $this->container['taxability'];
+    }
+
+    /**
+     * Sets taxability
+     *
+     * @param string|null $taxability The type of taxability
+     *
+     * @return $this
+     */
+    public function setTaxability($taxability)
+    {
+        $allowedValues = $this->getTaxabilityAllowableValues();
+        if (!is_null($taxability) && !in_array($taxability, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'taxability', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+
+        $this->container['taxability'] = $taxability;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets sales_tax_code_id
+     *
+     * @return float|null
+     */
+    public function getSalesTaxCodeId()
+    {
+        return $this->container['sales_tax_code_id'];
+    }
+
+    /**
+     * Sets sales_tax_code_id
+     *
+     * @param float|null $sales_tax_code_id The ID of the sales tax code
+     *
+     * @return $this
+     */
+    public function setSalesTaxCodeId($sales_tax_code_id)
+    {
+
+        $this->container['sales_tax_code_id'] = $sales_tax_code_id;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets tax_breakdown
+     *
+     * @return \XeroAPI\XeroPHP\Models\Accounting\TaxBreakdownComponent[]|null
+     */
+    public function getTaxBreakdown()
+    {
+        return $this->container['tax_breakdown'];
+    }
+
+    /**
+     * Sets tax_breakdown
+     *
+     * @param \XeroAPI\XeroPHP\Models\Accounting\TaxBreakdownComponent[]|null $tax_breakdown An array of tax components defined for this line item
+     *
+     * @return $this
+     */
+    public function setTaxBreakdown($tax_breakdown)
+    {
+
+        $this->container['tax_breakdown'] = $tax_breakdown;
 
         return $this;
     }
