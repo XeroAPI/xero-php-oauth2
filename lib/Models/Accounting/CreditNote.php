@@ -87,7 +87,8 @@ class CreditNote implements ModelInterface, ArrayAccess
         'has_attachments' => 'bool',
         'has_errors' => 'bool',
         'validation_errors' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]',
-        'warnings' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]'
+        'warnings' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]',
+        'invoice_addresses' => '\XeroAPI\XeroPHP\Models\Accounting\InvoiceAddress[]'
     ];
 
     /**
@@ -125,7 +126,8 @@ class CreditNote implements ModelInterface, ArrayAccess
         'has_attachments' => null,
         'has_errors' => null,
         'validation_errors' => null,
-        'warnings' => null
+        'warnings' => null,
+        'invoice_addresses' => null
     ];
 
     /**
@@ -184,7 +186,8 @@ class CreditNote implements ModelInterface, ArrayAccess
         'has_attachments' => 'HasAttachments',
         'has_errors' => 'HasErrors',
         'validation_errors' => 'ValidationErrors',
-        'warnings' => 'Warnings'
+        'warnings' => 'Warnings',
+        'invoice_addresses' => 'InvoiceAddresses'
     ];
 
     /**
@@ -222,7 +225,8 @@ class CreditNote implements ModelInterface, ArrayAccess
         'has_attachments' => 'setHasAttachments',
         'has_errors' => 'setHasErrors',
         'validation_errors' => 'setValidationErrors',
-        'warnings' => 'setWarnings'
+        'warnings' => 'setWarnings',
+        'invoice_addresses' => 'setInvoiceAddresses'
     ];
 
     /**
@@ -260,7 +264,8 @@ class CreditNote implements ModelInterface, ArrayAccess
         'has_attachments' => 'getHasAttachments',
         'has_errors' => 'getHasErrors',
         'validation_errors' => 'getValidationErrors',
-        'warnings' => 'getWarnings'
+        'warnings' => 'getWarnings',
+        'invoice_addresses' => 'getInvoiceAddresses'
     ];
 
     /**
@@ -391,6 +396,7 @@ class CreditNote implements ModelInterface, ArrayAccess
         $this->container['has_errors'] = isset($data['has_errors']) ? $data['has_errors'] : false;
         $this->container['validation_errors'] = isset($data['validation_errors']) ? $data['validation_errors'] : null;
         $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
+        $this->container['invoice_addresses'] = isset($data['invoice_addresses']) ? $data['invoice_addresses'] : null;
     }
 
     /**
@@ -1337,6 +1343,33 @@ class CreditNote implements ModelInterface, ArrayAccess
     {
 
         $this->container['warnings'] = $warnings;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets invoice_addresses
+     *
+     * @return \XeroAPI\XeroPHP\Models\Accounting\InvoiceAddress[]|null
+     */
+    public function getInvoiceAddresses()
+    {
+        return $this->container['invoice_addresses'];
+    }
+
+    /**
+     * Sets invoice_addresses
+     *
+     * @param \XeroAPI\XeroPHP\Models\Accounting\InvoiceAddress[]|null $invoice_addresses An array of addresses used to auto calculate sales tax
+     *
+     * @return $this
+     */
+    public function setInvoiceAddresses($invoice_addresses)
+    {
+
+        $this->container['invoice_addresses'] = $invoice_addresses;
 
         return $this;
     }

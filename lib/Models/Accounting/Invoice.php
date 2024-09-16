@@ -97,7 +97,8 @@ class Invoice implements ModelInterface, ArrayAccess
         'has_errors' => 'bool',
         'status_attribute_string' => 'string',
         'validation_errors' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]',
-        'warnings' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]'
+        'warnings' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]',
+        'invoice_addresses' => '\XeroAPI\XeroPHP\Models\Accounting\InvoiceAddress[]'
     ];
 
     /**
@@ -145,7 +146,8 @@ class Invoice implements ModelInterface, ArrayAccess
         'has_errors' => null,
         'status_attribute_string' => null,
         'validation_errors' => null,
-        'warnings' => null
+        'warnings' => null,
+        'invoice_addresses' => null
     ];
 
     /**
@@ -214,7 +216,8 @@ class Invoice implements ModelInterface, ArrayAccess
         'has_errors' => 'HasErrors',
         'status_attribute_string' => 'StatusAttributeString',
         'validation_errors' => 'ValidationErrors',
-        'warnings' => 'Warnings'
+        'warnings' => 'Warnings',
+        'invoice_addresses' => 'InvoiceAddresses'
     ];
 
     /**
@@ -262,7 +265,8 @@ class Invoice implements ModelInterface, ArrayAccess
         'has_errors' => 'setHasErrors',
         'status_attribute_string' => 'setStatusAttributeString',
         'validation_errors' => 'setValidationErrors',
-        'warnings' => 'setWarnings'
+        'warnings' => 'setWarnings',
+        'invoice_addresses' => 'setInvoiceAddresses'
     ];
 
     /**
@@ -310,7 +314,8 @@ class Invoice implements ModelInterface, ArrayAccess
         'has_errors' => 'getHasErrors',
         'status_attribute_string' => 'getStatusAttributeString',
         'validation_errors' => 'getValidationErrors',
-        'warnings' => 'getWarnings'
+        'warnings' => 'getWarnings',
+        'invoice_addresses' => 'getInvoiceAddresses'
     ];
 
     /**
@@ -463,6 +468,7 @@ class Invoice implements ModelInterface, ArrayAccess
         $this->container['status_attribute_string'] = isset($data['status_attribute_string']) ? $data['status_attribute_string'] : null;
         $this->container['validation_errors'] = isset($data['validation_errors']) ? $data['validation_errors'] : null;
         $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
+        $this->container['invoice_addresses'] = isset($data['invoice_addresses']) ? $data['invoice_addresses'] : null;
     }
 
     /**
@@ -1708,6 +1714,33 @@ class Invoice implements ModelInterface, ArrayAccess
     {
 
         $this->container['warnings'] = $warnings;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets invoice_addresses
+     *
+     * @return \XeroAPI\XeroPHP\Models\Accounting\InvoiceAddress[]|null
+     */
+    public function getInvoiceAddresses()
+    {
+        return $this->container['invoice_addresses'];
+    }
+
+    /**
+     * Sets invoice_addresses
+     *
+     * @param \XeroAPI\XeroPHP\Models\Accounting\InvoiceAddress[]|null $invoice_addresses An array of addresses used to auto calculate sales tax
+     *
+     * @return $this
+     */
+    public function setInvoiceAddresses($invoice_addresses)
+    {
+
+        $this->container['invoice_addresses'] = $invoice_addresses;
 
         return $this;
     }
