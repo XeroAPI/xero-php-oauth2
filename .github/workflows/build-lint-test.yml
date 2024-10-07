@@ -33,7 +33,7 @@ jobs:
 
             - name: Check for Vulnerabilities
               run: |
-                composer audit || exit 1
+                composer audit
               working-directory: xero-php-oauth2
 
             - name: Check for Outdated Packages
