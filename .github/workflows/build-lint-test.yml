@@ -27,12 +27,12 @@ jobs:
               run: composer install
               working-directory: xero-php-oauth2
 
-            - name: Check for Outdated Packages
-              run: composer outdated
-              working-directory: xero-php-oauth2
-
             - name: Check for Vulnerabilities
               run: composer audit
+              working-directory: xero-php-oauth2
+
+            - name: Check for Outdated Packages
+              run: composer outdated
               working-directory: xero-php-oauth2
 
             - name: Validate PHP Syntax
