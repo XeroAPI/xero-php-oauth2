@@ -25,8 +25,7 @@ jobs:
         - name: Get latest version from packgist
           id: get_packagist_version
           run: |
-           PACKAGE_NAME=$(jq -r '.name' composer.json)
-           echo "package name - $PACKAGE_NAME"
-           RESPONSE=$(curl -s https://packagist.org/packages/${PACKAGE_NAME}.json)
+           RESPONSE=$(curl -s https://repo.packagist.org/p2/xeroapi/xero-php-oauth2.json)
+           echo "response ***** $RESPONSE"
            LATEST_VERSION=$(echo $RESPONSE | jq -r '.package.versions[0].version')
            echo "latest packagist version $LATEST_VERSION"
