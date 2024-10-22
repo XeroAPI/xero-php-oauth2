@@ -1,9 +1,8 @@
 name: Check Packagist Publish
 
 on:
- pull_request:
-    branches:
-        - master
+   release:
+     types: [published]
 
 jobs:
   check-publish:
@@ -32,17 +31,17 @@ jobs:
           run: |
            RESPONSE=$(curl -s https://repo.packagist.org/p2/xeroapi/xero-php-oauth2.json)
            LATEST_VERSION=$(echo $RESPONSE | jq -r '.packages["xeroapi/xero-php-oauth2"][0].version')
-           echo "latest packagist version $LATEST_VERSION"
+           echo "latest packagist version: $LATEST_VERSION"
            echo "latest_packagist_version=${LATEST_VERSION}" >> $GITHUB_ENV
 
         - name: Compare versions
           id: compare_versions
           run: |
-            if false; then
+            if [ "${{env.php_version}}" == "${{env.latest_packagist_version}}" ]; then
              echo "Packagist is up-to-date"
              echo "packagist_status=success" >> $GITHUB_ENV
             else
-             echo "Packgist is not updated yet"
+             echo "Packagist is not updated yet"
              echo "packagist_status=failure" >> $GITHUB_ENV
             fi
 
@@ -59,7 +58,7 @@ jobs:
             package_version: ${{env.php_version}}
             repo_link: ${{github.server_url}}/${{github.repository}}
 
-        - name: Send slack Notification on Success
+        - name: Send slack Notification on Failure
           if: ${{ env.packagist_status == 'failure' }}
           uses: ./xero-php-oauth2/.github/actions/notify-slack
           with:
@@ -75,5 +74,5 @@ jobs:
         - name: Fail job if status is Failure
           if: ${{env.packagist_status == 'failure'}}
           run: |
-           echo "Job failed because packgist is not updated"
+           echo "Job failed because packagist is not updated"
            exit 1
