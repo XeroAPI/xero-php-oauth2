@@ -49,7 +49,8 @@ jobs:
         - name: Fail job if status is Failure
           if: ${{env.packagist_status == 'failure'}}
           run: |
-            echo "Job failed because packgist is not updated" 
+            echo "Job failed because packgist is not updated"
+            exit 1
 
         - name: Send slack Notification on Success
           if: ${{ env.packagist_status == 'success' }}
