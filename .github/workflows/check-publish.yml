@@ -22,7 +22,7 @@ jobs:
           run: |
             latest_version=$(gh release view --json tagName --jq '.tagName')
             echo "Latest release version is - $latest_version"
-            echo "::set-output name=release_tag::$latest_version"
+            echo "php_version=${latest_version}" >> $GITHUB_ENV
           working-directory: xero-php-oauth2
           env:
            GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -33,3 +33,18 @@ jobs:
            RESPONSE=$(curl -s https://repo.packagist.org/p2/xeroapi/xero-php-oauth2.json)
            LATEST_VERSION=$(echo $RESPONSE | jq -r '.packages["xeroapi/xero-php-oauth2"][0].version')
            echo "latest packagist version $LATEST_VERSION"
+           echo "latest_packagist_version=${LATEST_VERSION}" >> $GITHUB_ENV
+
+        - name: Compare versions
+          id: compare_versions
+          run: |
+            if [ "${{env.php_version}}" == "${{env.latest_packagist_version}}" ]; then
+             echo "Packagist is up-to-date"
+             echo "packagist_status=success" >> $GITHUB_ENV
+            else
+             echo "Packgist is not updated yet"
+             echo "packagist_status=failure" >> $GITHUB_ENV
+
+      #   - name: Send slack Notification on Success
+      #     if: ${{ env.packagist_status == 'success' }}
+      #     uses:
