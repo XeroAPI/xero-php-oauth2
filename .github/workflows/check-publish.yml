@@ -38,13 +38,18 @@ jobs:
         - name: Compare versions
           id: compare_versions
           run: |
-            if [ "${{env.php_version}}" == "${{env.latest_packagist_version}}" ]; then
+            if false; then
              echo "Packagist is up-to-date"
              echo "packagist_status=success" >> $GITHUB_ENV
             else
              echo "Packgist is not updated yet"
              echo "packagist_status=failure" >> $GITHUB_ENV
             fi
+
+        - name: Fail job if status is Failure
+          if: ${{env.packagist_status == 'failure'}}
+          run: |
+            echo "Job failed because packgist is not updated" 
 
         - name: Send slack Notification on Success
           if: ${{ env.packagist_status == 'success' }}
@@ -56,5 +61,18 @@ jobs:
             XERO_SLACK_WEBHOOK_URL: ${{secrets.XERO_SLACK_WEBHOOK_URL}}
             job_url: "https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}"
             button_type: "primary"
+            package_version: ${{env.php_version}}
+            repo_link: ${{github.server_url}}/${{github.repository}}
+
+        - name: Send slack Notification on Success
+          if: ${{ env.packagist_status == 'failure' }}
+          uses: ./xero-php-oauth2/.github/actions/notify-slack
+          with:
+            heading_text: "Publish job has failed !"
+            alert_type: "alert"
+            job_status: "Failed"
+            XERO_SLACK_WEBHOOK_URL: ${{secrets.XERO_SLACK_WEBHOOK_URL}}
+            job_url: "https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}"
+            button_type: "danger"
             package_version: ${{env.php_version}}
             repo_link: ${{github.server_url}}/${{github.repository}}
