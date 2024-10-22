@@ -46,12 +46,6 @@ jobs:
              echo "packagist_status=failure" >> $GITHUB_ENV
             fi
 
-        - name: Fail job if status is Failure
-          if: ${{env.packagist_status == 'failure'}}
-          run: |
-            echo "Job failed because packgist is not updated"
-            exit 1
-
         - name: Send slack Notification on Success
           if: ${{ env.packagist_status == 'success' }}
           uses: ./xero-php-oauth2/.github/actions/notify-slack
@@ -77,3 +71,9 @@ jobs:
             button_type: "danger"
             package_version: ${{env.php_version}}
             repo_link: ${{github.server_url}}/${{github.repository}}
+         
+        - name: Fail job if status is Failure
+          if: ${{env.packagist_status == 'failure'}}
+          run: |
+           echo "Job failed because packgist is not updated"
+           exit 1
