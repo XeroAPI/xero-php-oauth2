@@ -44,6 +44,7 @@ jobs:
             else
              echo "Packgist is not updated yet"
              echo "packagist_status=failure" >> $GITHUB_ENV
+            fi
 
       #   - name: Send slack Notification on Success
       #     if: ${{ env.packagist_status == 'success' }}
