@@ -1,0 +1,32 @@
+name: Check Packagist Publish
+
+on:
+ pull_request:
+    branches:
+        - master
+
+jobs:
+  check-publish:
+     runs-on: ubuntu-latest
+    
+     steps:
+
+        - name: Checkout repo
+          uses: actions/checkout@v4
+          with:
+           repository: XeroAPI/xero-php-oauth2
+           path: xero-php-oauth2
+
+      #   - name: Get package version from composer file
+      #     id: get_composer_version
+      #     run: |
+      #      COMPOSER_VERSION=$(jq -r '.version' composer.json)
+
+        - name: Get latest version from packgist
+          id: get_packagist_version
+          run: |
+           PACKAGE_NAME=$(jq -r '.name' composer.json)
+           echo "package name - $PACKAGE_NAME"
+           RESPONSE=$(curl -s https://packagist.org/packages/${PACKAGE_NAME}.json)
+           LATEST_VERSION=$(echo $RESPONSE | jq -r '.package.versions[0].version')
+           echo "latest packagist version $LATEST_VERSION"
