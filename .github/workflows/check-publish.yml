@@ -46,6 +46,15 @@ jobs:
              echo "packagist_status=failure" >> $GITHUB_ENV
             fi
 
-      #   - name: Send slack Notification on Success
-      #     if: ${{ env.packagist_status == 'success' }}
-      #     uses:
+        - name: Send slack Notification on Success
+          if: ${{ env.packagist_status == 'success' }}
+          uses: ./xero-php-oauth2/.github/actions/notify-slack
+          with:
+            heading_text: "Publish job has succeeded !"
+            alert_type: "thumbsup"
+            job_status: "Success"
+            XERO_SLACK_WEBHOOK_URL: ${{secrets.XERO_SLACK_WEBHOOK_URL}}
+            job_url: "https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}"
+            button_type: "primary"
+            package_version: ${{env.php_version}}
+            repo_link: ${{github.server_url}}/${{github.repository}}
