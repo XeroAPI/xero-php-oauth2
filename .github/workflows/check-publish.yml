@@ -17,14 +17,19 @@ jobs:
            repository: XeroAPI/xero-php-oauth2
            path: xero-php-oauth2
 
-      #   - name: Get package version from composer file
-      #     id: get_composer_version
-      #     run: |
-      #      COMPOSER_VERSION=$(jq -r '.version' composer.json)
+        - name: Fetch Latest release number
+          id: get_latest_release_number
+          run: |
+            latest_version=$(gh release view --json tagName --jq '.tagName')
+            echo "Latest release version is - $latest_version"
+            echo "::set-output name=release_tag::$latest_version"
+          working-directory: xero-python
+          env:
+           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
         - name: Get latest version from packgist
           id: get_packagist_version
           run: |
            RESPONSE=$(curl -s https://repo.packagist.org/p2/xeroapi/xero-php-oauth2.json)
-           LATEST_VERSION=$(echo $RESPONSE | jq -r '.packages['xeroapi/xero-php-oauth2'][0].version')
+           LATEST_VERSION=$(echo $RESPONSE | jq -r '.packages["xeroapi/xero-php-oauth2"][0].version')
            echo "latest packagist version $LATEST_VERSION"
