@@ -51,6 +51,7 @@ class QuoteStatusCodes
     const ACCEPTED = 'ACCEPTED';
     const INVOICED = 'INVOICED';
     const DELETED = 'DELETED';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -65,6 +66,7 @@ class QuoteStatusCodes
             self::ACCEPTED,
             self::INVOICED,
             self::DELETED,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

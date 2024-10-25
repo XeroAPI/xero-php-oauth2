@@ -286,6 +286,7 @@ class TenNinetyNineContact implements ModelInterface, ArrayAccess
     const FEDERAL_TAX_CLASSIFICATION_C_CORP = 'C_CORP';
     const FEDERAL_TAX_CLASSIFICATION_S_CORP = 'S_CORP';
     const FEDERAL_TAX_CLASSIFICATION_OTHER = 'OTHER';
+    const FEDERAL_TAX_CLASSIFICATION_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -304,6 +305,7 @@ class TenNinetyNineContact implements ModelInterface, ArrayAccess
             self::FEDERAL_TAX_CLASSIFICATION_C_CORP,
             self::FEDERAL_TAX_CLASSIFICATION_S_CORP,
             self::FEDERAL_TAX_CLASSIFICATION_OTHER,
+            self::FEDERAL_TAX_CLASSIFICATION_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

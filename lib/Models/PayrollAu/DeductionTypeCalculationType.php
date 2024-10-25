@@ -47,6 +47,7 @@ class DeductionTypeCalculationType
     const FIXEDAMOUNT = 'FIXEDAMOUNT';
     const PRETAX = 'PRETAX';
     const POSTTAX = 'POSTTAX';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -58,6 +59,7 @@ class DeductionTypeCalculationType
             self::FIXEDAMOUNT,
             self::PRETAX,
             self::POSTTAX,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

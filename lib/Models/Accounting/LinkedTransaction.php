@@ -214,9 +214,12 @@ class LinkedTransaction implements ModelInterface, ArrayAccess
     const STATUS_ONDRAFT = 'ONDRAFT';
     const STATUS_BILLED = 'BILLED';
     const STATUS_VOIDED = 'VOIDED';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const TYPE_BILLABLEEXPENSE = 'BILLABLEEXPENSE';
+    const TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const SOURCE_TRANSACTION_TYPE_CODE_ACCPAY = 'ACCPAY';
     const SOURCE_TRANSACTION_TYPE_CODE_SPEND = 'SPEND';
+    const SOURCE_TRANSACTION_TYPE_CODE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -233,6 +236,7 @@ class LinkedTransaction implements ModelInterface, ArrayAccess
             self::STATUS_ONDRAFT,
             self::STATUS_BILLED,
             self::STATUS_VOIDED,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -245,6 +249,7 @@ class LinkedTransaction implements ModelInterface, ArrayAccess
     {
         return [
             self::TYPE_BILLABLEEXPENSE,
+            self::TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -258,6 +263,7 @@ class LinkedTransaction implements ModelInterface, ArrayAccess
         return [
             self::SOURCE_TRANSACTION_TYPE_CODE_ACCPAY,
             self::SOURCE_TRANSACTION_TYPE_CODE_SPEND,
+            self::SOURCE_TRANSACTION_TYPE_CODE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

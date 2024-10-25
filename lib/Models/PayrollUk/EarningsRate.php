@@ -227,9 +227,11 @@ class EarningsRate implements ModelInterface, ArrayAccess
     const EARNINGS_TYPE_TIPS_NON_DIRECT = 'TipsNonDirect';
     const EARNINGS_TYPE_TIPS_DIRECT = 'TipsDirect';
     const EARNINGS_TYPE_TERMINATION_PAY = 'TerminationPay';
+    const EARNINGS_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const RATE_TYPE_RATE_PER_UNIT = 'RatePerUnit';
     const RATE_TYPE_MULTIPLE_OF_ORDINARY_EARNINGS_RATE = 'MultipleOfOrdinaryEarningsRate';
     const RATE_TYPE_FIXED_AMOUNT = 'FixedAmount';
+    const RATE_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -264,6 +266,7 @@ class EarningsRate implements ModelInterface, ArrayAccess
             self::EARNINGS_TYPE_TIPS_NON_DIRECT,
             self::EARNINGS_TYPE_TIPS_DIRECT,
             self::EARNINGS_TYPE_TERMINATION_PAY,
+            self::EARNINGS_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -278,6 +281,7 @@ class EarningsRate implements ModelInterface, ArrayAccess
             self::RATE_TYPE_RATE_PER_UNIT,
             self::RATE_TYPE_MULTIPLE_OF_ORDINARY_EARNINGS_RATE,
             self::RATE_TYPE_FIXED_AMOUNT,
+            self::RATE_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

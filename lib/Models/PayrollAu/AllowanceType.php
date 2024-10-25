@@ -53,6 +53,7 @@ class AllowanceType
     const TOOLS = 'TOOLS';
     const TASKS = 'TASKS';
     const QUALIFICATIONS = 'QUALIFICATIONS';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -70,6 +71,7 @@ class AllowanceType
             self::TOOLS,
             self::TASKS,
             self::QUALIFICATIONS,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

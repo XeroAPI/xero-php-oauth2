@@ -51,6 +51,7 @@ class AllowanceCategory
     const TRANSPORT = 'TRANSPORT';
     const GENERAL = 'GENERAL';
     const OTHER = 'OTHER';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -66,6 +67,7 @@ class AllowanceCategory
             self::TRANSPORT,
             self::GENERAL,
             self::OTHER,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

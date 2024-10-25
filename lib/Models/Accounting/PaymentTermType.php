@@ -48,6 +48,7 @@ class PaymentTermType
     const DAYSAFTERBILLMONTH = 'DAYSAFTERBILLMONTH';
     const OFCURRENTMONTH = 'OFCURRENTMONTH';
     const OFFOLLOWINGMONTH = 'OFFOLLOWINGMONTH';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -60,6 +61,7 @@ class PaymentTermType
             self::DAYSAFTERBILLMONTH,
             self::OFCURRENTMONTH,
             self::OFFOLLOWINGMONTH,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

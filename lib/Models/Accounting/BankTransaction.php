@@ -272,9 +272,11 @@ class BankTransaction implements ModelInterface, ArrayAccess
     const TYPE_SPEND_PREPAYMENT = 'SPEND-PREPAYMENT';
     const TYPE_RECEIVE_TRANSFER = 'RECEIVE-TRANSFER';
     const TYPE_SPEND_TRANSFER = 'SPEND-TRANSFER';
+    const TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const STATUS_AUTHORISED = 'AUTHORISED';
     const STATUS_DELETED = 'DELETED';
     const STATUS_VOIDED = 'VOIDED';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -294,6 +296,7 @@ class BankTransaction implements ModelInterface, ArrayAccess
             self::TYPE_SPEND_PREPAYMENT,
             self::TYPE_RECEIVE_TRANSFER,
             self::TYPE_SPEND_TRANSFER,
+            self::TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -308,6 +311,7 @@ class BankTransaction implements ModelInterface, ArrayAccess
             self::STATUS_AUTHORISED,
             self::STATUS_DELETED,
             self::STATUS_VOIDED,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

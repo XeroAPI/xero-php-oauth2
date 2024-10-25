@@ -48,6 +48,7 @@ class ChargeType
     const TIME = 'TIME';
     const FIXED = 'FIXED';
     const NON_CHARGEABLE = 'NON_CHARGEABLE';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -59,6 +60,7 @@ class ChargeType
             self::TIME,
             self::FIXED,
             self::NON_CHARGEABLE,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

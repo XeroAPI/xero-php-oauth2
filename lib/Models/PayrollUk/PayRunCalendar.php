@@ -195,6 +195,7 @@ class PayRunCalendar implements ModelInterface, ArrayAccess
     const CALENDAR_TYPE_MONTHLY = 'Monthly';
     const CALENDAR_TYPE_ANNUAL = 'Annual';
     const CALENDAR_TYPE_QUARTERLY = 'Quarterly';
+    const CALENDAR_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -212,6 +213,7 @@ class PayRunCalendar implements ModelInterface, ArrayAccess
             self::CALENDAR_TYPE_MONTHLY,
             self::CALENDAR_TYPE_ANNUAL,
             self::CALENDAR_TYPE_QUARTERLY,
+            self::CALENDAR_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

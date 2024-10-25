@@ -188,6 +188,7 @@ class Deduction implements ModelInterface, ArrayAccess
     const DEDUCTION_CATEGORY_KIWI_SAVER_VOLUNTARY_CONTRIBUTIONS = 'KiwiSaverVoluntaryContributions';
     const DEDUCTION_CATEGORY_SUPERANNUATION = 'Superannuation';
     const DEDUCTION_CATEGORY_NZ_OTHER = 'NzOther';
+    const DEDUCTION_CATEGORY_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -203,6 +204,7 @@ class Deduction implements ModelInterface, ArrayAccess
             self::DEDUCTION_CATEGORY_KIWI_SAVER_VOLUNTARY_CONTRIBUTIONS,
             self::DEDUCTION_CATEGORY_SUPERANNUATION,
             self::DEDUCTION_CATEGORY_NZ_OTHER,
+            self::DEDUCTION_CATEGORY_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

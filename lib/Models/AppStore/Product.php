@@ -182,6 +182,7 @@ class Product implements ModelInterface, ArrayAccess
     const TYPE_FIXED = 'FIXED';
     const TYPE_PER_SEAT = 'PER_SEAT';
     const TYPE_METERED = 'METERED';
+    const TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -196,6 +197,7 @@ class Product implements ModelInterface, ArrayAccess
             self::TYPE_FIXED,
             self::TYPE_PER_SEAT,
             self::TYPE_METERED,
+            self::TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

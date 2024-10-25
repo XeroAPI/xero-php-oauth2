@@ -186,6 +186,7 @@ class Budget implements ModelInterface, ArrayAccess
 
     const TYPE_OVERALL = 'OVERALL';
     const TYPE_TRACKING = 'TRACKING';
+    const TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -199,6 +200,7 @@ class Budget implements ModelInterface, ArrayAccess
         return [
             self::TYPE_OVERALL,
             self::TYPE_TRACKING,
+            self::TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

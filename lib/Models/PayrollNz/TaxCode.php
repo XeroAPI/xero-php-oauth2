@@ -64,6 +64,7 @@ class TaxCode
     const NSW = 'NSW';
     const STC = 'STC';
     const STCSL = 'STCSL';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -91,6 +92,7 @@ class TaxCode
             self::NSW,
             self::STC,
             self::STCSL,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

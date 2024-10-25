@@ -239,6 +239,7 @@ class EmployeeTax implements ModelInterface, ArrayAccess
     const KIWI_SAVER_CONTRIBUTIONS_ON_A_CONTRIBUTIONS_HOLIDAY = 'OnAContributionsHoliday';
     const KIWI_SAVER_CONTRIBUTIONS_ON_A_SAVINGS_SUSPENSION = 'OnASavingsSuspension';
     const KIWI_SAVER_CONTRIBUTIONS_NOT_CURRENTLY_A_KIWI_SAVER_MEMBER = 'NotCurrentlyAKiwiSaverMember';
+    const KIWI_SAVER_CONTRIBUTIONS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -255,6 +256,7 @@ class EmployeeTax implements ModelInterface, ArrayAccess
             self::KIWI_SAVER_CONTRIBUTIONS_ON_A_CONTRIBUTIONS_HOLIDAY,
             self::KIWI_SAVER_CONTRIBUTIONS_ON_A_SAVINGS_SUSPENSION,
             self::KIWI_SAVER_CONTRIBUTIONS_NOT_CURRENTLY_A_KIWI_SAVER_MEMBER,
+            self::KIWI_SAVER_CONTRIBUTIONS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

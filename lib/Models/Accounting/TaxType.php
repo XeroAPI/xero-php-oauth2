@@ -168,6 +168,7 @@ class TaxType
     const BLINPUT3 = 'BLINPUT3';
     const BLINPUT3_Y23 = 'BLINPUT3Y23';
     const BLINPUT3_Y24 = 'BLINPUT3Y24';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -299,6 +300,7 @@ class TaxType
             self::BLINPUT3,
             self::BLINPUT3_Y23,
             self::BLINPUT3_Y24,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

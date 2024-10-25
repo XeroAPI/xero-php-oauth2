@@ -202,8 +202,10 @@ class SalaryAndWage implements ModelInterface, ArrayAccess
     const STATUS_ACTIVE = 'Active';
     const STATUS_PENDING = 'Pending';
     const STATUS_HISTORY = 'History';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const PAYMENT_TYPE_SALARY = 'Salary';
     const PAYMENT_TYPE_HOURLY = 'Hourly';
+    const PAYMENT_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -218,6 +220,7 @@ class SalaryAndWage implements ModelInterface, ArrayAccess
             self::STATUS_ACTIVE,
             self::STATUS_PENDING,
             self::STATUS_HISTORY,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -231,6 +234,7 @@ class SalaryAndWage implements ModelInterface, ArrayAccess
         return [
             self::PAYMENT_TYPE_SALARY,
             self::PAYMENT_TYPE_HOURLY,
+            self::PAYMENT_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

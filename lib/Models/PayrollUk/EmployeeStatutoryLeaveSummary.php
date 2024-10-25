@@ -194,9 +194,11 @@ class EmployeeStatutoryLeaveSummary implements ModelInterface, ArrayAccess
     const TYPE_MATERNITY = 'Maternity';
     const TYPE_PATERNITY = 'Paternity';
     const TYPE_SHAREDPARENTAL = 'Sharedparental';
+    const TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const STATUS_PENDING = 'Pending';
     const STATUS_IN_PROGRESS = 'In-Progress';
     const STATUS_COMPLETED = 'Completed';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -213,6 +215,7 @@ class EmployeeStatutoryLeaveSummary implements ModelInterface, ArrayAccess
             self::TYPE_MATERNITY,
             self::TYPE_PATERNITY,
             self::TYPE_SHAREDPARENTAL,
+            self::TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -227,6 +230,7 @@ class EmployeeStatutoryLeaveSummary implements ModelInterface, ArrayAccess
             self::STATUS_PENDING,
             self::STATUS_IN_PROGRESS,
             self::STATUS_COMPLETED,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

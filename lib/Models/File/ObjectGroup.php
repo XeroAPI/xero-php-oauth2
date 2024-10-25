@@ -57,6 +57,7 @@ class ObjectGroup
     const PREPAYMENT = 'Prepayment';
     const QUOTE = 'Quote';
     const RECEIPT = 'Receipt';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -77,6 +78,7 @@ class ObjectGroup
             self::PREPAYMENT,
             self::QUOTE,
             self::RECEIPT,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

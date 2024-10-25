@@ -48,6 +48,7 @@ class QuoteLineAmountTypes
     const EXCLUSIVE = 'EXCLUSIVE';
     const INCLUSIVE = 'INCLUSIVE';
     const NOTAX = 'NOTAX';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -59,6 +60,7 @@ class QuoteLineAmountTypes
             self::EXCLUSIVE,
             self::INCLUSIVE,
             self::NOTAX,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

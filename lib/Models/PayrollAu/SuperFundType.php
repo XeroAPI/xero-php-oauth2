@@ -46,6 +46,7 @@ class SuperFundType
      */
     const REGULATED = 'REGULATED';
     const SMSF = 'SMSF';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -56,6 +57,7 @@ class SuperFundType
         return [
             self::REGULATED,
             self::SMSF,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

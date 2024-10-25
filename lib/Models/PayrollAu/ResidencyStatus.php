@@ -47,6 +47,7 @@ class ResidencyStatus
     const AUSTRALIANRESIDENT = 'AUSTRALIANRESIDENT';
     const FOREIGNRESIDENT = 'FOREIGNRESIDENT';
     const WORKINGHOLIDAYMAKER = 'WORKINGHOLIDAYMAKER';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -58,6 +59,7 @@ class ResidencyStatus
             self::AUSTRALIANRESIDENT,
             self::FOREIGNRESIDENT,
             self::WORKINGHOLIDAYMAKER,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

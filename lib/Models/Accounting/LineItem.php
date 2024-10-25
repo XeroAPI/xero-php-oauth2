@@ -249,6 +249,7 @@ class LineItem implements ModelInterface, ArrayAccess
     const TAXABILITY_EXEMPT = 'EXEMPT';
     const TAXABILITY_PART_TAXABLE = 'PART_TAXABLE';
     const TAXABILITY_NOT_APPLICABLE = 'NOT_APPLICABLE';
+    const TAXABILITY_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -265,6 +266,7 @@ class LineItem implements ModelInterface, ArrayAccess
             self::TAXABILITY_EXEMPT,
             self::TAXABILITY_PART_TAXABLE,
             self::TAXABILITY_NOT_APPLICABLE,
+            self::TAXABILITY_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

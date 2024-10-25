@@ -47,6 +47,7 @@ class EarningsRateCalculationType
     const USEEARNINGSRATE = 'USEEARNINGSRATE';
     const ENTEREARNINGSRATE = 'ENTEREARNINGSRATE';
     const ANNUALSALARY = 'ANNUALSALARY';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -58,6 +59,7 @@ class EarningsRateCalculationType
             self::USEEARNINGSRATE,
             self::ENTEREARNINGSRATE,
             self::ANNUALSALARY,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

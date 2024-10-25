@@ -177,6 +177,7 @@ class Plan implements ModelInterface, ArrayAccess
     const STATUS_ACTIVE = 'ACTIVE';
     const STATUS_CANCELED = 'CANCELED';
     const STATUS_PENDING_ACTIVATION = 'PENDING_ACTIVATION';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -191,6 +192,7 @@ class Plan implements ModelInterface, ArrayAccess
             self::STATUS_ACTIVE,
             self::STATUS_CANCELED,
             self::STATUS_PENDING_ACTIVATION,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

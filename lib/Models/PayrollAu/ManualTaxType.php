@@ -50,6 +50,7 @@ class ManualTaxType
     const SCHEDULE5_MANUAL = 'SCHEDULE5MANUAL';
     const SCHEDULE5_STSLMANUAL = 'SCHEDULE5STSLMANUAL';
     const SCHEDULE4_MANUAL = 'SCHEDULE4MANUAL';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -64,6 +65,7 @@ class ManualTaxType
             self::SCHEDULE5_MANUAL,
             self::SCHEDULE5_STSLMANUAL,
             self::SCHEDULE4_MANUAL,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

@@ -338,6 +338,7 @@ class Employee implements ModelInterface, ArrayAccess
     const GENDER_M = 'M';
     const GENDER_F = 'F';
     const GENDER_I = 'I';
+    const GENDER_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const TERMINATION_REASON_V = 'V';
     const TERMINATION_REASON_I = 'I';
     const TERMINATION_REASON_D = 'D';
@@ -345,6 +346,7 @@ class Employee implements ModelInterface, ArrayAccess
     const TERMINATION_REASON_F = 'F';
     const TERMINATION_REASON_C = 'C';
     const TERMINATION_REASON_T = 'T';
+    const TERMINATION_REASON_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -360,6 +362,7 @@ class Employee implements ModelInterface, ArrayAccess
             self::GENDER_M,
             self::GENDER_F,
             self::GENDER_I,
+            self::GENDER_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -378,6 +381,7 @@ class Employee implements ModelInterface, ArrayAccess
             self::TERMINATION_REASON_F,
             self::TERMINATION_REASON_C,
             self::TERMINATION_REASON_T,
+            self::TERMINATION_REASON_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

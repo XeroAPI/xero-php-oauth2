@@ -50,6 +50,7 @@ class CalendarType
     const MONTHLY = 'MONTHLY';
     const TWICEMONTHLY = 'TWICEMONTHLY';
     const QUARTERLY = 'QUARTERLY';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -64,6 +65,7 @@ class CalendarType
             self::MONTHLY,
             self::TWICEMONTHLY,
             self::QUARTERLY,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

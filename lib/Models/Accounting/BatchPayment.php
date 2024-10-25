@@ -241,8 +241,10 @@ class BatchPayment implements ModelInterface, ArrayAccess
 
     const TYPE_PAYBATCH = 'PAYBATCH';
     const TYPE_RECBATCH = 'RECBATCH';
+    const TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const STATUS_AUTHORISED = 'AUTHORISED';
     const STATUS_DELETED = 'DELETED';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -256,6 +258,7 @@ class BatchPayment implements ModelInterface, ArrayAccess
         return [
             self::TYPE_PAYBATCH,
             self::TYPE_RECBATCH,
+            self::TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -269,6 +272,7 @@ class BatchPayment implements ModelInterface, ArrayAccess
         return [
             self::STATUS_AUTHORISED,
             self::STATUS_DELETED,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

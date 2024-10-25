@@ -218,6 +218,7 @@ class TaxRate implements ModelInterface, ArrayAccess
     const STATUS_DELETED = 'DELETED';
     const STATUS_ARCHIVED = 'ARCHIVED';
     const STATUS_PENDING = 'PENDING';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const REPORT_TAX_TYPE_AVALARA = 'AVALARA';
     const REPORT_TAX_TYPE_BASEXCLUDED = 'BASEXCLUDED';
     const REPORT_TAX_TYPE_CAPITALSALESOUTPUT = 'CAPITALSALESOUTPUT';
@@ -317,6 +318,7 @@ class TaxRate implements ModelInterface, ArrayAccess
     const REPORT_TAX_TYPE_BADDEBTRECOVERY = 'BADDEBTRECOVERY';
     const REPORT_TAX_TYPE_USSALESTAX = 'USSALESTAX';
     const REPORT_TAX_TYPE_BLINPUT3 = 'BLINPUT3';
+    const REPORT_TAX_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -332,6 +334,7 @@ class TaxRate implements ModelInterface, ArrayAccess
             self::STATUS_DELETED,
             self::STATUS_ARCHIVED,
             self::STATUS_PENDING,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -442,6 +445,7 @@ class TaxRate implements ModelInterface, ArrayAccess
             self::REPORT_TAX_TYPE_BADDEBTRECOVERY,
             self::REPORT_TAX_TYPE_USSALESTAX,
             self::REPORT_TAX_TYPE_BLINPUT3,
+            self::REPORT_TAX_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

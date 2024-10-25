@@ -202,6 +202,7 @@ class DeductionType implements ModelInterface, ArrayAccess
     const DEDUCTION_CATEGORY_NONE = 'NONE';
     const DEDUCTION_CATEGORY_UNIONFEES = 'UNIONFEES';
     const DEDUCTION_CATEGORY_WORKPLACEGIVING = 'WORKPLACEGIVING';
+    const DEDUCTION_CATEGORY_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -216,6 +217,7 @@ class DeductionType implements ModelInterface, ArrayAccess
             self::DEDUCTION_CATEGORY_NONE,
             self::DEDUCTION_CATEGORY_UNIONFEES,
             self::DEDUCTION_CATEGORY_WORKPLACEGIVING,
+            self::DEDUCTION_CATEGORY_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

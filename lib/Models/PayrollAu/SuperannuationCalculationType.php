@@ -47,6 +47,7 @@ class SuperannuationCalculationType
     const FIXEDAMOUNT = 'FIXEDAMOUNT';
     const PERCENTAGEOFEARNINGS = 'PERCENTAGEOFEARNINGS';
     const STATUTORY = 'STATUTORY';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -58,6 +59,7 @@ class SuperannuationCalculationType
             self::FIXEDAMOUNT,
             self::PERCENTAGEOFEARNINGS,
             self::STATUTORY,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

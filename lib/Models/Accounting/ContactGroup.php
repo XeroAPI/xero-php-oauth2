@@ -176,6 +176,7 @@ class ContactGroup implements ModelInterface, ArrayAccess
 
     const STATUS_ACTIVE = 'ACTIVE';
     const STATUS_DELETED = 'DELETED';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -189,6 +190,7 @@ class ContactGroup implements ModelInterface, ArrayAccess
         return [
             self::STATUS_ACTIVE,
             self::STATUS_DELETED,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

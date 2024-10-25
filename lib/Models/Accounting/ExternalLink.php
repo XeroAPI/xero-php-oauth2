@@ -174,6 +174,7 @@ class ExternalLink implements ModelInterface, ArrayAccess
     const LINK_TYPE_LINKED_IN = 'LinkedIn';
     const LINK_TYPE_TWITTER = 'Twitter';
     const LINK_TYPE_WEBSITE = 'Website';
+    const LINK_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -190,6 +191,7 @@ class ExternalLink implements ModelInterface, ArrayAccess
             self::LINK_TYPE_LINKED_IN,
             self::LINK_TYPE_TWITTER,
             self::LINK_TYPE_WEBSITE,
+            self::LINK_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

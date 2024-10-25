@@ -53,6 +53,7 @@ class State
     const TAS = 'TAS';
     const VIC = 'VIC';
     const WA = 'WA';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -69,6 +70,7 @@ class State
             self::TAS,
             self::VIC,
             self::WA,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

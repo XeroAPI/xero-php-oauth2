@@ -193,6 +193,7 @@ class EmployeeLeaveType implements ModelInterface, ArrayAccess
     const SCHEDULE_OF_ACCRUAL_ON_ANNIVERSARY_DATE = 'OnAnniversaryDate';
     const SCHEDULE_OF_ACCRUAL_EACH_PAY_PERIOD = 'EachPayPeriod';
     const SCHEDULE_OF_ACCRUAL_ON_HOUR_WORKED = 'OnHourWorked';
+    const SCHEDULE_OF_ACCRUAL_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -208,6 +209,7 @@ class EmployeeLeaveType implements ModelInterface, ArrayAccess
             self::SCHEDULE_OF_ACCRUAL_ON_ANNIVERSARY_DATE,
             self::SCHEDULE_OF_ACCRUAL_EACH_PAY_PERIOD,
             self::SCHEDULE_OF_ACCRUAL_ON_HOUR_WORKED,
+            self::SCHEDULE_OF_ACCRUAL_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

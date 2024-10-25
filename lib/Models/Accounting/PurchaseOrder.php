@@ -299,6 +299,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
     const STATUS_AUTHORISED = 'AUTHORISED';
     const STATUS_BILLED = 'BILLED';
     const STATUS_DELETED = 'DELETED';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -315,6 +316,7 @@ class PurchaseOrder implements ModelInterface, ArrayAccess
             self::STATUS_AUTHORISED,
             self::STATUS_BILLED,
             self::STATUS_DELETED,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

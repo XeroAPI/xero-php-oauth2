@@ -48,6 +48,7 @@ class LeavePeriodStatus
     const PROCESSED = 'PROCESSED';
     const REQUESTED = 'REQUESTED';
     const REJECTED = 'REJECTED';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -60,6 +61,7 @@ class LeavePeriodStatus
             self::PROCESSED,
             self::REQUESTED,
             self::REJECTED,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

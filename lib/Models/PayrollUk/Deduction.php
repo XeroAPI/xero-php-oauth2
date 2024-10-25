@@ -244,8 +244,10 @@ class Deduction implements ModelInterface, ArrayAccess
     const DEDUCTION_CATEGORY_STAKEHOLDER_PENSION_POST_TAX = 'StakeholderPensionPostTax';
     const DEDUCTION_CATEGORY_STUDENT_LOAN_DEDUCTIONS = 'StudentLoanDeductions';
     const DEDUCTION_CATEGORY_UK_OTHER = 'UkOther';
+    const DEDUCTION_CATEGORY_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const CALCULATION_TYPE_FIXED_AMOUNT = 'FixedAmount';
     const CALCULATION_TYPE_PERCENTAGE_OF_GROSS = 'PercentageOfGross';
+    const CALCULATION_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -267,6 +269,7 @@ class Deduction implements ModelInterface, ArrayAccess
             self::DEDUCTION_CATEGORY_STAKEHOLDER_PENSION_POST_TAX,
             self::DEDUCTION_CATEGORY_STUDENT_LOAN_DEDUCTIONS,
             self::DEDUCTION_CATEGORY_UK_OTHER,
+            self::DEDUCTION_CATEGORY_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -280,6 +283,7 @@ class Deduction implements ModelInterface, ArrayAccess
         return [
             self::CALCULATION_TYPE_FIXED_AMOUNT,
             self::CALCULATION_TYPE_PERCENTAGE_OF_GROSS,
+            self::CALCULATION_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

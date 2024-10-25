@@ -57,6 +57,7 @@ class LeaveCategoryCode
     const COMMUNITYSERVICELEAVE = 'COMMUNITYSERVICELEAVE';
     const JURYDUTYLEAVE = 'JURYDUTYLEAVE';
     const DEFENCERESERVELEAVE = 'DEFENCERESERVELEAVE';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -77,6 +78,7 @@ class LeaveCategoryCode
             self::COMMUNITYSERVICELEAVE,
             self::JURYDUTYLEAVE,
             self::DEFENCERESERVELEAVE,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

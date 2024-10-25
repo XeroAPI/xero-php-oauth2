@@ -101,6 +101,7 @@ class ObjectType
     const TERMLIAB = 'Termliab';
     const NON_CURRENT = 'NonCurrent';
     const SALES_QUOTE = 'SalesQuote';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -165,6 +166,7 @@ class ObjectType
             self::TERMLIAB,
             self::NON_CURRENT,
             self::SALES_QUOTE,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

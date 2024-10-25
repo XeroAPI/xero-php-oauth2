@@ -55,6 +55,7 @@ class ProblemType
     const SERVICE_UNAVAILABLE = 'service-unavailable';
     const UNAUTHORIZED = 'unauthorized';
     const RATE_LIMIT_ERROR = 'rate-limit-error';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -74,6 +75,7 @@ class ProblemType
             self::SERVICE_UNAVAILABLE,
             self::UNAUTHORIZED,
             self::RATE_LIMIT_ERROR,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

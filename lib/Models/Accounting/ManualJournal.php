@@ -229,6 +229,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
     const STATUS_DELETED = 'DELETED';
     const STATUS_VOIDED = 'VOIDED';
     const STATUS_ARCHIVED = 'ARCHIVED';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -245,6 +246,7 @@ class ManualJournal implements ModelInterface, ArrayAccess
             self::STATUS_DELETED,
             self::STATUS_VOIDED,
             self::STATUS_ARCHIVED,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

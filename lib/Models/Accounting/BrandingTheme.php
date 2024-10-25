@@ -185,6 +185,7 @@ class BrandingTheme implements ModelInterface, ArrayAccess
     }
 
     const TYPE_INVOICE = 'INVOICE';
+    const TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -197,6 +198,7 @@ class BrandingTheme implements ModelInterface, ArrayAccess
     {
         return [
             self::TYPE_INVOICE,
+            self::TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

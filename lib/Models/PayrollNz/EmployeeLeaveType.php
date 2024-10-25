@@ -213,6 +213,7 @@ class EmployeeLeaveType implements ModelInterface, ArrayAccess
     const SCHEDULE_OF_ACCRUAL_ON_ANNIVERSARY_DATE = 'OnAnniversaryDate';
     const SCHEDULE_OF_ACCRUAL_PERCENTAGE_OF_GROSS_EARNINGS = 'PercentageOfGrossEarnings';
     const SCHEDULE_OF_ACCRUAL_NO_ACCRUALS = 'NoAccruals';
+    const SCHEDULE_OF_ACCRUAL_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -228,6 +229,7 @@ class EmployeeLeaveType implements ModelInterface, ArrayAccess
             self::SCHEDULE_OF_ACCRUAL_ON_ANNIVERSARY_DATE,
             self::SCHEDULE_OF_ACCRUAL_PERCENTAGE_OF_GROSS_EARNINGS,
             self::SCHEDULE_OF_ACCRUAL_NO_ACCRUALS,
+            self::SCHEDULE_OF_ACCRUAL_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

@@ -176,6 +176,7 @@ class LeavePeriod implements ModelInterface, ArrayAccess
 
     const PERIOD_STATUS_APPROVED = 'Approved';
     const PERIOD_STATUS_COMPLETED = 'Completed';
+    const PERIOD_STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -189,6 +190,7 @@ class LeavePeriod implements ModelInterface, ArrayAccess
         return [
             self::PERIOD_STATUS_APPROVED,
             self::PERIOD_STATUS_COMPLETED,
+            self::PERIOD_STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

@@ -59,6 +59,7 @@ class StatutoryDeductionCategory
     const STUDENT_LOAN = 'StudentLoan';
     const VOLUNTARY_STUDENT_LOAN = 'VoluntaryStudentLoan';
     const US_CHILD_SUPPORT = 'USChildSupport';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -81,6 +82,7 @@ class StatutoryDeductionCategory
             self::STUDENT_LOAN,
             self::VOLUNTARY_STUDENT_LOAN,
             self::US_CHILD_SUPPORT,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

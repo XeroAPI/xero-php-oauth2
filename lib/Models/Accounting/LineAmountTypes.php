@@ -48,6 +48,7 @@ class LineAmountTypes
     const EXCLUSIVE = 'Exclusive';
     const INCLUSIVE = 'Inclusive';
     const NO_TAX = 'NoTax';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -59,6 +60,7 @@ class LineAmountTypes
             self::EXCLUSIVE,
             self::INCLUSIVE,
             self::NO_TAX,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

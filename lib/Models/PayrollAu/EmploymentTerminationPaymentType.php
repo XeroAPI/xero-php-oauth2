@@ -46,6 +46,7 @@ class EmploymentTerminationPaymentType
      */
     const O = 'O';
     const R = 'R';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -56,6 +57,7 @@ class EmploymentTerminationPaymentType
         return [
             self::O,
             self::R,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

@@ -47,6 +47,7 @@ class WorkCondition
     const PROMOTIONAL = 'PROMOTIONAL';
     const THREELESSPERFORMANCESPERWEEK = 'THREELESSPERFORMANCESPERWEEK';
     const NONE = 'NONE';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -58,6 +59,7 @@ class WorkCondition
             self::PROMOTIONAL,
             self::THREELESSPERFORMANCESPERWEEK,
             self::NONE,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

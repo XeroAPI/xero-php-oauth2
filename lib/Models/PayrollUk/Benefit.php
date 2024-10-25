@@ -226,8 +226,10 @@ class Benefit implements ModelInterface, ArrayAccess
 
     const CATEGORY_STAKEHOLDER_PENSION = 'StakeholderPension';
     const CATEGORY_OTHER = 'Other';
+    const CATEGORY_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const CALCULATION_TYPE_FIXED_AMOUNT = 'FixedAmount';
     const CALCULATION_TYPE_PERCENTAGE_OF_GROSS = 'PercentageOfGross';
+    const CALCULATION_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -241,6 +243,7 @@ class Benefit implements ModelInterface, ArrayAccess
         return [
             self::CATEGORY_STAKEHOLDER_PENSION,
             self::CATEGORY_OTHER,
+            self::CATEGORY_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -254,6 +257,7 @@ class Benefit implements ModelInterface, ArrayAccess
         return [
             self::CALCULATION_TYPE_FIXED_AMOUNT,
             self::CALCULATION_TYPE_PERCENTAGE_OF_GROSS,
+            self::CALCULATION_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

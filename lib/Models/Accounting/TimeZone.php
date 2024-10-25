@@ -186,6 +186,7 @@ class TimeZone
     const WMONGOLIASTANDARDTIME = 'WMONGOLIASTANDARDTIME';
     const YAKUTSKSTANDARDTIME = 'YAKUTSKSTANDARDTIME';
     const YUKONSTANDARDTIME = 'YUKONSTANDARDTIME';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -335,6 +336,7 @@ class TimeZone
             self::WMONGOLIASTANDARDTIME,
             self::YAKUTSKSTANDARDTIME,
             self::YUKONSTANDARDTIME,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

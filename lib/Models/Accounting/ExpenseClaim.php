@@ -219,6 +219,7 @@ class ExpenseClaim implements ModelInterface, ArrayAccess
     const STATUS_PAID = 'PAID';
     const STATUS_VOIDED = 'VOIDED';
     const STATUS_DELETED = 'DELETED';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -235,6 +236,7 @@ class ExpenseClaim implements ModelInterface, ArrayAccess
             self::STATUS_PAID,
             self::STATUS_VOIDED,
             self::STATUS_DELETED,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
