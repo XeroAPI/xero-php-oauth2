@@ -232,6 +232,7 @@ class Task implements ModelInterface, ArrayAccess
     const STATUS_ACTIVE = 'ACTIVE';
     const STATUS_INVOICED = 'INVOICED';
     const STATUS_LOCKED = 'LOCKED';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -246,6 +247,7 @@ class Task implements ModelInterface, ArrayAccess
             self::STATUS_ACTIVE,
             self::STATUS_INVOICED,
             self::STATUS_LOCKED,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

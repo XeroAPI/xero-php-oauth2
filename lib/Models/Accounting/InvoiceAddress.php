@@ -201,6 +201,7 @@ class InvoiceAddress implements ModelInterface, ArrayAccess
 
     const INVOICE_ADDRESS_TYPE_FROM = 'FROM';
     const INVOICE_ADDRESS_TYPE_TO = 'TO';
+    const INVOICE_ADDRESS_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -214,6 +215,7 @@ class InvoiceAddress implements ModelInterface, ArrayAccess
         return [
             self::INVOICE_ADDRESS_TYPE_FROM,
             self::INVOICE_ADDRESS_TYPE_TO,
+            self::INVOICE_ADDRESS_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

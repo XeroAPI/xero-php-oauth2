@@ -49,6 +49,7 @@ class IncomeType
     const NONEMPLOYEE = 'NONEMPLOYEE';
     const CLOSELYHELDPAYEES = 'CLOSELYHELDPAYEES';
     const LABOURHIRE = 'LABOURHIRE';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -62,6 +63,7 @@ class IncomeType
             self::NONEMPLOYEE,
             self::CLOSELYHELDPAYEES,
             self::LABOURHIRE,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

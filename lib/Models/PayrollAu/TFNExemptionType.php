@@ -48,6 +48,7 @@ class TFNExemptionType
     const PENDING = 'PENDING';
     const PENSIONER = 'PENSIONER';
     const UNDER18 = 'UNDER18';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -60,6 +61,7 @@ class TFNExemptionType
             self::PENDING,
             self::PENSIONER,
             self::UNDER18,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

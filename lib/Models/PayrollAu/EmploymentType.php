@@ -46,6 +46,7 @@ class EmploymentType
      */
     const EMPLOYEE = 'EMPLOYEE';
     const CONTRACTOR = 'CONTRACTOR';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -56,6 +57,7 @@ class EmploymentType
         return [
             self::EMPLOYEE,
             self::CONTRACTOR,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

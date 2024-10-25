@@ -47,6 +47,7 @@ class EmployeeStatus
      */
     const ACTIVE = 'ACTIVE';
     const TERMINATED = 'TERMINATED';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -57,6 +58,7 @@ class EmployeeStatus
         return [
             self::ACTIVE,
             self::TERMINATED,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

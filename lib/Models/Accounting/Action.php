@@ -166,6 +166,7 @@ class Action implements ModelInterface, ArrayAccess
 
     const STATUS_ALLOWED = 'ALLOWED';
     const STATUS_NOT_ALLOWED = 'NOT-ALLOWED';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -179,6 +180,7 @@ class Action implements ModelInterface, ArrayAccess
         return [
             self::STATUS_ALLOWED,
             self::STATUS_NOT_ALLOWED,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

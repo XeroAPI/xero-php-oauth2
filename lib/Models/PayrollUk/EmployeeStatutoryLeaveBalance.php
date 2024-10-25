@@ -174,7 +174,9 @@ class EmployeeStatutoryLeaveBalance implements ModelInterface, ArrayAccess
     const LEAVE_TYPE_MATERNITY = 'Maternity';
     const LEAVE_TYPE_PATERNITY = 'Paternity';
     const LEAVE_TYPE_SHAREDPARENTAL = 'Sharedparental';
+    const LEAVE_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const UNITS_HOURS = 'Hours';
+    const UNITS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -191,6 +193,7 @@ class EmployeeStatutoryLeaveBalance implements ModelInterface, ArrayAccess
             self::LEAVE_TYPE_MATERNITY,
             self::LEAVE_TYPE_PATERNITY,
             self::LEAVE_TYPE_SHAREDPARENTAL,
+            self::LEAVE_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -203,6 +206,7 @@ class EmployeeStatutoryLeaveBalance implements ModelInterface, ArrayAccess
     {
         return [
             self::UNITS_HOURS,
+            self::UNITS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

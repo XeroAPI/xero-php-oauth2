@@ -167,6 +167,7 @@ class PaymentMethod implements ModelInterface, ArrayAccess
     const PAYMENT_METHOD_CHEQUE = 'Cheque';
     const PAYMENT_METHOD_ELECTRONICALLY = 'Electronically';
     const PAYMENT_METHOD_MANUAL = 'Manual';
+    const PAYMENT_METHOD_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -181,6 +182,7 @@ class PaymentMethod implements ModelInterface, ArrayAccess
             self::PAYMENT_METHOD_CHEQUE,
             self::PAYMENT_METHOD_ELECTRONICALLY,
             self::PAYMENT_METHOD_MANUAL,
+            self::PAYMENT_METHOD_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

@@ -49,6 +49,7 @@ class LeaveLineCalculationType
     const FIXEDAMOUNTEACHPERIOD = 'FIXEDAMOUNTEACHPERIOD';
     const ENTERRATEINPAYTEMPLATE = 'ENTERRATEINPAYTEMPLATE';
     const BASEDONORDINARYEARNINGS = 'BASEDONORDINARYEARNINGS';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -61,6 +62,7 @@ class LeaveLineCalculationType
             self::FIXEDAMOUNTEACHPERIOD,
             self::ENTERRATEINPAYTEMPLATE,
             self::BASEDONORDINARYEARNINGS,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

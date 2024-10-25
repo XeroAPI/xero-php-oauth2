@@ -50,6 +50,7 @@ class TaxScaleType
     const SENIORORPENSIONER = 'SENIORORPENSIONER';
     const WORKINGHOLIDAYMAKER = 'WORKINGHOLIDAYMAKER';
     const FOREIGN = 'FOREIGN';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -64,6 +65,7 @@ class TaxScaleType
             self::SENIORORPENSIONER,
             self::WORKINGHOLIDAYMAKER,
             self::FOREIGN,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

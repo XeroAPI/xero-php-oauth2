@@ -256,9 +256,11 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
 
     const TYPE_ACCPAY = 'ACCPAY';
     const TYPE_ACCREC = 'ACCREC';
+    const TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const STATUS_DRAFT = 'DRAFT';
     const STATUS_AUTHORISED = 'AUTHORISED';
     const STATUS_DELETED = 'DELETED';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -272,6 +274,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
         return [
             self::TYPE_ACCPAY,
             self::TYPE_ACCREC,
+            self::TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -286,6 +289,7 @@ class RepeatingInvoice implements ModelInterface, ArrayAccess
             self::STATUS_DRAFT,
             self::STATUS_AUTHORISED,
             self::STATUS_DELETED,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

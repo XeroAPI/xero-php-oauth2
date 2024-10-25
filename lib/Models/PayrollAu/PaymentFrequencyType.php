@@ -51,6 +51,7 @@ class PaymentFrequencyType
     const TWICEMONTHLY = 'TWICEMONTHLY';
     const FOURWEEKLY = 'FOURWEEKLY';
     const YEARLY = 'YEARLY';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -66,6 +67,7 @@ class PaymentFrequencyType
             self::TWICEMONTHLY,
             self::FOURWEEKLY,
             self::YEARLY,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

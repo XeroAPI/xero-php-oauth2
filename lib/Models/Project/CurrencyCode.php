@@ -208,6 +208,7 @@ class CurrencyCode
     const ZMW = 'ZMW';
     const ZMK = 'ZMK';
     const ZWD = 'ZWD';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -379,6 +380,7 @@ class CurrencyCode
             self::ZMW,
             self::ZMK,
             self::ZWD,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

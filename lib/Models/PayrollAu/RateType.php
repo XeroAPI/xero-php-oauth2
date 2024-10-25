@@ -47,6 +47,7 @@ class RateType
     const FIXEDAMOUNT = 'FIXEDAMOUNT';
     const MULTIPLE = 'MULTIPLE';
     const RATEPERUNIT = 'RATEPERUNIT';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -58,6 +59,7 @@ class RateType
             self::FIXEDAMOUNT,
             self::MULTIPLE,
             self::RATEPERUNIT,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

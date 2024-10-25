@@ -181,6 +181,7 @@ class Account implements ModelInterface, ArrayAccess
     const TYPE_PAYELIABILITY = 'PAYELIABILITY';
     const TYPE_WAGESPAYABLE = 'WAGESPAYABLE';
     const TYPE_WAGESEXPENSE = 'WAGESEXPENSE';
+    const TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -199,6 +200,7 @@ class Account implements ModelInterface, ArrayAccess
             self::TYPE_PAYELIABILITY,
             self::TYPE_WAGESPAYABLE,
             self::TYPE_WAGESEXPENSE,
+            self::TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

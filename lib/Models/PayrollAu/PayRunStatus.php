@@ -46,6 +46,7 @@ class PayRunStatus
      */
     const DRAFT = 'DRAFT';
     const POSTED = 'POSTED';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -56,6 +57,7 @@ class PayRunStatus
         return [
             self::DRAFT,
             self::POSTED,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

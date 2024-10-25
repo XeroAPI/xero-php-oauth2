@@ -311,12 +311,14 @@ class CreditNote implements ModelInterface, ArrayAccess
 
     const TYPE_ACCPAYCREDIT = 'ACCPAYCREDIT';
     const TYPE_ACCRECCREDIT = 'ACCRECCREDIT';
+    const TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const STATUS_DRAFT = 'DRAFT';
     const STATUS_SUBMITTED = 'SUBMITTED';
     const STATUS_DELETED = 'DELETED';
     const STATUS_AUTHORISED = 'AUTHORISED';
     const STATUS_PAID = 'PAID';
     const STATUS_VOIDED = 'VOIDED';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -330,6 +332,7 @@ class CreditNote implements ModelInterface, ArrayAccess
         return [
             self::TYPE_ACCPAYCREDIT,
             self::TYPE_ACCRECCREDIT,
+            self::TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -347,6 +350,7 @@ class CreditNote implements ModelInterface, ArrayAccess
             self::STATUS_AUTHORISED,
             self::STATUS_PAID,
             self::STATUS_VOIDED,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

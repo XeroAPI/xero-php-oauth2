@@ -284,6 +284,7 @@ class CountryCode
     const ZA = 'ZA';
     const ZM = 'ZM';
     const ZW = 'ZW';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -532,6 +533,7 @@ class CountryCode
             self::ZA,
             self::ZM,
             self::ZW,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

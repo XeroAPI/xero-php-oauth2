@@ -329,6 +329,7 @@ class Organisation implements ModelInterface, ArrayAccess
     const VERSION_GLOBALONRAMP = 'GLOBALONRAMP';
     const VERSION_UKONRAMP = 'UKONRAMP';
     const VERSION_USONRAMP = 'USONRAMP';
+    const VERSION_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const ORGANISATION_TYPE_ACCOUNTING_PRACTICE = 'ACCOUNTING_PRACTICE';
     const ORGANISATION_TYPE_COMPANY = 'COMPANY';
     const ORGANISATION_TYPE_CHARITY = 'CHARITY';
@@ -342,6 +343,7 @@ class Organisation implements ModelInterface, ArrayAccess
     const ORGANISATION_TYPE_SOLE_TRADER = 'SOLE_TRADER';
     const ORGANISATION_TYPE_SUPERANNUATION_FUND = 'SUPERANNUATION_FUND';
     const ORGANISATION_TYPE_TRUST = 'TRUST';
+    const ORGANISATION_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const SALES_TAX_BASIS_PAYMENTS = 'PAYMENTS';
     const SALES_TAX_BASIS_INVOICE = 'INVOICE';
     const SALES_TAX_BASIS_NONE = 'NONE';
@@ -350,6 +352,7 @@ class Organisation implements ModelInterface, ArrayAccess
     const SALES_TAX_BASIS_FLATRATECASH = 'FLATRATECASH';
     const SALES_TAX_BASIS_FLATRATEACCRUAL = 'FLATRATEACCRUAL';
     const SALES_TAX_BASIS_ACCRUALS = 'ACCRUALS';
+    const SALES_TAX_BASIS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const SALES_TAX_PERIOD_MONTHLY = 'MONTHLY';
     const SALES_TAX_PERIOD_QUARTERLY1 = 'QUARTERLY1';
     const SALES_TAX_PERIOD_QUARTERLY2 = 'QUARTERLY2';
@@ -365,6 +368,7 @@ class Organisation implements ModelInterface, ArrayAccess
     const SALES_TAX_PERIOD_QUARTERLY = 'QUARTERLY';
     const SALES_TAX_PERIOD_YEARLY = 'YEARLY';
     const SALES_TAX_PERIOD_NONE = 'NONE';
+    const SALES_TAX_PERIOD_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const ORGANISATION_ENTITY_TYPE_ACCOUNTING_PRACTICE = 'ACCOUNTING_PRACTICE';
     const ORGANISATION_ENTITY_TYPE_COMPANY = 'COMPANY';
     const ORGANISATION_ENTITY_TYPE_CHARITY = 'CHARITY';
@@ -378,6 +382,7 @@ class Organisation implements ModelInterface, ArrayAccess
     const ORGANISATION_ENTITY_TYPE_SOLE_TRADER = 'SOLE_TRADER';
     const ORGANISATION_ENTITY_TYPE_SUPERANNUATION_FUND = 'SUPERANNUATION_FUND';
     const ORGANISATION_ENTITY_TYPE_TRUST = 'TRUST';
+    const ORGANISATION_ENTITY_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const MODEL_CLASS_DEMO = 'DEMO';
     const MODEL_CLASS_TRIAL = 'TRIAL';
     const MODEL_CLASS_STARTER = 'STARTER';
@@ -398,8 +403,10 @@ class Organisation implements ModelInterface, ArrayAccess
     const MODEL_CLASS_IGNITE = 'IGNITE';
     const MODEL_CLASS_GROW = 'GROW';
     const MODEL_CLASS_COMPREHENSIVE = 'COMPREHENSIVE';
+    const MODEL_CLASS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const EDITION_BUSINESS = 'BUSINESS';
     const EDITION_PARTNER = 'PARTNER';
+    const EDITION_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -421,6 +428,7 @@ class Organisation implements ModelInterface, ArrayAccess
             self::VERSION_GLOBALONRAMP,
             self::VERSION_UKONRAMP,
             self::VERSION_USONRAMP,
+            self::VERSION_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -445,6 +453,7 @@ class Organisation implements ModelInterface, ArrayAccess
             self::ORGANISATION_TYPE_SOLE_TRADER,
             self::ORGANISATION_TYPE_SUPERANNUATION_FUND,
             self::ORGANISATION_TYPE_TRUST,
+            self::ORGANISATION_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -464,6 +473,7 @@ class Organisation implements ModelInterface, ArrayAccess
             self::SALES_TAX_BASIS_FLATRATECASH,
             self::SALES_TAX_BASIS_FLATRATEACCRUAL,
             self::SALES_TAX_BASIS_ACCRUALS,
+            self::SALES_TAX_BASIS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -490,6 +500,7 @@ class Organisation implements ModelInterface, ArrayAccess
             self::SALES_TAX_PERIOD_QUARTERLY,
             self::SALES_TAX_PERIOD_YEARLY,
             self::SALES_TAX_PERIOD_NONE,
+            self::SALES_TAX_PERIOD_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -514,6 +525,7 @@ class Organisation implements ModelInterface, ArrayAccess
             self::ORGANISATION_ENTITY_TYPE_SOLE_TRADER,
             self::ORGANISATION_ENTITY_TYPE_SUPERANNUATION_FUND,
             self::ORGANISATION_ENTITY_TYPE_TRUST,
+            self::ORGANISATION_ENTITY_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -545,6 +557,7 @@ class Organisation implements ModelInterface, ArrayAccess
             self::MODEL_CLASS_IGNITE,
             self::MODEL_CLASS_GROW,
             self::MODEL_CLASS_COMPREHENSIVE,
+            self::MODEL_CLASS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -558,6 +571,7 @@ class Organisation implements ModelInterface, ArrayAccess
         return [
             self::EDITION_BUSINESS,
             self::EDITION_PARTNER,
+            self::EDITION_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

@@ -200,11 +200,14 @@ class BookDepreciationSetting implements ModelInterface, ArrayAccess
     const DEPRECIATION_METHOD_DIMINISHING_VALUE150 = 'DiminishingValue150';
     const DEPRECIATION_METHOD_DIMINISHING_VALUE200 = 'DiminishingValue200';
     const DEPRECIATION_METHOD_FULL_DEPRECIATION = 'FullDepreciation';
+    const DEPRECIATION_METHOD_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const AVERAGING_METHOD_FULL_MONTH = 'FullMonth';
     const AVERAGING_METHOD_ACTUAL_DAYS = 'ActualDays';
+    const AVERAGING_METHOD_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const DEPRECIATION_CALCULATION_METHOD_RATE = 'Rate';
     const DEPRECIATION_CALCULATION_METHOD_LIFE = 'Life';
     const DEPRECIATION_CALCULATION_METHOD_NONE = 'None';
+    const DEPRECIATION_CALCULATION_METHOD_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -222,6 +225,7 @@ class BookDepreciationSetting implements ModelInterface, ArrayAccess
             self::DEPRECIATION_METHOD_DIMINISHING_VALUE150,
             self::DEPRECIATION_METHOD_DIMINISHING_VALUE200,
             self::DEPRECIATION_METHOD_FULL_DEPRECIATION,
+            self::DEPRECIATION_METHOD_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -235,6 +239,7 @@ class BookDepreciationSetting implements ModelInterface, ArrayAccess
         return [
             self::AVERAGING_METHOD_FULL_MONTH,
             self::AVERAGING_METHOD_ACTUAL_DAYS,
+            self::AVERAGING_METHOD_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -249,6 +254,7 @@ class BookDepreciationSetting implements ModelInterface, ArrayAccess
             self::DEPRECIATION_CALCULATION_METHOD_RATE,
             self::DEPRECIATION_CALCULATION_METHOD_LIFE,
             self::DEPRECIATION_CALCULATION_METHOD_NONE,
+            self::DEPRECIATION_CALCULATION_METHOD_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

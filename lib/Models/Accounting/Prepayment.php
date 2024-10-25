@@ -258,9 +258,11 @@ class Prepayment implements ModelInterface, ArrayAccess
     const TYPE_SPEND_PREPAYMENT = 'SPEND-PREPAYMENT';
     const TYPE_ARPREPAYMENT = 'ARPREPAYMENT';
     const TYPE_APPREPAYMENT = 'APPREPAYMENT';
+    const TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const STATUS_AUTHORISED = 'AUTHORISED';
     const STATUS_PAID = 'PAID';
     const STATUS_VOIDED = 'VOIDED';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -276,6 +278,7 @@ class Prepayment implements ModelInterface, ArrayAccess
             self::TYPE_SPEND_PREPAYMENT,
             self::TYPE_ARPREPAYMENT,
             self::TYPE_APPREPAYMENT,
+            self::TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -290,6 +293,7 @@ class Prepayment implements ModelInterface, ArrayAccess
             self::STATUS_AUTHORISED,
             self::STATUS_PAID,
             self::STATUS_VOIDED,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

@@ -252,9 +252,11 @@ class Overpayment implements ModelInterface, ArrayAccess
     const TYPE_RECEIVE_OVERPAYMENT = 'RECEIVE-OVERPAYMENT';
     const TYPE_SPEND_OVERPAYMENT = 'SPEND-OVERPAYMENT';
     const TYPE_AROVERPAYMENT = 'AROVERPAYMENT';
+    const TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const STATUS_AUTHORISED = 'AUTHORISED';
     const STATUS_PAID = 'PAID';
     const STATUS_VOIDED = 'VOIDED';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -269,6 +271,7 @@ class Overpayment implements ModelInterface, ArrayAccess
             self::TYPE_RECEIVE_OVERPAYMENT,
             self::TYPE_SPEND_OVERPAYMENT,
             self::TYPE_AROVERPAYMENT,
+            self::TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -283,6 +286,7 @@ class Overpayment implements ModelInterface, ArrayAccess
             self::STATUS_AUTHORISED,
             self::STATUS_PAID,
             self::STATUS_VOIDED,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

@@ -196,6 +196,7 @@ class BankAccount implements ModelInterface, ArrayAccess
 
     const CALCULATION_TYPE_FIXED_AMOUNT = 'FixedAmount';
     const CALCULATION_TYPE_BALANCE = 'Balance';
+    const CALCULATION_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -209,6 +210,7 @@ class BankAccount implements ModelInterface, ArrayAccess
         return [
             self::CALCULATION_TYPE_FIXED_AMOUNT,
             self::CALCULATION_TYPE_BALANCE,
+            self::CALCULATION_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

@@ -177,6 +177,7 @@ class TrackingOption implements ModelInterface, ArrayAccess
     const STATUS_ACTIVE = 'ACTIVE';
     const STATUS_ARCHIVED = 'ARCHIVED';
     const STATUS_DELETED = 'DELETED';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -191,6 +192,7 @@ class TrackingOption implements ModelInterface, ArrayAccess
             self::STATUS_ACTIVE,
             self::STATUS_ARCHIVED,
             self::STATUS_DELETED,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

@@ -219,6 +219,7 @@ class Journal implements ModelInterface, ArrayAccess
     const SOURCE_TYPE_EXTERNALSPENDMONEY = 'EXTERNALSPENDMONEY';
     const SOURCE_TYPE_INTEGRATEDPAYROLLPTPAYMENT = 'INTEGRATEDPAYROLLPTPAYMENT';
     const SOURCE_TYPE_INTEGRATEDPAYROLLCN = 'INTEGRATEDPAYROLLCN';
+    const SOURCE_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -255,6 +256,7 @@ class Journal implements ModelInterface, ArrayAccess
             self::SOURCE_TYPE_EXTERNALSPENDMONEY,
             self::SOURCE_TYPE_INTEGRATEDPAYROLLPTPAYMENT,
             self::SOURCE_TYPE_INTEGRATEDPAYROLLCN,
+            self::SOURCE_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

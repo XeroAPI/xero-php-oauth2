@@ -207,6 +207,7 @@ class AddressForOrganisation implements ModelInterface, ArrayAccess
     const ADDRESS_TYPE_POBOX = 'POBOX';
     const ADDRESS_TYPE_STREET = 'STREET';
     const ADDRESS_TYPE_DELIVERY = 'DELIVERY';
+    const ADDRESS_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -221,6 +222,7 @@ class AddressForOrganisation implements ModelInterface, ArrayAccess
             self::ADDRESS_TYPE_POBOX,
             self::ADDRESS_TYPE_STREET,
             self::ADDRESS_TYPE_DELIVERY,
+            self::ADDRESS_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

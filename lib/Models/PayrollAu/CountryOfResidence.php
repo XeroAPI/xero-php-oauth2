@@ -295,6 +295,7 @@ class CountryOfResidence
     const CW = 'CW';
     const SX = 'SX';
     const SS = 'SS';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -553,6 +554,7 @@ class CountryOfResidence
             self::CW,
             self::SX,
             self::SS,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

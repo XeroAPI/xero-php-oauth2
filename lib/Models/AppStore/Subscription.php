@@ -197,6 +197,7 @@ class Subscription implements ModelInterface, ArrayAccess
     const STATUS_ACTIVE = 'ACTIVE';
     const STATUS_CANCELED = 'CANCELED';
     const STATUS_PAST_DUE = 'PAST_DUE';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -211,6 +212,7 @@ class Subscription implements ModelInterface, ArrayAccess
             self::STATUS_ACTIVE,
             self::STATUS_CANCELED,
             self::STATUS_PAST_DUE,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

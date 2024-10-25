@@ -202,6 +202,7 @@ class TimeEntry implements ModelInterface, ArrayAccess
     const STATUS_ACTIVE = 'ACTIVE';
     const STATUS_LOCKED = 'LOCKED';
     const STATUS_INVOICED = 'INVOICED';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -216,6 +217,7 @@ class TimeEntry implements ModelInterface, ArrayAccess
             self::STATUS_ACTIVE,
             self::STATUS_LOCKED,
             self::STATUS_INVOICED,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

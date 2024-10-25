@@ -47,6 +47,7 @@ class PayOutType
      */
     const _DEFAULT = 'DEFAULT';
     const CASHED_OUT = 'CASHED_OUT';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -57,6 +58,7 @@ class PayOutType
         return [
             self::_DEFAULT,
             self::CASHED_OUT,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

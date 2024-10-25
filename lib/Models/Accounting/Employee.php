@@ -198,6 +198,7 @@ class Employee implements ModelInterface, ArrayAccess
     const STATUS_ARCHIVED = 'ARCHIVED';
     const STATUS_GDPRREQUEST = 'GDPRREQUEST';
     const STATUS_DELETED = 'DELETED';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -213,6 +214,7 @@ class Employee implements ModelInterface, ArrayAccess
             self::STATUS_ARCHIVED,
             self::STATUS_GDPRREQUEST,
             self::STATUS_DELETED,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

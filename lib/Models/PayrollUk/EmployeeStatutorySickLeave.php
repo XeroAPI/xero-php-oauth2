@@ -240,6 +240,7 @@ class EmployeeStatutorySickLeave implements ModelInterface, ArrayAccess
     const ENTITLEMENT_FAILURE_REASONS_EXCEEDED_MAXIMUM_ENTITLEMENT_WEEKS_OF_SSP = 'ExceededMaximumEntitlementWeeksOfSsp';
     const ENTITLEMENT_FAILURE_REASONS_EXCEEDED_MAXIMUM_DURATION_OF_PIW = 'ExceededMaximumDurationOfPiw';
     const ENTITLEMENT_FAILURE_REASONS_SUFFICIENT_NOTICE_NOT_GIVEN = 'SufficientNoticeNotGiven';
+    const ENTITLEMENT_FAILURE_REASONS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -257,6 +258,7 @@ class EmployeeStatutorySickLeave implements ModelInterface, ArrayAccess
             self::ENTITLEMENT_FAILURE_REASONS_EXCEEDED_MAXIMUM_ENTITLEMENT_WEEKS_OF_SSP,
             self::ENTITLEMENT_FAILURE_REASONS_EXCEEDED_MAXIMUM_DURATION_OF_PIW,
             self::ENTITLEMENT_FAILURE_REASONS_SUFFICIENT_NOTICE_NOT_GIVEN,
+            self::ENTITLEMENT_FAILURE_REASONS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

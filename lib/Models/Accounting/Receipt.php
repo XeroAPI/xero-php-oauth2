@@ -249,6 +249,7 @@ class Receipt implements ModelInterface, ArrayAccess
     const STATUS_AUTHORISED = 'AUTHORISED';
     const STATUS_DECLINED = 'DECLINED';
     const STATUS_VOIDED = 'VOIDED';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -265,6 +266,7 @@ class Receipt implements ModelInterface, ArrayAccess
             self::STATUS_AUTHORISED,
             self::STATUS_DECLINED,
             self::STATUS_VOIDED,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

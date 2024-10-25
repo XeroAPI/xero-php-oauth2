@@ -191,12 +191,14 @@ class Schedule implements ModelInterface, ArrayAccess
 
     const UNIT_WEEKLY = 'WEEKLY';
     const UNIT_MONTHLY = 'MONTHLY';
+    const UNIT_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const DUE_DATE_TYPE_DAYSAFTERBILLDATE = 'DAYSAFTERBILLDATE';
     const DUE_DATE_TYPE_DAYSAFTERBILLMONTH = 'DAYSAFTERBILLMONTH';
     const DUE_DATE_TYPE_DAYSAFTERINVOICEDATE = 'DAYSAFTERINVOICEDATE';
     const DUE_DATE_TYPE_DAYSAFTERINVOICEMONTH = 'DAYSAFTERINVOICEMONTH';
     const DUE_DATE_TYPE_OFCURRENTMONTH = 'OFCURRENTMONTH';
     const DUE_DATE_TYPE_OFFOLLOWINGMONTH = 'OFFOLLOWINGMONTH';
+    const DUE_DATE_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -210,6 +212,7 @@ class Schedule implements ModelInterface, ArrayAccess
         return [
             self::UNIT_WEEKLY,
             self::UNIT_MONTHLY,
+            self::UNIT_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -227,6 +230,7 @@ class Schedule implements ModelInterface, ArrayAccess
             self::DUE_DATE_TYPE_DAYSAFTERINVOICEMONTH,
             self::DUE_DATE_TYPE_OFCURRENTMONTH,
             self::DUE_DATE_TYPE_OFFOLLOWINGMONTH,
+            self::DUE_DATE_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

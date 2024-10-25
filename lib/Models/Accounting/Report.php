@@ -185,6 +185,7 @@ class Report implements ModelInterface, ArrayAccess
     }
 
     const REPORT_TYPE_AGED_PAYABLES_BY_CONTACT = 'AgedPayablesByContact';
+    const REPORT_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -197,6 +198,7 @@ class Report implements ModelInterface, ArrayAccess
     {
         return [
             self::REPORT_TYPE_AGED_PAYABLES_BY_CONTACT,
+            self::REPORT_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

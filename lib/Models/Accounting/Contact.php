@@ -367,12 +367,15 @@ class Contact implements ModelInterface, ArrayAccess
     const CONTACT_STATUS_ACTIVE = 'ACTIVE';
     const CONTACT_STATUS_ARCHIVED = 'ARCHIVED';
     const CONTACT_STATUS_GDPRREQUEST = 'GDPRREQUEST';
+    const CONTACT_STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const SALES_DEFAULT_LINE_AMOUNT_TYPE_INCLUSIVE = 'INCLUSIVE';
     const SALES_DEFAULT_LINE_AMOUNT_TYPE_EXCLUSIVE = 'EXCLUSIVE';
     const SALES_DEFAULT_LINE_AMOUNT_TYPE_NONE = 'NONE';
+    const SALES_DEFAULT_LINE_AMOUNT_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const PURCHASES_DEFAULT_LINE_AMOUNT_TYPE_INCLUSIVE = 'INCLUSIVE';
     const PURCHASES_DEFAULT_LINE_AMOUNT_TYPE_EXCLUSIVE = 'EXCLUSIVE';
     const PURCHASES_DEFAULT_LINE_AMOUNT_TYPE_NONE = 'NONE';
+    const PURCHASES_DEFAULT_LINE_AMOUNT_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -387,6 +390,7 @@ class Contact implements ModelInterface, ArrayAccess
             self::CONTACT_STATUS_ACTIVE,
             self::CONTACT_STATUS_ARCHIVED,
             self::CONTACT_STATUS_GDPRREQUEST,
+            self::CONTACT_STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -401,6 +405,7 @@ class Contact implements ModelInterface, ArrayAccess
             self::SALES_DEFAULT_LINE_AMOUNT_TYPE_INCLUSIVE,
             self::SALES_DEFAULT_LINE_AMOUNT_TYPE_EXCLUSIVE,
             self::SALES_DEFAULT_LINE_AMOUNT_TYPE_NONE,
+            self::SALES_DEFAULT_LINE_AMOUNT_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -415,6 +420,7 @@ class Contact implements ModelInterface, ArrayAccess
             self::PURCHASES_DEFAULT_LINE_AMOUNT_TYPE_INCLUSIVE,
             self::PURCHASES_DEFAULT_LINE_AMOUNT_TYPE_EXCLUSIVE,
             self::PURCHASES_DEFAULT_LINE_AMOUNT_TYPE_NONE,
+            self::PURCHASES_DEFAULT_LINE_AMOUNT_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

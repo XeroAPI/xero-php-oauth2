@@ -48,6 +48,7 @@ class SuperannuationContributionType
     const SALARYSACRIFICE = 'SALARYSACRIFICE';
     const EMPLOYERADDITIONAL = 'EMPLOYERADDITIONAL';
     const EMPLOYEE = 'EMPLOYEE';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -60,6 +61,7 @@ class SuperannuationContributionType
             self::SALARYSACRIFICE,
             self::EMPLOYERADDITIONAL,
             self::EMPLOYEE,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

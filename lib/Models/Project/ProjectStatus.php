@@ -47,6 +47,7 @@ class ProjectStatus
      */
     const INPROGRESS = 'INPROGRESS';
     const CLOSED = 'CLOSED';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -57,6 +58,7 @@ class ProjectStatus
         return [
             self::INPROGRESS,
             self::CLOSED,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

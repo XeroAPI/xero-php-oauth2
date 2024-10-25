@@ -202,11 +202,14 @@ class Reimbursement implements ModelInterface, ArrayAccess
     const REIMBURSEMENT_CATEGORY_GST = 'GST';
     const REIMBURSEMENT_CATEGORY_NO_GST = 'NoGST';
     const REIMBURSEMENT_CATEGORY_GST_INCLUSIVE = 'GSTInclusive';
+    const REIMBURSEMENT_CATEGORY_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const CALCULATION_TYPE_UNKNOWN = 'Unknown';
     const CALCULATION_TYPE_FIXED_AMOUNT = 'FixedAmount';
     const CALCULATION_TYPE_RATE_PER_UNIT = 'RatePerUnit';
+    const CALCULATION_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const STANDARD_TYPE_OF_UNITS_HOURS = 'Hours';
     const STANDARD_TYPE_OF_UNITS_KM = 'km';
+    const STANDARD_TYPE_OF_UNITS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -221,6 +224,7 @@ class Reimbursement implements ModelInterface, ArrayAccess
             self::REIMBURSEMENT_CATEGORY_GST,
             self::REIMBURSEMENT_CATEGORY_NO_GST,
             self::REIMBURSEMENT_CATEGORY_GST_INCLUSIVE,
+            self::REIMBURSEMENT_CATEGORY_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -235,6 +239,7 @@ class Reimbursement implements ModelInterface, ArrayAccess
             self::CALCULATION_TYPE_UNKNOWN,
             self::CALCULATION_TYPE_FIXED_AMOUNT,
             self::CALCULATION_TYPE_RATE_PER_UNIT,
+            self::CALCULATION_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -248,6 +253,7 @@ class Reimbursement implements ModelInterface, ArrayAccess
         return [
             self::STANDARD_TYPE_OF_UNITS_HOURS,
             self::STANDARD_TYPE_OF_UNITS_KM,
+            self::STANDARD_TYPE_OF_UNITS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

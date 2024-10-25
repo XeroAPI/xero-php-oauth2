@@ -179,6 +179,7 @@ class Phone implements ModelInterface, ArrayAccess
     const PHONE_TYPE_MOBILE = 'MOBILE';
     const PHONE_TYPE_FAX = 'FAX';
     const PHONE_TYPE_OFFICE = 'OFFICE';
+    const PHONE_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -195,6 +196,7 @@ class Phone implements ModelInterface, ArrayAccess
             self::PHONE_TYPE_MOBILE,
             self::PHONE_TYPE_FAX,
             self::PHONE_TYPE_OFFICE,
+            self::PHONE_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

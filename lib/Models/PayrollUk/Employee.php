@@ -236,6 +236,7 @@ class Employee implements ModelInterface, ArrayAccess
 
     const GENDER_M = 'M';
     const GENDER_F = 'F';
+    const GENDER_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -249,6 +250,7 @@ class Employee implements ModelInterface, ArrayAccess
         return [
             self::GENDER_M,
             self::GENDER_F,
+            self::GENDER_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -295,6 +297,24 @@ class Employee implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ($this->container['first_name'] === null) {
+            $invalidProperties[] = "'first_name' can't be null";
+        }
+        if ($this->container['last_name'] === null) {
+            $invalidProperties[] = "'last_name' can't be null";
+        }
+        if ($this->container['date_of_birth'] === null) {
+            $invalidProperties[] = "'date_of_birth' can't be null";
+        }
+        if ($this->container['address'] === null) {
+            $invalidProperties[] = "'address' can't be null";
+        }
+        if ($this->container['gender'] === null) {
+            $invalidProperties[] = "'gender' can't be null";
+        }
         $allowedValues = $this->getGenderAllowableValues();
         if (!is_null($this->container['gender']) && !in_array($this->container['gender'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -348,7 +368,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Gets title
      *
-     * @return string|null
+     * @return string
      */
     public function getTitle()
     {
@@ -358,7 +378,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Sets title
      *
-     * @param string|null $title Title of the employee
+     * @param string $title Title of the employee
      *
      * @return $this
      */
@@ -375,7 +395,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Gets first_name
      *
-     * @return string|null
+     * @return string
      */
     public function getFirstName()
     {
@@ -385,7 +405,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Sets first_name
      *
-     * @param string|null $first_name First name of employee
+     * @param string $first_name First name of employee
      *
      * @return $this
      */
@@ -402,7 +422,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Gets last_name
      *
-     * @return string|null
+     * @return string
      */
     public function getLastName()
     {
@@ -412,7 +432,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Sets last_name
      *
-     * @param string|null $last_name Last name of employee
+     * @param string $last_name Last name of employee
      *
      * @return $this
      */
@@ -429,7 +449,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Gets date_of_birth
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getDateOfBirth()
     {
@@ -439,7 +459,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Sets date_of_birth
      *
-     * @param \DateTime|null $date_of_birth Date of birth of the employee (YYYY-MM-DD)
+     * @param \DateTime $date_of_birth Date of birth of the employee (YYYY-MM-DD)
      *
      * @return $this
      */
@@ -456,7 +476,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Gets address
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollUk\Address|null
+     * @return \XeroAPI\XeroPHP\Models\PayrollUk\Address
      */
     public function getAddress()
     {
@@ -466,7 +486,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Sets address
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollUk\Address|null $address address
+     * @param \XeroAPI\XeroPHP\Models\PayrollUk\Address $address address
      *
      * @return $this
      */
@@ -510,7 +530,7 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Gets gender
      *
-     * @return string|null
+     * @return string
      */
     public function getGender()
     {
@@ -520,14 +540,14 @@ class Employee implements ModelInterface, ArrayAccess
     /**
      * Sets gender
      *
-     * @param string|null $gender The employee’s gender
+     * @param string $gender The employee’s gender
      *
      * @return $this
      */
     public function setGender($gender)
     {
         $allowedValues = $this->getGenderAllowableValues();
-        if (!is_null($gender) && !in_array($gender, $allowedValues, true)) {
+        if (!in_array($gender, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'gender', must be one of '%s'",

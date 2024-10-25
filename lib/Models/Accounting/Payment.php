@@ -296,6 +296,7 @@ class Payment implements ModelInterface, ArrayAccess
 
     const STATUS_AUTHORISED = 'AUTHORISED';
     const STATUS_DELETED = 'DELETED';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const PAYMENT_TYPE_ACCRECPAYMENT = 'ACCRECPAYMENT';
     const PAYMENT_TYPE_ACCPAYPAYMENT = 'ACCPAYPAYMENT';
     const PAYMENT_TYPE_ARCREDITPAYMENT = 'ARCREDITPAYMENT';
@@ -304,6 +305,7 @@ class Payment implements ModelInterface, ArrayAccess
     const PAYMENT_TYPE_ARPREPAYMENTPAYMENT = 'ARPREPAYMENTPAYMENT';
     const PAYMENT_TYPE_APPREPAYMENTPAYMENT = 'APPREPAYMENTPAYMENT';
     const PAYMENT_TYPE_APOVERPAYMENTPAYMENT = 'APOVERPAYMENTPAYMENT';
+    const PAYMENT_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -317,6 +319,7 @@ class Payment implements ModelInterface, ArrayAccess
         return [
             self::STATUS_AUTHORISED,
             self::STATUS_DELETED,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -336,6 +339,7 @@ class Payment implements ModelInterface, ArrayAccess
             self::PAYMENT_TYPE_ARPREPAYMENTPAYMENT,
             self::PAYMENT_TYPE_APPREPAYMENTPAYMENT,
             self::PAYMENT_TYPE_APOVERPAYMENTPAYMENT,
+            self::PAYMENT_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

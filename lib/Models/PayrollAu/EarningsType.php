@@ -58,6 +58,7 @@ class EarningsType
     const DIRECTORSFEES = 'DIRECTORSFEES';
     const PAIDPARENTALLEAVE = 'PAIDPARENTALLEAVE';
     const WORKERSCOMPENSATION = 'WORKERSCOMPENSATION';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -80,6 +81,7 @@ class EarningsType
             self::DIRECTORSFEES,
             self::PAIDPARENTALLEAVE,
             self::WORKERSCOMPENSATION,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

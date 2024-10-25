@@ -216,15 +216,18 @@ class PayRun implements ModelInterface, ArrayAccess
 
     const PAY_RUN_STATUS_DRAFT = 'Draft';
     const PAY_RUN_STATUS_POSTED = 'Posted';
+    const PAY_RUN_STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const PAY_RUN_TYPE_SCHEDULED = 'Scheduled';
     const PAY_RUN_TYPE_UNSCHEDULED = 'Unscheduled';
     const PAY_RUN_TYPE_EARLIER_YEAR_UPDATE = 'EarlierYearUpdate';
+    const PAY_RUN_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const CALENDAR_TYPE_WEEKLY = 'Weekly';
     const CALENDAR_TYPE_FORTNIGHTLY = 'Fortnightly';
     const CALENDAR_TYPE_FOUR_WEEKLY = 'FourWeekly';
     const CALENDAR_TYPE_MONTHLY = 'Monthly';
     const CALENDAR_TYPE_ANNUAL = 'Annual';
     const CALENDAR_TYPE_QUARTERLY = 'Quarterly';
+    const CALENDAR_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -238,6 +241,7 @@ class PayRun implements ModelInterface, ArrayAccess
         return [
             self::PAY_RUN_STATUS_DRAFT,
             self::PAY_RUN_STATUS_POSTED,
+            self::PAY_RUN_STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -252,6 +256,7 @@ class PayRun implements ModelInterface, ArrayAccess
             self::PAY_RUN_TYPE_SCHEDULED,
             self::PAY_RUN_TYPE_UNSCHEDULED,
             self::PAY_RUN_TYPE_EARLIER_YEAR_UPDATE,
+            self::PAY_RUN_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -269,6 +274,7 @@ class PayRun implements ModelInterface, ArrayAccess
             self::CALENDAR_TYPE_MONTHLY,
             self::CALENDAR_TYPE_ANNUAL,
             self::CALENDAR_TYPE_QUARTERLY,
+            self::CALENDAR_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

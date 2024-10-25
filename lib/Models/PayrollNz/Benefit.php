@@ -207,8 +207,10 @@ class Benefit implements ModelInterface, ArrayAccess
     const CATEGORY_KIWI_SAVER = 'KiwiSaver';
     const CATEGORY_COMPLYING_FUND = 'ComplyingFund';
     const CATEGORY_OTHER = 'Other';
+    const CATEGORY_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const CALCULATION_TYPE_NZ_FIXED_AMOUNT = 'FixedAmount';
     const CALCULATION_TYPE_NZ_PERCENTAGE_OF_TAXABLE_EARNINGS = 'PercentageOfTaxableEarnings';
+    const CALCULATION_TYPE_NZ_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -223,6 +225,7 @@ class Benefit implements ModelInterface, ArrayAccess
             self::CATEGORY_KIWI_SAVER,
             self::CATEGORY_COMPLYING_FUND,
             self::CATEGORY_OTHER,
+            self::CATEGORY_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -236,6 +239,7 @@ class Benefit implements ModelInterface, ArrayAccess
         return [
             self::CALCULATION_TYPE_NZ_FIXED_AMOUNT,
             self::CALCULATION_TYPE_NZ_PERCENTAGE_OF_TAXABLE_EARNINGS,
+            self::CALCULATION_TYPE_NZ_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

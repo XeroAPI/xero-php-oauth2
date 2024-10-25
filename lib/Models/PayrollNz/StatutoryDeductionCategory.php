@@ -56,6 +56,7 @@ class StatutoryDeductionCategory
     const ADDITIONAL_STUDENT_LOAN = 'AdditionalStudentLoan';
     const VOLUNTARY_STUDENT_LOAN = 'VoluntaryStudentLoan';
     const KIWI_SAVER = 'KiwiSaver';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -75,6 +76,7 @@ class StatutoryDeductionCategory
             self::ADDITIONAL_STUDENT_LOAN,
             self::VOLUNTARY_STUDENT_LOAN,
             self::KIWI_SAVER,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

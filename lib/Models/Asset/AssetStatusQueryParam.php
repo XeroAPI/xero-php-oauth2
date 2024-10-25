@@ -48,6 +48,7 @@ class AssetStatusQueryParam
     const DRAFT = 'DRAFT';
     const REGISTERED = 'REGISTERED';
     const DISPOSED = 'DISPOSED';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -59,6 +60,7 @@ class AssetStatusQueryParam
             self::DRAFT,
             self::REGISTERED,
             self::DISPOSED,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

@@ -203,6 +203,7 @@ class Timesheet implements ModelInterface, ArrayAccess
     const STATUS_APPROVED = 'Approved';
     const STATUS_COMPLETED = 'Completed';
     const STATUS_REQUESTED = 'Requested';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -218,6 +219,7 @@ class Timesheet implements ModelInterface, ArrayAccess
             self::STATUS_APPROVED,
             self::STATUS_COMPLETED,
             self::STATUS_REQUESTED,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

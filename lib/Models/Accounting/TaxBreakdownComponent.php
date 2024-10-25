@@ -209,6 +209,7 @@ class TaxBreakdownComponent implements ModelInterface, ArrayAccess
     const TYPE_USCOUNTY = 'SYSGST/USCOUNTY';
     const TYPE_USCITY = 'SYSGST/USCITY';
     const TYPE_USSPECIAL = 'SYSGST/USSPECIAL';
+    const TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -225,6 +226,7 @@ class TaxBreakdownComponent implements ModelInterface, ArrayAccess
             self::TYPE_USCOUNTY,
             self::TYPE_USCITY,
             self::TYPE_USSPECIAL,
+            self::TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

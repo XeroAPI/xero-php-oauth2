@@ -47,6 +47,7 @@ class SeniorMaritalStatus
     const MEMBEROFCOUPLE = 'MEMBEROFCOUPLE';
     const MEMBEROFILLNESSSEPARATEDCOUPLE = 'MEMBEROFILLNESSSEPARATEDCOUPLE';
     const SINGLE = 'SINGLE';
+    const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
     /**
      * Gets allowable values of the enum
@@ -58,6 +59,7 @@ class SeniorMaritalStatus
             self::MEMBEROFCOUPLE,
             self::MEMBEROFILLNESSSEPARATEDCOUPLE,
             self::SINGLE,
+            self::UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 }

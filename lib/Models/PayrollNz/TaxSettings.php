@@ -186,6 +186,7 @@ class TaxSettings implements ModelInterface, ArrayAccess
 
     const PERIOD_TYPE_WEEKS = 'weeks';
     const PERIOD_TYPE_MONTHS = 'months';
+    const PERIOD_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -199,6 +200,7 @@ class TaxSettings implements ModelInterface, ArrayAccess
         return [
             self::PERIOD_TYPE_WEEKS,
             self::PERIOD_TYPE_MONTHS,
+            self::PERIOD_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     

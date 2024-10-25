@@ -257,16 +257,19 @@ class Account implements ModelInterface, ArrayAccess
     const STATUS_ACTIVE = 'ACTIVE';
     const STATUS_ARCHIVED = 'ARCHIVED';
     const STATUS_DELETED = 'DELETED';
+    const STATUS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const BANK_ACCOUNT_TYPE_BANK = 'BANK';
     const BANK_ACCOUNT_TYPE_CREDITCARD = 'CREDITCARD';
     const BANK_ACCOUNT_TYPE_PAYPAL = 'PAYPAL';
     const BANK_ACCOUNT_TYPE_NONE = 'NONE';
     const BANK_ACCOUNT_TYPE_EMPTY = '';
+    const BANK_ACCOUNT_TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const MODEL_CLASS_ASSET = 'ASSET';
     const MODEL_CLASS_EQUITY = 'EQUITY';
     const MODEL_CLASS_EXPENSE = 'EXPENSE';
     const MODEL_CLASS_LIABILITY = 'LIABILITY';
     const MODEL_CLASS_REVENUE = 'REVENUE';
+    const MODEL_CLASS_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     const SYSTEM_ACCOUNT_DEBTORS = 'DEBTORS';
     const SYSTEM_ACCOUNT_CREDITORS = 'CREDITORS';
     const SYSTEM_ACCOUNT_BANKCURRENCYGAIN = 'BANKCURRENCYGAIN';
@@ -288,6 +291,7 @@ class Account implements ModelInterface, ArrayAccess
     const SYSTEM_ACCOUNT_CISLIABILITY = 'CISLIABILITY';
     const SYSTEM_ACCOUNT_CISMATERIALS = 'CISMATERIALS';
     const SYSTEM_ACCOUNT_EMPTY = '';
+    const SYSTEM_ACCOUNT_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
     
 
     
@@ -302,6 +306,7 @@ class Account implements ModelInterface, ArrayAccess
             self::STATUS_ACTIVE,
             self::STATUS_ARCHIVED,
             self::STATUS_DELETED,
+            self::STATUS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -318,6 +323,7 @@ class Account implements ModelInterface, ArrayAccess
             self::BANK_ACCOUNT_TYPE_PAYPAL,
             self::BANK_ACCOUNT_TYPE_NONE,
             self::BANK_ACCOUNT_TYPE_EMPTY,
+            self::BANK_ACCOUNT_TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -334,6 +340,7 @@ class Account implements ModelInterface, ArrayAccess
             self::MODEL_CLASS_EXPENSE,
             self::MODEL_CLASS_LIABILITY,
             self::MODEL_CLASS_REVENUE,
+            self::MODEL_CLASS_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
@@ -366,6 +373,7 @@ class Account implements ModelInterface, ArrayAccess
             self::SYSTEM_ACCOUNT_CISLIABILITY,
             self::SYSTEM_ACCOUNT_CISMATERIALS,
             self::SYSTEM_ACCOUNT_EMPTY,
+            self::SYSTEM_ACCOUNT_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
     
