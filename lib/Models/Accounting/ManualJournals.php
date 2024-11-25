@@ -169,9 +169,9 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
         return self::$openAPIModelName;
     }
 
-    
 
-    
+
+
 
     /**
      * Associative array for storing property values
@@ -354,18 +354,33 @@ class ManualJournals implements ModelInterface, ArrayAccess, \Countable, \Iterat
         unset($this->container['manual_journals'][$offset]);
     }
 
+    /**
+     * Gets count.
+     *
+     * @return int
+     */
     #[\ReturnTypeWillChange]
-    public function count() 
+    public function count()
     {
         return count($this->container['manual_journals']);
     }
 
+    /**
+     * Gets iterator.
+     *
+     * @return \Traversable
+     */
     #[\ReturnTypeWillChange]
-    public function getIterator() 
+    public function getIterator()
     {
         return new \ArrayIterator($this->container['manual_journals']);
     }
 
+    /**
+     * Gets the json presentation of the object.
+     *
+     * @return mixed
+     */
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {

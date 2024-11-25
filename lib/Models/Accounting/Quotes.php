@@ -159,9 +159,9 @@ class Quotes implements ModelInterface, ArrayAccess, \Countable, \IteratorAggreg
         return self::$openAPIModelName;
     }
 
-    
 
-    
+
+
 
     /**
      * Associative array for storing property values
@@ -288,18 +288,33 @@ class Quotes implements ModelInterface, ArrayAccess, \Countable, \IteratorAggreg
         unset($this->container['quotes'][$offset]);
     }
 
+    /**
+     * Gets count.
+     *
+     * @return int
+     */
     #[\ReturnTypeWillChange]
-    public function count() 
+    public function count()
     {
         return count($this->container['quotes']);
     }
 
+    /**
+     * Gets iterator.
+     *
+     * @return \Traversable
+     */
     #[\ReturnTypeWillChange]
-    public function getIterator() 
+    public function getIterator()
     {
         return new \ArrayIterator($this->container['quotes']);
     }
 
+    /**
+     * Gets the json presentation of the object.
+     *
+     * @return mixed
+     */
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {

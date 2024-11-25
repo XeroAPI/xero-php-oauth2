@@ -159,9 +159,9 @@ class Reports implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
         return self::$openAPIModelName;
     }
 
-    
 
-    
+
+
 
     /**
      * Associative array for storing property values
@@ -288,18 +288,33 @@ class Reports implements ModelInterface, ArrayAccess, \Countable, \IteratorAggre
         unset($this->container['reports'][$offset]);
     }
 
+    /**
+     * Gets count.
+     *
+     * @return int
+     */
     #[\ReturnTypeWillChange]
-    public function count() 
+    public function count()
     {
         return count($this->container['reports']);
     }
 
+    /**
+     * Gets iterator.
+     *
+     * @return \Traversable
+     */
     #[\ReturnTypeWillChange]
-    public function getIterator() 
+    public function getIterator()
     {
         return new \ArrayIterator($this->container['reports']);
     }
 
+    /**
+     * Gets the json presentation of the object.
+     *
+     * @return mixed
+     */
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {

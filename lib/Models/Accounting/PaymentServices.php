@@ -159,9 +159,9 @@ class PaymentServices implements ModelInterface, ArrayAccess, \Countable, \Itera
         return self::$openAPIModelName;
     }
 
-    
 
-    
+
+
 
     /**
      * Associative array for storing property values
@@ -288,18 +288,33 @@ class PaymentServices implements ModelInterface, ArrayAccess, \Countable, \Itera
         unset($this->container['payment_services'][$offset]);
     }
 
+    /**
+     * Gets count.
+     *
+     * @return int
+     */
     #[\ReturnTypeWillChange]
-    public function count() 
+    public function count()
     {
         return count($this->container['payment_services']);
     }
 
+    /**
+     * Gets iterator.
+     *
+     * @return \Traversable
+     */
     #[\ReturnTypeWillChange]
-    public function getIterator() 
+    public function getIterator()
     {
         return new \ArrayIterator($this->container['payment_services']);
     }
 
+    /**
+     * Gets the json presentation of the object.
+     *
+     * @return mixed
+     */
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
