@@ -61,6 +61,9 @@ class LeavePeriod implements ModelInterface, ArrayAccess
         'period_start_date' => '\DateTime',
         'period_end_date' => '\DateTime',
         'number_of_units' => 'double',
+        'number_of_units_taken' => 'double',
+        'type_of_units' => 'string',
+        'type_of_units_taken' => 'string',
         'period_status' => 'string'
     ];
 
@@ -73,6 +76,9 @@ class LeavePeriod implements ModelInterface, ArrayAccess
         'period_start_date' => 'date',
         'period_end_date' => 'date',
         'number_of_units' => 'double',
+        'number_of_units_taken' => 'double',
+        'type_of_units' => null,
+        'type_of_units_taken' => null,
         'period_status' => null
     ];
 
@@ -106,6 +112,9 @@ class LeavePeriod implements ModelInterface, ArrayAccess
         'period_start_date' => 'periodStartDate',
         'period_end_date' => 'periodEndDate',
         'number_of_units' => 'numberOfUnits',
+        'number_of_units_taken' => 'numberOfUnitsTaken',
+        'type_of_units' => 'typeOfUnits',
+        'type_of_units_taken' => 'typeOfUnitsTaken',
         'period_status' => 'periodStatus'
     ];
 
@@ -118,6 +127,9 @@ class LeavePeriod implements ModelInterface, ArrayAccess
         'period_start_date' => 'setPeriodStartDate',
         'period_end_date' => 'setPeriodEndDate',
         'number_of_units' => 'setNumberOfUnits',
+        'number_of_units_taken' => 'setNumberOfUnitsTaken',
+        'type_of_units' => 'setTypeOfUnits',
+        'type_of_units_taken' => 'setTypeOfUnitsTaken',
         'period_status' => 'setPeriodStatus'
     ];
 
@@ -130,6 +142,9 @@ class LeavePeriod implements ModelInterface, ArrayAccess
         'period_start_date' => 'getPeriodStartDate',
         'period_end_date' => 'getPeriodEndDate',
         'number_of_units' => 'getNumberOfUnits',
+        'number_of_units_taken' => 'getNumberOfUnitsTaken',
+        'type_of_units' => 'getTypeOfUnits',
+        'type_of_units_taken' => 'getTypeOfUnitsTaken',
         'period_status' => 'getPeriodStatus'
     ];
 
@@ -176,6 +191,7 @@ class LeavePeriod implements ModelInterface, ArrayAccess
 
     const PERIOD_STATUS_APPROVED = 'Approved';
     const PERIOD_STATUS_COMPLETED = 'Completed';
+    const PERIOD_STATUS_ESTIMATED = 'Estimated';
     
 
     
@@ -189,6 +205,7 @@ class LeavePeriod implements ModelInterface, ArrayAccess
         return [
             self::PERIOD_STATUS_APPROVED,
             self::PERIOD_STATUS_COMPLETED,
+            self::PERIOD_STATUS_ESTIMATED,
         ];
     }
     
@@ -211,6 +228,9 @@ class LeavePeriod implements ModelInterface, ArrayAccess
         $this->container['period_start_date'] = isset($data['period_start_date']) ? $data['period_start_date'] : null;
         $this->container['period_end_date'] = isset($data['period_end_date']) ? $data['period_end_date'] : null;
         $this->container['number_of_units'] = isset($data['number_of_units']) ? $data['number_of_units'] : null;
+        $this->container['number_of_units_taken'] = isset($data['number_of_units_taken']) ? $data['number_of_units_taken'] : null;
+        $this->container['type_of_units'] = isset($data['type_of_units']) ? $data['type_of_units'] : null;
+        $this->container['type_of_units_taken'] = isset($data['type_of_units_taken']) ? $data['type_of_units_taken'] : null;
         $this->container['period_status'] = isset($data['period_status']) ? $data['period_status'] : null;
     }
 
@@ -328,6 +348,87 @@ class LeavePeriod implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets number_of_units_taken
+     *
+     * @return double|null
+     */
+    public function getNumberOfUnitsTaken()
+    {
+        return $this->container['number_of_units_taken'];
+    }
+
+    /**
+     * Sets number_of_units_taken
+     *
+     * @param double|null $number_of_units_taken The number of units taken for the leave
+     *
+     * @return $this
+     */
+    public function setNumberOfUnitsTaken($number_of_units_taken)
+    {
+
+        $this->container['number_of_units_taken'] = $number_of_units_taken;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets type_of_units
+     *
+     * @return string|null
+     */
+    public function getTypeOfUnits()
+    {
+        return $this->container['type_of_units'];
+    }
+
+    /**
+     * Sets type_of_units
+     *
+     * @param string|null $type_of_units The type of units paid for the leave
+     *
+     * @return $this
+     */
+    public function setTypeOfUnits($type_of_units)
+    {
+
+        $this->container['type_of_units'] = $type_of_units;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets type_of_units_taken
+     *
+     * @return string|null
+     */
+    public function getTypeOfUnitsTaken()
+    {
+        return $this->container['type_of_units_taken'];
+    }
+
+    /**
+     * Sets type_of_units_taken
+     *
+     * @param string|null $type_of_units_taken The type of units taken for the leave
+     *
+     * @return $this
+     */
+    public function setTypeOfUnitsTaken($type_of_units_taken)
+    {
+
+        $this->container['type_of_units_taken'] = $type_of_units_taken;
+
+        return $this;
+    }
+
+
+
+    /**
      * Gets period_status
      *
      * @return string|null
@@ -340,7 +441,7 @@ class LeavePeriod implements ModelInterface, ArrayAccess
     /**
      * Sets period_status
      *
-     * @param string|null $period_status Period Status
+     * @param string|null $period_status Status of leave
      *
      * @return $this
      */
