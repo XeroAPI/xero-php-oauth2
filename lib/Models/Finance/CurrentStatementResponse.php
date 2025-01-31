@@ -383,7 +383,7 @@ class CurrentStatementResponse implements ModelInterface, ArrayAccess
     /**
      * Sets import_source_type
      *
-     * @param string|null $import_source_type Looking at the most recent bank statement, this field indicates the source of the data (direct bank feed, indirect bank feed, file upload, or manual keying).
+     * @param string|null $import_source_type Looking at the most recent bank statement, this field indicates the source of the data (direct bank feed, file upload, or manual keying).
      *
      * @return $this
      */

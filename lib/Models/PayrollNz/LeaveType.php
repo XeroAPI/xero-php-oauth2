@@ -63,7 +63,9 @@ class LeaveType implements ModelInterface, ArrayAccess
         'is_paid_leave' => 'bool',
         'show_on_payslip' => 'bool',
         'updated_date_utc' => '\DateTime',
-        'is_active' => 'bool'
+        'is_active' => 'bool',
+        'type_of_units' => 'string',
+        'type_of_units_to_accrue' => 'string'
     ];
 
     /**
@@ -77,7 +79,9 @@ class LeaveType implements ModelInterface, ArrayAccess
         'is_paid_leave' => null,
         'show_on_payslip' => null,
         'updated_date_utc' => 'date-time',
-        'is_active' => null
+        'is_active' => null,
+        'type_of_units' => null,
+        'type_of_units_to_accrue' => null
     ];
 
     /**
@@ -112,7 +116,9 @@ class LeaveType implements ModelInterface, ArrayAccess
         'is_paid_leave' => 'isPaidLeave',
         'show_on_payslip' => 'showOnPayslip',
         'updated_date_utc' => 'updatedDateUTC',
-        'is_active' => 'isActive'
+        'is_active' => 'isActive',
+        'type_of_units' => 'typeOfUnits',
+        'type_of_units_to_accrue' => 'typeOfUnitsToAccrue'
     ];
 
     /**
@@ -126,7 +132,9 @@ class LeaveType implements ModelInterface, ArrayAccess
         'is_paid_leave' => 'setIsPaidLeave',
         'show_on_payslip' => 'setShowOnPayslip',
         'updated_date_utc' => 'setUpdatedDateUtc',
-        'is_active' => 'setIsActive'
+        'is_active' => 'setIsActive',
+        'type_of_units' => 'setTypeOfUnits',
+        'type_of_units_to_accrue' => 'setTypeOfUnitsToAccrue'
     ];
 
     /**
@@ -140,7 +148,9 @@ class LeaveType implements ModelInterface, ArrayAccess
         'is_paid_leave' => 'getIsPaidLeave',
         'show_on_payslip' => 'getShowOnPayslip',
         'updated_date_utc' => 'getUpdatedDateUtc',
-        'is_active' => 'getIsActive'
+        'is_active' => 'getIsActive',
+        'type_of_units' => 'getTypeOfUnits',
+        'type_of_units_to_accrue' => 'getTypeOfUnitsToAccrue'
     ];
 
     /**
@@ -209,6 +219,8 @@ class LeaveType implements ModelInterface, ArrayAccess
         $this->container['show_on_payslip'] = isset($data['show_on_payslip']) ? $data['show_on_payslip'] : null;
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
         $this->container['is_active'] = isset($data['is_active']) ? $data['is_active'] : null;
+        $this->container['type_of_units'] = isset($data['type_of_units']) ? $data['type_of_units'] : null;
+        $this->container['type_of_units_to_accrue'] = isset($data['type_of_units_to_accrue']) ? $data['type_of_units_to_accrue'] : null;
     }
 
     /**
@@ -400,6 +412,60 @@ class LeaveType implements ModelInterface, ArrayAccess
     {
 
         $this->container['is_active'] = $is_active;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets type_of_units
+     *
+     * @return string|null
+     */
+    public function getTypeOfUnits()
+    {
+        return $this->container['type_of_units'];
+    }
+
+    /**
+     * Sets type_of_units
+     *
+     * @param string|null $type_of_units The type of units to be paid for the leave type
+     *
+     * @return $this
+     */
+    public function setTypeOfUnits($type_of_units)
+    {
+
+        $this->container['type_of_units'] = $type_of_units;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets type_of_units_to_accrue
+     *
+     * @return string|null
+     */
+    public function getTypeOfUnitsToAccrue()
+    {
+        return $this->container['type_of_units_to_accrue'];
+    }
+
+    /**
+     * Sets type_of_units_to_accrue
+     *
+     * @param string|null $type_of_units_to_accrue The type of units to be accrued for the leave type
+     *
+     * @return $this
+     */
+    public function setTypeOfUnitsToAccrue($type_of_units_to_accrue)
+    {
+
+        $this->container['type_of_units_to_accrue'] = $type_of_units_to_accrue;
 
         return $this;
     }
