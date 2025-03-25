@@ -110,6 +110,7 @@ class Configuration
      */
     protected $hostAsset = 'https://api.xero.com/assets.xro/1.0';
 
+
     /**
      * The hostIdentity
      *
