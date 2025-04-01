@@ -1,6 +1,6 @@
 <?php
 /**
- * Employment
+ * NICategory
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use \XeroAPI\XeroPHP\StringUtil;
 use ReturnTypeWillChange;
 
 /**
- * Employment Class Doc Comment
+ * NICategory Class Doc Comment
  *
  * @category Class
  * @package  XeroAPI\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Employment implements ModelInterface, ArrayAccess
+class NICategory implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Employment implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Employment';
+    protected static $openAPIModelName = 'NICategory';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +58,11 @@ class Employment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'payroll_calendar_id' => 'string',
         'start_date' => '\DateTime',
-        'employee_number' => 'string',
         'ni_category' => '\XeroAPI\XeroPHP\Models\PayrollUk\NICategoryLetter',
-        'ni_categories' => '\XeroAPI\XeroPHP\Models\PayrollUk\NICategory[]'
+        'ni_category_id' => 'float',
+        'date_first_employed_as_civilian' => '\DateTime',
+        'workplace_postcode' => 'string'
     ];
 
     /**
@@ -71,11 +71,11 @@ class Employment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'payroll_calendar_id' => 'uuid',
         'start_date' => 'date',
-        'employee_number' => null,
         'ni_category' => null,
-        'ni_categories' => null
+        'ni_category_id' => null,
+        'date_first_employed_as_civilian' => 'date',
+        'workplace_postcode' => null
     ];
 
     /**
@@ -105,11 +105,11 @@ class Employment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'payroll_calendar_id' => 'payrollCalendarID',
         'start_date' => 'startDate',
-        'employee_number' => 'employeeNumber',
         'ni_category' => 'niCategory',
-        'ni_categories' => 'niCategories'
+        'ni_category_id' => 'niCategoryID',
+        'date_first_employed_as_civilian' => 'dateFirstEmployedAsCivilian',
+        'workplace_postcode' => 'workplacePostcode'
     ];
 
     /**
@@ -118,11 +118,11 @@ class Employment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'payroll_calendar_id' => 'setPayrollCalendarId',
         'start_date' => 'setStartDate',
-        'employee_number' => 'setEmployeeNumber',
         'ni_category' => 'setNiCategory',
-        'ni_categories' => 'setNiCategories'
+        'ni_category_id' => 'setNiCategoryId',
+        'date_first_employed_as_civilian' => 'setDateFirstEmployedAsCivilian',
+        'workplace_postcode' => 'setWorkplacePostcode'
     ];
 
     /**
@@ -131,11 +131,11 @@ class Employment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'payroll_calendar_id' => 'getPayrollCalendarId',
         'start_date' => 'getStartDate',
-        'employee_number' => 'getEmployeeNumber',
         'ni_category' => 'getNiCategory',
-        'ni_categories' => 'getNiCategories'
+        'ni_category_id' => 'getNiCategoryId',
+        'date_first_employed_as_civilian' => 'getDateFirstEmployedAsCivilian',
+        'workplace_postcode' => 'getWorkplacePostcode'
     ];
 
     /**
@@ -198,11 +198,11 @@ class Employment implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['payroll_calendar_id'] = isset($data['payroll_calendar_id']) ? $data['payroll_calendar_id'] : null;
         $this->container['start_date'] = isset($data['start_date']) ? $data['start_date'] : null;
-        $this->container['employee_number'] = isset($data['employee_number']) ? $data['employee_number'] : null;
         $this->container['ni_category'] = isset($data['ni_category']) ? $data['ni_category'] : null;
-        $this->container['ni_categories'] = isset($data['ni_categories']) ? $data['ni_categories'] : null;
+        $this->container['ni_category_id'] = isset($data['ni_category_id']) ? $data['ni_category_id'] : null;
+        $this->container['date_first_employed_as_civilian'] = isset($data['date_first_employed_as_civilian']) ? $data['date_first_employed_as_civilian'] : null;
+        $this->container['workplace_postcode'] = isset($data['workplace_postcode']) ? $data['workplace_postcode'] : null;
     }
 
     /**
@@ -214,6 +214,12 @@ class Employment implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['ni_category'] === null) {
+            $invalidProperties[] = "'ni_category' can't be null";
+        }
+        if ($this->container['workplace_postcode'] === null) {
+            $invalidProperties[] = "'workplace_postcode' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -230,33 +236,6 @@ class Employment implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets payroll_calendar_id
-     *
-     * @return string|null
-     */
-    public function getPayrollCalendarId()
-    {
-        return $this->container['payroll_calendar_id'];
-    }
-
-    /**
-     * Sets payroll_calendar_id
-     *
-     * @param string|null $payroll_calendar_id Xero unique identifier for the payroll calendar of the employee
-     *
-     * @return $this
-     */
-    public function setPayrollCalendarId($payroll_calendar_id)
-    {
-
-        $this->container['payroll_calendar_id'] = $payroll_calendar_id;
-
-        return $this;
-    }
-
-
-
-    /**
      * Gets start_date
      *
      * @return \DateTime|null
@@ -269,7 +248,7 @@ class Employment implements ModelInterface, ArrayAccess
     /**
      * Sets start_date
      *
-     * @param \DateTime|null $start_date Start date of the employment (YYYY-MM-DD)
+     * @param \DateTime|null $start_date The start date of the NI category (YYYY-MM-DD)
      *
      * @return $this
      */
@@ -284,36 +263,9 @@ class Employment implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets employee_number
-     *
-     * @return string|null
-     */
-    public function getEmployeeNumber()
-    {
-        return $this->container['employee_number'];
-    }
-
-    /**
-     * Sets employee_number
-     *
-     * @param string|null $employee_number The employment number of the employee
-     *
-     * @return $this
-     */
-    public function setEmployeeNumber($employee_number)
-    {
-
-        $this->container['employee_number'] = $employee_number;
-
-        return $this;
-    }
-
-
-
-    /**
      * Gets ni_category
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollUk\NICategoryLetter|null
+     * @return \XeroAPI\XeroPHP\Models\PayrollUk\NICategoryLetter
      */
     public function getNiCategory()
     {
@@ -323,7 +275,7 @@ class Employment implements ModelInterface, ArrayAccess
     /**
      * Sets ni_category
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollUk\NICategoryLetter|null $ni_category ni_category
+     * @param \XeroAPI\XeroPHP\Models\PayrollUk\NICategoryLetter $ni_category ni_category
      *
      * @return $this
      */
@@ -338,26 +290,80 @@ class Employment implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ni_categories
+     * Gets ni_category_id
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollUk\NICategory[]|null
+     * @return float|null
      */
-    public function getNiCategories()
+    public function getNiCategoryId()
     {
-        return $this->container['ni_categories'];
+        return $this->container['ni_category_id'];
     }
 
     /**
-     * Sets ni_categories
+     * Sets ni_category_id
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollUk\NICategory[]|null $ni_categories The employee's NI categories
+     * @param float|null $ni_category_id Xero unique identifier for the NI category
      *
      * @return $this
      */
-    public function setNiCategories($ni_categories)
+    public function setNiCategoryId($ni_category_id)
     {
 
-        $this->container['ni_categories'] = $ni_categories;
+        $this->container['ni_category_id'] = $ni_category_id;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets date_first_employed_as_civilian
+     *
+     * @return \DateTime|null
+     */
+    public function getDateFirstEmployedAsCivilian()
+    {
+        return $this->container['date_first_employed_as_civilian'];
+    }
+
+    /**
+     * Sets date_first_employed_as_civilian
+     *
+     * @param \DateTime|null $date_first_employed_as_civilian The date in which the employee was first employed as a civilian (YYYY-MM-DD)
+     *
+     * @return $this
+     */
+    public function setDateFirstEmployedAsCivilian($date_first_employed_as_civilian)
+    {
+
+        $this->container['date_first_employed_as_civilian'] = $date_first_employed_as_civilian;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets workplace_postcode
+     *
+     * @return string
+     */
+    public function getWorkplacePostcode()
+    {
+        return $this->container['workplace_postcode'];
+    }
+
+    /**
+     * Sets workplace_postcode
+     *
+     * @param string $workplace_postcode The workplace postcode
+     *
+     * @return $this
+     */
+    public function setWorkplacePostcode($workplace_postcode)
+    {
+
+        $this->container['workplace_postcode'] = $workplace_postcode;
 
         return $this;
     }
