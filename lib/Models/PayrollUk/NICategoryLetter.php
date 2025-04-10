@@ -48,20 +48,20 @@ class NICategoryLetter
     const A = 'A';
     const B = 'B';
     const C = 'C';
-    const D = 'D';
-    const E = 'E';
     const F = 'F';
     const H = 'H';
     const I = 'I';
     const J = 'J';
-    const K = 'K';
     const L = 'L';
     const M = 'M';
-    const N = 'N';
     const S = 'S';
     const V = 'V';
     const X = 'X';
     const Z = 'Z';
+    const D = 'D';
+    const E = 'E';
+    const K = 'K';
+    const N = 'N';
     
     /**
      * Gets allowable values of the enum
@@ -73,20 +73,20 @@ class NICategoryLetter
             self::A,
             self::B,
             self::C,
-            self::D,
-            self::E,
             self::F,
             self::H,
             self::I,
             self::J,
-            self::K,
             self::L,
             self::M,
-            self::N,
             self::S,
             self::V,
             self::X,
             self::Z,
+            self::D,
+            self::E,
+            self::K,
+            self::N,
         ];
     }
 }
