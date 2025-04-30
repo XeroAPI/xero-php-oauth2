@@ -72,6 +72,8 @@ class Employee implements ModelInterface, ArrayAccess
         'payroll_calendar_id' => 'string',
         'updated_date_utc' => '\DateTime',
         'created_date_utc' => '\DateTime',
+        'ni_category' => '\XeroAPI\XeroPHP\Models\PayrollUk\NICategoryLetter',
+        'ni_categories' => '\XeroAPI\XeroPHP\Models\PayrollUk\NICategory[]',
         'national_insurance_number' => 'string',
         'is_off_payroll_worker' => 'bool'
     ];
@@ -96,6 +98,8 @@ class Employee implements ModelInterface, ArrayAccess
         'payroll_calendar_id' => 'uuid',
         'updated_date_utc' => 'date-time',
         'created_date_utc' => 'date-time',
+        'ni_category' => null,
+        'ni_categories' => null,
         'national_insurance_number' => null,
         'is_off_payroll_worker' => null
     ];
@@ -141,6 +145,8 @@ class Employee implements ModelInterface, ArrayAccess
         'payroll_calendar_id' => 'payrollCalendarID',
         'updated_date_utc' => 'updatedDateUTC',
         'created_date_utc' => 'createdDateUTC',
+        'ni_category' => 'niCategory',
+        'ni_categories' => 'niCategories',
         'national_insurance_number' => 'nationalInsuranceNumber',
         'is_off_payroll_worker' => 'isOffPayrollWorker'
     ];
@@ -165,6 +171,8 @@ class Employee implements ModelInterface, ArrayAccess
         'payroll_calendar_id' => 'setPayrollCalendarId',
         'updated_date_utc' => 'setUpdatedDateUtc',
         'created_date_utc' => 'setCreatedDateUtc',
+        'ni_category' => 'setNiCategory',
+        'ni_categories' => 'setNiCategories',
         'national_insurance_number' => 'setNationalInsuranceNumber',
         'is_off_payroll_worker' => 'setIsOffPayrollWorker'
     ];
@@ -189,6 +197,8 @@ class Employee implements ModelInterface, ArrayAccess
         'payroll_calendar_id' => 'getPayrollCalendarId',
         'updated_date_utc' => 'getUpdatedDateUtc',
         'created_date_utc' => 'getCreatedDateUtc',
+        'ni_category' => 'getNiCategory',
+        'ni_categories' => 'getNiCategories',
         'national_insurance_number' => 'getNationalInsuranceNumber',
         'is_off_payroll_worker' => 'getIsOffPayrollWorker'
     ];
@@ -282,6 +292,8 @@ class Employee implements ModelInterface, ArrayAccess
         $this->container['payroll_calendar_id'] = isset($data['payroll_calendar_id']) ? $data['payroll_calendar_id'] : null;
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
         $this->container['created_date_utc'] = isset($data['created_date_utc']) ? $data['created_date_utc'] : null;
+        $this->container['ni_category'] = isset($data['ni_category']) ? $data['ni_category'] : null;
+        $this->container['ni_categories'] = isset($data['ni_categories']) ? $data['ni_categories'] : null;
         $this->container['national_insurance_number'] = isset($data['national_insurance_number']) ? $data['national_insurance_number'] : null;
         $this->container['is_off_payroll_worker'] = isset($data['is_off_payroll_worker']) ? $data['is_off_payroll_worker'] : null;
     }
@@ -699,6 +711,60 @@ class Employee implements ModelInterface, ArrayAccess
     {
 
         $this->container['created_date_utc'] = $created_date_utc;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets ni_category
+     *
+     * @return \XeroAPI\XeroPHP\Models\PayrollUk\NICategoryLetter|null
+     */
+    public function getNiCategory()
+    {
+        return $this->container['ni_category'];
+    }
+
+    /**
+     * Sets ni_category
+     *
+     * @param \XeroAPI\XeroPHP\Models\PayrollUk\NICategoryLetter|null $ni_category ni_category
+     *
+     * @return $this
+     */
+    public function setNiCategory($ni_category)
+    {
+
+        $this->container['ni_category'] = $ni_category;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets ni_categories
+     *
+     * @return \XeroAPI\XeroPHP\Models\PayrollUk\NICategory[]|null
+     */
+    public function getNiCategories()
+    {
+        return $this->container['ni_categories'];
+    }
+
+    /**
+     * Sets ni_categories
+     *
+     * @param \XeroAPI\XeroPHP\Models\PayrollUk\NICategory[]|null $ni_categories The employee's NI categories
+     *
+     * @return $this
+     */
+    public function setNiCategories($ni_categories)
+    {
+
+        $this->container['ni_categories'] = $ni_categories;
 
         return $this;
     }

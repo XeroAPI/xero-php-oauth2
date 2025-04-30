@@ -59,15 +59,12 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'direct_bank_feed' => 'double',
-        'indirect_bank_feed' => 'double',
         'file_upload' => 'double',
         'manual' => 'double',
         'direct_bank_feed_pos' => 'double',
-        'indirect_bank_feed_pos' => 'double',
         'file_upload_pos' => 'double',
         'manual_pos' => 'double',
         'direct_bank_feed_neg' => 'double',
-        'indirect_bank_feed_neg' => 'double',
         'file_upload_neg' => 'double',
         'manual_neg' => 'double',
         'other_pos' => 'double',
@@ -82,15 +79,12 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'direct_bank_feed' => 'double',
-        'indirect_bank_feed' => 'double',
         'file_upload' => 'double',
         'manual' => 'double',
         'direct_bank_feed_pos' => 'double',
-        'indirect_bank_feed_pos' => 'double',
         'file_upload_pos' => 'double',
         'manual_pos' => 'double',
         'direct_bank_feed_neg' => 'double',
-        'indirect_bank_feed_neg' => 'double',
         'file_upload_neg' => 'double',
         'manual_neg' => 'double',
         'other_pos' => 'double',
@@ -126,15 +120,12 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'direct_bank_feed' => 'directBankFeed',
-        'indirect_bank_feed' => 'indirectBankFeed',
         'file_upload' => 'fileUpload',
         'manual' => 'manual',
         'direct_bank_feed_pos' => 'directBankFeedPos',
-        'indirect_bank_feed_pos' => 'indirectBankFeedPos',
         'file_upload_pos' => 'fileUploadPos',
         'manual_pos' => 'manualPos',
         'direct_bank_feed_neg' => 'directBankFeedNeg',
-        'indirect_bank_feed_neg' => 'indirectBankFeedNeg',
         'file_upload_neg' => 'fileUploadNeg',
         'manual_neg' => 'manualNeg',
         'other_pos' => 'otherPos',
@@ -149,15 +140,12 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'direct_bank_feed' => 'setDirectBankFeed',
-        'indirect_bank_feed' => 'setIndirectBankFeed',
         'file_upload' => 'setFileUpload',
         'manual' => 'setManual',
         'direct_bank_feed_pos' => 'setDirectBankFeedPos',
-        'indirect_bank_feed_pos' => 'setIndirectBankFeedPos',
         'file_upload_pos' => 'setFileUploadPos',
         'manual_pos' => 'setManualPos',
         'direct_bank_feed_neg' => 'setDirectBankFeedNeg',
-        'indirect_bank_feed_neg' => 'setIndirectBankFeedNeg',
         'file_upload_neg' => 'setFileUploadNeg',
         'manual_neg' => 'setManualNeg',
         'other_pos' => 'setOtherPos',
@@ -172,15 +160,12 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'direct_bank_feed' => 'getDirectBankFeed',
-        'indirect_bank_feed' => 'getIndirectBankFeed',
         'file_upload' => 'getFileUpload',
         'manual' => 'getManual',
         'direct_bank_feed_pos' => 'getDirectBankFeedPos',
-        'indirect_bank_feed_pos' => 'getIndirectBankFeedPos',
         'file_upload_pos' => 'getFileUploadPos',
         'manual_pos' => 'getManualPos',
         'direct_bank_feed_neg' => 'getDirectBankFeedNeg',
-        'indirect_bank_feed_neg' => 'getIndirectBankFeedNeg',
         'file_upload_neg' => 'getFileUploadNeg',
         'manual_neg' => 'getManualNeg',
         'other_pos' => 'getOtherPos',
@@ -249,15 +234,12 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['direct_bank_feed'] = isset($data['direct_bank_feed']) ? $data['direct_bank_feed'] : null;
-        $this->container['indirect_bank_feed'] = isset($data['indirect_bank_feed']) ? $data['indirect_bank_feed'] : null;
         $this->container['file_upload'] = isset($data['file_upload']) ? $data['file_upload'] : null;
         $this->container['manual'] = isset($data['manual']) ? $data['manual'] : null;
         $this->container['direct_bank_feed_pos'] = isset($data['direct_bank_feed_pos']) ? $data['direct_bank_feed_pos'] : null;
-        $this->container['indirect_bank_feed_pos'] = isset($data['indirect_bank_feed_pos']) ? $data['indirect_bank_feed_pos'] : null;
         $this->container['file_upload_pos'] = isset($data['file_upload_pos']) ? $data['file_upload_pos'] : null;
         $this->container['manual_pos'] = isset($data['manual_pos']) ? $data['manual_pos'] : null;
         $this->container['direct_bank_feed_neg'] = isset($data['direct_bank_feed_neg']) ? $data['direct_bank_feed_neg'] : null;
-        $this->container['indirect_bank_feed_neg'] = isset($data['indirect_bank_feed_neg']) ? $data['indirect_bank_feed_neg'] : null;
         $this->container['file_upload_neg'] = isset($data['file_upload_neg']) ? $data['file_upload_neg'] : null;
         $this->container['manual_neg'] = isset($data['manual_neg']) ? $data['manual_neg'] : null;
         $this->container['other_pos'] = isset($data['other_pos']) ? $data['other_pos'] : null;
@@ -310,33 +292,6 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
     {
 
         $this->container['direct_bank_feed'] = $direct_bank_feed;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets indirect_bank_feed
-     *
-     * @return double|null
-     */
-    public function getIndirectBankFeed()
-    {
-        return $this->container['indirect_bank_feed'];
-    }
-
-    /**
-     * Sets indirect_bank_feed
-     *
-     * @param double|null $indirect_bank_feed No longer in use.
-     *
-     * @return $this
-     */
-    public function setIndirectBankFeed($indirect_bank_feed)
-    {
-
-        $this->container['indirect_bank_feed'] = $indirect_bank_feed;
 
         return $this;
     }
@@ -425,33 +380,6 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets indirect_bank_feed_pos
-     *
-     * @return double|null
-     */
-    public function getIndirectBankFeedPos()
-    {
-        return $this->container['indirect_bank_feed_pos'];
-    }
-
-    /**
-     * Sets indirect_bank_feed_pos
-     *
-     * @param double|null $indirect_bank_feed_pos No longer in use.
-     *
-     * @return $this
-     */
-    public function setIndirectBankFeedPos($indirect_bank_feed_pos)
-    {
-
-        $this->container['indirect_bank_feed_pos'] = $indirect_bank_feed_pos;
-
-        return $this;
-    }
-
-
-
-    /**
      * Gets file_upload_pos
      *
      * @return double|null
@@ -526,33 +454,6 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
     {
 
         $this->container['direct_bank_feed_neg'] = $direct_bank_feed_neg;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets indirect_bank_feed_neg
-     *
-     * @return double|null
-     */
-    public function getIndirectBankFeedNeg()
-    {
-        return $this->container['indirect_bank_feed_neg'];
-    }
-
-    /**
-     * Sets indirect_bank_feed_neg
-     *
-     * @param double|null $indirect_bank_feed_neg No longer in use.
-     *
-     * @return $this
-     */
-    public function setIndirectBankFeedNeg($indirect_bank_feed_neg)
-    {
-
-        $this->container['indirect_bank_feed_neg'] = $indirect_bank_feed_neg;
 
         return $this;
     }
