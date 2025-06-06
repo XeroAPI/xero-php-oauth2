@@ -194,6 +194,7 @@ class EmployeeStatutoryLeaveSummary implements ModelInterface, ArrayAccess
     const TYPE_MATERNITY = 'Maternity';
     const TYPE_PATERNITY = 'Paternity';
     const TYPE_SHAREDPARENTAL = 'Sharedparental';
+    const TYPE_BEREAVEMENT = 'Bereavement';
     const STATUS_PENDING = 'Pending';
     const STATUS_IN_PROGRESS = 'In-Progress';
     const STATUS_COMPLETED = 'Completed';
@@ -213,6 +214,7 @@ class EmployeeStatutoryLeaveSummary implements ModelInterface, ArrayAccess
             self::TYPE_MATERNITY,
             self::TYPE_PATERNITY,
             self::TYPE_SHAREDPARENTAL,
+            self::TYPE_BEREAVEMENT,
         ];
     }
     
