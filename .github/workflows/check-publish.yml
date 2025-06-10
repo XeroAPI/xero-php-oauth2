@@ -1,12 +1,8 @@
 name: Check Packagist Publish
 
 on:
-  workflow_dispatch:
-    inputs:
-      cab_id:
-        description: "CAB id for the change/release"
-        required: true
-        type: string
+   release:
+     types: [published]
 
 jobs:
   check-publish:
