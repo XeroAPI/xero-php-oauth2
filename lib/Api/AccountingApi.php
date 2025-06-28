@@ -364,7 +364,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $account_id Unique identifier for Account object (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -381,7 +381,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $account_id Unique identifier for Account object (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -480,7 +480,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $account_id Unique identifier for Account object (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -500,7 +500,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $account_id Unique identifier for Account object (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface */
@@ -546,7 +546,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $account_id Unique identifier for Account object (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request  */
@@ -675,7 +675,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -692,7 +692,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -791,7 +791,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -811,7 +811,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface */
@@ -857,7 +857,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request  */
@@ -1841,7 +1841,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1857,7 +1857,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1956,7 +1956,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1976,7 +1976,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface */
@@ -2022,7 +2022,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request  */
@@ -3308,7 +3308,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3324,7 +3324,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3423,7 +3423,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3443,7 +3443,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface */
@@ -3489,7 +3489,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request  */
@@ -5058,7 +5058,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  bool $include_online Allows an attachment to be seen by the end customer within their online invoice (optional, default to false)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
@@ -5076,7 +5076,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  bool $include_online Allows an attachment to be seen by the end customer within their online invoice (optional, default to false)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
@@ -5176,7 +5176,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  bool $include_online Allows an attachment to be seen by the end customer within their online invoice (optional, default to false)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
@@ -5197,7 +5197,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  bool $include_online Allows an attachment to be seen by the end customer within their online invoice (optional, default to false)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
@@ -5244,7 +5244,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  bool $include_online Allows an attachment to be seen by the end customer within their online invoice (optional, default to false)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
@@ -7043,7 +7043,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  bool $include_online Allows an attachment to be seen by the end customer within their online invoice (optional, default to false)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
@@ -7061,7 +7061,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  bool $include_online Allows an attachment to be seen by the end customer within their online invoice (optional, default to false)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
@@ -7161,7 +7161,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  bool $include_online Allows an attachment to be seen by the end customer within their online invoice (optional, default to false)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
@@ -7182,7 +7182,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  bool $include_online Allows an attachment to be seen by the end customer within their online invoice (optional, default to false)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
@@ -7229,7 +7229,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  bool $include_online Allows an attachment to be seen by the end customer within their online invoice (optional, default to false)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
@@ -8783,7 +8783,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8800,7 +8800,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -8899,7 +8899,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -8919,7 +8919,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface */
@@ -8965,7 +8965,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request  */
@@ -11974,7 +11974,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for an Purchase Order (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -11991,7 +11991,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for an Purchase Order (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -12090,7 +12090,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for an Purchase Order (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -12110,7 +12110,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for an Purchase Order (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface */
@@ -12156,7 +12156,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for an Purchase Order (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request  */
@@ -12859,7 +12859,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $quote_id Unique identifier for an Quote (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -12876,7 +12876,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $quote_id Unique identifier for an Quote (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -12975,7 +12975,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $quote_id Unique identifier for an Quote (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -12995,7 +12995,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $quote_id Unique identifier for an Quote (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface */
@@ -13041,7 +13041,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $quote_id Unique identifier for an Quote (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request  */
@@ -14026,7 +14026,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -14043,7 +14043,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -14142,7 +14142,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -14162,7 +14162,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface */
@@ -14208,7 +14208,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request  */
@@ -14629,7 +14629,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -14646,7 +14646,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -14745,7 +14745,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -14765,7 +14765,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface */
@@ -14811,7 +14811,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request  */
@@ -53967,7 +53967,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $account_id Unique identifier for Account object (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -53984,7 +53984,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $account_id Unique identifier for Account object (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -54083,7 +54083,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $account_id Unique identifier for Account object (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -54103,7 +54103,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $account_id Unique identifier for Account object (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface */
@@ -54149,7 +54149,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $account_id Unique identifier for Account object (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request  */
@@ -54579,7 +54579,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -54596,7 +54596,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -54695,7 +54695,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -54715,7 +54715,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface */
@@ -54761,7 +54761,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transaction_id Xero generated unique identifier for a bank transaction (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request  */
@@ -54889,7 +54889,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -54905,7 +54905,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -55004,7 +55004,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -55024,7 +55024,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface */
@@ -55070,7 +55070,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $bank_transfer_id Xero generated unique identifier for a bank transfer (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request  */
@@ -55490,7 +55490,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -55506,7 +55506,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -55605,7 +55605,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -55625,7 +55625,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface */
@@ -55671,7 +55671,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $contact_id Unique identifier for a Contact (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request  */
@@ -56393,7 +56393,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -56410,7 +56410,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -56509,7 +56509,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -56529,7 +56529,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface */
@@ -56575,7 +56575,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $credit_note_id Unique identifier for a Credit Note (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request  */
@@ -57297,7 +57297,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -57314,7 +57314,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -57413,7 +57413,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -57433,7 +57433,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface */
@@ -57479,7 +57479,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $invoice_id Unique identifier for an Invoice (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request  */
@@ -58493,7 +58493,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -58510,7 +58510,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -58609,7 +58609,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -58629,7 +58629,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface */
@@ -58675,7 +58675,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $manual_journal_id Unique identifier for a ManualJournal (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request  */
@@ -61952,7 +61952,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for an Purchase Order (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -61969,7 +61969,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for an Purchase Order (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -62068,7 +62068,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for an Purchase Order (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -62088,7 +62088,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for an Purchase Order (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface */
@@ -62134,7 +62134,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $purchase_order_id Unique identifier for an Purchase Order (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request  */
@@ -62555,7 +62555,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $quote_id Unique identifier for an Quote (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -62572,7 +62572,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $quote_id Unique identifier for an Quote (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -62671,7 +62671,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $quote_id Unique identifier for an Quote (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -62691,7 +62691,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $quote_id Unique identifier for an Quote (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface */
@@ -62737,7 +62737,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $quote_id Unique identifier for an Quote (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request  */
@@ -63167,7 +63167,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -63184,7 +63184,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -63283,7 +63283,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -63303,7 +63303,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface */
@@ -63349,7 +63349,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $receipt_id Unique identifier for a Receipt (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request  */
@@ -63770,7 +63770,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -63787,7 +63787,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \XeroAPI\XeroPHP\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -63886,7 +63886,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -63906,7 +63906,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface */
@@ -63952,7 +63952,7 @@ class AccountingApi
      * @param  string $xero_tenant_id Xero identifier for Tenant (required)
      * @param  string $repeating_invoice_id Unique identifier for a Repeating Invoice (required)
      * @param  string $file_name Name of the attachment (required)
-     * @param  \SplFileObject $body Byte array of file in body of request (required)
+     * @param  string $body Byte array of file in body of request (required)
      * @param  string $idempotency_key This allows you to safely retry requests without the risk of duplicate processing. 128 character max. (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request  */

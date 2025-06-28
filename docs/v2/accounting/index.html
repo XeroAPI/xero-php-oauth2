@@ -7263,6 +7263,10 @@ $accountID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
 $idempotencyKey = "KEY_VALUE";
 
+$handle = fopen($fileName, "r");
+$body = fread($handle, filesize($fileName));
+fclose($handle);
+
 try {
   $result = $apiInstance->createAccountAttachmentByFileName($xeroTenantId, $accountID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
@@ -7400,7 +7404,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -7417,7 +7421,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -7465,6 +7469,10 @@ $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $bankTransactionID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
 $idempotencyKey = "KEY_VALUE";
+
+$handle = fopen($fileName, "r");
+$body = fread($handle, filesize($fileName));
+fclose($handle);
 
 try {
   $result = $apiInstance->createBankTransactionAttachmentByFileName($xeroTenantId, $bankTransactionID, $fileName, $body, $idempotencyKey);
@@ -7603,7 +7611,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -7620,7 +7628,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -8299,6 +8307,10 @@ $bankTransferID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
 $idempotencyKey = "KEY_VALUE";
 
+$handle = fopen($fileName, "r");
+$body = fread($handle, filesize($fileName));
+fclose($handle);
+
 try {
   $result = $apiInstance->createBankTransferAttachmentByFileName($xeroTenantId, $bankTransferID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
@@ -8436,7 +8448,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -8453,7 +8465,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -9305,6 +9317,10 @@ $contactID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
 $idempotencyKey = "KEY_VALUE";
 
+$handle = fopen($fileName, "r");
+$body = fread($handle, filesize($fileName));
+fclose($handle);
+
 try {
   $result = $apiInstance->createContactAttachmentByFileName($xeroTenantId, $contactID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
@@ -9442,7 +9458,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -9459,7 +9475,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -10528,6 +10544,10 @@ $fileName = "xero-dev.jpg";
 $includeOnline = true;
 $idempotencyKey = "KEY_VALUE";
 
+$handle = fopen($fileName, "r");
+$body = fread($handle, filesize($fileName));
+fclose($handle);
+
 try {
   $result = $apiInstance->createCreditNoteAttachmentByFileName($xeroTenantId, $creditNoteID, $fileName, $body, $includeOnline, $idempotencyKey);
 } catch (Exception $e) {
@@ -10665,7 +10685,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -10682,7 +10702,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -11890,6 +11910,10 @@ $fileName = "xero-dev.jpg";
 $includeOnline = true;
 $idempotencyKey = "KEY_VALUE";
 
+$handle = fopen($fileName, "r");
+$body = fread($handle, filesize($fileName));
+fclose($handle);
+
 try {
   $result = $apiInstance->createInvoiceAttachmentByFileName($xeroTenantId, $invoiceID, $fileName, $body, $includeOnline, $idempotencyKey);
 } catch (Exception $e) {
@@ -12027,7 +12051,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -12044,7 +12068,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -13122,6 +13146,10 @@ $manualJournalID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
 $idempotencyKey = "KEY_VALUE";
 
+$handle = fopen($fileName, "r");
+$body = fread($handle, filesize($fileName));
+fclose($handle);
+
 try {
   $result = $apiInstance->createManualJournalAttachmentByFileName($xeroTenantId, $manualJournalID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
@@ -13259,7 +13287,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -13276,7 +13304,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -15305,6 +15333,10 @@ $purchaseOrderID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
 $idempotencyKey = "KEY_VALUE";
 
+$handle = fopen($fileName, "r");
+$body = fread($handle, filesize($fileName));
+fclose($handle);
+
 try {
   $result = $apiInstance->createPurchaseOrderAttachmentByFileName($xeroTenantId, $purchaseOrderID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
@@ -15442,7 +15474,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -15459,7 +15491,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -15907,6 +15939,10 @@ $quoteID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
 $idempotencyKey = "KEY_VALUE";
 
+$handle = fopen($fileName, "r");
+$body = fread($handle, filesize($fileName));
+fclose($handle);
+
 try {
   $result = $apiInstance->createQuoteAttachmentByFileName($xeroTenantId, $quoteID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
@@ -16044,7 +16080,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -16061,7 +16097,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -16727,6 +16763,10 @@ $receiptID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
 $idempotencyKey = "KEY_VALUE";
 
+$handle = fopen($fileName, "r");
+$body = fread($handle, filesize($fileName));
+fclose($handle);
+
 try {
   $result = $apiInstance->createReceiptAttachmentByFileName($xeroTenantId, $receiptID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
@@ -16864,7 +16904,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -16881,7 +16921,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -17121,6 +17161,10 @@ $repeatingInvoiceID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
 $idempotencyKey = "KEY_VALUE";
 
+$handle = fopen($fileName, "r");
+$body = fread($handle, filesize($fileName));
+fclose($handle);
+
 try {
   $result = $apiInstance->createRepeatingInvoiceAttachmentByFileName($xeroTenantId, $repeatingInvoiceID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
@@ -17258,7 +17302,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -17275,7 +17319,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -40276,6 +40320,10 @@ $accountID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
 $idempotencyKey = "KEY_VALUE";
 
+$handle = fopen($fileName, "r");
+$body = fread($handle, filesize($fileName));
+fclose($handle);
+
 try {
   $result = $apiInstance->updateAccountAttachmentByFileName($xeroTenantId, $accountID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
@@ -40413,7 +40461,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -40430,7 +40478,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -40781,6 +40829,10 @@ $bankTransactionID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
 $idempotencyKey = "KEY_VALUE";
 
+$handle = fopen($fileName, "r");
+$body = fread($handle, filesize($fileName));
+fclose($handle);
+
 try {
   $result = $apiInstance->updateBankTransactionAttachmentByFileName($xeroTenantId, $bankTransactionID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
@@ -40918,7 +40970,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -40935,7 +40987,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -40983,6 +41035,10 @@ $xeroTenantId = "YOUR_XERO_TENANT_ID";
 $bankTransferID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
 $idempotencyKey = "KEY_VALUE";
+
+$handle = fopen($fileName, "r");
+$body = fread($handle, filesize($fileName));
+fclose($handle);
 
 try {
   $result = $apiInstance->updateBankTransferAttachmentByFileName($xeroTenantId, $bankTransferID, $fileName, $body, $idempotencyKey);
@@ -41121,7 +41177,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -41138,7 +41194,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -41380,6 +41436,10 @@ $contactID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
 $idempotencyKey = "KEY_VALUE";
 
+$handle = fopen($fileName, "r");
+$body = fread($handle, filesize($fileName));
+fclose($handle);
+
 try {
   $result = $apiInstance->updateContactAttachmentByFileName($xeroTenantId, $contactID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
@@ -41517,7 +41577,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -41534,7 +41594,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -42023,6 +42083,10 @@ $creditNoteID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
 $idempotencyKey = "KEY_VALUE";
 
+$handle = fopen($fileName, "r");
+$body = fread($handle, filesize($fileName));
+fclose($handle);
+
 try {
   $result = $apiInstance->updateCreditNoteAttachmentByFileName($xeroTenantId, $creditNoteID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
@@ -42160,7 +42224,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -42177,7 +42241,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -42657,6 +42721,10 @@ $invoiceID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
 $idempotencyKey = "KEY_VALUE";
 
+$handle = fopen($fileName, "r");
+$body = fread($handle, filesize($fileName));
+fclose($handle);
+
 try {
   $result = $apiInstance->updateInvoiceAttachmentByFileName($xeroTenantId, $invoiceID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
@@ -42794,7 +42862,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -42811,7 +42879,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -43480,6 +43548,10 @@ $manualJournalID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
 $idempotencyKey = "KEY_VALUE";
 
+$handle = fopen($fileName, "r");
+$body = fread($handle, filesize($fileName));
+fclose($handle);
+
 try {
   $result = $apiInstance->updateManualJournalAttachmentByFileName($xeroTenantId, $manualJournalID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
@@ -43617,7 +43689,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -43634,7 +43706,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -46025,6 +46097,10 @@ $purchaseOrderID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
 $idempotencyKey = "KEY_VALUE";
 
+$handle = fopen($fileName, "r");
+$body = fread($handle, filesize($fileName));
+fclose($handle);
+
 try {
   $result = $apiInstance->updatePurchaseOrderAttachmentByFileName($xeroTenantId, $purchaseOrderID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
@@ -46162,7 +46238,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -46179,7 +46255,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -46428,6 +46504,10 @@ $quoteID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
 $idempotencyKey = "KEY_VALUE";
 
+$handle = fopen($fileName, "r");
+$body = fread($handle, filesize($fileName));
+fclose($handle);
+
 try {
   $result = $apiInstance->updateQuoteAttachmentByFileName($xeroTenantId, $quoteID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
@@ -46565,7 +46645,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -46582,7 +46662,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -46859,6 +46939,10 @@ $receiptID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
 $idempotencyKey = "KEY_VALUE";
 
+$handle = fopen($fileName, "r");
+$body = fread($handle, filesize($fileName));
+fclose($handle);
+
 try {
   $result = $apiInstance->updateReceiptAttachmentByFileName($xeroTenantId, $receiptID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
@@ -46996,7 +47080,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -47013,7 +47097,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
@@ -47286,6 +47370,10 @@ $repeatingInvoiceID = "00000000-0000-0000-0000-000000000000";
 $fileName = "xero-dev.jpg";
 $idempotencyKey = "KEY_VALUE";
 
+$handle = fopen($fileName, "r");
+$body = fread($handle, filesize($fileName));
+fclose($handle);
+
 try {
   $result = $apiInstance->updateRepeatingInvoiceAttachmentByFileName($xeroTenantId, $repeatingInvoiceID, $fileName, $body, $idempotencyKey);
 } catch (Exception $e) {
@@ -47423,7 +47511,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     <div class="json-schema-view">
       <div class="primitive">
         <span class="type">
-        File
+        byte[]
         </span>
         <div class="inner description marked">
           Byte array of file in body of request
@@ -47440,7 +47528,7 @@ This allows you to safely retry requests without the risk of duplicate processin
     "application/octet-stream" : {
       "schema" : {
         "type" : "string",
-        "format" : "binary"
+        "format" : "byte"
       }
     }
   },
