@@ -214,6 +214,18 @@ class Employment implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['payroll_calendar_id'] === null) {
+            $invalidProperties[] = "'payroll_calendar_id' can't be null";
+        }
+        if ($this->container['start_date'] === null) {
+            $invalidProperties[] = "'start_date' can't be null";
+        }
+        if ($this->container['employee_number'] === null) {
+            $invalidProperties[] = "'employee_number' can't be null";
+        }
+        if ($this->container['ni_categories'] === null) {
+            $invalidProperties[] = "'ni_categories' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -232,7 +244,7 @@ class Employment implements ModelInterface, ArrayAccess
     /**
      * Gets payroll_calendar_id
      *
-     * @return string|null
+     * @return string
      */
     public function getPayrollCalendarId()
     {
@@ -242,7 +254,7 @@ class Employment implements ModelInterface, ArrayAccess
     /**
      * Sets payroll_calendar_id
      *
-     * @param string|null $payroll_calendar_id Xero unique identifier for the payroll calendar of the employee
+     * @param string $payroll_calendar_id Xero unique identifier for the payroll calendar of the employee
      *
      * @return $this
      */
@@ -259,7 +271,7 @@ class Employment implements ModelInterface, ArrayAccess
     /**
      * Gets start_date
      *
-     * @return \DateTime|null
+     * @return \DateTime
      */
     public function getStartDate()
     {
@@ -269,7 +281,7 @@ class Employment implements ModelInterface, ArrayAccess
     /**
      * Sets start_date
      *
-     * @param \DateTime|null $start_date Start date of the employment (YYYY-MM-DD)
+     * @param \DateTime $start_date Start date of the employment (YYYY-MM-DD)
      *
      * @return $this
      */
@@ -286,7 +298,7 @@ class Employment implements ModelInterface, ArrayAccess
     /**
      * Gets employee_number
      *
-     * @return string|null
+     * @return string
      */
     public function getEmployeeNumber()
     {
@@ -296,7 +308,7 @@ class Employment implements ModelInterface, ArrayAccess
     /**
      * Sets employee_number
      *
-     * @param string|null $employee_number The employment number of the employee
+     * @param string $employee_number The employment number of the employee
      *
      * @return $this
      */
@@ -340,7 +352,7 @@ class Employment implements ModelInterface, ArrayAccess
     /**
      * Gets ni_categories
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollUk\NICategory[]|null
+     * @return \XeroAPI\XeroPHP\Models\PayrollUk\NICategory[]
      */
     public function getNiCategories()
     {
@@ -350,7 +362,7 @@ class Employment implements ModelInterface, ArrayAccess
     /**
      * Sets ni_categories
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollUk\NICategory[]|null $ni_categories The employee's NI categories
+     * @param \XeroAPI\XeroPHP\Models\PayrollUk\NICategory[] $ni_categories The employee's NI categories
      *
      * @return $this
      */
