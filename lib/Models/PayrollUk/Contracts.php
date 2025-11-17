@@ -1,6 +1,6 @@
 <?php
 /**
- * Employment
+ * Contracts
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use \XeroAPI\XeroPHP\StringUtil;
 use ReturnTypeWillChange;
 
 /**
- * Employment Class Doc Comment
+ * Contracts Class Doc Comment
  *
  * @category Class
  * @package  XeroAPI\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Employment implements ModelInterface, ArrayAccess
+class Contracts implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Employment implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Employment';
+    protected static $openAPIModelName = 'Contracts';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,12 +58,13 @@ class Employment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'payroll_calendar_id' => 'string',
         'start_date' => '\DateTime',
-        'employee_number' => 'string',
-        'ni_category' => '\XeroAPI\XeroPHP\Models\PayrollUk\NICategoryLetter',
-        'ni_categories' => '\XeroAPI\XeroPHP\Models\PayrollUk\NICategory[]',
-        'contracts' => '\XeroAPI\XeroPHP\Models\PayrollUk\Contracts[]'
+        'employment_status' => '\XeroAPI\XeroPHP\Models\PayrollUk\EmploymentStatus',
+        'contract_type' => '\XeroAPI\XeroPHP\Models\PayrollUk\ContractType',
+        'public_key' => 'string',
+        'is_fixed_term' => 'bool',
+        'fixed_term_end_date' => '\DateTime',
+        'developmental_role_details' => '\XeroAPI\XeroPHP\Models\PayrollUk\DevelopmentalRoleDetails'
     ];
 
     /**
@@ -72,12 +73,13 @@ class Employment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'payroll_calendar_id' => 'uuid',
         'start_date' => 'date',
-        'employee_number' => null,
-        'ni_category' => null,
-        'ni_categories' => null,
-        'contracts' => null
+        'employment_status' => null,
+        'contract_type' => null,
+        'public_key' => 'uuid',
+        'is_fixed_term' => null,
+        'fixed_term_end_date' => 'date',
+        'developmental_role_details' => null
     ];
 
     /**
@@ -107,12 +109,13 @@ class Employment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'payroll_calendar_id' => 'payrollCalendarID',
         'start_date' => 'startDate',
-        'employee_number' => 'employeeNumber',
-        'ni_category' => 'niCategory',
-        'ni_categories' => 'niCategories',
-        'contracts' => 'contracts'
+        'employment_status' => 'employmentStatus',
+        'contract_type' => 'contractType',
+        'public_key' => 'publicKey',
+        'is_fixed_term' => 'isFixedTerm',
+        'fixed_term_end_date' => 'fixedTermEndDate',
+        'developmental_role_details' => 'developmentalRoleDetails'
     ];
 
     /**
@@ -121,12 +124,13 @@ class Employment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'payroll_calendar_id' => 'setPayrollCalendarId',
         'start_date' => 'setStartDate',
-        'employee_number' => 'setEmployeeNumber',
-        'ni_category' => 'setNiCategory',
-        'ni_categories' => 'setNiCategories',
-        'contracts' => 'setContracts'
+        'employment_status' => 'setEmploymentStatus',
+        'contract_type' => 'setContractType',
+        'public_key' => 'setPublicKey',
+        'is_fixed_term' => 'setIsFixedTerm',
+        'fixed_term_end_date' => 'setFixedTermEndDate',
+        'developmental_role_details' => 'setDevelopmentalRoleDetails'
     ];
 
     /**
@@ -135,12 +139,13 @@ class Employment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'payroll_calendar_id' => 'getPayrollCalendarId',
         'start_date' => 'getStartDate',
-        'employee_number' => 'getEmployeeNumber',
-        'ni_category' => 'getNiCategory',
-        'ni_categories' => 'getNiCategories',
-        'contracts' => 'getContracts'
+        'employment_status' => 'getEmploymentStatus',
+        'contract_type' => 'getContractType',
+        'public_key' => 'getPublicKey',
+        'is_fixed_term' => 'getIsFixedTerm',
+        'fixed_term_end_date' => 'getFixedTermEndDate',
+        'developmental_role_details' => 'getDevelopmentalRoleDetails'
     ];
 
     /**
@@ -203,12 +208,13 @@ class Employment implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['payroll_calendar_id'] = isset($data['payroll_calendar_id']) ? $data['payroll_calendar_id'] : null;
         $this->container['start_date'] = isset($data['start_date']) ? $data['start_date'] : null;
-        $this->container['employee_number'] = isset($data['employee_number']) ? $data['employee_number'] : null;
-        $this->container['ni_category'] = isset($data['ni_category']) ? $data['ni_category'] : null;
-        $this->container['ni_categories'] = isset($data['ni_categories']) ? $data['ni_categories'] : null;
-        $this->container['contracts'] = isset($data['contracts']) ? $data['contracts'] : null;
+        $this->container['employment_status'] = isset($data['employment_status']) ? $data['employment_status'] : null;
+        $this->container['contract_type'] = isset($data['contract_type']) ? $data['contract_type'] : null;
+        $this->container['public_key'] = isset($data['public_key']) ? $data['public_key'] : null;
+        $this->container['is_fixed_term'] = isset($data['is_fixed_term']) ? $data['is_fixed_term'] : null;
+        $this->container['fixed_term_end_date'] = isset($data['fixed_term_end_date']) ? $data['fixed_term_end_date'] : null;
+        $this->container['developmental_role_details'] = isset($data['developmental_role_details']) ? $data['developmental_role_details'] : null;
     }
 
     /**
@@ -220,17 +226,14 @@ class Employment implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['payroll_calendar_id'] === null) {
-            $invalidProperties[] = "'payroll_calendar_id' can't be null";
-        }
         if ($this->container['start_date'] === null) {
             $invalidProperties[] = "'start_date' can't be null";
         }
-        if ($this->container['employee_number'] === null) {
-            $invalidProperties[] = "'employee_number' can't be null";
+        if ($this->container['employment_status'] === null) {
+            $invalidProperties[] = "'employment_status' can't be null";
         }
-        if ($this->container['ni_categories'] === null) {
-            $invalidProperties[] = "'ni_categories' can't be null";
+        if ($this->container['contract_type'] === null) {
+            $invalidProperties[] = "'contract_type' can't be null";
         }
         return $invalidProperties;
     }
@@ -248,33 +251,6 @@ class Employment implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets payroll_calendar_id
-     *
-     * @return string
-     */
-    public function getPayrollCalendarId()
-    {
-        return $this->container['payroll_calendar_id'];
-    }
-
-    /**
-     * Sets payroll_calendar_id
-     *
-     * @param string $payroll_calendar_id Xero unique identifier for the payroll calendar of the employee
-     *
-     * @return $this
-     */
-    public function setPayrollCalendarId($payroll_calendar_id)
-    {
-
-        $this->container['payroll_calendar_id'] = $payroll_calendar_id;
-
-        return $this;
-    }
-
-
-
-    /**
      * Gets start_date
      *
      * @return \DateTime
@@ -287,7 +263,7 @@ class Employment implements ModelInterface, ArrayAccess
     /**
      * Sets start_date
      *
-     * @param \DateTime $start_date Start date of the employment (YYYY-MM-DD)
+     * @param \DateTime $start_date The contract start date of the employee. This will be locked once an employee has been paid and cannot be changed (YYYY-MM-DD)
      *
      * @return $this
      */
@@ -302,26 +278,26 @@ class Employment implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets employee_number
+     * Gets employment_status
      *
-     * @return string
+     * @return \XeroAPI\XeroPHP\Models\PayrollUk\EmploymentStatus
      */
-    public function getEmployeeNumber()
+    public function getEmploymentStatus()
     {
-        return $this->container['employee_number'];
+        return $this->container['employment_status'];
     }
 
     /**
-     * Sets employee_number
+     * Sets employment_status
      *
-     * @param string $employee_number The employment number of the employee
+     * @param \XeroAPI\XeroPHP\Models\PayrollUk\EmploymentStatus $employment_status employment_status
      *
      * @return $this
      */
-    public function setEmployeeNumber($employee_number)
+    public function setEmploymentStatus($employment_status)
     {
 
-        $this->container['employee_number'] = $employee_number;
+        $this->container['employment_status'] = $employment_status;
 
         return $this;
     }
@@ -329,26 +305,26 @@ class Employment implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ni_category
+     * Gets contract_type
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollUk\NICategoryLetter|null
+     * @return \XeroAPI\XeroPHP\Models\PayrollUk\ContractType
      */
-    public function getNiCategory()
+    public function getContractType()
     {
-        return $this->container['ni_category'];
+        return $this->container['contract_type'];
     }
 
     /**
-     * Sets ni_category
+     * Sets contract_type
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollUk\NICategoryLetter|null $ni_category ni_category
+     * @param \XeroAPI\XeroPHP\Models\PayrollUk\ContractType $contract_type contract_type
      *
      * @return $this
      */
-    public function setNiCategory($ni_category)
+    public function setContractType($contract_type)
     {
 
-        $this->container['ni_category'] = $ni_category;
+        $this->container['contract_type'] = $contract_type;
 
         return $this;
     }
@@ -356,26 +332,26 @@ class Employment implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ni_categories
+     * Gets public_key
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollUk\NICategory[]
+     * @return string|null
      */
-    public function getNiCategories()
+    public function getPublicKey()
     {
-        return $this->container['ni_categories'];
+        return $this->container['public_key'];
     }
 
     /**
-     * Sets ni_categories
+     * Sets public_key
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollUk\NICategory[] $ni_categories The employee's NI categories
+     * @param string|null $public_key The public key of the contract. Public key is required if the intention is to edit an existing contract. If no key is supplied a new contract will be created
      *
      * @return $this
      */
-    public function setNiCategories($ni_categories)
+    public function setPublicKey($public_key)
     {
 
-        $this->container['ni_categories'] = $ni_categories;
+        $this->container['public_key'] = $public_key;
 
         return $this;
     }
@@ -383,26 +359,80 @@ class Employment implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets contracts
+     * Gets is_fixed_term
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollUk\Contracts[]|null
+     * @return bool|null
      */
-    public function getContracts()
+    public function getIsFixedTerm()
     {
-        return $this->container['contracts'];
+        return $this->container['is_fixed_term'];
     }
 
     /**
-     * Sets contracts
+     * Sets is_fixed_term
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollUk\Contracts[]|null $contracts The employee's contracts
+     * @param bool|null $is_fixed_term describes whether the contract is fixed term (required if trying to create Fixed term contract)
      *
      * @return $this
      */
-    public function setContracts($contracts)
+    public function setIsFixedTerm($is_fixed_term)
     {
 
-        $this->container['contracts'] = $contracts;
+        $this->container['is_fixed_term'] = $is_fixed_term;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets fixed_term_end_date
+     *
+     * @return \DateTime|null
+     */
+    public function getFixedTermEndDate()
+    {
+        return $this->container['fixed_term_end_date'];
+    }
+
+    /**
+     * Sets fixed_term_end_date
+     *
+     * @param \DateTime|null $fixed_term_end_date The fixed term end date of the employee. Not required if isFixedTerm is false or not provided (required if trying to create Fixed term contract)
+     *
+     * @return $this
+     */
+    public function setFixedTermEndDate($fixed_term_end_date)
+    {
+
+        $this->container['fixed_term_end_date'] = $fixed_term_end_date;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets developmental_role_details
+     *
+     * @return \XeroAPI\XeroPHP\Models\PayrollUk\DevelopmentalRoleDetails|null
+     */
+    public function getDevelopmentalRoleDetails()
+    {
+        return $this->container['developmental_role_details'];
+    }
+
+    /**
+     * Sets developmental_role_details
+     *
+     * @param \XeroAPI\XeroPHP\Models\PayrollUk\DevelopmentalRoleDetails|null $developmental_role_details developmental_role_details
+     *
+     * @return $this
+     */
+    public function setDevelopmentalRoleDetails($developmental_role_details)
+    {
+
+        $this->container['developmental_role_details'] = $developmental_role_details;
 
         return $this;
     }
