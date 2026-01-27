@@ -4357,6 +4357,11 @@ ul.nav-tabs {
       "example" : false,
       "default" : false
     },
+    "Reference" : {
+      "type" : "string",
+      "description" : "An optional description for Overpayment",
+      "example" : "Ref for payment"
+    },
     "Attachments" : {
       "type" : "array",
       "description" : "See Attachments",
@@ -6343,7 +6348,7 @@ ul.nav-tabs {
           <nav id="scrollingNav">
             <ul class="sidenav nav nav-list">
               <li class="nav-header" data-group="Accounting"><strong>SDK: </strong><span id='sdk-name'></span></li>
-              <li class="nav-header" data-group="Accounting"><strong>VSN: </strong>10.3.0</li>
+              <li class="nav-header" data-group="Accounting"><strong>VSN: </strong>10.4.0</li>
               <li class="nav-header" data-group="Accounting"><a href="#api-Accounting">Methods</a></li>
               <li data-group="Accounting" data-name="createAccount" class="">
                 <a href="#api-Accounting-createAccount">createAccount</a>
@@ -31790,9 +31795,10 @@ $order = "Status ASC";
 $page = 1;
 $unitdp = 4;
 $pageSize = 100;
+$references = array(&quot;Ref1&quot;, &quot;Ref2&quot;)
 
 try {
-  $result = $apiInstance->getOverpayments($xeroTenantId, $ifModifiedSince, $where, $order, $page, $unitdp, $pageSize);
+  $result = $apiInstance->getOverpayments($xeroTenantId, $ifModifiedSince, $where, $order, $page, $unitdp, $pageSize, $references);
 } catch (Exception $e) {
   echo 'Exception when calling AccountingApi->getOverpayments: ', $e->getMessage(), PHP_EOL;
 }
@@ -31967,6 +31973,26 @@ e.g. unitdp=4 – (Unit Decimal Places) You can opt in to use four decimal place
 
                     <div class="inner description marked">
 Number of records to retrieve per page
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                    <tr><td style="width:150px;">References</td>
+<td>
+
+
+    <div id="d2e199_getOverpayments_references">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    array[String]
+                </span>
+
+                    <div class="inner description marked">
+Filter by a comma-separated list of References
                     </div>
             </div>
         </div>
