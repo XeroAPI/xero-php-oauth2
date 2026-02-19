@@ -3,6 +3,7 @@ namespace XeroAPI\XeroPHP;
 
 use \Firebase\JWT\JWT;
 use \Firebase\JWT\JWK;
+use \GuzzleHttp\Client;
 
 class JWTClaims
 {
@@ -34,8 +35,9 @@ class JWTClaims
     * @return object $verifiedJWT
     */
     private function verify($token) {
-        $json = file_get_contents('https://identity.xero.com/.well-known/openid-configuration/jwks');
-        $jwks =  json_decode($json, true);
+        $client = new Client();
+        $response = $client->get('https://identity.xero.com/.well-known/openid-configuration/jwks');
+        $jwks = json_decode($response->getBody()->getContents(), true);
         $supportedAlgorithm = (object) ['alg'=>['RS256','ES256']];
         $verifiedJWT = JWT::decode($token, JWK::parseKeySet($jwks), $supportedAlgorithm);
 
