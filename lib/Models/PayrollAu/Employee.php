@@ -89,7 +89,6 @@ class Employee implements ModelInterface, ArrayAccess
         'country_of_residence' => '\XeroAPI\XeroPHP\Models\PayrollAu\CountryOfResidence',
         'is_stp2_qualified' => 'bool',
         'leave_balances' => '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveBalance[]',
-        'leave_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveLine[]',
         'super_memberships' => '\XeroAPI\XeroPHP\Models\PayrollAu\SuperMembership[]',
         'status' => '\XeroAPI\XeroPHP\Models\PayrollAu\EmployeeStatus',
         'updated_date_utc' => 'string',
@@ -133,7 +132,6 @@ class Employee implements ModelInterface, ArrayAccess
         'country_of_residence' => null,
         'is_stp2_qualified' => null,
         'leave_balances' => null,
-        'leave_lines' => null,
         'super_memberships' => null,
         'status' => null,
         'updated_date_utc' => null,
@@ -198,7 +196,6 @@ class Employee implements ModelInterface, ArrayAccess
         'country_of_residence' => 'CountryOfResidence',
         'is_stp2_qualified' => 'IsSTP2Qualified',
         'leave_balances' => 'LeaveBalances',
-        'leave_lines' => 'LeaveLines',
         'super_memberships' => 'SuperMemberships',
         'status' => 'Status',
         'updated_date_utc' => 'UpdatedDateUTC',
@@ -242,7 +239,6 @@ class Employee implements ModelInterface, ArrayAccess
         'country_of_residence' => 'setCountryOfResidence',
         'is_stp2_qualified' => 'setIsStp2Qualified',
         'leave_balances' => 'setLeaveBalances',
-        'leave_lines' => 'setLeaveLines',
         'super_memberships' => 'setSuperMemberships',
         'status' => 'setStatus',
         'updated_date_utc' => 'setUpdatedDateUtc',
@@ -286,7 +282,6 @@ class Employee implements ModelInterface, ArrayAccess
         'country_of_residence' => 'getCountryOfResidence',
         'is_stp2_qualified' => 'getIsStp2Qualified',
         'leave_balances' => 'getLeaveBalances',
-        'leave_lines' => 'getLeaveLines',
         'super_memberships' => 'getSuperMemberships',
         'status' => 'getStatus',
         'updated_date_utc' => 'getUpdatedDateUtc',
@@ -428,7 +423,6 @@ class Employee implements ModelInterface, ArrayAccess
         $this->container['country_of_residence'] = isset($data['country_of_residence']) ? $data['country_of_residence'] : null;
         $this->container['is_stp2_qualified'] = isset($data['is_stp2_qualified']) ? $data['is_stp2_qualified'] : null;
         $this->container['leave_balances'] = isset($data['leave_balances']) ? $data['leave_balances'] : null;
-        $this->container['leave_lines'] = isset($data['leave_lines']) ? $data['leave_lines'] : null;
         $this->container['super_memberships'] = isset($data['super_memberships']) ? $data['super_memberships'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
@@ -1411,33 +1405,6 @@ class Employee implements ModelInterface, ArrayAccess
     {
 
         $this->container['leave_balances'] = $leave_balances;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets leave_lines
-     *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\LeaveLine[]|null
-     */
-    public function getLeaveLines()
-    {
-        return $this->container['leave_lines'];
-    }
-
-    /**
-     * Sets leave_lines
-     *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\LeaveLine[]|null $leave_lines leave_lines
-     *
-     * @return $this
-     */
-    public function setLeaveLines($leave_lines)
-    {
-
-        $this->container['leave_lines'] = $leave_lines;
 
         return $this;
     }
