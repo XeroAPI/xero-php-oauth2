@@ -78,7 +78,8 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
         'approved_withholding_variation_percentage' => 'float',
         'has_student_startup_loan' => 'bool',
         'has_loan_or_student_debt' => 'bool',
-        'updated_date_utc' => 'string'
+        'updated_date_utc' => 'string',
+        'include_leave_loading_in_qualifying_earnings' => 'bool'
     ];
 
     /**
@@ -107,7 +108,8 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
         'approved_withholding_variation_percentage' => 'int',
         'has_student_startup_loan' => null,
         'has_loan_or_student_debt' => null,
-        'updated_date_utc' => null
+        'updated_date_utc' => null,
+        'include_leave_loading_in_qualifying_earnings' => null
     ];
 
     /**
@@ -157,7 +159,8 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
         'approved_withholding_variation_percentage' => 'ApprovedWithholdingVariationPercentage',
         'has_student_startup_loan' => 'HasStudentStartupLoan',
         'has_loan_or_student_debt' => 'HasLoanOrStudentDebt',
-        'updated_date_utc' => 'UpdatedDateUTC'
+        'updated_date_utc' => 'UpdatedDateUTC',
+        'include_leave_loading_in_qualifying_earnings' => 'IncludeLeaveLoadingInQualifyingEarnings'
     ];
 
     /**
@@ -186,7 +189,8 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
         'approved_withholding_variation_percentage' => 'setApprovedWithholdingVariationPercentage',
         'has_student_startup_loan' => 'setHasStudentStartupLoan',
         'has_loan_or_student_debt' => 'setHasLoanOrStudentDebt',
-        'updated_date_utc' => 'setUpdatedDateUtc'
+        'updated_date_utc' => 'setUpdatedDateUtc',
+        'include_leave_loading_in_qualifying_earnings' => 'setIncludeLeaveLoadingInQualifyingEarnings'
     ];
 
     /**
@@ -215,7 +219,8 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
         'approved_withholding_variation_percentage' => 'getApprovedWithholdingVariationPercentage',
         'has_student_startup_loan' => 'getHasStudentStartupLoan',
         'has_loan_or_student_debt' => 'getHasLoanOrStudentDebt',
-        'updated_date_utc' => 'getUpdatedDateUtc'
+        'updated_date_utc' => 'getUpdatedDateUtc',
+        'include_leave_loading_in_qualifying_earnings' => 'getIncludeLeaveLoadingInQualifyingEarnings'
     ];
 
     /**
@@ -299,6 +304,7 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
         $this->container['has_student_startup_loan'] = isset($data['has_student_startup_loan']) ? $data['has_student_startup_loan'] : null;
         $this->container['has_loan_or_student_debt'] = isset($data['has_loan_or_student_debt']) ? $data['has_loan_or_student_debt'] : null;
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
+        $this->container['include_leave_loading_in_qualifying_earnings'] = isset($data['include_leave_loading_in_qualifying_earnings']) ? $data['include_leave_loading_in_qualifying_earnings'] : null;
     }
 
     /**
@@ -897,6 +903,33 @@ class TaxDeclaration implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+
+    /**
+     * Gets include_leave_loading_in_qualifying_earnings
+     *
+     * @return bool|null
+     */
+    public function getIncludeLeaveLoadingInQualifyingEarnings()
+    {
+        return $this->container['include_leave_loading_in_qualifying_earnings'];
+    }
+
+    /**
+     * Sets include_leave_loading_in_qualifying_earnings
+     *
+     * @param bool|null $include_leave_loading_in_qualifying_earnings Optional Boolean to determine if leave loading is considered as qualifying earnings for superannuation guarantee calculations
+     *
+     * @return $this
+     */
+    public function setIncludeLeaveLoadingInQualifyingEarnings($include_leave_loading_in_qualifying_earnings)
+    {
+
+        $this->container['include_leave_loading_in_qualifying_earnings'] = $include_leave_loading_in_qualifying_earnings;
+
+        return $this;
+    }
+
 
     /**
      * Returns true if offset exists. False otherwise.

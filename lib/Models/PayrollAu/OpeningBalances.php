@@ -64,7 +64,7 @@ class OpeningBalances implements ModelInterface, ArrayAccess
         'deduction_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\DeductionLine[]',
         'super_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\SuperLine[]',
         'reimbursement_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\ReimbursementLine[]',
-        'leave_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveLine[]',
+        'leave_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\OpeningBalanceLeaveLine[]',
         'paid_leave_earnings_lines' => '\XeroAPI\XeroPHP\Models\PayrollAu\PaidLeaveEarningsLine[]'
     ];
 
@@ -438,7 +438,7 @@ class OpeningBalances implements ModelInterface, ArrayAccess
     /**
      * Gets leave_lines
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollAu\LeaveLine[]|null
+     * @return \XeroAPI\XeroPHP\Models\PayrollAu\OpeningBalanceLeaveLine[]|null
      */
     public function getLeaveLines()
     {
@@ -448,7 +448,7 @@ class OpeningBalances implements ModelInterface, ArrayAccess
     /**
      * Sets leave_lines
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollAu\LeaveLine[]|null $leave_lines leave_lines
+     * @param \XeroAPI\XeroPHP\Models\PayrollAu\OpeningBalanceLeaveLine[]|null $leave_lines leave_lines
      *
      * @return $this
      */

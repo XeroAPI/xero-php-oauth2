@@ -68,7 +68,8 @@ class LeaveType implements ModelInterface, ArrayAccess
         'show_on_payslip' => 'bool',
         'current_record' => 'bool',
         'leave_category_code' => '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveCategoryCode',
-        'sgc_exempt' => 'bool'
+        'sgc_exempt' => 'bool',
+        'is_qualifying_earnings' => 'bool'
     ];
 
     /**
@@ -87,7 +88,8 @@ class LeaveType implements ModelInterface, ArrayAccess
         'show_on_payslip' => null,
         'current_record' => null,
         'leave_category_code' => null,
-        'sgc_exempt' => null
+        'sgc_exempt' => null,
+        'is_qualifying_earnings' => null
     ];
 
     /**
@@ -127,7 +129,8 @@ class LeaveType implements ModelInterface, ArrayAccess
         'show_on_payslip' => 'ShowOnPayslip',
         'current_record' => 'CurrentRecord',
         'leave_category_code' => 'LeaveCategoryCode',
-        'sgc_exempt' => 'SGCExempt'
+        'sgc_exempt' => 'SGCExempt',
+        'is_qualifying_earnings' => 'IsQualifyingEarnings'
     ];
 
     /**
@@ -146,7 +149,8 @@ class LeaveType implements ModelInterface, ArrayAccess
         'show_on_payslip' => 'setShowOnPayslip',
         'current_record' => 'setCurrentRecord',
         'leave_category_code' => 'setLeaveCategoryCode',
-        'sgc_exempt' => 'setSgcExempt'
+        'sgc_exempt' => 'setSgcExempt',
+        'is_qualifying_earnings' => 'setIsQualifyingEarnings'
     ];
 
     /**
@@ -165,7 +169,8 @@ class LeaveType implements ModelInterface, ArrayAccess
         'show_on_payslip' => 'getShowOnPayslip',
         'current_record' => 'getCurrentRecord',
         'leave_category_code' => 'getLeaveCategoryCode',
-        'sgc_exempt' => 'getSgcExempt'
+        'sgc_exempt' => 'getSgcExempt',
+        'is_qualifying_earnings' => 'getIsQualifyingEarnings'
     ];
 
     /**
@@ -239,6 +244,7 @@ class LeaveType implements ModelInterface, ArrayAccess
         $this->container['current_record'] = isset($data['current_record']) ? $data['current_record'] : null;
         $this->container['leave_category_code'] = isset($data['leave_category_code']) ? $data['leave_category_code'] : null;
         $this->container['sgc_exempt'] = isset($data['sgc_exempt']) ? $data['sgc_exempt'] : null;
+        $this->container['is_qualifying_earnings'] = isset($data['is_qualifying_earnings']) ? $data['is_qualifying_earnings'] : null;
     }
 
     /**
@@ -571,6 +577,33 @@ class LeaveType implements ModelInterface, ArrayAccess
     {
 
         $this->container['sgc_exempt'] = $sgc_exempt;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets is_qualifying_earnings
+     *
+     * @return bool|null
+     */
+    public function getIsQualifyingEarnings()
+    {
+        return $this->container['is_qualifying_earnings'];
+    }
+
+    /**
+     * Sets is_qualifying_earnings
+     *
+     * @param bool|null $is_qualifying_earnings Optional Boolean to determine if the earnings rate is considered as qualifying earnings for superannuation guarantee calculations. When not specified value is calculated based on earnings type and superannuation settings
+     *
+     * @return $this
+     */
+    public function setIsQualifyingEarnings($is_qualifying_earnings)
+    {
+
+        $this->container['is_qualifying_earnings'] = $is_qualifying_earnings;
 
         return $this;
     }

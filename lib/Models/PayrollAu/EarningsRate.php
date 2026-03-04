@@ -64,6 +64,7 @@ class EarningsRate implements ModelInterface, ArrayAccess
         'is_exempt_from_tax' => 'bool',
         'is_exempt_from_super' => 'bool',
         'is_reportable_as_w1' => 'bool',
+        'is_qualifying_earnings' => 'bool',
         'allowance_contributes_to_annual_leave_rate' => 'bool',
         'allowance_contributes_to_overtime_rate' => 'bool',
         'earnings_type' => '\XeroAPI\XeroPHP\Models\PayrollAu\EarningsType',
@@ -92,6 +93,7 @@ class EarningsRate implements ModelInterface, ArrayAccess
         'is_exempt_from_tax' => null,
         'is_exempt_from_super' => null,
         'is_reportable_as_w1' => null,
+        'is_qualifying_earnings' => null,
         'allowance_contributes_to_annual_leave_rate' => null,
         'allowance_contributes_to_overtime_rate' => null,
         'earnings_type' => null,
@@ -141,6 +143,7 @@ class EarningsRate implements ModelInterface, ArrayAccess
         'is_exempt_from_tax' => 'IsExemptFromTax',
         'is_exempt_from_super' => 'IsExemptFromSuper',
         'is_reportable_as_w1' => 'IsReportableAsW1',
+        'is_qualifying_earnings' => 'IsQualifyingEarnings',
         'allowance_contributes_to_annual_leave_rate' => 'AllowanceContributesToAnnualLeaveRate',
         'allowance_contributes_to_overtime_rate' => 'AllowanceContributesToOvertimeRate',
         'earnings_type' => 'EarningsType',
@@ -169,6 +172,7 @@ class EarningsRate implements ModelInterface, ArrayAccess
         'is_exempt_from_tax' => 'setIsExemptFromTax',
         'is_exempt_from_super' => 'setIsExemptFromSuper',
         'is_reportable_as_w1' => 'setIsReportableAsW1',
+        'is_qualifying_earnings' => 'setIsQualifyingEarnings',
         'allowance_contributes_to_annual_leave_rate' => 'setAllowanceContributesToAnnualLeaveRate',
         'allowance_contributes_to_overtime_rate' => 'setAllowanceContributesToOvertimeRate',
         'earnings_type' => 'setEarningsType',
@@ -197,6 +201,7 @@ class EarningsRate implements ModelInterface, ArrayAccess
         'is_exempt_from_tax' => 'getIsExemptFromTax',
         'is_exempt_from_super' => 'getIsExemptFromSuper',
         'is_reportable_as_w1' => 'getIsReportableAsW1',
+        'is_qualifying_earnings' => 'getIsQualifyingEarnings',
         'allowance_contributes_to_annual_leave_rate' => 'getAllowanceContributesToAnnualLeaveRate',
         'allowance_contributes_to_overtime_rate' => 'getAllowanceContributesToOvertimeRate',
         'earnings_type' => 'getEarningsType',
@@ -279,6 +284,7 @@ class EarningsRate implements ModelInterface, ArrayAccess
         $this->container['is_exempt_from_tax'] = isset($data['is_exempt_from_tax']) ? $data['is_exempt_from_tax'] : null;
         $this->container['is_exempt_from_super'] = isset($data['is_exempt_from_super']) ? $data['is_exempt_from_super'] : null;
         $this->container['is_reportable_as_w1'] = isset($data['is_reportable_as_w1']) ? $data['is_reportable_as_w1'] : null;
+        $this->container['is_qualifying_earnings'] = isset($data['is_qualifying_earnings']) ? $data['is_qualifying_earnings'] : null;
         $this->container['allowance_contributes_to_annual_leave_rate'] = isset($data['allowance_contributes_to_annual_leave_rate']) ? $data['allowance_contributes_to_annual_leave_rate'] : null;
         $this->container['allowance_contributes_to_overtime_rate'] = isset($data['allowance_contributes_to_overtime_rate']) ? $data['allowance_contributes_to_overtime_rate'] : null;
         $this->container['earnings_type'] = isset($data['earnings_type']) ? $data['earnings_type'] : null;
@@ -491,6 +497,33 @@ class EarningsRate implements ModelInterface, ArrayAccess
     {
 
         $this->container['is_reportable_as_w1'] = $is_reportable_as_w1;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets is_qualifying_earnings
+     *
+     * @return bool|null
+     */
+    public function getIsQualifyingEarnings()
+    {
+        return $this->container['is_qualifying_earnings'];
+    }
+
+    /**
+     * Sets is_qualifying_earnings
+     *
+     * @param bool|null $is_qualifying_earnings Optional Boolean to determine if the earnings rate is considered as qualifying earnings for superannuation guarantee calculations. When not specified value is calculated based on earnings type and superannuation settings
+     *
+     * @return $this
+     */
+    public function setIsQualifyingEarnings($is_qualifying_earnings)
+    {
+
+        $this->container['is_qualifying_earnings'] = $is_qualifying_earnings;
 
         return $this;
     }
