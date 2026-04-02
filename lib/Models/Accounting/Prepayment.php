@@ -68,6 +68,7 @@ class Prepayment implements ModelInterface, ArrayAccess
         'total_tax' => 'double',
         'total' => 'double',
         'reference' => 'string',
+        'invoice_number' => 'string',
         'updated_date_utc' => 'string',
         'currency_code' => '\XeroAPI\XeroPHP\Models\Accounting\CurrencyCode',
         'prepayment_id' => 'string',
@@ -96,6 +97,7 @@ class Prepayment implements ModelInterface, ArrayAccess
         'total_tax' => 'double',
         'total' => 'double',
         'reference' => null,
+        'invoice_number' => null,
         'updated_date_utc' => null,
         'currency_code' => null,
         'prepayment_id' => 'uuid',
@@ -145,6 +147,7 @@ class Prepayment implements ModelInterface, ArrayAccess
         'total_tax' => 'TotalTax',
         'total' => 'Total',
         'reference' => 'Reference',
+        'invoice_number' => 'InvoiceNumber',
         'updated_date_utc' => 'UpdatedDateUTC',
         'currency_code' => 'CurrencyCode',
         'prepayment_id' => 'PrepaymentID',
@@ -173,6 +176,7 @@ class Prepayment implements ModelInterface, ArrayAccess
         'total_tax' => 'setTotalTax',
         'total' => 'setTotal',
         'reference' => 'setReference',
+        'invoice_number' => 'setInvoiceNumber',
         'updated_date_utc' => 'setUpdatedDateUtc',
         'currency_code' => 'setCurrencyCode',
         'prepayment_id' => 'setPrepaymentId',
@@ -201,6 +205,7 @@ class Prepayment implements ModelInterface, ArrayAccess
         'total_tax' => 'getTotalTax',
         'total' => 'getTotal',
         'reference' => 'getReference',
+        'invoice_number' => 'getInvoiceNumber',
         'updated_date_utc' => 'getUpdatedDateUtc',
         'currency_code' => 'getCurrencyCode',
         'prepayment_id' => 'getPrepaymentId',
@@ -319,6 +324,7 @@ class Prepayment implements ModelInterface, ArrayAccess
         $this->container['total_tax'] = isset($data['total_tax']) ? $data['total_tax'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
         $this->container['reference'] = isset($data['reference']) ? $data['reference'] : null;
+        $this->container['invoice_number'] = isset($data['invoice_number']) ? $data['invoice_number'] : null;
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
         $this->container['currency_code'] = isset($data['currency_code']) ? $data['currency_code'] : null;
         $this->container['prepayment_id'] = isset($data['prepayment_id']) ? $data['prepayment_id'] : null;
@@ -679,6 +685,32 @@ class Prepayment implements ModelInterface, ArrayAccess
     {
 
         $this->container['reference'] = $reference;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets invoice_number
+     *
+     * @return string|null
+     */
+    public function getInvoiceNumber()
+    {
+        return $this->container['invoice_number'];
+    }
+
+    /**
+     * Sets invoice_number
+     *
+     * @param string|null $invoice_number Returns Invoice number for prepayment receive document only.
+     *
+     * @return $this
+     */
+    public function setInvoiceNumber($invoice_number)
+    {
+
+        $this->container['invoice_number'] = $invoice_number;
 
         return $this;
     }
