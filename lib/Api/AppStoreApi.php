@@ -15,7 +15,11 @@
  * These endpoints are for Xero Partners to interact with the App Store Billing platform
  *
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
  * OpenAPI spec version: 12.0.1
+=======
+ * OpenAPI spec version: 12.0.2
+>>>>>>> Stashed changes
 =======
  * OpenAPI spec version: 12.0.2
 >>>>>>> Stashed changes

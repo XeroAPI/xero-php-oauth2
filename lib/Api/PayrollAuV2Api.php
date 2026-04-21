@@ -15,7 +15,11 @@
  * This is the Xero Payroll API 2.0 for orgs in Australia region.
  *
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
  * OpenAPI spec version: 12.0.1
+=======
+ * OpenAPI spec version: 12.0.2
+>>>>>>> Stashed changes
 =======
  * OpenAPI spec version: 12.0.2
 >>>>>>> Stashed changes

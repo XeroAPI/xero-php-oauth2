@@ -697,7 +697,11 @@ class Configuration
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         $report .= '    OpenAPI Spec Version: 12.0.1' . PHP_EOL;
+=======
+        $report .= '    OpenAPI Spec Version: 12.0.2' . PHP_EOL;
+>>>>>>> Stashed changes
 =======
         $report .= '    OpenAPI Spec Version: 12.0.2' . PHP_EOL;
 >>>>>>> Stashed changes

@@ -15,7 +15,11 @@
  * The Finance API is a collection of endpoints which customers can use in the course of a loan application, which may assist lenders to gain the confidence they need to provide capital.
  *
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
  * OpenAPI spec version: 12.0.1
+=======
+ * OpenAPI spec version: 12.0.2
+>>>>>>> Stashed changes
 =======
  * OpenAPI spec version: 12.0.2
 >>>>>>> Stashed changes

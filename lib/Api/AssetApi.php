@@ -15,7 +15,11 @@
  * The Assets API exposes fixed asset related functions of the Xero Accounting application and can be used for a variety of purposes such as creating assets, retrieving asset valuations etc.
  *
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
  * OpenAPI spec version: 12.0.1
+=======
+ * OpenAPI spec version: 12.0.2
+>>>>>>> Stashed changes
 =======
  * OpenAPI spec version: 12.0.2
 >>>>>>> Stashed changes

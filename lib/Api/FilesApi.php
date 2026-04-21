@@ -15,7 +15,11 @@
  * These endpoints are specific to Xero Files API
  *
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
  * OpenAPI spec version: 12.0.1
+=======
+ * OpenAPI spec version: 12.0.2
+>>>>>>> Stashed changes
 =======
  * OpenAPI spec version: 12.0.2
 >>>>>>> Stashed changes

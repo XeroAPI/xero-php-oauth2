@@ -350,7 +350,10 @@ class Organisation implements ModelInterface, ArrayAccess
     const ORGANISATION_TYPE_SUPERANNUATION_FUND = 'SUPERANNUATION_FUND';
     const ORGANISATION_TYPE_TRUST = 'TRUST';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
     const ORGANISATION_TYPE_PERSONAL = 'PERSONAL';
     const ORGANISATION_TYPE_SINGLEMEMBERLLC = 'SINGLEMEMBERLLC';
     const ORGANISATION_TYPE_CCORPORATIONLLC = 'CCORPORATIONLLC';
@@ -358,6 +361,9 @@ class Organisation implements ModelInterface, ArrayAccess
     const ORGANISATION_TYPE_SCORPORATIONLLC = 'SCORPORATIONLLC';
     const ORGANISATION_TYPE_LLC = 'LLC';
     const ORGANISATION_TYPE_NOTLLC = 'NOTLLC';
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     const ORGANISATION_TYPE_UNSPECIFIED = 'UNSPECIFIED';
     const SALES_TAX_BASIS_PAYMENTS = 'PAYMENTS';
@@ -404,7 +410,10 @@ class Organisation implements ModelInterface, ArrayAccess
     const ORGANISATION_ENTITY_TYPE_SUPERANNUATION_FUND = 'SUPERANNUATION_FUND';
     const ORGANISATION_ENTITY_TYPE_TRUST = 'TRUST';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
     const ORGANISATION_ENTITY_TYPE_PERSONAL = 'PERSONAL';
     const ORGANISATION_ENTITY_TYPE_SINGLEMEMBERLLC = 'SINGLEMEMBERLLC';
     const ORGANISATION_ENTITY_TYPE_CCORPORATIONLLC = 'CCORPORATIONLLC';
@@ -412,6 +421,9 @@ class Organisation implements ModelInterface, ArrayAccess
     const ORGANISATION_ENTITY_TYPE_SCORPORATIONLLC = 'SCORPORATIONLLC';
     const ORGANISATION_ENTITY_TYPE_LLC = 'LLC';
     const ORGANISATION_ENTITY_TYPE_NOTLLC = 'NOTLLC';
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     const ORGANISATION_ENTITY_TYPE_UNSPECIFIED = 'UNSPECIFIED';
     const MODEL_CLASS_DEMO = 'DEMO';
@@ -490,7 +502,10 @@ class Organisation implements ModelInterface, ArrayAccess
             self::ORGANISATION_TYPE_SUPERANNUATION_FUND,
             self::ORGANISATION_TYPE_TRUST,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
             self::ORGANISATION_TYPE_PERSONAL,
             self::ORGANISATION_TYPE_SINGLEMEMBERLLC,
             self::ORGANISATION_TYPE_CCORPORATIONLLC,
@@ -498,6 +513,9 @@ class Organisation implements ModelInterface, ArrayAccess
             self::ORGANISATION_TYPE_SCORPORATIONLLC,
             self::ORGANISATION_TYPE_LLC,
             self::ORGANISATION_TYPE_NOTLLC,
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             self::ORGANISATION_TYPE_UNSPECIFIED,
         ];
@@ -577,7 +595,10 @@ class Organisation implements ModelInterface, ArrayAccess
             self::ORGANISATION_ENTITY_TYPE_SUPERANNUATION_FUND,
             self::ORGANISATION_ENTITY_TYPE_TRUST,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
             self::ORGANISATION_ENTITY_TYPE_PERSONAL,
             self::ORGANISATION_ENTITY_TYPE_SINGLEMEMBERLLC,
             self::ORGANISATION_ENTITY_TYPE_CCORPORATIONLLC,
@@ -585,6 +606,9 @@ class Organisation implements ModelInterface, ArrayAccess
             self::ORGANISATION_ENTITY_TYPE_SCORPORATIONLLC,
             self::ORGANISATION_ENTITY_TYPE_LLC,
             self::ORGANISATION_ENTITY_TYPE_NOTLLC,
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             self::ORGANISATION_ENTITY_TYPE_UNSPECIFIED,
         ];
