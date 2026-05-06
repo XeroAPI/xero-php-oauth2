@@ -61,6 +61,8 @@ class Association implements ModelInterface, ArrayAccess
         'send_with_object' => 'bool',
         'name' => 'string',
         'size' => 'int',
+        'created_date_utc' => '\DateTime',
+        'association_date_utc' => '\DateTime',
         'file_id' => 'string',
         'object_id' => 'string',
         'object_group' => '\XeroAPI\XeroPHP\Models\File\ObjectGroup',
@@ -76,6 +78,8 @@ class Association implements ModelInterface, ArrayAccess
         'send_with_object' => null,
         'name' => null,
         'size' => null,
+        'created_date_utc' => 'date-time',
+        'association_date_utc' => 'date-time',
         'file_id' => 'uuid',
         'object_id' => 'uuid',
         'object_group' => null,
@@ -112,6 +116,8 @@ class Association implements ModelInterface, ArrayAccess
         'send_with_object' => 'SendWithObject',
         'name' => 'Name',
         'size' => 'Size',
+        'created_date_utc' => 'CreatedDateUtc',
+        'association_date_utc' => 'AssociationDateUtc',
         'file_id' => 'FileId',
         'object_id' => 'ObjectId',
         'object_group' => 'ObjectGroup',
@@ -127,6 +133,8 @@ class Association implements ModelInterface, ArrayAccess
         'send_with_object' => 'setSendWithObject',
         'name' => 'setName',
         'size' => 'setSize',
+        'created_date_utc' => 'setCreatedDateUtc',
+        'association_date_utc' => 'setAssociationDateUtc',
         'file_id' => 'setFileId',
         'object_id' => 'setObjectId',
         'object_group' => 'setObjectGroup',
@@ -142,6 +150,8 @@ class Association implements ModelInterface, ArrayAccess
         'send_with_object' => 'getSendWithObject',
         'name' => 'getName',
         'size' => 'getSize',
+        'created_date_utc' => 'getCreatedDateUtc',
+        'association_date_utc' => 'getAssociationDateUtc',
         'file_id' => 'getFileId',
         'object_id' => 'getObjectId',
         'object_group' => 'getObjectGroup',
@@ -211,6 +221,8 @@ class Association implements ModelInterface, ArrayAccess
         $this->container['send_with_object'] = isset($data['send_with_object']) ? $data['send_with_object'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
+        $this->container['created_date_utc'] = isset($data['created_date_utc']) ? $data['created_date_utc'] : null;
+        $this->container['association_date_utc'] = isset($data['association_date_utc']) ? $data['association_date_utc'] : null;
         $this->container['file_id'] = isset($data['file_id']) ? $data['file_id'] : null;
         $this->container['object_id'] = isset($data['object_id']) ? $data['object_id'] : null;
         $this->container['object_group'] = isset($data['object_group']) ? $data['object_group'] : null;
@@ -316,6 +328,60 @@ class Association implements ModelInterface, ArrayAccess
     {
 
         $this->container['size'] = $size;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets created_date_utc
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedDateUtc()
+    {
+        return $this->container['created_date_utc'];
+    }
+
+    /**
+     * Sets created_date_utc
+     *
+     * @param \DateTime|null $created_date_utc The date the file was created (UTC). Note- The CreatedDateUtc element is only returned when using /Associations/{ObjectId} endpoint.
+     *
+     * @return $this
+     */
+    public function setCreatedDateUtc($created_date_utc)
+    {
+
+        $this->container['created_date_utc'] = $created_date_utc;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets association_date_utc
+     *
+     * @return \DateTime|null
+     */
+    public function getAssociationDateUtc()
+    {
+        return $this->container['association_date_utc'];
+    }
+
+    /**
+     * Sets association_date_utc
+     *
+     * @param \DateTime|null $association_date_utc The date the file was associated with the object (UTC). Note- The AssociationDateUtc element is only returned when using /Associations/{ObjectId} endpoint.
+     *
+     * @return $this
+     */
+    public function setAssociationDateUtc($association_date_utc)
+    {
+
+        $this->container['association_date_utc'] = $association_date_utc;
 
         return $this;
     }
