@@ -72,6 +72,7 @@ class Prepayment implements ModelInterface, ArrayAccess
         'updated_date_utc' => 'string',
         'currency_code' => '\XeroAPI\XeroPHP\Models\Accounting\CurrencyCode',
         'prepayment_id' => 'string',
+        'branding_theme_id' => 'string',
         'currency_rate' => 'double',
         'remaining_credit' => 'double',
         'allocations' => '\XeroAPI\XeroPHP\Models\Accounting\Allocation[]',
@@ -101,6 +102,7 @@ class Prepayment implements ModelInterface, ArrayAccess
         'updated_date_utc' => null,
         'currency_code' => null,
         'prepayment_id' => 'uuid',
+        'branding_theme_id' => 'uuid',
         'currency_rate' => 'double',
         'remaining_credit' => 'double',
         'allocations' => null,
@@ -151,6 +153,7 @@ class Prepayment implements ModelInterface, ArrayAccess
         'updated_date_utc' => 'UpdatedDateUTC',
         'currency_code' => 'CurrencyCode',
         'prepayment_id' => 'PrepaymentID',
+        'branding_theme_id' => 'BrandingThemeID',
         'currency_rate' => 'CurrencyRate',
         'remaining_credit' => 'RemainingCredit',
         'allocations' => 'Allocations',
@@ -180,6 +183,7 @@ class Prepayment implements ModelInterface, ArrayAccess
         'updated_date_utc' => 'setUpdatedDateUtc',
         'currency_code' => 'setCurrencyCode',
         'prepayment_id' => 'setPrepaymentId',
+        'branding_theme_id' => 'setBrandingThemeId',
         'currency_rate' => 'setCurrencyRate',
         'remaining_credit' => 'setRemainingCredit',
         'allocations' => 'setAllocations',
@@ -209,6 +213,7 @@ class Prepayment implements ModelInterface, ArrayAccess
         'updated_date_utc' => 'getUpdatedDateUtc',
         'currency_code' => 'getCurrencyCode',
         'prepayment_id' => 'getPrepaymentId',
+        'branding_theme_id' => 'getBrandingThemeId',
         'currency_rate' => 'getCurrencyRate',
         'remaining_credit' => 'getRemainingCredit',
         'allocations' => 'getAllocations',
@@ -328,6 +333,7 @@ class Prepayment implements ModelInterface, ArrayAccess
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
         $this->container['currency_code'] = isset($data['currency_code']) ? $data['currency_code'] : null;
         $this->container['prepayment_id'] = isset($data['prepayment_id']) ? $data['prepayment_id'] : null;
+        $this->container['branding_theme_id'] = isset($data['branding_theme_id']) ? $data['branding_theme_id'] : null;
         $this->container['currency_rate'] = isset($data['currency_rate']) ? $data['currency_rate'] : null;
         $this->container['remaining_credit'] = isset($data['remaining_credit']) ? $data['remaining_credit'] : null;
         $this->container['allocations'] = isset($data['allocations']) ? $data['allocations'] : null;
@@ -802,6 +808,32 @@ class Prepayment implements ModelInterface, ArrayAccess
         return $this;
     }
 
+
+
+    /**
+     * Gets branding_theme_id
+     *
+     * @return string|null
+     */
+    public function getBrandingThemeId()
+    {
+        return $this->container['branding_theme_id'];
+    }
+
+    /**
+     * Sets branding_theme_id
+     *
+     * @param string|null $branding_theme_id The unique identifier of the branding template applied to a receive prepayment
+     *
+     * @return $this
+     */
+    public function setBrandingThemeId($branding_theme_id)
+    {
+
+        $this->container['branding_theme_id'] = $branding_theme_id;
+
+        return $this;
+    }
 
 
     /**
