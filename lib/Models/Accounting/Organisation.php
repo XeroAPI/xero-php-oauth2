@@ -415,6 +415,7 @@ class Organisation implements ModelInterface, ArrayAccess
     const MODEL_CLASS_GROW = 'GROW';
     const MODEL_CLASS_COMPREHENSIVE = 'COMPREHENSIVE';
     const MODEL_CLASS_SIMPLE = 'SIMPLE';
+    const MODEL_CLASS_BASICLITE = 'BASICLITE';
     const EDITION_BUSINESS = 'BUSINESS';
     const EDITION_PARTNER = 'PARTNER';
     
@@ -579,6 +580,7 @@ class Organisation implements ModelInterface, ArrayAccess
             self::MODEL_CLASS_GROW,
             self::MODEL_CLASS_COMPREHENSIVE,
             self::MODEL_CLASS_SIMPLE,
+            self::MODEL_CLASS_BASICLITE,
         ];
     }
     

@@ -196,6 +196,9 @@ class EmployeePayTemplate implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['earning_templates'] === null) {
+            $invalidProperties[] = "'earning_templates' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -241,7 +244,7 @@ class EmployeePayTemplate implements ModelInterface, ArrayAccess
     /**
      * Gets earning_templates
      *
-     * @return \XeroAPI\XeroPHP\Models\PayrollNz\EarningsTemplate[]|null
+     * @return \XeroAPI\XeroPHP\Models\PayrollNz\EarningsTemplate[]
      */
     public function getEarningTemplates()
     {
@@ -251,7 +254,7 @@ class EmployeePayTemplate implements ModelInterface, ArrayAccess
     /**
      * Sets earning_templates
      *
-     * @param \XeroAPI\XeroPHP\Models\PayrollNz\EarningsTemplate[]|null $earning_templates earning_templates
+     * @param \XeroAPI\XeroPHP\Models\PayrollNz\EarningsTemplate[] $earning_templates earning_templates
      *
      * @return $this
      */
