@@ -188,10 +188,10 @@ class ReimbursementLine implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['reimbursement_type_id'] = isset($data['reimbursement_type_id']) ? $data['reimbursement_type_id'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;

@@ -173,10 +173,10 @@ class CISOrgSettings implements ModelInterface, ArrayAccess, \Countable, \Iterat
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['cis_settings'] = isset($data['cis_settings']) ? $data['cis_settings'] : null;
     }

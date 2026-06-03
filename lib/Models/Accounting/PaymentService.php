@@ -198,10 +198,10 @@ class PaymentService implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['payment_service_id'] = isset($data['payment_service_id']) ? $data['payment_service_id'] : null;
         $this->container['payment_service_name'] = isset($data['payment_service_name']) ? $data['payment_service_name'] : null;

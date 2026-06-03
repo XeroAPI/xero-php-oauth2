@@ -178,10 +178,10 @@ class BalanceSheetAccountGroup implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['account_types'] = isset($data['account_types']) ? $data['account_types'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;

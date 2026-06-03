@@ -178,10 +178,10 @@ class TrackingCategory implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['employee_groups_tracking_category_id'] = isset($data['employee_groups_tracking_category_id']) ? $data['employee_groups_tracking_category_id'] : null;
         $this->container['timesheet_tracking_category_id'] = isset($data['timesheet_tracking_category_id']) ? $data['timesheet_tracking_category_id'] : null;

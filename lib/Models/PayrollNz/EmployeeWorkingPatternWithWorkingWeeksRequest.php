@@ -178,10 +178,10 @@ class EmployeeWorkingPatternWithWorkingWeeksRequest implements ModelInterface, A
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['effective_from'] = isset($data['effective_from']) ? $data['effective_from'] : null;
         $this->container['working_weeks'] = isset($data['working_weeks']) ? $data['working_weeks'] : null;

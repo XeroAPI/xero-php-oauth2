@@ -213,10 +213,10 @@ class Association implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['send_with_object'] = isset($data['send_with_object']) ? $data['send_with_object'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;

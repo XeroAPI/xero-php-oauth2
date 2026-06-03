@@ -173,10 +173,10 @@ class OnlineInvoice implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['online_invoice_url'] = isset($data['online_invoice_url']) ? $data['online_invoice_url'] : null;
     }

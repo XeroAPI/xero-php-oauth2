@@ -173,10 +173,10 @@ class LeaveApplications implements ModelInterface, ArrayAccess, \Countable, \Ite
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['leave_applications'] = isset($data['leave_applications']) ? $data['leave_applications'] : null;
     }
