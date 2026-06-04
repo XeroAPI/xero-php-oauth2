@@ -279,10 +279,10 @@ class LineItem implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['line_item_id'] = isset($data['line_item_id']) ? $data['line_item_id'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;

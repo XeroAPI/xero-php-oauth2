@@ -183,10 +183,10 @@ class EmployeeWorkingPatternWithWorkingWeeks implements ModelInterface, ArrayAcc
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['payee_working_pattern_id'] = isset($data['payee_working_pattern_id']) ? $data['payee_working_pattern_id'] : null;
         $this->container['effective_from'] = isset($data['effective_from']) ? $data['effective_from'] : null;

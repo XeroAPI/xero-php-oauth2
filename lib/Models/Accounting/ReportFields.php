@@ -183,10 +183,10 @@ class ReportFields implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['field_id'] = isset($data['field_id']) ? $data['field_id'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;

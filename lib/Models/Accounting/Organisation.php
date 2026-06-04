@@ -416,6 +416,7 @@ class Organisation implements ModelInterface, ArrayAccess
     const MODEL_CLASS_COMPREHENSIVE = 'COMPREHENSIVE';
     const MODEL_CLASS_SIMPLE = 'SIMPLE';
     const MODEL_CLASS_BASICLITE = 'BASICLITE';
+    const MODEL_CLASS_ULTRA = 'ULTRA';
     const EDITION_BUSINESS = 'BUSINESS';
     const EDITION_PARTNER = 'PARTNER';
     
@@ -581,6 +582,7 @@ class Organisation implements ModelInterface, ArrayAccess
             self::MODEL_CLASS_COMPREHENSIVE,
             self::MODEL_CLASS_SIMPLE,
             self::MODEL_CLASS_BASICLITE,
+            self::MODEL_CLASS_ULTRA,
         ];
     }
     
@@ -608,10 +610,10 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['organisation_id'] = isset($data['organisation_id']) ? $data['organisation_id'] : null;
         $this->container['api_key'] = isset($data['api_key']) ? $data['api_key'] : null;

@@ -269,10 +269,10 @@ class Journal implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['journal_id'] = isset($data['journal_id']) ? $data['journal_id'] : null;
         $this->container['journal_date'] = isset($data['journal_date']) ? $data['journal_date'] : null;

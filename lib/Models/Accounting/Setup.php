@@ -183,10 +183,10 @@ class Setup implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['conversion_date'] = isset($data['conversion_date']) ? $data['conversion_date'] : null;
         $this->container['conversion_balances'] = isset($data['conversion_balances']) ? $data['conversion_balances'] : null;

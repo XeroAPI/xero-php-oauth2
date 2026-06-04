@@ -178,10 +178,10 @@ class TrialBalanceEntry implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
         $this->container['entry_type'] = isset($data['entry_type']) ? $data['entry_type'] : null;

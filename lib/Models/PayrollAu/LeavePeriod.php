@@ -188,10 +188,10 @@ class LeavePeriod implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['number_of_units'] = isset($data['number_of_units']) ? $data['number_of_units'] : null;
         $this->container['pay_period_end_date'] = isset($data['pay_period_end_date']) ? $data['pay_period_end_date'] : null;

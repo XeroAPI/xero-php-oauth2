@@ -178,10 +178,10 @@ class SalesTrackingCategory implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['tracking_category_name'] = isset($data['tracking_category_name']) ? $data['tracking_category_name'] : null;
         $this->container['tracking_option_name'] = isset($data['tracking_option_name']) ? $data['tracking_option_name'] : null;

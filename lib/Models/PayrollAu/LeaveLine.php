@@ -213,10 +213,10 @@ class LeaveLine implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['leave_type_id'] = isset($data['leave_type_id']) ? $data['leave_type_id'] : null;
         $this->container['calculation_type'] = isset($data['calculation_type']) ? $data['calculation_type'] : null;
@@ -238,6 +238,9 @@ class LeaveLine implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['is_qualifying_earnings'] === null) {
+            $invalidProperties[] = "'is_qualifying_earnings' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -391,7 +394,7 @@ class LeaveLine implements ModelInterface, ArrayAccess
     /**
      * Gets is_qualifying_earnings
      *
-     * @return bool|null
+     * @return bool
      */
     public function getIsQualifyingEarnings()
     {
@@ -401,7 +404,7 @@ class LeaveLine implements ModelInterface, ArrayAccess
     /**
      * Sets is_qualifying_earnings
      *
-     * @param bool|null $is_qualifying_earnings Optional Boolean to determine if the earnings rate is considered as qualifying earnings for superannuation guarantee calculations. When not specified value is calculated based on superannuation settings
+     * @param bool $is_qualifying_earnings Boolean to determine if the leave line is considered as qualifying earnings for superannuation guarantee calculations
      *
      * @return $this
      */

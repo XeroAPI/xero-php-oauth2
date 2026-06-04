@@ -273,10 +273,10 @@ class EarningsRate implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['account_code'] = isset($data['account_code']) ? $data['account_code'] : null;
@@ -318,6 +318,9 @@ class EarningsRate implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'type_of_units', the character length must be smaller than or equal to 50.";
         }
 
+        if ($this->container['is_qualifying_earnings'] === null) {
+            $invalidProperties[] = "'is_qualifying_earnings' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -506,7 +509,7 @@ class EarningsRate implements ModelInterface, ArrayAccess
     /**
      * Gets is_qualifying_earnings
      *
-     * @return bool|null
+     * @return bool
      */
     public function getIsQualifyingEarnings()
     {
@@ -516,7 +519,7 @@ class EarningsRate implements ModelInterface, ArrayAccess
     /**
      * Sets is_qualifying_earnings
      *
-     * @param bool|null $is_qualifying_earnings Optional Boolean to determine if the earnings rate is considered as qualifying earnings for superannuation guarantee calculations. When not specified value is calculated based on earnings type and superannuation settings
+     * @param bool $is_qualifying_earnings Boolean to determine if the earnings rate is considered as qualifying earnings for superannuation guarantee calculations
      *
      * @return $this
      */
