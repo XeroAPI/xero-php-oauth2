@@ -68,6 +68,7 @@ class Overpayment implements ModelInterface, ArrayAccess
         'total_tax' => 'double',
         'total' => 'double',
         'updated_date_utc' => 'string',
+        'updated_date_utc_string' => 'string',
         'currency_code' => '\XeroAPI\XeroPHP\Models\Accounting\CurrencyCode',
         'overpayment_id' => 'string',
         'currency_rate' => 'double',
@@ -96,6 +97,7 @@ class Overpayment implements ModelInterface, ArrayAccess
         'total_tax' => 'double',
         'total' => 'double',
         'updated_date_utc' => null,
+        'updated_date_utc_string' => null,
         'currency_code' => null,
         'overpayment_id' => 'uuid',
         'currency_rate' => 'double',
@@ -145,6 +147,7 @@ class Overpayment implements ModelInterface, ArrayAccess
         'total_tax' => 'TotalTax',
         'total' => 'Total',
         'updated_date_utc' => 'UpdatedDateUTC',
+        'updated_date_utc_string' => 'UpdatedDateUTCString',
         'currency_code' => 'CurrencyCode',
         'overpayment_id' => 'OverpaymentID',
         'currency_rate' => 'CurrencyRate',
@@ -173,6 +176,7 @@ class Overpayment implements ModelInterface, ArrayAccess
         'total_tax' => 'setTotalTax',
         'total' => 'setTotal',
         'updated_date_utc' => 'setUpdatedDateUtc',
+        'updated_date_utc_string' => 'setUpdatedDateUtcString',
         'currency_code' => 'setCurrencyCode',
         'overpayment_id' => 'setOverpaymentId',
         'currency_rate' => 'setCurrencyRate',
@@ -201,6 +205,7 @@ class Overpayment implements ModelInterface, ArrayAccess
         'total_tax' => 'getTotalTax',
         'total' => 'getTotal',
         'updated_date_utc' => 'getUpdatedDateUtc',
+        'updated_date_utc_string' => 'getUpdatedDateUtcString',
         'currency_code' => 'getCurrencyCode',
         'overpayment_id' => 'getOverpaymentId',
         'currency_rate' => 'getCurrencyRate',
@@ -317,6 +322,7 @@ class Overpayment implements ModelInterface, ArrayAccess
         $this->container['total_tax'] = isset($data['total_tax']) ? $data['total_tax'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
+        $this->container['updated_date_utc_string'] = isset($data['updated_date_utc_string']) ? $data['updated_date_utc_string'] : null;
         $this->container['currency_code'] = isset($data['currency_code']) ? $data['currency_code'] : null;
         $this->container['overpayment_id'] = isset($data['overpayment_id']) ? $data['overpayment_id'] : null;
         $this->container['currency_rate'] = isset($data['currency_rate']) ? $data['currency_rate'] : null;
@@ -685,6 +691,32 @@ class Overpayment implements ModelInterface, ArrayAccess
     {
 
         $this->container['updated_date_utc'] = $updated_date_utc;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets updated_date_utc_string
+     *
+     * @return string|null
+     */
+    public function getUpdatedDateUtcString()
+    {
+        return $this->container['updated_date_utc_string'];
+    }
+
+    /**
+     * Sets updated_date_utc_string
+     *
+     * @param string|null $updated_date_utc_string UTC ISO-8601 formatted timestamp of last update to the overpayment
+     *
+     * @return $this
+     */
+    public function setUpdatedDateUtcString($updated_date_utc_string)
+    {
+
+        $this->container['updated_date_utc_string'] = $updated_date_utc_string;
 
         return $this;
     }

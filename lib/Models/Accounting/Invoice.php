@@ -92,6 +92,7 @@ class Invoice implements ModelInterface, ArrayAccess
         'fully_paid_on_date' => 'string',
         'amount_credited' => 'double',
         'updated_date_utc' => 'string',
+        'updated_date_utc_string' => 'string',
         'credit_notes' => '\XeroAPI\XeroPHP\Models\Accounting\CreditNote[]',
         'attachments' => '\XeroAPI\XeroPHP\Models\Accounting\Attachment[]',
         'has_errors' => 'bool',
@@ -141,6 +142,7 @@ class Invoice implements ModelInterface, ArrayAccess
         'fully_paid_on_date' => null,
         'amount_credited' => 'double',
         'updated_date_utc' => null,
+        'updated_date_utc_string' => null,
         'credit_notes' => null,
         'attachments' => null,
         'has_errors' => null,
@@ -211,6 +213,7 @@ class Invoice implements ModelInterface, ArrayAccess
         'fully_paid_on_date' => 'FullyPaidOnDate',
         'amount_credited' => 'AmountCredited',
         'updated_date_utc' => 'UpdatedDateUTC',
+        'updated_date_utc_string' => 'UpdatedDateUTCString',
         'credit_notes' => 'CreditNotes',
         'attachments' => 'Attachments',
         'has_errors' => 'HasErrors',
@@ -260,6 +263,7 @@ class Invoice implements ModelInterface, ArrayAccess
         'fully_paid_on_date' => 'setFullyPaidOnDate',
         'amount_credited' => 'setAmountCredited',
         'updated_date_utc' => 'setUpdatedDateUtc',
+        'updated_date_utc_string' => 'setUpdatedDateUtcString',
         'credit_notes' => 'setCreditNotes',
         'attachments' => 'setAttachments',
         'has_errors' => 'setHasErrors',
@@ -309,6 +313,7 @@ class Invoice implements ModelInterface, ArrayAccess
         'fully_paid_on_date' => 'getFullyPaidOnDate',
         'amount_credited' => 'getAmountCredited',
         'updated_date_utc' => 'getUpdatedDateUtc',
+        'updated_date_utc_string' => 'getUpdatedDateUtcString',
         'credit_notes' => 'getCreditNotes',
         'attachments' => 'getAttachments',
         'has_errors' => 'getHasErrors',
@@ -462,6 +467,7 @@ class Invoice implements ModelInterface, ArrayAccess
         $this->container['fully_paid_on_date'] = isset($data['fully_paid_on_date']) ? $data['fully_paid_on_date'] : null;
         $this->container['amount_credited'] = isset($data['amount_credited']) ? $data['amount_credited'] : null;
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
+        $this->container['updated_date_utc_string'] = isset($data['updated_date_utc_string']) ? $data['updated_date_utc_string'] : null;
         $this->container['credit_notes'] = isset($data['credit_notes']) ? $data['credit_notes'] : null;
         $this->container['attachments'] = isset($data['attachments']) ? $data['attachments'] : null;
         $this->container['has_errors'] = isset($data['has_errors']) ? $data['has_errors'] : false;
@@ -1546,7 +1552,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets updated_date_utc
      *
-     * @param string|null $updated_date_utc Last modified date UTC format
+     * @param string|null $updated_date_utc UTC timestamp of last update to the invoice
      *
      * @return $this
      */
@@ -1554,6 +1560,32 @@ class Invoice implements ModelInterface, ArrayAccess
     {
 
         $this->container['updated_date_utc'] = $updated_date_utc;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets updated_date_utc_string
+     *
+     * @return string|null
+     */
+    public function getUpdatedDateUtcString()
+    {
+        return $this->container['updated_date_utc_string'];
+    }
+
+    /**
+     * Sets updated_date_utc_string
+     *
+     * @param string|null $updated_date_utc_string UTC ISO-8601 formatted timestamp of last update to the invoice
+     *
+     * @return $this
+     */
+    public function setUpdatedDateUtcString($updated_date_utc_string)
+    {
+
+        $this->container['updated_date_utc_string'] = $updated_date_utc_string;
 
         return $this;
     }

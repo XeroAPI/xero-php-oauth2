@@ -71,6 +71,7 @@ class CreditNote implements ModelInterface, ArrayAccess
         'cis_deduction' => 'double',
         'cis_rate' => 'double',
         'updated_date_utc' => 'string',
+        'updated_date_utc_string' => 'string',
         'currency_code' => '\XeroAPI\XeroPHP\Models\Accounting\CurrencyCode',
         'fully_paid_on_date' => 'string',
         'credit_note_id' => 'string',
@@ -110,6 +111,7 @@ class CreditNote implements ModelInterface, ArrayAccess
         'cis_deduction' => 'double',
         'cis_rate' => 'double',
         'updated_date_utc' => null,
+        'updated_date_utc_string' => null,
         'currency_code' => null,
         'fully_paid_on_date' => null,
         'credit_note_id' => 'uuid',
@@ -170,6 +172,7 @@ class CreditNote implements ModelInterface, ArrayAccess
         'cis_deduction' => 'CISDeduction',
         'cis_rate' => 'CISRate',
         'updated_date_utc' => 'UpdatedDateUTC',
+        'updated_date_utc_string' => 'UpdatedDateUTCString',
         'currency_code' => 'CurrencyCode',
         'fully_paid_on_date' => 'FullyPaidOnDate',
         'credit_note_id' => 'CreditNoteID',
@@ -209,6 +212,7 @@ class CreditNote implements ModelInterface, ArrayAccess
         'cis_deduction' => 'setCisDeduction',
         'cis_rate' => 'setCisRate',
         'updated_date_utc' => 'setUpdatedDateUtc',
+        'updated_date_utc_string' => 'setUpdatedDateUtcString',
         'currency_code' => 'setCurrencyCode',
         'fully_paid_on_date' => 'setFullyPaidOnDate',
         'credit_note_id' => 'setCreditNoteId',
@@ -248,6 +252,7 @@ class CreditNote implements ModelInterface, ArrayAccess
         'cis_deduction' => 'getCisDeduction',
         'cis_rate' => 'getCisRate',
         'updated_date_utc' => 'getUpdatedDateUtc',
+        'updated_date_utc_string' => 'getUpdatedDateUtcString',
         'currency_code' => 'getCurrencyCode',
         'fully_paid_on_date' => 'getFullyPaidOnDate',
         'credit_note_id' => 'getCreditNoteId',
@@ -379,6 +384,7 @@ class CreditNote implements ModelInterface, ArrayAccess
         $this->container['cis_deduction'] = isset($data['cis_deduction']) ? $data['cis_deduction'] : null;
         $this->container['cis_rate'] = isset($data['cis_rate']) ? $data['cis_rate'] : null;
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
+        $this->container['updated_date_utc_string'] = isset($data['updated_date_utc_string']) ? $data['updated_date_utc_string'] : null;
         $this->container['currency_code'] = isset($data['currency_code']) ? $data['currency_code'] : null;
         $this->container['fully_paid_on_date'] = isset($data['fully_paid_on_date']) ? $data['fully_paid_on_date'] : null;
         $this->container['credit_note_id'] = isset($data['credit_note_id']) ? $data['credit_note_id'] : null;
@@ -860,6 +866,32 @@ class CreditNote implements ModelInterface, ArrayAccess
     {
 
         $this->container['updated_date_utc'] = $updated_date_utc;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets updated_date_utc_string
+     *
+     * @return string|null
+     */
+    public function getUpdatedDateUtcString()
+    {
+        return $this->container['updated_date_utc_string'];
+    }
+
+    /**
+     * Sets updated_date_utc_string
+     *
+     * @param string|null $updated_date_utc_string UTC ISO-8601 formatted timestamp of last update to the credit note
+     *
+     * @return $this
+     */
+    public function setUpdatedDateUtcString($updated_date_utc_string)
+    {
+
+        $this->container['updated_date_utc_string'] = $updated_date_utc_string;
 
         return $this;
     }
