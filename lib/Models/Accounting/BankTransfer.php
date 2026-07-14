@@ -71,6 +71,9 @@ class BankTransfer implements ModelInterface, ArrayAccess
         'reference' => 'string',
         'has_attachments' => 'bool',
         'created_date_utc' => 'string',
+        'status' => 'string',
+        'from_tracking' => '\XeroAPI\XeroPHP\Models\Accounting\TrackingReference[]',
+        'to_tracking' => '\XeroAPI\XeroPHP\Models\Accounting\TrackingReference[]',
         'validation_errors' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]'
     ];
 
@@ -93,6 +96,9 @@ class BankTransfer implements ModelInterface, ArrayAccess
         'reference' => null,
         'has_attachments' => null,
         'created_date_utc' => null,
+        'status' => null,
+        'from_tracking' => null,
+        'to_tracking' => null,
         'validation_errors' => null
     ];
 
@@ -136,6 +142,9 @@ class BankTransfer implements ModelInterface, ArrayAccess
         'reference' => 'Reference',
         'has_attachments' => 'HasAttachments',
         'created_date_utc' => 'CreatedDateUTC',
+        'status' => 'Status',
+        'from_tracking' => 'FromTracking',
+        'to_tracking' => 'ToTracking',
         'validation_errors' => 'ValidationErrors'
     ];
 
@@ -158,6 +167,9 @@ class BankTransfer implements ModelInterface, ArrayAccess
         'reference' => 'setReference',
         'has_attachments' => 'setHasAttachments',
         'created_date_utc' => 'setCreatedDateUtc',
+        'status' => 'setStatus',
+        'from_tracking' => 'setFromTracking',
+        'to_tracking' => 'setToTracking',
         'validation_errors' => 'setValidationErrors'
     ];
 
@@ -180,6 +192,9 @@ class BankTransfer implements ModelInterface, ArrayAccess
         'reference' => 'getReference',
         'has_attachments' => 'getHasAttachments',
         'created_date_utc' => 'getCreatedDateUtc',
+        'status' => 'getStatus',
+        'from_tracking' => 'getFromTracking',
+        'to_tracking' => 'getToTracking',
         'validation_errors' => 'getValidationErrors'
     ];
 
@@ -224,8 +239,23 @@ class BankTransfer implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const STATUS_AUTHORISED = 'AUTHORISED';
+    const STATUS_DELETED = 'DELETED';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_AUTHORISED,
+            self::STATUS_DELETED,
+        ];
+    }
     
 
     /**
@@ -256,6 +286,9 @@ class BankTransfer implements ModelInterface, ArrayAccess
         $this->container['reference'] = isset($data['reference']) ? $data['reference'] : null;
         $this->container['has_attachments'] = isset($data['has_attachments']) ? $data['has_attachments'] : false;
         $this->container['created_date_utc'] = isset($data['created_date_utc']) ? $data['created_date_utc'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['from_tracking'] = isset($data['from_tracking']) ? $data['from_tracking'] : null;
+        $this->container['to_tracking'] = isset($data['to_tracking']) ? $data['to_tracking'] : null;
         $this->container['validation_errors'] = isset($data['validation_errors']) ? $data['validation_errors'] : null;
     }
 
@@ -277,6 +310,14 @@ class BankTransfer implements ModelInterface, ArrayAccess
         if ($this->container['amount'] === null) {
             $invalidProperties[] = "'amount' can't be null";
         }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -669,6 +710,95 @@ class BankTransfer implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status AUTHORISED or DELETED (read-only). New bank transfers will have a status of AUTHORISED.
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets from_tracking
+     *
+     * @return \XeroAPI\XeroPHP\Models\Accounting\TrackingReference[]|null
+     */
+    public function getFromTracking()
+    {
+        return $this->container['from_tracking'];
+    }
+
+    /**
+     * Sets from_tracking
+     *
+     * @param \XeroAPI\XeroPHP\Models\Accounting\TrackingReference[]|null $from_tracking Optional Tracking Category for the source account – see Tracking. A bank transfer can have a maximum of 2 tracking categories per account.
+     *
+     * @return $this
+     */
+    public function setFromTracking($from_tracking)
+    {
+
+        $this->container['from_tracking'] = $from_tracking;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets to_tracking
+     *
+     * @return \XeroAPI\XeroPHP\Models\Accounting\TrackingReference[]|null
+     */
+    public function getToTracking()
+    {
+        return $this->container['to_tracking'];
+    }
+
+    /**
+     * Sets to_tracking
+     *
+     * @param \XeroAPI\XeroPHP\Models\Accounting\TrackingReference[]|null $to_tracking Optional Tracking Category for the destination account – see Tracking. A bank transfer can have a maximum of 2 tracking categories per account.
+     *
+     * @return $this
+     */
+    public function setToTracking($to_tracking)
+    {
+
+        $this->container['to_tracking'] = $to_tracking;
+
+        return $this;
+    }
+
 
 
     /**

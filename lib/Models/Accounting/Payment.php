@@ -76,6 +76,7 @@ class Payment implements ModelInterface, ArrayAccess
         'status' => 'string',
         'payment_type' => 'string',
         'updated_date_utc' => 'string',
+        'updated_date_utc_string' => 'string',
         'payment_id' => 'string',
         'batch_payment_id' => 'string',
         'bank_account_number' => 'string',
@@ -112,6 +113,7 @@ class Payment implements ModelInterface, ArrayAccess
         'status' => null,
         'payment_type' => null,
         'updated_date_utc' => null,
+        'updated_date_utc_string' => null,
         'payment_id' => 'uuid',
         'batch_payment_id' => 'uuid',
         'bank_account_number' => null,
@@ -169,6 +171,7 @@ class Payment implements ModelInterface, ArrayAccess
         'status' => 'Status',
         'payment_type' => 'PaymentType',
         'updated_date_utc' => 'UpdatedDateUTC',
+        'updated_date_utc_string' => 'UpdatedDateUTCString',
         'payment_id' => 'PaymentID',
         'batch_payment_id' => 'BatchPaymentID',
         'bank_account_number' => 'BankAccountNumber',
@@ -205,6 +208,7 @@ class Payment implements ModelInterface, ArrayAccess
         'status' => 'setStatus',
         'payment_type' => 'setPaymentType',
         'updated_date_utc' => 'setUpdatedDateUtc',
+        'updated_date_utc_string' => 'setUpdatedDateUtcString',
         'payment_id' => 'setPaymentId',
         'batch_payment_id' => 'setBatchPaymentId',
         'bank_account_number' => 'setBankAccountNumber',
@@ -241,6 +245,7 @@ class Payment implements ModelInterface, ArrayAccess
         'status' => 'getStatus',
         'payment_type' => 'getPaymentType',
         'updated_date_utc' => 'getUpdatedDateUtc',
+        'updated_date_utc_string' => 'getUpdatedDateUtcString',
         'payment_id' => 'getPaymentId',
         'batch_payment_id' => 'getBatchPaymentId',
         'bank_account_number' => 'getBankAccountNumber',
@@ -373,6 +378,7 @@ class Payment implements ModelInterface, ArrayAccess
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['payment_type'] = isset($data['payment_type']) ? $data['payment_type'] : null;
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
+        $this->container['updated_date_utc_string'] = isset($data['updated_date_utc_string']) ? $data['updated_date_utc_string'] : null;
         $this->container['payment_id'] = isset($data['payment_id']) ? $data['payment_id'] : null;
         $this->container['batch_payment_id'] = isset($data['batch_payment_id']) ? $data['batch_payment_id'] : null;
         $this->container['bank_account_number'] = isset($data['bank_account_number']) ? $data['bank_account_number'] : null;
@@ -956,6 +962,32 @@ class Payment implements ModelInterface, ArrayAccess
     {
 
         $this->container['updated_date_utc'] = $updated_date_utc;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets updated_date_utc_string
+     *
+     * @return string|null
+     */
+    public function getUpdatedDateUtcString()
+    {
+        return $this->container['updated_date_utc_string'];
+    }
+
+    /**
+     * Sets updated_date_utc_string
+     *
+     * @param string|null $updated_date_utc_string UTC ISO-8601 formatted timestamp of last update to the payment
+     *
+     * @return $this
+     */
+    public function setUpdatedDateUtcString($updated_date_utc_string)
+    {
+
+        $this->container['updated_date_utc_string'] = $updated_date_utc_string;
 
         return $this;
     }
