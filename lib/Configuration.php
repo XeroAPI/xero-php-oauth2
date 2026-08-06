@@ -132,6 +132,13 @@ class Configuration
     protected $hostPayrollAu = 'https://api.xero.com/payroll.xro/1.0';
 
     /**
+     * The hostPayrollAuV2
+     *
+     * @var string
+     */
+    protected $hostPayrollAuV2 = 'https://api.xero.com/payroll.xro/2.0';
+
+    /**
      * The hostPayrollUk
      *
      * @var string
@@ -491,6 +498,29 @@ class Configuration
     public function getHostPayrollAu()
     {
         return $this->hostPayrollAu;
+    }
+
+    /**
+     * Sets the hostPayrollAuV2
+     *
+     * @param string $hostPayrollAuV2
+     *
+     * @return $this
+     */
+    public function setHostPayrollAuV2($hostPayrollAuV2)
+    {
+        $this->hostPayrollAuV2 = $hostPayrollAuV2;
+        return $this;
+    }
+
+    /**
+     * Gets the hostPayrollAuV2
+     *
+     * @return string hostPayrollAuV2
+     */
+    public function getHostPayrollAuV2()
+    {
+        return $this->hostPayrollAuV2;
     }
 
     /**
