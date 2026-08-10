@@ -70,6 +70,8 @@ class Item implements ModelInterface, ArrayAccess
         'is_tracked_as_inventory' => 'bool',
         'total_cost_pool' => 'double',
         'quantity_on_hand' => 'double',
+        'quantity_available' => 'double',
+        'quantity_on_back_order' => 'double',
         'updated_date_utc' => 'string',
         'item_id' => 'string',
         'status_attribute_string' => 'string',
@@ -94,6 +96,8 @@ class Item implements ModelInterface, ArrayAccess
         'is_tracked_as_inventory' => null,
         'total_cost_pool' => 'double',
         'quantity_on_hand' => 'double',
+        'quantity_available' => 'double',
+        'quantity_on_back_order' => 'double',
         'updated_date_utc' => null,
         'item_id' => 'uuid',
         'status_attribute_string' => null,
@@ -139,6 +143,8 @@ class Item implements ModelInterface, ArrayAccess
         'is_tracked_as_inventory' => 'IsTrackedAsInventory',
         'total_cost_pool' => 'TotalCostPool',
         'quantity_on_hand' => 'QuantityOnHand',
+        'quantity_available' => 'QuantityAvailable',
+        'quantity_on_back_order' => 'QuantityOnBackOrder',
         'updated_date_utc' => 'UpdatedDateUTC',
         'item_id' => 'ItemID',
         'status_attribute_string' => 'StatusAttributeString',
@@ -163,6 +169,8 @@ class Item implements ModelInterface, ArrayAccess
         'is_tracked_as_inventory' => 'setIsTrackedAsInventory',
         'total_cost_pool' => 'setTotalCostPool',
         'quantity_on_hand' => 'setQuantityOnHand',
+        'quantity_available' => 'setQuantityAvailable',
+        'quantity_on_back_order' => 'setQuantityOnBackOrder',
         'updated_date_utc' => 'setUpdatedDateUtc',
         'item_id' => 'setItemId',
         'status_attribute_string' => 'setStatusAttributeString',
@@ -187,6 +195,8 @@ class Item implements ModelInterface, ArrayAccess
         'is_tracked_as_inventory' => 'getIsTrackedAsInventory',
         'total_cost_pool' => 'getTotalCostPool',
         'quantity_on_hand' => 'getQuantityOnHand',
+        'quantity_available' => 'getQuantityAvailable',
+        'quantity_on_back_order' => 'getQuantityOnBackOrder',
         'updated_date_utc' => 'getUpdatedDateUtc',
         'item_id' => 'getItemId',
         'status_attribute_string' => 'getStatusAttributeString',
@@ -265,6 +275,8 @@ class Item implements ModelInterface, ArrayAccess
         $this->container['is_tracked_as_inventory'] = isset($data['is_tracked_as_inventory']) ? $data['is_tracked_as_inventory'] : null;
         $this->container['total_cost_pool'] = isset($data['total_cost_pool']) ? $data['total_cost_pool'] : null;
         $this->container['quantity_on_hand'] = isset($data['quantity_on_hand']) ? $data['quantity_on_hand'] : null;
+        $this->container['quantity_available'] = isset($data['quantity_available']) ? $data['quantity_available'] : null;
+        $this->container['quantity_on_back_order'] = isset($data['quantity_on_back_order']) ? $data['quantity_on_back_order'] : null;
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
         $this->container['item_id'] = isset($data['item_id']) ? $data['item_id'] : null;
         $this->container['status_attribute_string'] = isset($data['status_attribute_string']) ? $data['status_attribute_string'] : null;
@@ -640,7 +652,7 @@ class Item implements ModelInterface, ArrayAccess
     /**
      * Sets quantity_on_hand
      *
-     * @param double|null $quantity_on_hand The quantity of the item on hand
+     * @param double|null $quantity_on_hand The quantity of the item on hand. This will be 0 if `QuantityOnBackOrder` is greater than 0.
      *
      * @return $this
      */
@@ -652,6 +664,58 @@ class Item implements ModelInterface, ArrayAccess
         return $this;
     }
 
+
+
+    /**
+     * Gets quantity_available
+     *
+     * @return double|null
+     */
+    public function getQuantityAvailable()
+    {
+        return $this->container['quantity_available'];
+    }
+
+    /**
+     * Sets quantity_available
+     *
+     * @param double|null $quantity_available The quantity of the item available. This is equal to `QuantityOnHand` - `QuantityOnBackOrder`. This value will be negative if `QuantityOnBackOrder` is greater than 0.
+     *
+     * @return $this
+     */
+    public function setQuantityAvailable($quantity_available)
+    {
+
+        $this->container['quantity_available'] = $quantity_available;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets quantity_on_back_order
+     *
+     * @return double|null
+     */
+    public function getQuantityOnBackOrder()
+    {
+        return $this->container['quantity_on_back_order'];
+    }
+
+    /**
+     * Sets quantity_on_back_order
+     *
+     * @param double|null $quantity_on_back_order The quantity of the item on backorder. This will be 0 if `QuantityOnHand` is greater than 0.
+     *
+     * @return $this
+     */
+    public function setQuantityOnBackOrder($quantity_on_back_order)
+    {
+
+        $this->container['quantity_on_back_order'] = $quantity_on_back_order;
+
+        return $this;
+    }
 
 
     /**
