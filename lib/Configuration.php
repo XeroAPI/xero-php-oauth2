@@ -164,7 +164,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = '[xero-php-oauth2 (16.0.0)]';
+    protected $userAgent = '[xero-php-oauth2 (16.1.0)]';
 
     /**
      * Debug switch (default set to false)
@@ -726,8 +726,8 @@ class Configuration
         $report  = 'PHP SDK (XeroAPI\XeroPHP) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
-        $report .= '    OpenAPI Spec Version: 16.1.0' . PHP_EOL;
-        $report .= '    SDK Package Version: 16.0.0' . PHP_EOL;
+        $report .= '    OpenAPI Spec Version: 16.2.0' . PHP_EOL;
+        $report .= '    SDK Package Version: 16.1.0' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;
