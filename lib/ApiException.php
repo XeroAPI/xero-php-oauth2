@@ -78,6 +78,31 @@ class ApiException extends Exception
     }
 
     /**
+     * Creates an API exception from a Guzzle request failure.
+     *
+     * Connection failures do not have an HTTP response. Treat those as status
+     * code zero instead of dereferencing a null response in async callbacks.
+     *
+     * @param mixed $exception Guzzle request exception
+     *
+     * @return self
+     */
+    public static function fromRequestException($exception)
+    {
+        $response = method_exists($exception, 'getResponse') ? $exception->getResponse() : null;
+        $request = method_exists($exception, 'getRequest') ? $exception->getRequest() : null;
+        $statusCode = $response ? $response->getStatusCode() : 0;
+        $uri = $request ? $request->getUri() : 'unknown URI';
+
+        return new self(
+            sprintf('[%d] Error connecting to the API (%s)', $statusCode, $uri),
+            $statusCode,
+            $response ? $response->getHeaders() : [],
+            $response ? $response->getBody() : null
+        );
+    }
+
+    /**
      * Gets the HTTP response header
      *
      * @return string[]|null HTTP response header
