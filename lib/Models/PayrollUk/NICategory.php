@@ -193,10 +193,10 @@ class NICategory implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['start_date'] = isset($data['start_date']) ? $data['start_date'] : null;
         $this->container['ni_category'] = isset($data['ni_category']) ? $data['ni_category'] : null;

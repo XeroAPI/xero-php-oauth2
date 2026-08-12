@@ -188,10 +188,10 @@ class RefreshToken implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['grant_type'] = isset($data['grant_type']) ? $data['grant_type'] : null;
         $this->container['refresh_token'] = isset($data['refresh_token']) ? $data['refresh_token'] : null;

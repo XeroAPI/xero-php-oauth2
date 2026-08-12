@@ -1,6 +1,6 @@
 <?php
 /**
- * GetBankTransactionsResponse
+ * BankTransferDeleteByUrlParam
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use \XeroAPI\XeroPHP\StringUtil;
 use ReturnTypeWillChange;
 
 /**
- * GetBankTransactionsResponse Class Doc Comment
+ * BankTransferDeleteByUrlParam Class Doc Comment
  *
  * @category Class
  * @package  XeroAPI\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class GetBankTransactionsResponse implements ModelInterface, ArrayAccess
+class BankTransferDeleteByUrlParam implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GetBankTransactionsResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GetBankTransactionsResponse';
+    protected static $openAPIModelName = 'BankTransferDeleteByUrlParam';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,12 +58,7 @@ class GetBankTransactionsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'status' => 'string',
-        'provider_name' => 'string',
-        'date_time_utc' => 'string',
-        'page_info' => '\XeroAPI\XeroPHP\Models\Accounting\PageInfo',
-        'bank_transactions' => '\XeroAPI\XeroPHP\Models\Accounting\BankTransaction[]'
+        'status' => 'string'
     ];
 
     /**
@@ -72,12 +67,7 @@ class GetBankTransactionsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'status' => null,
-        'provider_name' => null,
-        'date_time_utc' => null,
-        'page_info' => null,
-        'bank_transactions' => null
+        'status' => null
     ];
 
     /**
@@ -107,12 +97,7 @@ class GetBankTransactionsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'status' => 'Status',
-        'provider_name' => 'ProviderName',
-        'date_time_utc' => 'DateTimeUTC',
-        'page_info' => 'PageInfo',
-        'bank_transactions' => 'BankTransactions'
+        'status' => 'Status'
     ];
 
     /**
@@ -121,12 +106,7 @@ class GetBankTransactionsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'status' => 'setStatus',
-        'provider_name' => 'setProviderName',
-        'date_time_utc' => 'setDateTimeUtc',
-        'page_info' => 'setPageInfo',
-        'bank_transactions' => 'setBankTransactions'
+        'status' => 'setStatus'
     ];
 
     /**
@@ -135,12 +115,7 @@ class GetBankTransactionsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'status' => 'getStatus',
-        'provider_name' => 'getProviderName',
-        'date_time_utc' => 'getDateTimeUtc',
-        'page_info' => 'getPageInfo',
-        'bank_transactions' => 'getBankTransactions'
+        'status' => 'getStatus'
     ];
 
     /**
@@ -198,17 +173,12 @@ class GetBankTransactionsResponse implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['provider_name'] = isset($data['provider_name']) ? $data['provider_name'] : null;
-        $this->container['date_time_utc'] = isset($data['date_time_utc']) ? $data['date_time_utc'] : null;
-        $this->container['page_info'] = isset($data['page_info']) ? $data['page_info'] : null;
-        $this->container['bank_transactions'] = isset($data['bank_transactions']) ? $data['bank_transactions'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : 'DELETED';
     }
 
     /**
@@ -220,10 +190,9 @@ class GetBankTransactionsResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['bank_transactions']) && (count($this->container['bank_transactions']) < 1)) {
-            $invalidProperties[] = "invalid value for 'bank_transactions', number of items must be greater than or equal to 1.";
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
         }
-
         return $invalidProperties;
     }
 
@@ -240,36 +209,9 @@ class GetBankTransactionsResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-
-
-    /**
      * Gets status
      *
-     * @return string|null
+     * @return string
      */
     public function getStatus()
     {
@@ -279,7 +221,7 @@ class GetBankTransactionsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string|null $status status
+     * @param string $status The status of the bank transfer.
      *
      * @return $this
      */
@@ -287,119 +229,6 @@ class GetBankTransactionsResponse implements ModelInterface, ArrayAccess
     {
 
         $this->container['status'] = $status;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets provider_name
-     *
-     * @return string|null
-     */
-    public function getProviderName()
-    {
-        return $this->container['provider_name'];
-    }
-
-    /**
-     * Sets provider_name
-     *
-     * @param string|null $provider_name provider_name
-     *
-     * @return $this
-     */
-    public function setProviderName($provider_name)
-    {
-
-        $this->container['provider_name'] = $provider_name;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets date_time_utc
-     *
-     * @return string|null
-     */
-    public function getDateTimeUtc()
-    {
-        return $this->container['date_time_utc'];
-    }
-
-    /**
-     * Sets date_time_utc
-     *
-     * @param string|null $date_time_utc date_time_utc
-     *
-     * @return $this
-     */
-    public function setDateTimeUtc($date_time_utc)
-    {
-
-        $this->container['date_time_utc'] = $date_time_utc;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets page_info
-     *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\PageInfo|null
-     */
-    public function getPageInfo()
-    {
-        return $this->container['page_info'];
-    }
-
-    /**
-     * Sets page_info
-     *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\PageInfo|null $page_info page_info
-     *
-     * @return $this
-     */
-    public function setPageInfo($page_info)
-    {
-
-        $this->container['page_info'] = $page_info;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets bank_transactions
-     *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\BankTransaction[]|null
-     */
-    public function getBankTransactions()
-    {
-        return $this->container['bank_transactions'];
-    }
-
-    /**
-     * Sets bank_transactions
-     *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\BankTransaction[]|null $bank_transactions bank_transactions
-     *
-     * @return $this
-     */
-    public function setBankTransactions($bank_transactions)
-    {
-
-
-        if (!is_null($bank_transactions) && (count($bank_transactions) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $bank_transactions when calling GetBankTransactionsResponse., number of items must be greater than or equal to 1.');
-        }
-
-        $this->container['bank_transactions'] = $bank_transactions;
 
         return $this;
     }

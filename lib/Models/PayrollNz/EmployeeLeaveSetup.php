@@ -218,10 +218,10 @@ class EmployeeLeaveSetup implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['include_holiday_pay'] = isset($data['include_holiday_pay']) ? $data['include_holiday_pay'] : null;
         $this->container['holiday_pay_opening_balance'] = isset($data['holiday_pay_opening_balance']) ? $data['holiday_pay_opening_balance'] : null;

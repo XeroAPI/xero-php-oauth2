@@ -260,10 +260,10 @@ class Task implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['task_id'] = isset($data['task_id']) ? $data['task_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;

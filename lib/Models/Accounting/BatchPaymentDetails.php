@@ -194,10 +194,10 @@ class BatchPaymentDetails implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['bank_account_number'] = isset($data['bank_account_number']) ? $data['bank_account_number'] : null;
         $this->container['bank_account_name'] = isset($data['bank_account_name']) ? $data['bank_account_name'] : null;

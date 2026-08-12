@@ -1,6 +1,6 @@
 <?php
 /**
- * GetOverpaymentsResponse
+ * BankTransferDelete
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use \XeroAPI\XeroPHP\StringUtil;
 use ReturnTypeWillChange;
 
 /**
- * GetOverpaymentsResponse Class Doc Comment
+ * BankTransferDelete Class Doc Comment
  *
  * @category Class
  * @package  XeroAPI\XeroPHP
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class GetOverpaymentsResponse implements ModelInterface, ArrayAccess
+class BankTransferDelete implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class GetOverpaymentsResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GetOverpaymentsResponse';
+    protected static $openAPIModelName = 'BankTransferDelete';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,12 +58,8 @@ class GetOverpaymentsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'status' => 'string',
-        'provider_name' => 'string',
-        'date_time_utc' => 'string',
-        'page_info' => '\XeroAPI\XeroPHP\Models\Accounting\PageInfo',
-        'overpayments' => '\XeroAPI\XeroPHP\Models\Accounting\Overpayment[]'
+        'bank_transfer_id' => 'string',
+        'status' => 'string'
     ];
 
     /**
@@ -72,12 +68,8 @@ class GetOverpaymentsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'status' => null,
-        'provider_name' => null,
-        'date_time_utc' => null,
-        'page_info' => null,
-        'overpayments' => null
+        'bank_transfer_id' => 'uuid',
+        'status' => null
     ];
 
     /**
@@ -107,12 +99,8 @@ class GetOverpaymentsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'status' => 'Status',
-        'provider_name' => 'ProviderName',
-        'date_time_utc' => 'DateTimeUTC',
-        'page_info' => 'PageInfo',
-        'overpayments' => 'Overpayments'
+        'bank_transfer_id' => 'BankTransferID',
+        'status' => 'Status'
     ];
 
     /**
@@ -121,12 +109,8 @@ class GetOverpaymentsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'status' => 'setStatus',
-        'provider_name' => 'setProviderName',
-        'date_time_utc' => 'setDateTimeUtc',
-        'page_info' => 'setPageInfo',
-        'overpayments' => 'setOverpayments'
+        'bank_transfer_id' => 'setBankTransferId',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -135,12 +119,8 @@ class GetOverpaymentsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'status' => 'getStatus',
-        'provider_name' => 'getProviderName',
-        'date_time_utc' => 'getDateTimeUtc',
-        'page_info' => 'getPageInfo',
-        'overpayments' => 'getOverpayments'
+        'bank_transfer_id' => 'getBankTransferId',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -198,17 +178,13 @@ class GetOverpaymentsResponse implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['provider_name'] = isset($data['provider_name']) ? $data['provider_name'] : null;
-        $this->container['date_time_utc'] = isset($data['date_time_utc']) ? $data['date_time_utc'] : null;
-        $this->container['page_info'] = isset($data['page_info']) ? $data['page_info'] : null;
-        $this->container['overpayments'] = isset($data['overpayments']) ? $data['overpayments'] : null;
+        $this->container['bank_transfer_id'] = isset($data['bank_transfer_id']) ? $data['bank_transfer_id'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : 'DELETED';
     }
 
     /**
@@ -220,10 +196,12 @@ class GetOverpaymentsResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['overpayments']) && (count($this->container['overpayments']) < 1)) {
-            $invalidProperties[] = "invalid value for 'overpayments', number of items must be greater than or equal to 1.";
+        if ($this->container['bank_transfer_id'] === null) {
+            $invalidProperties[] = "'bank_transfer_id' can't be null";
         }
-
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -240,26 +218,26 @@ class GetOverpaymentsResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets bank_transfer_id
      *
-     * @return string|null
+     * @return string
      */
-    public function getId()
+    public function getBankTransferId()
     {
-        return $this->container['id'];
+        return $this->container['bank_transfer_id'];
     }
 
     /**
-     * Sets id
+     * Sets bank_transfer_id
      *
-     * @param string|null $id id
+     * @param string $bank_transfer_id The Xero identifier for a bank transfer
      *
      * @return $this
      */
-    public function setId($id)
+    public function setBankTransferId($bank_transfer_id)
     {
 
-        $this->container['id'] = $id;
+        $this->container['bank_transfer_id'] = $bank_transfer_id;
 
         return $this;
     }
@@ -269,7 +247,7 @@ class GetOverpaymentsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets status
      *
-     * @return string|null
+     * @return string
      */
     public function getStatus()
     {
@@ -279,7 +257,7 @@ class GetOverpaymentsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string|null $status status
+     * @param string $status The status of the bank transfer.
      *
      * @return $this
      */
@@ -287,119 +265,6 @@ class GetOverpaymentsResponse implements ModelInterface, ArrayAccess
     {
 
         $this->container['status'] = $status;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets provider_name
-     *
-     * @return string|null
-     */
-    public function getProviderName()
-    {
-        return $this->container['provider_name'];
-    }
-
-    /**
-     * Sets provider_name
-     *
-     * @param string|null $provider_name provider_name
-     *
-     * @return $this
-     */
-    public function setProviderName($provider_name)
-    {
-
-        $this->container['provider_name'] = $provider_name;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets date_time_utc
-     *
-     * @return string|null
-     */
-    public function getDateTimeUtc()
-    {
-        return $this->container['date_time_utc'];
-    }
-
-    /**
-     * Sets date_time_utc
-     *
-     * @param string|null $date_time_utc date_time_utc
-     *
-     * @return $this
-     */
-    public function setDateTimeUtc($date_time_utc)
-    {
-
-        $this->container['date_time_utc'] = $date_time_utc;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets page_info
-     *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\PageInfo|null
-     */
-    public function getPageInfo()
-    {
-        return $this->container['page_info'];
-    }
-
-    /**
-     * Sets page_info
-     *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\PageInfo|null $page_info page_info
-     *
-     * @return $this
-     */
-    public function setPageInfo($page_info)
-    {
-
-        $this->container['page_info'] = $page_info;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets overpayments
-     *
-     * @return \XeroAPI\XeroPHP\Models\Accounting\Overpayment[]|null
-     */
-    public function getOverpayments()
-    {
-        return $this->container['overpayments'];
-    }
-
-    /**
-     * Sets overpayments
-     *
-     * @param \XeroAPI\XeroPHP\Models\Accounting\Overpayment[]|null $overpayments overpayments
-     *
-     * @return $this
-     */
-    public function setOverpayments($overpayments)
-    {
-
-
-        if (!is_null($overpayments) && (count($overpayments) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $overpayments when calling GetOverpaymentsResponse., number of items must be greater than or equal to 1.');
-        }
-
-        $this->container['overpayments'] = $overpayments;
 
         return $this;
     }

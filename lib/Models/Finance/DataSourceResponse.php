@@ -228,10 +228,10 @@ class DataSourceResponse implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['direct_bank_feed'] = isset($data['direct_bank_feed']) ? $data['direct_bank_feed'] : null;
         $this->container['file_upload'] = isset($data['file_upload']) ? $data['file_upload'] : null;

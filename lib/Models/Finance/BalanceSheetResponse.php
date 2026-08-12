@@ -188,10 +188,10 @@ class BalanceSheetResponse implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['balance_date'] = isset($data['balance_date']) ? $data['balance_date'] : null;
         $this->container['asset'] = isset($data['asset']) ? $data['asset'] : null;

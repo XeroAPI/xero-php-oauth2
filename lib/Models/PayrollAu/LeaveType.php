@@ -68,7 +68,8 @@ class LeaveType implements ModelInterface, ArrayAccess
         'show_on_payslip' => 'bool',
         'current_record' => 'bool',
         'leave_category_code' => '\XeroAPI\XeroPHP\Models\PayrollAu\LeaveCategoryCode',
-        'sgc_exempt' => 'bool'
+        'sgc_exempt' => 'bool',
+        'is_qualifying_earnings' => 'bool'
     ];
 
     /**
@@ -87,7 +88,8 @@ class LeaveType implements ModelInterface, ArrayAccess
         'show_on_payslip' => null,
         'current_record' => null,
         'leave_category_code' => null,
-        'sgc_exempt' => null
+        'sgc_exempt' => null,
+        'is_qualifying_earnings' => null
     ];
 
     /**
@@ -127,7 +129,8 @@ class LeaveType implements ModelInterface, ArrayAccess
         'show_on_payslip' => 'ShowOnPayslip',
         'current_record' => 'CurrentRecord',
         'leave_category_code' => 'LeaveCategoryCode',
-        'sgc_exempt' => 'SGCExempt'
+        'sgc_exempt' => 'SGCExempt',
+        'is_qualifying_earnings' => 'IsQualifyingEarnings'
     ];
 
     /**
@@ -146,7 +149,8 @@ class LeaveType implements ModelInterface, ArrayAccess
         'show_on_payslip' => 'setShowOnPayslip',
         'current_record' => 'setCurrentRecord',
         'leave_category_code' => 'setLeaveCategoryCode',
-        'sgc_exempt' => 'setSgcExempt'
+        'sgc_exempt' => 'setSgcExempt',
+        'is_qualifying_earnings' => 'setIsQualifyingEarnings'
     ];
 
     /**
@@ -165,7 +169,8 @@ class LeaveType implements ModelInterface, ArrayAccess
         'show_on_payslip' => 'getShowOnPayslip',
         'current_record' => 'getCurrentRecord',
         'leave_category_code' => 'getLeaveCategoryCode',
-        'sgc_exempt' => 'getSgcExempt'
+        'sgc_exempt' => 'getSgcExempt',
+        'is_qualifying_earnings' => 'getIsQualifyingEarnings'
     ];
 
     /**
@@ -223,10 +228,10 @@ class LeaveType implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['type_of_units'] = isset($data['type_of_units']) ? $data['type_of_units'] : null;
@@ -239,6 +244,7 @@ class LeaveType implements ModelInterface, ArrayAccess
         $this->container['current_record'] = isset($data['current_record']) ? $data['current_record'] : null;
         $this->container['leave_category_code'] = isset($data['leave_category_code']) ? $data['leave_category_code'] : null;
         $this->container['sgc_exempt'] = isset($data['sgc_exempt']) ? $data['sgc_exempt'] : null;
+        $this->container['is_qualifying_earnings'] = isset($data['is_qualifying_earnings']) ? $data['is_qualifying_earnings'] : null;
     }
 
     /**
@@ -254,6 +260,9 @@ class LeaveType implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 100.";
         }
 
+        if ($this->container['is_qualifying_earnings'] === null) {
+            $invalidProperties[] = "'is_qualifying_earnings' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -571,6 +580,33 @@ class LeaveType implements ModelInterface, ArrayAccess
     {
 
         $this->container['sgc_exempt'] = $sgc_exempt;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets is_qualifying_earnings
+     *
+     * @return bool
+     */
+    public function getIsQualifyingEarnings()
+    {
+        return $this->container['is_qualifying_earnings'];
+    }
+
+    /**
+     * Sets is_qualifying_earnings
+     *
+     * @param bool $is_qualifying_earnings Boolean to determine if the leave type is considered as qualifying earnings for superannuation guarantee calculations
+     *
+     * @return $this
+     */
+    public function setIsQualifyingEarnings($is_qualifying_earnings)
+    {
+
+        $this->container['is_qualifying_earnings'] = $is_qualifying_earnings;
 
         return $this;
     }

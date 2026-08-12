@@ -229,6 +229,7 @@ class EarningsRate implements ModelInterface, ArrayAccess
     const EARNINGS_TYPE_TERMINATION_PAY = 'TerminationPay';
     const EARNINGS_TYPE_STATUTORY_NEONATAL_CARE_PAY = 'StatutoryNeonatalCarePay';
     const EARNINGS_TYPE_STATUTORY_NEONATAL_CARE_PAY_NON_PENSIONABLE = 'StatutoryNeonatalCarePayNonPensionable';
+    const EARNINGS_TYPE_STATUTORY_BEREAVEMENT_PAY_NORTHERN_IRELAND = 'StatutoryBereavementPayNorthernIreland';
     const RATE_TYPE_RATE_PER_UNIT = 'RatePerUnit';
     const RATE_TYPE_MULTIPLE_OF_ORDINARY_EARNINGS_RATE = 'MultipleOfOrdinaryEarningsRate';
     const RATE_TYPE_FIXED_AMOUNT = 'FixedAmount';
@@ -268,6 +269,7 @@ class EarningsRate implements ModelInterface, ArrayAccess
             self::EARNINGS_TYPE_TERMINATION_PAY,
             self::EARNINGS_TYPE_STATUTORY_NEONATAL_CARE_PAY,
             self::EARNINGS_TYPE_STATUTORY_NEONATAL_CARE_PAY_NON_PENSIONABLE,
+            self::EARNINGS_TYPE_STATUTORY_BEREAVEMENT_PAY_NORTHERN_IRELAND,
         ];
     }
     
@@ -296,10 +298,10 @@ class EarningsRate implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['earnings_rate_id'] = isset($data['earnings_rate_id']) ? $data['earnings_rate_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;

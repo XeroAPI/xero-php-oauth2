@@ -173,10 +173,10 @@ class InvoiceReminders implements ModelInterface, ArrayAccess, \Countable, \Iter
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['invoice_reminders'] = isset($data['invoice_reminders']) ? $data['invoice_reminders'] : null;
     }

@@ -235,10 +235,10 @@ class AddressForOrganisation implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['address_type'] = isset($data['address_type']) ? $data['address_type'] : null;
         $this->container['address_line1'] = isset($data['address_line1']) ? $data['address_line1'] : null;

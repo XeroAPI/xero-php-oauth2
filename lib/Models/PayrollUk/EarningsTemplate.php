@@ -198,10 +198,10 @@ class EarningsTemplate implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['pay_template_earning_id'] = isset($data['pay_template_earning_id']) ? $data['pay_template_earning_id'] : null;
         $this->container['rate_per_unit'] = isset($data['rate_per_unit']) ? $data['rate_per_unit'] : null;

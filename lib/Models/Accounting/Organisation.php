@@ -342,6 +342,14 @@ class Organisation implements ModelInterface, ArrayAccess
     const ORGANISATION_TYPE_SOLE_TRADER = 'SOLE_TRADER';
     const ORGANISATION_TYPE_SUPERANNUATION_FUND = 'SUPERANNUATION_FUND';
     const ORGANISATION_TYPE_TRUST = 'TRUST';
+    const ORGANISATION_TYPE_PERSONAL = 'PERSONAL';
+    const ORGANISATION_TYPE_SINGLEMEMBERLLC = 'SINGLEMEMBERLLC';
+    const ORGANISATION_TYPE_CCORPORATIONLLC = 'CCORPORATIONLLC';
+    const ORGANISATION_TYPE_PARTNERSHIPLLC = 'PARTNERSHIPLLC';
+    const ORGANISATION_TYPE_SCORPORATIONLLC = 'SCORPORATIONLLC';
+    const ORGANISATION_TYPE_LLC = 'LLC';
+    const ORGANISATION_TYPE_NOTLLC = 'NOTLLC';
+    const ORGANISATION_TYPE_UNSPECIFIED = 'UNSPECIFIED';
     const SALES_TAX_BASIS_PAYMENTS = 'PAYMENTS';
     const SALES_TAX_BASIS_INVOICE = 'INVOICE';
     const SALES_TAX_BASIS_NONE = 'NONE';
@@ -378,6 +386,14 @@ class Organisation implements ModelInterface, ArrayAccess
     const ORGANISATION_ENTITY_TYPE_SOLE_TRADER = 'SOLE_TRADER';
     const ORGANISATION_ENTITY_TYPE_SUPERANNUATION_FUND = 'SUPERANNUATION_FUND';
     const ORGANISATION_ENTITY_TYPE_TRUST = 'TRUST';
+    const ORGANISATION_ENTITY_TYPE_PERSONAL = 'PERSONAL';
+    const ORGANISATION_ENTITY_TYPE_SINGLEMEMBERLLC = 'SINGLEMEMBERLLC';
+    const ORGANISATION_ENTITY_TYPE_CCORPORATIONLLC = 'CCORPORATIONLLC';
+    const ORGANISATION_ENTITY_TYPE_PARTNERSHIPLLC = 'PARTNERSHIPLLC';
+    const ORGANISATION_ENTITY_TYPE_SCORPORATIONLLC = 'SCORPORATIONLLC';
+    const ORGANISATION_ENTITY_TYPE_LLC = 'LLC';
+    const ORGANISATION_ENTITY_TYPE_NOTLLC = 'NOTLLC';
+    const ORGANISATION_ENTITY_TYPE_UNSPECIFIED = 'UNSPECIFIED';
     const MODEL_CLASS_DEMO = 'DEMO';
     const MODEL_CLASS_TRIAL = 'TRIAL';
     const MODEL_CLASS_STARTER = 'STARTER';
@@ -399,6 +415,8 @@ class Organisation implements ModelInterface, ArrayAccess
     const MODEL_CLASS_GROW = 'GROW';
     const MODEL_CLASS_COMPREHENSIVE = 'COMPREHENSIVE';
     const MODEL_CLASS_SIMPLE = 'SIMPLE';
+    const MODEL_CLASS_BASICLITE = 'BASICLITE';
+    const MODEL_CLASS_ULTRA = 'ULTRA';
     const EDITION_BUSINESS = 'BUSINESS';
     const EDITION_PARTNER = 'PARTNER';
     
@@ -446,6 +464,14 @@ class Organisation implements ModelInterface, ArrayAccess
             self::ORGANISATION_TYPE_SOLE_TRADER,
             self::ORGANISATION_TYPE_SUPERANNUATION_FUND,
             self::ORGANISATION_TYPE_TRUST,
+            self::ORGANISATION_TYPE_PERSONAL,
+            self::ORGANISATION_TYPE_SINGLEMEMBERLLC,
+            self::ORGANISATION_TYPE_CCORPORATIONLLC,
+            self::ORGANISATION_TYPE_PARTNERSHIPLLC,
+            self::ORGANISATION_TYPE_SCORPORATIONLLC,
+            self::ORGANISATION_TYPE_LLC,
+            self::ORGANISATION_TYPE_NOTLLC,
+            self::ORGANISATION_TYPE_UNSPECIFIED,
         ];
     }
     
@@ -515,6 +541,14 @@ class Organisation implements ModelInterface, ArrayAccess
             self::ORGANISATION_ENTITY_TYPE_SOLE_TRADER,
             self::ORGANISATION_ENTITY_TYPE_SUPERANNUATION_FUND,
             self::ORGANISATION_ENTITY_TYPE_TRUST,
+            self::ORGANISATION_ENTITY_TYPE_PERSONAL,
+            self::ORGANISATION_ENTITY_TYPE_SINGLEMEMBERLLC,
+            self::ORGANISATION_ENTITY_TYPE_CCORPORATIONLLC,
+            self::ORGANISATION_ENTITY_TYPE_PARTNERSHIPLLC,
+            self::ORGANISATION_ENTITY_TYPE_SCORPORATIONLLC,
+            self::ORGANISATION_ENTITY_TYPE_LLC,
+            self::ORGANISATION_ENTITY_TYPE_NOTLLC,
+            self::ORGANISATION_ENTITY_TYPE_UNSPECIFIED,
         ];
     }
     
@@ -547,6 +581,8 @@ class Organisation implements ModelInterface, ArrayAccess
             self::MODEL_CLASS_GROW,
             self::MODEL_CLASS_COMPREHENSIVE,
             self::MODEL_CLASS_SIMPLE,
+            self::MODEL_CLASS_BASICLITE,
+            self::MODEL_CLASS_ULTRA,
         ];
     }
     
@@ -574,10 +610,10 @@ class Organisation implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['organisation_id'] = isset($data['organisation_id']) ? $data['organisation_id'] : null;
         $this->container['api_key'] = isset($data['api_key']) ? $data['api_key'] : null;

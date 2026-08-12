@@ -68,9 +68,12 @@ class Prepayment implements ModelInterface, ArrayAccess
         'total_tax' => 'double',
         'total' => 'double',
         'reference' => 'string',
+        'invoice_number' => 'string',
         'updated_date_utc' => 'string',
+        'updated_date_utc_string' => 'string',
         'currency_code' => '\XeroAPI\XeroPHP\Models\Accounting\CurrencyCode',
         'prepayment_id' => 'string',
+        'branding_theme_id' => 'string',
         'currency_rate' => 'double',
         'remaining_credit' => 'double',
         'allocations' => '\XeroAPI\XeroPHP\Models\Accounting\Allocation[]',
@@ -96,9 +99,12 @@ class Prepayment implements ModelInterface, ArrayAccess
         'total_tax' => 'double',
         'total' => 'double',
         'reference' => null,
+        'invoice_number' => null,
         'updated_date_utc' => null,
+        'updated_date_utc_string' => null,
         'currency_code' => null,
         'prepayment_id' => 'uuid',
+        'branding_theme_id' => 'uuid',
         'currency_rate' => 'double',
         'remaining_credit' => 'double',
         'allocations' => null,
@@ -145,9 +151,12 @@ class Prepayment implements ModelInterface, ArrayAccess
         'total_tax' => 'TotalTax',
         'total' => 'Total',
         'reference' => 'Reference',
+        'invoice_number' => 'InvoiceNumber',
         'updated_date_utc' => 'UpdatedDateUTC',
+        'updated_date_utc_string' => 'UpdatedDateUTCString',
         'currency_code' => 'CurrencyCode',
         'prepayment_id' => 'PrepaymentID',
+        'branding_theme_id' => 'BrandingThemeID',
         'currency_rate' => 'CurrencyRate',
         'remaining_credit' => 'RemainingCredit',
         'allocations' => 'Allocations',
@@ -173,9 +182,12 @@ class Prepayment implements ModelInterface, ArrayAccess
         'total_tax' => 'setTotalTax',
         'total' => 'setTotal',
         'reference' => 'setReference',
+        'invoice_number' => 'setInvoiceNumber',
         'updated_date_utc' => 'setUpdatedDateUtc',
+        'updated_date_utc_string' => 'setUpdatedDateUtcString',
         'currency_code' => 'setCurrencyCode',
         'prepayment_id' => 'setPrepaymentId',
+        'branding_theme_id' => 'setBrandingThemeId',
         'currency_rate' => 'setCurrencyRate',
         'remaining_credit' => 'setRemainingCredit',
         'allocations' => 'setAllocations',
@@ -201,9 +213,12 @@ class Prepayment implements ModelInterface, ArrayAccess
         'total_tax' => 'getTotalTax',
         'total' => 'getTotal',
         'reference' => 'getReference',
+        'invoice_number' => 'getInvoiceNumber',
         'updated_date_utc' => 'getUpdatedDateUtc',
+        'updated_date_utc_string' => 'getUpdatedDateUtcString',
         'currency_code' => 'getCurrencyCode',
         'prepayment_id' => 'getPrepaymentId',
+        'branding_theme_id' => 'getBrandingThemeId',
         'currency_rate' => 'getCurrencyRate',
         'remaining_credit' => 'getRemainingCredit',
         'allocations' => 'getAllocations',
@@ -304,10 +319,10 @@ class Prepayment implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['contact'] = isset($data['contact']) ? $data['contact'] : null;
@@ -319,9 +334,12 @@ class Prepayment implements ModelInterface, ArrayAccess
         $this->container['total_tax'] = isset($data['total_tax']) ? $data['total_tax'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
         $this->container['reference'] = isset($data['reference']) ? $data['reference'] : null;
+        $this->container['invoice_number'] = isset($data['invoice_number']) ? $data['invoice_number'] : null;
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
+        $this->container['updated_date_utc_string'] = isset($data['updated_date_utc_string']) ? $data['updated_date_utc_string'] : null;
         $this->container['currency_code'] = isset($data['currency_code']) ? $data['currency_code'] : null;
         $this->container['prepayment_id'] = isset($data['prepayment_id']) ? $data['prepayment_id'] : null;
+        $this->container['branding_theme_id'] = isset($data['branding_theme_id']) ? $data['branding_theme_id'] : null;
         $this->container['currency_rate'] = isset($data['currency_rate']) ? $data['currency_rate'] : null;
         $this->container['remaining_credit'] = isset($data['remaining_credit']) ? $data['remaining_credit'] : null;
         $this->container['allocations'] = isset($data['allocations']) ? $data['allocations'] : null;
@@ -685,6 +703,32 @@ class Prepayment implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets invoice_number
+     *
+     * @return string|null
+     */
+    public function getInvoiceNumber()
+    {
+        return $this->container['invoice_number'];
+    }
+
+    /**
+     * Sets invoice_number
+     *
+     * @param string|null $invoice_number Returns Invoice number for prepayment receive document only.
+     *
+     * @return $this
+     */
+    public function setInvoiceNumber($invoice_number)
+    {
+
+        $this->container['invoice_number'] = $invoice_number;
+
+        return $this;
+    }
+
+
+    /**
      * Gets updated_date_utc
      *
      * @return string|null
@@ -713,6 +757,32 @@ class Prepayment implements ModelInterface, ArrayAccess
     {
 
         $this->container['updated_date_utc'] = $updated_date_utc;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets updated_date_utc_string
+     *
+     * @return string|null
+     */
+    public function getUpdatedDateUtcString()
+    {
+        return $this->container['updated_date_utc_string'];
+    }
+
+    /**
+     * Sets updated_date_utc_string
+     *
+     * @param string|null $updated_date_utc_string UTC ISO-8601 formatted timestamp of last update to the prepayment
+     *
+     * @return $this
+     */
+    public function setUpdatedDateUtcString($updated_date_utc_string)
+    {
+
+        $this->container['updated_date_utc_string'] = $updated_date_utc_string;
 
         return $this;
     }
@@ -770,6 +840,32 @@ class Prepayment implements ModelInterface, ArrayAccess
         return $this;
     }
 
+
+
+    /**
+     * Gets branding_theme_id
+     *
+     * @return string|null
+     */
+    public function getBrandingThemeId()
+    {
+        return $this->container['branding_theme_id'];
+    }
+
+    /**
+     * Sets branding_theme_id
+     *
+     * @param string|null $branding_theme_id The unique identifier of the branding template applied to a receive prepayment
+     *
+     * @return $this
+     */
+    public function setBrandingThemeId($branding_theme_id)
+    {
+
+        $this->container['branding_theme_id'] = $branding_theme_id;
+
+        return $this;
+    }
 
 
     /**

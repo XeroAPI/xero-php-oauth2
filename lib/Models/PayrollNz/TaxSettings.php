@@ -213,10 +213,10 @@ class TaxSettings implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['period_units'] = isset($data['period_units']) ? $data['period_units'] : null;
         $this->container['period_type'] = isset($data['period_type']) ? $data['period_type'] : null;

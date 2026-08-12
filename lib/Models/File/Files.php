@@ -188,10 +188,10 @@ class Files implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['total_count'] = isset($data['total_count']) ? $data['total_count'] : null;
         $this->container['page'] = isset($data['page']) ? $data['page'] : null;

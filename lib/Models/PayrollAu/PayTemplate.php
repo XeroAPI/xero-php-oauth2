@@ -193,10 +193,10 @@ class PayTemplate implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['earnings_lines'] = isset($data['earnings_lines']) ? $data['earnings_lines'] : null;
         $this->container['deduction_lines'] = isset($data['deduction_lines']) ? $data['deduction_lines'] : null;

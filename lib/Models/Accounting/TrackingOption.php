@@ -205,10 +205,10 @@ class TrackingOption implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['tracking_option_id'] = isset($data['tracking_option_id']) ? $data['tracking_option_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;

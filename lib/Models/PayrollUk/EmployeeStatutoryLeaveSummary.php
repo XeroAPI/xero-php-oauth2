@@ -196,6 +196,7 @@ class EmployeeStatutoryLeaveSummary implements ModelInterface, ArrayAccess
     const TYPE_SHAREDPARENTAL = 'Sharedparental';
     const TYPE_BEREAVEMENT = 'Bereavement';
     const TYPE_NEONATAL_CARE = 'NeonatalCare';
+    const TYPE_BEREAVEMENT_NIRE = 'BereavementNire';
     const STATUS_PENDING = 'Pending';
     const STATUS_IN_PROGRESS = 'In-Progress';
     const STATUS_COMPLETED = 'Completed';
@@ -217,6 +218,7 @@ class EmployeeStatutoryLeaveSummary implements ModelInterface, ArrayAccess
             self::TYPE_SHAREDPARENTAL,
             self::TYPE_BEREAVEMENT,
             self::TYPE_NEONATAL_CARE,
+            self::TYPE_BEREAVEMENT_NIRE,
         ];
     }
     
@@ -245,10 +247,10 @@ class EmployeeStatutoryLeaveSummary implements ModelInterface, ArrayAccess
     /**
      * Constructor
      *
-     * @param mixed[] $data Associated array of property values
+     * @param mixed[]|null $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['statutory_leave_id'] = isset($data['statutory_leave_id']) ? $data['statutory_leave_id'] : null;
         $this->container['employee_id'] = isset($data['employee_id']) ? $data['employee_id'] : null;
