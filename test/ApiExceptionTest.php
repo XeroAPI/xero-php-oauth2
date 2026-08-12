@@ -12,7 +12,10 @@ class ApiExceptionTest extends TestCase
 {
     public function testCreatesExceptionWhenRequestHasNoResponse()
     {
-        $request = new Request('GET', 'https://example.test/resource');
+        $request = new Request(
+            'GET',
+            'https://user:password@example.test/resource?access_token=secret%0d%0aforged#fragment-secret'
+        );
         $failure = new ConnectException('Connection failed', $request);
 
         $exception = ApiException::fromRequestException($failure);
@@ -20,7 +23,11 @@ class ApiExceptionTest extends TestCase
         $this->assertSame(0, $exception->getCode());
         $this->assertSame([], $exception->getResponseHeaders());
         $this->assertNull($exception->getResponseBody());
-        $this->assertStringContainsString((string) $request->getUri(), $exception->getMessage());
+        $this->assertStringContainsString('https://example.test', $exception->getMessage());
+        $this->assertStringNotContainsString('password', $exception->getMessage());
+        $this->assertStringNotContainsString('access_token', $exception->getMessage());
+        $this->assertStringNotContainsString('secret', $exception->getMessage());
+        $this->assertStringNotContainsString('forged', $exception->getMessage());
     }
 
     public function testPreservesAvailableResponseDetails()

@@ -92,7 +92,7 @@ class ApiException extends Exception
         $response = method_exists($exception, 'getResponse') ? $exception->getResponse() : null;
         $request = method_exists($exception, 'getRequest') ? $exception->getRequest() : null;
         $statusCode = $response ? $response->getStatusCode() : 0;
-        $uri = $request ? $request->getUri() : 'unknown URI';
+        $uri = self::safeRequestOrigin($request);
 
         return new self(
             sprintf('[%d] Error connecting to the API (%s)', $statusCode, $uri),
@@ -100,6 +100,33 @@ class ApiException extends Exception
             $response ? $response->getHeaders() : [],
             $response ? $response->getBody() : null
         );
+    }
+
+    /**
+     * Returns a bounded request origin without userinfo, path, query or fragment.
+     *
+     * @param mixed $request HTTP request, if available
+     *
+     * @return string
+     */
+    private static function safeRequestOrigin($request)
+    {
+        if (!$request || !method_exists($request, 'getUri')) {
+            return 'unknown URI';
+        }
+        $uri = $request->getUri();
+        if (!method_exists($uri, 'getHost') || $uri->getHost() === '') {
+            return 'unknown URI';
+        }
+        $origin = (string) $uri
+            ->withUserInfo('')
+            ->withPath('')
+            ->withQuery('')
+            ->withFragment('');
+        if (strlen($origin) > 256 || !preg_match('/^[\x21-\x7e]+$/D', $origin)) {
+            return 'unknown URI';
+        }
+        return $origin;
     }
 
     /**
