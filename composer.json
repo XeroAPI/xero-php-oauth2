@@ -35,5 +35,8 @@
     },
     "autoload-dev": {
         "psr-4": { "XeroAPI\\XeroPHP\\" : "test/" }
+    },
+    "scripts": {
+        "lint": "php scripts/check-syntax.php"
     }
 }
