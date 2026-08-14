@@ -5,7 +5,13 @@ on:
     types:
       - reopened
 
+permissions: {}
+
 jobs:
   create_jira_issue:
+    permissions:
+      contents: read # Check out repository files in the called workflow.
+      issues: read # Find the Jira ticket ID in issue comments.
+
     uses: XeroAPI/Xero-OpenAPI/.github/workflows/jira_update_issue_reopen.yml@master
     secrets: inherit

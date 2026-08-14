@@ -5,7 +5,13 @@ on:
     types:
       - opened
 
+permissions: {}
+
 jobs:
   create_jira_issue:
+    permissions:
+      contents: read # Check out repository files in the called workflow.
+      issues: write # Add the Jira ticket ID to the triggering issue.
+
     uses: XeroAPI/Xero-OpenAPI/.github/workflows/jira_create_issue.yml@master
     secrets: inherit

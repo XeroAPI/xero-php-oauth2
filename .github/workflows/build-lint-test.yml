@@ -3,6 +3,9 @@ name: PHP Build, Lint
 on:
     push:
 
+permissions:
+    contents: read
+
 jobs:
     build-test-lint:
         runs-on: ubuntu-latest
