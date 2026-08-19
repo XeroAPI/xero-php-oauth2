@@ -65,14 +65,15 @@ class ApiException extends Exception
     /**
      * Constructor
      *
-     * @param string        $message         Error message
-     * @param int           $code            HTTP status code
-     * @param string[]|null $responseHeaders HTTP response header
-     * @param mixed         $responseBody    HTTP decoded body of the server response either as \stdClass or string
+     * @param string          $message         Error message
+     * @param int             $code            HTTP status code
+     * @param string[]|null   $responseHeaders HTTP response header
+     * @param mixed           $responseBody    HTTP decoded body of the server response either as \stdClass or string
+     * @param \Throwable|null $previous        Originating exception, if any
      */
-    public function __construct($message = "", $code = 0, $responseHeaders = [], $responseBody = null)
+    public function __construct($message = "", $code = 0, $responseHeaders = [], $responseBody = null, ?\Throwable $previous = null)
     {
-        parent::__construct($message, $code);
+        parent::__construct($message, $code, $previous);
         $this->responseHeaders = $responseHeaders;
         $this->responseBody = $responseBody;
     }
@@ -82,6 +83,9 @@ class ApiException extends Exception
      *
      * Connection failures do not have an HTTP response. Treat those as status
      * code zero instead of dereferencing a null response in async callbacks.
+     * The originating exception is kept as the previous exception so a cURL
+     * timeout, a DNS failure, a TLS handshake failure and a refused connection
+     * stay distinguishable, since none of them carry a status code or body.
      *
      * @param mixed $exception Guzzle request exception
      *
@@ -92,24 +96,31 @@ class ApiException extends Exception
         $response = method_exists($exception, 'getResponse') ? $exception->getResponse() : null;
         $request = method_exists($exception, 'getRequest') ? $exception->getRequest() : null;
         $statusCode = $response ? $response->getStatusCode() : 0;
-        $uri = self::safeRequestOrigin($request);
+        $uri = self::safeRequestUri($request, $response !== null);
 
         return new self(
             sprintf('[%d] Error connecting to the API (%s)', $statusCode, $uri),
             $statusCode,
             $response ? $response->getHeaders() : [],
-            $response ? $response->getBody() : null
+            $response ? $response->getBody() : null,
+            $exception instanceof \Throwable ? $exception : null
         );
     }
 
     /**
-     * Returns a bounded request origin without userinfo, path, query or fragment.
+     * Returns a bounded request URI without userinfo, query or fragment.
      *
-     * @param mixed $request HTTP request, if available
+     * A failure that carries an HTTP response keeps its path, so the failing
+     * endpoint stays identifiable and the message matches the synchronous
+     * path. A transport failure has no response and no meaningful endpoint,
+     * so only the origin is reported.
+     *
+     * @param mixed $request     HTTP request, if available
+     * @param bool  $includePath Whether to keep the request path
      *
      * @return string
      */
-    private static function safeRequestOrigin($request)
+    private static function safeRequestUri($request, $includePath)
     {
         if (!$request || !method_exists($request, 'getUri')) {
             return 'unknown URI';
@@ -118,15 +129,33 @@ class ApiException extends Exception
         if (!method_exists($uri, 'getHost') || $uri->getHost() === '') {
             return 'unknown URI';
         }
-        $origin = (string) $uri
+        $uri = $uri
             ->withUserInfo('')
-            ->withPath('')
             ->withQuery('')
             ->withFragment('');
-        if (strlen($origin) > 256 || !preg_match('/^[\x21-\x7e]+$/D', $origin)) {
-            return 'unknown URI';
+        if ($includePath) {
+            $withPath = self::boundedUri((string) $uri);
+            if ($withPath !== null) {
+                return $withPath;
+            }
         }
-        return $origin;
+        $origin = self::boundedUri((string) $uri->withPath(''));
+        return $origin === null ? 'unknown URI' : $origin;
+    }
+
+    /**
+     * Returns the URI when it is short and printable, otherwise null.
+     *
+     * @param string $uri Candidate URI
+     *
+     * @return string|null
+     */
+    private static function boundedUri($uri)
+    {
+        if (strlen($uri) > 256 || !preg_match('/^[\x21-\x7e]+$/D', $uri)) {
+            return null;
+        }
+        return $uri;
     }
 
     /**

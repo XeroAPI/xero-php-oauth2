@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="./vendor/autoload.php"
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.5/phpunit.xsd"
+         bootstrap="./vendor/autoload.php"
+         cacheDirectory=".phpunit.cache"
          colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
          stopOnFailure="false">
     <testsuites>
-        <testsuite>
-            <directory>./test/Api</directory>
-            <directory>./test/Model</directory>
+        <testsuite name="XeroPHP">
+            <directory>./test</directory>
         </testsuite>
     </testsuites>
 
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
+    <coverage includeUncoveredFiles="true"/>
+
+    <source>
+        <include>
             <directory suffix=".php">./lib/Api</directory>
             <directory suffix=".php">./lib/Models/Identity</directory>
-        </whitelist>
-    </filter>
+        </include>
+    </source>
 </phpunit>
