@@ -2,3 +2,4 @@
 .build_notes.md
 vendor/
 composer.lock
+.phpunit.cache/

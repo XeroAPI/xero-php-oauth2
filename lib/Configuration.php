@@ -134,6 +134,18 @@ class Configuration
     /**
      * The hostPayrollAuV2
      *
+     * NOT PRODUCED BY OPENAPI GENERATOR. This property and its
+     * setHostPayrollAuV2()/getHostPayrollAuV2() accessors are added by hand.
+     * The mustache template that emits this host list has no PayrollAuV2
+     * entry, so the next regeneration of Configuration.php drops all three and
+     * every PayrollAuV2Api::*Request() call site fatals with
+     * "Call to undefined method
+     * XeroAPI\XeroPHP\Configuration::getHostPayrollAuV2()".
+     * Per CONTRIBUTING.md this must be fixed in the customised mustache
+     * templates upstream for the change to survive codegen; until then
+     * test/ConfigurationPayrollAuV2HostTest.php fails if the accessors go
+     * missing.
+     *
      * @var string
      */
     protected $hostPayrollAuV2 = 'https://api.xero.com/payroll.xro/2.0';
@@ -503,6 +515,9 @@ class Configuration
     /**
      * Sets the hostPayrollAuV2
      *
+     * Hand-added, not generated. See the $hostPayrollAuV2 property for why the
+     * mustache template must be updated upstream.
+     *
      * @param string $hostPayrollAuV2
      *
      * @return $this
@@ -515,6 +530,10 @@ class Configuration
 
     /**
      * Gets the hostPayrollAuV2
+     *
+     * Hand-added, not generated. See the $hostPayrollAuV2 property for why the
+     * mustache template must be updated upstream. All nine
+     * PayrollAuV2Api::*Request() call sites depend on this method.
      *
      * @return string hostPayrollAuV2
      */
