@@ -1084,6 +1084,7 @@ class CreditNote implements ModelInterface, ArrayAccess
     }
 
 
+
     /**
      * Gets currency_rate
      *

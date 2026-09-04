@@ -80,6 +80,8 @@ class Invoice implements ModelInterface, ArrayAccess
         'total_tax' => 'double',
         'total' => 'double',
         'total_discount' => 'double',
+        'rounding_amount' => 'double',
+        'entered_total' => 'double',
         'invoice_id' => 'string',
         'repeating_invoice_id' => 'string',
         'has_attachments' => 'bool',
@@ -130,6 +132,8 @@ class Invoice implements ModelInterface, ArrayAccess
         'total_tax' => 'double',
         'total' => 'double',
         'total_discount' => 'double',
+        'rounding_amount' => 'double',
+        'entered_total' => 'double',
         'invoice_id' => 'uuid',
         'repeating_invoice_id' => 'uuid',
         'has_attachments' => null,
@@ -201,6 +205,8 @@ class Invoice implements ModelInterface, ArrayAccess
         'total_tax' => 'TotalTax',
         'total' => 'Total',
         'total_discount' => 'TotalDiscount',
+        'rounding_amount' => 'RoundingAmount',
+        'entered_total' => 'EnteredTotal',
         'invoice_id' => 'InvoiceID',
         'repeating_invoice_id' => 'RepeatingInvoiceID',
         'has_attachments' => 'HasAttachments',
@@ -251,6 +257,8 @@ class Invoice implements ModelInterface, ArrayAccess
         'total_tax' => 'setTotalTax',
         'total' => 'setTotal',
         'total_discount' => 'setTotalDiscount',
+        'rounding_amount' => 'setRoundingAmount',
+        'entered_total' => 'setEnteredTotal',
         'invoice_id' => 'setInvoiceId',
         'repeating_invoice_id' => 'setRepeatingInvoiceId',
         'has_attachments' => 'setHasAttachments',
@@ -301,6 +309,8 @@ class Invoice implements ModelInterface, ArrayAccess
         'total_tax' => 'getTotalTax',
         'total' => 'getTotal',
         'total_discount' => 'getTotalDiscount',
+        'rounding_amount' => 'getRoundingAmount',
+        'entered_total' => 'getEnteredTotal',
         'invoice_id' => 'getInvoiceId',
         'repeating_invoice_id' => 'getRepeatingInvoiceId',
         'has_attachments' => 'getHasAttachments',
@@ -455,6 +465,8 @@ class Invoice implements ModelInterface, ArrayAccess
         $this->container['total_tax'] = isset($data['total_tax']) ? $data['total_tax'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
         $this->container['total_discount'] = isset($data['total_discount']) ? $data['total_discount'] : null;
+        $this->container['rounding_amount'] = isset($data['rounding_amount']) ? $data['rounding_amount'] : null;
+        $this->container['entered_total'] = isset($data['entered_total']) ? $data['entered_total'] : null;
         $this->container['invoice_id'] = isset($data['invoice_id']) ? $data['invoice_id'] : null;
         $this->container['repeating_invoice_id'] = isset($data['repeating_invoice_id']) ? $data['repeating_invoice_id'] : null;
         $this->container['has_attachments'] = isset($data['has_attachments']) ? $data['has_attachments'] : false;
@@ -1144,7 +1156,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets sub_total
      *
-     * @param double|null $sub_total Total of invoice excluding taxes
+     * @param double|null $sub_total Total of invoice excluding taxes. Calculated automatically by Xero from the invoice's line items. Only for ACCPAY and ACCREC invoices, where this opt-in capability is enabled for your organisation, can SubTotal be supplied on write – on a SUBMITTED or AUTHORISED invoice supplied together with TotalTax and Total, it is validated against the calculated line item totals (see RoundingAmount); it is ignored in all other cases. This write behaviour, and the returned value reflecting it, only applies to the Create and Update endpoints (POST/PUT) and to retrieving a single invoice by ID (GET by ID) – it does not apply when listing invoices (GET)
      *
      * @return $this
      */
@@ -1155,6 +1167,7 @@ class Invoice implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
 
 
     /**
@@ -1170,7 +1183,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets total_tax
      *
-     * @param double|null $total_tax Total tax on invoice
+     * @param double|null $total_tax Total tax on invoice. Calculated automatically by Xero from the invoice's line items. Only for ACCPAY and ACCREC invoices, where this opt-in capability is enabled for your organisation, can TotalTax be supplied on write – on a SUBMITTED or AUTHORISED invoice supplied together with SubTotal and Total, it is validated against the calculated line item totals (see RoundingAmount); it is ignored in all other cases. This write behaviour, and the returned value reflecting it, only applies to the Create and Update endpoints (POST/PUT) and to retrieving a single invoice by ID (GET by ID) – it does not apply when listing invoices (GET)
      *
      * @return $this
      */
@@ -1181,6 +1194,7 @@ class Invoice implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
 
 
     /**
@@ -1196,7 +1210,7 @@ class Invoice implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param double|null $total Total of Invoice tax inclusive (i.e. SubTotal + TotalTax). This will be ignored if it doesn’t equal the sum of the LineAmounts
+     * @param double|null $total Total of Invoice tax inclusive (i.e. SubTotal + TotalTax + RoundingAmount). Calculated automatically by Xero from the invoice's line items. Only for ACCPAY and ACCREC invoices, where this opt-in capability is enabled for your organisation, can Total be supplied on write – on a SUBMITTED or AUTHORISED invoice supplied together with SubTotal and TotalTax, it is validated against the calculated line item totals plus RoundingAmount; in all other cases this will be ignored if it does not equal the sum of the LineAmounts. This write behaviour, and the returned value reflecting it, only applies to the Create and Update endpoints (POST/PUT) and to retrieving a single invoice by ID (GET by ID) – it does not apply when listing invoices (GET)
      *
      * @return $this
      */
@@ -1207,6 +1221,7 @@ class Invoice implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
 
 
     /**
@@ -1233,6 +1248,60 @@ class Invoice implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+
+    /**
+     * Gets rounding_amount
+     *
+     * @return double|null
+     */
+    public function getRoundingAmount()
+    {
+        return $this->container['rounding_amount'];
+    }
+
+    /**
+     * Sets rounding_amount
+     *
+     * @param double|null $rounding_amount An optional rounding adjustment added to SubTotal + TotalTax to give Total (i.e. Total = SubTotal + TotalTax + RoundingAmount). Only applies to ACCPAY and ACCREC invoices, and only if this opt-in capability has been enabled for your organisation. Not validated while the invoice is DRAFT. For SUBMITTED and AUTHORISED invoices, RoundingAmount is only applied when SubTotal, TotalTax and Total are all supplied together, and must be between -0.10 and 0.10 – values outside this range are rejected with a validation error (on DRAFT invoices, an out-of-range value is ignored instead). This field is only settable and only returned via the Create and Update endpoints (POST/PUT) and when retrieving a single invoice by ID (GET by ID) – it is not returned when listing invoices (GET)
+     *
+     * @return $this
+     */
+    public function setRoundingAmount($rounding_amount)
+    {
+
+        $this->container['rounding_amount'] = $rounding_amount;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets entered_total
+     *
+     * @return double|null
+     */
+    public function getEnteredTotal()
+    {
+        return $this->container['entered_total'];
+    }
+
+    /**
+     * Sets entered_total
+     *
+     * @param double|null $entered_total The total amount as originally entered for the invoice, before any RoundingAmount adjustment is applied. Only applies to ACCPAY and ACCREC invoices, and only if this opt-in capability has been enabled for your organisation. Can only be set while the invoice is DRAFT; once the invoice is no longer DRAFT this reflects Total. This field is only settable and only returned via the Create and Update endpoints (POST/PUT) and when retrieving a single invoice by ID (GET by ID) – it is not returned when listing invoices (GET)
+     *
+     * @return $this
+     */
+    public function setEnteredTotal($entered_total)
+    {
+
+        $this->container['entered_total'] = $entered_total;
+
+        return $this;
+    }
+
 
 
     /**

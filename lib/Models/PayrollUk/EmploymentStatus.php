@@ -48,6 +48,7 @@ class EmploymentStatus
     const EMPLOYEE = 'Employee';
     const WORKER = 'Worker';
     const UNSPECIFIED = 'Unspecified';
+    const OFF_PAYROLL_WORKER = 'OffPayrollWorker';
     
     /**
      * Gets allowable values of the enum
@@ -59,6 +60,7 @@ class EmploymentStatus
             self::EMPLOYEE,
             self::WORKER,
             self::UNSPECIFIED,
+            self::OFF_PAYROLL_WORKER,
         ];
     }
 }
