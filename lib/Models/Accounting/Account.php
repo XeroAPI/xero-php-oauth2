@@ -76,6 +76,7 @@ class Account implements ModelInterface, ArrayAccess
         'reporting_code_name' => 'string',
         'has_attachments' => 'bool',
         'updated_date_utc' => 'string',
+        'created_date_utc' => 'string',
         'add_to_watchlist' => 'bool',
         'validation_errors' => '\XeroAPI\XeroPHP\Models\Accounting\ValidationError[]'
     ];
@@ -104,6 +105,7 @@ class Account implements ModelInterface, ArrayAccess
         'reporting_code_name' => null,
         'has_attachments' => null,
         'updated_date_utc' => null,
+        'created_date_utc' => null,
         'add_to_watchlist' => null,
         'validation_errors' => null
     ];
@@ -153,6 +155,7 @@ class Account implements ModelInterface, ArrayAccess
         'reporting_code_name' => 'ReportingCodeName',
         'has_attachments' => 'HasAttachments',
         'updated_date_utc' => 'UpdatedDateUTC',
+        'created_date_utc' => 'CreatedDateUTC',
         'add_to_watchlist' => 'AddToWatchlist',
         'validation_errors' => 'ValidationErrors'
     ];
@@ -181,6 +184,7 @@ class Account implements ModelInterface, ArrayAccess
         'reporting_code_name' => 'setReportingCodeName',
         'has_attachments' => 'setHasAttachments',
         'updated_date_utc' => 'setUpdatedDateUtc',
+        'created_date_utc' => 'setCreatedDateUtc',
         'add_to_watchlist' => 'setAddToWatchlist',
         'validation_errors' => 'setValidationErrors'
     ];
@@ -209,6 +213,7 @@ class Account implements ModelInterface, ArrayAccess
         'reporting_code_name' => 'getReportingCodeName',
         'has_attachments' => 'getHasAttachments',
         'updated_date_utc' => 'getUpdatedDateUtc',
+        'created_date_utc' => 'getCreatedDateUtc',
         'add_to_watchlist' => 'getAddToWatchlist',
         'validation_errors' => 'getValidationErrors'
     ];
@@ -403,6 +408,7 @@ class Account implements ModelInterface, ArrayAccess
         $this->container['reporting_code_name'] = isset($data['reporting_code_name']) ? $data['reporting_code_name'] : null;
         $this->container['has_attachments'] = isset($data['has_attachments']) ? $data['has_attachments'] : false;
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
+        $this->container['created_date_utc'] = isset($data['created_date_utc']) ? $data['created_date_utc'] : null;
         $this->container['add_to_watchlist'] = isset($data['add_to_watchlist']) ? $data['add_to_watchlist'] : null;
         $this->container['validation_errors'] = isset($data['validation_errors']) ? $data['validation_errors'] : null;
     }
@@ -991,6 +997,40 @@ class Account implements ModelInterface, ArrayAccess
     {
 
         $this->container['updated_date_utc'] = $updated_date_utc;
+
+        return $this;
+    }
+
+
+    /**
+     * Gets created_date_utc
+     *
+     * @return string|null
+     */
+    public function getCreatedDateUtc()
+    {
+        return $this->container['created_date_utc'];
+    }
+    public function getCreatedDateUtcAsDate()
+    {
+      if ($this->getCreatedDateUtc() != null) {
+        return StringUtil::convertStringToDateTime($this->getCreatedDateUtc());
+      } else {
+        throw new \Exception('can not convert null string to date');
+      } 
+    }
+
+    /**
+     * Sets created_date_utc
+     *
+     * @param string|null $created_date_utc Created date UTC format. Only returned by GET Accounts and GET Accounts/{AccountID}, not on POST or PUT responses
+     *
+     * @return $this
+     */
+    public function setCreatedDateUtc($created_date_utc)
+    {
+
+        $this->container['created_date_utc'] = $created_date_utc;
 
         return $this;
     }

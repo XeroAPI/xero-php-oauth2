@@ -66,6 +66,7 @@ class EmployeeTax implements ModelInterface, ArrayAccess
         'is_eligible_for_kiwi_saver' => 'bool',
         'esct_rate_percentage' => 'double',
         'kiwi_saver_contributions' => 'string',
+        'kiwi_saver_status' => 'string',
         'kiwi_saver_employee_contribution_rate_percentage' => 'double',
         'kiwi_saver_employer_contribution_rate_percentage' => 'double',
         'kiwi_saver_employer_salary_sacrifice_contribution_rate_percentage' => 'double',
@@ -73,7 +74,8 @@ class EmployeeTax implements ModelInterface, ArrayAccess
         'kiwi_saver_contribution_holiday_end_date' => '\DateTime',
         'has_student_loan_balance' => 'bool',
         'student_loan_balance' => 'double',
-        'student_loan_as_at' => '\DateTime'
+        'student_loan_as_at' => '\DateTime',
+        'registered_for_gst' => 'bool'
     ];
 
     /**
@@ -90,6 +92,7 @@ class EmployeeTax implements ModelInterface, ArrayAccess
         'is_eligible_for_kiwi_saver' => null,
         'esct_rate_percentage' => 'double',
         'kiwi_saver_contributions' => null,
+        'kiwi_saver_status' => null,
         'kiwi_saver_employee_contribution_rate_percentage' => 'double',
         'kiwi_saver_employer_contribution_rate_percentage' => 'double',
         'kiwi_saver_employer_salary_sacrifice_contribution_rate_percentage' => 'double',
@@ -97,7 +100,8 @@ class EmployeeTax implements ModelInterface, ArrayAccess
         'kiwi_saver_contribution_holiday_end_date' => 'date',
         'has_student_loan_balance' => null,
         'student_loan_balance' => 'double',
-        'student_loan_as_at' => 'date'
+        'student_loan_as_at' => 'date',
+        'registered_for_gst' => null
     ];
 
     /**
@@ -135,6 +139,7 @@ class EmployeeTax implements ModelInterface, ArrayAccess
         'is_eligible_for_kiwi_saver' => 'isEligibleForKiwiSaver',
         'esct_rate_percentage' => 'esctRatePercentage',
         'kiwi_saver_contributions' => 'kiwiSaverContributions',
+        'kiwi_saver_status' => 'kiwiSaverStatus',
         'kiwi_saver_employee_contribution_rate_percentage' => 'kiwiSaverEmployeeContributionRatePercentage',
         'kiwi_saver_employer_contribution_rate_percentage' => 'kiwiSaverEmployerContributionRatePercentage',
         'kiwi_saver_employer_salary_sacrifice_contribution_rate_percentage' => 'kiwiSaverEmployerSalarySacrificeContributionRatePercentage',
@@ -142,7 +147,8 @@ class EmployeeTax implements ModelInterface, ArrayAccess
         'kiwi_saver_contribution_holiday_end_date' => 'kiwiSaverContributionHolidayEndDate',
         'has_student_loan_balance' => 'hasStudentLoanBalance',
         'student_loan_balance' => 'studentLoanBalance',
-        'student_loan_as_at' => 'studentLoanAsAt'
+        'student_loan_as_at' => 'studentLoanAsAt',
+        'registered_for_gst' => 'registeredForGST'
     ];
 
     /**
@@ -159,6 +165,7 @@ class EmployeeTax implements ModelInterface, ArrayAccess
         'is_eligible_for_kiwi_saver' => 'setIsEligibleForKiwiSaver',
         'esct_rate_percentage' => 'setEsctRatePercentage',
         'kiwi_saver_contributions' => 'setKiwiSaverContributions',
+        'kiwi_saver_status' => 'setKiwiSaverStatus',
         'kiwi_saver_employee_contribution_rate_percentage' => 'setKiwiSaverEmployeeContributionRatePercentage',
         'kiwi_saver_employer_contribution_rate_percentage' => 'setKiwiSaverEmployerContributionRatePercentage',
         'kiwi_saver_employer_salary_sacrifice_contribution_rate_percentage' => 'setKiwiSaverEmployerSalarySacrificeContributionRatePercentage',
@@ -166,7 +173,8 @@ class EmployeeTax implements ModelInterface, ArrayAccess
         'kiwi_saver_contribution_holiday_end_date' => 'setKiwiSaverContributionHolidayEndDate',
         'has_student_loan_balance' => 'setHasStudentLoanBalance',
         'student_loan_balance' => 'setStudentLoanBalance',
-        'student_loan_as_at' => 'setStudentLoanAsAt'
+        'student_loan_as_at' => 'setStudentLoanAsAt',
+        'registered_for_gst' => 'setRegisteredForGst'
     ];
 
     /**
@@ -183,6 +191,7 @@ class EmployeeTax implements ModelInterface, ArrayAccess
         'is_eligible_for_kiwi_saver' => 'getIsEligibleForKiwiSaver',
         'esct_rate_percentage' => 'getEsctRatePercentage',
         'kiwi_saver_contributions' => 'getKiwiSaverContributions',
+        'kiwi_saver_status' => 'getKiwiSaverStatus',
         'kiwi_saver_employee_contribution_rate_percentage' => 'getKiwiSaverEmployeeContributionRatePercentage',
         'kiwi_saver_employer_contribution_rate_percentage' => 'getKiwiSaverEmployerContributionRatePercentage',
         'kiwi_saver_employer_salary_sacrifice_contribution_rate_percentage' => 'getKiwiSaverEmployerSalarySacrificeContributionRatePercentage',
@@ -190,7 +199,8 @@ class EmployeeTax implements ModelInterface, ArrayAccess
         'kiwi_saver_contribution_holiday_end_date' => 'getKiwiSaverContributionHolidayEndDate',
         'has_student_loan_balance' => 'getHasStudentLoanBalance',
         'student_loan_balance' => 'getStudentLoanBalance',
-        'student_loan_as_at' => 'getStudentLoanAsAt'
+        'student_loan_as_at' => 'getStudentLoanAsAt',
+        'registered_for_gst' => 'getRegisteredForGst'
     ];
 
     /**
@@ -239,6 +249,12 @@ class EmployeeTax implements ModelInterface, ArrayAccess
     const KIWI_SAVER_CONTRIBUTIONS_ON_A_CONTRIBUTIONS_HOLIDAY = 'OnAContributionsHoliday';
     const KIWI_SAVER_CONTRIBUTIONS_ON_A_SAVINGS_SUSPENSION = 'OnASavingsSuspension';
     const KIWI_SAVER_CONTRIBUTIONS_NOT_CURRENTLY_A_KIWI_SAVER_MEMBER = 'NotCurrentlyAKiwiSaverMember';
+    const KIWI_SAVER_STATUS_ACTIVE_KIWI_SAVER_MEMBER = 'ActiveKiwiSaverMember';
+    const KIWI_SAVER_STATUS_AUTOMATICALLY_ENROLLED_INTO_KIWI_SAVER = 'AutomaticallyEnrolledIntoKiwiSaver';
+    const KIWI_SAVER_STATUS_EMPLOYED_FOR_LESS_THAN28_DAYS = 'EmployedForLessThan28Days';
+    const KIWI_SAVER_STATUS_NOT_REQUIRED_TO_BE_AUTOMATICALLY_ENROLLED = 'NotRequiredToBeAutomaticallyEnrolled';
+    const KIWI_SAVER_STATUS_OPTED_INTO_KIWI_SAVER = 'OptedIntoKiwiSaver';
+    const KIWI_SAVER_STATUS_NOT_ELIGIBLE_FOR_KIWI_SAVER = 'NotEligibleForKiwiSaver';
     
 
     
@@ -255,6 +271,23 @@ class EmployeeTax implements ModelInterface, ArrayAccess
             self::KIWI_SAVER_CONTRIBUTIONS_ON_A_CONTRIBUTIONS_HOLIDAY,
             self::KIWI_SAVER_CONTRIBUTIONS_ON_A_SAVINGS_SUSPENSION,
             self::KIWI_SAVER_CONTRIBUTIONS_NOT_CURRENTLY_A_KIWI_SAVER_MEMBER,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getKiwiSaverStatusAllowableValues()
+    {
+        return [
+            self::KIWI_SAVER_STATUS_ACTIVE_KIWI_SAVER_MEMBER,
+            self::KIWI_SAVER_STATUS_AUTOMATICALLY_ENROLLED_INTO_KIWI_SAVER,
+            self::KIWI_SAVER_STATUS_EMPLOYED_FOR_LESS_THAN28_DAYS,
+            self::KIWI_SAVER_STATUS_NOT_REQUIRED_TO_BE_AUTOMATICALLY_ENROLLED,
+            self::KIWI_SAVER_STATUS_OPTED_INTO_KIWI_SAVER,
+            self::KIWI_SAVER_STATUS_NOT_ELIGIBLE_FOR_KIWI_SAVER,
         ];
     }
     
@@ -282,6 +315,7 @@ class EmployeeTax implements ModelInterface, ArrayAccess
         $this->container['is_eligible_for_kiwi_saver'] = isset($data['is_eligible_for_kiwi_saver']) ? $data['is_eligible_for_kiwi_saver'] : null;
         $this->container['esct_rate_percentage'] = isset($data['esct_rate_percentage']) ? $data['esct_rate_percentage'] : null;
         $this->container['kiwi_saver_contributions'] = isset($data['kiwi_saver_contributions']) ? $data['kiwi_saver_contributions'] : null;
+        $this->container['kiwi_saver_status'] = isset($data['kiwi_saver_status']) ? $data['kiwi_saver_status'] : null;
         $this->container['kiwi_saver_employee_contribution_rate_percentage'] = isset($data['kiwi_saver_employee_contribution_rate_percentage']) ? $data['kiwi_saver_employee_contribution_rate_percentage'] : null;
         $this->container['kiwi_saver_employer_contribution_rate_percentage'] = isset($data['kiwi_saver_employer_contribution_rate_percentage']) ? $data['kiwi_saver_employer_contribution_rate_percentage'] : null;
         $this->container['kiwi_saver_employer_salary_sacrifice_contribution_rate_percentage'] = isset($data['kiwi_saver_employer_salary_sacrifice_contribution_rate_percentage']) ? $data['kiwi_saver_employer_salary_sacrifice_contribution_rate_percentage'] : null;
@@ -290,6 +324,7 @@ class EmployeeTax implements ModelInterface, ArrayAccess
         $this->container['has_student_loan_balance'] = isset($data['has_student_loan_balance']) ? $data['has_student_loan_balance'] : null;
         $this->container['student_loan_balance'] = isset($data['student_loan_balance']) ? $data['student_loan_balance'] : null;
         $this->container['student_loan_as_at'] = isset($data['student_loan_as_at']) ? $data['student_loan_as_at'] : null;
+        $this->container['registered_for_gst'] = isset($data['registered_for_gst']) ? $data['registered_for_gst'] : null;
     }
 
     /**
@@ -305,6 +340,14 @@ class EmployeeTax implements ModelInterface, ArrayAccess
         if (!is_null($this->container['kiwi_saver_contributions']) && !in_array($this->container['kiwi_saver_contributions'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'kiwi_saver_contributions', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getKiwiSaverStatusAllowableValues();
+        if (!is_null($this->container['kiwi_saver_status']) && !in_array($this->container['kiwi_saver_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'kiwi_saver_status', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -418,7 +461,7 @@ class EmployeeTax implements ModelInterface, ArrayAccess
     /**
      * Sets has_special_student_loan_rate
      *
-     * @param bool|null $has_special_student_loan_rate Does the employee has a special student loan rate?
+     * @param bool|null $has_special_student_loan_rate Does the employee have a special student loan rate?
      *
      * @return $this
      */
@@ -472,7 +515,7 @@ class EmployeeTax implements ModelInterface, ArrayAccess
     /**
      * Sets is_eligible_for_kiwi_saver
      *
-     * @param bool|null $is_eligible_for_kiwi_saver The employee eligibility for KiwiSaver.
+     * @param bool|null $is_eligible_for_kiwi_saver The employee eligibility for KiwiSaver. Deprecated, replaced by kiwiSaverStatus. Omit this field from POST requests.
      *
      * @return $this
      */
@@ -543,6 +586,42 @@ class EmployeeTax implements ModelInterface, ArrayAccess
         }
 
         $this->container['kiwi_saver_contributions'] = $kiwi_saver_contributions;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets kiwi_saver_status
+     *
+     * @return string|null
+     */
+    public function getKiwiSaverStatus()
+    {
+        return $this->container['kiwi_saver_status'];
+    }
+
+    /**
+     * Sets kiwi_saver_status
+     *
+     * @param string|null $kiwi_saver_status KiwiSaver eligibility. Required in POST requests for all tax codes except WT and NSW.
+     *
+     * @return $this
+     */
+    public function setKiwiSaverStatus($kiwi_saver_status)
+    {
+        $allowedValues = $this->getKiwiSaverStatusAllowableValues();
+        if (!is_null($kiwi_saver_status) && !in_array($kiwi_saver_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'kiwi_saver_status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+
+        $this->container['kiwi_saver_status'] = $kiwi_saver_status;
 
         return $this;
     }
@@ -759,6 +838,33 @@ class EmployeeTax implements ModelInterface, ArrayAccess
     {
 
         $this->container['student_loan_as_at'] = $student_loan_as_at;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets registered_for_gst
+     *
+     * @return bool|null
+     */
+    public function getRegisteredForGst()
+    {
+        return $this->container['registered_for_gst'];
+    }
+
+    /**
+     * Sets registered_for_gst
+     *
+     * @param bool|null $registered_for_gst Is the employee registered for GST? Required in POST requests when taxCode is WT.
+     *
+     * @return $this
+     */
+    public function setRegisteredForGst($registered_for_gst)
+    {
+
+        $this->container['registered_for_gst'] = $registered_for_gst;
 
         return $this;
     }
