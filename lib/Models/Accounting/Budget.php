@@ -59,6 +59,7 @@ class Budget implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'budget_id' => 'string',
+        'created_in' => 'string',
         'type' => 'string',
         'description' => 'string',
         'updated_date_utc' => 'string',
@@ -73,6 +74,7 @@ class Budget implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'budget_id' => 'uuid',
+        'created_in' => null,
         'type' => null,
         'description' => null,
         'updated_date_utc' => null,
@@ -108,6 +110,7 @@ class Budget implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'budget_id' => 'BudgetID',
+        'created_in' => 'CreatedIn',
         'type' => 'Type',
         'description' => 'Description',
         'updated_date_utc' => 'UpdatedDateUTC',
@@ -122,6 +125,7 @@ class Budget implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'budget_id' => 'setBudgetId',
+        'created_in' => 'setCreatedIn',
         'type' => 'setType',
         'description' => 'setDescription',
         'updated_date_utc' => 'setUpdatedDateUtc',
@@ -136,6 +140,7 @@ class Budget implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'budget_id' => 'getBudgetId',
+        'created_in' => 'getCreatedIn',
         'type' => 'getType',
         'description' => 'getDescription',
         'updated_date_utc' => 'getUpdatedDateUtc',
@@ -184,10 +189,25 @@ class Budget implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const CREATED_IN_XERO_ANALYTICS = 'XERO_ANALYTICS';
+    const CREATED_IN_BUDGETS_MANAGER = 'BUDGETS_MANAGER';
     const TYPE_OVERALL = 'OVERALL';
     const TYPE_TRACKING = 'TRACKING';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCreatedInAllowableValues()
+    {
+        return [
+            self::CREATED_IN_XERO_ANALYTICS,
+            self::CREATED_IN_BUDGETS_MANAGER,
+        ];
+    }
     
     /**
      * Gets allowable values of the enum
@@ -219,6 +239,7 @@ class Budget implements ModelInterface, ArrayAccess
     public function __construct(?array $data = null)
     {
         $this->container['budget_id'] = isset($data['budget_id']) ? $data['budget_id'] : null;
+        $this->container['created_in'] = isset($data['created_in']) ? $data['created_in'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['updated_date_utc'] = isset($data['updated_date_utc']) ? $data['updated_date_utc'] : null;
@@ -234,6 +255,14 @@ class Budget implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getCreatedInAllowableValues();
+        if (!is_null($this->container['created_in']) && !in_array($this->container['created_in'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'created_in', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
@@ -283,6 +312,42 @@ class Budget implements ModelInterface, ArrayAccess
     {
 
         $this->container['budget_id'] = $budget_id;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Gets created_in
+     *
+     * @return string|null
+     */
+    public function getCreatedIn()
+    {
+        return $this->container['created_in'];
+    }
+
+    /**
+     * Sets created_in
+     *
+     * @param string|null $created_in The tool used to create the budget
+     *
+     * @return $this
+     */
+    public function setCreatedIn($created_in)
+    {
+        $allowedValues = $this->getCreatedInAllowableValues();
+        if (!is_null($created_in) && !in_array($created_in, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'created_in', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+
+        $this->container['created_in'] = $created_in;
 
         return $this;
     }

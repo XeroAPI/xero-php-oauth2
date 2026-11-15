@@ -59,9 +59,7 @@ class BudgetBalance implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'period' => 'string',
-        'amount' => 'double',
-        'unit_amount' => 'double',
-        'notes' => 'string'
+        'amount' => 'double'
     ];
 
     /**
@@ -71,9 +69,7 @@ class BudgetBalance implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'period' => null,
-        'amount' => 'double',
-        'unit_amount' => 'double',
-        'notes' => null
+        'amount' => 'double'
     ];
 
     /**
@@ -104,9 +100,7 @@ class BudgetBalance implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'period' => 'Period',
-        'amount' => 'Amount',
-        'unit_amount' => 'UnitAmount',
-        'notes' => 'Notes'
+        'amount' => 'Amount'
     ];
 
     /**
@@ -116,9 +110,7 @@ class BudgetBalance implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'period' => 'setPeriod',
-        'amount' => 'setAmount',
-        'unit_amount' => 'setUnitAmount',
-        'notes' => 'setNotes'
+        'amount' => 'setAmount'
     ];
 
     /**
@@ -128,9 +120,7 @@ class BudgetBalance implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'period' => 'getPeriod',
-        'amount' => 'getAmount',
-        'unit_amount' => 'getUnitAmount',
-        'notes' => 'getNotes'
+        'amount' => 'getAmount'
     ];
 
     /**
@@ -195,8 +185,6 @@ class BudgetBalance implements ModelInterface, ArrayAccess
     {
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['unit_amount'] = isset($data['unit_amount']) ? $data['unit_amount'] : null;
-        $this->container['notes'] = isset($data['notes']) ? $data['notes'] : null;
     }
 
     /**
@@ -207,10 +195,6 @@ class BudgetBalance implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        if (!is_null($this->container['notes']) && (mb_strlen($this->container['notes']) > 255)) {
-            $invalidProperties[] = "invalid value for 'notes', the character length must be smaller than or equal to 255.";
-        }
 
         return $invalidProperties;
     }
@@ -301,64 +285,6 @@ class BudgetBalance implements ModelInterface, ArrayAccess
     {
 
         $this->container['amount'] = $amount;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets unit_amount
-     *
-     * @return double|null
-     */
-    public function getUnitAmount()
-    {
-        return $this->container['unit_amount'];
-    }
-
-    /**
-     * Sets unit_amount
-     *
-     * @param double|null $unit_amount Budgeted amount
-     *
-     * @return $this
-     */
-    public function setUnitAmount($unit_amount)
-    {
-
-        $this->container['unit_amount'] = $unit_amount;
-
-        return $this;
-    }
-
-
-
-    /**
-     * Gets notes
-     *
-     * @return string|null
-     */
-    public function getNotes()
-    {
-        return $this->container['notes'];
-    }
-
-    /**
-     * Sets notes
-     *
-     * @param string|null $notes Any footnotes associated with this balance
-     *
-     * @return $this
-     */
-    public function setNotes($notes)
-    {
-        if (!is_null($notes) && (mb_strlen($notes) > 255)) {
-            throw new \InvalidArgumentException('invalid length for $notes when calling BudgetBalance., must be smaller than or equal to 255.');
-        }
-
-
-        $this->container['notes'] = $notes;
 
         return $this;
     }
